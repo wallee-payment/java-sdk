@@ -1,4 +1,6 @@
-# sdk
+# wallee Java SDK
+
+This project provides a SDK to simplify the usage of the https://wallee.com service. 
 
 ## Requirements
 
