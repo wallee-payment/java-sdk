@@ -1,0 +1,52 @@
+
+# Transaction
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**acceptHeader** | **String** |  |  [optional]
+**allowedPaymentMethodBrands** | [**List&lt;PaymentMethodBrand&gt;**](PaymentMethodBrand.md) |  |  [optional]
+**allowedPaymentMethodConfigurations** | **List&lt;Long&gt;** |  |  [optional]
+**authorizationAmount** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
+**authorizedOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**billingAddress** | [**Address**](Address.md) |  |  [optional]
+**chargeRetryEnabled** | **Boolean** | When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry. |  [optional]
+**completedOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**completionTimeoutOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**confirmedBy** | **Long** |  |  [optional]
+**confirmedOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**createdBy** | **Long** |  |  [optional]
+**createdOn** | [**DateTime**](DateTime.md) | The created on date indicates the date on which the entity was stored into the database. |  [optional]
+**currency** | **String** |  |  [optional]
+**customerEmailAddress** | **String** | The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used. |  [optional]
+**customerId** | **String** |  |  [optional]
+**customersPresence** | [**CustomersPresence**](CustomersPresence.md) |  |  [optional]
+**endOfLife** | [**DateTime**](DateTime.md) | The transaction&#39;s end of life indicates the date from which on no operation can be carried out anymore. |  [optional]
+**failedOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**failedUrl** | **String** | The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed. |  [optional]
+**group** | [**TransactionGroup**](TransactionGroup.md) |  |  [optional]
+**id** | **Long** | The ID is the primary key of the entity. The ID identifies the entity uniquely. |  [optional]
+**internetProtocolAddress** | **String** |  |  [optional]
+**internetProtocolAddressCountry** | **String** |  |  [optional]
+**invoiceMerchantReference** | **String** |  |  [optional]
+**language** | **String** |  |  [optional]
+**lineItems** | [**List&lt;LineItem&gt;**](LineItem.md) |  |  [optional]
+**linkedSpaceId** | **Long** | The linked space id holds the ID of the space to which the entity belongs to. |  [optional]
+**merchantReference** | **String** |  |  [optional]
+**metaData** | **Map&lt;String, String&gt;** | Meta data allow to store additional data along the object. |  [optional]
+**paymentConnectorConfiguration** | [**PaymentConnectorConfiguration**](PaymentConnectorConfiguration.md) |  |  [optional]
+**plannedPurgeDate** | [**DateTime**](DateTime.md) | The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed. |  [optional]
+**processingOn** | [**DateTime**](DateTime.md) |  |  [optional]
+**refundedAmount** | [**BigDecimal**](BigDecimal.md) | The refunded amount is the total amount which has been refunded so far. |  [optional]
+**shippingAddress** | [**Address**](Address.md) |  |  [optional]
+**shippingMethod** | **String** |  |  [optional]
+**spaceViewId** | **Long** |  |  [optional]
+**state** | [**TransactionState**](TransactionState.md) |  |  [optional]
+**successUrl** | **String** | The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed. |  [optional]
+**token** | [**Token**](Token.md) |  |  [optional]
+**userAgentHeader** | **String** |  |  [optional]
+**userInterfaceType** | [**TransactionUserInterfaceType**](TransactionUserInterfaceType.md) | The user interface type defines through which user interface the transaction has been processed resp. created. |  [optional]
+**version** | **Integer** | The version number indicates the version of the entity. The version is incremented whenever the entity is changed. |  [optional]
+
+
+

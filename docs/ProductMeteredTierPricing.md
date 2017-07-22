@@ -1,0 +1,12 @@
+
+# ProductMeteredTierPricing
+
+## Enum
+
+
+* `CHEAPEST_TIER_PRICING` (value: `"CHEAPEST_TIER_PRICING"`)
+
+* `INCREMENTAL_DISCOUNT_PRICING` (value: `"INCREMENTAL_DISCOUNT_PRICING"`)
+
+
+

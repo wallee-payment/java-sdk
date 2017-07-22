@@ -1,0 +1,13 @@
+language: java
+os:
+  - linux
+jdk:
+  - oraclejdk8
+before_install:
+  # ensure gradlew has proper permission
+  - chmod a+x ./gradlew
+script:
+  - gradle test
+cache:
+  directories:
+  - $HOME/.gradle
