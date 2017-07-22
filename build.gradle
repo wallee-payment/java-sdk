@@ -1,7 +1,7 @@
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
-group = 'io.swagger'
+group = 'com.wallee'
 version = '1.0.0'
 
 buildscript {
@@ -27,7 +27,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 install {
     repositories.mavenInstaller {
-        pom.artifactId = 'com.wallee.sdk'
+        pom.artifactId = 'sdk'
     }
 }
 
