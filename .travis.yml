@@ -18,6 +18,7 @@ deploy:
   skip_cleanup: true
   provider: script
   script:
+    - /bin/sh ./before_deploy.sh
     - /bin/sh ./deploy.sh
   on:
     tags: true
