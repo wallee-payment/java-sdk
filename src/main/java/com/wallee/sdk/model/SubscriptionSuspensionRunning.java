@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,13 +24,13 @@ import com.wallee.sdk.model.SubscriptionSuspension;
 import com.wallee.sdk.model.SubscriptionSuspensionAction;
 import com.wallee.sdk.model.SubscriptionSuspensionReason;
 import com.wallee.sdk.model.SubscriptionSuspensionState;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionSuspensionRunning
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionSuspensionRunning extends SubscriptionSuspension {
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {

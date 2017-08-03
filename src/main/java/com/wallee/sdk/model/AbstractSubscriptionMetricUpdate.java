@@ -17,20 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * AbstractSubscriptionMetricUpdate
  */
 public class AbstractSubscriptionMetricUpdate {
+
 	@SerializedName("description")
 	private DatabaseTranslatedStringCreate description = null;
 
@@ -43,11 +40,10 @@ public class AbstractSubscriptionMetricUpdate {
 	}
 
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedStringCreate getDescription() {
 		return description;
 	}
@@ -62,11 +58,10 @@ public class AbstractSubscriptionMetricUpdate {
 	}
 
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}

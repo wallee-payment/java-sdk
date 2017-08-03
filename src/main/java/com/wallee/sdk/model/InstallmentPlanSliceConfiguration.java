@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,16 +24,14 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.InstallmentPlanConfiguration;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
  * The installment plan slice defines a single slice of an installment plan.
  */
-@io.swagger.annotations.ApiModel(description = "The installment plan slice defines a single slice of an installment plan.")
 public class InstallmentPlanSliceConfiguration {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -52,7 +48,7 @@ public class InstallmentPlanSliceConfiguration {
 	private InstallmentPlanConfiguration plan = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("priority")
 	private Integer priority = null;
@@ -66,28 +62,13 @@ public class InstallmentPlanSliceConfiguration {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public InstallmentPlanSliceConfiguration id(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public InstallmentPlanSliceConfiguration lineItemTitle(DatabaseTranslatedString lineItemTitle) {
-		this.lineItemTitle = lineItemTitle;
-		return this;
 	}
 
 	/**
@@ -95,13 +76,8 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The title of this slices line items. The title is visible to the buyer.
 	 */
-	@ApiModelProperty(example = "null", value = "The title of this slices line items. The title is visible to the buyer.")
 	public DatabaseTranslatedString getLineItemTitle() {
 		return lineItemTitle;
-	}
-
-	public void setLineItemTitle(DatabaseTranslatedString lineItemTitle) {
-		this.lineItemTitle = lineItemTitle;
 	}
 
 	/**
@@ -109,7 +85,6 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -119,14 +94,8 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The period defines how much time passes between the last slice and this slice. The charge is triggered at the end of the period. When the slice should be charged immediately the period needs to be zero.
 	 */
-	@ApiModelProperty(example = "null", value = "The period defines how much time passes between the last slice and this slice. The charge is triggered at the end of the period. When the slice should be charged immediately the period needs to be zero.")
 	public String getPeriod() {
 		return period;
-	}
-
-	public InstallmentPlanSliceConfiguration plan(InstallmentPlanConfiguration plan) {
-		this.plan = plan;
-		return this;
 	}
 
 	/**
@@ -134,13 +103,8 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The installment plan this slice belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The installment plan this slice belongs to.")
 	public InstallmentPlanConfiguration getPlan() {
 		return plan;
-	}
-
-	public void setPlan(InstallmentPlanConfiguration plan) {
-		this.plan = plan;
 	}
 
 	/**
@@ -148,8 +112,7 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -158,7 +121,6 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The priority controls in which order the slices are applied. The lower the value the higher the precedence.
 	 */
-	@ApiModelProperty(example = "null", value = "The priority controls in which order the slices are applied. The lower the value the higher the precedence.")
 	public Integer getPriority() {
 		return priority;
 	}
@@ -168,33 +130,17 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The proportion defines how much of the total installment payment has to be paid in this slice. The value is summed up with the other slices and the ratio of all proportions compared to proportion of this slice determines how much the buyer has to pay in this slice.
 	 */
-	@ApiModelProperty(example = "null", value = "The proportion defines how much of the total installment payment has to be paid in this slice. The value is summed up with the other slices and the ratio of all proportions compared to proportion of this slice determines how much the buyer has to pay in this slice.")
 	public BigDecimal getProportion() {
 		return proportion;
 	}
 
-	public InstallmentPlanSliceConfiguration state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public InstallmentPlanSliceConfiguration version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -202,13 +148,8 @@ public class InstallmentPlanSliceConfiguration {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

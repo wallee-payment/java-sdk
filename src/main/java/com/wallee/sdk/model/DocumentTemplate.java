@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.ResourcePath;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
  * A document template contains the customizations for a particular document template type.
  */
-@io.swagger.annotations.ApiModel(description = "A document template contains the customizations for a particular document template type.")
 public class DocumentTemplate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -44,7 +40,7 @@ public class DocumentTemplate {
 	private String name = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceId")
 	private Long spaceId = null;
@@ -61,23 +57,13 @@ public class DocumentTemplate {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public DocumentTemplate id(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -85,17 +71,15 @@ public class DocumentTemplate {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getName() {
 		return name;
 	}
@@ -105,72 +89,44 @@ public class DocumentTemplate {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceId
 	 *
-	 * @return 
+	 * @return spaceId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceId() {
 		return spaceId;
 	}
 
-	public DocumentTemplate state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
 
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public DocumentTemplate templateResource(ResourcePath templateResource) {
-		this.templateResource = templateResource;
-		return this;
-	}
-
 	/**
-	 * 
+	 * templateResource
 	 *
-	 * @return 
+	 * @return templateResource
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ResourcePath getTemplateResource() {
 		return templateResource;
 	}
 
-	public void setTemplateResource(ResourcePath templateResource) {
-		this.templateResource = templateResource;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getType() {
 		return type;
-	}
-
-	public DocumentTemplate version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -178,13 +134,8 @@ public class DocumentTemplate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

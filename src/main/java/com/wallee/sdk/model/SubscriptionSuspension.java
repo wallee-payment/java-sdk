@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,20 +24,18 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionSuspensionAction;
 import com.wallee.sdk.model.SubscriptionSuspensionReason;
 import com.wallee.sdk.model.SubscriptionSuspensionState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionSuspension
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionSuspension {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("effectiveEndDate")
-	private DateTime effectiveEndDate = null;
+	private OffsetDateTime effectiveEndDate = null;
 
 	@SerializedName("endAction")
 	private SubscriptionSuspensionAction endAction = null;
@@ -60,10 +56,10 @@ public class SubscriptionSuspension {
 	private Long periodBill = null;
 
 	@SerializedName("plannedEndDate")
-	private DateTime plannedEndDate = null;
+	private OffsetDateTime plannedEndDate = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("reason")
 	private SubscriptionSuspensionReason reason = null;
@@ -82,24 +78,17 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * effectiveEndDate
 	 *
-	 * @return 
+	 * @return effectiveEndDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getEffectiveEndDate() {
+	public OffsetDateTime getEffectiveEndDate() {
 		return effectiveEndDate;
-	}
-
-	public SubscriptionSuspension endAction(SubscriptionSuspensionAction endAction) {
-		this.endAction = endAction;
-		return this;
 	}
 
 	/**
@@ -107,18 +96,8 @@ public class SubscriptionSuspension {
 	 *
 	 * @return When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
 	 */
-	@ApiModelProperty(example = "null", value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
 	public SubscriptionSuspensionAction getEndAction() {
 		return endAction;
-	}
-
-	public void setEndAction(SubscriptionSuspensionAction endAction) {
-		this.endAction = endAction;
-	}
-
-	public SubscriptionSuspension id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -126,21 +105,15 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -150,7 +123,6 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -160,17 +132,15 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
 	public String getNote() {
 		return note;
 	}
 
 	/**
-	 * 
+	 * periodBill
 	 *
-	 * @return 
+	 * @return periodBill
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getPeriodBill() {
 		return periodBill;
 	}
@@ -180,8 +150,7 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
-	public DateTime getPlannedEndDate() {
+	public OffsetDateTime getPlannedEndDate() {
 		return plannedEndDate;
 	}
 
@@ -190,14 +159,8 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
-	}
-
-	public SubscriptionSuspension reason(SubscriptionSuspensionReason reason) {
-		this.reason = reason;
-		return this;
 	}
 
 	/**
@@ -205,47 +168,26 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The suspension reason indicates why a suspension has been created.
 	 */
-	@ApiModelProperty(example = "null", value = "The suspension reason indicates why a suspension has been created.")
 	public SubscriptionSuspensionReason getReason() {
 		return reason;
 	}
 
-	public void setReason(SubscriptionSuspensionReason reason) {
-		this.reason = reason;
-	}
-
-	public SubscriptionSuspension state(SubscriptionSuspensionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionSuspensionState getState() {
 		return state;
 	}
 
-	public void setState(SubscriptionSuspensionState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * subscription
 	 *
-	 * @return 
+	 * @return subscription
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSubscription() {
 		return subscription;
-	}
-
-	public SubscriptionSuspension version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -253,13 +195,8 @@ public class SubscriptionSuspension {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

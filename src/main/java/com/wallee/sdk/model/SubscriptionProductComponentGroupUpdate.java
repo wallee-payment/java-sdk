@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * SubscriptionProductComponentGroupUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductComponentGroupUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -60,7 +56,6 @@ public class SubscriptionProductComponentGroupUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -79,7 +74,6 @@ public class SubscriptionProductComponentGroupUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -98,7 +92,6 @@ public class SubscriptionProductComponentGroupUpdate {
 	 *
 	 * @return The component group name will be shown when the components are selected. This can be visible to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The component group name will be shown when the components are selected. This can be visible to the subscriber.")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}
@@ -117,7 +110,6 @@ public class SubscriptionProductComponentGroupUpdate {
 	 *
 	 * @return The component group can be optional. This means no component has to be selected by the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The component group can be optional. This means no component has to be selected by the subscriber.")
 	public Boolean getOptional() {
 		return optional;
 	}
@@ -132,11 +124,10 @@ public class SubscriptionProductComponentGroupUpdate {
 	}
 
 	/**
-	 * 
+	 * productVersion
 	 *
-	 * @return 
+	 * @return productVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getProductVersion() {
 		return productVersion;
 	}
@@ -155,7 +146,6 @@ public class SubscriptionProductComponentGroupUpdate {
 	 *
 	 * @return The sort order controls in which order the component group is listed. The sort order is used to order the component groups in ascending order.
 	 */
-	@ApiModelProperty(example = "null", value = "The sort order controls in which order the component group is listed. The sort order is used to order the component groups in ascending order.")
 	public Integer getSortOrder() {
 		return sortOrder;
 	}

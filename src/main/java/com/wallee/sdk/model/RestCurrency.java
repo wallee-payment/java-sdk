@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * RestCurrency
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class RestCurrency {
+
 	@SerializedName("currencyCode")
 	private String currencyCode = null;
 
@@ -45,7 +41,6 @@ public class RestCurrency {
 	 *
 	 * @return The currency code identifies the currency with the three char long ISO 4217 code (e.g. USD, CHF, EUR).
 	 */
-	@ApiModelProperty(example = "null", value = "The currency code identifies the currency with the three char long ISO 4217 code (e.g. USD, CHF, EUR).")
 	public String getCurrencyCode() {
 		return currencyCode;
 	}
@@ -55,7 +50,6 @@ public class RestCurrency {
 	 *
 	 * @return The fraction digits indicates how many places the currency has. This also indicates with which precision we calculate internally when we do calculations with this currency.
 	 */
-	@ApiModelProperty(example = "null", value = "The fraction digits indicates how many places the currency has. This also indicates with which precision we calculate internally when we do calculations with this currency.")
 	public Integer getFractionDigits() {
 		return fractionDigits;
 	}
@@ -65,7 +59,6 @@ public class RestCurrency {
 	 *
 	 * @return The numeric code identifies the currency with the three digit long ISO 4217 code (e.g. 978, 756, 840).
 	 */
-	@ApiModelProperty(example = "null", value = "The numeric code identifies the currency with the three digit long ISO 4217 code (e.g. 978, 756, 840).")
 	public Integer getNumericCode() {
 		return numericCode;
 	}

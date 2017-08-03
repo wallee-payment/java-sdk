@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,15 +25,13 @@ import com.wallee.sdk.model.ChargeFlowLevelConfiguration;
 import com.wallee.sdk.model.ChargeFlowLevelState;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * ChargeFlowLevel
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ChargeFlowLevel extends TransactionAwareEntity {
+
 	@SerializedName("asynchronousCharge")
 	private Long asynchronousCharge = null;
 
@@ -43,10 +39,10 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	private ChargeFlowLevelConfiguration _configuration = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private ChargeFlowLevelState state = null;
@@ -55,7 +51,7 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	private Long synchronousCharge = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("tokenCharge")
 	private Long tokenCharge = null;
@@ -67,32 +63,21 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * asynchronousCharge
 	 *
-	 * @return 
+	 * @return asynchronousCharge
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getAsynchronousCharge() {
 		return asynchronousCharge;
 	}
 
-	public ChargeFlowLevel _configuration(ChargeFlowLevelConfiguration _configuration) {
-		this._configuration = _configuration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * _configuration
 	 *
-	 * @return 
+	 * @return _configuration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeFlowLevelConfiguration getConfiguration() {
 		return _configuration;
-	}
-
-	public void setConfiguration(ChargeFlowLevelConfiguration _configuration) {
-		this._configuration = _configuration;
 	}
 
 	/**
@@ -100,8 +85,7 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -110,77 +94,53 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public ChargeFlowLevel state(ChargeFlowLevelState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeFlowLevelState getState() {
 		return state;
 	}
 
-	public void setState(ChargeFlowLevelState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * synchronousCharge
 	 *
-	 * @return 
+	 * @return synchronousCharge
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSynchronousCharge() {
 		return synchronousCharge;
 	}
 
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
 	/**
-	 * 
+	 * tokenCharge
 	 *
-	 * @return 
+	 * @return tokenCharge
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getTokenCharge() {
 		return tokenCharge;
 	}
 
-	public ChargeFlowLevel transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 	/**
@@ -188,7 +148,6 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

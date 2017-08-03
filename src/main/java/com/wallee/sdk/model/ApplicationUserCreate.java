@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractApplicationUserUpdate;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * ApplicationUserCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
+
 	@SerializedName("primaryAccount")
 	private Long primaryAccount = null;
 
@@ -46,13 +42,24 @@ public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
 	 *
 	 * @return The account that this user is associated with. The account owner will be able to manage this user.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The account that this user is associated with. The account owner will be able to manage this user.")
 	public Long getPrimaryAccount() {
 		return primaryAccount;
 	}
 
 	public void setPrimaryAccount(Long primaryAccount) {
 		this.primaryAccount = primaryAccount;
+	}
+
+	@Override
+	public ApplicationUserCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public ApplicationUserCreate state(CreationEntityState state) {
+		super.state(state);
+		return this;
 	}
 
 

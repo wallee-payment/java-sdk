@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ChargeFlow;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * ChargeFlowLevelConfiguration
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ChargeFlowLevelConfiguration {
+
 	@SerializedName("flow")
 	private ChargeFlow flow = null;
 
@@ -50,7 +46,7 @@ public class ChargeFlowLevelConfiguration {
 	private String period = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("priority")
 	private Integer priority = null;
@@ -64,28 +60,13 @@ public class ChargeFlowLevelConfiguration {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ChargeFlowLevelConfiguration flow(ChargeFlow flow) {
-		this.flow = flow;
-		return this;
-	}
-
 	/**
 	 * The charge flow level configuration to which the flow is associated.
 	 *
 	 * @return The charge flow level configuration to which the flow is associated.
 	 */
-	@ApiModelProperty(example = "null", value = "The charge flow level configuration to which the flow is associated.")
 	public ChargeFlow getFlow() {
 		return flow;
-	}
-
-	public void setFlow(ChargeFlow flow) {
-		this.flow = flow;
-	}
-
-	public ChargeFlowLevelConfiguration id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -93,13 +74,8 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -107,7 +83,6 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -117,7 +92,6 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The charge flow level configuration name is used internally to identify the charge flow level configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The charge flow level configuration name is used internally to identify the charge flow level configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -127,7 +101,6 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The duration of the level before switching to the next one.
 	 */
-	@ApiModelProperty(example = "null", value = "The duration of the level before switching to the next one.")
 	public String getPeriod() {
 		return period;
 	}
@@ -137,8 +110,7 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -147,28 +119,17 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The priority indicates the sort order of the level configurations. A low value indicates that the level configuration is executed before any level with a higher value. Any change to this value affects future level configuration selections.
 	 */
-	@ApiModelProperty(example = "null", value = "The priority indicates the sort order of the level configurations. A low value indicates that the level configuration is executed before any level with a higher value. Any change to this value affects future level configuration selections.")
 	public Integer getPriority() {
 		return priority;
 	}
 
-	public ChargeFlowLevelConfiguration state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
 	}
 
 	/**
@@ -176,14 +137,8 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The type determines how the payment link is delivered to the customer. Once the type is defined it cannot be changed anymore.
 	 */
-	@ApiModelProperty(example = "null", value = "The type determines how the payment link is delivered to the customer. Once the type is defined it cannot be changed anymore.")
 	public Long getType() {
 		return type;
-	}
-
-	public ChargeFlowLevelConfiguration version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -191,13 +146,8 @@ public class ChargeFlowLevelConfiguration {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

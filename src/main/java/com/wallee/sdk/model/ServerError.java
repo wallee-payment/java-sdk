@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * This error is thrown when something unexpected happens on our side.
  */
-@io.swagger.annotations.ApiModel(description = "This error is thrown when something unexpected happens on our side.")
 public class ServerError {
+
 	@SerializedName("date")
 	private String date = null;
 
@@ -45,7 +41,6 @@ public class ServerError {
 	 *
 	 * @return Date when an error has occurred.
 	 */
-	@ApiModelProperty(example = "null", value = "Date when an error has occurred.")
 	public String getDate() {
 		return date;
 	}
@@ -55,7 +50,6 @@ public class ServerError {
 	 *
 	 * @return Unique identifier of an error.
 	 */
-	@ApiModelProperty(example = "null", value = "Unique identifier of an error.")
 	public String getId() {
 		return id;
 	}
@@ -65,7 +59,6 @@ public class ServerError {
 	 *
 	 * @return This message describes an error.
 	 */
-	@ApiModelProperty(example = "null", value = "This message describes an error.")
 	public String getMessage() {
 		return message;
 	}

@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * RestLanguage
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class RestLanguage {
+
 	@SerializedName("countryCode")
 	private String countryCode = null;
 
@@ -54,7 +50,6 @@ public class RestLanguage {
 	 *
 	 * @return The country code represents the region of the language as a 2 letter ISO code.
 	 */
-	@ApiModelProperty(example = "null", value = "The country code represents the region of the language as a 2 letter ISO code.")
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -64,7 +59,6 @@ public class RestLanguage {
 	 *
 	 * @return The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).
 	 */
-	@ApiModelProperty(example = "null", value = "The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).")
 	public String getIetfCode() {
 		return ietfCode;
 	}
@@ -74,7 +68,6 @@ public class RestLanguage {
 	 *
 	 * @return The ISO 2 letter code represents the language with two letters.
 	 */
-	@ApiModelProperty(example = "null", value = "The ISO 2 letter code represents the language with two letters.")
 	public String getIso2Code() {
 		return iso2Code;
 	}
@@ -84,7 +77,6 @@ public class RestLanguage {
 	 *
 	 * @return The ISO 3 letter code represents the language with three letters.
 	 */
-	@ApiModelProperty(example = "null", value = "The ISO 3 letter code represents the language with three letters.")
 	public String getIso3Code() {
 		return iso3Code;
 	}
@@ -94,7 +86,6 @@ public class RestLanguage {
 	 *
 	 * @return The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.
 	 */
-	@ApiModelProperty(example = "null", value = "The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.")
 	public String getPluralExpression() {
 		return pluralExpression;
 	}
@@ -104,7 +95,6 @@ public class RestLanguage {
 	 *
 	 * @return The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.
 	 */
-	@ApiModelProperty(example = "null", value = "The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.")
 	public Boolean getPrimaryOfGroup() {
 		return primaryOfGroup;
 	}

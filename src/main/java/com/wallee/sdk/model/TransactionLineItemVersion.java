@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,18 +24,16 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * TransactionLineItemVersion
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionLineItemVersion extends TransactionAwareEntity {
+
 	@SerializedName("amount")
 	private BigDecimal amount = null;
 
@@ -45,7 +41,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("language")
 	private String language = null;
@@ -54,7 +50,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	private List<LineItem> lineItems = new ArrayList<LineItem>();
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceViewId")
 	private Long spaceViewId = null;
@@ -69,21 +65,19 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * amount
 	 *
-	 * @return 
+	 * @return amount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -93,43 +87,26 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public TransactionLineItemVersion lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public TransactionLineItemVersion addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 	/**
@@ -137,48 +114,35 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
 	/**
-	 * 
+	 * taxAmount
 	 *
-	 * @return 
+	 * @return taxAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTaxAmount() {
 		return taxAmount;
 	}
 
-	public TransactionLineItemVersion transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 	/**
@@ -186,7 +150,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

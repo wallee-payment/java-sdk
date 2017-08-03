@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * RestCountryState
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class RestCountryState {
+
 	@SerializedName("code")
 	private String code = null;
 
@@ -48,7 +44,6 @@ public class RestCountryState {
 	 *
 	 * @return The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.
 	 */
-	@ApiModelProperty(example = "null", value = "The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.")
 	public String getCode() {
 		return code;
 	}
@@ -58,7 +53,6 @@ public class RestCountryState {
 	 *
 	 * @return The country code in ISO two letter format (e.g. UK, DE, CH, US).
 	 */
-	@ApiModelProperty(example = "null", value = "The country code in ISO two letter format (e.g. UK, DE, CH, US).")
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -68,7 +62,6 @@ public class RestCountryState {
 	 *
 	 * @return The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.")
 	public String getId() {
 		return id;
 	}
@@ -78,7 +71,6 @@ public class RestCountryState {
 	 *
 	 * @return The name is a human readable label of the state in the language of the region.
 	 */
-	@ApiModelProperty(example = "null", value = "The name is a human readable label of the state in the language of the region.")
 	public String getName() {
 		return name;
 	}

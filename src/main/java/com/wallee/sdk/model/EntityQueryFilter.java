@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,16 +24,14 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CriteriaOperator;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.EntityQueryFilterType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The query filter allows to restrict the entities which are returned.
  */
-@io.swagger.annotations.ApiModel(description = "The query filter allows to restrict the entities which are returned.")
 public class EntityQueryFilter {
+
 	@SerializedName("children")
 	private List<EntityQueryFilter> children = new ArrayList<EntityQueryFilter>();
 
@@ -51,28 +47,13 @@ public class EntityQueryFilter {
 	@SerializedName("value")
 	private Object value = null;
 
-	public EntityQueryFilter children(List<EntityQueryFilter> children) {
-		this.children = children;
-		return this;
-	}
-
-	public EntityQueryFilter addChildrenItem(EntityQueryFilter childrenItem) {
-		this.children.add(childrenItem);
-		return this;
-	}
-
 	/**
 	 * The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.
 	 *
 	 * @return The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.
 	 */
-	@ApiModelProperty(example = "null", value = "The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.")
 	public List<EntityQueryFilter> getChildren() {
 		return children;
-	}
-
-	public void setChildren(List<EntityQueryFilter> children) {
-		this.children = children;
 	}
 
 	/**
@@ -80,14 +61,8 @@ public class EntityQueryFilter {
 	 *
 	 * @return The 'fieldName' indicates the property on the entity which should be filtered. This property is only applicable on filter type 'LEAF'.
 	 */
-	@ApiModelProperty(example = "null", value = "The 'fieldName' indicates the property on the entity which should be filtered. This property is only applicable on filter type 'LEAF'.")
 	public String getFieldName() {
 		return fieldName;
-	}
-
-	public EntityQueryFilter operator(CriteriaOperator operator) {
-		this.operator = operator;
-		return this;
 	}
 
 	/**
@@ -95,18 +70,8 @@ public class EntityQueryFilter {
 	 *
 	 * @return The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.
 	 */
-	@ApiModelProperty(example = "null", value = "The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.")
 	public CriteriaOperator getOperator() {
 		return operator;
-	}
-
-	public void setOperator(CriteriaOperator operator) {
-		this.operator = operator;
-	}
-
-	public EntityQueryFilter type(EntityQueryFilterType type) {
-		this.type = type;
-		return this;
 	}
 
 	/**
@@ -114,18 +79,8 @@ public class EntityQueryFilter {
 	 *
 	 * @return The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.")
 	public EntityQueryFilterType getType() {
 		return type;
-	}
-
-	public void setType(EntityQueryFilterType type) {
-		this.type = type;
-	}
-
-	public EntityQueryFilter value(Object value) {
-		this.value = value;
-		return this;
 	}
 
 	/**
@@ -133,13 +88,8 @@ public class EntityQueryFilter {
 	 *
 	 * @return The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.
 	 */
-	@ApiModelProperty(example = "null", value = "The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.")
 	public Object getValue() {
 		return value;
-	}
-
-	public void setValue(Object value) {
-		this.value = value;
 	}
 
 

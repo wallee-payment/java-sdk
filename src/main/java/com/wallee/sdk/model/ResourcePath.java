@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ResourceState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * ResourcePath
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ResourcePath {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -43,7 +39,7 @@ public class ResourcePath {
 	private String path = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceId")
 	private Long spaceId = null;
@@ -54,23 +50,13 @@ public class ResourcePath {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ResourcePath id(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -78,17 +64,15 @@ public class ResourcePath {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * path
 	 *
-	 * @return 
+	 * @return path
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getPath() {
 		return path;
 	}
@@ -98,43 +82,26 @@ public class ResourcePath {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceId
 	 *
-	 * @return 
+	 * @return spaceId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceId() {
 		return spaceId;
 	}
 
-	public ResourcePath state(ResourceState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ResourceState getState() {
 		return state;
-	}
-
-	public void setState(ResourceState state) {
-		this.state = state;
-	}
-
-	public ResourcePath version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -142,13 +109,8 @@ public class ResourcePath {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

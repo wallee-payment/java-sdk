@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,8 +24,6 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItemAttribute;
 import com.wallee.sdk.model.LineItemType;
 import com.wallee.sdk.model.Tax;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,10 +31,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * LineItem
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LineItem {
+
 	@SerializedName("aggregatedTaxRate")
 	private BigDecimal aggregatedTaxRate = null;
 
@@ -89,156 +85,107 @@ public class LineItem {
 	 *
 	 * @return The aggregated tax rate is the sum of all tax rates of the line item.
 	 */
-	@ApiModelProperty(example = "null", value = "The aggregated tax rate is the sum of all tax rates of the line item.")
 	public BigDecimal getAggregatedTaxRate() {
 		return aggregatedTaxRate;
 	}
 
 	/**
-	 * 
+	 * amountExcludingTax
 	 *
-	 * @return 
+	 * @return amountExcludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmountExcludingTax() {
 		return amountExcludingTax;
 	}
 
 	/**
-	 * 
+	 * amountIncludingTax
 	 *
-	 * @return 
+	 * @return amountIncludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmountIncludingTax() {
 		return amountIncludingTax;
 	}
 
-	public LineItem attributes(Map<String, LineItemAttribute> attributes) {
-		this.attributes = attributes;
-		return this;
-	}
-
-	public LineItem putAttributesItem(String key, LineItemAttribute attributesItem) {
-		this.attributes.put(key, attributesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * attributes
 	 *
-	 * @return 
+	 * @return attributes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, LineItemAttribute> getAttributes() {
 		return attributes;
 	}
 
-	public void setAttributes(Map<String, LineItemAttribute> attributes) {
-		this.attributes = attributes;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * 
+	 * quantity
 	 *
-	 * @return 
+	 * @return quantity
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getQuantity() {
 		return quantity;
 	}
 
 	/**
-	 * 
+	 * shippingRequired
 	 *
-	 * @return 
+	 * @return shippingRequired
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getShippingRequired() {
 		return shippingRequired;
 	}
 
 	/**
-	 * 
+	 * sku
 	 *
-	 * @return 
+	 * @return sku
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getSku() {
 		return sku;
 	}
 
 	/**
-	 * 
+	 * taxAmount
 	 *
-	 * @return 
+	 * @return taxAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTaxAmount() {
 		return taxAmount;
 	}
 
 	/**
-	 * 
+	 * taxAmountPerUnit
 	 *
-	 * @return 
+	 * @return taxAmountPerUnit
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTaxAmountPerUnit() {
 		return taxAmountPerUnit;
 	}
 
-	public LineItem taxes(List<Tax> taxes) {
-		this.taxes = taxes;
-		return this;
-	}
-
-	public LineItem addTaxesItem(Tax taxesItem) {
-		this.taxes.add(taxesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * taxes
 	 *
-	 * @return 
+	 * @return taxes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Tax> getTaxes() {
 		return taxes;
 	}
 
-	public void setTaxes(List<Tax> taxes) {
-		this.taxes = taxes;
-	}
-
-	public LineItem type(LineItemType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public LineItemType getType() {
 		return type;
-	}
-
-	public void setType(LineItemType type) {
-		this.type = type;
 	}
 
 	/**
@@ -246,27 +193,24 @@ public class LineItem {
 	 *
 	 * @return The unique id identifies the line item within the set of line items associated with the transaction.
 	 */
-	@ApiModelProperty(example = "null", value = "The unique id identifies the line item within the set of line items associated with the transaction.")
 	public String getUniqueId() {
 		return uniqueId;
 	}
 
 	/**
-	 * 
+	 * unitPriceExcludingTax
 	 *
-	 * @return 
+	 * @return unitPriceExcludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getUnitPriceExcludingTax() {
 		return unitPriceExcludingTax;
 	}
 
 	/**
-	 * 
+	 * unitPriceIncludingTax
 	 *
-	 * @return 
+	 * @return unitPriceIncludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getUnitPriceIncludingTax() {
 		return unitPriceIncludingTax;
 	}

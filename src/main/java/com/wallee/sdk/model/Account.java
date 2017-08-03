@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,15 +24,13 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.AccountState;
 import com.wallee.sdk.model.AccountType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * Account
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Account {
+
 	@SerializedName("active")
 	private Boolean active = null;
 
@@ -51,7 +47,7 @@ public class Account {
 	private Account parentAccount = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("restrictedActive")
 	private Boolean restrictedActive = null;
@@ -73,7 +69,6 @@ public class Account {
 	 *
 	 * @return Active means that this account and all accounts in the hierarchy are active.
 	 */
-	@ApiModelProperty(example = "null", value = "Active means that this account and all accounts in the hierarchy are active.")
 	public Boolean getActive() {
 		return active;
 	}
@@ -83,14 +78,8 @@ public class Account {
 	 *
 	 * @return This property is true when all accounts in the hierarchy are active or restricted active.
 	 */
-	@ApiModelProperty(example = "null", value = "This property is true when all accounts in the hierarchy are active or restricted active.")
 	public Boolean getActiveOrRestrictedActive() {
 		return activeOrRestrictedActive;
-	}
-
-	public Account id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -98,13 +87,8 @@ public class Account {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -112,14 +96,8 @@ public class Account {
 	 *
 	 * @return The name of the account identifies the account within the administrative interface.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the account identifies the account within the administrative interface.")
 	public String getName() {
 		return name;
-	}
-
-	public Account parentAccount(Account parentAccount) {
-		this.parentAccount = parentAccount;
-		return this;
 	}
 
 	/**
@@ -127,13 +105,8 @@ public class Account {
 	 *
 	 * @return The account which is responsible for administering the account.
 	 */
-	@ApiModelProperty(example = "null", value = "The account which is responsible for administering the account.")
 	public Account getParentAccount() {
 		return parentAccount;
-	}
-
-	public void setParentAccount(Account parentAccount) {
-		this.parentAccount = parentAccount;
 	}
 
 	/**
@@ -141,8 +114,7 @@ public class Account {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -151,28 +123,17 @@ public class Account {
 	 *
 	 * @return Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.
 	 */
-	@ApiModelProperty(example = "null", value = "Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.")
 	public Boolean getRestrictedActive() {
 		return restrictedActive;
 	}
 
-	public Account state(AccountState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AccountState getState() {
 		return state;
-	}
-
-	public void setState(AccountState state) {
-		this.state = state;
 	}
 
 	/**
@@ -180,14 +141,8 @@ public class Account {
 	 *
 	 * @return This property restricts the number of subaccounts which can be created within this account.
 	 */
-	@ApiModelProperty(example = "null", value = "This property restricts the number of subaccounts which can be created within this account.")
 	public Long getSubaccountLimit() {
 		return subaccountLimit;
-	}
-
-	public Account type(AccountType type) {
-		this.type = type;
-		return this;
 	}
 
 	/**
@@ -195,18 +150,8 @@ public class Account {
 	 *
 	 * @return The account type defines which role and capabilities it has.
 	 */
-	@ApiModelProperty(example = "null", value = "The account type defines which role and capabilities it has.")
 	public AccountType getType() {
 		return type;
-	}
-
-	public void setType(AccountType type) {
-		this.type = type;
-	}
-
-	public Account version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -214,13 +159,8 @@ public class Account {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

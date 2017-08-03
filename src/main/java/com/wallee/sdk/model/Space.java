@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,17 +25,15 @@ import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddress;
 import com.wallee.sdk.model.TenantDatabase;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * Space
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Space {
+
 	@SerializedName("account")
 	private Account account = null;
 
@@ -57,7 +53,7 @@ public class Space {
 	private String name = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("postalAddress")
 	private SpaceAddress postalAddress = null;
@@ -80,23 +76,13 @@ public class Space {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public Space account(Account account) {
-		this.account = account;
-		return this;
-	}
-
 	/**
 	 * The account to which the space belongs to.
 	 *
 	 * @return The account to which the space belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The account to which the space belongs to.")
 	public Account getAccount() {
 		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
 	}
 
 	/**
@@ -104,7 +90,6 @@ public class Space {
 	 *
 	 * @return Active means that this account and all accounts in the hierarchy are active.
 	 */
-	@ApiModelProperty(example = "null", value = "Active means that this account and all accounts in the hierarchy are active.")
 	public Boolean getActive() {
 		return active;
 	}
@@ -114,14 +99,8 @@ public class Space {
 	 *
 	 * @return This property is true when all accounts in the hierarchy are active or restricted active.
 	 */
-	@ApiModelProperty(example = "null", value = "This property is true when all accounts in the hierarchy are active or restricted active.")
 	public Boolean getActiveOrRestrictedActive() {
 		return activeOrRestrictedActive;
-	}
-
-	public Space database(TenantDatabase database) {
-		this.database = database;
-		return this;
 	}
 
 	/**
@@ -129,18 +108,8 @@ public class Space {
 	 *
 	 * @return The database in which the space's data are stored in.
 	 */
-	@ApiModelProperty(example = "null", value = "The database in which the space's data are stored in.")
 	public TenantDatabase getDatabase() {
 		return database;
-	}
-
-	public void setDatabase(TenantDatabase database) {
-		this.database = database;
-	}
-
-	public Space id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -148,13 +117,8 @@ public class Space {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -162,7 +126,6 @@ public class Space {
 	 *
 	 * @return The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -172,14 +135,8 @@ public class Space {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
-	}
-
-	public Space postalAddress(SpaceAddress postalAddress) {
-		this.postalAddress = postalAddress;
-		return this;
 	}
 
 	/**
@@ -187,13 +144,8 @@ public class Space {
 	 *
 	 * @return The address to use in communication with clients for example in email, documents etc.
 	 */
-	@ApiModelProperty(example = "null", value = "The address to use in communication with clients for example in email, documents etc.")
 	public SpaceAddress getPostalAddress() {
 		return postalAddress;
-	}
-
-	public void setPostalAddress(SpaceAddress postalAddress) {
-		this.postalAddress = postalAddress;
 	}
 
 	/**
@@ -201,7 +153,6 @@ public class Space {
 	 *
 	 * @return The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.
 	 */
-	@ApiModelProperty(example = "null", value = "The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.")
 	public Long getRequestLimit() {
 		return requestLimit;
 	}
@@ -211,38 +162,17 @@ public class Space {
 	 *
 	 * @return Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.
 	 */
-	@ApiModelProperty(example = "null", value = "Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.")
 	public Boolean getRestrictedActive() {
 		return restrictedActive;
 	}
 
-	public Space state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public Space technicalContactAddresses(List<String> technicalContactAddresses) {
-		this.technicalContactAddresses = technicalContactAddresses;
-		return this;
-	}
-
-	public Space addTechnicalContactAddressesItem(String technicalContactAddressesItem) {
-		this.technicalContactAddresses.add(technicalContactAddressesItem);
-		return this;
 	}
 
 	/**
@@ -250,13 +180,8 @@ public class Space {
 	 *
 	 * @return The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.")
 	public List<String> getTechnicalContactAddresses() {
 		return technicalContactAddresses;
-	}
-
-	public void setTechnicalContactAddresses(List<String> technicalContactAddresses) {
-		this.technicalContactAddresses = technicalContactAddresses;
 	}
 
 	/**
@@ -264,14 +189,8 @@ public class Space {
 	 *
 	 * @return The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.
 	 */
-	@ApiModelProperty(example = "null", value = "The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.")
 	public String getTimeZone() {
 		return timeZone;
-	}
-
-	public Space version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -279,13 +198,8 @@ public class Space {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

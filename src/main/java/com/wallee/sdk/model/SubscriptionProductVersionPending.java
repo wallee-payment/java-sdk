@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * SubscriptionProductVersionPending
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductVersionPending {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -78,7 +74,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -97,7 +92,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -116,7 +110,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.
 	 */
-	@ApiModelProperty(example = "null", value = "The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.")
 	public String getBillingCycle() {
 		return billingCycle;
 	}
@@ -135,7 +128,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.")
 	public String getComment() {
 		return comment;
 	}
@@ -154,7 +146,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The default currency has to be used in all fees.
 	 */
-	@ApiModelProperty(example = "null", value = "The default currency has to be used in all fees.")
 	public String getDefaultCurrency() {
 		return defaultCurrency;
 	}
@@ -178,7 +169,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.
 	 */
-	@ApiModelProperty(example = "null", value = "The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.")
 	public List<String> getEnabledCurrencies() {
 		return enabledCurrencies;
 	}
@@ -197,7 +187,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.
 	 */
-	@ApiModelProperty(example = "null", value = "The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.")
 	public Integer getMinimalNumberOfPeriods() {
 		return minimalNumberOfPeriods;
 	}
@@ -216,7 +205,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.
 	 */
-	@ApiModelProperty(example = "null", value = "The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}
@@ -235,7 +223,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.
 	 */
-	@ApiModelProperty(example = "null", value = "The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.")
 	public Integer getNumberOfNoticePeriods() {
 		return numberOfNoticePeriods;
 	}
@@ -254,7 +241,6 @@ public class SubscriptionProductVersionPending {
 	 *
 	 * @return Each product version is linked to a product.
 	 */
-	@ApiModelProperty(example = "null", value = "Each product version is linked to a product.")
 	public Long getProduct() {
 		return product;
 	}
@@ -269,11 +255,10 @@ public class SubscriptionProductVersionPending {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductVersionState getState() {
 		return state;
 	}

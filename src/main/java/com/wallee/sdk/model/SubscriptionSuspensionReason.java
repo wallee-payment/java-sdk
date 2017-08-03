@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * SubscriptionSuspensionReason
  */
 public enum SubscriptionSuspensionReason {
 	
@@ -41,7 +38,7 @@ public enum SubscriptionSuspensionReason {
 
 	private String value;
 
-	SubscriptionSuspensionReason(String value) {
+	private SubscriptionSuspensionReason(String value) {
 		this.value = value;
 	}
 

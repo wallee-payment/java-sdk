@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -31,18 +29,16 @@ import com.wallee.sdk.model.RefundState;
 import com.wallee.sdk.model.RefundType;
 import com.wallee.sdk.model.Tax;
 import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
  */
-@io.swagger.annotations.ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
 public class Refund {
+
 	@SerializedName("amount")
 	private BigDecimal amount = null;
 
@@ -53,13 +49,13 @@ public class Refund {
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failureReason")
 	private FailureReason failureReason = null;
@@ -83,10 +79,10 @@ public class Refund {
 	private String merchantReference = null;
 
 	@SerializedName("nextUpdateOn")
-	private DateTime nextUpdateOn = null;
+	private OffsetDateTime nextUpdateOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processorReference")
 	private String processorReference = null;
@@ -101,13 +97,13 @@ public class Refund {
 	private RefundState state = null;
 
 	@SerializedName("succeededOn")
-	private DateTime succeededOn = null;
+	private OffsetDateTime succeededOn = null;
 
 	@SerializedName("taxes")
 	private List<Tax> taxes = new ArrayList<Tax>();
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("transaction")
 	private Transaction transaction = null;
@@ -119,45 +115,28 @@ public class Refund {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * amount
 	 *
-	 * @return 
+	 * @return amount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public Refund baseLineItems(List<LineItem> baseLineItems) {
-		this.baseLineItems = baseLineItems;
-		return this;
-	}
-
-	public Refund addBaseLineItemsItem(LineItem baseLineItemsItem) {
-		this.baseLineItems.add(baseLineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * baseLineItems
 	 *
-	 * @return 
+	 * @return baseLineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getBaseLineItems() {
 		return baseLineItems;
 	}
 
-	public void setBaseLineItems(List<LineItem> baseLineItems) {
-		this.baseLineItems = baseLineItems;
-	}
-
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -167,8 +146,7 @@ public class Refund {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -177,43 +155,26 @@ public class Refund {
 	 *
 	 * @return The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
 	 */
-	@ApiModelProperty(example = "null", value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
 	public String getExternalId() {
 		return externalId;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
-	public Refund failureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * failureReason
 	 *
-	 * @return 
+	 * @return failureReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureReason getFailureReason() {
 		return failureReason;
-	}
-
-	public void setFailureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-	}
-
-	public Refund id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -221,71 +182,35 @@ public class Refund {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Refund labels(List<Label> labels) {
-		this.labels = labels;
-		return this;
-	}
-
-	public Refund addLabelsItem(Label labelsItem) {
-		this.labels.add(labelsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * labels
 	 *
-	 * @return 
+	 * @return labels
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Label> getLabels() {
 		return labels;
 	}
 
-	public void setLabels(List<Label> labels) {
-		this.labels = labels;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public Refund lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public Refund addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 	/**
@@ -293,28 +218,25 @@ public class Refund {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
 	/**
-	 * 
+	 * nextUpdateOn
 	 *
-	 * @return 
+	 * @return nextUpdateOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getNextUpdateOn() {
+	public OffsetDateTime getNextUpdateOn() {
 		return nextUpdateOn;
 	}
 
@@ -323,173 +245,89 @@ public class Refund {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * processorReference
 	 *
-	 * @return 
+	 * @return processorReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getProcessorReference() {
 		return processorReference;
 	}
 
-	public Refund reducedLineItems(List<LineItem> reducedLineItems) {
-		this.reducedLineItems = reducedLineItems;
-		return this;
-	}
-
-	public Refund addReducedLineItemsItem(LineItem reducedLineItemsItem) {
-		this.reducedLineItems.add(reducedLineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * reducedLineItems
 	 *
-	 * @return 
+	 * @return reducedLineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getReducedLineItems() {
 		return reducedLineItems;
 	}
 
-	public void setReducedLineItems(List<LineItem> reducedLineItems) {
-		this.reducedLineItems = reducedLineItems;
-	}
-
-	public Refund reductions(List<LineItemReduction> reductions) {
-		this.reductions = reductions;
-		return this;
-	}
-
-	public Refund addReductionsItem(LineItemReduction reductionsItem) {
-		this.reductions.add(reductionsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * reductions
 	 *
-	 * @return 
+	 * @return reductions
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItemReduction> getReductions() {
 		return reductions;
 	}
 
-	public void setReductions(List<LineItemReduction> reductions) {
-		this.reductions = reductions;
-	}
-
-	public Refund state(RefundState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public RefundState getState() {
 		return state;
 	}
 
-	public void setState(RefundState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * succeededOn
 	 *
-	 * @return 
+	 * @return succeededOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getSucceededOn() {
+	public OffsetDateTime getSucceededOn() {
 		return succeededOn;
 	}
 
-	public Refund taxes(List<Tax> taxes) {
-		this.taxes = taxes;
-		return this;
-	}
-
-	public Refund addTaxesItem(Tax taxesItem) {
-		this.taxes.add(taxesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * taxes
 	 *
-	 * @return 
+	 * @return taxes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Tax> getTaxes() {
 		return taxes;
 	}
 
-	public void setTaxes(List<Tax> taxes) {
-		this.taxes = taxes;
-	}
-
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
-	public Refund transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
-	}
-
-	public Refund type(RefundType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public RefundType getType() {
 		return type;
-	}
-
-	public void setType(RefundType type) {
-		this.type = type;
-	}
-
-	public Refund version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -497,13 +335,8 @@ public class Refund {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

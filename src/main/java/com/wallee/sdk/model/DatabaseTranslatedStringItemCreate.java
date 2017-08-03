@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * DatabaseTranslatedStringItemCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class DatabaseTranslatedStringItemCreate {
+
 	@SerializedName("language")
 	private String language = null;
 
@@ -43,11 +39,10 @@ public class DatabaseTranslatedStringItemCreate {
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -62,11 +57,10 @@ public class DatabaseTranslatedStringItemCreate {
 	}
 
 	/**
-	 * 
+	 * translation
 	 *
-	 * @return 
+	 * @return translation
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getTranslation() {
 		return translation;
 	}

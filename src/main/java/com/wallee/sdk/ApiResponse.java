@@ -18,7 +18,6 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
 import java.util.List;
@@ -30,6 +29,7 @@ import java.util.Map;
  * @param <T> The type of data that is deserialized from response body
  */
 public class ApiResponse<T> {
+  
     final private int statusCode;
     final private Map<String, List<String>> headers;
     final private T data;

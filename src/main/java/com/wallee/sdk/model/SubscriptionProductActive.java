@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSubscriptionProductActive;
 import com.wallee.sdk.model.SubscriptionProductState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
  * A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.
  */
-@io.swagger.annotations.ApiModel(description = "A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.")
 public class SubscriptionProductActive extends AbstractSubscriptionProductActive {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -50,7 +46,6 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -69,13 +64,48 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
 
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	@Override
+	public SubscriptionProductActive allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+		super.allowedPaymentMethodConfigurations(allowedPaymentMethodConfigurations);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductActive addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
+		super.addAllowedPaymentMethodConfigurationsItem(allowedPaymentMethodConfigurationsItem);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductActive failedPaymentSuspensionPeriod(String failedPaymentSuspensionPeriod) {
+		super.failedPaymentSuspensionPeriod(failedPaymentSuspensionPeriod);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductActive name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductActive sortOrder(Integer sortOrder) {
+		super.sortOrder(sortOrder);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductActive state(SubscriptionProductState state) {
+		super.state(state);
+		return this;
 	}
 
 

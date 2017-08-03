@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * A metric represents the usage of a resource that can be measured.
  */
-@io.swagger.annotations.ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 public class SubscriptionMetricUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -54,7 +50,6 @@ public class SubscriptionMetricUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -73,7 +68,6 @@ public class SubscriptionMetricUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -88,11 +82,10 @@ public class SubscriptionMetricUpdate {
 	}
 
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedStringCreate getDescription() {
 		return description;
 	}
@@ -107,11 +100,10 @@ public class SubscriptionMetricUpdate {
 	}
 
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}

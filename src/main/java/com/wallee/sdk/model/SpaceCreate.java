@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,15 +24,13 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSpaceUpdate;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddressCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
- * 
+ * SpaceCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SpaceCreate extends AbstractSpaceUpdate {
+
 	@SerializedName("account")
 	private Long account = null;
 
@@ -48,13 +44,54 @@ public class SpaceCreate extends AbstractSpaceUpdate {
 	 *
 	 * @return The account to which the space belongs to.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The account to which the space belongs to.")
 	public Long getAccount() {
 		return account;
 	}
 
 	public void setAccount(Long account) {
 		this.account = account;
+	}
+
+	@Override
+	public SpaceCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate postalAddress(SpaceAddressCreate postalAddress) {
+		super.postalAddress(postalAddress);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate requestLimit(Long requestLimit) {
+		super.requestLimit(requestLimit);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate state(CreationEntityState state) {
+		super.state(state);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate technicalContactAddresses(List<String> technicalContactAddresses) {
+		super.technicalContactAddresses(technicalContactAddresses);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate addTechnicalContactAddressesItem(String technicalContactAddressesItem) {
+		super.addTechnicalContactAddressesItem(technicalContactAddressesItem);
+		return this;
+	}
+
+	@Override
+	public SpaceCreate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
 	}
 
 

@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * RefundType
  */
 public enum RefundType {
 	
@@ -44,7 +41,7 @@ public enum RefundType {
 
 	private String value;
 
-	RefundType(String value) {
+	private RefundType(String value) {
 		this.value = value;
 	}
 

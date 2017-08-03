@@ -18,7 +18,6 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
 import com.squareup.okhttp.MediaType;

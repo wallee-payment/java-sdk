@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
 /**
- * 
+ * PersistableCurrencyAmountUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class PersistableCurrencyAmountUpdate {
+
 	@SerializedName("amount")
 	private BigDecimal amount = null;
 
@@ -44,11 +40,10 @@ public class PersistableCurrencyAmountUpdate {
 	}
 
 	/**
-	 * 
+	 * amount
 	 *
-	 * @return 
+	 * @return amount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmount() {
 		return amount;
 	}
@@ -63,11 +58,10 @@ public class PersistableCurrencyAmountUpdate {
 	}
 
 	/**
-	 * 
+	 * currency
 	 *
-	 * @return 
+	 * @return currency
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCurrency() {
 		return currency;
 	}

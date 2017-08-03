@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,71 +25,58 @@ import com.wallee.sdk.model.DeliveryIndicationDecisionReason;
 import com.wallee.sdk.model.DeliveryIndicationState;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * DeliveryIndication
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class DeliveryIndication extends TransactionAwareEntity {
+
 	@SerializedName("automaticDecisionReason")
 	private DeliveryIndicationDecisionReason automaticDecisionReason = null;
 
 	@SerializedName("automaticallyDecidedOn")
-	private DateTime automaticallyDecidedOn = null;
+	private OffsetDateTime automaticallyDecidedOn = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("manualDecisionTimeoutOn")
-	private DateTime manualDecisionTimeoutOn = null;
+	private OffsetDateTime manualDecisionTimeoutOn = null;
 
 	@SerializedName("manuallyDecidedBy")
 	private Long manuallyDecidedBy = null;
 
 	@SerializedName("manuallyDecidedOn")
-	private DateTime manuallyDecidedOn = null;
+	private OffsetDateTime manuallyDecidedOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private DeliveryIndicationState state = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("transaction")
 	private Transaction transaction = null;
 
-	public DeliveryIndication automaticDecisionReason(DeliveryIndicationDecisionReason automaticDecisionReason) {
-		this.automaticDecisionReason = automaticDecisionReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * automaticDecisionReason
 	 *
-	 * @return 
+	 * @return automaticDecisionReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DeliveryIndicationDecisionReason getAutomaticDecisionReason() {
 		return automaticDecisionReason;
 	}
 
-	public void setAutomaticDecisionReason(DeliveryIndicationDecisionReason automaticDecisionReason) {
-		this.automaticDecisionReason = automaticDecisionReason;
-	}
-
 	/**
-	 * 
+	 * automaticallyDecidedOn
 	 *
-	 * @return 
+	 * @return automaticallyDecidedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getAutomaticallyDecidedOn() {
+	public OffsetDateTime getAutomaticallyDecidedOn() {
 		return automaticallyDecidedOn;
 	}
 
@@ -100,38 +85,34 @@ public class DeliveryIndication extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * manualDecisionTimeoutOn
 	 *
-	 * @return 
+	 * @return manualDecisionTimeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getManualDecisionTimeoutOn() {
+	public OffsetDateTime getManualDecisionTimeoutOn() {
 		return manualDecisionTimeoutOn;
 	}
 
 	/**
-	 * 
+	 * manuallyDecidedBy
 	 *
-	 * @return 
+	 * @return manuallyDecidedBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getManuallyDecidedBy() {
 		return manuallyDecidedBy;
 	}
 
 	/**
-	 * 
+	 * manuallyDecidedOn
 	 *
-	 * @return 
+	 * @return manuallyDecidedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getManuallyDecidedOn() {
+	public OffsetDateTime getManuallyDecidedOn() {
 		return manuallyDecidedOn;
 	}
 
@@ -140,57 +121,35 @@ public class DeliveryIndication extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public DeliveryIndication state(DeliveryIndicationState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DeliveryIndicationState getState() {
 		return state;
 	}
 
-	public void setState(DeliveryIndicationState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
-	public DeliveryIndication transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 

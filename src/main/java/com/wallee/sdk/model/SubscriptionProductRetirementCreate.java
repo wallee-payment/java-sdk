@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * SubscriptionProductRetirementCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductRetirementCreate {
+
 	@SerializedName("product")
 	private Long product = null;
 
@@ -46,11 +42,10 @@ public class SubscriptionProductRetirementCreate {
 	}
 
 	/**
-	 * 
+	 * product
 	 *
-	 * @return 
+	 * @return product
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getProduct() {
 		return product;
 	}
@@ -65,11 +60,10 @@ public class SubscriptionProductRetirementCreate {
 	}
 
 	/**
-	 * 
+	 * respectTerminiationPeriodsEnabled
 	 *
-	 * @return 
+	 * @return respectTerminiationPeriodsEnabled
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getRespectTerminiationPeriodsEnabled() {
 		return respectTerminiationPeriodsEnabled;
 	}
@@ -84,11 +78,10 @@ public class SubscriptionProductRetirementCreate {
 	}
 
 	/**
-	 * 
+	 * targetProduct
 	 *
-	 * @return 
+	 * @return targetProduct
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getTargetProduct() {
 		return targetProduct;
 	}

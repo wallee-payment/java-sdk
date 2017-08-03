@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,16 +25,14 @@ import com.wallee.sdk.model.AbstractTransactionPending;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * TransactionPending
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionPending extends AbstractTransactionPending {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -53,7 +49,6 @@ public class TransactionPending extends AbstractTransactionPending {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -72,13 +67,132 @@ public class TransactionPending extends AbstractTransactionPending {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
 
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	@Override
+	public TransactionPending allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
+		super.allowedPaymentMethodBrands(allowedPaymentMethodBrands);
+		return this;
+	}
+
+	@Override
+	public TransactionPending addAllowedPaymentMethodBrandsItem(PaymentMethodBrand allowedPaymentMethodBrandsItem) {
+		super.addAllowedPaymentMethodBrandsItem(allowedPaymentMethodBrandsItem);
+		return this;
+	}
+
+	@Override
+	public TransactionPending allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+		super.allowedPaymentMethodConfigurations(allowedPaymentMethodConfigurations);
+		return this;
+	}
+
+	@Override
+	public TransactionPending addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
+		super.addAllowedPaymentMethodConfigurationsItem(allowedPaymentMethodConfigurationsItem);
+		return this;
+	}
+
+	@Override
+	public TransactionPending billingAddress(AddressCreate billingAddress) {
+		super.billingAddress(billingAddress);
+		return this;
+	}
+
+	@Override
+	public TransactionPending currency(String currency) {
+		super.currency(currency);
+		return this;
+	}
+
+	@Override
+	public TransactionPending customerEmailAddress(String customerEmailAddress) {
+		super.customerEmailAddress(customerEmailAddress);
+		return this;
+	}
+
+	@Override
+	public TransactionPending customerId(String customerId) {
+		super.customerId(customerId);
+		return this;
+	}
+
+	@Override
+	public TransactionPending failedUrl(String failedUrl) {
+		super.failedUrl(failedUrl);
+		return this;
+	}
+
+	@Override
+	public TransactionPending invoiceMerchantReference(String invoiceMerchantReference) {
+		super.invoiceMerchantReference(invoiceMerchantReference);
+		return this;
+	}
+
+	@Override
+	public TransactionPending language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public TransactionPending lineItems(List<LineItemCreate> lineItems) {
+		super.lineItems(lineItems);
+		return this;
+	}
+
+	@Override
+	public TransactionPending addLineItemsItem(LineItemCreate lineItemsItem) {
+		super.addLineItemsItem(lineItemsItem);
+		return this;
+	}
+
+	@Override
+	public TransactionPending merchantReference(String merchantReference) {
+		super.merchantReference(merchantReference);
+		return this;
+	}
+
+	@Override
+	public TransactionPending metaData(Map<String, String> metaData) {
+		super.metaData(metaData);
+		return this;
+	}
+
+	@Override
+	public TransactionPending putMetaDataItem(String key, String metaDataItem) {
+		super.putMetaDataItem(key, metaDataItem);
+		return this;
+	}
+
+	@Override
+	public TransactionPending shippingAddress(AddressCreate shippingAddress) {
+		super.shippingAddress(shippingAddress);
+		return this;
+	}
+
+	@Override
+	public TransactionPending shippingMethod(String shippingMethod) {
+		super.shippingMethod(shippingMethod);
+		return this;
+	}
+
+	@Override
+	public TransactionPending successUrl(String successUrl) {
+		super.successUrl(successUrl);
+		return this;
+	}
+
+	@Override
+	public TransactionPending token(Long token) {
+		super.token(token);
+		return this;
 	}
 
 

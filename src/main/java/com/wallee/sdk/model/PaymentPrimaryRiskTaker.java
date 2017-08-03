@@ -17,11 +17,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -41,7 +38,7 @@ public enum PaymentPrimaryRiskTaker {
 
 	private String value;
 
-	PaymentPrimaryRiskTaker(String value) {
+	private PaymentPrimaryRiskTaker(String value) {
 		this.value = value;
 	}
 

@@ -17,26 +17,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionLedgerEntryState;
 import com.wallee.sdk.model.Tax;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * The subscription ledger entry represents a single change on the subscription balance.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription ledger entry represents a single change on the subscription balance.")
 public class SubscriptionLedgerEntry {
+
 	@SerializedName("aggregatedTaxRate")
 	private BigDecimal aggregatedTaxRate = null;
 
@@ -50,7 +46,7 @@ public class SubscriptionLedgerEntry {
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
@@ -62,7 +58,7 @@ public class SubscriptionLedgerEntry {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("quantity")
 	private BigDecimal quantity = null;
@@ -86,41 +82,37 @@ public class SubscriptionLedgerEntry {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * aggregatedTaxRate
 	 *
-	 * @return 
+	 * @return aggregatedTaxRate
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAggregatedTaxRate() {
 		return aggregatedTaxRate;
 	}
 
 	/**
-	 * 
+	 * amountExcludingTax
 	 *
-	 * @return 
+	 * @return amountExcludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmountExcludingTax() {
 		return amountExcludingTax;
 	}
 
 	/**
-	 * 
+	 * amountIncludingTax
 	 *
-	 * @return 
+	 * @return amountIncludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmountIncludingTax() {
 		return amountIncludingTax;
 	}
 
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -130,8 +122,7 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -140,14 +131,8 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
-	}
-
-	public SubscriptionLedgerEntry id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -155,13 +140,8 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -169,7 +149,6 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -179,97 +158,62 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * quantity
 	 *
-	 * @return 
+	 * @return quantity
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getQuantity() {
 		return quantity;
 	}
 
-	public SubscriptionLedgerEntry state(SubscriptionLedgerEntryState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionLedgerEntryState getState() {
 		return state;
 	}
 
-	public void setState(SubscriptionLedgerEntryState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * subscriptionVersion
 	 *
-	 * @return 
+	 * @return subscriptionVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSubscriptionVersion() {
 		return subscriptionVersion;
 	}
 
 	/**
-	 * 
+	 * taxAmount
 	 *
-	 * @return 
+	 * @return taxAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTaxAmount() {
 		return taxAmount;
 	}
 
-	public SubscriptionLedgerEntry taxes(List<Tax> taxes) {
-		this.taxes = taxes;
-		return this;
-	}
-
-	public SubscriptionLedgerEntry addTaxesItem(Tax taxesItem) {
-		this.taxes.add(taxesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * taxes
 	 *
-	 * @return 
+	 * @return taxes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Tax> getTaxes() {
 		return taxes;
 	}
 
-	public void setTaxes(List<Tax> taxes) {
-		this.taxes = taxes;
-	}
-
 	/**
-	 * 
+	 * title
 	 *
-	 * @return 
+	 * @return title
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getTitle() {
 		return title;
-	}
-
-	public SubscriptionLedgerEntry version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -277,13 +221,8 @@ public class SubscriptionLedgerEntry {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

@@ -18,10 +18,8 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
-import java.io.IOException;
 
 import java.util.Map;
 import java.util.List;
@@ -32,6 +30,7 @@ import java.util.List;
  * @param <T> The return type
  */
 public interface ApiCallback<T> {
+  
     /**
      * This is called when the API call fails.
      *

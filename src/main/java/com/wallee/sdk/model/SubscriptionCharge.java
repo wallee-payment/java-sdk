@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -29,31 +27,29 @@ import com.wallee.sdk.model.SubscriptionChargeState;
 import com.wallee.sdk.model.SubscriptionChargeType;
 import com.wallee.sdk.model.SubscriptionLedgerEntry;
 import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * The subscription charge represents a single charge carried out for a particular subscription.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
 public class SubscriptionCharge {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("discardedBy")
 	private Long discardedBy = null;
 
 	@SerializedName("discardedOn")
-	private DateTime discardedOn = null;
+	private OffsetDateTime discardedOn = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failedUrl")
 	private String failedUrl = null;
@@ -68,10 +64,10 @@ public class SubscriptionCharge {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedExecutionDate")
-	private DateTime plannedExecutionDate = null;
+	private OffsetDateTime plannedExecutionDate = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processingType")
 	private SubscriptionChargeProcessingType processingType = null;
@@ -86,7 +82,7 @@ public class SubscriptionCharge {
 	private Subscription subscription = null;
 
 	@SerializedName("succeedOn")
-	private DateTime succeedOn = null;
+	private OffsetDateTime succeedOn = null;
 
 	@SerializedName("successUrl")
 	private String successUrl = null;
@@ -101,32 +97,29 @@ public class SubscriptionCharge {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * discardedBy
 	 *
-	 * @return 
+	 * @return discardedBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getDiscardedBy() {
 		return discardedBy;
 	}
 
 	/**
-	 * 
+	 * discardedOn
 	 *
-	 * @return 
+	 * @return discardedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getDiscardedOn() {
+	public OffsetDateTime getDiscardedOn() {
 		return discardedOn;
 	}
 
@@ -135,18 +128,16 @@ public class SubscriptionCharge {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
@@ -155,14 +146,8 @@ public class SubscriptionCharge {
 	 *
 	 * @return The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
 	public String getFailedUrl() {
 		return failedUrl;
-	}
-
-	public SubscriptionCharge id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -170,37 +155,17 @@ public class SubscriptionCharge {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public SubscriptionCharge ledgerEntries(List<SubscriptionLedgerEntry> ledgerEntries) {
-		this.ledgerEntries = ledgerEntries;
-		return this;
-	}
-
-	public SubscriptionCharge addLedgerEntriesItem(SubscriptionLedgerEntry ledgerEntriesItem) {
-		this.ledgerEntries.add(ledgerEntriesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * ledgerEntries
 	 *
-	 * @return 
+	 * @return ledgerEntries
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<SubscriptionLedgerEntry> getLedgerEntries() {
 		return ledgerEntries;
-	}
-
-	public void setLedgerEntries(List<SubscriptionLedgerEntry> ledgerEntries) {
-		this.ledgerEntries = ledgerEntries;
 	}
 
 	/**
@@ -208,18 +173,16 @@ public class SubscriptionCharge {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * plannedExecutionDate
 	 *
-	 * @return 
+	 * @return plannedExecutionDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedExecutionDate() {
+	public OffsetDateTime getPlannedExecutionDate() {
 		return plannedExecutionDate;
 	}
 
@@ -228,62 +191,35 @@ public class SubscriptionCharge {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public SubscriptionCharge processingType(SubscriptionChargeProcessingType processingType) {
-		this.processingType = processingType;
-		return this;
-	}
-
 	/**
-	 * 
+	 * processingType
 	 *
-	 * @return 
+	 * @return processingType
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionChargeProcessingType getProcessingType() {
 		return processingType;
 	}
 
-	public void setProcessingType(SubscriptionChargeProcessingType processingType) {
-		this.processingType = processingType;
-	}
-
 	/**
-	 * 
+	 * reference
 	 *
-	 * @return 
+	 * @return reference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getReference() {
 		return reference;
 	}
 
-	public SubscriptionCharge state(SubscriptionChargeState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionChargeState getState() {
 		return state;
-	}
-
-	public void setState(SubscriptionChargeState state) {
-		this.state = state;
-	}
-
-	public SubscriptionCharge subscription(Subscription subscription) {
-		this.subscription = subscription;
-		return this;
 	}
 
 	/**
@@ -291,22 +227,16 @@ public class SubscriptionCharge {
 	 *
 	 * @return The field subscription indicates the subscription to which the charge belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The field subscription indicates the subscription to which the charge belongs to.")
 	public Subscription getSubscription() {
 		return subscription;
 	}
 
-	public void setSubscription(Subscription subscription) {
-		this.subscription = subscription;
-	}
-
 	/**
-	 * 
+	 * succeedOn
 	 *
-	 * @return 
+	 * @return succeedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getSucceedOn() {
+	public OffsetDateTime getSucceedOn() {
 		return succeedOn;
 	}
 
@@ -315,52 +245,26 @@ public class SubscriptionCharge {
 	 *
 	 * @return The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
 	public String getSuccessUrl() {
 		return successUrl;
 	}
 
-	public SubscriptionCharge transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
-	}
-
-	public SubscriptionCharge type(SubscriptionChargeType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionChargeType getType() {
 		return type;
-	}
-
-	public void setType(SubscriptionChargeType type) {
-		this.type = type;
-	}
-
-	public SubscriptionCharge version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -368,13 +272,8 @@ public class SubscriptionCharge {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

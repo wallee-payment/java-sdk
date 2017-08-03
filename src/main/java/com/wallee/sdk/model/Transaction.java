@@ -17,14 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.CustomersPresence;
+import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentMethodBrand;
@@ -32,20 +31,18 @@ import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TransactionGroup;
 import com.wallee.sdk.model.TransactionState;
 import com.wallee.sdk.model.TransactionUserInterfaceType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * Transaction
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Transaction {
+
 	@SerializedName("acceptHeader")
 	private String acceptHeader = null;
 
@@ -59,7 +56,7 @@ public class Transaction {
 	private BigDecimal authorizationAmount = null;
 
 	@SerializedName("authorizedOn")
-	private DateTime authorizedOn = null;
+	private OffsetDateTime authorizedOn = null;
 
 	@SerializedName("billingAddress")
 	private Address billingAddress = null;
@@ -68,22 +65,22 @@ public class Transaction {
 	private Boolean chargeRetryEnabled = null;
 
 	@SerializedName("completedOn")
-	private DateTime completedOn = null;
+	private OffsetDateTime completedOn = null;
 
 	@SerializedName("completionTimeoutOn")
-	private DateTime completionTimeoutOn = null;
+	private OffsetDateTime completionTimeoutOn = null;
 
 	@SerializedName("confirmedBy")
 	private Long confirmedBy = null;
 
 	@SerializedName("confirmedOn")
-	private DateTime confirmedOn = null;
+	private OffsetDateTime confirmedOn = null;
 
 	@SerializedName("createdBy")
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("currency")
 	private String currency = null;
@@ -98,13 +95,16 @@ public class Transaction {
 	private CustomersPresence customersPresence = null;
 
 	@SerializedName("endOfLife")
-	private DateTime endOfLife = null;
+	private OffsetDateTime endOfLife = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failedUrl")
 	private String failedUrl = null;
+
+	@SerializedName("failureReason")
+	private FailureReason failureReason = null;
 
 	@SerializedName("group")
 	private TransactionGroup group = null;
@@ -140,10 +140,10 @@ public class Transaction {
 	private PaymentConnectorConfiguration paymentConnectorConfiguration = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processingOn")
-	private DateTime processingOn = null;
+	private OffsetDateTime processingOn = null;
 
 	@SerializedName("refundedAmount")
 	private BigDecimal refundedAmount = null;
@@ -169,6 +169,9 @@ public class Transaction {
 	@SerializedName("userAgentHeader")
 	private String userAgentHeader = null;
 
+	@SerializedName("userFailureMessage")
+	private String userFailureMessage = null;
+
 	@SerializedName("userInterfaceType")
 	private TransactionUserInterfaceType userInterfaceType = null;
 
@@ -176,100 +179,57 @@ public class Transaction {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * acceptHeader
 	 *
-	 * @return 
+	 * @return acceptHeader
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getAcceptHeader() {
 		return acceptHeader;
 	}
 
-	public Transaction allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
-		this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
-		return this;
-	}
-
-	public Transaction addAllowedPaymentMethodBrandsItem(PaymentMethodBrand allowedPaymentMethodBrandsItem) {
-		this.allowedPaymentMethodBrands.add(allowedPaymentMethodBrandsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * allowedPaymentMethodBrands
 	 *
-	 * @return 
+	 * @return allowedPaymentMethodBrands
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
 		return allowedPaymentMethodBrands;
 	}
 
-	public void setAllowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
-		this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
-	}
-
-	public Transaction allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
-		this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
-		return this;
-	}
-
-	public Transaction addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
-		this.allowedPaymentMethodConfigurations.add(allowedPaymentMethodConfigurationsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * allowedPaymentMethodConfigurations
 	 *
-	 * @return 
+	 * @return allowedPaymentMethodConfigurations
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getAllowedPaymentMethodConfigurations() {
 		return allowedPaymentMethodConfigurations;
 	}
 
-	public void setAllowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
-		this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
-	}
-
 	/**
-	 * 
+	 * authorizationAmount
 	 *
-	 * @return 
+	 * @return authorizationAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAuthorizationAmount() {
 		return authorizationAmount;
 	}
 
 	/**
-	 * 
+	 * authorizedOn
 	 *
-	 * @return 
+	 * @return authorizedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getAuthorizedOn() {
+	public OffsetDateTime getAuthorizedOn() {
 		return authorizedOn;
 	}
 
-	public Transaction billingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getBillingAddress() {
 		return billingAddress;
-	}
-
-	public void setBillingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
 	}
 
 	/**
@@ -277,57 +237,51 @@ public class Transaction {
 	 *
 	 * @return When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.
 	 */
-	@ApiModelProperty(example = "null", value = "When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.")
 	public Boolean getChargeRetryEnabled() {
 		return chargeRetryEnabled;
 	}
 
 	/**
-	 * 
+	 * completedOn
 	 *
-	 * @return 
+	 * @return completedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCompletedOn() {
+	public OffsetDateTime getCompletedOn() {
 		return completedOn;
 	}
 
 	/**
-	 * 
+	 * completionTimeoutOn
 	 *
-	 * @return 
+	 * @return completionTimeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCompletionTimeoutOn() {
+	public OffsetDateTime getCompletionTimeoutOn() {
 		return completionTimeoutOn;
 	}
 
 	/**
-	 * 
+	 * confirmedBy
 	 *
-	 * @return 
+	 * @return confirmedBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getConfirmedBy() {
 		return confirmedBy;
 	}
 
 	/**
-	 * 
+	 * confirmedOn
 	 *
-	 * @return 
+	 * @return confirmedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getConfirmedOn() {
+	public OffsetDateTime getConfirmedOn() {
 		return confirmedOn;
 	}
 
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -337,17 +291,15 @@ public class Transaction {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * currency
 	 *
-	 * @return 
+	 * @return currency
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCurrency() {
 		return currency;
 	}
@@ -357,38 +309,26 @@ public class Transaction {
 	 *
 	 * @return The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
 	 */
-	@ApiModelProperty(example = "null", value = "The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.")
 	public String getCustomerEmailAddress() {
 		return customerEmailAddress;
 	}
 
 	/**
-	 * 
+	 * customerId
 	 *
-	 * @return 
+	 * @return customerId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCustomerId() {
 		return customerId;
 	}
 
-	public Transaction customersPresence(CustomersPresence customersPresence) {
-		this.customersPresence = customersPresence;
-		return this;
-	}
-
 	/**
-	 * 
+	 * customersPresence
 	 *
-	 * @return 
+	 * @return customersPresence
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CustomersPresence getCustomersPresence() {
 		return customersPresence;
-	}
-
-	public void setCustomersPresence(CustomersPresence customersPresence) {
-		this.customersPresence = customersPresence;
 	}
 
 	/**
@@ -396,18 +336,16 @@ public class Transaction {
 	 *
 	 * @return The transaction's end of life indicates the date from which on no operation can be carried out anymore.
 	 */
-	@ApiModelProperty(example = "null", value = "The transaction's end of life indicates the date from which on no operation can be carried out anymore.")
-	public DateTime getEndOfLife() {
+	public OffsetDateTime getEndOfLife() {
 		return endOfLife;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
@@ -416,33 +354,26 @@ public class Transaction {
 	 *
 	 * @return The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
 	public String getFailedUrl() {
 		return failedUrl;
 	}
 
-	public Transaction group(TransactionGroup group) {
-		this.group = group;
-		return this;
+	/**
+	 * The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.
+	 *
+	 * @return The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.
+	 */
+	public FailureReason getFailureReason() {
+		return failureReason;
 	}
 
 	/**
-	 * 
+	 * group
 	 *
-	 * @return 
+	 * @return group
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionGroup getGroup() {
 		return group;
-	}
-
-	public void setGroup(TransactionGroup group) {
-		this.group = group;
-	}
-
-	public Transaction id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -450,77 +381,53 @@ public class Transaction {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	/**
-	 * 
+	 * internetProtocolAddress
 	 *
-	 * @return 
+	 * @return internetProtocolAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getInternetProtocolAddress() {
 		return internetProtocolAddress;
 	}
 
 	/**
-	 * 
+	 * internetProtocolAddressCountry
 	 *
-	 * @return 
+	 * @return internetProtocolAddressCountry
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getInternetProtocolAddressCountry() {
 		return internetProtocolAddressCountry;
 	}
 
 	/**
-	 * 
+	 * invoiceMerchantReference
 	 *
-	 * @return 
+	 * @return invoiceMerchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getInvoiceMerchantReference() {
 		return invoiceMerchantReference;
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public Transaction lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public Transaction addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 	/**
@@ -528,29 +435,17 @@ public class Transaction {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
-	}
-
-	public Transaction metaData(Map<String, String> metaData) {
-		this.metaData = metaData;
-		return this;
-	}
-
-	public Transaction putMetaDataItem(String key, String metaDataItem) {
-		this.metaData.put(key, metaDataItem);
-		return this;
 	}
 
 	/**
@@ -558,32 +453,17 @@ public class Transaction {
 	 *
 	 * @return Meta data allow to store additional data along the object.
 	 */
-	@ApiModelProperty(example = "null", value = "Meta data allow to store additional data along the object.")
 	public Map<String, String> getMetaData() {
 		return metaData;
 	}
 
-	public void setMetaData(Map<String, String> metaData) {
-		this.metaData = metaData;
-	}
-
-	public Transaction paymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
-		this.paymentConnectorConfiguration = paymentConnectorConfiguration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * paymentConnectorConfiguration
 	 *
-	 * @return 
+	 * @return paymentConnectorConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public PaymentConnectorConfiguration getPaymentConnectorConfiguration() {
 		return paymentConnectorConfiguration;
-	}
-
-	public void setPaymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
-		this.paymentConnectorConfiguration = paymentConnectorConfiguration;
 	}
 
 	/**
@@ -591,18 +471,16 @@ public class Transaction {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * processingOn
 	 *
-	 * @return 
+	 * @return processingOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getProcessingOn() {
+	public OffsetDateTime getProcessingOn() {
 		return processingOn;
 	}
 
@@ -611,67 +489,44 @@ public class Transaction {
 	 *
 	 * @return The refunded amount is the total amount which has been refunded so far.
 	 */
-	@ApiModelProperty(example = "null", value = "The refunded amount is the total amount which has been refunded so far.")
 	public BigDecimal getRefundedAmount() {
 		return refundedAmount;
 	}
 
-	public Transaction shippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getShippingAddress() {
 		return shippingAddress;
 	}
 
-	public void setShippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
-
 	/**
-	 * 
+	 * shippingMethod
 	 *
-	 * @return 
+	 * @return shippingMethod
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getShippingMethod() {
 		return shippingMethod;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public Transaction state(TransactionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionState getState() {
 		return state;
-	}
-
-	public void setState(TransactionState state) {
-		this.state = state;
 	}
 
 	/**
@@ -679,43 +534,35 @@ public class Transaction {
 	 *
 	 * @return The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
 	public String getSuccessUrl() {
 		return successUrl;
 	}
 
-	public Transaction token(Token token) {
-		this.token = token;
-		return this;
-	}
-
 	/**
-	 * 
+	 * token
 	 *
-	 * @return 
+	 * @return token
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Token getToken() {
 		return token;
 	}
 
-	public void setToken(Token token) {
-		this.token = token;
-	}
-
 	/**
-	 * 
+	 * userAgentHeader
 	 *
-	 * @return 
+	 * @return userAgentHeader
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getUserAgentHeader() {
 		return userAgentHeader;
 	}
 
-	public Transaction userInterfaceType(TransactionUserInterfaceType userInterfaceType) {
-		this.userInterfaceType = userInterfaceType;
-		return this;
+	/**
+	 * The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.
+	 *
+	 * @return The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.
+	 */
+	public String getUserFailureMessage() {
+		return userFailureMessage;
 	}
 
 	/**
@@ -723,18 +570,8 @@ public class Transaction {
 	 *
 	 * @return The user interface type defines through which user interface the transaction has been processed resp. created.
 	 */
-	@ApiModelProperty(example = "null", value = "The user interface type defines through which user interface the transaction has been processed resp. created.")
 	public TransactionUserInterfaceType getUserInterfaceType() {
 		return userInterfaceType;
-	}
-
-	public void setUserInterfaceType(TransactionUserInterfaceType userInterfaceType) {
-		this.userInterfaceType = userInterfaceType;
-	}
-
-	public Transaction version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -742,13 +579,8 @@ public class Transaction {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 
@@ -781,6 +613,7 @@ public class Transaction {
 				Objects.equals(this.endOfLife, transaction.endOfLife) &&
 				Objects.equals(this.failedOn, transaction.failedOn) &&
 				Objects.equals(this.failedUrl, transaction.failedUrl) &&
+				Objects.equals(this.failureReason, transaction.failureReason) &&
 				Objects.equals(this.group, transaction.group) &&
 				Objects.equals(this.id, transaction.id) &&
 				Objects.equals(this.internetProtocolAddress, transaction.internetProtocolAddress) &&
@@ -802,13 +635,14 @@ public class Transaction {
 				Objects.equals(this.successUrl, transaction.successUrl) &&
 				Objects.equals(this.token, transaction.token) &&
 				Objects.equals(this.userAgentHeader, transaction.userAgentHeader) &&
+				Objects.equals(this.userFailureMessage, transaction.userFailureMessage) &&
 				Objects.equals(this.userInterfaceType, transaction.userInterfaceType) &&
 				Objects.equals(this.version, transaction.version);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(acceptHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizedOn, billingAddress, chargeRetryEnabled, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, endOfLife, failedOn, failedUrl, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, token, userAgentHeader, userInterfaceType, version);
+		return Objects.hash(acceptHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizedOn, billingAddress, chargeRetryEnabled, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, endOfLife, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, token, userAgentHeader, userFailureMessage, userInterfaceType, version);
 	}
 
 
@@ -837,6 +671,7 @@ public class Transaction {
 		sb.append("		endOfLife: ").append(toIndentedString(endOfLife)).append("\n");
 		sb.append("		failedOn: ").append(toIndentedString(failedOn)).append("\n");
 		sb.append("		failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
+		sb.append("		failureReason: ").append(toIndentedString(failureReason)).append("\n");
 		sb.append("		group: ").append(toIndentedString(group)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		internetProtocolAddress: ").append(toIndentedString(internetProtocolAddress)).append("\n");
@@ -858,6 +693,7 @@ public class Transaction {
 		sb.append("		successUrl: ").append(toIndentedString(successUrl)).append("\n");
 		sb.append("		token: ").append(toIndentedString(token)).append("\n");
 		sb.append("		userAgentHeader: ").append(toIndentedString(userAgentHeader)).append("\n");
+		sb.append("		userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
 		sb.append("		userInterfaceType: ").append(toIndentedString(userInterfaceType)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");

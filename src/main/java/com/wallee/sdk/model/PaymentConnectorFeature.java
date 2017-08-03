@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Feature;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * PaymentConnectorFeature
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class PaymentConnectorFeature {
+
 	@SerializedName("displayName")
 	private String displayName = null;
 
@@ -42,32 +38,21 @@ public class PaymentConnectorFeature {
 	private Long id = null;
 
 	/**
-	 * 
+	 * displayName
 	 *
-	 * @return 
+	 * @return displayName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDisplayName() {
 		return displayName;
 	}
 
-	public PaymentConnectorFeature feature(Feature feature) {
-		this.feature = feature;
-		return this;
-	}
-
 	/**
-	 * 
+	 * feature
 	 *
-	 * @return 
+	 * @return feature
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Feature getFeature() {
 		return feature;
-	}
-
-	public void setFeature(Feature feature) {
-		this.feature = feature;
 	}
 
 	/**
@@ -75,7 +60,6 @@ public class PaymentConnectorFeature {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}

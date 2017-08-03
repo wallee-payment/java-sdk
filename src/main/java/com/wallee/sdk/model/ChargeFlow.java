@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * ChargeFlow
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ChargeFlow {
+
 	@SerializedName("conditions")
 	private List<Long> conditions = new ArrayList<Long>();
 
@@ -48,7 +44,7 @@ public class ChargeFlow {
 	private String name = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("priority")
 	private Integer priority = null;
@@ -59,33 +55,13 @@ public class ChargeFlow {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ChargeFlow conditions(List<Long> conditions) {
-		this.conditions = conditions;
-		return this;
-	}
-
-	public ChargeFlow addConditionsItem(Long conditionsItem) {
-		this.conditions.add(conditionsItem);
-		return this;
-	}
-
 	/**
 	 * If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.
 	 *
 	 * @return If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.
 	 */
-	@ApiModelProperty(example = "null", value = "If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.")
 	public List<Long> getConditions() {
 		return conditions;
-	}
-
-	public void setConditions(List<Long> conditions) {
-		this.conditions = conditions;
-	}
-
-	public ChargeFlow id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -93,13 +69,8 @@ public class ChargeFlow {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -107,7 +78,6 @@ public class ChargeFlow {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -117,7 +87,6 @@ public class ChargeFlow {
 	 *
 	 * @return The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -127,8 +96,7 @@ public class ChargeFlow {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -137,33 +105,17 @@ public class ChargeFlow {
 	 *
 	 * @return The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.
 	 */
-	@ApiModelProperty(example = "null", value = "The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.")
 	public Integer getPriority() {
 		return priority;
 	}
 
-	public ChargeFlow state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public ChargeFlow version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -171,13 +123,8 @@ public class ChargeFlow {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

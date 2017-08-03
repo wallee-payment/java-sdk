@@ -17,15 +17,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Feature;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,8 +29,8 @@ import java.util.Map;
 /**
  * The subscription metric type identifies the type of the metric.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription metric type identifies the type of the metric.")
 public class SubscriptionMetricType {
+
 	@SerializedName("description")
 	private Map<String, String> description = new HashMap<String, String>();
 
@@ -47,47 +43,22 @@ public class SubscriptionMetricType {
 	@SerializedName("name")
 	private Map<String, String> name = new HashMap<String, String>();
 
-	public SubscriptionMetricType description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public SubscriptionMetricType putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
-	public SubscriptionMetricType feature(Feature feature) {
-		this.feature = feature;
-		return this;
-	}
-
 	/**
-	 * 
+	 * feature
 	 *
-	 * @return 
+	 * @return feature
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Feature getFeature() {
 		return feature;
-	}
-
-	public void setFeature(Feature feature) {
-		this.feature = feature;
 	}
 
 	/**
@@ -95,33 +66,17 @@ public class SubscriptionMetricType {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public SubscriptionMetricType name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public SubscriptionMetricType putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
-	}
-
-	public void setName(Map<String, String> name) {
-		this.name = name;
 	}
 
 

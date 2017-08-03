@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.EntityQueryOrderBy;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.
  */
-@io.swagger.annotations.ApiModel(description = "The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.")
 public class EntityQuery {
+
 	@SerializedName("filter")
 	private EntityQueryFilter filter = null;
 
@@ -50,23 +46,13 @@ public class EntityQuery {
 	@SerializedName("startingEntity")
 	private Integer startingEntity = null;
 
-	public EntityQuery filter(EntityQueryFilter filter) {
-		this.filter = filter;
-		return this;
-	}
-
 	/**
 	 * The filter node defines the root filter node of the query. The root node may contain multiple sub nodes with different filters in it.
 	 *
 	 * @return The filter node defines the root filter node of the query. The root node may contain multiple sub nodes with different filters in it.
 	 */
-	@ApiModelProperty(example = "null", value = "The filter node defines the root filter node of the query. The root node may contain multiple sub nodes with different filters in it.")
 	public EntityQueryFilter getFilter() {
 		return filter;
-	}
-
-	public void setFilter(EntityQueryFilter filter) {
-		this.filter = filter;
 	}
 
 	/**
@@ -74,7 +60,6 @@ public class EntityQuery {
 	 *
 	 * @return The language is applied to the ordering of the entities returned. Some entity fields are language dependent and hence the language is required to order them.
 	 */
-	@ApiModelProperty(example = "null", value = "The language is applied to the ordering of the entities returned. Some entity fields are language dependent and hence the language is required to order them.")
 	public String getLanguage() {
 		return language;
 	}
@@ -84,19 +69,8 @@ public class EntityQuery {
 	 *
 	 * @return The number of entities defines how many entities should be returned. There is a maximum of 500 entities.
 	 */
-	@ApiModelProperty(example = "null", value = "The number of entities defines how many entities should be returned. There is a maximum of 500 entities.")
 	public Integer getNumberOfEntities() {
 		return numberOfEntities;
-	}
-
-	public EntityQuery orderBys(List<EntityQueryOrderBy> orderBys) {
-		this.orderBys = orderBys;
-		return this;
-	}
-
-	public EntityQuery addOrderBysItem(EntityQueryOrderBy orderBysItem) {
-		this.orderBys.add(orderBysItem);
-		return this;
 	}
 
 	/**
@@ -104,13 +78,8 @@ public class EntityQuery {
 	 *
 	 * @return The order bys allows to define the ordering of the entities returned by the search.
 	 */
-	@ApiModelProperty(example = "null", value = "The order bys allows to define the ordering of the entities returned by the search.")
 	public List<EntityQueryOrderBy> getOrderBys() {
 		return orderBys;
-	}
-
-	public void setOrderBys(List<EntityQueryOrderBy> orderBys) {
-		this.orderBys = orderBys;
 	}
 
 	/**
@@ -118,7 +87,6 @@ public class EntityQuery {
 	 *
 	 * @return The 'starting entity' defines the entity number at which the returned result should start. The entity number is the consecutive number of the entity as returned and it is not the entity id.
 	 */
-	@ApiModelProperty(example = "null", value = "The 'starting entity' defines the entity number at which the returned result should start. The entity number is the consecutive number of the entity as returned and it is not the entity id.")
 	public Integer getStartingEntity() {
 		return startingEntity;
 	}

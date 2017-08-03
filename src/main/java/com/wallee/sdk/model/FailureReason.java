@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.FailureCategory;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * FailureReason
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class FailureReason {
+
 	@SerializedName("category")
 	private FailureCategory category = null;
 
@@ -51,71 +47,31 @@ public class FailureReason {
 	@SerializedName("name")
 	private Map<String, String> name = new HashMap<String, String>();
 
-	public FailureReason category(FailureCategory category) {
-		this.category = category;
-		return this;
-	}
-
 	/**
-	 * 
+	 * category
 	 *
-	 * @return 
+	 * @return category
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(FailureCategory category) {
-		this.category = category;
-	}
-
-	public FailureReason description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public FailureReason putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
-	public FailureReason features(List<Long> features) {
-		this.features = features;
-		return this;
-	}
-
-	public FailureReason addFeaturesItem(Long featuresItem) {
-		this.features.add(featuresItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * features
 	 *
-	 * @return 
+	 * @return features
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getFeatures() {
 		return features;
-	}
-
-	public void setFeatures(List<Long> features) {
-		this.features = features;
 	}
 
 	/**
@@ -123,33 +79,17 @@ public class FailureReason {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public FailureReason name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public FailureReason putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
-	}
-
-	public void setName(Map<String, String> name) {
-		this.name = name;
 	}
 
 

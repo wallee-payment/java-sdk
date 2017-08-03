@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.PersistableCurrencyAmountUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * ProductPeriodFeeUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductPeriodFeeUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -66,7 +62,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -85,7 +80,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -100,11 +94,10 @@ public class ProductPeriodFeeUpdate {
 	}
 
 	/**
-	 * 
+	 * component
 	 *
-	 * @return 
+	 * @return component
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getComponent() {
 		return component;
 	}
@@ -123,7 +116,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
 	 */
-	@ApiModelProperty(example = "null", value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
 	public DatabaseTranslatedStringCreate getDescription() {
 		return description;
 	}
@@ -142,7 +134,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The name of the fee should describe for the subscriber in few words for what the fee is for.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}
@@ -161,7 +152,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The number of free trial periods specify how many periods are free of charge at the begining of the subscription.
 	 */
-	@ApiModelProperty(example = "null", value = "The number of free trial periods specify how many periods are free of charge at the begining of the subscription.")
 	public Integer getNumberOfFreeTrialPeriods() {
 		return numberOfFreeTrialPeriods;
 	}
@@ -185,7 +175,6 @@ public class ProductPeriodFeeUpdate {
 	 *
 	 * @return The period fee is charged for every period of the subscription except for those periods which are trial periods.
 	 */
-	@ApiModelProperty(example = "null", value = "The period fee is charged for every period of the subscription except for those periods which are trial periods.")
 	public List<PersistableCurrencyAmountUpdate> getPeriodFee() {
 		return periodFee;
 	}

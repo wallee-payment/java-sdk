@@ -18,7 +18,6 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
 import com.squareup.okhttp.Call;
@@ -54,8 +53,10 @@ import java.util.Base64;
 import java.lang.IllegalArgumentException;
 import java.lang.RuntimeException;
 
+import java.net.URL;
 import java.net.URLEncoder;
 import java.net.URLConnection;
+import java.net.MalformedURLException;
 
 import java.io.File;
 import java.io.InputStream;
@@ -94,6 +95,7 @@ import okio.BufferedSink;
 import okio.Okio;
 
 public class ApiClient {
+  
     public static final double JAVA_VERSION;
     public static final boolean IS_ANDROID;
     public static final int ANDROID_SDK_VERSION;
@@ -176,7 +178,7 @@ public class ApiClient {
         this.lenientDatetimeFormat = true;
 
         // Set default User-Agent.
-        setUserAgent("Swagger-Codegen/1.0.0/java");
+        setUserAgent("com.wallee.wallee-java-sdk-1.0.0");
 
 		this.userId = userId;
 		this.applicationKey = applicationKey;
@@ -186,7 +188,7 @@ public class ApiClient {
     /**
      * Get base path
      *
-     * @return Baes path
+     * @return Base path
      */
     public String getBasePath() {
         return basePath;
@@ -503,7 +505,7 @@ public class ApiClient {
     /**
      * The path of temporary folder used to store downloaded files from endpoints
      * with file response. The default value is <code>null</code>, i.e. using
-     * the system's default tempopary folder.
+     * the system's default temporary folder.
      *
      * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html#createTempFile">createTempFile</a>
      * @return Temporary folder path
@@ -513,7 +515,7 @@ public class ApiClient {
     }
 
     /**
-     * Set the tempoaray folder path (for downloading files)
+     * Set the temporary folder path (for downloading files)
      *
      * @param tempFolderPath Temporary folder path
      * @return ApiClient
@@ -557,7 +559,7 @@ public class ApiClient {
             return formatDatetime((Date) param);
         } else if (param instanceof Collection) {
             StringBuilder b = new StringBuilder();
-            for (Object o : (Collection)param) {
+            for (Object o : (Collection<?>)param) {
                 if (b.length() > 0) {
                     b.append(",");
                 }
@@ -583,9 +585,9 @@ public class ApiClient {
         // preconditions
         if (name == null || name.isEmpty() || value == null) return params;
 
-        Collection valueCollection = null;
+        Collection<?> valueCollection = null;
         if (value instanceof Collection) {
-            valueCollection = (Collection) value;
+            valueCollection = (Collection<?>) value;
         } else {
             params.add(new Pair(name, parameterToString(value)));
             return params;
@@ -1032,7 +1034,7 @@ public class ApiClient {
 	private void appendAuthenticationHeaders(String url, String method, Request.Builder reqBuilder) {
     	final long timestamp = System.currentTimeMillis() / 1000;
     	final String version = "1";
-    	final String path = url.replace(this.getBasePath(), "");
+    	final String path = this.getPath(url);
 
     	final String securedData = version + "|" + Long.toString(this.userId) + "|" + Long.toString(timestamp) +
     			"|" + method.toUpperCase() + "|" + path;
@@ -1041,6 +1043,20 @@ public class ApiClient {
     	reqBuilder.addHeader("x-mac-timestamp", Long.toString(timestamp));
     	reqBuilder.addHeader("x-mac-value", calculateHmac(securedData));
     }
+    
+    private String getPath(String url) {
+		try {
+			final URL urlObject = new URL(url);
+			StringBuilder path = new StringBuilder(urlObject.getPath());
+			String query = urlObject.getQuery();
+			if(query != null && !query.isEmpty()) {
+				path.append("?").append(query);
+			}
+			return path.toString();
+		} catch (MalformedURLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	private String calculateHmac(String securedData) {
 		byte[] decodedSecret = Base64.getDecoder().decode(this.applicationKey);

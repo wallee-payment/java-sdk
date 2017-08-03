@@ -18,10 +18,10 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
 public class Pair {
+  
     private String name = "";
     private String value = "";
 

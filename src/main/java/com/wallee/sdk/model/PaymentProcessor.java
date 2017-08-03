@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * PaymentProcessor
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class PaymentProcessor {
+
 	@SerializedName("companyName")
 	private Map<String, String> companyName = new HashMap<String, String>();
 
@@ -58,86 +54,40 @@ public class PaymentProcessor {
 	@SerializedName("productName")
 	private Map<String, String> productName = new HashMap<String, String>();
 
-	public PaymentProcessor companyName(Map<String, String> companyName) {
-		this.companyName = companyName;
-		return this;
-	}
-
-	public PaymentProcessor putCompanyNameItem(String key, String companyNameItem) {
-		this.companyName.put(key, companyNameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * companyName
 	 *
-	 * @return 
+	 * @return companyName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getCompanyName() {
 		return companyName;
 	}
 
-	public void setCompanyName(Map<String, String> companyName) {
-		this.companyName = companyName;
-	}
-
-	public PaymentProcessor description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public PaymentProcessor putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
 	/**
-	 * 
+	 * feature
 	 *
-	 * @return 
+	 * @return feature
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getFeature() {
 		return feature;
 	}
 
-	public PaymentProcessor headquartersLocation(Map<String, String> headquartersLocation) {
-		this.headquartersLocation = headquartersLocation;
-		return this;
-	}
-
-	public PaymentProcessor putHeadquartersLocationItem(String key, String headquartersLocationItem) {
-		this.headquartersLocation.put(key, headquartersLocationItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * headquartersLocation
 	 *
-	 * @return 
+	 * @return headquartersLocation
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getHeadquartersLocation() {
 		return headquartersLocation;
-	}
-
-	public void setHeadquartersLocation(Map<String, String> headquartersLocation) {
-		this.headquartersLocation = headquartersLocation;
 	}
 
 	/**
@@ -145,67 +95,35 @@ public class PaymentProcessor {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * 
+	 * logoPath
 	 *
-	 * @return 
+	 * @return logoPath
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLogoPath() {
 		return logoPath;
 	}
 
-	public PaymentProcessor name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public PaymentProcessor putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
 	}
 
-	public void setName(Map<String, String> name) {
-		this.name = name;
-	}
-
-	public PaymentProcessor productName(Map<String, String> productName) {
-		this.productName = productName;
-		return this;
-	}
-
-	public PaymentProcessor putProductNameItem(String key, String productNameItem) {
-		this.productName.put(key, productNameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * productName
 	 *
-	 * @return 
+	 * @return productName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getProductName() {
 		return productName;
-	}
-
-	public void setProductName(Map<String, String> productName) {
-		this.productName = productName;
 	}
 
 

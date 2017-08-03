@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SpaceReferenceState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SpaceReference
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SpaceReference {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -43,7 +39,7 @@ public class SpaceReference {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceId")
 	private Long spaceId = null;
@@ -55,18 +51,12 @@ public class SpaceReference {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
-	}
-
-	public SpaceReference id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -74,13 +64,8 @@ public class SpaceReference {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -88,7 +73,6 @@ public class SpaceReference {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -98,43 +82,26 @@ public class SpaceReference {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceId
 	 *
-	 * @return 
+	 * @return spaceId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceId() {
 		return spaceId;
 	}
 
-	public SpaceReference state(SpaceReferenceState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SpaceReferenceState getState() {
 		return state;
-	}
-
-	public void setState(SpaceReferenceState state) {
-		this.state = state;
-	}
-
-	public SpaceReference version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -142,13 +109,8 @@ public class SpaceReference {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductVersion;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionProductVersionRetirement
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductVersionRetirement {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -60,14 +56,8 @@ public class SubscriptionProductVersionRetirement {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
-	}
-
-	public SubscriptionProductVersionRetirement id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -75,13 +65,8 @@ public class SubscriptionProductVersionRetirement {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -89,62 +74,35 @@ public class SubscriptionProductVersionRetirement {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
-	public SubscriptionProductVersionRetirement productVersion(SubscriptionProductVersion productVersion) {
-		this.productVersion = productVersion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * productVersion
 	 *
-	 * @return 
+	 * @return productVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductVersion getProductVersion() {
 		return productVersion;
 	}
 
-	public void setProductVersion(SubscriptionProductVersion productVersion) {
-		this.productVersion = productVersion;
-	}
-
 	/**
-	 * 
+	 * respectTerminiationPeriodsEnabled
 	 *
-	 * @return 
+	 * @return respectTerminiationPeriodsEnabled
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getRespectTerminiationPeriodsEnabled() {
 		return respectTerminiationPeriodsEnabled;
 	}
 
-	public SubscriptionProductVersionRetirement targetProduct(SubscriptionProduct targetProduct) {
-		this.targetProduct = targetProduct;
-		return this;
-	}
-
 	/**
-	 * 
+	 * targetProduct
 	 *
-	 * @return 
+	 * @return targetProduct
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProduct getTargetProduct() {
 		return targetProduct;
-	}
-
-	public void setTargetProduct(SubscriptionProduct targetProduct) {
-		this.targetProduct = targetProduct;
-	}
-
-	public SubscriptionProductVersionRetirement version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -152,13 +110,8 @@ public class SubscriptionProductVersionRetirement {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

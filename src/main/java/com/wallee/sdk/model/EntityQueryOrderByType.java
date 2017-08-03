@@ -17,11 +17,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
@@ -38,7 +35,7 @@ public enum EntityQueryOrderByType {
 
 	private String value;
 
-	EntityQueryOrderByType(String value) {
+	private EntityQueryOrderByType(String value) {
 		this.value = value;
 	}
 

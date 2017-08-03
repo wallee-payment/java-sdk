@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractTokenUpdate;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * TokenCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TokenCreate extends AbstractTokenUpdate {
+
 	@SerializedName("externalId")
 	private String externalId = null;
 
@@ -49,7 +45,6 @@ public class TokenCreate extends AbstractTokenUpdate {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -64,17 +59,46 @@ public class TokenCreate extends AbstractTokenUpdate {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
 
 	public void setState(CreationEntityState state) {
 		this.state = state;
+	}
+
+	@Override
+	public TokenCreate customerEmailAddress(String customerEmailAddress) {
+		super.customerEmailAddress(customerEmailAddress);
+		return this;
+	}
+
+	@Override
+	public TokenCreate customerId(String customerId) {
+		super.customerId(customerId);
+		return this;
+	}
+
+	@Override
+	public TokenCreate enabledForOneClickPayment(Boolean enabledForOneClickPayment) {
+		super.enabledForOneClickPayment(enabledForOneClickPayment);
+		return this;
+	}
+
+	@Override
+	public TokenCreate language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public TokenCreate tokenReference(String tokenReference) {
+		super.tokenReference(tokenReference);
+		return this;
 	}
 
 

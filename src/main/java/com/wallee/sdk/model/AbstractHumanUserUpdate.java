@@ -17,20 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * AbstractHumanUserUpdate
  */
 public class AbstractHumanUserUpdate {
+
 	@SerializedName("emailAddress")
 	private String emailAddress = null;
 
@@ -59,7 +56,6 @@ public class AbstractHumanUserUpdate {
 	 *
 	 * @return The email address of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address of the user.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -78,7 +74,6 @@ public class AbstractHumanUserUpdate {
 	 *
 	 * @return The first name of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The first name of the user.")
 	public String getFirstname() {
 		return firstname;
 	}
@@ -97,7 +92,6 @@ public class AbstractHumanUserUpdate {
 	 *
 	 * @return The preferred language of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The preferred language of the user.")
 	public String getLanguage() {
 		return language;
 	}
@@ -116,7 +110,6 @@ public class AbstractHumanUserUpdate {
 	 *
 	 * @return The last name of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The last name of the user.")
 	public String getLastname() {
 		return lastname;
 	}
@@ -131,11 +124,10 @@ public class AbstractHumanUserUpdate {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
@@ -154,7 +146,6 @@ public class AbstractHumanUserUpdate {
 	 *
 	 * @return The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
 	 */
-	@ApiModelProperty(example = "null", value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
 	public String getTimeZone() {
 		return timeZone;
 	}

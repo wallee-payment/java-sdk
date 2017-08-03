@@ -17,16 +17,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddressCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +30,7 @@ import java.util.List;
  * AbstractSpaceUpdate
  */
 public class AbstractSpaceUpdate {
+
 	@SerializedName("name")
 	private String name = null;
 
@@ -62,7 +59,6 @@ public class AbstractSpaceUpdate {
 	 *
 	 * @return The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -81,7 +77,6 @@ public class AbstractSpaceUpdate {
 	 *
 	 * @return The address to use in communication with clients for example in email, documents etc.
 	 */
-	@ApiModelProperty(example = "null", value = "The address to use in communication with clients for example in email, documents etc.")
 	public SpaceAddressCreate getPostalAddress() {
 		return postalAddress;
 	}
@@ -100,7 +95,6 @@ public class AbstractSpaceUpdate {
 	 *
 	 * @return The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.
 	 */
-	@ApiModelProperty(example = "null", value = "The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.")
 	public Long getRequestLimit() {
 		return requestLimit;
 	}
@@ -115,11 +109,10 @@ public class AbstractSpaceUpdate {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
@@ -143,7 +136,6 @@ public class AbstractSpaceUpdate {
 	 *
 	 * @return The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.")
 	public List<String> getTechnicalContactAddresses() {
 		return technicalContactAddresses;
 	}
@@ -162,7 +154,6 @@ public class AbstractSpaceUpdate {
 	 *
 	 * @return The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.
 	 */
-	@ApiModelProperty(example = "null", value = "The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.")
 	public String getTimeZone() {
 		return timeZone;
 	}

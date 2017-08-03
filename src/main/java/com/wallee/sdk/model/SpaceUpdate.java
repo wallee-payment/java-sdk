@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,15 +24,13 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSpaceUpdate;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddressCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
- * 
+ * SpaceUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SpaceUpdate extends AbstractSpaceUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -51,7 +47,6 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -70,13 +65,54 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
 
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	@Override
+	public SpaceUpdate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate postalAddress(SpaceAddressCreate postalAddress) {
+		super.postalAddress(postalAddress);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate requestLimit(Long requestLimit) {
+		super.requestLimit(requestLimit);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate state(CreationEntityState state) {
+		super.state(state);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate technicalContactAddresses(List<String> technicalContactAddresses) {
+		super.technicalContactAddresses(technicalContactAddresses);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate addTechnicalContactAddressesItem(String technicalContactAddressesItem) {
+		super.addTechnicalContactAddressesItem(technicalContactAddressesItem);
+		return this;
+	}
+
+	@Override
+	public SpaceUpdate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
 	}
 
 

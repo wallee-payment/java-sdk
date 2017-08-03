@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * TransactionState
  */
 public enum TransactionState {
 	
@@ -62,7 +59,7 @@ public enum TransactionState {
 
 	private String value;
 
-	TransactionState(String value) {
+	private TransactionState(String value) {
 		this.value = value;
 	}
 

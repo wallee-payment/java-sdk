@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LabelDescriptor;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * Label
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Label {
+
 	@SerializedName("content")
 	private Object content = null;
 
@@ -47,57 +43,31 @@ public class Label {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public Label content(Object content) {
-		this.content = content;
-		return this;
-	}
-
 	/**
-	 * 
+	 * content
 	 *
-	 * @return 
+	 * @return content
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Object getContent() {
 		return content;
 	}
 
-	public void setContent(Object content) {
-		this.content = content;
-	}
-
 	/**
-	 * 
+	 * contentAsString
 	 *
-	 * @return 
+	 * @return contentAsString
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getContentAsString() {
 		return contentAsString;
 	}
 
-	public Label descriptor(LabelDescriptor descriptor) {
-		this.descriptor = descriptor;
-		return this;
-	}
-
 	/**
-	 * 
+	 * descriptor
 	 *
-	 * @return 
+	 * @return descriptor
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public LabelDescriptor getDescriptor() {
 		return descriptor;
-	}
-
-	public void setDescriptor(LabelDescriptor descriptor) {
-		this.descriptor = descriptor;
-	}
-
-	public Label id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -105,18 +75,8 @@ public class Label {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Label version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -124,13 +84,8 @@ public class Label {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

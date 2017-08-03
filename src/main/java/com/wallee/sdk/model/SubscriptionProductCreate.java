@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSubscriptionProductActive;
 import com.wallee.sdk.model.SubscriptionProductState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
  * A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.
  */
-@io.swagger.annotations.ApiModel(description = "A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.")
 public class SubscriptionProductCreate extends AbstractSubscriptionProductActive {
+
 	@SerializedName("reference")
 	private String reference = null;
 
@@ -47,13 +43,48 @@ public class SubscriptionProductCreate extends AbstractSubscriptionProductActive
 	 *
 	 * @return The product reference identifies the product for external systems. This field may contain the product's SKU.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The product reference identifies the product for external systems. This field may contain the product's SKU.")
 	public String getReference() {
 		return reference;
 	}
 
 	public void setReference(String reference) {
 		this.reference = reference;
+	}
+
+	@Override
+	public SubscriptionProductCreate allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+		super.allowedPaymentMethodConfigurations(allowedPaymentMethodConfigurations);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductCreate addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
+		super.addAllowedPaymentMethodConfigurationsItem(allowedPaymentMethodConfigurationsItem);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductCreate failedPaymentSuspensionPeriod(String failedPaymentSuspensionPeriod) {
+		super.failedPaymentSuspensionPeriod(failedPaymentSuspensionPeriod);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductCreate sortOrder(Integer sortOrder) {
+		super.sortOrder(sortOrder);
+		return this;
+	}
+
+	@Override
+	public SubscriptionProductCreate state(SubscriptionProductState state) {
+		super.state(state);
+		return this;
 	}
 
 

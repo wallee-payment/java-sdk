@@ -21,7 +21,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
     <groupId>com.wallee</groupId>
-    <artifactId>sdk</artifactId>
+    <artifactId>wallee-java-sdk</artifactId>
     <version>1.0.0</version>
     <scope>compile</scope>
 </dependency>
@@ -32,7 +32,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:sdk:1.0.0"
+compile "com.wallee:wallee-java-sdk:1.0.0"
 ```
 
 ### Others
@@ -43,7 +43,7 @@ At first generate the JAR by executing:
 
 Then manually install the following JARs:
 
-* target/sdk-1.0.0.jar
+* target/wallee-java-sdk-1.0.0.jar
 * target/lib/*.jar
 
 -->
@@ -59,8 +59,4 @@ Please follow the [installation](#installation) instruction and execute the foll
 ## Recommendation
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
-## Author
-
-
 

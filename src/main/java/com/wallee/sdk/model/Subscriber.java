@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
  */
-@io.swagger.annotations.ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 public class Subscriber {
+
 	@SerializedName("additionalAllowedPaymentMethodConfigurations")
 	private List<Long> additionalAllowedPaymentMethodConfigurations = new ArrayList<Long>();
 
@@ -64,7 +60,7 @@ public class Subscriber {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("reference")
 	private String reference = null;
@@ -78,47 +74,22 @@ public class Subscriber {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public Subscriber additionalAllowedPaymentMethodConfigurations(List<Long> additionalAllowedPaymentMethodConfigurations) {
-		this.additionalAllowedPaymentMethodConfigurations = additionalAllowedPaymentMethodConfigurations;
-		return this;
-	}
-
-	public Subscriber addAdditionalAllowedPaymentMethodConfigurationsItem(Long additionalAllowedPaymentMethodConfigurationsItem) {
-		this.additionalAllowedPaymentMethodConfigurations.add(additionalAllowedPaymentMethodConfigurationsItem);
-		return this;
-	}
-
 	/**
 	 * Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
 	 *
 	 * @return Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are allowed additionally will be available even when the product does not allow those methods.")
 	public List<Long> getAdditionalAllowedPaymentMethodConfigurations() {
 		return additionalAllowedPaymentMethodConfigurations;
 	}
 
-	public void setAdditionalAllowedPaymentMethodConfigurations(List<Long> additionalAllowedPaymentMethodConfigurations) {
-		this.additionalAllowedPaymentMethodConfigurations = additionalAllowedPaymentMethodConfigurations;
-	}
-
-	public Subscriber billingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getBillingAddress() {
 		return billingAddress;
-	}
-
-	public void setBillingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
 	}
 
 	/**
@@ -126,19 +97,8 @@ public class Subscriber {
 	 *
 	 * @return The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.")
 	public String getDescription() {
 		return description;
-	}
-
-	public Subscriber disallowedPaymentMethodConfigurations(List<Long> disallowedPaymentMethodConfigurations) {
-		this.disallowedPaymentMethodConfigurations = disallowedPaymentMethodConfigurations;
-		return this;
-	}
-
-	public Subscriber addDisallowedPaymentMethodConfigurationsItem(Long disallowedPaymentMethodConfigurationsItem) {
-		this.disallowedPaymentMethodConfigurations.add(disallowedPaymentMethodConfigurationsItem);
-		return this;
 	}
 
 	/**
@@ -146,13 +106,8 @@ public class Subscriber {
 	 *
 	 * @return Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.")
 	public List<Long> getDisallowedPaymentMethodConfigurations() {
 		return disallowedPaymentMethodConfigurations;
-	}
-
-	public void setDisallowedPaymentMethodConfigurations(List<Long> disallowedPaymentMethodConfigurations) {
-		this.disallowedPaymentMethodConfigurations = disallowedPaymentMethodConfigurations;
 	}
 
 	/**
@@ -160,7 +115,6 @@ public class Subscriber {
 	 *
 	 * @return The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -170,14 +124,8 @@ public class Subscriber {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
-	}
-
-	public Subscriber id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -185,13 +133,8 @@ public class Subscriber {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -199,7 +142,6 @@ public class Subscriber {
 	 *
 	 * @return The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).")
 	public String getLanguage() {
 		return language;
 	}
@@ -209,7 +151,6 @@ public class Subscriber {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -219,8 +160,7 @@ public class Subscriber {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -229,52 +169,26 @@ public class Subscriber {
 	 *
 	 * @return The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).")
 	public String getReference() {
 		return reference;
 	}
 
-	public Subscriber shippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getShippingAddress() {
 		return shippingAddress;
 	}
 
-	public void setShippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
-
-	public Subscriber state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public Subscriber version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -282,13 +196,8 @@ public class Subscriber {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

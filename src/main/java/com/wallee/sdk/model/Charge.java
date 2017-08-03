@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,17 +26,15 @@ import com.wallee.sdk.model.ChargeType;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * Charge
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Charge extends TransactionAwareEntity {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("failureReason")
 	private FailureReason failureReason = null;
@@ -47,7 +43,7 @@ public class Charge extends TransactionAwareEntity {
 	private String language = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceViewId")
 	private Long spaceViewId = null;
@@ -56,13 +52,16 @@ public class Charge extends TransactionAwareEntity {
 	private ChargeState state = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("transaction")
 	private Transaction transaction = null;
 
 	@SerializedName("type")
 	private ChargeType type = null;
+
+	@SerializedName("userFailureMessage")
+	private String userFailureMessage = null;
 
 	@SerializedName("version")
 	private Integer version = null;
@@ -72,36 +71,24 @@ public class Charge extends TransactionAwareEntity {
 	 *
 	 * @return The date on which the charge was created on.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the charge was created on.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
-	public Charge failureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * failureReason
 	 *
-	 * @return 
+	 * @return failureReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureReason getFailureReason() {
 		return failureReason;
 	}
 
-	public void setFailureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -111,86 +98,62 @@ public class Charge extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public Charge state(ChargeState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeState getState() {
 		return state;
 	}
 
-	public void setState(ChargeState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
-	public Charge transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
 	}
 
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
-	}
-
-	public Charge type(ChargeType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeType getType() {
 		return type;
 	}
 
-	public void setType(ChargeType type) {
-		this.type = type;
+	/**
+	 * The failure message describes for an end user why the charge is failed in the language of the user. This is only provided when the charge is marked as failed.
+	 *
+	 * @return The failure message describes for an end user why the charge is failed in the language of the user. This is only provided when the charge is marked as failed.
+	 */
+	public String getUserFailureMessage() {
+		return userFailureMessage;
 	}
 
 	/**
@@ -198,7 +161,6 @@ public class Charge extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}
@@ -222,13 +184,14 @@ public class Charge extends TransactionAwareEntity {
 				Objects.equals(this.timeoutOn, charge.timeoutOn) &&
 				Objects.equals(this.transaction, charge.transaction) &&
 				Objects.equals(this.type, charge.type) &&
+				Objects.equals(this.userFailureMessage, charge.userFailureMessage) &&
 				Objects.equals(this.version, charge.version) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeoutOn, transaction, type, version, super.hashCode());
+		return Objects.hash(createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
 	}
 
 
@@ -246,6 +209,7 @@ public class Charge extends TransactionAwareEntity {
 		sb.append("		timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
 		sb.append("		transaction: ").append(toIndentedString(transaction)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");
+		sb.append("		userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");
 		return sb.toString();

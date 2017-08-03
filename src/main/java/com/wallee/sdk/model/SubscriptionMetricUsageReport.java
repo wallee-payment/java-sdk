@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
  * The metric usage is the actual usage of a metric for a particular subscription as collected by an external application.
  */
-@io.swagger.annotations.ApiModel(description = "The metric usage is the actual usage of a metric for a particular subscription as collected by an external application.")
 public class SubscriptionMetricUsageReport {
+
 	@SerializedName("consumedUnits")
 	private BigDecimal consumedUnits = null;
 
@@ -40,7 +36,7 @@ public class SubscriptionMetricUsageReport {
 	private Long createdByUserId = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("description")
 	private String description = null;
@@ -58,7 +54,7 @@ public class SubscriptionMetricUsageReport {
 	private Long metric = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("subscription")
 	private Long subscription = null;
@@ -71,28 +67,25 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.
 	 */
-	@ApiModelProperty(example = "null", value = "The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.")
 	public BigDecimal getConsumedUnits() {
 		return consumedUnits;
 	}
 
 	/**
-	 * 
+	 * createdByUserId
 	 *
-	 * @return 
+	 * @return createdByUserId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedByUserId() {
 		return createdByUserId;
 	}
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -101,7 +94,6 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The metric usage report description describe the reported usage. This description may be shown to the end user.
 	 */
-	@ApiModelProperty(example = "null", value = "The metric usage report description describe the reported usage. This description may be shown to the end user.")
 	public String getDescription() {
 		return description;
 	}
@@ -111,14 +103,8 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The external id identifies the metric usage uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The external id identifies the metric usage uniquely.")
 	public String getExternalId() {
 		return externalId;
-	}
-
-	public SubscriptionMetricUsageReport id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -126,13 +112,8 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -140,7 +121,6 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -150,7 +130,6 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The metric usage report is linked to the metric for which the usage should be recorded.
 	 */
-	@ApiModelProperty(example = "null", value = "The metric usage report is linked to the metric for which the usage should be recorded.")
 	public Long getMetric() {
 		return metric;
 	}
@@ -160,8 +139,7 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -170,14 +148,8 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The subscription to which the usage is added to.
 	 */
-	@ApiModelProperty(example = "null", value = "The subscription to which the usage is added to.")
 	public Long getSubscription() {
 		return subscription;
-	}
-
-	public SubscriptionMetricUsageReport version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -185,13 +157,8 @@ public class SubscriptionMetricUsageReport {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

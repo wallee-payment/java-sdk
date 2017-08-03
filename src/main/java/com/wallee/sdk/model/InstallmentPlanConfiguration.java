@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,18 +26,16 @@ import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.ResourcePath;
 import com.wallee.sdk.model.SpaceReference;
 import com.wallee.sdk.model.TaxClass;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * The installment plan allows to setup a template for an installment.
  */
-@io.swagger.annotations.ApiModel(description = "The installment plan allows to setup a template for an installment.")
 public class InstallmentPlanConfiguration {
+
 	@SerializedName("baseCurrency")
 	private String baseCurrency = null;
 
@@ -68,7 +64,7 @@ public class InstallmentPlanConfiguration {
 	private List<Long> paymentMethodConfigurations = new ArrayList<Long>();
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("sortOrder")
 	private Integer sortOrder = null;
@@ -96,19 +92,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The base currency in which the installment fee and minimal amount are defined.
 	 */
-	@ApiModelProperty(example = "null", value = "The base currency in which the installment fee and minimal amount are defined.")
 	public String getBaseCurrency() {
 		return baseCurrency;
-	}
-
-	public InstallmentPlanConfiguration conditions(List<Long> conditions) {
-		this.conditions = conditions;
-		return this;
-	}
-
-	public InstallmentPlanConfiguration addConditionsItem(Long conditionsItem) {
-		this.conditions.add(conditionsItem);
-		return this;
 	}
 
 	/**
@@ -116,18 +101,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return If a transaction meets all selected conditions the installment plan will be available to the customer to be selected.
 	 */
-	@ApiModelProperty(example = "null", value = "If a transaction meets all selected conditions the installment plan will be available to the customer to be selected.")
 	public List<Long> getConditions() {
 		return conditions;
-	}
-
-	public void setConditions(List<Long> conditions) {
-		this.conditions = conditions;
-	}
-
-	public InstallmentPlanConfiguration id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -135,13 +110,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -149,7 +119,6 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The installment fee is a fixed amount that is charged additionally when applying this installment plan.
 	 */
-	@ApiModelProperty(example = "null", value = "The installment fee is a fixed amount that is charged additionally when applying this installment plan.")
 	public BigDecimal getInstallmentFee() {
 		return installmentFee;
 	}
@@ -159,7 +128,6 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The interest rate is a percentage of the total amount that is charged additionally when applying this installment plan.
 	 */
-	@ApiModelProperty(example = "null", value = "The interest rate is a percentage of the total amount that is charged additionally when applying this installment plan.")
 	public BigDecimal getInterestRate() {
 		return interestRate;
 	}
@@ -169,7 +137,6 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -179,7 +146,6 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The installment plan can only be applied if the orders total is at least the defined minimal amount.
 	 */
-	@ApiModelProperty(example = "null", value = "The installment plan can only be applied if the orders total is at least the defined minimal amount.")
 	public BigDecimal getMinimalAmount() {
 		return minimalAmount;
 	}
@@ -189,19 +155,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The installment plan name is used internally to identify the plan in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The installment plan name is used internally to identify the plan in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
-	}
-
-	public InstallmentPlanConfiguration paymentMethodConfigurations(List<Long> paymentMethodConfigurations) {
-		this.paymentMethodConfigurations = paymentMethodConfigurations;
-		return this;
-	}
-
-	public InstallmentPlanConfiguration addPaymentMethodConfigurationsItem(Long paymentMethodConfigurationsItem) {
-		this.paymentMethodConfigurations.add(paymentMethodConfigurationsItem);
-		return this;
 	}
 
 	/**
@@ -209,13 +164,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return A installment plan can be enabled only for specific payment method configurations. Other payment methods will not be selectable by the buyer.
 	 */
-	@ApiModelProperty(example = "null", value = "A installment plan can be enabled only for specific payment method configurations. Other payment methods will not be selectable by the buyer.")
 	public List<Long> getPaymentMethodConfigurations() {
 		return paymentMethodConfigurations;
-	}
-
-	public void setPaymentMethodConfigurations(List<Long> paymentMethodConfigurations) {
-		this.paymentMethodConfigurations = paymentMethodConfigurations;
 	}
 
 	/**
@@ -223,8 +173,7 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -233,52 +182,26 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The sort order controls in which order the installation plans are listed. The sort order is used to order the plans in ascending order.
 	 */
-	@ApiModelProperty(example = "null", value = "The sort order controls in which order the installation plans are listed. The sort order is used to order the plans in ascending order.")
 	public Integer getSortOrder() {
 		return sortOrder;
 	}
 
-	public InstallmentPlanConfiguration spaceReference(SpaceReference spaceReference) {
-		this.spaceReference = spaceReference;
-		return this;
-	}
-
 	/**
-	 * 
+	 * spaceReference
 	 *
-	 * @return 
+	 * @return spaceReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SpaceReference getSpaceReference() {
 		return spaceReference;
 	}
 
-	public void setSpaceReference(SpaceReference spaceReference) {
-		this.spaceReference = spaceReference;
-	}
-
-	public InstallmentPlanConfiguration state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public InstallmentPlanConfiguration taxClass(TaxClass taxClass) {
-		this.taxClass = taxClass;
-		return this;
 	}
 
 	/**
@@ -286,18 +209,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The tax class determines the taxes which are applicable on all fees linked to the installment plan.
 	 */
-	@ApiModelProperty(example = "null", value = "The tax class determines the taxes which are applicable on all fees linked to the installment plan.")
 	public TaxClass getTaxClass() {
 		return taxClass;
-	}
-
-	public void setTaxClass(TaxClass taxClass) {
-		this.taxClass = taxClass;
-	}
-
-	public InstallmentPlanConfiguration termsAndConditions(ResourcePath termsAndConditions) {
-		this.termsAndConditions = termsAndConditions;
-		return this;
 	}
 
 	/**
@@ -305,18 +218,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The terms and conditions will be displayed to the customer when he or she selects this installment plan.
 	 */
-	@ApiModelProperty(example = "null", value = "The terms and conditions will be displayed to the customer when he or she selects this installment plan.")
 	public ResourcePath getTermsAndConditions() {
 		return termsAndConditions;
-	}
-
-	public void setTermsAndConditions(ResourcePath termsAndConditions) {
-		this.termsAndConditions = termsAndConditions;
-	}
-
-	public InstallmentPlanConfiguration title(DatabaseTranslatedString title) {
-		this.title = title;
-		return this;
 	}
 
 	/**
@@ -324,18 +227,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The title of the installment plan is used within the payment process. The title is visible to the buyer.
 	 */
-	@ApiModelProperty(example = "null", value = "The title of the installment plan is used within the payment process. The title is visible to the buyer.")
 	public DatabaseTranslatedString getTitle() {
 		return title;
-	}
-
-	public void setTitle(DatabaseTranslatedString title) {
-		this.title = title;
-	}
-
-	public InstallmentPlanConfiguration version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -343,13 +236,8 @@ public class InstallmentPlanConfiguration {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

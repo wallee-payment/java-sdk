@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * LabelDescriptorCategory
  */
 public enum LabelDescriptorCategory {
 	
@@ -38,7 +35,7 @@ public enum LabelDescriptorCategory {
 
 	private String value;
 
-	LabelDescriptorCategory(String value) {
+	private LabelDescriptorCategory(String value) {
 		this.value = value;
 	}
 

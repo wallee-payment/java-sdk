@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ManualTaskState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * A manual task requires a manual intervention by a human.
  */
-@io.swagger.annotations.ApiModel(description = "A manual task requires a manual intervention by a human.")
 public class ManualTask {
+
 	@SerializedName("actions")
 	private List<Long> actions = new ArrayList<Long>();
 
@@ -42,10 +38,10 @@ public class ManualTask {
 	private Long contextEntityId = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("expiresOn")
-	private DateTime expiresOn = null;
+	private OffsetDateTime expiresOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -54,7 +50,7 @@ public class ManualTask {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceId")
 	private Long spaceId = null;
@@ -65,28 +61,13 @@ public class ManualTask {
 	@SerializedName("type")
 	private Long type = null;
 
-	public ManualTask actions(List<Long> actions) {
-		this.actions = actions;
-		return this;
-	}
-
-	public ManualTask addActionsItem(Long actionsItem) {
-		this.actions.add(actionsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * actions
 	 *
-	 * @return 
+	 * @return actions
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getActions() {
 		return actions;
-	}
-
-	public void setActions(List<Long> actions) {
-		this.actions = actions;
 	}
 
 	/**
@@ -94,7 +75,6 @@ public class ManualTask {
 	 *
 	 * @return The context entity ID links the manual task to the entity which caused its creation.
 	 */
-	@ApiModelProperty(example = "null", value = "The context entity ID links the manual task to the entity which caused its creation.")
 	public Long getContextEntityId() {
 		return contextEntityId;
 	}
@@ -104,8 +84,7 @@ public class ManualTask {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -114,8 +93,7 @@ public class ManualTask {
 	 *
 	 * @return The expiry date indicates until when the manual task has to be executed.
 	 */
-	@ApiModelProperty(example = "null", value = "The expiry date indicates until when the manual task has to be executed.")
-	public DateTime getExpiresOn() {
+	public OffsetDateTime getExpiresOn() {
 		return expiresOn;
 	}
 
@@ -124,7 +102,6 @@ public class ManualTask {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -134,7 +111,6 @@ public class ManualTask {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -144,38 +120,26 @@ public class ManualTask {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceId
 	 *
-	 * @return 
+	 * @return spaceId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceId() {
 		return spaceId;
 	}
 
-	public ManualTask state(ManualTaskState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ManualTaskState getState() {
 		return state;
-	}
-
-	public void setState(ManualTaskState state) {
-		this.state = state;
 	}
 
 	/**
@@ -183,7 +147,6 @@ public class ManualTask {
 	 *
 	 * @return The type categorizes the manual task.
 	 */
-	@ApiModelProperty(example = "null", value = "The type categorizes the manual task.")
 	public Long getType() {
 		return type;
 	}

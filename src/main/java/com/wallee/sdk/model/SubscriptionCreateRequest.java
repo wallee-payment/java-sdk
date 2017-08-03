@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,16 +24,14 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionPending;
 import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The subscription create request holds all the data required to create a new subscription.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription create request holds all the data required to create a new subscription.")
 public class SubscriptionCreateRequest {
+
 	@SerializedName("currency")
 	private String currency = null;
 
@@ -49,18 +45,12 @@ public class SubscriptionCreateRequest {
 	private SubscriptionPending subscription = null;
 
 	/**
-	 * 
+	 * currency
 	 *
-	 * @return 
+	 * @return currency
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getCurrency() {
 		return currency;
-	}
-
-	public SubscriptionCreateRequest product(SubscriptionProduct product) {
-		this.product = product;
-		return this;
 	}
 
 	/**
@@ -68,56 +58,26 @@ public class SubscriptionCreateRequest {
 	 *
 	 * @return The subscription has to be linked with a product.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The subscription has to be linked with a product.")
 	public SubscriptionProduct getProduct() {
 		return product;
 	}
 
-	public void setProduct(SubscriptionProduct product) {
-		this.product = product;
-	}
-
-	public SubscriptionCreateRequest selectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
-		this.selectedComponents = selectedComponents;
-		return this;
-	}
-
-	public SubscriptionCreateRequest addSelectedComponentsItem(SubscriptionProductComponentReference selectedComponentsItem) {
-		this.selectedComponents.add(selectedComponentsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * selectedComponents
 	 *
-	 * @return 
+	 * @return selectedComponents
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<SubscriptionProductComponentReference> getSelectedComponents() {
 		return selectedComponents;
 	}
 
-	public void setSelectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
-		this.selectedComponents = selectedComponents;
-	}
-
-	public SubscriptionCreateRequest subscription(SubscriptionPending subscription) {
-		this.subscription = subscription;
-		return this;
-	}
-
 	/**
-	 * 
+	 * subscription
 	 *
-	 * @return 
+	 * @return subscription
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public SubscriptionPending getSubscription() {
 		return subscription;
-	}
-
-	public void setSubscription(SubscriptionPending subscription) {
-		this.subscription = subscription;
 	}
 
 

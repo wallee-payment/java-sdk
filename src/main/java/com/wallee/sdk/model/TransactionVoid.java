@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -29,25 +27,23 @@ import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionVoidMode;
 import com.wallee.sdk.model.TransactionVoidState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * TransactionVoid
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionVoid extends TransactionAwareEntity {
+
 	@SerializedName("createdBy")
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failureReason")
 	private FailureReason failureReason = null;
@@ -62,10 +58,10 @@ public class TransactionVoid extends TransactionAwareEntity {
 	private TransactionVoidMode mode = null;
 
 	@SerializedName("nextUpdateOn")
-	private DateTime nextUpdateOn = null;
+	private OffsetDateTime nextUpdateOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processorReference")
 	private String processorReference = null;
@@ -77,10 +73,10 @@ public class TransactionVoid extends TransactionAwareEntity {
 	private TransactionVoidState state = null;
 
 	@SerializedName("succeededOn")
-	private DateTime succeededOn = null;
+	private OffsetDateTime succeededOn = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("transaction")
 	private Transaction transaction = null;
@@ -89,11 +85,10 @@ public class TransactionVoid extends TransactionAwareEntity {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -103,100 +98,61 @@ public class TransactionVoid extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
-	public TransactionVoid failureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * failureReason
 	 *
-	 * @return 
+	 * @return failureReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureReason getFailureReason() {
 		return failureReason;
 	}
 
-	public void setFailureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-	}
-
-	public TransactionVoid labels(List<Label> labels) {
-		this.labels = labels;
-		return this;
-	}
-
-	public TransactionVoid addLabelsItem(Label labelsItem) {
-		this.labels.add(labelsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * labels
 	 *
-	 * @return 
+	 * @return labels
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Label> getLabels() {
 		return labels;
 	}
 
-	public void setLabels(List<Label> labels) {
-		this.labels = labels;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public TransactionVoid mode(TransactionVoidMode mode) {
-		this.mode = mode;
-		return this;
-	}
-
 	/**
-	 * 
+	 * mode
 	 *
-	 * @return 
+	 * @return mode
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionVoidMode getMode() {
 		return mode;
 	}
 
-	public void setMode(TransactionVoidMode mode) {
-		this.mode = mode;
-	}
-
 	/**
-	 * 
+	 * nextUpdateOn
 	 *
-	 * @return 
+	 * @return nextUpdateOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getNextUpdateOn() {
+	public OffsetDateTime getNextUpdateOn() {
 		return nextUpdateOn;
 	}
 
@@ -205,87 +161,62 @@ public class TransactionVoid extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * processorReference
 	 *
-	 * @return 
+	 * @return processorReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getProcessorReference() {
 		return processorReference;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public TransactionVoid state(TransactionVoidState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionVoidState getState() {
 		return state;
 	}
 
-	public void setState(TransactionVoidState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * succeededOn
 	 *
-	 * @return 
+	 * @return succeededOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getSucceededOn() {
+	public OffsetDateTime getSucceededOn() {
 		return succeededOn;
 	}
 
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
-	public TransactionVoid transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 	/**
@@ -293,7 +224,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

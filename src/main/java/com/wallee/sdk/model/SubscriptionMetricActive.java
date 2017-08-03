@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,8 +26,32 @@ import com.wallee.sdk.model.SubscriptionMetricUpdate;
 /**
  * A metric represents the usage of a resource that can be measured.
  */
-@io.swagger.annotations.ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 public class SubscriptionMetricActive extends SubscriptionMetricUpdate {
+
+	@Override
+	public SubscriptionMetricActive id(Long id) {
+		super.id(id);
+		return this;
+	}
+
+	@Override
+	public SubscriptionMetricActive version(Long version) {
+		super.version(version);
+		return this;
+	}
+
+	@Override
+	public SubscriptionMetricActive description(DatabaseTranslatedStringCreate description) {
+		super.description(description);
+		return this;
+	}
+
+	@Override
+	public SubscriptionMetricActive name(DatabaseTranslatedStringCreate name) {
+		super.name(name);
+		return this;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {

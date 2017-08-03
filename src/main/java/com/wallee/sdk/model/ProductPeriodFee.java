@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,16 +25,14 @@ import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.PersistableCurrencyAmount;
 import com.wallee.sdk.model.ProductFeeType;
 import com.wallee.sdk.model.SubscriptionProductComponent;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * ProductPeriodFee
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductPeriodFee {
+
 	@SerializedName("component")
 	private SubscriptionProductComponent component = null;
 
@@ -64,28 +60,13 @@ public class ProductPeriodFee {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ProductPeriodFee component(SubscriptionProductComponent component) {
-		this.component = component;
-		return this;
-	}
-
 	/**
-	 * 
+	 * component
 	 *
-	 * @return 
+	 * @return component
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductComponent getComponent() {
 		return component;
-	}
-
-	public void setComponent(SubscriptionProductComponent component) {
-		this.component = component;
-	}
-
-	public ProductPeriodFee description(DatabaseTranslatedString description) {
-		this.description = description;
-		return this;
 	}
 
 	/**
@@ -93,18 +74,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
 	 */
-	@ApiModelProperty(example = "null", value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
 	public DatabaseTranslatedString getDescription() {
 		return description;
-	}
-
-	public void setDescription(DatabaseTranslatedString description) {
-		this.description = description;
-	}
-
-	public ProductPeriodFee id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -112,13 +83,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -126,14 +92,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
-	}
-
-	public ProductPeriodFee name(DatabaseTranslatedString name) {
-		this.name = name;
-		return this;
 	}
 
 	/**
@@ -141,13 +101,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The name of the fee should describe for the subscriber in few words for what the fee is for.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
 	public DatabaseTranslatedString getName() {
 		return name;
-	}
-
-	public void setName(DatabaseTranslatedString name) {
-		this.name = name;
 	}
 
 	/**
@@ -155,19 +110,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The number of free trial periods specify how many periods are free of charge at the begining of the subscription.
 	 */
-	@ApiModelProperty(example = "null", value = "The number of free trial periods specify how many periods are free of charge at the begining of the subscription.")
 	public Integer getNumberOfFreeTrialPeriods() {
 		return numberOfFreeTrialPeriods;
-	}
-
-	public ProductPeriodFee periodFee(List<PersistableCurrencyAmount> periodFee) {
-		this.periodFee = periodFee;
-		return this;
-	}
-
-	public ProductPeriodFee addPeriodFeeItem(PersistableCurrencyAmount periodFeeItem) {
-		this.periodFee.add(periodFeeItem);
-		return this;
 	}
 
 	/**
@@ -175,37 +119,17 @@ public class ProductPeriodFee {
 	 *
 	 * @return The period fee is charged for every period of the subscription except for those periods which are trial periods.
 	 */
-	@ApiModelProperty(example = "null", value = "The period fee is charged for every period of the subscription except for those periods which are trial periods.")
 	public List<PersistableCurrencyAmount> getPeriodFee() {
 		return periodFee;
 	}
 
-	public void setPeriodFee(List<PersistableCurrencyAmount> periodFee) {
-		this.periodFee = periodFee;
-	}
-
-	public ProductPeriodFee type(ProductFeeType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ProductFeeType getType() {
 		return type;
-	}
-
-	public void setType(ProductFeeType type) {
-		this.type = type;
-	}
-
-	public ProductPeriodFee version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -213,13 +137,8 @@ public class ProductPeriodFee {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

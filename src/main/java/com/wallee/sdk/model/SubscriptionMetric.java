@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,15 +24,13 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionMetricType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
  * A metric represents the usage of a resource that can be measured.
  */
-@io.swagger.annotations.ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 public class SubscriptionMetric {
+
 	@SerializedName("description")
 	private DatabaseTranslatedString description = null;
 
@@ -48,7 +44,7 @@ public class SubscriptionMetric {
 	private DatabaseTranslatedString name = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private CreationEntityState state = null;
@@ -59,28 +55,13 @@ public class SubscriptionMetric {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public SubscriptionMetric description(DatabaseTranslatedString description) {
-		this.description = description;
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedString getDescription() {
 		return description;
-	}
-
-	public void setDescription(DatabaseTranslatedString description) {
-		this.description = description;
-	}
-
-	public SubscriptionMetric id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -88,13 +69,8 @@ public class SubscriptionMetric {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -102,28 +78,17 @@ public class SubscriptionMetric {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
-	public SubscriptionMetric name(DatabaseTranslatedString name) {
-		this.name = name;
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public DatabaseTranslatedString getName() {
 		return name;
-	}
-
-	public void setName(DatabaseTranslatedString name) {
-		this.name = name;
 	}
 
 	/**
@@ -131,52 +96,26 @@ public class SubscriptionMetric {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public SubscriptionMetric state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
 
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public SubscriptionMetric type(SubscriptionMetricType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionMetricType getType() {
 		return type;
-	}
-
-	public void setType(SubscriptionMetricType type) {
-		this.type = type;
-	}
-
-	public SubscriptionMetric version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -184,13 +123,8 @@ public class SubscriptionMetric {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

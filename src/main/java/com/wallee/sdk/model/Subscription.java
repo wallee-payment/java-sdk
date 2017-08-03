@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,17 +24,15 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Subscriber;
 import com.wallee.sdk.model.SubscriptionState;
 import com.wallee.sdk.model.Token;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * Subscription
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Subscription {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("description")
 	private String description = null;
@@ -45,7 +41,7 @@ public class Subscription {
 	private Long id = null;
 
 	@SerializedName("initializedOn")
-	private DateTime initializedOn = null;
+	private OffsetDateTime initializedOn = null;
 
 	@SerializedName("language")
 	private String language = null;
@@ -54,10 +50,10 @@ public class Subscription {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("plannedTerminationDate")
-	private DateTime plannedTerminationDate = null;
+	private OffsetDateTime plannedTerminationDate = null;
 
 	@SerializedName("reference")
 	private String reference = null;
@@ -69,10 +65,10 @@ public class Subscription {
 	private Subscriber subscriber = null;
 
 	@SerializedName("terminatedOn")
-	private DateTime terminatedOn = null;
+	private OffsetDateTime terminatedOn = null;
 
 	@SerializedName("terminatingOn")
-	private DateTime terminatingOn = null;
+	private OffsetDateTime terminatingOn = null;
 
 	@SerializedName("token")
 	private Token token = null;
@@ -81,28 +77,21 @@ public class Subscription {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDescription() {
 		return description;
-	}
-
-	public Subscription id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -110,31 +99,24 @@ public class Subscription {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	/**
-	 * 
+	 * initializedOn
 	 *
-	 * @return 
+	 * @return initializedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getInitializedOn() {
+	public OffsetDateTime getInitializedOn() {
 		return initializedOn;
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -144,7 +126,6 @@ public class Subscription {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -154,111 +135,71 @@ public class Subscription {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * plannedTerminationDate
 	 *
-	 * @return 
+	 * @return plannedTerminationDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedTerminationDate() {
+	public OffsetDateTime getPlannedTerminationDate() {
 		return plannedTerminationDate;
 	}
 
 	/**
-	 * 
+	 * reference
 	 *
-	 * @return 
+	 * @return reference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getReference() {
 		return reference;
 	}
 
-	public Subscription state(SubscriptionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionState getState() {
 		return state;
 	}
 
-	public void setState(SubscriptionState state) {
-		this.state = state;
-	}
-
-	public Subscription subscriber(Subscriber subscriber) {
-		this.subscriber = subscriber;
-		return this;
-	}
-
 	/**
-	 * 
+	 * subscriber
 	 *
-	 * @return 
+	 * @return subscriber
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Subscriber getSubscriber() {
 		return subscriber;
 	}
 
-	public void setSubscriber(Subscriber subscriber) {
-		this.subscriber = subscriber;
-	}
-
 	/**
-	 * 
+	 * terminatedOn
 	 *
-	 * @return 
+	 * @return terminatedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTerminatedOn() {
+	public OffsetDateTime getTerminatedOn() {
 		return terminatedOn;
 	}
 
 	/**
-	 * 
+	 * terminatingOn
 	 *
-	 * @return 
+	 * @return terminatingOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTerminatingOn() {
+	public OffsetDateTime getTerminatingOn() {
 		return terminatingOn;
 	}
 
-	public Subscription token(Token token) {
-		this.token = token;
-		return this;
-	}
-
 	/**
-	 * 
+	 * token
 	 *
-	 * @return 
+	 * @return token
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Token getToken() {
 		return token;
-	}
-
-	public void setToken(Token token) {
-		this.token = token;
-	}
-
-	public Subscription version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -266,13 +207,8 @@ public class Subscription {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

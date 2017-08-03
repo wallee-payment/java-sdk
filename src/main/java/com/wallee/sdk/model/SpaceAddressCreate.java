@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * SpaceAddressCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SpaceAddressCreate {
+
 	@SerializedName("city")
 	private String city = null;
 
@@ -76,11 +72,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * city
 	 *
-	 * @return 
+	 * @return city
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCity() {
 		return city;
 	}
@@ -95,11 +90,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * country
 	 *
-	 * @return 
+	 * @return country
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCountry() {
 		return country;
 	}
@@ -114,11 +108,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * dependentLocality
 	 *
-	 * @return 
+	 * @return dependentLocality
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDependentLocality() {
 		return dependentLocality;
 	}
@@ -137,7 +130,6 @@ public class SpaceAddressCreate {
 	 *
 	 * @return The email address is used within emails and as reply to address.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address is used within emails and as reply to address.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -152,11 +144,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * familyName
 	 *
-	 * @return 
+	 * @return familyName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getFamilyName() {
 		return familyName;
 	}
@@ -171,11 +162,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * givenName
 	 *
-	 * @return 
+	 * @return givenName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getGivenName() {
 		return givenName;
 	}
@@ -190,11 +180,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * organizationName
 	 *
-	 * @return 
+	 * @return organizationName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getOrganizationName() {
 		return organizationName;
 	}
@@ -209,11 +198,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * postCode
 	 *
-	 * @return 
+	 * @return postCode
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getPostCode() {
 		return postCode;
 	}
@@ -228,11 +216,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * postalState
 	 *
-	 * @return 
+	 * @return postalState
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getPostalState() {
 		return postalState;
 	}
@@ -247,11 +234,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * salesTaxNumber
 	 *
-	 * @return 
+	 * @return salesTaxNumber
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getSalesTaxNumber() {
 		return salesTaxNumber;
 	}
@@ -266,11 +252,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * salutation
 	 *
-	 * @return 
+	 * @return salutation
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getSalutation() {
 		return salutation;
 	}
@@ -289,7 +274,6 @@ public class SpaceAddressCreate {
 	 *
 	 * @return The sorting code identifies the post office at which the post box is located in.
 	 */
-	@ApiModelProperty(example = "null", value = "The sorting code identifies the post office at which the post box is located in.")
 	public String getSortingCode() {
 		return sortingCode;
 	}
@@ -304,11 +288,10 @@ public class SpaceAddressCreate {
 	}
 
 	/**
-	 * 
+	 * street
 	 *
-	 * @return 
+	 * @return street
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getStreet() {
 		return street;
 	}

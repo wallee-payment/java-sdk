@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.EntityQueryOrderByType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * The &#39;order by&#39; allows to order the returned entities.
  */
-@io.swagger.annotations.ApiModel(description = "The 'order by' allows to order the returned entities.")
 public class EntityQueryOrderBy {
+
 	@SerializedName("fieldName")
 	private String fieldName = null;
 
@@ -39,32 +35,21 @@ public class EntityQueryOrderBy {
 	private EntityQueryOrderByType sorting = null;
 
 	/**
-	 * 
+	 * fieldName
 	 *
-	 * @return 
+	 * @return fieldName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getFieldName() {
 		return fieldName;
 	}
 
-	public EntityQueryOrderBy sorting(EntityQueryOrderByType sorting) {
-		this.sorting = sorting;
-		return this;
-	}
-
 	/**
-	 * 
+	 * sorting
 	 *
-	 * @return 
+	 * @return sorting
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public EntityQueryOrderByType getSorting() {
 		return sorting;
-	}
-
-	public void setSorting(EntityQueryOrderByType sorting) {
-		this.sorting = sorting;
 	}
 
 

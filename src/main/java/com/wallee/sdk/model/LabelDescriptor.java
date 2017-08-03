@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LabelDescriptorCategory;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * LabelDescriptor
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LabelDescriptor {
+
 	@SerializedName("category")
 	private LabelDescriptorCategory category = null;
 
@@ -60,79 +56,38 @@ public class LabelDescriptor {
 	@SerializedName("weight")
 	private Integer weight = null;
 
-	public LabelDescriptor category(LabelDescriptorCategory category) {
-		this.category = category;
-		return this;
-	}
-
 	/**
-	 * 
+	 * category
 	 *
-	 * @return 
+	 * @return category
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public LabelDescriptorCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(LabelDescriptorCategory category) {
-		this.category = category;
-	}
-
-	public LabelDescriptor description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public LabelDescriptor putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
-	public LabelDescriptor features(List<Long> features) {
-		this.features = features;
-		return this;
-	}
-
-	public LabelDescriptor addFeaturesItem(Long featuresItem) {
-		this.features.add(featuresItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * features
 	 *
-	 * @return 
+	 * @return features
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(List<Long> features) {
-		this.features = features;
-	}
-
 	/**
-	 * 
+	 * group
 	 *
-	 * @return 
+	 * @return group
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getGroup() {
 		return group;
 	}
@@ -142,51 +97,33 @@ public class LabelDescriptor {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public LabelDescriptor name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public LabelDescriptor putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
 	}
 
-	public void setName(Map<String, String> name) {
-		this.name = name;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getType() {
 		return type;
 	}
 
 	/**
-	 * 
+	 * weight
 	 *
-	 * @return 
+	 * @return weight
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Integer getWeight() {
 		return weight;
 	}

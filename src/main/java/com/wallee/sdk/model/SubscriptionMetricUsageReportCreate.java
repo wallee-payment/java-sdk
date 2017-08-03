@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
 /**
  * The metric usage is the actual usage of a metric for a particular subscription as collected by an external application.
  */
-@io.swagger.annotations.ApiModel(description = "The metric usage is the actual usage of a metric for a particular subscription as collected by an external application.")
 public class SubscriptionMetricUsageReportCreate {
+
 	@SerializedName("consumedUnits")
 	private BigDecimal consumedUnits = null;
 
@@ -57,7 +53,6 @@ public class SubscriptionMetricUsageReportCreate {
 	 *
 	 * @return The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.")
 	public BigDecimal getConsumedUnits() {
 		return consumedUnits;
 	}
@@ -76,7 +71,6 @@ public class SubscriptionMetricUsageReportCreate {
 	 *
 	 * @return The metric usage report description describe the reported usage. This description may be shown to the end user.
 	 */
-	@ApiModelProperty(example = "null", value = "The metric usage report description describe the reported usage. This description may be shown to the end user.")
 	public String getDescription() {
 		return description;
 	}
@@ -95,7 +89,6 @@ public class SubscriptionMetricUsageReportCreate {
 	 *
 	 * @return The external id identifies the metric usage uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id identifies the metric usage uniquely.")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -114,7 +107,6 @@ public class SubscriptionMetricUsageReportCreate {
 	 *
 	 * @return The metric usage report is linked to the metric for which the usage should be recorded.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The metric usage report is linked to the metric for which the usage should be recorded.")
 	public Long getMetric() {
 		return metric;
 	}
@@ -133,7 +125,6 @@ public class SubscriptionMetricUsageReportCreate {
 	 *
 	 * @return The subscription to which the usage is added to.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The subscription to which the usage is added to.")
 	public Long getSubscription() {
 		return subscription;
 	}

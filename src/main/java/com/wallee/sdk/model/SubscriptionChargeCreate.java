@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionChargeProcessingType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
  * The subscription charge represents a single charge carried out for a particular subscription.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
 public class SubscriptionChargeCreate {
+
 	@SerializedName("externalId")
 	private String externalId = null;
 
@@ -40,7 +36,7 @@ public class SubscriptionChargeCreate {
 	private String failedUrl = null;
 
 	@SerializedName("plannedExecutionDate")
-	private DateTime plannedExecutionDate = null;
+	private OffsetDateTime plannedExecutionDate = null;
 
 	@SerializedName("processingType")
 	private SubscriptionChargeProcessingType processingType = null;
@@ -64,7 +60,6 @@ public class SubscriptionChargeCreate {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -83,7 +78,6 @@ public class SubscriptionChargeCreate {
 	 *
 	 * @return The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
 	public String getFailedUrl() {
 		return failedUrl;
 	}
@@ -92,22 +86,21 @@ public class SubscriptionChargeCreate {
 		this.failedUrl = failedUrl;
 	}
 
-	public SubscriptionChargeCreate plannedExecutionDate(DateTime plannedExecutionDate) {
+	public SubscriptionChargeCreate plannedExecutionDate(OffsetDateTime plannedExecutionDate) {
 		this.plannedExecutionDate = plannedExecutionDate;
 		return this;
 	}
 
 	/**
-	 * 
+	 * plannedExecutionDate
 	 *
-	 * @return 
+	 * @return plannedExecutionDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedExecutionDate() {
+	public OffsetDateTime getPlannedExecutionDate() {
 		return plannedExecutionDate;
 	}
 
-	public void setPlannedExecutionDate(DateTime plannedExecutionDate) {
+	public void setPlannedExecutionDate(OffsetDateTime plannedExecutionDate) {
 		this.plannedExecutionDate = plannedExecutionDate;
 	}
 
@@ -117,11 +110,10 @@ public class SubscriptionChargeCreate {
 	}
 
 	/**
-	 * 
+	 * processingType
 	 *
-	 * @return 
+	 * @return processingType
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public SubscriptionChargeProcessingType getProcessingType() {
 		return processingType;
 	}
@@ -136,11 +128,10 @@ public class SubscriptionChargeCreate {
 	}
 
 	/**
-	 * 
+	 * reference
 	 *
-	 * @return 
+	 * @return reference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getReference() {
 		return reference;
 	}
@@ -159,7 +150,6 @@ public class SubscriptionChargeCreate {
 	 *
 	 * @return The field subscription indicates the subscription to which the charge belongs to.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The field subscription indicates the subscription to which the charge belongs to.")
 	public Long getSubscription() {
 		return subscription;
 	}
@@ -178,7 +168,6 @@ public class SubscriptionChargeCreate {
 	 *
 	 * @return The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
 	public String getSuccessUrl() {
 		return successUrl;
 	}

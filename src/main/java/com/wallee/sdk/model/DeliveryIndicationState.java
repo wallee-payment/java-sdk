@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * DeliveryIndicationState
  */
 public enum DeliveryIndicationState {
 	
@@ -44,7 +41,7 @@ public enum DeliveryIndicationState {
 
 	private String value;
 
-	DeliveryIndicationState(String value) {
+	private DeliveryIndicationState(String value) {
 		this.value = value;
 	}
 

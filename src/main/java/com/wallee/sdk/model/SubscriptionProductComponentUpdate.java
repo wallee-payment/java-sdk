@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * SubscriptionProductComponentUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductComponentUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -72,7 +68,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -91,7 +86,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -110,7 +104,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.
 	 */
-	@ApiModelProperty(example = "null", value = "The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.")
 	public Integer getComponentChangeWeight() {
 		return componentChangeWeight;
 	}
@@ -125,11 +118,10 @@ public class SubscriptionProductComponentUpdate {
 	}
 
 	/**
-	 * 
+	 * componentGroup
 	 *
-	 * @return 
+	 * @return componentGroup
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getComponentGroup() {
 		return componentGroup;
 	}
@@ -148,7 +140,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return When a component is marked as a 'default' component it is used when no other component is selected by the user.
 	 */
-	@ApiModelProperty(example = "null", value = "When a component is marked as a 'default' component it is used when no other component is selected by the user.")
 	public Boolean getDefaultComponent() {
 		return defaultComponent;
 	}
@@ -167,7 +158,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.
 	 */
-	@ApiModelProperty(example = "null", value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
 	public DatabaseTranslatedStringCreate getDescription() {
 		return description;
 	}
@@ -186,7 +176,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The component name is shown to the subscriber. It should describe in few words what the component does contain.
 	 */
-	@ApiModelProperty(example = "null", value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}
@@ -205,7 +194,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.
 	 */
-	@ApiModelProperty(example = "null", value = "The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.")
 	public Long getReference() {
 		return reference;
 	}
@@ -224,7 +212,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.
 	 */
-	@ApiModelProperty(example = "null", value = "The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.")
 	public Integer getSortOrder() {
 		return sortOrder;
 	}
@@ -243,7 +230,6 @@ public class SubscriptionProductComponentUpdate {
 	 *
 	 * @return The tax class of the component determines the taxes which are applicable on all fees linked with the component.
 	 */
-	@ApiModelProperty(example = "null", value = "The tax class of the component determines the taxes which are applicable on all fees linked with the component.")
 	public Long getTaxClass() {
 		return taxClass;
 	}

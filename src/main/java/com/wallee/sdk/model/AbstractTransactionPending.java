@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,8 +24,6 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +33,7 @@ import java.util.Map;
  * AbstractTransactionPending
  */
 public class AbstractTransactionPending {
+
 	@SerializedName("allowedPaymentMethodBrands")
 	private List<PaymentMethodBrand> allowedPaymentMethodBrands = new ArrayList<PaymentMethodBrand>();
 
@@ -96,11 +93,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * allowedPaymentMethodBrands
 	 *
-	 * @return 
+	 * @return allowedPaymentMethodBrands
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
 		return allowedPaymentMethodBrands;
 	}
@@ -120,11 +116,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * allowedPaymentMethodConfigurations
 	 *
-	 * @return 
+	 * @return allowedPaymentMethodConfigurations
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getAllowedPaymentMethodConfigurations() {
 		return allowedPaymentMethodConfigurations;
 	}
@@ -139,11 +134,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getBillingAddress() {
 		return billingAddress;
 	}
@@ -158,11 +152,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * currency
 	 *
-	 * @return 
+	 * @return currency
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCurrency() {
 		return currency;
 	}
@@ -181,7 +174,6 @@ public class AbstractTransactionPending {
 	 *
 	 * @return The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
 	 */
-	@ApiModelProperty(example = "null", value = "The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.")
 	public String getCustomerEmailAddress() {
 		return customerEmailAddress;
 	}
@@ -196,11 +188,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * customerId
 	 *
-	 * @return 
+	 * @return customerId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -219,7 +210,6 @@ public class AbstractTransactionPending {
 	 *
 	 * @return The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
 	public String getFailedUrl() {
 		return failedUrl;
 	}
@@ -234,11 +224,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * invoiceMerchantReference
 	 *
-	 * @return 
+	 * @return invoiceMerchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getInvoiceMerchantReference() {
 		return invoiceMerchantReference;
 	}
@@ -253,11 +242,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -277,11 +265,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItemCreate> getLineItems() {
 		return lineItems;
 	}
@@ -296,11 +283,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
 	}
@@ -324,7 +310,6 @@ public class AbstractTransactionPending {
 	 *
 	 * @return Meta data allow to store additional data along the object.
 	 */
-	@ApiModelProperty(example = "null", value = "Meta data allow to store additional data along the object.")
 	public Map<String, String> getMetaData() {
 		return metaData;
 	}
@@ -339,11 +324,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getShippingAddress() {
 		return shippingAddress;
 	}
@@ -358,11 +342,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * shippingMethod
 	 *
-	 * @return 
+	 * @return shippingMethod
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getShippingMethod() {
 		return shippingMethod;
 	}
@@ -381,7 +364,6 @@ public class AbstractTransactionPending {
 	 *
 	 * @return The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
 	 */
-	@ApiModelProperty(example = "null", value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
 	public String getSuccessUrl() {
 		return successUrl;
 	}
@@ -396,11 +378,10 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * 
+	 * token
 	 *
-	 * @return 
+	 * @return token
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getToken() {
 		return token;
 	}

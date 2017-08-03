@@ -18,13 +18,15 @@
  * limitations under the License.
  */
 
-
 package com.wallee.sdk;
 
 import java.util.Map;
 import java.util.List;
 
 public class ApiException extends Exception {
+
+    private static final long serialVersionUID = -3782176721264339776L;
+
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;
     private String responseBody = null;

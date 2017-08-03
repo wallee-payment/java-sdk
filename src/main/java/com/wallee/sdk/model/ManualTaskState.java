@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * ManualTaskState
  */
 public enum ManualTaskState {
 	
@@ -41,7 +38,7 @@ public enum ManualTaskState {
 
 	private String value;
 
-	ManualTaskState(String value) {
+	private ManualTaskState(String value) {
 		this.value = value;
 	}
 

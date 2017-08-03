@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
 /**
- * 
+ * LineItemReduction
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LineItemReduction {
+
 	@SerializedName("lineItemUniqueId")
 	private String lineItemUniqueId = null;
 
@@ -46,27 +42,24 @@ public class LineItemReduction {
 	 *
 	 * @return The unique id identifies the line item on which the reduction is applied on.
 	 */
-	@ApiModelProperty(example = "null", value = "The unique id identifies the line item on which the reduction is applied on.")
 	public String getLineItemUniqueId() {
 		return lineItemUniqueId;
 	}
 
 	/**
-	 * 
+	 * quantityReduction
 	 *
-	 * @return 
+	 * @return quantityReduction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getQuantityReduction() {
 		return quantityReduction;
 	}
 
 	/**
-	 * 
+	 * unitPriceReduction
 	 *
-	 * @return 
+	 * @return unitPriceReduction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getUnitPriceReduction() {
 		return unitPriceReduction;
 	}

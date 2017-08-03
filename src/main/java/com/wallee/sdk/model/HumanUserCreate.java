@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,10 +24,46 @@ import com.wallee.sdk.model.AbstractHumanUserUpdate;
 import com.wallee.sdk.model.CreationEntityState;
 
 /**
- * 
+ * HumanUserCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class HumanUserCreate extends AbstractHumanUserUpdate {
+
+	@Override
+	public HumanUserCreate emailAddress(String emailAddress) {
+		super.emailAddress(emailAddress);
+		return this;
+	}
+
+	@Override
+	public HumanUserCreate firstname(String firstname) {
+		super.firstname(firstname);
+		return this;
+	}
+
+	@Override
+	public HumanUserCreate language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public HumanUserCreate lastname(String lastname) {
+		super.lastname(lastname);
+		return this;
+	}
+
+	@Override
+	public HumanUserCreate state(CreationEntityState state) {
+		super.state(state);
+		return this;
+	}
+
+	@Override
+	public HumanUserCreate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {

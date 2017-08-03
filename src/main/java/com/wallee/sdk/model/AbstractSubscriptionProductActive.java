@@ -17,15 +17,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionProductState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +29,7 @@ import java.util.List;
  * AbstractSubscriptionProductActive
  */
 public class AbstractSubscriptionProductActive {
+
 	@SerializedName("allowedPaymentMethodConfigurations")
 	private List<Long> allowedPaymentMethodConfigurations = new ArrayList<Long>();
 
@@ -63,7 +60,6 @@ public class AbstractSubscriptionProductActive {
 	 *
 	 * @return The allowed payment method configurations control which payment methods can be used with this product. When none is selected all methods will be allowed.
 	 */
-	@ApiModelProperty(example = "null", value = "The allowed payment method configurations control which payment methods can be used with this product. When none is selected all methods will be allowed.")
 	public List<Long> getAllowedPaymentMethodConfigurations() {
 		return allowedPaymentMethodConfigurations;
 	}
@@ -82,7 +78,6 @@ public class AbstractSubscriptionProductActive {
 	 *
 	 * @return When a payment fails, the subscription to which the payment belongs to will be suspended. When the suspension is not removed within the specified period the subscription will be terminated. A payment is considered as failed when the subscriber issues a refund or when a subscription charge fails.
 	 */
-	@ApiModelProperty(example = "null", value = "When a payment fails, the subscription to which the payment belongs to will be suspended. When the suspension is not removed within the specified period the subscription will be terminated. A payment is considered as failed when the subscriber issues a refund or when a subscription charge fails.")
 	public String getFailedPaymentSuspensionPeriod() {
 		return failedPaymentSuspensionPeriod;
 	}
@@ -101,7 +96,6 @@ public class AbstractSubscriptionProductActive {
 	 *
 	 * @return The product name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The product name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -120,7 +114,6 @@ public class AbstractSubscriptionProductActive {
 	 *
 	 * @return The sort order controls in which order the product is listed. The sort order is used to order the products in ascending order.
 	 */
-	@ApiModelProperty(example = "null", value = "The sort order controls in which order the product is listed. The sort order is used to order the products in ascending order.")
 	public Integer getSortOrder() {
 		return sortOrder;
 	}
@@ -135,11 +128,10 @@ public class AbstractSubscriptionProductActive {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductState getState() {
 		return state;
 	}

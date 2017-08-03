@@ -17,15 +17,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +29,7 @@ import java.util.List;
  * AbstractSubscriberUpdate
  */
 public class AbstractSubscriberUpdate {
+
 	@SerializedName("additionalAllowedPaymentMethodConfigurations")
 	private List<Long> additionalAllowedPaymentMethodConfigurations = new ArrayList<Long>();
 
@@ -72,7 +69,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are allowed additionally will be available even when the product does not allow those methods.")
 	public List<Long> getAdditionalAllowedPaymentMethodConfigurations() {
 		return additionalAllowedPaymentMethodConfigurations;
 	}
@@ -87,11 +83,10 @@ public class AbstractSubscriberUpdate {
 	}
 
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getBillingAddress() {
 		return billingAddress;
 	}
@@ -110,7 +105,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.")
 	public String getDescription() {
 		return description;
 	}
@@ -134,7 +128,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.")
 	public List<Long> getDisallowedPaymentMethodConfigurations() {
 		return disallowedPaymentMethodConfigurations;
 	}
@@ -153,7 +146,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -172,7 +164,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).")
 	public String getLanguage() {
 		return language;
 	}
@@ -191,7 +182,6 @@ public class AbstractSubscriberUpdate {
 	 *
 	 * @return The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).")
 	public String getReference() {
 		return reference;
 	}
@@ -206,11 +196,10 @@ public class AbstractSubscriberUpdate {
 	}
 
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getShippingAddress() {
 		return shippingAddress;
 	}

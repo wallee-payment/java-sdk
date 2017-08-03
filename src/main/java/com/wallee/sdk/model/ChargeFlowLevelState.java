@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * ChargeFlowLevelState
  */
 public enum ChargeFlowLevelState {
 	
@@ -41,7 +38,7 @@ public enum ChargeFlowLevelState {
 
 	private String value;
 
-	ChargeFlowLevelState(String value) {
+	private ChargeFlowLevelState(String value) {
 		this.value = value;
 	}
 

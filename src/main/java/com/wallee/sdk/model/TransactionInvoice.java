@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,18 +25,16 @@ import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletion;
 import com.wallee.sdk.model.TransactionInvoiceState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * The transaction invoice represents the invoice document for a particular transaction.
  */
-@io.swagger.annotations.ApiModel(description = "The transaction invoice represents the invoice document for a particular transaction.")
 public class TransactionInvoice extends TransactionAwareEntity {
+
 	@SerializedName("amount")
 	private BigDecimal amount = null;
 
@@ -46,13 +42,13 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	private TransactionCompletion completion = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("derecognizedOn")
-	private DateTime derecognizedOn = null;
+	private OffsetDateTime derecognizedOn = null;
 
 	@SerializedName("dueOn")
-	private DateTime dueOn = null;
+	private OffsetDateTime dueOn = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
@@ -70,10 +66,10 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	private BigDecimal outstandingAmount = null;
 
 	@SerializedName("paidOn")
-	private DateTime paidOn = null;
+	private OffsetDateTime paidOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("spaceViewId")
 	private Long spaceViewId = null;
@@ -88,32 +84,21 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * amount
 	 *
-	 * @return 
+	 * @return amount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public TransactionInvoice completion(TransactionCompletion completion) {
-		this.completion = completion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * completion
 	 *
-	 * @return 
+	 * @return completion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionCompletion getCompletion() {
 		return completion;
-	}
-
-	public void setCompletion(TransactionCompletion completion) {
-		this.completion = completion;
 	}
 
 	/**
@@ -121,8 +106,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The date on which the invoice is created on.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the invoice is created on.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -131,8 +115,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The date on which the invoice is marked as derecognized.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the invoice is marked as derecognized.")
-	public DateTime getDerecognizedOn() {
+	public OffsetDateTime getDerecognizedOn() {
 		return derecognizedOn;
 	}
 
@@ -141,61 +124,42 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The date on which the invoice should be paid on.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the invoice should be paid on.")
-	public DateTime getDueOn() {
+	public OffsetDateTime getDueOn() {
 		return dueOn;
 	}
 
 	/**
-	 * 
+	 * externalId
 	 *
-	 * @return 
+	 * @return externalId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getExternalId() {
 		return externalId;
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public TransactionInvoice lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public TransactionInvoice addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
 	}
 
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-	}
-
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
 	}
@@ -205,7 +169,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.
 	 */
-	@ApiModelProperty(example = "null", value = "The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.")
 	public BigDecimal getOutstandingAmount() {
 		return outstandingAmount;
 	}
@@ -215,8 +178,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.")
-	public DateTime getPaidOn() {
+	public OffsetDateTime getPaidOn() {
 		return paidOn;
 	}
 
@@ -225,46 +187,33 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public TransactionInvoice state(TransactionInvoiceState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionInvoiceState getState() {
 		return state;
 	}
 
-	public void setState(TransactionInvoiceState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * taxAmount
 	 *
-	 * @return 
+	 * @return taxAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTaxAmount() {
 		return taxAmount;
 	}
@@ -274,7 +223,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

@@ -17,68 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSubscriptionMetricUpdate;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * A metric represents the usage of a resource that can be measured.
  */
-@io.swagger.annotations.ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
-	@SerializedName("description")
-	private DatabaseTranslatedStringCreate description = null;
-
-	@SerializedName("name")
-	private DatabaseTranslatedStringCreate name = null;
 
 	@SerializedName("type")
 	private Long type = null;
-
-	public SubscriptionMetricCreate description(DatabaseTranslatedStringCreate description) {
-		this.description = description;
-		return this;
-	}
-
-	/**
-	 * 
-	 *
-	 * @return 
-	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DatabaseTranslatedStringCreate getDescription() {
-		return description;
-	}
-
-	public void setDescription(DatabaseTranslatedStringCreate description) {
-		this.description = description;
-	}
-
-	public SubscriptionMetricCreate name(DatabaseTranslatedStringCreate name) {
-		this.name = name;
-		return this;
-	}
-
-	/**
-	 * 
-	 *
-	 * @return 
-	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
-	public DatabaseTranslatedStringCreate getName() {
-		return name;
-	}
-
-	public void setName(DatabaseTranslatedStringCreate name) {
-		this.name = name;
-	}
 
 	public SubscriptionMetricCreate type(Long type) {
 		this.type = type;
@@ -86,17 +38,28 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
 	}
 
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getType() {
 		return type;
 	}
 
 	public void setType(Long type) {
 		this.type = type;
+	}
+
+	@Override
+	public SubscriptionMetricCreate description(DatabaseTranslatedStringCreate description) {
+		super.description(description);
+		return this;
+	}
+
+	@Override
+	public SubscriptionMetricCreate name(DatabaseTranslatedStringCreate name) {
+		super.name(name);
+		return this;
 	}
 
 
@@ -109,15 +72,13 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
 			return false;
 		}
 		SubscriptionMetricCreate subscriptionMetricCreate = (SubscriptionMetricCreate) o;
-		return Objects.equals(this.description, subscriptionMetricCreate.description) &&
-				Objects.equals(this.name, subscriptionMetricCreate.name) &&
-				Objects.equals(this.type, subscriptionMetricCreate.type) &&
+		return Objects.equals(this.type, subscriptionMetricCreate.type) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, name, type, super.hashCode());
+		return Objects.hash(type, super.hashCode());
 	}
 
 
@@ -126,8 +87,6 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SubscriptionMetricCreate {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
-		sb.append("		description: ").append(toIndentedString(description)).append("\n");
-		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");
 		sb.append("}");
 		return sb.toString();

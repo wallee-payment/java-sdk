@@ -17,19 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * AbstractAccountUpdate
  */
 public class AbstractAccountUpdate {
+
 	@SerializedName("name")
 	private String name = null;
 
@@ -46,7 +43,6 @@ public class AbstractAccountUpdate {
 	 *
 	 * @return The name of the account identifies the account within the administrative interface.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the account identifies the account within the administrative interface.")
 	public String getName() {
 		return name;
 	}
@@ -65,7 +61,6 @@ public class AbstractAccountUpdate {
 	 *
 	 * @return This property restricts the number of subaccounts which can be created within this account.
 	 */
-	@ApiModelProperty(example = "null", value = "This property restricts the number of subaccounts which can be created within this account.")
 	public Long getSubaccountLimit() {
 		return subaccountLimit;
 	}

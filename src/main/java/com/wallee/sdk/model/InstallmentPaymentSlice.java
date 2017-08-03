@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,22 +26,20 @@ import com.wallee.sdk.model.InstallmentPaymentSliceState;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * An installment payment slice represents a single transaction of money from the buyer to the merchant.
  */
-@io.swagger.annotations.ApiModel(description = "An installment payment slice represents a single transaction of money from the buyer to the merchant.")
 public class InstallmentPaymentSlice extends TransactionAwareEntity {
+
 	@SerializedName("chargeOn")
-	private DateTime chargeOn = null;
+	private OffsetDateTime chargeOn = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("installmentPayment")
 	private InstallmentPayment installmentPayment = null;
@@ -52,7 +48,7 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 	private List<LineItem> lineItems = new ArrayList<LineItem>();
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private InstallmentPaymentSliceState state = null;
@@ -64,12 +60,11 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * chargeOn
 	 *
-	 * @return 
+	 * @return chargeOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getChargeOn() {
+	public OffsetDateTime getChargeOn() {
 		return chargeOn;
 	}
 
@@ -78,52 +73,26 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
-	public InstallmentPaymentSlice installmentPayment(InstallmentPayment installmentPayment) {
-		this.installmentPayment = installmentPayment;
-		return this;
-	}
-
 	/**
-	 * 
+	 * installmentPayment
 	 *
-	 * @return 
+	 * @return installmentPayment
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public InstallmentPayment getInstallmentPayment() {
 		return installmentPayment;
 	}
 
-	public void setInstallmentPayment(InstallmentPayment installmentPayment) {
-		this.installmentPayment = installmentPayment;
-	}
-
-	public InstallmentPaymentSlice lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public InstallmentPaymentSlice addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 	/**
@@ -131,47 +100,26 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public InstallmentPaymentSlice state(InstallmentPaymentSliceState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public InstallmentPaymentSliceState getState() {
 		return state;
 	}
 
-	public void setState(InstallmentPaymentSliceState state) {
-		this.state = state;
-	}
-
-	public InstallmentPaymentSlice transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 	/**
@@ -179,7 +127,6 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

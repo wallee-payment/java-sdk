@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,14 +26,12 @@ import com.wallee.sdk.model.ProductFeeType;
 import com.wallee.sdk.model.ProductMeteredTierPricing;
 import com.wallee.sdk.model.SubscriptionMetric;
 import com.wallee.sdk.model.SubscriptionProductComponent;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * ProductMeteredFee
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductMeteredFee {
+
 	@SerializedName("component")
 	private SubscriptionProductComponent component = null;
 
@@ -63,28 +59,13 @@ public class ProductMeteredFee {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ProductMeteredFee component(SubscriptionProductComponent component) {
-		this.component = component;
-		return this;
-	}
-
 	/**
-	 * 
+	 * component
 	 *
-	 * @return 
+	 * @return component
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductComponent getComponent() {
 		return component;
-	}
-
-	public void setComponent(SubscriptionProductComponent component) {
-		this.component = component;
-	}
-
-	public ProductMeteredFee description(DatabaseTranslatedString description) {
-		this.description = description;
-		return this;
 	}
 
 	/**
@@ -92,18 +73,8 @@ public class ProductMeteredFee {
 	 *
 	 * @return The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
 	 */
-	@ApiModelProperty(example = "null", value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
 	public DatabaseTranslatedString getDescription() {
 		return description;
-	}
-
-	public void setDescription(DatabaseTranslatedString description) {
-		this.description = description;
-	}
-
-	public ProductMeteredFee id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -111,13 +82,8 @@ public class ProductMeteredFee {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -125,33 +91,17 @@ public class ProductMeteredFee {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
-	public ProductMeteredFee metric(SubscriptionMetric metric) {
-		this.metric = metric;
-		return this;
-	}
-
 	/**
-	 * 
+	 * metric
 	 *
-	 * @return 
+	 * @return metric
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionMetric getMetric() {
 		return metric;
-	}
-
-	public void setMetric(SubscriptionMetric metric) {
-		this.metric = metric;
-	}
-
-	public ProductMeteredFee name(DatabaseTranslatedString name) {
-		this.name = name;
-		return this;
 	}
 
 	/**
@@ -159,18 +109,8 @@ public class ProductMeteredFee {
 	 *
 	 * @return The name of the fee should describe for the subscriber in few words for what the fee is for.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
 	public DatabaseTranslatedString getName() {
 		return name;
-	}
-
-	public void setName(DatabaseTranslatedString name) {
-		this.name = name;
-	}
-
-	public ProductMeteredFee tierPricing(ProductMeteredTierPricing tierPricing) {
-		this.tierPricing = tierPricing;
-		return this;
 	}
 
 	/**
@@ -178,37 +118,17 @@ public class ProductMeteredFee {
 	 *
 	 * @return The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.
 	 */
-	@ApiModelProperty(example = "null", value = "The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.")
 	public ProductMeteredTierPricing getTierPricing() {
 		return tierPricing;
 	}
 
-	public void setTierPricing(ProductMeteredTierPricing tierPricing) {
-		this.tierPricing = tierPricing;
-	}
-
-	public ProductMeteredFee type(ProductFeeType type) {
-		this.type = type;
-		return this;
-	}
-
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ProductFeeType getType() {
 		return type;
-	}
-
-	public void setType(ProductFeeType type) {
-		this.type = type;
-	}
-
-	public ProductMeteredFee version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -216,13 +136,8 @@ public class ProductMeteredFee {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

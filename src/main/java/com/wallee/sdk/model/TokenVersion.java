@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -29,25 +27,23 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TokenVersionState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * TokenVersion
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TokenVersion {
+
 	@SerializedName("activatedOn")
-	private DateTime activatedOn = null;
+	private OffsetDateTime activatedOn = null;
 
 	@SerializedName("billingAddress")
 	private Address billingAddress = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("environment")
 	private ChargeAttemptEnvironment environment = null;
@@ -68,13 +64,13 @@ public class TokenVersion {
 	private String name = null;
 
 	@SerializedName("obsoletedOn")
-	private DateTime obsoletedOn = null;
+	private OffsetDateTime obsoletedOn = null;
 
 	@SerializedName("paymentConnectorConfiguration")
 	private PaymentConnectorConfiguration paymentConnectorConfiguration = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processorToken")
 	private String processorToken = null;
@@ -92,32 +88,21 @@ public class TokenVersion {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * activatedOn
 	 *
-	 * @return 
+	 * @return activatedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getActivatedOn() {
+	public OffsetDateTime getActivatedOn() {
 		return activatedOn;
 	}
 
-	public TokenVersion billingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getBillingAddress() {
 		return billingAddress;
-	}
-
-	public void setBillingAddress(Address billingAddress) {
-		this.billingAddress = billingAddress;
 	}
 
 	/**
@@ -125,33 +110,17 @@ public class TokenVersion {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
-	public TokenVersion environment(ChargeAttemptEnvironment environment) {
-		this.environment = environment;
-		return this;
-	}
-
 	/**
-	 * 
+	 * environment
 	 *
-	 * @return 
+	 * @return environment
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeAttemptEnvironment getEnvironment() {
 		return environment;
-	}
-
-	public void setEnvironment(ChargeAttemptEnvironment environment) {
-		this.environment = environment;
-	}
-
-	public TokenVersion id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -159,45 +128,24 @@ public class TokenVersion {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public TokenVersion labels(List<Label> labels) {
-		this.labels = labels;
-		return this;
-	}
-
-	public TokenVersion addLabelsItem(Label labelsItem) {
-		this.labels.add(labelsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * labels
 	 *
-	 * @return 
+	 * @return labels
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Label> getLabels() {
 		return labels;
 	}
 
-	public void setLabels(List<Label> labels) {
-		this.labels = labels;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -207,48 +155,35 @@ public class TokenVersion {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * 
+	 * obsoletedOn
 	 *
-	 * @return 
+	 * @return obsoletedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getObsoletedOn() {
+	public OffsetDateTime getObsoletedOn() {
 		return obsoletedOn;
 	}
 
-	public TokenVersion paymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
-		this.paymentConnectorConfiguration = paymentConnectorConfiguration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * paymentConnectorConfiguration
 	 *
-	 * @return 
+	 * @return paymentConnectorConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public PaymentConnectorConfiguration getPaymentConnectorConfiguration() {
 		return paymentConnectorConfiguration;
-	}
-
-	public void setPaymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
-		this.paymentConnectorConfiguration = paymentConnectorConfiguration;
 	}
 
 	/**
@@ -256,81 +191,44 @@ public class TokenVersion {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * processorToken
 	 *
-	 * @return 
+	 * @return processorToken
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getProcessorToken() {
 		return processorToken;
 	}
 
-	public TokenVersion shippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-		return this;
-	}
-
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Address getShippingAddress() {
 		return shippingAddress;
 	}
 
-	public void setShippingAddress(Address shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
-
-	public TokenVersion state(TokenVersionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TokenVersionState getState() {
 		return state;
 	}
 
-	public void setState(TokenVersionState state) {
-		this.state = state;
-	}
-
-	public TokenVersion token(Token token) {
-		this.token = token;
-		return this;
-	}
-
 	/**
-	 * 
+	 * token
 	 *
-	 * @return 
+	 * @return token
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Token getToken() {
 		return token;
-	}
-
-	public void setToken(Token token) {
-		this.token = token;
-	}
-
-	public TokenVersion version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -338,13 +236,8 @@ public class TokenVersion {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

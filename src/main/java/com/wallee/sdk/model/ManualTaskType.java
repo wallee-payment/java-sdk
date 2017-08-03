@@ -17,14 +17,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,8 +29,8 @@ import java.util.Map;
 /**
  * The manual task type indicates what kind of manual task is required to be executed by the human.
  */
-@io.swagger.annotations.ApiModel(description = "The manual task type indicates what kind of manual task is required to be executed by the human.")
 public class ManualTaskType {
+
 	@SerializedName("description")
 	private Map<String, String> description = new HashMap<String, String>();
 
@@ -47,52 +43,22 @@ public class ManualTaskType {
 	@SerializedName("name")
 	private Map<String, String> name = new HashMap<String, String>();
 
-	public ManualTaskType description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public ManualTaskType putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
-	public ManualTaskType features(List<Long> features) {
-		this.features = features;
-		return this;
-	}
-
-	public ManualTaskType addFeaturesItem(Long featuresItem) {
-		this.features.add(featuresItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * features
 	 *
-	 * @return 
+	 * @return features
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getFeatures() {
 		return features;
-	}
-
-	public void setFeatures(List<Long> features) {
-		this.features = features;
 	}
 
 	/**
@@ -100,33 +66,17 @@ public class ManualTaskType {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public ManualTaskType name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public ManualTaskType putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
-	}
-
-	public void setName(Map<String, String> name) {
-		this.name = name;
 	}
 
 

@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItemReductionCreate;
 import com.wallee.sdk.model.RefundType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
  */
-@io.swagger.annotations.ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
 public class RefundCreate {
+
 	@SerializedName("externalId")
 	private String externalId = null;
 
@@ -60,7 +56,6 @@ public class RefundCreate {
 	 *
 	 * @return The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -75,11 +70,10 @@ public class RefundCreate {
 	}
 
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
 	}
@@ -99,11 +93,10 @@ public class RefundCreate {
 	}
 
 	/**
-	 * 
+	 * reductions
 	 *
-	 * @return 
+	 * @return reductions
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public List<LineItemReductionCreate> getReductions() {
 		return reductions;
 	}
@@ -118,11 +111,10 @@ public class RefundCreate {
 	}
 
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getTransaction() {
 		return transaction;
 	}
@@ -137,11 +129,10 @@ public class RefundCreate {
 	}
 
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public RefundType getType() {
 		return type;
 	}

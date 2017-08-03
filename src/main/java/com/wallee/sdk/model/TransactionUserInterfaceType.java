@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * TransactionUserInterfaceType
  */
 public enum TransactionUserInterfaceType {
 	
@@ -41,7 +38,7 @@ public enum TransactionUserInterfaceType {
 
 	private String value;
 
-	TransactionUserInterfaceType(String value) {
+	private TransactionUserInterfaceType(String value) {
 		this.value = value;
 	}
 

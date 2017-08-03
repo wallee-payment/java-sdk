@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * LineItemAttribute
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LineItemAttribute {
+
 	@SerializedName("label")
 	private String label = null;
 
@@ -38,21 +34,19 @@ public class LineItemAttribute {
 	private String value = null;
 
 	/**
-	 * 
+	 * label
 	 *
-	 * @return 
+	 * @return label
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLabel() {
 		return label;
 	}
 
 	/**
-	 * 
+	 * value
 	 *
-	 * @return 
+	 * @return value
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getValue() {
 		return value;
 	}

@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.PersistableCurrencyAmount;
 import com.wallee.sdk.model.ProductMeteredFee;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * ProductMeteredTierFee
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductMeteredTierFee {
+
 	@SerializedName("fee")
 	private List<PersistableCurrencyAmount> fee = new ArrayList<PersistableCurrencyAmount>();
 
@@ -51,33 +47,13 @@ public class ProductMeteredTierFee {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ProductMeteredTierFee fee(List<PersistableCurrencyAmount> fee) {
-		this.fee = fee;
-		return this;
-	}
-
-	public ProductMeteredTierFee addFeeItem(PersistableCurrencyAmount feeItem) {
-		this.fee.add(feeItem);
-		return this;
-	}
-
 	/**
 	 * The fee determines the amount which is charged. The consumed metric is multiplied by the defined fee. The resulting amount is charged at the end of the period.
 	 *
 	 * @return The fee determines the amount which is charged. The consumed metric is multiplied by the defined fee. The resulting amount is charged at the end of the period.
 	 */
-	@ApiModelProperty(example = "null", value = "The fee determines the amount which is charged. The consumed metric is multiplied by the defined fee. The resulting amount is charged at the end of the period.")
 	public List<PersistableCurrencyAmount> getFee() {
 		return fee;
-	}
-
-	public void setFee(List<PersistableCurrencyAmount> fee) {
-		this.fee = fee;
-	}
-
-	public ProductMeteredTierFee id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -85,32 +61,17 @@ public class ProductMeteredTierFee {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public ProductMeteredTierFee meteredFee(ProductMeteredFee meteredFee) {
-		this.meteredFee = meteredFee;
-		return this;
-	}
-
 	/**
-	 * 
+	 * meteredFee
 	 *
-	 * @return 
+	 * @return meteredFee
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ProductMeteredFee getMeteredFee() {
 		return meteredFee;
-	}
-
-	public void setMeteredFee(ProductMeteredFee meteredFee) {
-		this.meteredFee = meteredFee;
 	}
 
 	/**
@@ -118,14 +79,8 @@ public class ProductMeteredTierFee {
 	 *
 	 * @return The start range defines the metered consumption of the metric from which on the defined fee gets applied. This means when a subscription consumes a value of 10 or more and the start range is set to 10 the fee defined on the tier will be applied.
 	 */
-	@ApiModelProperty(example = "null", value = "The start range defines the metered consumption of the metric from which on the defined fee gets applied. This means when a subscription consumes a value of 10 or more and the start range is set to 10 the fee defined on the tier will be applied.")
 	public BigDecimal getStartRange() {
 		return startRange;
-	}
-
-	public ProductMeteredTierFee version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -133,13 +88,8 @@ public class ProductMeteredTierFee {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

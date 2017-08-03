@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringItem;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * DatabaseTranslatedString
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class DatabaseTranslatedString {
+
 	@SerializedName("availableLanguages")
 	private List<String> availableLanguages = new ArrayList<String>();
 
@@ -43,62 +39,31 @@ public class DatabaseTranslatedString {
 	@SerializedName("items")
 	private List<DatabaseTranslatedStringItem> items = new ArrayList<DatabaseTranslatedStringItem>();
 
-	public DatabaseTranslatedString availableLanguages(List<String> availableLanguages) {
-		this.availableLanguages = availableLanguages;
-		return this;
-	}
-
-	public DatabaseTranslatedString addAvailableLanguagesItem(String availableLanguagesItem) {
-		this.availableLanguages.add(availableLanguagesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * availableLanguages
 	 *
-	 * @return 
+	 * @return availableLanguages
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<String> getAvailableLanguages() {
 		return availableLanguages;
 	}
 
-	public void setAvailableLanguages(List<String> availableLanguages) {
-		this.availableLanguages = availableLanguages;
-	}
-
 	/**
-	 * 
+	 * displayName
 	 *
-	 * @return 
+	 * @return displayName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDisplayName() {
 		return displayName;
 	}
 
-	public DatabaseTranslatedString items(List<DatabaseTranslatedStringItem> items) {
-		this.items = items;
-		return this;
-	}
-
-	public DatabaseTranslatedString addItemsItem(DatabaseTranslatedStringItem itemsItem) {
-		this.items.add(itemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * items
 	 *
-	 * @return 
+	 * @return items
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<DatabaseTranslatedStringItem> getItems() {
 		return items;
-	}
-
-	public void setItems(List<DatabaseTranslatedStringItem> items) {
-		this.items = items;
 	}
 
 

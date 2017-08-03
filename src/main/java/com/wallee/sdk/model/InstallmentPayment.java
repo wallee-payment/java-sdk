@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,19 +24,17 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.InstallmentPaymentState;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
  * An installment payment represents a payment paid in multiple slices.
  */
-@io.swagger.annotations.ApiModel(description = "An installment payment represents a payment paid in multiple slices.")
 public class InstallmentPayment {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -56,7 +52,7 @@ public class InstallmentPayment {
 	private Long planConfiguration = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private InstallmentPaymentState state = null;
@@ -69,14 +65,8 @@ public class InstallmentPayment {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
-	}
-
-	public InstallmentPayment id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -84,56 +74,26 @@ public class InstallmentPayment {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public InstallmentPayment initialTransaction(Transaction initialTransaction) {
-		this.initialTransaction = initialTransaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * initialTransaction
 	 *
-	 * @return 
+	 * @return initialTransaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getInitialTransaction() {
 		return initialTransaction;
 	}
 
-	public void setInitialTransaction(Transaction initialTransaction) {
-		this.initialTransaction = initialTransaction;
-	}
-
-	public InstallmentPayment lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public InstallmentPayment addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 	/**
@@ -141,17 +101,15 @@ public class InstallmentPayment {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * planConfiguration
 	 *
-	 * @return 
+	 * @return planConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getPlanConfiguration() {
 		return planConfiguration;
 	}
@@ -161,33 +119,17 @@ public class InstallmentPayment {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public InstallmentPayment state(InstallmentPaymentState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public InstallmentPaymentState getState() {
 		return state;
-	}
-
-	public void setState(InstallmentPaymentState state) {
-		this.state = state;
-	}
-
-	public InstallmentPayment version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -195,13 +137,8 @@ public class InstallmentPayment {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

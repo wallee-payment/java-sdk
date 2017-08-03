@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * LocalizedString
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LocalizedString {
+
 	@SerializedName("displayName")
 	private String displayName = null;
 
@@ -41,31 +37,28 @@ public class LocalizedString {
 	private String string = null;
 
 	/**
-	 * 
+	 * displayName
 	 *
-	 * @return 
+	 * @return displayName
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDisplayName() {
 		return displayName;
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
 	/**
-	 * 
+	 * string
 	 *
-	 * @return 
+	 * @return string
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getString() {
 		return string;
 	}

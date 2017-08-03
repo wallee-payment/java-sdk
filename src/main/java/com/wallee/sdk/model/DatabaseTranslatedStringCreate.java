@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringItemCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * DatabaseTranslatedStringCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class DatabaseTranslatedStringCreate {
+
 	@SerializedName("items")
 	private List<DatabaseTranslatedStringItemCreate> items = new ArrayList<DatabaseTranslatedStringItemCreate>();
 
@@ -48,11 +44,10 @@ public class DatabaseTranslatedStringCreate {
 	}
 
 	/**
-	 * 
+	 * items
 	 *
-	 * @return 
+	 * @return items
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<DatabaseTranslatedStringItemCreate> getItems() {
 		return items;
 	}

@@ -17,26 +17,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItemCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * TransactionInvoiceReplacement
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionInvoiceReplacement {
+
 	@SerializedName("dueOn")
-	private DateTime dueOn = null;
+	private OffsetDateTime dueOn = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
@@ -50,7 +46,7 @@ public class TransactionInvoiceReplacement {
 	@SerializedName("sentToCustomer")
 	private Boolean sentToCustomer = null;
 
-	public TransactionInvoiceReplacement dueOn(DateTime dueOn) {
+	public TransactionInvoiceReplacement dueOn(OffsetDateTime dueOn) {
 		this.dueOn = dueOn;
 		return this;
 	}
@@ -60,12 +56,11 @@ public class TransactionInvoiceReplacement {
 	 *
 	 * @return The date on which the invoice should be paid on.
 	 */
-	@ApiModelProperty(example = "null", value = "The date on which the invoice should be paid on.")
-	public DateTime getDueOn() {
+	public OffsetDateTime getDueOn() {
 		return dueOn;
 	}
 
-	public void setDueOn(DateTime dueOn) {
+	public void setDueOn(OffsetDateTime dueOn) {
 		this.dueOn = dueOn;
 	}
 
@@ -75,11 +70,10 @@ public class TransactionInvoiceReplacement {
 	}
 
 	/**
-	 * 
+	 * externalId
 	 *
-	 * @return 
+	 * @return externalId
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -99,11 +93,10 @@ public class TransactionInvoiceReplacement {
 	}
 
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public List<LineItemCreate> getLineItems() {
 		return lineItems;
 	}
@@ -118,11 +111,10 @@ public class TransactionInvoiceReplacement {
 	}
 
 	/**
-	 * 
+	 * merchantReference
 	 *
-	 * @return 
+	 * @return merchantReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMerchantReference() {
 		return merchantReference;
 	}
@@ -141,7 +133,6 @@ public class TransactionInvoiceReplacement {
 	 *
 	 * @return When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.
 	 */
-	@ApiModelProperty(example = "null", value = "When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.")
 	public Boolean getSentToCustomer() {
 		return sentToCustomer;
 	}

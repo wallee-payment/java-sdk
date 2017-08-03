@@ -17,30 +17,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.TransactionGroupState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * TransactionGroup
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionGroup {
+
 	@SerializedName("beginDate")
-	private DateTime beginDate = null;
+	private OffsetDateTime beginDate = null;
 
 	@SerializedName("customerId")
 	private String customerId = null;
 
 	@SerializedName("endDate")
-	private DateTime endDate = null;
+	private OffsetDateTime endDate = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -49,7 +45,7 @@ public class TransactionGroup {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private TransactionGroupState state = null;
@@ -58,38 +54,30 @@ public class TransactionGroup {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * beginDate
 	 *
-	 * @return 
+	 * @return beginDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getBeginDate() {
+	public OffsetDateTime getBeginDate() {
 		return beginDate;
 	}
 
 	/**
-	 * 
+	 * customerId
 	 *
-	 * @return 
+	 * @return customerId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCustomerId() {
 		return customerId;
 	}
 
 	/**
-	 * 
+	 * endDate
 	 *
-	 * @return 
+	 * @return endDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getEndDate() {
+	public OffsetDateTime getEndDate() {
 		return endDate;
-	}
-
-	public TransactionGroup id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -97,13 +85,8 @@ public class TransactionGroup {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -111,7 +94,6 @@ public class TransactionGroup {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -121,33 +103,17 @@ public class TransactionGroup {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public TransactionGroup state(TransactionGroupState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionGroupState getState() {
 		return state;
-	}
-
-	public void setState(TransactionGroupState state) {
-		this.state = state;
-	}
-
-	public TransactionGroup version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -155,13 +121,8 @@ public class TransactionGroup {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

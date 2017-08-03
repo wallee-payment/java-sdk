@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.PersistableCurrencyAmountUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * ProductMeteredTierFeeUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductMeteredTierFeeUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -60,7 +56,6 @@ public class ProductMeteredTierFeeUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -79,7 +74,6 @@ public class ProductMeteredTierFeeUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -103,7 +97,6 @@ public class ProductMeteredTierFeeUpdate {
 	 *
 	 * @return The fee determines the amount which is charged. The consumed metric is multiplied by the defined fee. The resulting amount is charged at the end of the period.
 	 */
-	@ApiModelProperty(example = "null", value = "The fee determines the amount which is charged. The consumed metric is multiplied by the defined fee. The resulting amount is charged at the end of the period.")
 	public List<PersistableCurrencyAmountUpdate> getFee() {
 		return fee;
 	}
@@ -118,11 +111,10 @@ public class ProductMeteredTierFeeUpdate {
 	}
 
 	/**
-	 * 
+	 * meteredFee
 	 *
-	 * @return 
+	 * @return meteredFee
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getMeteredFee() {
 		return meteredFee;
 	}
@@ -141,7 +133,6 @@ public class ProductMeteredTierFeeUpdate {
 	 *
 	 * @return The start range defines the metered consumption of the metric from which on the defined fee gets applied. This means when a subscription consumes a value of 10 or more and the start range is set to 10 the fee defined on the tier will be applied.
 	 */
-	@ApiModelProperty(example = "null", value = "The start range defines the metered consumption of the metric from which on the defined fee gets applied. This means when a subscription consumes a value of 10 or more and the start range is set to 10 the fee defined on the tier will be applied.")
 	public BigDecimal getStartRange() {
 		return startRange;
 	}

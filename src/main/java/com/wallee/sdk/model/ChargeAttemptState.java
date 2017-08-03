@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * ChargeAttemptState
  */
 public enum ChargeAttemptState {
 	
@@ -41,7 +38,7 @@ public enum ChargeAttemptState {
 
 	private String value;
 
-	ChargeAttemptState(String value) {
+	private ChargeAttemptState(String value) {
 		this.value = value;
 	}
 

@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,31 +25,29 @@ import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionProductComponent;
 import com.wallee.sdk.model.SubscriptionProductVersion;
 import com.wallee.sdk.model.SubscriptionVersionState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * SubscriptionVersion
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionVersion {
+
 	@SerializedName("activatedOn")
-	private DateTime activatedOn = null;
+	private OffsetDateTime activatedOn = null;
 
 	@SerializedName("billingCurrency")
 	private String billingCurrency = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("expectedLastPeriodEnd")
-	private DateTime expectedLastPeriodEnd = null;
+	private OffsetDateTime expectedLastPeriodEnd = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -63,10 +59,10 @@ public class SubscriptionVersion {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("plannedTerminationDate")
-	private DateTime plannedTerminationDate = null;
+	private OffsetDateTime plannedTerminationDate = null;
 
 	@SerializedName("productVersion")
 	private SubscriptionProductVersion productVersion = null;
@@ -81,24 +77,23 @@ public class SubscriptionVersion {
 	private Subscription subscription = null;
 
 	@SerializedName("terminatedOn")
-	private DateTime terminatedOn = null;
+	private OffsetDateTime terminatedOn = null;
 
 	@SerializedName("terminatingOn")
-	private DateTime terminatingOn = null;
+	private OffsetDateTime terminatingOn = null;
 
 	@SerializedName("terminationIssuedOn")
-	private DateTime terminationIssuedOn = null;
+	private OffsetDateTime terminationIssuedOn = null;
 
 	@SerializedName("version")
 	private Integer version = null;
 
 	/**
-	 * 
+	 * activatedOn
 	 *
-	 * @return 
+	 * @return activatedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getActivatedOn() {
+	public OffsetDateTime getActivatedOn() {
 		return activatedOn;
 	}
 
@@ -107,18 +102,16 @@ public class SubscriptionVersion {
 	 *
 	 * @return The subscriber is charged in the billing currency. The billing currency has to be one of the enabled currencies on the subscription product.
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber is charged in the billing currency. The billing currency has to be one of the enabled currencies on the subscription product.")
 	public String getBillingCurrency() {
 		return billingCurrency;
 	}
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -127,24 +120,17 @@ public class SubscriptionVersion {
 	 *
 	 * @return The expected last period end is the date on which the projected end date of the last period is. This is only a projection and as such the actual date may be different.
 	 */
-	@ApiModelProperty(example = "null", value = "The expected last period end is the date on which the projected end date of the last period is. This is only a projection and as such the actual date may be different.")
-	public DateTime getExpectedLastPeriodEnd() {
+	public OffsetDateTime getExpectedLastPeriodEnd() {
 		return expectedLastPeriodEnd;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
-	}
-
-	public SubscriptionVersion id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -152,21 +138,15 @@ public class SubscriptionVersion {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -176,7 +156,6 @@ public class SubscriptionVersion {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -186,135 +165,80 @@ public class SubscriptionVersion {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * plannedTerminationDate
 	 *
-	 * @return 
+	 * @return plannedTerminationDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedTerminationDate() {
+	public OffsetDateTime getPlannedTerminationDate() {
 		return plannedTerminationDate;
 	}
 
-	public SubscriptionVersion productVersion(SubscriptionProductVersion productVersion) {
-		this.productVersion = productVersion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * productVersion
 	 *
-	 * @return 
+	 * @return productVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductVersion getProductVersion() {
 		return productVersion;
 	}
 
-	public void setProductVersion(SubscriptionProductVersion productVersion) {
-		this.productVersion = productVersion;
-	}
-
-	public SubscriptionVersion selectedComponents(List<SubscriptionProductComponent> selectedComponents) {
-		this.selectedComponents = selectedComponents;
-		return this;
-	}
-
-	public SubscriptionVersion addSelectedComponentsItem(SubscriptionProductComponent selectedComponentsItem) {
-		this.selectedComponents.add(selectedComponentsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * selectedComponents
 	 *
-	 * @return 
+	 * @return selectedComponents
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<SubscriptionProductComponent> getSelectedComponents() {
 		return selectedComponents;
 	}
 
-	public void setSelectedComponents(List<SubscriptionProductComponent> selectedComponents) {
-		this.selectedComponents = selectedComponents;
-	}
-
-	public SubscriptionVersion state(SubscriptionVersionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionVersionState getState() {
 		return state;
 	}
 
-	public void setState(SubscriptionVersionState state) {
-		this.state = state;
-	}
-
-	public SubscriptionVersion subscription(Subscription subscription) {
-		this.subscription = subscription;
-		return this;
-	}
-
 	/**
-	 * 
+	 * subscription
 	 *
-	 * @return 
+	 * @return subscription
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Subscription getSubscription() {
 		return subscription;
 	}
 
-	public void setSubscription(Subscription subscription) {
-		this.subscription = subscription;
-	}
-
 	/**
-	 * 
+	 * terminatedOn
 	 *
-	 * @return 
+	 * @return terminatedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTerminatedOn() {
+	public OffsetDateTime getTerminatedOn() {
 		return terminatedOn;
 	}
 
 	/**
-	 * 
+	 * terminatingOn
 	 *
-	 * @return 
+	 * @return terminatingOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTerminatingOn() {
+	public OffsetDateTime getTerminatingOn() {
 		return terminatingOn;
 	}
 
 	/**
-	 * 
+	 * terminationIssuedOn
 	 *
-	 * @return 
+	 * @return terminationIssuedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTerminationIssuedOn() {
+	public OffsetDateTime getTerminationIssuedOn() {
 		return terminationIssuedOn;
-	}
-
-	public SubscriptionVersion version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -322,13 +246,8 @@ public class SubscriptionVersion {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractHumanUserUpdate;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * HumanUserUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class HumanUserUpdate extends AbstractHumanUserUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -49,7 +45,6 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -68,13 +63,48 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
 
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	@Override
+	public HumanUserUpdate emailAddress(String emailAddress) {
+		super.emailAddress(emailAddress);
+		return this;
+	}
+
+	@Override
+	public HumanUserUpdate firstname(String firstname) {
+		super.firstname(firstname);
+		return this;
+	}
+
+	@Override
+	public HumanUserUpdate language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public HumanUserUpdate lastname(String lastname) {
+		super.lastname(lastname);
+		return this;
+	}
+
+	@Override
+	public HumanUserUpdate state(CreationEntityState state) {
+		super.state(state);
+		return this;
+	}
+
+	@Override
+	public HumanUserUpdate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
 	}
 
 

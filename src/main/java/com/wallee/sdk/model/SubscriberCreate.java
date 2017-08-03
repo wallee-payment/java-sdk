@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,15 +24,13 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractSubscriberUpdate;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
  */
-@io.swagger.annotations.ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 public class SubscriberCreate extends AbstractSubscriberUpdate {
+
 	@SerializedName("state")
 	private CreationEntityState state = null;
 
@@ -47,11 +43,10 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
@@ -70,13 +65,72 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
 	}
 
 	public void setExternalId(String externalId) {
 		this.externalId = externalId;
+	}
+
+	@Override
+	public SubscriberCreate additionalAllowedPaymentMethodConfigurations(List<Long> additionalAllowedPaymentMethodConfigurations) {
+		super.additionalAllowedPaymentMethodConfigurations(additionalAllowedPaymentMethodConfigurations);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate addAdditionalAllowedPaymentMethodConfigurationsItem(Long additionalAllowedPaymentMethodConfigurationsItem) {
+		super.addAdditionalAllowedPaymentMethodConfigurationsItem(additionalAllowedPaymentMethodConfigurationsItem);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate billingAddress(AddressCreate billingAddress) {
+		super.billingAddress(billingAddress);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate description(String description) {
+		super.description(description);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate disallowedPaymentMethodConfigurations(List<Long> disallowedPaymentMethodConfigurations) {
+		super.disallowedPaymentMethodConfigurations(disallowedPaymentMethodConfigurations);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate addDisallowedPaymentMethodConfigurationsItem(Long disallowedPaymentMethodConfigurationsItem) {
+		super.addDisallowedPaymentMethodConfigurationsItem(disallowedPaymentMethodConfigurationsItem);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate emailAddress(String emailAddress) {
+		super.emailAddress(emailAddress);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate reference(String reference) {
+		super.reference(reference);
+		return this;
+	}
+
+	@Override
+	public SubscriberCreate shippingAddress(AddressCreate shippingAddress) {
+		super.shippingAddress(shippingAddress);
+		return this;
 	}
 
 

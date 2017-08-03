@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractTokenUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * TokenUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TokenUpdate extends AbstractTokenUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -48,7 +44,6 @@ public class TokenUpdate extends AbstractTokenUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -67,13 +62,42 @@ public class TokenUpdate extends AbstractTokenUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
 
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	@Override
+	public TokenUpdate customerEmailAddress(String customerEmailAddress) {
+		super.customerEmailAddress(customerEmailAddress);
+		return this;
+	}
+
+	@Override
+	public TokenUpdate customerId(String customerId) {
+		super.customerId(customerId);
+		return this;
+	}
+
+	@Override
+	public TokenUpdate enabledForOneClickPayment(Boolean enabledForOneClickPayment) {
+		super.enabledForOneClickPayment(enabledForOneClickPayment);
+		return this;
+	}
+
+	@Override
+	public TokenUpdate language(String language) {
+		super.language(language);
+		return this;
+	}
+
+	@Override
+	public TokenUpdate tokenReference(String tokenReference) {
+		super.tokenReference(tokenReference);
+		return this;
 	}
 
 

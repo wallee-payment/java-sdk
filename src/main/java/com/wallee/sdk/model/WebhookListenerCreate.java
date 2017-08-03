@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractWebhookListenerUpdate;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * WebhookListenerCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
+
 	@SerializedName("entity")
 	private Long entity = null;
 
@@ -60,7 +56,6 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 	 *
 	 * @return The listener listens on state changes of the entity linked with the listener.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The listener listens on state changes of the entity linked with the listener.")
 	public Long getEntity() {
 		return entity;
 	}
@@ -84,7 +79,6 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 	 *
 	 * @return The target state identifies the state into which entities need to move into to trigger the webhook listener.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
 	public List<String> getEntityStates() {
 		return entityStates;
 	}
@@ -103,7 +97,6 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 	 *
 	 * @return The identity which will be used to sign messages sent by this listener.
 	 */
-	@ApiModelProperty(example = "null", value = "The identity which will be used to sign messages sent by this listener.")
 	public Long getIdentity() {
 		return identity;
 	}
@@ -122,7 +115,6 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 	 *
 	 * @return Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
 	 */
-	@ApiModelProperty(example = "null", value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
 	public Boolean getNotifyEveryChange() {
 		return notifyEveryChange;
 	}
@@ -141,13 +133,24 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 	 *
 	 * @return The URL which is invoked by the listener to notify the application about the event.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The URL which is invoked by the listener to notify the application about the event.")
 	public Long getUrl() {
 		return url;
 	}
 
 	public void setUrl(Long url) {
 		this.url = url;
+	}
+
+	@Override
+	public WebhookListenerCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public WebhookListenerCreate state(CreationEntityState state) {
+		super.state(state);
+		return this;
 	}
 
 

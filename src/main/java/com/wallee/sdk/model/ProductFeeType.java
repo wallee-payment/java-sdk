@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * ProductFeeType
  */
 public enum ProductFeeType {
 	
@@ -41,7 +38,7 @@ public enum ProductFeeType {
 
 	private String value;
 
-	ProductFeeType(String value) {
+	private ProductFeeType(String value) {
 		this.value = value;
 	}
 

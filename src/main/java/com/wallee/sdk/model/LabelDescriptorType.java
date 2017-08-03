@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * LabelDescriptorType
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LabelDescriptorType {
+
 	@SerializedName("description")
 	private Map<String, String> description = new HashMap<String, String>();
 
@@ -43,28 +39,13 @@ public class LabelDescriptorType {
 	@SerializedName("name")
 	private Map<String, String> name = new HashMap<String, String>();
 
-	public LabelDescriptorType description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public LabelDescriptorType putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
-	}
-
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
 	}
 
 	/**
@@ -72,33 +53,17 @@ public class LabelDescriptorType {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public LabelDescriptorType name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public LabelDescriptorType putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
-	}
-
-	public void setName(Map<String, String> name) {
-		this.name = name;
 	}
 
 

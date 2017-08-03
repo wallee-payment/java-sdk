@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractAccountUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * AccountCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class AccountCreate extends AbstractAccountUpdate {
+
 	@SerializedName("parentAccount")
 	private Long parentAccount = null;
 
@@ -45,13 +41,24 @@ public class AccountCreate extends AbstractAccountUpdate {
 	 *
 	 * @return The account which is responsible for administering the account.
 	 */
-	@ApiModelProperty(example = "null", value = "The account which is responsible for administering the account.")
 	public Long getParentAccount() {
 		return parentAccount;
 	}
 
 	public void setParentAccount(Long parentAccount) {
 		this.parentAccount = parentAccount;
+	}
+
+	@Override
+	public AccountCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public AccountCreate subaccountLimit(Long subaccountLimit) {
+		super.subaccountLimit(subaccountLimit);
+		return this;
 	}
 
 

@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * AccountType
  */
 public enum AccountType {
 	
@@ -41,7 +38,7 @@ public enum AccountType {
 
 	private String value;
 
-	AccountType(String value) {
+	private AccountType(String value) {
 		this.value = value;
 	}
 

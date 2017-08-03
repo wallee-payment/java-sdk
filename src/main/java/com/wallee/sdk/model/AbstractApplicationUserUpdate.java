@@ -17,20 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * AbstractApplicationUserUpdate
  */
 public class AbstractApplicationUserUpdate {
+
 	@SerializedName("name")
 	private String name = null;
 
@@ -47,7 +44,6 @@ public class AbstractApplicationUserUpdate {
 	 *
 	 * @return The user name is used to identify the application user in administrative interfaces.
 	 */
-	@ApiModelProperty(example = "null", value = "The user name is used to identify the application user in administrative interfaces.")
 	public String getName() {
 		return name;
 	}
@@ -62,11 +58,10 @@ public class AbstractApplicationUserUpdate {
 	}
 
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}

@@ -17,27 +17,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * RestCountry
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class RestCountry {
+
 	@SerializedName("ISOCode2Letter")
-	private String iSOCode2Letter = null;
+	private String isOCode2Letter = null;
 
 	@SerializedName("ISOCode3Letter")
-	private String iSOCode3Letter = null;
+	private String isOCode3Letter = null;
 
 	@SerializedName("name")
 	private String name = null;
@@ -53,9 +49,8 @@ public class RestCountry {
 	 *
 	 * @return The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).
 	 */
-	@ApiModelProperty(example = "null", value = "The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).")
-	public String getISOCode2Letter() {
-		return iSOCode2Letter;
+	public String getIsOCode2Letter() {
+		return isOCode2Letter;
 	}
 
 	/**
@@ -63,9 +58,8 @@ public class RestCountry {
 	 *
 	 * @return The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).
 	 */
-	@ApiModelProperty(example = "null", value = "The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).")
-	public String getISOCode3Letter() {
-		return iSOCode3Letter;
+	public String getIsOCode3Letter() {
+		return isOCode3Letter;
 	}
 
 	/**
@@ -73,7 +67,6 @@ public class RestCountry {
 	 *
 	 * @return The name labels the country by a name in English.
 	 */
-	@ApiModelProperty(example = "null", value = "The name labels the country by a name in English.")
 	public String getName() {
 		return name;
 	}
@@ -83,19 +76,8 @@ public class RestCountry {
 	 *
 	 * @return The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).
 	 */
-	@ApiModelProperty(example = "null", value = "The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).")
 	public String getNumericCode() {
 		return numericCode;
-	}
-
-	public RestCountry stateCodes(List<String> stateCodes) {
-		this.stateCodes = stateCodes;
-		return this;
-	}
-
-	public RestCountry addStateCodesItem(String stateCodesItem) {
-		this.stateCodes.add(stateCodesItem);
-		return this;
 	}
 
 	/**
@@ -103,13 +85,8 @@ public class RestCountry {
 	 *
 	 * @return The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.
 	 */
-	@ApiModelProperty(example = "null", value = "The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.")
 	public List<String> getStateCodes() {
 		return stateCodes;
-	}
-
-	public void setStateCodes(List<String> stateCodes) {
-		this.stateCodes = stateCodes;
 	}
 
 
@@ -122,8 +99,8 @@ public class RestCountry {
 			return false;
 		}
 		RestCountry restCountry = (RestCountry) o;
-		return Objects.equals(this.iSOCode2Letter, restCountry.iSOCode2Letter) &&
-				Objects.equals(this.iSOCode3Letter, restCountry.iSOCode3Letter) &&
+		return Objects.equals(this.isOCode2Letter, restCountry.isOCode2Letter) &&
+				Objects.equals(this.isOCode3Letter, restCountry.isOCode3Letter) &&
 				Objects.equals(this.name, restCountry.name) &&
 				Objects.equals(this.numericCode, restCountry.numericCode) &&
 				Objects.equals(this.stateCodes, restCountry.stateCodes);
@@ -131,7 +108,7 @@ public class RestCountry {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(iSOCode2Letter, iSOCode3Letter, name, numericCode, stateCodes);
+		return Objects.hash(isOCode2Letter, isOCode3Letter, name, numericCode, stateCodes);
 	}
 
 
@@ -140,8 +117,8 @@ public class RestCountry {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class RestCountry {\n");
 		
-		sb.append("		iSOCode2Letter: ").append(toIndentedString(iSOCode2Letter)).append("\n");
-		sb.append("		iSOCode3Letter: ").append(toIndentedString(iSOCode3Letter)).append("\n");
+		sb.append("		isOCode2Letter: ").append(toIndentedString(isOCode2Letter)).append("\n");
+		sb.append("		isOCode3Letter: ").append(toIndentedString(isOCode3Letter)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		numericCode: ").append(toIndentedString(numericCode)).append("\n");
 		sb.append("		stateCodes: ").append(toIndentedString(stateCodes)).append("\n");

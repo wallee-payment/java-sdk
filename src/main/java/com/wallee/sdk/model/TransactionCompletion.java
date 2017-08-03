@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -29,25 +27,23 @@ import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletionMode;
 import com.wallee.sdk.model.TransactionCompletionState;
 import com.wallee.sdk.model.TransactionLineItemVersion;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * TransactionCompletion
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionCompletion extends TransactionAwareEntity {
+
 	@SerializedName("createdBy")
 	private Long createdBy = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failureReason")
 	private FailureReason failureReason = null;
@@ -65,13 +61,13 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	private TransactionCompletionMode mode = null;
 
 	@SerializedName("nextUpdateOn")
-	private DateTime nextUpdateOn = null;
+	private OffsetDateTime nextUpdateOn = null;
 
 	@SerializedName("paymentInformation")
 	private String paymentInformation = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("processorReference")
 	private String processorReference = null;
@@ -83,20 +79,19 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	private TransactionCompletionState state = null;
 
 	@SerializedName("succeededOn")
-	private DateTime succeededOn = null;
+	private OffsetDateTime succeededOn = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("version")
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdBy
 	 *
-	 * @return 
+	 * @return createdBy
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getCreatedBy() {
 		return createdBy;
 	}
@@ -106,128 +101,78 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
-	public TransactionCompletion failureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * failureReason
 	 *
-	 * @return 
+	 * @return failureReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureReason getFailureReason() {
 		return failureReason;
 	}
 
-	public void setFailureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-	}
-
-	public TransactionCompletion labels(List<Label> labels) {
-		this.labels = labels;
-		return this;
-	}
-
-	public TransactionCompletion addLabelsItem(Label labelsItem) {
-		this.labels.add(labelsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * labels
 	 *
-	 * @return 
+	 * @return labels
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Label> getLabels() {
 		return labels;
 	}
 
-	public void setLabels(List<Label> labels) {
-		this.labels = labels;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
-	public TransactionCompletion lineItemVersion(TransactionLineItemVersion lineItemVersion) {
-		this.lineItemVersion = lineItemVersion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItemVersion
 	 *
-	 * @return 
+	 * @return lineItemVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionLineItemVersion getLineItemVersion() {
 		return lineItemVersion;
 	}
 
-	public void setLineItemVersion(TransactionLineItemVersion lineItemVersion) {
-		this.lineItemVersion = lineItemVersion;
-	}
-
-	public TransactionCompletion mode(TransactionCompletionMode mode) {
-		this.mode = mode;
-		return this;
-	}
-
 	/**
-	 * 
+	 * mode
 	 *
-	 * @return 
+	 * @return mode
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionCompletionMode getMode() {
 		return mode;
 	}
 
-	public void setMode(TransactionCompletionMode mode) {
-		this.mode = mode;
-	}
-
 	/**
-	 * 
+	 * nextUpdateOn
 	 *
-	 * @return 
+	 * @return nextUpdateOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getNextUpdateOn() {
+	public OffsetDateTime getNextUpdateOn() {
 		return nextUpdateOn;
 	}
 
 	/**
-	 * 
+	 * paymentInformation
 	 *
-	 * @return 
+	 * @return paymentInformation
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getPaymentInformation() {
 		return paymentInformation;
 	}
@@ -237,67 +182,52 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * processorReference
 	 *
-	 * @return 
+	 * @return processorReference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getProcessorReference() {
 		return processorReference;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public TransactionCompletion state(TransactionCompletionState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TransactionCompletionState getState() {
 		return state;
 	}
 
-	public void setState(TransactionCompletionState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * succeededOn
 	 *
-	 * @return 
+	 * @return succeededOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getSucceededOn() {
+	public OffsetDateTime getSucceededOn() {
 		return succeededOn;
 	}
 
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
@@ -306,7 +236,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

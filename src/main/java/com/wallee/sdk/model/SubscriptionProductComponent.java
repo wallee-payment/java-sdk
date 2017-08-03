@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,14 +25,12 @@ import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionProductComponentGroup;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import com.wallee.sdk.model.TaxClass;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * SubscriptionProductComponent
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionProductComponent {
+
 	@SerializedName("componentChangeWeight")
 	private Integer componentChangeWeight = null;
 
@@ -73,28 +69,17 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.
 	 */
-	@ApiModelProperty(example = "null", value = "The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.")
 	public Integer getComponentChangeWeight() {
 		return componentChangeWeight;
 	}
 
-	public SubscriptionProductComponent componentGroup(SubscriptionProductComponentGroup componentGroup) {
-		this.componentGroup = componentGroup;
-		return this;
-	}
-
 	/**
-	 * 
+	 * componentGroup
 	 *
-	 * @return 
+	 * @return componentGroup
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionProductComponentGroup getComponentGroup() {
 		return componentGroup;
-	}
-
-	public void setComponentGroup(SubscriptionProductComponentGroup componentGroup) {
-		this.componentGroup = componentGroup;
 	}
 
 	/**
@@ -102,14 +87,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return When a component is marked as a 'default' component it is used when no other component is selected by the user.
 	 */
-	@ApiModelProperty(example = "null", value = "When a component is marked as a 'default' component it is used when no other component is selected by the user.")
 	public Boolean getDefaultComponent() {
 		return defaultComponent;
-	}
-
-	public SubscriptionProductComponent description(DatabaseTranslatedString description) {
-		this.description = description;
-		return this;
 	}
 
 	/**
@@ -117,18 +96,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.
 	 */
-	@ApiModelProperty(example = "null", value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
 	public DatabaseTranslatedString getDescription() {
 		return description;
-	}
-
-	public void setDescription(DatabaseTranslatedString description) {
-		this.description = description;
-	}
-
-	public SubscriptionProductComponent id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -136,13 +105,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -150,14 +114,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
-	}
-
-	public SubscriptionProductComponent name(DatabaseTranslatedString name) {
-		this.name = name;
-		return this;
 	}
 
 	/**
@@ -165,18 +123,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The component name is shown to the subscriber. It should describe in few words what the component does contain.
 	 */
-	@ApiModelProperty(example = "null", value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
 	public DatabaseTranslatedString getName() {
 		return name;
-	}
-
-	public void setName(DatabaseTranslatedString name) {
-		this.name = name;
-	}
-
-	public SubscriptionProductComponent reference(SubscriptionProductComponentReference reference) {
-		this.reference = reference;
-		return this;
 	}
 
 	/**
@@ -184,13 +132,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.
 	 */
-	@ApiModelProperty(example = "null", value = "The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.")
 	public SubscriptionProductComponentReference getReference() {
 		return reference;
-	}
-
-	public void setReference(SubscriptionProductComponentReference reference) {
-		this.reference = reference;
 	}
 
 	/**
@@ -198,14 +141,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.
 	 */
-	@ApiModelProperty(example = "null", value = "The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.")
 	public Integer getSortOrder() {
 		return sortOrder;
-	}
-
-	public SubscriptionProductComponent taxClass(TaxClass taxClass) {
-		this.taxClass = taxClass;
-		return this;
 	}
 
 	/**
@@ -213,18 +150,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The tax class of the component determines the taxes which are applicable on all fees linked with the component.
 	 */
-	@ApiModelProperty(example = "null", value = "The tax class of the component determines the taxes which are applicable on all fees linked with the component.")
 	public TaxClass getTaxClass() {
 		return taxClass;
-	}
-
-	public void setTaxClass(TaxClass taxClass) {
-		this.taxClass = taxClass;
-	}
-
-	public SubscriptionProductComponent version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -232,13 +159,8 @@ public class SubscriptionProductComponent {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

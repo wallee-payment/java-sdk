@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionSuspensionAction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionSuspensionCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionSuspensionCreate {
+
 	@SerializedName("endAction")
 	private SubscriptionSuspensionAction endAction = null;
 
@@ -40,7 +36,7 @@ public class SubscriptionSuspensionCreate {
 	private String note = null;
 
 	@SerializedName("plannedEndDate")
-	private DateTime plannedEndDate = null;
+	private OffsetDateTime plannedEndDate = null;
 
 	@SerializedName("subscription")
 	private Long subscription = null;
@@ -55,7 +51,6 @@ public class SubscriptionSuspensionCreate {
 	 *
 	 * @return When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
 	public SubscriptionSuspensionAction getEndAction() {
 		return endAction;
 	}
@@ -74,7 +69,6 @@ public class SubscriptionSuspensionCreate {
 	 *
 	 * @return The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
 	public String getNote() {
 		return note;
 	}
@@ -83,7 +77,7 @@ public class SubscriptionSuspensionCreate {
 		this.note = note;
 	}
 
-	public SubscriptionSuspensionCreate plannedEndDate(DateTime plannedEndDate) {
+	public SubscriptionSuspensionCreate plannedEndDate(OffsetDateTime plannedEndDate) {
 		this.plannedEndDate = plannedEndDate;
 		return this;
 	}
@@ -93,12 +87,11 @@ public class SubscriptionSuspensionCreate {
 	 *
 	 * @return The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
-	public DateTime getPlannedEndDate() {
+	public OffsetDateTime getPlannedEndDate() {
 		return plannedEndDate;
 	}
 
-	public void setPlannedEndDate(DateTime plannedEndDate) {
+	public void setPlannedEndDate(OffsetDateTime plannedEndDate) {
 		this.plannedEndDate = plannedEndDate;
 	}
 
@@ -108,11 +101,10 @@ public class SubscriptionSuspensionCreate {
 	}
 
 	/**
-	 * 
+	 * subscription
 	 *
-	 * @return 
+	 * @return subscription
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getSubscription() {
 		return subscription;
 	}

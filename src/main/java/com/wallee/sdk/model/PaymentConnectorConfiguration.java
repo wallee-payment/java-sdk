@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,17 +24,15 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.PaymentProcessorConfiguration;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * PaymentConnectorConfiguration
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class PaymentConnectorConfiguration {
+
 	@SerializedName("applicableForTransactionProcessing")
 	private Boolean applicableForTransactionProcessing = null;
 
@@ -62,7 +58,7 @@ public class PaymentConnectorConfiguration {
 	private PaymentMethodConfiguration paymentMethodConfiguration = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("priority")
 	private Integer priority = null;
@@ -81,19 +77,8 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.
 	 */
-	@ApiModelProperty(example = "null", value = "This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.")
 	public Boolean getApplicableForTransactionProcessing() {
 		return applicableForTransactionProcessing;
-	}
-
-	public PaymentConnectorConfiguration conditions(List<Long> conditions) {
-		this.conditions = conditions;
-		return this;
-	}
-
-	public PaymentConnectorConfiguration addConditionsItem(Long conditionsItem) {
-		this.conditions.add(conditionsItem);
-		return this;
 	}
 
 	/**
@@ -101,33 +86,17 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.
 	 */
-	@ApiModelProperty(example = "null", value = "If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.")
 	public List<Long> getConditions() {
 		return conditions;
 	}
 
-	public void setConditions(List<Long> conditions) {
-		this.conditions = conditions;
-	}
-
 	/**
-	 * 
+	 * connector
 	 *
-	 * @return 
+	 * @return connector
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getConnector() {
 		return connector;
-	}
-
-	public PaymentConnectorConfiguration enabledSpaceViews(List<Long> enabledSpaceViews) {
-		this.enabledSpaceViews = enabledSpaceViews;
-		return this;
-	}
-
-	public PaymentConnectorConfiguration addEnabledSpaceViewsItem(Long enabledSpaceViewsItem) {
-		this.enabledSpaceViews.add(enabledSpaceViewsItem);
-		return this;
 	}
 
 	/**
@@ -135,18 +104,8 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.
 	 */
-	@ApiModelProperty(example = "null", value = "The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.")
 	public List<Long> getEnabledSpaceViews() {
 		return enabledSpaceViews;
-	}
-
-	public void setEnabledSpaceViews(List<Long> enabledSpaceViews) {
-		this.enabledSpaceViews = enabledSpaceViews;
-	}
-
-	public PaymentConnectorConfiguration id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -154,13 +113,8 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -168,7 +122,6 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -178,28 +131,17 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
 
-	public PaymentConnectorConfiguration paymentMethodConfiguration(PaymentMethodConfiguration paymentMethodConfiguration) {
-		this.paymentMethodConfiguration = paymentMethodConfiguration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * paymentMethodConfiguration
 	 *
-	 * @return 
+	 * @return paymentMethodConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public PaymentMethodConfiguration getPaymentMethodConfiguration() {
 		return paymentMethodConfiguration;
-	}
-
-	public void setPaymentMethodConfiguration(PaymentMethodConfiguration paymentMethodConfiguration) {
-		this.paymentMethodConfiguration = paymentMethodConfiguration;
 	}
 
 	/**
@@ -207,8 +149,7 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -217,52 +158,26 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.
 	 */
-	@ApiModelProperty(example = "null", value = "The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.")
 	public Integer getPriority() {
 		return priority;
 	}
 
-	public PaymentConnectorConfiguration processorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
-		this.processorConfiguration = processorConfiguration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * processorConfiguration
 	 *
-	 * @return 
+	 * @return processorConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public PaymentProcessorConfiguration getProcessorConfiguration() {
 		return processorConfiguration;
 	}
 
-	public void setProcessorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
-		this.processorConfiguration = processorConfiguration;
-	}
-
-	public PaymentConnectorConfiguration state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public PaymentConnectorConfiguration version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -270,13 +185,8 @@ public class PaymentConnectorConfiguration {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

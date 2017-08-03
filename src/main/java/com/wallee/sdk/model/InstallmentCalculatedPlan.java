@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -27,17 +25,15 @@ import com.wallee.sdk.model.InstallmentCalculatedSlice;
 import com.wallee.sdk.model.InstallmentPlanConfiguration;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * InstallmentCalculatedPlan
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class InstallmentCalculatedPlan {
+
 	@SerializedName("configuration")
 	private InstallmentPlanConfiguration _configuration = null;
 
@@ -53,100 +49,49 @@ public class InstallmentCalculatedPlan {
 	@SerializedName("transaction")
 	private Transaction transaction = null;
 
-	public InstallmentCalculatedPlan _configuration(InstallmentPlanConfiguration _configuration) {
-		this._configuration = _configuration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * _configuration
 	 *
-	 * @return 
+	 * @return _configuration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public InstallmentPlanConfiguration getConfiguration() {
 		return _configuration;
 	}
 
-	public void setConfiguration(InstallmentPlanConfiguration _configuration) {
-		this._configuration = _configuration;
-	}
-
-	public InstallmentCalculatedPlan paymentMethodConfigurations(List<PaymentMethodConfiguration> paymentMethodConfigurations) {
-		this.paymentMethodConfigurations = paymentMethodConfigurations;
-		return this;
-	}
-
-	public InstallmentCalculatedPlan addPaymentMethodConfigurationsItem(PaymentMethodConfiguration paymentMethodConfigurationsItem) {
-		this.paymentMethodConfigurations.add(paymentMethodConfigurationsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * paymentMethodConfigurations
 	 *
-	 * @return 
+	 * @return paymentMethodConfigurations
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<PaymentMethodConfiguration> getPaymentMethodConfigurations() {
 		return paymentMethodConfigurations;
 	}
 
-	public void setPaymentMethodConfigurations(List<PaymentMethodConfiguration> paymentMethodConfigurations) {
-		this.paymentMethodConfigurations = paymentMethodConfigurations;
-	}
-
-	public InstallmentCalculatedPlan slices(List<InstallmentCalculatedSlice> slices) {
-		this.slices = slices;
-		return this;
-	}
-
-	public InstallmentCalculatedPlan addSlicesItem(InstallmentCalculatedSlice slicesItem) {
-		this.slices.add(slicesItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * slices
 	 *
-	 * @return 
+	 * @return slices
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<InstallmentCalculatedSlice> getSlices() {
 		return slices;
 	}
 
-	public void setSlices(List<InstallmentCalculatedSlice> slices) {
-		this.slices = slices;
-	}
-
 	/**
-	 * 
+	 * totalAmount
 	 *
-	 * @return 
+	 * @return totalAmount
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getTotalAmount() {
 		return totalAmount;
 	}
 
-	public InstallmentCalculatedPlan transaction(Transaction transaction) {
-		this.transaction = transaction;
-		return this;
-	}
-
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Transaction getTransaction() {
 		return transaction;
-	}
-
-	public void setTransaction(Transaction transaction) {
-		this.transaction = transaction;
 	}
 
 

@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
  */
-@io.swagger.annotations.ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 public class SubscriberUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -74,7 +70,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -93,7 +88,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -117,7 +111,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are allowed additionally will be available even when the product does not allow those methods.")
 	public List<Long> getAdditionalAllowedPaymentMethodConfigurations() {
 		return additionalAllowedPaymentMethodConfigurations;
 	}
@@ -132,11 +125,10 @@ public class SubscriberUpdate {
 	}
 
 	/**
-	 * 
+	 * billingAddress
 	 *
-	 * @return 
+	 * @return billingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getBillingAddress() {
 		return billingAddress;
 	}
@@ -155,7 +147,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.")
 	public String getDescription() {
 		return description;
 	}
@@ -179,7 +170,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.
 	 */
-	@ApiModelProperty(example = "null", value = "Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.")
 	public List<Long> getDisallowedPaymentMethodConfigurations() {
 		return disallowedPaymentMethodConfigurations;
 	}
@@ -198,7 +188,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -217,7 +206,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).")
 	public String getLanguage() {
 		return language;
 	}
@@ -236,7 +224,6 @@ public class SubscriberUpdate {
 	 *
 	 * @return The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).
 	 */
-	@ApiModelProperty(example = "null", value = "The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).")
 	public String getReference() {
 		return reference;
 	}
@@ -251,11 +238,10 @@ public class SubscriberUpdate {
 	}
 
 	/**
-	 * 
+	 * shippingAddress
 	 *
-	 * @return 
+	 * @return shippingAddress
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public AddressCreate getShippingAddress() {
 		return shippingAddress;
 	}

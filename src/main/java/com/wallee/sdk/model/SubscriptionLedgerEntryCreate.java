@@ -17,15 +17,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.TaxCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +29,8 @@ import java.util.List;
 /**
  * The subscription ledger entry represents a single change on the subscription balance.
  */
-@io.swagger.annotations.ApiModel(description = "The subscription ledger entry represents a single change on the subscription balance.")
 public class SubscriptionLedgerEntryCreate {
+
 	@SerializedName("amountIncludingTax")
 	private BigDecimal amountIncludingTax = null;
 
@@ -59,11 +55,10 @@ public class SubscriptionLedgerEntryCreate {
 	}
 
 	/**
-	 * 
+	 * amountIncludingTax
 	 *
-	 * @return 
+	 * @return amountIncludingTax
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public BigDecimal getAmountIncludingTax() {
 		return amountIncludingTax;
 	}
@@ -82,7 +77,6 @@ public class SubscriptionLedgerEntryCreate {
 	 *
 	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
 	public String getExternalId() {
 		return externalId;
 	}
@@ -97,11 +91,10 @@ public class SubscriptionLedgerEntryCreate {
 	}
 
 	/**
-	 * 
+	 * quantity
 	 *
-	 * @return 
+	 * @return quantity
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public BigDecimal getQuantity() {
 		return quantity;
 	}
@@ -116,11 +109,10 @@ public class SubscriptionLedgerEntryCreate {
 	}
 
 	/**
-	 * 
+	 * subscriptionVersion
 	 *
-	 * @return 
+	 * @return subscriptionVersion
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getSubscriptionVersion() {
 		return subscriptionVersion;
 	}
@@ -140,11 +132,10 @@ public class SubscriptionLedgerEntryCreate {
 	}
 
 	/**
-	 * 
+	 * taxes
 	 *
-	 * @return 
+	 * @return taxes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<TaxCreate> getTaxes() {
 		return taxes;
 	}
@@ -159,11 +150,10 @@ public class SubscriptionLedgerEntryCreate {
 	}
 
 	/**
-	 * 
+	 * title
 	 *
-	 * @return 
+	 * @return title
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getTitle() {
 		return title;
 	}

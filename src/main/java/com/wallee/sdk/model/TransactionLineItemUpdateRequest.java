@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItemCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * TransactionLineItemUpdateRequest
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionLineItemUpdateRequest {
+
 	@SerializedName("newLineItems")
 	private List<LineItemCreate> newLineItems = new ArrayList<LineItemCreate>();
 
@@ -51,11 +47,10 @@ public class TransactionLineItemUpdateRequest {
 	}
 
 	/**
-	 * 
+	 * newLineItems
 	 *
-	 * @return 
+	 * @return newLineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItemCreate> getNewLineItems() {
 		return newLineItems;
 	}
@@ -70,11 +65,10 @@ public class TransactionLineItemUpdateRequest {
 	}
 
 	/**
-	 * 
+	 * transactionId
 	 *
-	 * @return 
+	 * @return transactionId
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public Long getTransactionId() {
 		return transactionId;
 	}

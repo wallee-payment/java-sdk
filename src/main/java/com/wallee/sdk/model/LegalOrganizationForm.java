@@ -17,23 +17,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LocalizedString;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * LegalOrganizationForm
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LegalOrganizationForm {
+
 	@SerializedName("country")
 	private String country = null;
 
@@ -50,45 +46,28 @@ public class LegalOrganizationForm {
 	private List<LocalizedString> shortcut = new ArrayList<LocalizedString>();
 
 	/**
-	 * 
+	 * country
 	 *
-	 * @return 
+	 * @return country
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getCountry() {
 		return country;
 	}
 
-	public LegalOrganizationForm description(List<LocalizedString> description) {
-		this.description = description;
-		return this;
-	}
-
-	public LegalOrganizationForm addDescriptionItem(LocalizedString descriptionItem) {
-		this.description.add(descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LocalizedString> getDescription() {
 		return description;
 	}
 
-	public void setDescription(List<LocalizedString> description) {
-		this.description = description;
-	}
-
 	/**
-	 * 
+	 * englishDescription
 	 *
-	 * @return 
+	 * @return englishDescription
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getEnglishDescription() {
 		return englishDescription;
 	}
@@ -98,33 +77,17 @@ public class LegalOrganizationForm {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public LegalOrganizationForm shortcut(List<LocalizedString> shortcut) {
-		this.shortcut = shortcut;
-		return this;
-	}
-
-	public LegalOrganizationForm addShortcutItem(LocalizedString shortcutItem) {
-		this.shortcut.add(shortcutItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * shortcut
 	 *
-	 * @return 
+	 * @return shortcut
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LocalizedString> getShortcut() {
 		return shortcut;
-	}
-
-	public void setShortcut(List<LocalizedString> shortcut) {
-		this.shortcut = shortcut;
 	}
 
 

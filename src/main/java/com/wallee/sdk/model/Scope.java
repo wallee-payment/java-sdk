@@ -17,25 +17,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Feature;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * Scope
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Scope {
+
 	@SerializedName("domainName")
 	private String domainName = null;
 
@@ -49,7 +45,7 @@ public class Scope {
 	private String name = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("port")
 	private Integer port = null;
@@ -74,38 +70,17 @@ public class Scope {
 	 *
 	 * @return The domain name to which this scope is mapped to.
 	 */
-	@ApiModelProperty(example = "null", value = "The domain name to which this scope is mapped to.")
 	public String getDomainName() {
 		return domainName;
 	}
 
-	public Scope features(List<Feature> features) {
-		this.features = features;
-		return this;
-	}
-
-	public Scope addFeaturesItem(Feature featuresItem) {
-		this.features.add(featuresItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * features
 	 *
-	 * @return 
+	 * @return features
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Feature> getFeatures() {
 		return features;
-	}
-
-	public void setFeatures(List<Feature> features) {
-		this.features = features;
-	}
-
-	public Scope id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -113,13 +88,8 @@ public class Scope {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -127,7 +97,6 @@ public class Scope {
 	 *
 	 * @return The name of the scope is shown to the user where the user should select a scope.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the scope is shown to the user where the user should select a scope.")
 	public String getName() {
 		return name;
 	}
@@ -137,8 +106,7 @@ public class Scope {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
@@ -147,7 +115,6 @@ public class Scope {
 	 *
 	 * @return The port number to which this scope is mapped to.
 	 */
-	@ApiModelProperty(example = "null", value = "The port number to which this scope is mapped to.")
 	public Integer getPort() {
 		return port;
 	}
@@ -157,38 +124,17 @@ public class Scope {
 	 *
 	 * @return Define whether the scope supports SSL.
 	 */
-	@ApiModelProperty(example = "null", value = "Define whether the scope supports SSL.")
 	public Boolean getSslActive() {
 		return sslActive;
 	}
 
-	public Scope state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public Scope themes(List<String> themes) {
-		this.themes = themes;
-		return this;
-	}
-
-	public Scope addThemesItem(String themesItem) {
-		this.themes.add(themesItem);
-		return this;
 	}
 
 	/**
@@ -196,28 +142,17 @@ public class Scope {
 	 *
 	 * @return The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.
 	 */
-	@ApiModelProperty(example = "null", value = "The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.")
 	public List<String> getThemes() {
 		return themes;
 	}
 
-	public void setThemes(List<String> themes) {
-		this.themes = themes;
-	}
-
 	/**
-	 * 
+	 * url
 	 *
-	 * @return 
+	 * @return url
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getUrl() {
 		return url;
-	}
-
-	public Scope version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -225,13 +160,8 @@ public class Scope {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

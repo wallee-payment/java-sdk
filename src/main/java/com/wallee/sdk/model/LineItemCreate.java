@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,8 +24,6 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItemAttributeCreate;
 import com.wallee.sdk.model.LineItemType;
 import com.wallee.sdk.model.TaxCreate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,10 +31,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * LineItemCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class LineItemCreate {
+
 	@SerializedName("amountIncludingTax")
 	private BigDecimal amountIncludingTax = null;
 
@@ -72,11 +68,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * amountIncludingTax
 	 *
-	 * @return 
+	 * @return amountIncludingTax
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public BigDecimal getAmountIncludingTax() {
 		return amountIncludingTax;
 	}
@@ -96,11 +91,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * attributes
 	 *
-	 * @return 
+	 * @return attributes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, LineItemAttributeCreate> getAttributes() {
 		return attributes;
 	}
@@ -115,11 +109,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getName() {
 		return name;
 	}
@@ -134,11 +127,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * quantity
 	 *
-	 * @return 
+	 * @return quantity
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public BigDecimal getQuantity() {
 		return quantity;
 	}
@@ -153,11 +145,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * shippingRequired
 	 *
-	 * @return 
+	 * @return shippingRequired
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getShippingRequired() {
 		return shippingRequired;
 	}
@@ -172,11 +163,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * sku
 	 *
-	 * @return 
+	 * @return sku
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getSku() {
 		return sku;
 	}
@@ -196,11 +186,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * taxes
 	 *
-	 * @return 
+	 * @return taxes
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<TaxCreate> getTaxes() {
 		return taxes;
 	}
@@ -215,11 +204,10 @@ public class LineItemCreate {
 	}
 
 	/**
-	 * 
+	 * type
 	 *
-	 * @return 
+	 * @return type
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public LineItemType getType() {
 		return type;
 	}
@@ -238,7 +226,6 @@ public class LineItemCreate {
 	 *
 	 * @return The unique id identifies the line item within the set of line items associated with the transaction.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The unique id identifies the line item within the set of line items associated with the transaction.")
 	public String getUniqueId() {
 		return uniqueId;
 	}

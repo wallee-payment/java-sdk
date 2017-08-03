@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionPending
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionPending extends SubscriptionUpdate {
+
 	@SerializedName("reference")
 	private String reference = null;
 
@@ -48,11 +44,10 @@ public class SubscriptionPending extends SubscriptionUpdate {
 	}
 
 	/**
-	 * 
+	 * reference
 	 *
-	 * @return 
+	 * @return reference
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getReference() {
 		return reference;
 	}
@@ -67,11 +62,10 @@ public class SubscriptionPending extends SubscriptionUpdate {
 	}
 
 	/**
-	 * 
+	 * subscriber
 	 *
-	 * @return 
+	 * @return subscriber
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSubscriber() {
 		return subscriber;
 	}
@@ -86,17 +80,40 @@ public class SubscriptionPending extends SubscriptionUpdate {
 	}
 
 	/**
-	 * 
+	 * token
 	 *
-	 * @return 
+	 * @return token
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getToken() {
 		return token;
 	}
 
 	public void setToken(Long token) {
 		this.token = token;
+	}
+
+	@Override
+	public SubscriptionPending id(Long id) {
+		super.id(id);
+		return this;
+	}
+
+	@Override
+	public SubscriptionPending version(Long version) {
+		super.version(version);
+		return this;
+	}
+
+	@Override
+	public SubscriptionPending description(String description) {
+		super.description(description);
+		return this;
+	}
+
+	@Override
+	public SubscriptionPending plannedTerminationDate(OffsetDateTime plannedTerminationDate) {
+		super.plannedTerminationDate(plannedTerminationDate);
+		return this;
 	}
 
 

@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,15 +26,13 @@ import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.User;
 import com.wallee.sdk.model.UserType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * HumanUser
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class HumanUser extends User {
+
 	@SerializedName("emailAddress")
 	private String emailAddress = null;
 
@@ -55,9 +51,6 @@ public class HumanUser extends User {
 	@SerializedName("primaryAccount")
 	private Account primaryAccount = null;
 
-	@SerializedName("scope")
-	private Scope scope = null;
-
 	@SerializedName("timeZone")
 	private String timeZone = null;
 
@@ -66,7 +59,6 @@ public class HumanUser extends User {
 	 *
 	 * @return The email address of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The email address of the user.")
 	public String getEmailAddress() {
 		return emailAddress;
 	}
@@ -76,7 +68,6 @@ public class HumanUser extends User {
 	 *
 	 * @return Defines whether a user is verified or not.
 	 */
-	@ApiModelProperty(example = "null", value = "Defines whether a user is verified or not.")
 	public Boolean getEmailAddressVerified() {
 		return emailAddressVerified;
 	}
@@ -86,7 +77,6 @@ public class HumanUser extends User {
 	 *
 	 * @return The first name of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The first name of the user.")
 	public String getFirstname() {
 		return firstname;
 	}
@@ -96,7 +86,6 @@ public class HumanUser extends User {
 	 *
 	 * @return The preferred language of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The preferred language of the user.")
 	public String getLanguage() {
 		return language;
 	}
@@ -106,14 +95,8 @@ public class HumanUser extends User {
 	 *
 	 * @return The last name of the user.
 	 */
-	@ApiModelProperty(example = "null", value = "The last name of the user.")
 	public String getLastname() {
 		return lastname;
-	}
-
-	public HumanUser primaryAccount(Account primaryAccount) {
-		this.primaryAccount = primaryAccount;
-		return this;
 	}
 
 	/**
@@ -121,32 +104,8 @@ public class HumanUser extends User {
 	 *
 	 * @return The primary account links the user to a specific account.
 	 */
-	@ApiModelProperty(example = "null", value = "The primary account links the user to a specific account.")
 	public Account getPrimaryAccount() {
 		return primaryAccount;
-	}
-
-	public void setPrimaryAccount(Account primaryAccount) {
-		this.primaryAccount = primaryAccount;
-	}
-
-	public HumanUser scope(Scope scope) {
-		this.scope = scope;
-		return this;
-	}
-
-	/**
-	 * The scope to which the user belongs to.
-	 *
-	 * @return The scope to which the user belongs to.
-	 */
-	@ApiModelProperty(example = "null", value = "The scope to which the user belongs to.")
-	public Scope getScope() {
-		return scope;
-	}
-
-	public void setScope(Scope scope) {
-		this.scope = scope;
 	}
 
 	/**
@@ -154,7 +113,6 @@ public class HumanUser extends User {
 	 *
 	 * @return The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
 	 */
-	@ApiModelProperty(example = "null", value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
 	public String getTimeZone() {
 		return timeZone;
 	}
@@ -175,14 +133,13 @@ public class HumanUser extends User {
 				Objects.equals(this.language, humanUser.language) &&
 				Objects.equals(this.lastname, humanUser.lastname) &&
 				Objects.equals(this.primaryAccount, humanUser.primaryAccount) &&
-				Objects.equals(this.scope, humanUser.scope) &&
 				Objects.equals(this.timeZone, humanUser.timeZone) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, primaryAccount, scope, timeZone, super.hashCode());
+		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, primaryAccount, timeZone, super.hashCode());
 	}
 
 
@@ -197,7 +154,6 @@ public class HumanUser extends User {
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		lastname: ").append(toIndentedString(lastname)).append("\n");
 		sb.append("		primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
-		sb.append("		scope: ").append(toIndentedString(scope)).append("\n");
 		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("}");
 		return sb.toString();

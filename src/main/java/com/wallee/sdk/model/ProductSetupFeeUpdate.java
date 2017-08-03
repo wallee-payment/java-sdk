@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.PersistableCurrencyAmountUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * ProductSetupFeeUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ProductSetupFeeUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -69,7 +65,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -88,7 +83,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -103,11 +97,10 @@ public class ProductSetupFeeUpdate {
 	}
 
 	/**
-	 * 
+	 * component
 	 *
-	 * @return 
+	 * @return component
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getComponent() {
 		return component;
 	}
@@ -126,7 +119,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
 	 */
-	@ApiModelProperty(example = "null", value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
 	public DatabaseTranslatedStringCreate getDescription() {
 		return description;
 	}
@@ -145,7 +137,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return The name of the fee should describe for the subscriber in few words for what the fee is for.
 	 */
-	@ApiModelProperty(example = "null", value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
 	public DatabaseTranslatedStringCreate getName() {
 		return name;
 	}
@@ -169,7 +160,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.")
 	public List<PersistableCurrencyAmountUpdate> getOnDowngradeCreditedAmount() {
 		return onDowngradeCreditedAmount;
 	}
@@ -193,7 +183,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.
 	 */
-	@ApiModelProperty(example = "null", value = "When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.")
 	public List<PersistableCurrencyAmountUpdate> getOnUpgradeCreditedAmount() {
 		return onUpgradeCreditedAmount;
 	}
@@ -217,7 +206,6 @@ public class ProductSetupFeeUpdate {
 	 *
 	 * @return The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.
 	 */
-	@ApiModelProperty(example = "null", value = "The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.")
 	public List<PersistableCurrencyAmountUpdate> getSetupFee() {
 		return setupFee;
 	}

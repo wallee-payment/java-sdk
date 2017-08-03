@@ -17,76 +17,55 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.LineItem;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * InstallmentCalculatedSlice
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class InstallmentCalculatedSlice {
+
 	@SerializedName("amountIncludingTax")
 	private BigDecimal amountIncludingTax = null;
 
 	@SerializedName("dueOn")
-	private DateTime dueOn = null;
+	private OffsetDateTime dueOn = null;
 
 	@SerializedName("lineItems")
 	private List<LineItem> lineItems = new ArrayList<LineItem>();
 
 	/**
-	 * 
+	 * amountIncludingTax
 	 *
-	 * @return 
+	 * @return amountIncludingTax
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public BigDecimal getAmountIncludingTax() {
 		return amountIncludingTax;
 	}
 
 	/**
-	 * 
+	 * dueOn
 	 *
-	 * @return 
+	 * @return dueOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getDueOn() {
+	public OffsetDateTime getDueOn() {
 		return dueOn;
 	}
 
-	public InstallmentCalculatedSlice lineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
-		return this;
-	}
-
-	public InstallmentCalculatedSlice addLineItemsItem(LineItem lineItemsItem) {
-		this.lineItems.add(lineItemsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * lineItems
 	 *
-	 * @return 
+	 * @return lineItems
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<LineItem> getLineItems() {
 		return lineItems;
-	}
-
-	public void setLineItems(List<LineItem> lineItems) {
-		this.lineItems = lineItems;
 	}
 
 

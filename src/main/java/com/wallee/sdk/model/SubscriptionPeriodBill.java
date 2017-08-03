@@ -17,28 +17,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.SubscriptionPeriodBillState;
 import com.wallee.sdk.model.SubscriptionVersion;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionPeriodBill
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionPeriodBill {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("effectivePeriodEndDate")
-	private DateTime effectivePeriodEndDate = null;
+	private OffsetDateTime effectivePeriodEndDate = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -50,13 +46,13 @@ public class SubscriptionPeriodBill {
 	private Long linkedSpaceId = null;
 
 	@SerializedName("periodStartDate")
-	private DateTime periodStartDate = null;
+	private OffsetDateTime periodStartDate = null;
 
 	@SerializedName("plannedPeriodEndDate")
-	private DateTime plannedPeriodEndDate = null;
+	private OffsetDateTime plannedPeriodEndDate = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private SubscriptionPeriodBillState state = null;
@@ -68,28 +64,21 @@ public class SubscriptionPeriodBill {
 	private Integer version = null;
 
 	/**
-	 * 
+	 * createdOn
 	 *
-	 * @return 
+	 * @return createdOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
 	/**
-	 * 
+	 * effectivePeriodEndDate
 	 *
-	 * @return 
+	 * @return effectivePeriodEndDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getEffectivePeriodEndDate() {
+	public OffsetDateTime getEffectivePeriodEndDate() {
 		return effectivePeriodEndDate;
-	}
-
-	public SubscriptionPeriodBill id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -97,21 +86,15 @@ public class SubscriptionPeriodBill {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -121,28 +104,25 @@ public class SubscriptionPeriodBill {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * periodStartDate
 	 *
-	 * @return 
+	 * @return periodStartDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPeriodStartDate() {
+	public OffsetDateTime getPeriodStartDate() {
 		return periodStartDate;
 	}
 
 	/**
-	 * 
+	 * plannedPeriodEndDate
 	 *
-	 * @return 
+	 * @return plannedPeriodEndDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedPeriodEndDate() {
+	public OffsetDateTime getPlannedPeriodEndDate() {
 		return plannedPeriodEndDate;
 	}
 
@@ -151,52 +131,26 @@ public class SubscriptionPeriodBill {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public SubscriptionPeriodBill state(SubscriptionPeriodBillState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionPeriodBillState getState() {
 		return state;
 	}
 
-	public void setState(SubscriptionPeriodBillState state) {
-		this.state = state;
-	}
-
-	public SubscriptionPeriodBill subscriptionVersion(SubscriptionVersion subscriptionVersion) {
-		this.subscriptionVersion = subscriptionVersion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * subscriptionVersion
 	 *
-	 * @return 
+	 * @return subscriptionVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public SubscriptionVersion getSubscriptionVersion() {
 		return subscriptionVersion;
-	}
-
-	public void setSubscriptionVersion(SubscriptionVersion subscriptionVersion) {
-		this.subscriptionVersion = subscriptionVersion;
-	}
-
-	public SubscriptionPeriodBill version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -204,13 +158,8 @@ public class SubscriptionPeriodBill {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

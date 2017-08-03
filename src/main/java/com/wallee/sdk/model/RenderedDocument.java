@@ -17,22 +17,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * RenderedDocument
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class RenderedDocument {
+
 	@SerializedName("data")
 	private List<byte[]> data = new ArrayList<byte[]>();
 
@@ -45,56 +41,38 @@ public class RenderedDocument {
 	@SerializedName("title")
 	private String title = null;
 
-	public RenderedDocument data(List<byte[]> data) {
-		this.data = data;
-		return this;
-	}
-
-	public RenderedDocument addDataItem(byte[] dataItem) {
-		this.data.add(dataItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * data
 	 *
-	 * @return 
+	 * @return data
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<byte[]> getData() {
 		return data;
 	}
 
-	public void setData(List<byte[]> data) {
-		this.data = data;
-	}
-
 	/**
-	 * 
+	 * documentTemplateType
 	 *
-	 * @return 
+	 * @return documentTemplateType
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getDocumentTemplateType() {
 		return documentTemplateType;
 	}
 
 	/**
-	 * 
+	 * mimeType
 	 *
-	 * @return 
+	 * @return mimeType
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMimeType() {
 		return mimeType;
 	}
 
 	/**
-	 * 
+	 * title
 	 *
-	 * @return 
+	 * @return title
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getTitle() {
 		return title;
 	}

@@ -1,13 +1,23 @@
 language: java
-os:
-  - linux
 jdk:
   - oraclejdk8
-before_install:
-  # ensure gradlew has proper permission
-  - chmod a+x ./gradlew
+  
+sudo: false
+  
+install: 
+  - mvn install -P !build-extras -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  
 script:
-  - gradle test
+  - mvn test -P !build-extras -B
+
 cache:
   directories:
-  - $HOME/.gradle
+    - ~/.m2/repository
+    
+deploy:
+  skip_cleanup: true
+  provider: script
+  script:
+    - /bin/sh ./deploy.sh
+  on:
+    tags: true

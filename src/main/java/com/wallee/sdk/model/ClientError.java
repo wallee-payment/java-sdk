@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ClientErrorType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * An error that is returned as the result of a bad user request or a misconfiguration.
  */
-@io.swagger.annotations.ApiModel(description = "An error that is returned as the result of a bad user request or a misconfiguration.")
 public class ClientError {
+
 	@SerializedName("date")
 	private String date = null;
 
@@ -52,7 +48,6 @@ public class ClientError {
 	 *
 	 * @return Date when an error has occurred.
 	 */
-	@ApiModelProperty(example = "null", value = "Date when an error has occurred.")
 	public String getDate() {
 		return date;
 	}
@@ -62,7 +57,6 @@ public class ClientError {
 	 *
 	 * @return The error message which is translated into the default language (i.e. English).
 	 */
-	@ApiModelProperty(example = "null", value = "The error message which is translated into the default language (i.e. English).")
 	public String getDefaultMessage() {
 		return defaultMessage;
 	}
@@ -72,7 +66,6 @@ public class ClientError {
 	 *
 	 * @return Unique identifier of an error.
 	 */
-	@ApiModelProperty(example = "null", value = "Unique identifier of an error.")
 	public String getId() {
 		return id;
 	}
@@ -82,14 +75,8 @@ public class ClientError {
 	 *
 	 * @return The error message which is translated in into the language of the client.
 	 */
-	@ApiModelProperty(example = "null", value = "The error message which is translated in into the language of the client.")
 	public String getMessage() {
 		return message;
-	}
-
-	public ClientError type(ClientErrorType type) {
-		this.type = type;
-		return this;
 	}
 
 	/**
@@ -97,13 +84,8 @@ public class ClientError {
 	 *
 	 * @return The type of the client error.
 	 */
-	@ApiModelProperty(example = "null", value = "The type of the client error.")
 	public ClientErrorType getType() {
 		return type;
-	}
-
-	public void setType(ClientErrorType type) {
-		this.type = type;
 	}
 
 

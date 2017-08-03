@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,17 +24,15 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.WebhookIdentity;
 import com.wallee.sdk.model.WebhookUrl;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * WebhookListener
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class WebhookListener {
+
 	@SerializedName("entity")
 	private Long entity = null;
 
@@ -59,7 +55,7 @@ public class WebhookListener {
 	private Boolean notifyEveryChange = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("state")
 	private CreationEntityState state = null;
@@ -75,19 +71,8 @@ public class WebhookListener {
 	 *
 	 * @return The listener listens on state changes of the entity linked with the listener.
 	 */
-	@ApiModelProperty(example = "null", value = "The listener listens on state changes of the entity linked with the listener.")
 	public Long getEntity() {
 		return entity;
-	}
-
-	public WebhookListener entityStates(List<String> entityStates) {
-		this.entityStates = entityStates;
-		return this;
-	}
-
-	public WebhookListener addEntityStatesItem(String entityStatesItem) {
-		this.entityStates.add(entityStatesItem);
-		return this;
 	}
 
 	/**
@@ -95,18 +80,8 @@ public class WebhookListener {
 	 *
 	 * @return The target state identifies the state into which entities need to move into to trigger the webhook listener.
 	 */
-	@ApiModelProperty(example = "null", value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
 	public List<String> getEntityStates() {
 		return entityStates;
-	}
-
-	public void setEntityStates(List<String> entityStates) {
-		this.entityStates = entityStates;
-	}
-
-	public WebhookListener id(Long id) {
-		this.id = id;
-		return this;
 	}
 
 	/**
@@ -114,18 +89,8 @@ public class WebhookListener {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public WebhookListener identity(WebhookIdentity identity) {
-		this.identity = identity;
-		return this;
 	}
 
 	/**
@@ -133,13 +98,8 @@ public class WebhookListener {
 	 *
 	 * @return The identity which will be used to sign messages sent by this listener.
 	 */
-	@ApiModelProperty(example = "null", value = "The identity which will be used to sign messages sent by this listener.")
 	public WebhookIdentity getIdentity() {
 		return identity;
-	}
-
-	public void setIdentity(WebhookIdentity identity) {
-		this.identity = identity;
 	}
 
 	/**
@@ -147,7 +107,6 @@ public class WebhookListener {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
@@ -157,7 +116,6 @@ public class WebhookListener {
 	 *
 	 * @return The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
 	 */
-	@ApiModelProperty(example = "null", value = "The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
 	public String getName() {
 		return name;
 	}
@@ -167,7 +125,6 @@ public class WebhookListener {
 	 *
 	 * @return Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
 	 */
-	@ApiModelProperty(example = "null", value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
 	public Boolean getNotifyEveryChange() {
 		return notifyEveryChange;
 	}
@@ -177,33 +134,17 @@ public class WebhookListener {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public WebhookListener state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
-	}
-
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public WebhookListener url(WebhookUrl url) {
-		this.url = url;
-		return this;
 	}
 
 	/**
@@ -211,18 +152,8 @@ public class WebhookListener {
 	 *
 	 * @return The URL which is invoked by the listener to notify the application about the event.
 	 */
-	@ApiModelProperty(example = "null", value = "The URL which is invoked by the listener to notify the application about the event.")
 	public WebhookUrl getUrl() {
 		return url;
-	}
-
-	public void setUrl(WebhookUrl url) {
-		this.url = url;
-	}
-
-	public WebhookListener version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -230,13 +161,8 @@ public class WebhookListener {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

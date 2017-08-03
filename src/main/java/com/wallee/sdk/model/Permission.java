@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * Permission
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class Permission {
+
 	@SerializedName("description")
 	private Map<String, String> description = new HashMap<String, String>();
 
@@ -62,46 +58,29 @@ public class Permission {
 	@SerializedName("title")
 	private Map<String, String> title = new HashMap<String, String>();
 
-	public Permission description(Map<String, String> description) {
-		this.description = description;
-		return this;
-	}
-
-	public Permission putDescriptionItem(String key, String descriptionItem) {
-		this.description.put(key, descriptionItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getDescription() {
 		return description;
 	}
 
-	public void setDescription(Map<String, String> description) {
-		this.description = description;
-	}
-
 	/**
-	 * 
+	 * feature
 	 *
-	 * @return 
+	 * @return feature
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getFeature() {
 		return feature;
 	}
 
 	/**
-	 * 
+	 * group
 	 *
-	 * @return 
+	 * @return group
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getGroup() {
 		return group;
 	}
@@ -111,101 +90,53 @@ public class Permission {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * 
+	 * leaf
 	 *
-	 * @return 
+	 * @return leaf
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getLeaf() {
 		return leaf;
 	}
 
-	public Permission name(Map<String, String> name) {
-		this.name = name;
-		return this;
-	}
-
-	public Permission putNameItem(String key, String nameItem) {
-		this.name.put(key, nameItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * name
 	 *
-	 * @return 
+	 * @return name
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getName() {
 		return name;
 	}
 
-	public void setName(Map<String, String> name) {
-		this.name = name;
-	}
-
 	/**
-	 * 
+	 * parent
 	 *
-	 * @return 
+	 * @return parent
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getParent() {
 		return parent;
 	}
 
-	public Permission pathToRoot(List<Long> pathToRoot) {
-		this.pathToRoot = pathToRoot;
-		return this;
-	}
-
-	public Permission addPathToRootItem(Long pathToRootItem) {
-		this.pathToRoot.add(pathToRootItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * pathToRoot
 	 *
-	 * @return 
+	 * @return pathToRoot
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Long> getPathToRoot() {
 		return pathToRoot;
 	}
 
-	public void setPathToRoot(List<Long> pathToRoot) {
-		this.pathToRoot = pathToRoot;
-	}
-
-	public Permission title(Map<String, String> title) {
-		this.title = title;
-		return this;
-	}
-
-	public Permission putTitleItem(String key, String titleItem) {
-		this.title.put(key, titleItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * title
 	 *
-	 * @return 
+	 * @return title
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getTitle() {
 		return title;
-	}
-
-	public void setTitle(Map<String, String> title) {
-		this.title = title;
 	}
 
 

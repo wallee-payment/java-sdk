@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 
 /**
- * 
+ * TaxCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TaxCreate {
+
 	@SerializedName("rate")
 	private BigDecimal rate = null;
 
@@ -44,11 +40,10 @@ public class TaxCreate {
 	}
 
 	/**
-	 * 
+	 * rate
 	 *
-	 * @return 
+	 * @return rate
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public BigDecimal getRate() {
 		return rate;
 	}
@@ -63,11 +58,10 @@ public class TaxCreate {
 	}
 
 	/**
-	 * 
+	 * title
 	 *
-	 * @return 
+	 * @return title
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "")
 	public String getTitle() {
 		return title;
 	}

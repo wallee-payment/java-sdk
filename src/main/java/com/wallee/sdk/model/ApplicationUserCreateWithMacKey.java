@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -28,24 +26,21 @@ import com.wallee.sdk.model.ApplicationUser;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.UserType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * ApplicationUserCreateWithMacKey
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ApplicationUserCreateWithMacKey extends ApplicationUser {
+
 	@SerializedName("macKey")
 	private String macKey = null;
 
 	/**
-	 * 
+	 * macKey
 	 *
-	 * @return 
+	 * @return macKey
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getMacKey() {
 		return macKey;
 	}

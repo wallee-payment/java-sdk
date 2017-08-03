@@ -17,16 +17,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
-import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 
 
 /**
- * 
+ * ManualTaskActionStyle
  */
 public enum ManualTaskActionStyle {
 	
@@ -41,7 +38,7 @@ public enum ManualTaskActionStyle {
 
 	private String value;
 
-	ManualTaskActionStyle(String value) {
+	private ManualTaskActionStyle(String value) {
 		this.value = value;
 	}
 

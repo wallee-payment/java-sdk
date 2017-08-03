@@ -17,28 +17,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ConnectorInvocationStage;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * ConnectorInvocation
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ConnectorInvocation extends TransactionAwareEntity {
+
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("stage")
 	private ConnectorInvocationStage stage = null;
@@ -57,8 +53,7 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
@@ -67,46 +62,33 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public ConnectorInvocation stage(ConnectorInvocationStage stage) {
-		this.stage = stage;
-		return this;
-	}
-
 	/**
-	 * 
+	 * stage
 	 *
-	 * @return 
+	 * @return stage
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ConnectorInvocationStage getStage() {
 		return stage;
 	}
 
-	public void setStage(ConnectorInvocationStage stage) {
-		this.stage = stage;
-	}
-
 	/**
-	 * 
+	 * timeTookInMilliseconds
 	 *
-	 * @return 
+	 * @return timeTookInMilliseconds
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getTimeTookInMilliseconds() {
 		return timeTookInMilliseconds;
 	}
 
 	/**
-	 * 
+	 * transaction
 	 *
-	 * @return 
+	 * @return transaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getTransaction() {
 		return transaction;
 	}
@@ -116,7 +98,6 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

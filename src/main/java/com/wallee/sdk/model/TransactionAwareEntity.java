@@ -17,20 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
- * 
+ * TransactionAwareEntity
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class TransactionAwareEntity {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -40,23 +36,13 @@ public class TransactionAwareEntity {
 	@SerializedName("linkedTransaction")
 	private Long linkedTransaction = null;
 
-	public TransactionAwareEntity id(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -64,17 +50,15 @@ public class TransactionAwareEntity {
 	 *
 	 * @return The linked space id holds the ID of the space to which the entity belongs to.
 	 */
-	@ApiModelProperty(example = "null", value = "The linked space id holds the ID of the space to which the entity belongs to.")
 	public Long getLinkedSpaceId() {
 		return linkedSpaceId;
 	}
 
 	/**
-	 * 
+	 * linkedTransaction
 	 *
-	 * @return 
+	 * @return linkedTransaction
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getLinkedTransaction() {
 		return linkedTransaction;
 	}

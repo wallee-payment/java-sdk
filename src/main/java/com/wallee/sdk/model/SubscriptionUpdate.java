@@ -17,21 +17,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * SubscriptionUpdate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class SubscriptionUpdate {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -42,7 +38,7 @@ public class SubscriptionUpdate {
 	private String description = null;
 
 	@SerializedName("plannedTerminationDate")
-	private DateTime plannedTerminationDate = null;
+	private OffsetDateTime plannedTerminationDate = null;
 
 	public SubscriptionUpdate id(Long id) {
 		this.id = id;
@@ -54,7 +50,6 @@ public class SubscriptionUpdate {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
@@ -73,7 +68,6 @@ public class SubscriptionUpdate {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Long getVersion() {
 		return version;
 	}
@@ -88,11 +82,10 @@ public class SubscriptionUpdate {
 	}
 
 	/**
-	 * 
+	 * description
 	 *
-	 * @return 
+	 * @return description
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getDescription() {
 		return description;
 	}
@@ -101,22 +94,21 @@ public class SubscriptionUpdate {
 		this.description = description;
 	}
 
-	public SubscriptionUpdate plannedTerminationDate(DateTime plannedTerminationDate) {
+	public SubscriptionUpdate plannedTerminationDate(OffsetDateTime plannedTerminationDate) {
 		this.plannedTerminationDate = plannedTerminationDate;
 		return this;
 	}
 
 	/**
-	 * 
+	 * plannedTerminationDate
 	 *
-	 * @return 
+	 * @return plannedTerminationDate
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getPlannedTerminationDate() {
+	public OffsetDateTime getPlannedTerminationDate() {
 		return plannedTerminationDate;
 	}
 
-	public void setPlannedTerminationDate(DateTime plannedTerminationDate) {
+	public void setPlannedTerminationDate(OffsetDateTime plannedTerminationDate) {
 		this.plannedTerminationDate = plannedTerminationDate;
 	}
 

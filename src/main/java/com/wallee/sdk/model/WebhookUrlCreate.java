@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,10 +24,28 @@ import com.wallee.sdk.model.AbstractWebhookUrlUpdate;
 import com.wallee.sdk.model.CreationEntityState;
 
 /**
- * 
+ * WebhookUrlCreate
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class WebhookUrlCreate extends AbstractWebhookUrlUpdate {
+
+	@Override
+	public WebhookUrlCreate name(String name) {
+		super.name(name);
+		return this;
+	}
+
+	@Override
+	public WebhookUrlCreate state(CreationEntityState state) {
+		super.state(state);
+		return this;
+	}
+
+	@Override
+	public WebhookUrlCreate url(String url) {
+		super.url(url);
+		return this;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {

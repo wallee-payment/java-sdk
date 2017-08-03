@@ -17,24 +17,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.ManualTaskActionStyle;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /**
- * 
+ * ManualTaskAction
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ManualTaskAction {
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -52,60 +48,33 @@ public class ManualTaskAction {
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
 	}
 
-	public ManualTaskAction label(Map<String, String> label) {
-		this.label = label;
-		return this;
-	}
-
-	public ManualTaskAction putLabelItem(String key, String labelItem) {
-		this.label.put(key, labelItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * label
 	 *
-	 * @return 
+	 * @return label
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Map<String, String> getLabel() {
 		return label;
 	}
 
-	public void setLabel(Map<String, String> label) {
-		this.label = label;
-	}
-
-	public ManualTaskAction style(ManualTaskActionStyle style) {
-		this.style = style;
-		return this;
-	}
-
 	/**
-	 * 
+	 * style
 	 *
-	 * @return 
+	 * @return style
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ManualTaskActionStyle getStyle() {
 		return style;
 	}
 
-	public void setStyle(ManualTaskActionStyle style) {
-		this.style = style;
-	}
-
 	/**
-	 * 
+	 * taskType
 	 *
-	 * @return 
+	 * @return taskType
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getTaskType() {
 		return taskType;
 	}

@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -32,17 +30,15 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.TransactionAwareEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import org.joda.time.DateTime;
 
 /**
- * 
+ * ChargeAttempt
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class ChargeAttempt extends TransactionAwareEntity {
+
 	@SerializedName("charge")
 	private Charge charge = null;
 
@@ -50,13 +46,13 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	private PaymentConnectorConfiguration connectorConfiguration = null;
 
 	@SerializedName("createdOn")
-	private DateTime createdOn = null;
+	private OffsetDateTime createdOn = null;
 
 	@SerializedName("environment")
 	private ChargeAttemptEnvironment environment = null;
 
 	@SerializedName("failedOn")
-	private DateTime failedOn = null;
+	private OffsetDateTime failedOn = null;
 
 	@SerializedName("failureReason")
 	private FailureReason failureReason = null;
@@ -74,10 +70,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	private String language = null;
 
 	@SerializedName("nextUpdateOn")
-	private DateTime nextUpdateOn = null;
+	private OffsetDateTime nextUpdateOn = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("redirectionUrl")
 	private String redirectionUrl = null;
@@ -89,10 +85,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	private ChargeAttemptState state = null;
 
 	@SerializedName("succeededOn")
-	private DateTime succeededOn = null;
+	private OffsetDateTime succeededOn = null;
 
 	@SerializedName("timeoutOn")
-	private DateTime timeoutOn = null;
+	private OffsetDateTime timeoutOn = null;
 
 	@SerializedName("tokenVersion")
 	private TokenVersion tokenVersion = null;
@@ -103,42 +99,22 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public ChargeAttempt charge(Charge charge) {
-		this.charge = charge;
-		return this;
-	}
-
 	/**
-	 * 
+	 * charge
 	 *
-	 * @return 
+	 * @return charge
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Charge getCharge() {
 		return charge;
 	}
 
-	public void setCharge(Charge charge) {
-		this.charge = charge;
-	}
-
-	public ChargeAttempt connectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
-		this.connectorConfiguration = connectorConfiguration;
-		return this;
-	}
-
 	/**
-	 * 
+	 * connectorConfiguration
 	 *
-	 * @return 
+	 * @return connectorConfiguration
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public PaymentConnectorConfiguration getConnectorConfiguration() {
 		return connectorConfiguration;
-	}
-
-	public void setConnectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
-		this.connectorConfiguration = connectorConfiguration;
 	}
 
 	/**
@@ -146,129 +122,79 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	 *
 	 * @return The created on date indicates the date on which the entity was stored into the database.
 	 */
-	@ApiModelProperty(example = "null", value = "The created on date indicates the date on which the entity was stored into the database.")
-	public DateTime getCreatedOn() {
+	public OffsetDateTime getCreatedOn() {
 		return createdOn;
 	}
 
-	public ChargeAttempt environment(ChargeAttemptEnvironment environment) {
-		this.environment = environment;
-		return this;
-	}
-
 	/**
-	 * 
+	 * environment
 	 *
-	 * @return 
+	 * @return environment
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeAttemptEnvironment getEnvironment() {
 		return environment;
 	}
 
-	public void setEnvironment(ChargeAttemptEnvironment environment) {
-		this.environment = environment;
-	}
-
 	/**
-	 * 
+	 * failedOn
 	 *
-	 * @return 
+	 * @return failedOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getFailedOn() {
+	public OffsetDateTime getFailedOn() {
 		return failedOn;
 	}
 
-	public ChargeAttempt failureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-		return this;
-	}
-
 	/**
-	 * 
+	 * failureReason
 	 *
-	 * @return 
+	 * @return failureReason
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public FailureReason getFailureReason() {
 		return failureReason;
 	}
 
-	public void setFailureReason(FailureReason failureReason) {
-		this.failureReason = failureReason;
-	}
-
 	/**
-	 * 
+	 * initializingTokenVersion
 	 *
-	 * @return 
+	 * @return initializingTokenVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Boolean getInitializingTokenVersion() {
 		return initializingTokenVersion;
 	}
 
-	public ChargeAttempt invocation(ConnectorInvocation invocation) {
-		this.invocation = invocation;
-		return this;
-	}
-
 	/**
-	 * 
+	 * invocation
 	 *
-	 * @return 
+	 * @return invocation
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ConnectorInvocation getInvocation() {
 		return invocation;
 	}
 
-	public void setInvocation(ConnectorInvocation invocation) {
-		this.invocation = invocation;
-	}
-
-	public ChargeAttempt labels(List<Label> labels) {
-		this.labels = labels;
-		return this;
-	}
-
-	public ChargeAttempt addLabelsItem(Label labelsItem) {
-		this.labels.add(labelsItem);
-		return this;
-	}
-
 	/**
-	 * 
+	 * labels
 	 *
-	 * @return 
+	 * @return labels
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public List<Label> getLabels() {
 		return labels;
 	}
 
-	public void setLabels(List<Label> labels) {
-		this.labels = labels;
-	}
-
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
 
 	/**
-	 * 
+	 * nextUpdateOn
 	 *
-	 * @return 
+	 * @return nextUpdateOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getNextUpdateOn() {
+	public OffsetDateTime getNextUpdateOn() {
 		return nextUpdateOn;
 	}
 
@@ -277,87 +203,62 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
 	/**
-	 * 
+	 * redirectionUrl
 	 *
-	 * @return 
+	 * @return redirectionUrl
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getRedirectionUrl() {
 		return redirectionUrl;
 	}
 
 	/**
-	 * 
+	 * spaceViewId
 	 *
-	 * @return 
+	 * @return spaceViewId
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Long getSpaceViewId() {
 		return spaceViewId;
 	}
 
-	public ChargeAttempt state(ChargeAttemptState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public ChargeAttemptState getState() {
 		return state;
 	}
 
-	public void setState(ChargeAttemptState state) {
-		this.state = state;
-	}
-
 	/**
-	 * 
+	 * succeededOn
 	 *
-	 * @return 
+	 * @return succeededOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getSucceededOn() {
+	public OffsetDateTime getSucceededOn() {
 		return succeededOn;
 	}
 
 	/**
-	 * 
+	 * timeoutOn
 	 *
-	 * @return 
+	 * @return timeoutOn
 	 */
-	@ApiModelProperty(example = "null", value = "")
-	public DateTime getTimeoutOn() {
+	public OffsetDateTime getTimeoutOn() {
 		return timeoutOn;
 	}
 
-	public ChargeAttempt tokenVersion(TokenVersion tokenVersion) {
-		this.tokenVersion = tokenVersion;
-		return this;
-	}
-
 	/**
-	 * 
+	 * tokenVersion
 	 *
-	 * @return 
+	 * @return tokenVersion
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public TokenVersion getTokenVersion() {
 		return tokenVersion;
-	}
-
-	public void setTokenVersion(TokenVersion tokenVersion) {
-		this.tokenVersion = tokenVersion;
 	}
 
 	/**
@@ -365,7 +266,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	 *
 	 * @return The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.
 	 */
-	@ApiModelProperty(example = "null", value = "The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.")
 	public String getUserFailureMessage() {
 		return userFailureMessage;
 	}
@@ -375,7 +275,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
 	}

@@ -17,8 +17,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
@@ -26,20 +24,18 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.UserType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import org.joda.time.DateTime;
+import java.time.OffsetDateTime;
 
 /**
- * 
+ * User
  */
-@io.swagger.annotations.ApiModel(description = "")
 public class User {
+
 	@SerializedName("id")
 	private Long id = null;
 
 	@SerializedName("plannedPurgeDate")
-	private DateTime plannedPurgeDate = null;
+	private OffsetDateTime plannedPurgeDate = null;
 
 	@SerializedName("scope")
 	private Scope scope = null;
@@ -53,23 +49,13 @@ public class User {
 	@SerializedName("version")
 	private Integer version = null;
 
-	public User id(Long id) {
-		this.id = id;
-		return this;
-	}
-
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 *
 	 * @return The ID is the primary key of the entity. The ID identifies the entity uniquely.
 	 */
-	@ApiModelProperty(example = "null", value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**
@@ -77,71 +63,35 @@ public class User {
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 */
-	@ApiModelProperty(example = "null", value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-	public DateTime getPlannedPurgeDate() {
+	public OffsetDateTime getPlannedPurgeDate() {
 		return plannedPurgeDate;
 	}
 
-	public User scope(Scope scope) {
-		this.scope = scope;
-		return this;
-	}
-
 	/**
-	 * 
+	 * scope
 	 *
-	 * @return 
+	 * @return scope
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public Scope getScope() {
 		return scope;
 	}
 
-	public void setScope(Scope scope) {
-		this.scope = scope;
-	}
-
-	public User state(CreationEntityState state) {
-		this.state = state;
-		return this;
-	}
-
 	/**
-	 * 
+	 * state
 	 *
-	 * @return 
+	 * @return state
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public CreationEntityState getState() {
 		return state;
 	}
 
-	public void setState(CreationEntityState state) {
-		this.state = state;
-	}
-
-	public User userType(UserType userType) {
-		this.userType = userType;
-		return this;
-	}
-
 	/**
-	 * 
+	 * userType
 	 *
-	 * @return 
+	 * @return userType
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public UserType getUserType() {
 		return userType;
-	}
-
-	public void setUserType(UserType userType) {
-		this.userType = userType;
-	}
-
-	public User version(Integer version) {
-		this.version = version;
-		return this;
 	}
 
 	/**
@@ -149,13 +99,8 @@ public class User {
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 */
-	@ApiModelProperty(example = "null", value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
 	public Integer getVersion() {
 		return version;
-	}
-
-	public void setVersion(Integer version) {
-		this.version = version;
 	}
 
 

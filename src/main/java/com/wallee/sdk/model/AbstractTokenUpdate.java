@@ -17,19 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * AbstractTokenUpdate
  */
 public class AbstractTokenUpdate {
+
 	@SerializedName("customerEmailAddress")
 	private String customerEmailAddress = null;
 
@@ -55,7 +52,6 @@ public class AbstractTokenUpdate {
 	 *
 	 * @return The customer email address is the email address of the customer.
 	 */
-	@ApiModelProperty(example = "null", value = "The customer email address is the email address of the customer.")
 	public String getCustomerEmailAddress() {
 		return customerEmailAddress;
 	}
@@ -74,7 +70,6 @@ public class AbstractTokenUpdate {
 	 *
 	 * @return The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.
 	 */
-	@ApiModelProperty(example = "null", value = "The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.")
 	public String getCustomerId() {
 		return customerId;
 	}
@@ -93,7 +88,6 @@ public class AbstractTokenUpdate {
 	 *
 	 * @return When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.
 	 */
-	@ApiModelProperty(example = "null", value = "When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.")
 	public Boolean getEnabledForOneClickPayment() {
 		return enabledForOneClickPayment;
 	}
@@ -108,11 +102,10 @@ public class AbstractTokenUpdate {
 	}
 
 	/**
-	 * 
+	 * language
 	 *
-	 * @return 
+	 * @return language
 	 */
-	@ApiModelProperty(example = "null", value = "")
 	public String getLanguage() {
 		return language;
 	}
@@ -131,7 +124,6 @@ public class AbstractTokenUpdate {
 	 *
 	 * @return Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).
 	 */
-	@ApiModelProperty(example = "null", value = "Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).")
 	public String getTokenReference() {
 		return tokenReference;
 	}
