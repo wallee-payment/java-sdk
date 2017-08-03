@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/wallee-payment/wallee-java-sdk.svg?branch=master)](https://travis-ci.org/wallee-payment/wallee-java-sdk)
+
 # wallee Java SDK
 
 This project provides a SDK to simplify the usage of the https://wallee.com service. 
