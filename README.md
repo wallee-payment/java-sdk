@@ -1,21 +1,20 @@
 [![Build Status](https://travis-ci.org/wallee-payment/wallee-java-sdk.svg?branch=master)](https://travis-ci.org/wallee-payment/wallee-java-sdk)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.wallee/wallee-java-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.wallee/wallee-java-sdk)
 
 # wallee Java SDK
 
-This project provides a SDK to simplify the usage of the https://wallee.com service. 
+This project provides a SDK to simplify the usage of the [wallee](https://wallee.com) services. 
 
-## Requirements
+## Documentation
 
-Building the API client library requires [Maven](https://maven.apache.org/) to be installed.
+For detailed information about wallee API please see [wallee documentation](https://app-wallee.com/doc/api/web-service).
 
-## Installation
+## Getting Started
 
-To install the API client library to your local Maven repository, simply execute:
+If you don't have an account with wallee you can [singup here](https://app-wallee.com/user/signup) for free.
 
-```shell
-mvn install
-```
-<!--
+To start using `wallee` API you will first have to add a dependency to your project.
+
 ### Maven users
 
 Add this dependency to your project's POM:
@@ -37,24 +36,50 @@ Add this dependency to your project's build file:
 compile "com.wallee:wallee-java-sdk:1.0.0"
 ```
 
-### Others
+### Example
 
-At first generate the JAR by executing:
-
-    mvn package
-
-Then manually install the following JARs:
-
-* target/wallee-java-sdk-1.0.0.jar
-* target/lib/*.jar
-
--->
-
-## Getting Started
-
-Please follow the [installation](#installation) instruction and execute the following Java code:
+The following code snippet is simple example on how to use the `wallee-java-sdk` to create a transaction token.
 
 ```java
+package com.wallee.sdk.example;
+
+import java.util.UUID;
+
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ApiException;
+import com.wallee.sdk.model.TokenCreate;
+import com.wallee.sdk.service.TokenService;
+
+public class WalleeExample {
+
+	public static void main(String[] args) {
+
+		final Long spaceId = 405l;
+
+		final long applicationUserId = 512;
+		final String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+		final ApiClient apiClient = new ApiClient(applicationUserId, authenticationKey);
+
+		// @formatter:off
+		TokenCreate tokenCreate = new TokenCreate()
+				.customerEmailAddress("test@wallee.com")
+				.tokenReference("test@wallee.com")
+				.customerId(UUID.randomUUID().toString())
+				.enabledForOneClickPayment(true)
+				.externalId(UUID.randomUUID().toString());
+		// @formatter:on
+
+		final TokenService tokenService = new TokenService(apiClient);
+
+		try {
+			tokenCreate = tokenService.create(spaceId, tokenCreate);
+
+		} catch (ApiException e) {
+			throw new RuntimeException("Failed to create a token in space '" + spaceId + "'.", e);
+		}
+	}
+
+}
 ```
 
 
