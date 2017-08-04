@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
 
-echo "[INFO] Running deploy based on the mvn_settings.xml"
-mvn deploy -P sign,build-extras --settings mvn_settings.xml
+if [ -z ${TRAVIS_TAG}]; 
+then
+	echo "[INFO] This is not tagged build. The TRAVIS_TAG is not set. Skipping deployment.";
+
+elif [ "$TRAVIS_BRANCH" = 'master' ] && [ "$TRAVIS_PULL_REQUEST" == 'false' ];
+then
+	echo "[INFO] Running deployment based on the mvn_settings.xml"
+	mvn deploy -P sign,build-extras --settings mvn_settings.xml
+
+else
+	echo "[INFO] Not on master branch or this is a pull request. Skipping deployment."
+fi
