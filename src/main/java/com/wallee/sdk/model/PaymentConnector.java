@@ -39,6 +39,12 @@ public class PaymentConnector {
 	@SerializedName("dataCollectionType")
 	private DataCollectionType dataCollectionType = null;
 
+	@SerializedName("deprecated")
+	private Boolean deprecated = null;
+
+	@SerializedName("deprecationReason")
+	private Map<String, String> deprecationReason = new HashMap<String, String>();
+
 	@SerializedName("description")
 	private Map<String, String> description = new HashMap<String, String>();
 
@@ -76,6 +82,24 @@ public class PaymentConnector {
 	 */
 	public DataCollectionType getDataCollectionType() {
 		return dataCollectionType;
+	}
+
+	/**
+	 * deprecated
+	 *
+	 * @return deprecated
+	 */
+	public Boolean getDeprecated() {
+		return deprecated;
+	}
+
+	/**
+	 * deprecationReason
+	 *
+	 * @return deprecationReason
+	 */
+	public Map<String, String> getDeprecationReason() {
+		return deprecationReason;
 	}
 
 	/**
@@ -179,6 +203,8 @@ public class PaymentConnector {
 		}
 		PaymentConnector paymentConnector = (PaymentConnector) o;
 		return Objects.equals(this.dataCollectionType, paymentConnector.dataCollectionType) &&
+				Objects.equals(this.deprecated, paymentConnector.deprecated) &&
+				Objects.equals(this.deprecationReason, paymentConnector.deprecationReason) &&
 				Objects.equals(this.description, paymentConnector.description) &&
 				Objects.equals(this.feature, paymentConnector.feature) &&
 				Objects.equals(this.id, paymentConnector.id) &&
@@ -193,7 +219,7 @@ public class PaymentConnector {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataCollectionType, description, feature, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCustomersPresences, supportedFeatures);
+		return Objects.hash(dataCollectionType, deprecated, deprecationReason, description, feature, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCustomersPresences, supportedFeatures);
 	}
 
 
@@ -203,6 +229,8 @@ public class PaymentConnector {
 		sb.append("class PaymentConnector {\n");
 		
 		sb.append("		dataCollectionType: ").append(toIndentedString(dataCollectionType)).append("\n");
+		sb.append("		deprecated: ").append(toIndentedString(deprecated)).append("\n");
+		sb.append("		deprecationReason: ").append(toIndentedString(deprecationReason)).append("\n");
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
 		sb.append("		feature: ").append(toIndentedString(feature)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");

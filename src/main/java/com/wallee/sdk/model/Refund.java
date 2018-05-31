@@ -21,6 +21,7 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.LineItem;
@@ -50,6 +51,9 @@ public class Refund {
 
 	@SerializedName("createdOn")
 	private OffsetDateTime createdOn = null;
+
+	@SerializedName("environment")
+	private Environment environment = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
@@ -148,6 +152,15 @@ public class Refund {
 	 */
 	public OffsetDateTime getCreatedOn() {
 		return createdOn;
+	}
+
+	/**
+	 * environment
+	 *
+	 * @return environment
+	 */
+	public Environment getEnvironment() {
+		return environment;
 	}
 
 	/**
@@ -353,6 +366,7 @@ public class Refund {
 				Objects.equals(this.baseLineItems, refund.baseLineItems) &&
 				Objects.equals(this.createdBy, refund.createdBy) &&
 				Objects.equals(this.createdOn, refund.createdOn) &&
+				Objects.equals(this.environment, refund.environment) &&
 				Objects.equals(this.externalId, refund.externalId) &&
 				Objects.equals(this.failedOn, refund.failedOn) &&
 				Objects.equals(this.failureReason, refund.failureReason) &&
@@ -378,7 +392,7 @@ public class Refund {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeoutOn, transaction, type, version);
+		return Objects.hash(amount, baseLineItems, createdBy, createdOn, environment, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeoutOn, transaction, type, version);
 	}
 
 
@@ -391,6 +405,7 @@ public class Refund {
 		sb.append("		baseLineItems: ").append(toIndentedString(baseLineItems)).append("\n");
 		sb.append("		createdBy: ").append(toIndentedString(createdBy)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
+		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
 		sb.append("		externalId: ").append(toIndentedString(externalId)).append("\n");
 		sb.append("		failedOn: ").append(toIndentedString(failedOn)).append("\n");
 		sb.append("		failureReason: ").append(toIndentedString(failureReason)).append("\n");

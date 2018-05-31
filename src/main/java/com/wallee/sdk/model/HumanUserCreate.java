@@ -20,6 +20,7 @@
 package com.wallee.sdk.model;
 
 import java.util.Objects;
+import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractHumanUserUpdate;
 import com.wallee.sdk.model.CreationEntityState;
 
@@ -27,6 +28,27 @@ import com.wallee.sdk.model.CreationEntityState;
  * HumanUserCreate
  */
 public class HumanUserCreate extends AbstractHumanUserUpdate {
+
+	@SerializedName("primaryAccount")
+	private Long primaryAccount = null;
+
+	public HumanUserCreate primaryAccount(Long primaryAccount) {
+		this.primaryAccount = primaryAccount;
+		return this;
+	}
+
+	/**
+	 * The primary account links the user to a specific account.
+	 *
+	 * @return The primary account links the user to a specific account.
+	 */
+	public Long getPrimaryAccount() {
+		return primaryAccount;
+	}
+
+	public void setPrimaryAccount(Long primaryAccount) {
+		this.primaryAccount = primaryAccount;
+	}
 
 	@Override
 	public HumanUserCreate emailAddress(String emailAddress) {
@@ -73,12 +95,14 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
 		if (o == null || getClass() != o.getClass()) {
 			return false;
 		}
-		return true;
+		HumanUserCreate humanUserCreate = (HumanUserCreate) o;
+		return Objects.equals(this.primaryAccount, humanUserCreate.primaryAccount) &&
+				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(super.hashCode());
+		return Objects.hash(primaryAccount, super.hashCode());
 	}
 
 
@@ -87,6 +111,7 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class HumanUserCreate {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
+		sb.append("		primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

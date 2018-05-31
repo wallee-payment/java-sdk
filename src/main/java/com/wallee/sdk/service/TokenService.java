@@ -239,11 +239,11 @@ public class TokenService {
 	 * @param spaceId  (required)
 	 *
 	 * @param entity The token object with the properties which should be created. (required)
-	 * @return TokenCreate
+	 * @return Token
 	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
 	 */
-	public TokenCreate create(Long spaceId, TokenCreate entity) throws ApiException {
-		ApiResponse<TokenCreate> resp = createWithHttpInfo(spaceId, entity);
+	public Token create(Long spaceId, TokenCreate entity) throws ApiException {
+		ApiResponse<Token> resp = createWithHttpInfo(spaceId, entity);
 		return resp.getData();
 	}
 
@@ -255,12 +255,12 @@ public class TokenService {
 	 * @param spaceId  (required)
 	 *
 	 * @param entity The token object with the properties which should be created. (required)
-	 * @return ApiResponse&lt;TokenCreate&gt;
+	 * @return ApiResponse&lt;Token&gt;
 	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
 	 */
-	public ApiResponse<TokenCreate> createWithHttpInfo(Long spaceId, TokenCreate entity) throws ApiException {
+	public ApiResponse<Token> createWithHttpInfo(Long spaceId, TokenCreate entity) throws ApiException {
 		com.squareup.okhttp.Call call = createCall(spaceId, entity, null, null);
-		Type localVarReturnType = new TypeToken<TokenCreate>(){}.getType();
+		Type localVarReturnType = new TypeToken<Token>(){}.getType();
 		return apiClient.execute(call, localVarReturnType);
 	}
 
@@ -276,7 +276,7 @@ public class TokenService {
 	 * @return The request call
 	 * @throws ApiException If fail to process the API call, e.g. serializing the request body object
 	 */
-	public com.squareup.okhttp.Call createAsync(Long spaceId, TokenCreate entity, final ApiCallback<TokenCreate> callback) throws ApiException {
+	public com.squareup.okhttp.Call createAsync(Long spaceId, TokenCreate entity, final ApiCallback<Token> callback) throws ApiException {
 
 		ProgressResponseBody.ProgressListener progressListener = null;
 		ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -298,7 +298,7 @@ public class TokenService {
 		}
 
 		com.squareup.okhttp.Call call = createCall(spaceId, entity, progressListener, progressRequestListener);
-		Type localVarReturnType = new TypeToken<TokenCreate>(){}.getType();
+		Type localVarReturnType = new TypeToken<Token>(){}.getType();
 		apiClient.executeAsync(call, localVarReturnType, callback);
 		return call;
 	}
@@ -448,13 +448,13 @@ public class TokenService {
 		Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 		Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 		final String[] localVarAccepts = {
-			"*/*"
+			"application/json;charset=utf-8"
 		};
 		final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
 		final String[] localVarContentTypes = {
-			"application/json;charset=utf-8"
+			"*/*"
 		};
 		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 		localVarHeaderParams.put("Content-Type", localVarContentType);

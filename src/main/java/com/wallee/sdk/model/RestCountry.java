@@ -21,6 +21,7 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import com.wallee.sdk.model.RestAddressFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +35,9 @@ public class RestCountry {
 
 	@SerializedName("ISOCode3Letter")
 	private String isOCode3Letter = null;
+
+	@SerializedName("addressFormat")
+	private RestAddressFormat addressFormat = null;
 
 	@SerializedName("name")
 	private String name = null;
@@ -60,6 +64,15 @@ public class RestCountry {
 	 */
 	public String getIsOCode3Letter() {
 		return isOCode3Letter;
+	}
+
+	/**
+	 * The address format of the country indicates how an address has to look like for the country.
+	 *
+	 * @return The address format of the country indicates how an address has to look like for the country.
+	 */
+	public RestAddressFormat getAddressFormat() {
+		return addressFormat;
 	}
 
 	/**
@@ -101,6 +114,7 @@ public class RestCountry {
 		RestCountry restCountry = (RestCountry) o;
 		return Objects.equals(this.isOCode2Letter, restCountry.isOCode2Letter) &&
 				Objects.equals(this.isOCode3Letter, restCountry.isOCode3Letter) &&
+				Objects.equals(this.addressFormat, restCountry.addressFormat) &&
 				Objects.equals(this.name, restCountry.name) &&
 				Objects.equals(this.numericCode, restCountry.numericCode) &&
 				Objects.equals(this.stateCodes, restCountry.stateCodes);
@@ -108,7 +122,7 @@ public class RestCountry {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(isOCode2Letter, isOCode3Letter, name, numericCode, stateCodes);
+		return Objects.hash(isOCode2Letter, isOCode3Letter, addressFormat, name, numericCode, stateCodes);
 	}
 
 
@@ -119,6 +133,7 @@ public class RestCountry {
 		
 		sb.append("		isOCode2Letter: ").append(toIndentedString(isOCode2Letter)).append("\n");
 		sb.append("		isOCode3Letter: ").append(toIndentedString(isOCode3Letter)).append("\n");
+		sb.append("		addressFormat: ").append(toIndentedString(addressFormat)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		numericCode: ").append(toIndentedString(numericCode)).append("\n");
 		sb.append("		stateCodes: ").append(toIndentedString(stateCodes)).append("\n");

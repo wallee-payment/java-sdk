@@ -59,6 +59,9 @@ public class Token {
 	@SerializedName("state")
 	private CreationEntityState state = null;
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("tokenReference")
 	private String tokenReference = null;
 
@@ -156,6 +159,15 @@ public class Token {
 	}
 
 	/**
+	 * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 *
+	 * @return The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).
 	 *
 	 * @return Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).
@@ -193,13 +205,14 @@ public class Token {
 				Objects.equals(this.linkedSpaceId, token.linkedSpaceId) &&
 				Objects.equals(this.plannedPurgeDate, token.plannedPurgeDate) &&
 				Objects.equals(this.state, token.state) &&
+				Objects.equals(this.timeZone, token.timeZone) &&
 				Objects.equals(this.tokenReference, token.tokenReference) &&
 				Objects.equals(this.version, token.version);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdOn, customerEmailAddress, customerId, enabledForOneClickPayment, externalId, id, language, linkedSpaceId, plannedPurgeDate, state, tokenReference, version);
+		return Objects.hash(createdOn, customerEmailAddress, customerId, enabledForOneClickPayment, externalId, id, language, linkedSpaceId, plannedPurgeDate, state, timeZone, tokenReference, version);
 	}
 
 
@@ -218,6 +231,7 @@ public class Token {
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");

@@ -52,7 +52,10 @@ public enum CriteriaOperator {
 	NOT_CONTAINS("NOT_CONTAINS"),
 	
 	@SerializedName("IS_NULL")
-	IS_NULL("IS_NULL");
+	IS_NULL("IS_NULL"),
+	
+	@SerializedName("IS_NOT_NULL")
+	IS_NOT_NULL("IS_NOT_NULL");
 
 	private String value;
 

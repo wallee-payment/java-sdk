@@ -30,6 +30,9 @@ public enum UserType {
 	@SerializedName("HUMAN_USER")
 	HUMAN_USER("HUMAN_USER"),
 	
+	@SerializedName("SINGLE_SIGNON_USER")
+	SINGLE_SIGNON_USER("SINGLE_SIGNON_USER"),
+	
 	@SerializedName("APPLICATION_USER")
 	APPLICATION_USER("APPLICATION_USER"),
 	

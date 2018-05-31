@@ -27,6 +27,7 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TokenVersionState;
+import com.wallee.sdk.model.TokenVersionType;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,9 @@ public class TokenVersion {
 
 	@SerializedName("environment")
 	private ChargeAttemptEnvironment environment = null;
+
+	@SerializedName("expiresOn")
+	private OffsetDateTime expiresOn = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -83,6 +87,9 @@ public class TokenVersion {
 
 	@SerializedName("token")
 	private Token token = null;
+
+	@SerializedName("type")
+	private TokenVersionType type = null;
 
 	@SerializedName("version")
 	private Integer version = null;
@@ -121,6 +128,15 @@ public class TokenVersion {
 	 */
 	public ChargeAttemptEnvironment getEnvironment() {
 		return environment;
+	}
+
+	/**
+	 * The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.
+	 *
+	 * @return The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.
+	 */
+	public OffsetDateTime getExpiresOn() {
+		return expiresOn;
 	}
 
 	/**
@@ -232,6 +248,15 @@ public class TokenVersion {
 	}
 
 	/**
+	 * The token version type determines what kind of token it is and by which payment connector the token can be processed by.
+	 *
+	 * @return The token version type determines what kind of token it is and by which payment connector the token can be processed by.
+	 */
+	public TokenVersionType getType() {
+		return type;
+	}
+
+	/**
 	 * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
@@ -254,6 +279,7 @@ public class TokenVersion {
 				Objects.equals(this.billingAddress, tokenVersion.billingAddress) &&
 				Objects.equals(this.createdOn, tokenVersion.createdOn) &&
 				Objects.equals(this.environment, tokenVersion.environment) &&
+				Objects.equals(this.expiresOn, tokenVersion.expiresOn) &&
 				Objects.equals(this.id, tokenVersion.id) &&
 				Objects.equals(this.labels, tokenVersion.labels) &&
 				Objects.equals(this.language, tokenVersion.language) &&
@@ -266,12 +292,13 @@ public class TokenVersion {
 				Objects.equals(this.shippingAddress, tokenVersion.shippingAddress) &&
 				Objects.equals(this.state, tokenVersion.state) &&
 				Objects.equals(this.token, tokenVersion.token) &&
+				Objects.equals(this.type, tokenVersion.type) &&
 				Objects.equals(this.version, tokenVersion.version);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(activatedOn, billingAddress, createdOn, environment, id, labels, language, linkedSpaceId, name, obsoletedOn, paymentConnectorConfiguration, plannedPurgeDate, processorToken, shippingAddress, state, token, version);
+		return Objects.hash(activatedOn, billingAddress, createdOn, environment, expiresOn, id, labels, language, linkedSpaceId, name, obsoletedOn, paymentConnectorConfiguration, plannedPurgeDate, processorToken, shippingAddress, state, token, type, version);
 	}
 
 
@@ -284,6 +311,7 @@ public class TokenVersion {
 		sb.append("		billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
+		sb.append("		expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		labels: ").append(toIndentedString(labels)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
@@ -296,6 +324,7 @@ public class TokenVersion {
 		sb.append("		shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		token: ").append(toIndentedString(token)).append("\n");
+		sb.append("		type: ").append(toIndentedString(type)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");
 		return sb.toString();

@@ -29,6 +29,9 @@ import java.time.OffsetDateTime;
  */
 public class PaymentProcessorConfiguration {
 
+	@SerializedName("contractId")
+	private Long contractId = null;
+
 	@SerializedName("id")
 	private Long id = null;
 
@@ -49,6 +52,15 @@ public class PaymentProcessorConfiguration {
 
 	@SerializedName("version")
 	private Integer version = null;
+
+	/**
+	 * The contract links the processor configuration with the contract that is used to process payments.
+	 *
+	 * @return The contract links the processor configuration with the contract that is used to process payments.
+	 */
+	public Long getContractId() {
+		return contractId;
+	}
 
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
@@ -123,7 +135,8 @@ public class PaymentProcessorConfiguration {
 			return false;
 		}
 		PaymentProcessorConfiguration paymentProcessorConfiguration = (PaymentProcessorConfiguration) o;
-		return Objects.equals(this.id, paymentProcessorConfiguration.id) &&
+		return Objects.equals(this.contractId, paymentProcessorConfiguration.contractId) &&
+				Objects.equals(this.id, paymentProcessorConfiguration.id) &&
 				Objects.equals(this.linkedSpaceId, paymentProcessorConfiguration.linkedSpaceId) &&
 				Objects.equals(this.name, paymentProcessorConfiguration.name) &&
 				Objects.equals(this.plannedPurgeDate, paymentProcessorConfiguration.plannedPurgeDate) &&
@@ -134,7 +147,7 @@ public class PaymentProcessorConfiguration {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, processor, state, version);
+		return Objects.hash(contractId, id, linkedSpaceId, name, plannedPurgeDate, processor, state, version);
 	}
 
 
@@ -143,6 +156,7 @@ public class PaymentProcessorConfiguration {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class PaymentProcessorConfiguration {\n");
 		
+		sb.append("		contractId: ").append(toIndentedString(contractId)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");

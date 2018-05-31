@@ -23,7 +23,9 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
@@ -53,6 +55,9 @@ public class SubscriberUpdate {
 
 	@SerializedName("language")
 	private String language = null;
+
+	@SerializedName("metaData")
+	private Map<String, String> metaData = new HashMap<String, String>();
 
 	@SerializedName("reference")
 	private String reference = null;
@@ -214,6 +219,29 @@ public class SubscriberUpdate {
 		this.language = language;
 	}
 
+	public SubscriberUpdate metaData(Map<String, String> metaData) {
+		this.metaData = metaData;
+		return this;
+	}
+
+	public SubscriberUpdate putMetaDataItem(String key, String metaDataItem) {
+		this.metaData.put(key, metaDataItem);
+		return this;
+	}
+
+	/**
+	 * Meta data allow to store additional data along the object.
+	 *
+	 * @return Meta data allow to store additional data along the object.
+	 */
+	public Map<String, String> getMetaData() {
+		return metaData;
+	}
+
+	public void setMetaData(Map<String, String> metaData) {
+		this.metaData = metaData;
+	}
+
 	public SubscriberUpdate reference(String reference) {
 		this.reference = reference;
 		return this;
@@ -268,13 +296,14 @@ public class SubscriberUpdate {
 				Objects.equals(this.disallowedPaymentMethodConfigurations, subscriberUpdate.disallowedPaymentMethodConfigurations) &&
 				Objects.equals(this.emailAddress, subscriberUpdate.emailAddress) &&
 				Objects.equals(this.language, subscriberUpdate.language) &&
+				Objects.equals(this.metaData, subscriberUpdate.metaData) &&
 				Objects.equals(this.reference, subscriberUpdate.reference) &&
 				Objects.equals(this.shippingAddress, subscriberUpdate.shippingAddress);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, version, additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, reference, shippingAddress);
+		return Objects.hash(id, version, additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, metaData, reference, shippingAddress);
 	}
 
 
@@ -291,6 +320,7 @@ public class SubscriberUpdate {
 		sb.append("		disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
 		sb.append("		emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
+		sb.append("		metaData: ").append(toIndentedString(metaData)).append("\n");
 		sb.append("		reference: ").append(toIndentedString(reference)).append("\n");
 		sb.append("		shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
 		sb.append("}");

@@ -39,6 +39,9 @@ public class AbstractTokenUpdate {
 	@SerializedName("language")
 	private String language = null;
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("tokenReference")
 	private String tokenReference = null;
 
@@ -114,6 +117,24 @@ public class AbstractTokenUpdate {
 		this.language = language;
 	}
 
+	public AbstractTokenUpdate timeZone(String timeZone) {
+		this.timeZone = timeZone;
+		return this;
+	}
+
+	/**
+	 * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 *
+	 * @return The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(String timeZone) {
+		this.timeZone = timeZone;
+	}
+
 	public AbstractTokenUpdate tokenReference(String tokenReference) {
 		this.tokenReference = tokenReference;
 		return this;
@@ -146,12 +167,13 @@ public class AbstractTokenUpdate {
 				Objects.equals(this.customerId, abstractTokenUpdate.customerId) &&
 				Objects.equals(this.enabledForOneClickPayment, abstractTokenUpdate.enabledForOneClickPayment) &&
 				Objects.equals(this.language, abstractTokenUpdate.language) &&
+				Objects.equals(this.timeZone, abstractTokenUpdate.timeZone) &&
 				Objects.equals(this.tokenReference, abstractTokenUpdate.tokenReference);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(customerEmailAddress, customerId, enabledForOneClickPayment, language, tokenReference);
+		return Objects.hash(customerEmailAddress, customerId, enabledForOneClickPayment, language, timeZone, tokenReference);
 	}
 
 
@@ -164,6 +186,7 @@ public class AbstractTokenUpdate {
 		sb.append("		customerId: ").append(toIndentedString(customerId)).append("\n");
 		sb.append("		enabledForOneClickPayment: ").append(toIndentedString(enabledForOneClickPayment)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
 		sb.append("}");
 		return sb.toString();

@@ -33,6 +33,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 import com.wallee.sdk.model.ClientError;
+import com.wallee.sdk.model.EntityExportRequest;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.HumanUser;
@@ -383,6 +384,116 @@ public class HumanUserService {
 		return call;
 	}
 
+	/* Build call for export */
+	private com.squareup.okhttp.Call exportCall(EntityExportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+		Object localVarPostBody = request;
+		
+		// verify the required parameter 'request' is set
+		if (request == null) {
+			throw new ApiException("Missing the required parameter 'request' when calling export(Async)");
+		}
+		
+
+		// create path and map variables
+		String localVarPath = "/human-user/export".replaceAll("\\{format\\}","json");
+
+		List<Pair> localVarQueryParams = new ArrayList<Pair>();
+		Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+		Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+		final String[] localVarAccepts = {
+			"application/json;charset=utf-8", "text/csv"
+		};
+		final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+		final String[] localVarContentTypes = {
+			"application/json;charset=utf-8"
+		};
+		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+		localVarHeaderParams.put("Content-Type", localVarContentType);
+
+		if(progressListener != null) {
+			apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+				@Override
+				public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+					com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+					return originalResponse.newBuilder()
+					.body(new ProgressResponseBody(originalResponse.body(), progressListener))
+					.build();
+				}
+			});
+		}
+
+		String[] localVarAuthNames = new String[] {  };
+		return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+	}
+
+	/**
+	 * Export
+	 *
+	 * Exports the human users into a CSV file. The file will contain the properties defined in the request.
+	 *
+	 * @param request The request controls the entries which are exported. (required)
+	 * @return byte[]
+	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+	 */
+	public byte[] export(EntityExportRequest request) throws ApiException {
+		ApiResponse<byte[]> resp = exportWithHttpInfo(request);
+		return resp.getData();
+	}
+
+	/**
+	 * Export
+	 *
+	 * Exports the human users into a CSV file. The file will contain the properties defined in the request.
+	 *
+	 * @param request The request controls the entries which are exported. (required)
+	 * @return ApiResponse&lt;byte[]&gt;
+	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+	 */
+	public ApiResponse<byte[]> exportWithHttpInfo(EntityExportRequest request) throws ApiException {
+		com.squareup.okhttp.Call call = exportCall(request, null, null);
+		Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+		return apiClient.execute(call, localVarReturnType);
+	}
+
+	/**
+	 * Export (asynchronously)
+	 *
+	 * Exports the human users into a CSV file. The file will contain the properties defined in the request.
+	 *
+	 * @param request The request controls the entries which are exported. (required)
+	 * @param callback The callback to be executed when the API call finishes
+	 * @return The request call
+	 * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+	 */
+	public com.squareup.okhttp.Call exportAsync(EntityExportRequest request, final ApiCallback<byte[]> callback) throws ApiException {
+
+		ProgressResponseBody.ProgressListener progressListener = null;
+		ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+		if (callback != null) {
+			progressListener = new ProgressResponseBody.ProgressListener() {
+				@Override
+				public void update(long bytesRead, long contentLength, boolean done) {
+					callback.onDownloadProgress(bytesRead, contentLength, done);
+				}
+			};
+
+			progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+				@Override
+				public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+					callback.onUploadProgress(bytesWritten, contentLength, done);
+				}
+			};
+		}
+
+		com.squareup.okhttp.Call call = exportCall(request, progressListener, progressRequestListener);
+		Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
+		apiClient.executeAsync(call, localVarReturnType, callback);
+		return call;
+	}
+
 	/* Build call for read */
 	private com.squareup.okhttp.Call readCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
 		Object localVarPostBody = null;
@@ -402,13 +513,13 @@ public class HumanUserService {
 		Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 		Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 		final String[] localVarAccepts = {
-			"*/*"
+			"application/json;charset=utf-8"
 		};
 		final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
 		final String[] localVarContentTypes = {
-			"application/json;charset=utf-8"
+			"*/*"
 		};
 		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 		localVarHeaderParams.put("Content-Type", localVarContentType);

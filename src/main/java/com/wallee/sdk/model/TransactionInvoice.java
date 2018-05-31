@@ -21,6 +21,7 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletion;
@@ -49,6 +50,9 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 	@SerializedName("dueOn")
 	private OffsetDateTime dueOn = null;
+
+	@SerializedName("environment")
+	private Environment environment = null;
 
 	@SerializedName("externalId")
 	private String externalId = null;
@@ -126,6 +130,15 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 */
 	public OffsetDateTime getDueOn() {
 		return dueOn;
+	}
+
+	/**
+	 * environment
+	 *
+	 * @return environment
+	 */
+	public Environment getEnvironment() {
+		return environment;
 	}
 
 	/**
@@ -242,6 +255,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 				Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
 				Objects.equals(this.derecognizedOn, transactionInvoice.derecognizedOn) &&
 				Objects.equals(this.dueOn, transactionInvoice.dueOn) &&
+				Objects.equals(this.environment, transactionInvoice.environment) &&
 				Objects.equals(this.externalId, transactionInvoice.externalId) &&
 				Objects.equals(this.language, transactionInvoice.language) &&
 				Objects.equals(this.lineItems, transactionInvoice.lineItems) &&
@@ -258,7 +272,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, completion, createdOn, derecognizedOn, dueOn, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, version, super.hashCode());
+		return Objects.hash(amount, completion, createdOn, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, version, super.hashCode());
 	}
 
 
@@ -272,6 +286,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		derecognizedOn: ").append(toIndentedString(derecognizedOn)).append("\n");
 		sb.append("		dueOn: ").append(toIndentedString(dueOn)).append("\n");
+		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
 		sb.append("		externalId: ").append(toIndentedString(externalId)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		lineItems: ").append(toIndentedString(lineItems)).append("\n");

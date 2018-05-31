@@ -24,6 +24,7 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
+import com.wallee.sdk.model.TokenizationnMode;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -79,8 +80,14 @@ public class AbstractTransactionPending {
 	@SerializedName("successUrl")
 	private String successUrl = null;
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("token")
 	private Long token = null;
+
+	@SerializedName("tokenizationMode")
+	private TokenizationnMode tokenizationMode = null;
 
 	public AbstractTransactionPending allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
 		this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
@@ -170,9 +177,9 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
+	 * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
 	 *
-	 * @return The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
+	 * @return The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
 	 */
 	public String getCustomerEmailAddress() {
 		return customerEmailAddress;
@@ -372,6 +379,24 @@ public class AbstractTransactionPending {
 		this.successUrl = successUrl;
 	}
 
+	public AbstractTransactionPending timeZone(String timeZone) {
+		this.timeZone = timeZone;
+		return this;
+	}
+
+	/**
+	 * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 *
+	 * @return The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	public void setTimeZone(String timeZone) {
+		this.timeZone = timeZone;
+	}
+
 	public AbstractTransactionPending token(Long token) {
 		this.token = token;
 		return this;
@@ -388,6 +413,24 @@ public class AbstractTransactionPending {
 
 	public void setToken(Long token) {
 		this.token = token;
+	}
+
+	public AbstractTransactionPending tokenizationMode(TokenizationnMode tokenizationMode) {
+		this.tokenizationMode = tokenizationMode;
+		return this;
+	}
+
+	/**
+	 * The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 *
+	 * @return The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 */
+	public TokenizationnMode getTokenizationMode() {
+		return tokenizationMode;
+	}
+
+	public void setTokenizationMode(TokenizationnMode tokenizationMode) {
+		this.tokenizationMode = tokenizationMode;
 	}
 
 
@@ -415,12 +458,14 @@ public class AbstractTransactionPending {
 				Objects.equals(this.shippingAddress, abstractTransactionPending.shippingAddress) &&
 				Objects.equals(this.shippingMethod, abstractTransactionPending.shippingMethod) &&
 				Objects.equals(this.successUrl, abstractTransactionPending.successUrl) &&
-				Objects.equals(this.token, abstractTransactionPending.token);
+				Objects.equals(this.timeZone, abstractTransactionPending.timeZone) &&
+				Objects.equals(this.token, abstractTransactionPending.token) &&
+				Objects.equals(this.tokenizationMode, abstractTransactionPending.tokenizationMode);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, token);
+		return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode);
 	}
 
 
@@ -444,7 +489,9 @@ public class AbstractTransactionPending {
 		sb.append("		shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
 		sb.append("		shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
 		sb.append("		successUrl: ").append(toIndentedString(successUrl)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		token: ").append(toIndentedString(token)).append("\n");
+		sb.append("		tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

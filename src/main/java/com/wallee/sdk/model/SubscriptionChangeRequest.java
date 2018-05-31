@@ -21,8 +21,6 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import com.wallee.sdk.model.Subscription;
-import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +34,7 @@ public class SubscriptionChangeRequest {
 	private String currency = null;
 
 	@SerializedName("product")
-	private SubscriptionProduct product = null;
+	private Long product = null;
 
 	@SerializedName("respectTerminationPeriod")
 	private Boolean respectTerminationPeriod = null;
@@ -45,7 +43,12 @@ public class SubscriptionChangeRequest {
 	private List<SubscriptionProductComponentReference> selectedComponents = new ArrayList<SubscriptionProductComponentReference>();
 
 	@SerializedName("subscription")
-	private Subscription subscription = null;
+	private Long subscription = null;
+
+	public SubscriptionChangeRequest currency(String currency) {
+		this.currency = currency;
+		return this;
+	}
 
 	/**
 	 * currency
@@ -56,13 +59,31 @@ public class SubscriptionChangeRequest {
 		return currency;
 	}
 
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public SubscriptionChangeRequest product(Long product) {
+		this.product = product;
+		return this;
+	}
+
 	/**
 	 * The subscription has to be linked with a product.
 	 *
 	 * @return The subscription has to be linked with a product.
 	 */
-	public SubscriptionProduct getProduct() {
+	public Long getProduct() {
 		return product;
+	}
+
+	public void setProduct(Long product) {
+		this.product = product;
+	}
+
+	public SubscriptionChangeRequest respectTerminationPeriod(Boolean respectTerminationPeriod) {
+		this.respectTerminationPeriod = respectTerminationPeriod;
+		return this;
 	}
 
 	/**
@@ -74,6 +95,20 @@ public class SubscriptionChangeRequest {
 		return respectTerminationPeriod;
 	}
 
+	public void setRespectTerminationPeriod(Boolean respectTerminationPeriod) {
+		this.respectTerminationPeriod = respectTerminationPeriod;
+	}
+
+	public SubscriptionChangeRequest selectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
+		this.selectedComponents = selectedComponents;
+		return this;
+	}
+
+	public SubscriptionChangeRequest addSelectedComponentsItem(SubscriptionProductComponentReference selectedComponentsItem) {
+		this.selectedComponents.add(selectedComponentsItem);
+		return this;
+	}
+
 	/**
 	 * selectedComponents
 	 *
@@ -83,13 +118,26 @@ public class SubscriptionChangeRequest {
 		return selectedComponents;
 	}
 
+	public void setSelectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
+		this.selectedComponents = selectedComponents;
+	}
+
+	public SubscriptionChangeRequest subscription(Long subscription) {
+		this.subscription = subscription;
+		return this;
+	}
+
 	/**
 	 * subscription
 	 *
 	 * @return subscription
 	 */
-	public Subscription getSubscription() {
+	public Long getSubscription() {
 		return subscription;
+	}
+
+	public void setSubscription(Long subscription) {
+		this.subscription = subscription;
 	}
 
 

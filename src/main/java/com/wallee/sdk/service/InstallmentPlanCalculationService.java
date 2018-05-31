@@ -84,13 +84,13 @@ public class InstallmentPlanCalculationService {
 		Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 		Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 		final String[] localVarAccepts = {
-			
+			"application/json;charset=utf-8"
 		};
 		final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
 		final String[] localVarContentTypes = {
-			"application/json;charset=utf-8"
+			
 		};
 		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 		localVarHeaderParams.put("Content-Type", localVarContentType);

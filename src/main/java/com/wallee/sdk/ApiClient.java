@@ -178,7 +178,7 @@ public class ApiClient {
         this.lenientDatetimeFormat = true;
 
         // Set default User-Agent.
-        setUserAgent("com.wallee.wallee-java-sdk-1.0.0");
+        setUserAgent("com.wallee.wallee-java-sdk-1.0.1");
 
 		this.userId = userId;
 		this.applicationKey = applicationKey;

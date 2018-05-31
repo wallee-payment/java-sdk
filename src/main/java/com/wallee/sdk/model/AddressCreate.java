@@ -22,7 +22,7 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Gender;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 /**
  * AddressCreate
@@ -39,7 +39,7 @@ public class AddressCreate {
 	private String country = null;
 
 	@SerializedName("dateOfBirth")
-	private OffsetDateTime dateOfBirth = null;
+	private LocalDate dateOfBirth = null;
 
 	@SerializedName("dependentLocality")
 	private String dependentLocality = null;
@@ -143,7 +143,7 @@ public class AddressCreate {
 		this.country = country;
 	}
 
-	public AddressCreate dateOfBirth(OffsetDateTime dateOfBirth) {
+	public AddressCreate dateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 		return this;
 	}
@@ -153,11 +153,11 @@ public class AddressCreate {
 	 *
 	 * @return dateOfBirth
 	 */
-	public OffsetDateTime getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(OffsetDateTime dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

@@ -23,7 +23,7 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Gender;
 import com.wallee.sdk.model.LegalOrganizationForm;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 /**
  * Address
@@ -40,7 +40,7 @@ public class Address {
 	private String country = null;
 
 	@SerializedName("dateOfBirth")
-	private OffsetDateTime dateOfBirth = null;
+	private LocalDate dateOfBirth = null;
 
 	@SerializedName("dependentLocality")
 	private String dependentLocality = null;
@@ -122,7 +122,7 @@ public class Address {
 	 *
 	 * @return dateOfBirth
 	 */
-	public OffsetDateTime getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return dateOfBirth;
 	}
 

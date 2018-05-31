@@ -23,7 +23,9 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AddressCreate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * AbstractSubscriberUpdate
@@ -47,6 +49,9 @@ public class AbstractSubscriberUpdate {
 
 	@SerializedName("language")
 	private String language = null;
+
+	@SerializedName("metaData")
+	private Map<String, String> metaData = new HashMap<String, String>();
 
 	@SerializedName("reference")
 	private String reference = null;
@@ -172,6 +177,29 @@ public class AbstractSubscriberUpdate {
 		this.language = language;
 	}
 
+	public AbstractSubscriberUpdate metaData(Map<String, String> metaData) {
+		this.metaData = metaData;
+		return this;
+	}
+
+	public AbstractSubscriberUpdate putMetaDataItem(String key, String metaDataItem) {
+		this.metaData.put(key, metaDataItem);
+		return this;
+	}
+
+	/**
+	 * Meta data allow to store additional data along the object.
+	 *
+	 * @return Meta data allow to store additional data along the object.
+	 */
+	public Map<String, String> getMetaData() {
+		return metaData;
+	}
+
+	public void setMetaData(Map<String, String> metaData) {
+		this.metaData = metaData;
+	}
+
 	public AbstractSubscriberUpdate reference(String reference) {
 		this.reference = reference;
 		return this;
@@ -224,13 +252,14 @@ public class AbstractSubscriberUpdate {
 				Objects.equals(this.disallowedPaymentMethodConfigurations, abstractSubscriberUpdate.disallowedPaymentMethodConfigurations) &&
 				Objects.equals(this.emailAddress, abstractSubscriberUpdate.emailAddress) &&
 				Objects.equals(this.language, abstractSubscriberUpdate.language) &&
+				Objects.equals(this.metaData, abstractSubscriberUpdate.metaData) &&
 				Objects.equals(this.reference, abstractSubscriberUpdate.reference) &&
 				Objects.equals(this.shippingAddress, abstractSubscriberUpdate.shippingAddress);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, reference, shippingAddress);
+		return Objects.hash(additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, metaData, reference, shippingAddress);
 	}
 
 
@@ -245,6 +274,7 @@ public class AbstractSubscriberUpdate {
 		sb.append("		disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
 		sb.append("		emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
+		sb.append("		metaData: ").append(toIndentedString(metaData)).append("\n");
 		sb.append("		reference: ").append(toIndentedString(reference)).append("\n");
 		sb.append("		shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
 		sb.append("}");

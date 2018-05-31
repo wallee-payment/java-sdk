@@ -24,8 +24,11 @@ import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.AbstractTransactionPending;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CustomersPresence;
+import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
+import com.wallee.sdk.model.TokenizationnMode;
+import com.wallee.sdk.model.TransactionEnvironmentSelectionStrategy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,14 +38,44 @@ import java.util.Map;
  */
 public class TransactionCreate extends AbstractTransactionPending {
 
+	@SerializedName("autoConfirmationEnabled")
+	private Boolean autoConfirmationEnabled = null;
+
 	@SerializedName("chargeRetryEnabled")
 	private Boolean chargeRetryEnabled = null;
 
 	@SerializedName("customersPresence")
 	private CustomersPresence customersPresence = null;
 
+	@SerializedName("deviceSessionIdentifier")
+	private String deviceSessionIdentifier = null;
+
+	@SerializedName("environment")
+	private Environment environment = null;
+
+	@SerializedName("environmentSelectionStrategy")
+	private TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
+
 	@SerializedName("spaceViewId")
 	private Long spaceViewId = null;
+
+	public TransactionCreate autoConfirmationEnabled(Boolean autoConfirmationEnabled) {
+		this.autoConfirmationEnabled = autoConfirmationEnabled;
+		return this;
+	}
+
+	/**
+	 * When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+	 *
+	 * @return When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+	 */
+	public Boolean getAutoConfirmationEnabled() {
+		return autoConfirmationEnabled;
+	}
+
+	public void setAutoConfirmationEnabled(Boolean autoConfirmationEnabled) {
+		this.autoConfirmationEnabled = autoConfirmationEnabled;
+	}
 
 	public TransactionCreate chargeRetryEnabled(Boolean chargeRetryEnabled) {
 		this.chargeRetryEnabled = chargeRetryEnabled;
@@ -68,9 +101,9 @@ public class TransactionCreate extends AbstractTransactionPending {
 	}
 
 	/**
-	 * customersPresence
+	 * The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.
 	 *
-	 * @return customersPresence
+	 * @return The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.
 	 */
 	public CustomersPresence getCustomersPresence() {
 		return customersPresence;
@@ -78,6 +111,60 @@ public class TransactionCreate extends AbstractTransactionPending {
 
 	public void setCustomersPresence(CustomersPresence customersPresence) {
 		this.customersPresence = customersPresence;
+	}
+
+	public TransactionCreate deviceSessionIdentifier(String deviceSessionIdentifier) {
+		this.deviceSessionIdentifier = deviceSessionIdentifier;
+		return this;
+	}
+
+	/**
+	 * The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+	 *
+	 * @return The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+	 */
+	public String getDeviceSessionIdentifier() {
+		return deviceSessionIdentifier;
+	}
+
+	public void setDeviceSessionIdentifier(String deviceSessionIdentifier) {
+		this.deviceSessionIdentifier = deviceSessionIdentifier;
+	}
+
+	public TransactionCreate environment(Environment environment) {
+		this.environment = environment;
+		return this;
+	}
+
+	/**
+	 * environment
+	 *
+	 * @return environment
+	 */
+	public Environment getEnvironment() {
+		return environment;
+	}
+
+	public void setEnvironment(Environment environment) {
+		this.environment = environment;
+	}
+
+	public TransactionCreate environmentSelectionStrategy(TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
+		this.environmentSelectionStrategy = environmentSelectionStrategy;
+		return this;
+	}
+
+	/**
+	 * The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+	 *
+	 * @return The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+	 */
+	public TransactionEnvironmentSelectionStrategy getEnvironmentSelectionStrategy() {
+		return environmentSelectionStrategy;
+	}
+
+	public void setEnvironmentSelectionStrategy(TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
+		this.environmentSelectionStrategy = environmentSelectionStrategy;
 	}
 
 	public TransactionCreate spaceViewId(Long spaceViewId) {
@@ -213,8 +300,20 @@ public class TransactionCreate extends AbstractTransactionPending {
 	}
 
 	@Override
+	public TransactionCreate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
+	}
+
+	@Override
 	public TransactionCreate token(Long token) {
 		super.token(token);
+		return this;
+	}
+
+	@Override
+	public TransactionCreate tokenizationMode(TokenizationnMode tokenizationMode) {
+		super.tokenizationMode(tokenizationMode);
 		return this;
 	}
 
@@ -228,15 +327,19 @@ public class TransactionCreate extends AbstractTransactionPending {
 			return false;
 		}
 		TransactionCreate transactionCreate = (TransactionCreate) o;
-		return Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) &&
+		return Objects.equals(this.autoConfirmationEnabled, transactionCreate.autoConfirmationEnabled) &&
+				Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) &&
 				Objects.equals(this.customersPresence, transactionCreate.customersPresence) &&
+				Objects.equals(this.deviceSessionIdentifier, transactionCreate.deviceSessionIdentifier) &&
+				Objects.equals(this.environment, transactionCreate.environment) &&
+				Objects.equals(this.environmentSelectionStrategy, transactionCreate.environmentSelectionStrategy) &&
 				Objects.equals(this.spaceViewId, transactionCreate.spaceViewId) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(chargeRetryEnabled, customersPresence, spaceViewId, super.hashCode());
+		return Objects.hash(autoConfirmationEnabled, chargeRetryEnabled, customersPresence, deviceSessionIdentifier, environment, environmentSelectionStrategy, spaceViewId, super.hashCode());
 	}
 
 
@@ -245,8 +348,12 @@ public class TransactionCreate extends AbstractTransactionPending {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class TransactionCreate {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
+		sb.append("		autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
 		sb.append("		chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
 		sb.append("		customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
+		sb.append("		deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
+		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
+		sb.append("		environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("}");
 		return sb.toString();

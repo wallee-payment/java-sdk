@@ -25,6 +25,7 @@ import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SubscriberUpdate;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
@@ -109,6 +110,18 @@ public class SubscriberActive extends SubscriberUpdate {
 	@Override
 	public SubscriberActive language(String language) {
 		super.language(language);
+		return this;
+	}
+
+	@Override
+	public SubscriberActive metaData(Map<String, String> metaData) {
+		super.metaData(metaData);
+		return this;
+	}
+
+	@Override
+	public SubscriberActive putMetaDataItem(String key, String metaDataItem) {
+		super.putMetaDataItem(key, metaDataItem);
 		return this;
 	}
 

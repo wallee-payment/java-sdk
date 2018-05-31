@@ -96,6 +96,12 @@ public class TokenCreate extends AbstractTokenUpdate {
 	}
 
 	@Override
+	public TokenCreate timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
+	}
+
+	@Override
 	public TokenCreate tokenReference(String tokenReference) {
 		super.tokenReference(tokenReference);
 		return this;

@@ -47,6 +47,16 @@ public class EntityQueryFilter {
 	@SerializedName("value")
 	private Object value = null;
 
+	public EntityQueryFilter children(List<EntityQueryFilter> children) {
+		this.children = children;
+		return this;
+	}
+
+	public EntityQueryFilter addChildrenItem(EntityQueryFilter childrenItem) {
+		this.children.add(childrenItem);
+		return this;
+	}
+
 	/**
 	 * The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.
 	 *
@@ -54,6 +64,15 @@ public class EntityQueryFilter {
 	 */
 	public List<EntityQueryFilter> getChildren() {
 		return children;
+	}
+
+	public void setChildren(List<EntityQueryFilter> children) {
+		this.children = children;
+	}
+
+	public EntityQueryFilter fieldName(String fieldName) {
+		this.fieldName = fieldName;
+		return this;
 	}
 
 	/**
@@ -65,6 +84,15 @@ public class EntityQueryFilter {
 		return fieldName;
 	}
 
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
+	public EntityQueryFilter operator(CriteriaOperator operator) {
+		this.operator = operator;
+		return this;
+	}
+
 	/**
 	 * The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.
 	 *
@@ -72,6 +100,15 @@ public class EntityQueryFilter {
 	 */
 	public CriteriaOperator getOperator() {
 		return operator;
+	}
+
+	public void setOperator(CriteriaOperator operator) {
+		this.operator = operator;
+	}
+
+	public EntityQueryFilter type(EntityQueryFilterType type) {
+		this.type = type;
+		return this;
 	}
 
 	/**
@@ -83,6 +120,15 @@ public class EntityQueryFilter {
 		return type;
 	}
 
+	public void setType(EntityQueryFilterType type) {
+		this.type = type;
+	}
+
+	public EntityQueryFilter value(Object value) {
+		this.value = value;
+		return this;
+	}
+
 	/**
 	 * The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.
 	 *
@@ -90,6 +136,10 @@ public class EntityQueryFilter {
 	 */
 	public Object getValue() {
 		return value;
+	}
+
+	public void setValue(Object value) {
+		this.value = value;
 	}
 
 

@@ -21,8 +21,6 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
-import com.wallee.sdk.model.SubscriptionPending;
-import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +34,18 @@ public class SubscriptionCreateRequest {
 	private String currency = null;
 
 	@SerializedName("product")
-	private SubscriptionProduct product = null;
+	private Long product = null;
 
 	@SerializedName("selectedComponents")
 	private List<SubscriptionProductComponentReference> selectedComponents = new ArrayList<SubscriptionProductComponentReference>();
 
 	@SerializedName("subscription")
-	private SubscriptionPending subscription = null;
+	private Long subscription = null;
+
+	public SubscriptionCreateRequest currency(String currency) {
+		this.currency = currency;
+		return this;
+	}
 
 	/**
 	 * currency
@@ -53,13 +56,36 @@ public class SubscriptionCreateRequest {
 		return currency;
 	}
 
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public SubscriptionCreateRequest product(Long product) {
+		this.product = product;
+		return this;
+	}
+
 	/**
 	 * The subscription has to be linked with a product.
 	 *
 	 * @return The subscription has to be linked with a product.
 	 */
-	public SubscriptionProduct getProduct() {
+	public Long getProduct() {
 		return product;
+	}
+
+	public void setProduct(Long product) {
+		this.product = product;
+	}
+
+	public SubscriptionCreateRequest selectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
+		this.selectedComponents = selectedComponents;
+		return this;
+	}
+
+	public SubscriptionCreateRequest addSelectedComponentsItem(SubscriptionProductComponentReference selectedComponentsItem) {
+		this.selectedComponents.add(selectedComponentsItem);
+		return this;
 	}
 
 	/**
@@ -71,13 +97,26 @@ public class SubscriptionCreateRequest {
 		return selectedComponents;
 	}
 
+	public void setSelectedComponents(List<SubscriptionProductComponentReference> selectedComponents) {
+		this.selectedComponents = selectedComponents;
+	}
+
+	public SubscriptionCreateRequest subscription(Long subscription) {
+		this.subscription = subscription;
+		return this;
+	}
+
 	/**
 	 * subscription
 	 *
 	 * @return subscription
 	 */
-	public SubscriptionPending getSubscription() {
+	public Long getSubscription() {
 		return subscription;
+	}
+
+	public void setSubscription(Long subscription) {
+		this.subscription = subscription;
 	}
 
 

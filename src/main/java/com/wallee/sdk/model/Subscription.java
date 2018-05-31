@@ -22,6 +22,7 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Subscriber;
+import com.wallee.sdk.model.SubscriptionAffiliate;
 import com.wallee.sdk.model.SubscriptionState;
 import com.wallee.sdk.model.Token;
 import java.time.OffsetDateTime;
@@ -30,6 +31,9 @@ import java.time.OffsetDateTime;
  * Subscription
  */
 public class Subscription {
+
+	@SerializedName("affiliate")
+	private SubscriptionAffiliate affiliate = null;
 
 	@SerializedName("createdOn")
 	private OffsetDateTime createdOn = null;
@@ -75,6 +79,15 @@ public class Subscription {
 
 	@SerializedName("version")
 	private Integer version = null;
+
+	/**
+	 * affiliate
+	 *
+	 * @return affiliate
+	 */
+	public SubscriptionAffiliate getAffiliate() {
+		return affiliate;
+	}
 
 	/**
 	 * createdOn
@@ -221,7 +234,8 @@ public class Subscription {
 			return false;
 		}
 		Subscription subscription = (Subscription) o;
-		return Objects.equals(this.createdOn, subscription.createdOn) &&
+		return Objects.equals(this.affiliate, subscription.affiliate) &&
+				Objects.equals(this.createdOn, subscription.createdOn) &&
 				Objects.equals(this.description, subscription.description) &&
 				Objects.equals(this.id, subscription.id) &&
 				Objects.equals(this.initializedOn, subscription.initializedOn) &&
@@ -240,7 +254,7 @@ public class Subscription {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedOn, terminatingOn, token, version);
+		return Objects.hash(affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedOn, terminatingOn, token, version);
 	}
 
 
@@ -249,6 +263,7 @@ public class Subscription {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Subscription {\n");
 		
+		sb.append("		affiliate: ").append(toIndentedString(affiliate)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");

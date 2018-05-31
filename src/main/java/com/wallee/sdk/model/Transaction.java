@@ -23,11 +23,14 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.CustomersPresence;
+import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.Token;
+import com.wallee.sdk.model.TokenizationnMode;
+import com.wallee.sdk.model.TransactionEnvironmentSelectionStrategy;
 import com.wallee.sdk.model.TransactionGroup;
 import com.wallee.sdk.model.TransactionState;
 import com.wallee.sdk.model.TransactionUserInterfaceType;
@@ -46,6 +49,9 @@ public class Transaction {
 	@SerializedName("acceptHeader")
 	private String acceptHeader = null;
 
+	@SerializedName("acceptLanguageHeader")
+	private String acceptLanguageHeader = null;
+
 	@SerializedName("allowedPaymentMethodBrands")
 	private List<PaymentMethodBrand> allowedPaymentMethodBrands = new ArrayList<PaymentMethodBrand>();
 
@@ -55,8 +61,14 @@ public class Transaction {
 	@SerializedName("authorizationAmount")
 	private BigDecimal authorizationAmount = null;
 
+	@SerializedName("authorizationTimeoutOn")
+	private OffsetDateTime authorizationTimeoutOn = null;
+
 	@SerializedName("authorizedOn")
 	private OffsetDateTime authorizedOn = null;
+
+	@SerializedName("autoConfirmationEnabled")
+	private Boolean autoConfirmationEnabled = null;
 
 	@SerializedName("billingAddress")
 	private Address billingAddress = null;
@@ -94,8 +106,20 @@ public class Transaction {
 	@SerializedName("customersPresence")
 	private CustomersPresence customersPresence = null;
 
+	@SerializedName("deliveryDecisionMadeOn")
+	private OffsetDateTime deliveryDecisionMadeOn = null;
+
+	@SerializedName("deviceSessionIdentifier")
+	private String deviceSessionIdentifier = null;
+
 	@SerializedName("endOfLife")
 	private OffsetDateTime endOfLife = null;
+
+	@SerializedName("environment")
+	private Environment environment = null;
+
+	@SerializedName("environmentSelectionStrategy")
+	private TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
 
 	@SerializedName("failedOn")
 	private OffsetDateTime failedOn = null;
@@ -163,8 +187,14 @@ public class Transaction {
 	@SerializedName("successUrl")
 	private String successUrl = null;
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("token")
 	private Token token = null;
+
+	@SerializedName("tokenizationMode")
+	private TokenizationnMode tokenizationMode = null;
 
 	@SerializedName("userAgentHeader")
 	private String userAgentHeader = null;
@@ -185,6 +215,15 @@ public class Transaction {
 	 */
 	public String getAcceptHeader() {
 		return acceptHeader;
+	}
+
+	/**
+	 * The accept language contains the header which indicates the language preferences of the buyer.
+	 *
+	 * @return The accept language contains the header which indicates the language preferences of the buyer.
+	 */
+	public String getAcceptLanguageHeader() {
+		return acceptLanguageHeader;
 	}
 
 	/**
@@ -215,12 +254,30 @@ public class Transaction {
 	}
 
 	/**
+	 * This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
+	 *
+	 * @return This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
+	 */
+	public OffsetDateTime getAuthorizationTimeoutOn() {
+		return authorizationTimeoutOn;
+	}
+
+	/**
 	 * authorizedOn
 	 *
 	 * @return authorizedOn
 	 */
 	public OffsetDateTime getAuthorizedOn() {
 		return authorizedOn;
+	}
+
+	/**
+	 * When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+	 *
+	 * @return When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+	 */
+	public Boolean getAutoConfirmationEnabled() {
+		return autoConfirmationEnabled;
 	}
 
 	/**
@@ -305,9 +362,9 @@ public class Transaction {
 	}
 
 	/**
-	 * The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
+	 * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
 	 *
-	 * @return The customer email address is the email address of the customer. If no email address is used provided on the shipping or billing address this address is used.
+	 * @return The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
 	 */
 	public String getCustomerEmailAddress() {
 		return customerEmailAddress;
@@ -323,12 +380,30 @@ public class Transaction {
 	}
 
 	/**
-	 * customersPresence
+	 * The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.
 	 *
-	 * @return customersPresence
+	 * @return The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.
 	 */
 	public CustomersPresence getCustomersPresence() {
 		return customersPresence;
+	}
+
+	/**
+	 * This date indicates when the decision has been made if a transaction should be delivered or not.
+	 *
+	 * @return This date indicates when the decision has been made if a transaction should be delivered or not.
+	 */
+	public OffsetDateTime getDeliveryDecisionMadeOn() {
+		return deliveryDecisionMadeOn;
+	}
+
+	/**
+	 * The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+	 *
+	 * @return The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+	 */
+	public String getDeviceSessionIdentifier() {
+		return deviceSessionIdentifier;
 	}
 
 	/**
@@ -338,6 +413,24 @@ public class Transaction {
 	 */
 	public OffsetDateTime getEndOfLife() {
 		return endOfLife;
+	}
+
+	/**
+	 * environment
+	 *
+	 * @return environment
+	 */
+	public Environment getEnvironment() {
+		return environment;
+	}
+
+	/**
+	 * The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+	 *
+	 * @return The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+	 */
+	public TransactionEnvironmentSelectionStrategy getEnvironmentSelectionStrategy() {
+		return environmentSelectionStrategy;
 	}
 
 	/**
@@ -386,9 +479,9 @@ public class Transaction {
 	}
 
 	/**
-	 * internetProtocolAddress
+	 * The Internet Protocol (IP) address identifies the device of the buyer.
 	 *
-	 * @return internetProtocolAddress
+	 * @return The Internet Protocol (IP) address identifies the device of the buyer.
 	 */
 	public String getInternetProtocolAddress() {
 		return internetProtocolAddress;
@@ -539,6 +632,15 @@ public class Transaction {
 	}
 
 	/**
+	 * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 *
+	 * @return The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * token
 	 *
 	 * @return token
@@ -548,9 +650,18 @@ public class Transaction {
 	}
 
 	/**
-	 * userAgentHeader
+	 * The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
 	 *
-	 * @return userAgentHeader
+	 * @return The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 */
+	public TokenizationnMode getTokenizationMode() {
+		return tokenizationMode;
+	}
+
+	/**
+	 * The user agent header provides the exact string which contains the user agent of the buyer.
+	 *
+	 * @return The user agent header provides the exact string which contains the user agent of the buyer.
 	 */
 	public String getUserAgentHeader() {
 		return userAgentHeader;
@@ -594,10 +705,13 @@ public class Transaction {
 		}
 		Transaction transaction = (Transaction) o;
 		return Objects.equals(this.acceptHeader, transaction.acceptHeader) &&
+				Objects.equals(this.acceptLanguageHeader, transaction.acceptLanguageHeader) &&
 				Objects.equals(this.allowedPaymentMethodBrands, transaction.allowedPaymentMethodBrands) &&
 				Objects.equals(this.allowedPaymentMethodConfigurations, transaction.allowedPaymentMethodConfigurations) &&
 				Objects.equals(this.authorizationAmount, transaction.authorizationAmount) &&
+				Objects.equals(this.authorizationTimeoutOn, transaction.authorizationTimeoutOn) &&
 				Objects.equals(this.authorizedOn, transaction.authorizedOn) &&
+				Objects.equals(this.autoConfirmationEnabled, transaction.autoConfirmationEnabled) &&
 				Objects.equals(this.billingAddress, transaction.billingAddress) &&
 				Objects.equals(this.chargeRetryEnabled, transaction.chargeRetryEnabled) &&
 				Objects.equals(this.completedOn, transaction.completedOn) &&
@@ -610,7 +724,11 @@ public class Transaction {
 				Objects.equals(this.customerEmailAddress, transaction.customerEmailAddress) &&
 				Objects.equals(this.customerId, transaction.customerId) &&
 				Objects.equals(this.customersPresence, transaction.customersPresence) &&
+				Objects.equals(this.deliveryDecisionMadeOn, transaction.deliveryDecisionMadeOn) &&
+				Objects.equals(this.deviceSessionIdentifier, transaction.deviceSessionIdentifier) &&
 				Objects.equals(this.endOfLife, transaction.endOfLife) &&
+				Objects.equals(this.environment, transaction.environment) &&
+				Objects.equals(this.environmentSelectionStrategy, transaction.environmentSelectionStrategy) &&
 				Objects.equals(this.failedOn, transaction.failedOn) &&
 				Objects.equals(this.failedUrl, transaction.failedUrl) &&
 				Objects.equals(this.failureReason, transaction.failureReason) &&
@@ -633,7 +751,9 @@ public class Transaction {
 				Objects.equals(this.spaceViewId, transaction.spaceViewId) &&
 				Objects.equals(this.state, transaction.state) &&
 				Objects.equals(this.successUrl, transaction.successUrl) &&
+				Objects.equals(this.timeZone, transaction.timeZone) &&
 				Objects.equals(this.token, transaction.token) &&
+				Objects.equals(this.tokenizationMode, transaction.tokenizationMode) &&
 				Objects.equals(this.userAgentHeader, transaction.userAgentHeader) &&
 				Objects.equals(this.userFailureMessage, transaction.userFailureMessage) &&
 				Objects.equals(this.userInterfaceType, transaction.userInterfaceType) &&
@@ -642,7 +762,7 @@ public class Transaction {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(acceptHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizedOn, billingAddress, chargeRetryEnabled, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, endOfLife, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, token, userAgentHeader, userFailureMessage, userInterfaceType, version);
+		return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
 	}
 
 
@@ -652,10 +772,13 @@ public class Transaction {
 		sb.append("class Transaction {\n");
 		
 		sb.append("		acceptHeader: ").append(toIndentedString(acceptHeader)).append("\n");
+		sb.append("		acceptLanguageHeader: ").append(toIndentedString(acceptLanguageHeader)).append("\n");
 		sb.append("		allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
 		sb.append("		allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
 		sb.append("		authorizationAmount: ").append(toIndentedString(authorizationAmount)).append("\n");
+		sb.append("		authorizationTimeoutOn: ").append(toIndentedString(authorizationTimeoutOn)).append("\n");
 		sb.append("		authorizedOn: ").append(toIndentedString(authorizedOn)).append("\n");
+		sb.append("		autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
 		sb.append("		billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
 		sb.append("		chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
 		sb.append("		completedOn: ").append(toIndentedString(completedOn)).append("\n");
@@ -668,7 +791,11 @@ public class Transaction {
 		sb.append("		customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
 		sb.append("		customerId: ").append(toIndentedString(customerId)).append("\n");
 		sb.append("		customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
+		sb.append("		deliveryDecisionMadeOn: ").append(toIndentedString(deliveryDecisionMadeOn)).append("\n");
+		sb.append("		deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
 		sb.append("		endOfLife: ").append(toIndentedString(endOfLife)).append("\n");
+		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
+		sb.append("		environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");
 		sb.append("		failedOn: ").append(toIndentedString(failedOn)).append("\n");
 		sb.append("		failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
 		sb.append("		failureReason: ").append(toIndentedString(failureReason)).append("\n");
@@ -691,7 +818,9 @@ public class Transaction {
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		successUrl: ").append(toIndentedString(successUrl)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		token: ").append(toIndentedString(token)).append("\n");
+		sb.append("		tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
 		sb.append("		userAgentHeader: ").append(toIndentedString(userAgentHeader)).append("\n");
 		sb.append("		userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
 		sb.append("		userInterfaceType: ").append(toIndentedString(userInterfaceType)).append("\n");

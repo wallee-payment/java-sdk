@@ -34,6 +34,11 @@ public class EntityQueryOrderBy {
 	@SerializedName("sorting")
 	private EntityQueryOrderByType sorting = null;
 
+	public EntityQueryOrderBy fieldName(String fieldName) {
+		this.fieldName = fieldName;
+		return this;
+	}
+
 	/**
 	 * fieldName
 	 *
@@ -43,6 +48,15 @@ public class EntityQueryOrderBy {
 		return fieldName;
 	}
 
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
+	public EntityQueryOrderBy sorting(EntityQueryOrderByType sorting) {
+		this.sorting = sorting;
+		return this;
+	}
+
 	/**
 	 * sorting
 	 *
@@ -50,6 +64,10 @@ public class EntityQueryOrderBy {
 	 */
 	public EntityQueryOrderByType getSorting() {
 		return sorting;
+	}
+
+	public void setSorting(EntityQueryOrderByType sorting) {
+		this.sorting = sorting;
 	}
 
 

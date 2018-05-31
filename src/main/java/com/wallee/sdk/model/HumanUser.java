@@ -22,16 +22,12 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Account;
-import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Scope;
-import com.wallee.sdk.model.User;
-import com.wallee.sdk.model.UserType;
-import java.time.OffsetDateTime;
 
 /**
  * HumanUser
  */
-public class HumanUser extends User {
+public class HumanUser {
 
 	@SerializedName("emailAddress")
 	private String emailAddress = null;
@@ -50,6 +46,9 @@ public class HumanUser extends User {
 
 	@SerializedName("primaryAccount")
 	private Account primaryAccount = null;
+
+	@SerializedName("scope")
+	private Scope scope = null;
 
 	@SerializedName("timeZone")
 	private String timeZone = null;
@@ -109,6 +108,15 @@ public class HumanUser extends User {
 	}
 
 	/**
+	 * The scope to which the user belongs to.
+	 *
+	 * @return The scope to which the user belongs to.
+	 */
+	public Scope getScope() {
+		return scope;
+	}
+
+	/**
 	 * The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
 	 *
 	 * @return The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
@@ -133,13 +141,13 @@ public class HumanUser extends User {
 				Objects.equals(this.language, humanUser.language) &&
 				Objects.equals(this.lastname, humanUser.lastname) &&
 				Objects.equals(this.primaryAccount, humanUser.primaryAccount) &&
-				Objects.equals(this.timeZone, humanUser.timeZone) &&
-				super.equals(o);
+				Objects.equals(this.scope, humanUser.scope) &&
+				Objects.equals(this.timeZone, humanUser.timeZone);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, primaryAccount, timeZone, super.hashCode());
+		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, primaryAccount, scope, timeZone);
 	}
 
 
@@ -147,13 +155,14 @@ public class HumanUser extends User {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class HumanUser {\n");
-		sb.append("		").append(toIndentedString(super.toString())).append("\n");
+		
 		sb.append("		emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
 		sb.append("		emailAddressVerified: ").append(toIndentedString(emailAddressVerified)).append("\n");
 		sb.append("		firstname: ").append(toIndentedString(firstname)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		lastname: ").append(toIndentedString(lastname)).append("\n");
 		sb.append("		primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
+		sb.append("		scope: ").append(toIndentedString(scope)).append("\n");
 		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("}");
 		return sb.toString();

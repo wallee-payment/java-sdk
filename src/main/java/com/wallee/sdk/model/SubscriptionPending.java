@@ -29,6 +29,9 @@ import java.time.OffsetDateTime;
  */
 public class SubscriptionPending extends SubscriptionUpdate {
 
+	@SerializedName("affiliate")
+	private Long affiliate = null;
+
 	@SerializedName("reference")
 	private String reference = null;
 
@@ -37,6 +40,24 @@ public class SubscriptionPending extends SubscriptionUpdate {
 
 	@SerializedName("token")
 	private Long token = null;
+
+	public SubscriptionPending affiliate(Long affiliate) {
+		this.affiliate = affiliate;
+		return this;
+	}
+
+	/**
+	 * affiliate
+	 *
+	 * @return affiliate
+	 */
+	public Long getAffiliate() {
+		return affiliate;
+	}
+
+	public void setAffiliate(Long affiliate) {
+		this.affiliate = affiliate;
+	}
 
 	public SubscriptionPending reference(String reference) {
 		this.reference = reference;
@@ -126,7 +147,8 @@ public class SubscriptionPending extends SubscriptionUpdate {
 			return false;
 		}
 		SubscriptionPending subscriptionPending = (SubscriptionPending) o;
-		return Objects.equals(this.reference, subscriptionPending.reference) &&
+		return Objects.equals(this.affiliate, subscriptionPending.affiliate) &&
+				Objects.equals(this.reference, subscriptionPending.reference) &&
 				Objects.equals(this.subscriber, subscriptionPending.subscriber) &&
 				Objects.equals(this.token, subscriptionPending.token) &&
 				super.equals(o);
@@ -134,7 +156,7 @@ public class SubscriptionPending extends SubscriptionUpdate {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(reference, subscriber, token, super.hashCode());
+		return Objects.hash(affiliate, reference, subscriber, token, super.hashCode());
 	}
 
 
@@ -143,6 +165,7 @@ public class SubscriptionPending extends SubscriptionUpdate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class SubscriptionPending {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
+		sb.append("		affiliate: ").append(toIndentedString(affiliate)).append("\n");
 		sb.append("		reference: ").append(toIndentedString(reference)).append("\n");
 		sb.append("		subscriber: ").append(toIndentedString(subscriber)).append("\n");
 		sb.append("		token: ").append(toIndentedString(token)).append("\n");

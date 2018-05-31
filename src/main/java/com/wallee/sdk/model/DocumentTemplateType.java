@@ -39,9 +39,6 @@ public class DocumentTemplateType {
 	@SerializedName("id")
 	private Long id = null;
 
-	@SerializedName("templateResource")
-	private String templateResource = null;
-
 	@SerializedName("title")
 	private Map<String, String> title = new HashMap<String, String>();
 
@@ -73,15 +70,6 @@ public class DocumentTemplateType {
 	}
 
 	/**
-	 * templateResource
-	 *
-	 * @return templateResource
-	 */
-	public String getTemplateResource() {
-		return templateResource;
-	}
-
-	/**
 	 * title
 	 *
 	 * @return title
@@ -103,13 +91,12 @@ public class DocumentTemplateType {
 		return Objects.equals(this.description, documentTemplateType.description) &&
 				Objects.equals(this.feature, documentTemplateType.feature) &&
 				Objects.equals(this.id, documentTemplateType.id) &&
-				Objects.equals(this.templateResource, documentTemplateType.templateResource) &&
 				Objects.equals(this.title, documentTemplateType.title);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, feature, id, templateResource, title);
+		return Objects.hash(description, feature, id, title);
 	}
 
 
@@ -121,7 +108,6 @@ public class DocumentTemplateType {
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
 		sb.append("		feature: ").append(toIndentedString(feature)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
-		sb.append("		templateResource: ").append(toIndentedString(templateResource)).append("\n");
 		sb.append("		title: ").append(toIndentedString(title)).append("\n");
 		sb.append("}");
 		return sb.toString();

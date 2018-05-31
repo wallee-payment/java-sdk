@@ -25,7 +25,9 @@ import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.CreationEntityState;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A subscriber represents everyone who is subscribed to a product.
@@ -58,6 +60,9 @@ public class Subscriber {
 
 	@SerializedName("linkedSpaceId")
 	private Long linkedSpaceId = null;
+
+	@SerializedName("metaData")
+	private Map<String, String> metaData = new HashMap<String, String>();
 
 	@SerializedName("plannedPurgeDate")
 	private OffsetDateTime plannedPurgeDate = null;
@@ -156,6 +161,15 @@ public class Subscriber {
 	}
 
 	/**
+	 * Meta data allow to store additional data along the object.
+	 *
+	 * @return Meta data allow to store additional data along the object.
+	 */
+	public Map<String, String> getMetaData() {
+		return metaData;
+	}
+
+	/**
 	 * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
 	 *
 	 * @return The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
@@ -219,6 +233,7 @@ public class Subscriber {
 				Objects.equals(this.id, subscriber.id) &&
 				Objects.equals(this.language, subscriber.language) &&
 				Objects.equals(this.linkedSpaceId, subscriber.linkedSpaceId) &&
+				Objects.equals(this.metaData, subscriber.metaData) &&
 				Objects.equals(this.plannedPurgeDate, subscriber.plannedPurgeDate) &&
 				Objects.equals(this.reference, subscriber.reference) &&
 				Objects.equals(this.shippingAddress, subscriber.shippingAddress) &&
@@ -228,7 +243,7 @@ public class Subscriber {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, externalId, id, language, linkedSpaceId, plannedPurgeDate, reference, shippingAddress, state, version);
+		return Objects.hash(additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, externalId, id, language, linkedSpaceId, metaData, plannedPurgeDate, reference, shippingAddress, state, version);
 	}
 
 
@@ -246,6 +261,7 @@ public class Subscriber {
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+		sb.append("		metaData: ").append(toIndentedString(metaData)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		reference: ").append(toIndentedString(reference)).append("\n");
 		sb.append("		shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");

@@ -25,6 +25,7 @@ import com.wallee.sdk.model.AbstractTransactionPending;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
+import com.wallee.sdk.model.TokenizationnMode;
 import java.util.List;
 import java.util.Map;
 
@@ -190,8 +191,20 @@ public class TransactionPending extends AbstractTransactionPending {
 	}
 
 	@Override
+	public TransactionPending timeZone(String timeZone) {
+		super.timeZone(timeZone);
+		return this;
+	}
+
+	@Override
 	public TransactionPending token(Long token) {
 		super.token(token);
+		return this;
+	}
+
+	@Override
+	public TransactionPending tokenizationMode(TokenizationnMode tokenizationMode) {
+		super.tokenizationMode(tokenizationMode);
 		return this;
 	}
 

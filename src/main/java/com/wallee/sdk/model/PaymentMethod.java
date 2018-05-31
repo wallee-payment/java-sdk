@@ -44,6 +44,9 @@ public class PaymentMethod {
 	@SerializedName("imagePath")
 	private String imagePath = null;
 
+	@SerializedName("merchantDescription")
+	private Map<String, String> merchantDescription = new HashMap<String, String>();
+
 	@SerializedName("name")
 	private Map<String, String> name = new HashMap<String, String>();
 
@@ -87,6 +90,15 @@ public class PaymentMethod {
 	}
 
 	/**
+	 * merchantDescription
+	 *
+	 * @return merchantDescription
+	 */
+	public Map<String, String> getMerchantDescription() {
+		return merchantDescription;
+	}
+
+	/**
 	 * name
 	 *
 	 * @return name
@@ -118,13 +130,14 @@ public class PaymentMethod {
 				Objects.equals(this.description, paymentMethod.description) &&
 				Objects.equals(this.id, paymentMethod.id) &&
 				Objects.equals(this.imagePath, paymentMethod.imagePath) &&
+				Objects.equals(this.merchantDescription, paymentMethod.merchantDescription) &&
 				Objects.equals(this.name, paymentMethod.name) &&
 				Objects.equals(this.supportedCurrencies, paymentMethod.supportedCurrencies);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dataCollectionTypes, description, id, imagePath, name, supportedCurrencies);
+		return Objects.hash(dataCollectionTypes, description, id, imagePath, merchantDescription, name, supportedCurrencies);
 	}
 
 
@@ -137,6 +150,7 @@ public class PaymentMethod {
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		imagePath: ").append(toIndentedString(imagePath)).append("\n");
+		sb.append("		merchantDescription: ").append(toIndentedString(merchantDescription)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		supportedCurrencies: ").append(toIndentedString(supportedCurrencies)).append("\n");
 		sb.append("}");
