@@ -21,14 +21,13 @@
 package com.wallee.sdk.test;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.wallee.sdk.service.TransactionService;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ApiException;
 import com.wallee.sdk.ApiResponse;
@@ -39,6 +38,7 @@ import com.wallee.sdk.model.LineItemType;
 import com.wallee.sdk.model.TaxCreate;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionCreate;
+import com.wallee.sdk.service.TransactionService;
 
 /**
  * Test of {@link TransactionService}.
@@ -50,7 +50,7 @@ public class TransactionServiceTest {
 
 	@Before
 	public void setup() {
-		// FIXME: move test configuration to a properties file. 
+		// FIXME: move test configuration to a properties file.
 		long applicationUserId = 512;
 		String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
 
@@ -84,7 +84,7 @@ public class TransactionServiceTest {
 						.country("CH")
 						.city("Winterthur")
 						.postCode("8400")
-						.dateOfBirth(OffsetDateTime.now())
+						.dateOfBirth(LocalDate.of(1991, 1, 11))
 						.organizationName("Test GmbH")
 						.mobilePhoneNumber("+41791234567")
 						.emailAddress("test@wallee.com"))
