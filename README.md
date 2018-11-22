@@ -43,42 +43,56 @@ The following code snippet is simple example on how to use the `wallee-java-sdk`
 ```java
 package com.wallee.sdk.example;
 
-import java.util.UUID;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ApiException;
-import com.wallee.sdk.model.TokenCreate;
-import com.wallee.sdk.service.TokenService;
+import com.wallee.sdk.model.LineItemCreate;
+import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.TransactionCreate;
+import com.wallee.sdk.service.TransactionService;
 
 public class WalleeExample {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		final Long spaceId = 405l;
+	// API Configuration.
+	long spaceId = 405;
+	long userId = 512;
+	String secret = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+	ApiClient apiClient = new ApiClient(userId, secret);
 
-		final long applicationUserId = 512;
-		final String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
-		final ApiClient apiClient = new ApiClient(applicationUserId, authenticationKey);
+	// Create API service instance.
+	TransactionService transactionService = new TransactionService(apiClient);
 
-		// @formatter:off
-		TokenCreate tokenCreate = new TokenCreate()
-				.customerEmailAddress("test@wallee.com")
-				.tokenReference("test@wallee.com")
-				.customerId(UUID.randomUUID().toString())
-				.enabledForOneClickPayment(true)
-				.externalId(UUID.randomUUID().toString());
-		// @formatter:on
+	// Create transaction.
+	LineItemCreate lineItem = new LineItemCreate();
+	lineItem.setType(LineItemType.PRODUCT);
+	lineItem.setAmountIncludingTax(new BigDecimal(23.78));
+	lineItem.setQuantity(BigDecimal.ONE);
+	lineItem.setName("Red T-Shirt");
+	lineItem.setSku("red-t-shirt-4");
+	lineItem.setUniqueId("4216");
 
-		final TokenService tokenService = new TokenService(apiClient);
+	TransactionCreate transactionCreate = new TransactionCreate();
+	transactionCreate.setLineItems(Arrays.asList(lineItem));
+	transactionCreate.setAutoConfirmationEnabled(true);
+	transactionCreate.setCurrency("EUR");
 
-		try {
-			tokenCreate = tokenService.create(spaceId, tokenCreate);
+	try {
+	    // Send create transaction request.
+	    Transaction transaction = transactionService.create(spaceId, transactionCreate);
 
-		} catch (ApiException e) {
-			throw new RuntimeException("Failed to create a token in space '" + spaceId + "'.", e);
-		}
+	    // Build payment URL.
+	    String redirectionUrl = transactionService.buildPaymentPageUrl(spaceId, transaction.getId());
+	    System.out.println("Payment URL: " + redirectionUrl);
+
+	} catch (ApiException e) {
+	    throw new RuntimeException("Failed to create transaction.", e);
 	}
-
+    }
 }
 ```
 
