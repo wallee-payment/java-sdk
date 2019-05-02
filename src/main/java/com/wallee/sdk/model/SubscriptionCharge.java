@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -56,6 +52,9 @@ public class SubscriptionCharge {
 
 	@SerializedName("id")
 	private Long id = null;
+
+	@SerializedName("language")
+	private String language = null;
 
 	@SerializedName("ledgerEntries")
 	private List<SubscriptionLedgerEntry> ledgerEntries = new ArrayList<SubscriptionLedgerEntry>();
@@ -157,6 +156,15 @@ public class SubscriptionCharge {
 	 */
 	public Long getId() {
 		return id;
+	}
+
+	/**
+	 * language
+	 *
+	 * @return language
+	 */
+	public String getLanguage() {
+		return language;
 	}
 
 	/**
@@ -293,6 +301,7 @@ public class SubscriptionCharge {
 				Objects.equals(this.failedOn, subscriptionCharge.failedOn) &&
 				Objects.equals(this.failedUrl, subscriptionCharge.failedUrl) &&
 				Objects.equals(this.id, subscriptionCharge.id) &&
+				Objects.equals(this.language, subscriptionCharge.language) &&
 				Objects.equals(this.ledgerEntries, subscriptionCharge.ledgerEntries) &&
 				Objects.equals(this.linkedSpaceId, subscriptionCharge.linkedSpaceId) &&
 				Objects.equals(this.plannedExecutionDate, subscriptionCharge.plannedExecutionDate) &&
@@ -310,7 +319,7 @@ public class SubscriptionCharge {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdOn, discardedBy, discardedOn, externalId, failedOn, failedUrl, id, ledgerEntries, linkedSpaceId, plannedExecutionDate, plannedPurgeDate, processingType, reference, state, subscription, succeedOn, successUrl, transaction, type, version);
+		return Objects.hash(createdOn, discardedBy, discardedOn, externalId, failedOn, failedUrl, id, language, ledgerEntries, linkedSpaceId, plannedExecutionDate, plannedPurgeDate, processingType, reference, state, subscription, succeedOn, successUrl, transaction, type, version);
 	}
 
 
@@ -326,6 +335,7 @@ public class SubscriptionCharge {
 		sb.append("		failedOn: ").append(toIndentedString(failedOn)).append("\n");
 		sb.append("		failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
+		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
 		sb.append("		plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");

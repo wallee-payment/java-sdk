@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -29,6 +25,12 @@ import java.time.OffsetDateTime;
  * A document template contains the customizations for a particular document template type.
  */
 public class DocumentTemplate {
+
+	@SerializedName("defaultTemplate")
+	private Boolean defaultTemplate = null;
+
+	@SerializedName("deliveryEnabled")
+	private Boolean deliveryEnabled = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -56,6 +58,24 @@ public class DocumentTemplate {
 
 	@SerializedName("version")
 	private Integer version = null;
+
+	/**
+	 * The default document template is used whenever no specific template is specified for a particular template type.
+	 *
+	 * @return The default document template is used whenever no specific template is specified for a particular template type.
+	 */
+	public Boolean getDefaultTemplate() {
+		return defaultTemplate;
+	}
+
+	/**
+	 * deliveryEnabled
+	 *
+	 * @return deliveryEnabled
+	 */
+	public Boolean getDeliveryEnabled() {
+		return deliveryEnabled;
+	}
 
 	/**
 	 * The ID is the primary key of the entity. The ID identifies the entity uniquely.
@@ -148,7 +168,9 @@ public class DocumentTemplate {
 			return false;
 		}
 		DocumentTemplate documentTemplate = (DocumentTemplate) o;
-		return Objects.equals(this.id, documentTemplate.id) &&
+		return Objects.equals(this.defaultTemplate, documentTemplate.defaultTemplate) &&
+				Objects.equals(this.deliveryEnabled, documentTemplate.deliveryEnabled) &&
+				Objects.equals(this.id, documentTemplate.id) &&
 				Objects.equals(this.linkedSpaceId, documentTemplate.linkedSpaceId) &&
 				Objects.equals(this.name, documentTemplate.name) &&
 				Objects.equals(this.plannedPurgeDate, documentTemplate.plannedPurgeDate) &&
@@ -161,7 +183,7 @@ public class DocumentTemplate {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, spaceId, state, templateResource, type, version);
+		return Objects.hash(defaultTemplate, deliveryEnabled, id, linkedSpaceId, name, plannedPurgeDate, spaceId, state, templateResource, type, version);
 	}
 
 
@@ -170,6 +192,8 @@ public class DocumentTemplate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class DocumentTemplate {\n");
 		
+		sb.append("		defaultTemplate: ").append(toIndentedString(defaultTemplate)).append("\n");
+		sb.append("		deliveryEnabled: ").append(toIndentedString(deliveryEnabled)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");

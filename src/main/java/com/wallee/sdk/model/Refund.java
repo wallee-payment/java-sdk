@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -45,6 +41,9 @@ public class Refund {
 
 	@SerializedName("baseLineItems")
 	private List<LineItem> baseLineItems = new ArrayList<LineItem>();
+
+	@SerializedName("completion")
+	private Long completion = null;
 
 	@SerializedName("createdBy")
 	private Long createdBy = null;
@@ -106,6 +105,9 @@ public class Refund {
 	@SerializedName("taxes")
 	private List<Tax> taxes = new ArrayList<Tax>();
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("timeoutOn")
 	private OffsetDateTime timeoutOn = null;
 
@@ -114,6 +116,9 @@ public class Refund {
 
 	@SerializedName("type")
 	private RefundType type = null;
+
+	@SerializedName("updatedInvoice")
+	private Long updatedInvoice = null;
 
 	@SerializedName("version")
 	private Integer version = null;
@@ -134,6 +139,15 @@ public class Refund {
 	 */
 	public List<LineItem> getBaseLineItems() {
 		return baseLineItems;
+	}
+
+	/**
+	 * completion
+	 *
+	 * @return completion
+	 */
+	public Long getCompletion() {
+		return completion;
 	}
 
 	/**
@@ -317,6 +331,15 @@ public class Refund {
 	}
 
 	/**
+	 * timeZone
+	 *
+	 * @return timeZone
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * timeoutOn
 	 *
 	 * @return timeoutOn
@@ -344,6 +367,15 @@ public class Refund {
 	}
 
 	/**
+	 * updatedInvoice
+	 *
+	 * @return updatedInvoice
+	 */
+	public Long getUpdatedInvoice() {
+		return updatedInvoice;
+	}
+
+	/**
 	 * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
@@ -364,6 +396,7 @@ public class Refund {
 		Refund refund = (Refund) o;
 		return Objects.equals(this.amount, refund.amount) &&
 				Objects.equals(this.baseLineItems, refund.baseLineItems) &&
+				Objects.equals(this.completion, refund.completion) &&
 				Objects.equals(this.createdBy, refund.createdBy) &&
 				Objects.equals(this.createdOn, refund.createdOn) &&
 				Objects.equals(this.environment, refund.environment) &&
@@ -384,15 +417,17 @@ public class Refund {
 				Objects.equals(this.state, refund.state) &&
 				Objects.equals(this.succeededOn, refund.succeededOn) &&
 				Objects.equals(this.taxes, refund.taxes) &&
+				Objects.equals(this.timeZone, refund.timeZone) &&
 				Objects.equals(this.timeoutOn, refund.timeoutOn) &&
 				Objects.equals(this.transaction, refund.transaction) &&
 				Objects.equals(this.type, refund.type) &&
+				Objects.equals(this.updatedInvoice, refund.updatedInvoice) &&
 				Objects.equals(this.version, refund.version);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, baseLineItems, createdBy, createdOn, environment, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeoutOn, transaction, type, version);
+		return Objects.hash(amount, baseLineItems, completion, createdBy, createdOn, environment, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeZone, timeoutOn, transaction, type, updatedInvoice, version);
 	}
 
 
@@ -403,6 +438,7 @@ public class Refund {
 		
 		sb.append("		amount: ").append(toIndentedString(amount)).append("\n");
 		sb.append("		baseLineItems: ").append(toIndentedString(baseLineItems)).append("\n");
+		sb.append("		completion: ").append(toIndentedString(completion)).append("\n");
 		sb.append("		createdBy: ").append(toIndentedString(createdBy)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		environment: ").append(toIndentedString(environment)).append("\n");
@@ -423,9 +459,11 @@ public class Refund {
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
 		sb.append("		taxes: ").append(toIndentedString(taxes)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
 		sb.append("		transaction: ").append(toIndentedString(transaction)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");
+		sb.append("		updatedInvoice: ").append(toIndentedString(updatedInvoice)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");
 		return sb.toString();

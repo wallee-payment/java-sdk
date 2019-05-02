@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -42,6 +38,9 @@ public class ProductPeriodFeeUpdate {
 
 	@SerializedName("description")
 	private DatabaseTranslatedStringCreate description = null;
+
+	@SerializedName("ledgerEntryTitle")
+	private DatabaseTranslatedStringCreate ledgerEntryTitle = null;
 
 	@SerializedName("name")
 	private DatabaseTranslatedStringCreate name = null;
@@ -124,6 +123,24 @@ public class ProductPeriodFeeUpdate {
 		this.description = description;
 	}
 
+	public ProductPeriodFeeUpdate ledgerEntryTitle(DatabaseTranslatedStringCreate ledgerEntryTitle) {
+		this.ledgerEntryTitle = ledgerEntryTitle;
+		return this;
+	}
+
+	/**
+	 * The ledger entry title will be used for the title in the ledger entry and in the invoice.
+	 *
+	 * @return The ledger entry title will be used for the title in the ledger entry and in the invoice.
+	 */
+	public DatabaseTranslatedStringCreate getLedgerEntryTitle() {
+		return ledgerEntryTitle;
+	}
+
+	public void setLedgerEntryTitle(DatabaseTranslatedStringCreate ledgerEntryTitle) {
+		this.ledgerEntryTitle = ledgerEntryTitle;
+	}
+
 	public ProductPeriodFeeUpdate name(DatabaseTranslatedStringCreate name) {
 		this.name = name;
 		return this;
@@ -197,6 +214,7 @@ public class ProductPeriodFeeUpdate {
 				Objects.equals(this.version, productPeriodFeeUpdate.version) &&
 				Objects.equals(this.component, productPeriodFeeUpdate.component) &&
 				Objects.equals(this.description, productPeriodFeeUpdate.description) &&
+				Objects.equals(this.ledgerEntryTitle, productPeriodFeeUpdate.ledgerEntryTitle) &&
 				Objects.equals(this.name, productPeriodFeeUpdate.name) &&
 				Objects.equals(this.numberOfFreeTrialPeriods, productPeriodFeeUpdate.numberOfFreeTrialPeriods) &&
 				Objects.equals(this.periodFee, productPeriodFeeUpdate.periodFee);
@@ -204,7 +222,7 @@ public class ProductPeriodFeeUpdate {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, version, component, description, name, numberOfFreeTrialPeriods, periodFee);
+		return Objects.hash(id, version, component, description, ledgerEntryTitle, name, numberOfFreeTrialPeriods, periodFee);
 	}
 
 
@@ -217,6 +235,7 @@ public class ProductPeriodFeeUpdate {
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("		component: ").append(toIndentedString(component)).append("\n");
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
+		sb.append("		ledgerEntryTitle: ").append(toIndentedString(ledgerEntryTitle)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		numberOfFreeTrialPeriods: ").append(toIndentedString(numberOfFreeTrialPeriods)).append("\n");
 		sb.append("		periodFee: ").append(toIndentedString(periodFee)).append("\n");

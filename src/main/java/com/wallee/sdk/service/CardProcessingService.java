@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 
 package com.wallee.sdk.service;
@@ -276,7 +272,7 @@ public class CardProcessingService {
 	/**
 	 * Process With 3-D Secure
 	 *
-	 * The process method will process the transaction with the given card details by evenutually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
+	 * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
 	 *
 	 * @param spaceId  (required)
 	 *
@@ -296,7 +292,7 @@ public class CardProcessingService {
 	/**
 	 * Process With 3-D Secure
 	 *
-	 * The process method will process the transaction with the given card details by evenutually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
+	 * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
 	 *
 	 * @param spaceId  (required)
 	 *
@@ -317,7 +313,7 @@ public class CardProcessingService {
 	/**
 	 * Process With 3-D Secure (asynchronously)
 	 *
-	 * The process method will process the transaction with the given card details by evenutually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
+	 * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
 	 *
 	 * @param spaceId  (required)
 	 *

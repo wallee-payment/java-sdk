@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -31,6 +27,9 @@ import java.time.OffsetDateTime;
  * Subscription
  */
 public class Subscription {
+
+	@SerializedName("activatedOn")
+	private OffsetDateTime activatedOn = null;
 
 	@SerializedName("affiliate")
 	private SubscriptionAffiliate affiliate = null;
@@ -79,6 +78,15 @@ public class Subscription {
 
 	@SerializedName("version")
 	private Integer version = null;
+
+	/**
+	 * activatedOn
+	 *
+	 * @return activatedOn
+	 */
+	public OffsetDateTime getActivatedOn() {
+		return activatedOn;
+	}
 
 	/**
 	 * affiliate
@@ -234,7 +242,8 @@ public class Subscription {
 			return false;
 		}
 		Subscription subscription = (Subscription) o;
-		return Objects.equals(this.affiliate, subscription.affiliate) &&
+		return Objects.equals(this.activatedOn, subscription.activatedOn) &&
+				Objects.equals(this.affiliate, subscription.affiliate) &&
 				Objects.equals(this.createdOn, subscription.createdOn) &&
 				Objects.equals(this.description, subscription.description) &&
 				Objects.equals(this.id, subscription.id) &&
@@ -254,7 +263,7 @@ public class Subscription {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedOn, terminatingOn, token, version);
+		return Objects.hash(activatedOn, affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedOn, terminatingOn, token, version);
 	}
 
 
@@ -263,6 +272,7 @@ public class Subscription {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class Subscription {\n");
 		
+		sb.append("		activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
 		sb.append("		affiliate: ").append(toIndentedString(affiliate)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");

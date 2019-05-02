@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -30,6 +26,9 @@ public class AccountCreate extends AbstractAccountUpdate {
 
 	@SerializedName("parentAccount")
 	private Long parentAccount = null;
+
+	@SerializedName("scope")
+	private Long scope = null;
 
 	public AccountCreate parentAccount(Long parentAccount) {
 		this.parentAccount = parentAccount;
@@ -47,6 +46,24 @@ public class AccountCreate extends AbstractAccountUpdate {
 
 	public void setParentAccount(Long parentAccount) {
 		this.parentAccount = parentAccount;
+	}
+
+	public AccountCreate scope(Long scope) {
+		this.scope = scope;
+		return this;
+	}
+
+	/**
+	 * This is the scope to which the account belongs to.
+	 *
+	 * @return This is the scope to which the account belongs to.
+	 */
+	public Long getScope() {
+		return scope;
+	}
+
+	public void setScope(Long scope) {
+		this.scope = scope;
 	}
 
 	@Override
@@ -72,12 +89,13 @@ public class AccountCreate extends AbstractAccountUpdate {
 		}
 		AccountCreate accountCreate = (AccountCreate) o;
 		return Objects.equals(this.parentAccount, accountCreate.parentAccount) &&
+				Objects.equals(this.scope, accountCreate.scope) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(parentAccount, super.hashCode());
+		return Objects.hash(parentAccount, scope, super.hashCode());
 	}
 
 
@@ -87,6 +105,7 @@ public class AccountCreate extends AbstractAccountUpdate {
 		sb.append("class AccountCreate {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
 		sb.append("		parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
+		sb.append("		scope: ").append(toIndentedString(scope)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

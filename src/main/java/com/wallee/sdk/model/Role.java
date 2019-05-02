@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -51,6 +47,9 @@ public class Role {
 
 	@SerializedName("state")
 	private CreationEntityState state = null;
+
+	@SerializedName("twoFactorRequired")
+	private Boolean twoFactorRequired = null;
 
 	@SerializedName("version")
 	private Integer version = null;
@@ -110,6 +109,15 @@ public class Role {
 	}
 
 	/**
+	 * Defines whether having been granted this role will force a user to use two-factor authentication.
+	 *
+	 * @return Defines whether having been granted this role will force a user to use two-factor authentication.
+	 */
+	public Boolean getTwoFactorRequired() {
+		return twoFactorRequired;
+	}
+
+	/**
 	 * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
@@ -134,12 +142,13 @@ public class Role {
 				Objects.equals(this.permissions, role.permissions) &&
 				Objects.equals(this.plannedPurgeDate, role.plannedPurgeDate) &&
 				Objects.equals(this.state, role.state) &&
+				Objects.equals(this.twoFactorRequired, role.twoFactorRequired) &&
 				Objects.equals(this.version, role.version);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(account, id, name, permissions, plannedPurgeDate, state, version);
+		return Objects.hash(account, id, name, permissions, plannedPurgeDate, state, twoFactorRequired, version);
 	}
 
 
@@ -154,6 +163,7 @@ public class Role {
 		sb.append("		permissions: ").append(toIndentedString(permissions)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
+		sb.append("		twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");
 		return sb.toString();

@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -51,6 +47,9 @@ public class Account {
 
 	@SerializedName("restrictedActive")
 	private Boolean restrictedActive = null;
+
+	@SerializedName("scope")
+	private Long scope = null;
 
 	@SerializedName("state")
 	private AccountState state = null;
@@ -128,6 +127,15 @@ public class Account {
 	}
 
 	/**
+	 * This is the scope to which the account belongs to.
+	 *
+	 * @return This is the scope to which the account belongs to.
+	 */
+	public Long getScope() {
+		return scope;
+	}
+
+	/**
 	 * state
 	 *
 	 * @return state
@@ -180,6 +188,7 @@ public class Account {
 				Objects.equals(this.parentAccount, account.parentAccount) &&
 				Objects.equals(this.plannedPurgeDate, account.plannedPurgeDate) &&
 				Objects.equals(this.restrictedActive, account.restrictedActive) &&
+				Objects.equals(this.scope, account.scope) &&
 				Objects.equals(this.state, account.state) &&
 				Objects.equals(this.subaccountLimit, account.subaccountLimit) &&
 				Objects.equals(this.type, account.type) &&
@@ -188,7 +197,7 @@ public class Account {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(active, activeOrRestrictedActive, id, name, parentAccount, plannedPurgeDate, restrictedActive, state, subaccountLimit, type, version);
+		return Objects.hash(active, activeOrRestrictedActive, id, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
 	}
 
 
@@ -204,6 +213,7 @@ public class Account {
 		sb.append("		parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		restrictedActive: ").append(toIndentedString(restrictedActive)).append("\n");
+		sb.append("		scope: ").append(toIndentedString(scope)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");

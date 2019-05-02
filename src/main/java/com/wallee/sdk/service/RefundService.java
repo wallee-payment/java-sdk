@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 
 package com.wallee.sdk.service;
@@ -430,6 +426,144 @@ public class RefundService {
 		return call;
 	}
 
+	/* Build call for getRefundDocumentWithTargetMediaType */
+	private com.squareup.okhttp.Call getRefundDocumentWithTargetMediaTypeCall(Long spaceId, Long id, Long targetMediaTypeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+		Object localVarPostBody = null;
+		
+		// verify the required parameter 'spaceId' is set
+		if (spaceId == null) {
+			throw new ApiException("Missing the required parameter 'spaceId' when calling getRefundDocumentWithTargetMediaType(Async)");
+		}
+		
+		// verify the required parameter 'id' is set
+		if (id == null) {
+			throw new ApiException("Missing the required parameter 'id' when calling getRefundDocumentWithTargetMediaType(Async)");
+		}
+		
+		// verify the required parameter 'targetMediaTypeId' is set
+		if (targetMediaTypeId == null) {
+			throw new ApiException("Missing the required parameter 'targetMediaTypeId' when calling getRefundDocumentWithTargetMediaType(Async)");
+		}
+		
+
+		// create path and map variables
+		String localVarPath = "/refund/getRefundDocumentWithTargetMediaType".replaceAll("\\{format\\}","json");
+
+		List<Pair> localVarQueryParams = new ArrayList<Pair>();
+		localVarQueryParams.addAll(apiClient.parameterToPairs("", "spaceId", spaceId));
+
+		localVarQueryParams.addAll(apiClient.parameterToPairs("", "id", id));
+
+		localVarQueryParams.addAll(apiClient.parameterToPairs("", "targetMediaTypeId", targetMediaTypeId));
+
+		Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+		Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+		final String[] localVarAccepts = {
+			"application/json;charset=utf-8"
+		};
+		final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+		final String[] localVarContentTypes = {
+			"*/*"
+		};
+		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+		localVarHeaderParams.put("Content-Type", localVarContentType);
+
+		if(progressListener != null) {
+			apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+				@Override
+				public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+					com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+					return originalResponse.newBuilder()
+					.body(new ProgressResponseBody(originalResponse.body(), progressListener))
+					.build();
+				}
+			});
+		}
+
+		String[] localVarAuthNames = new String[] {  };
+		return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+	}
+
+	/**
+	 * getRefundDocumentWithTargetMediaType
+	 *
+	 * Returns the PDF document for the refund with given id and the given target media type.
+	 *
+	 * @param spaceId  (required)
+	 *
+	 * @param id The id of the refund to get the document for. (required)
+	 *
+	 * @param targetMediaTypeId The id of the target media type for which the refund should be generated for. (required)
+	 * @return RenderedDocument
+	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+	 */
+	public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws ApiException {
+		ApiResponse<RenderedDocument> resp = getRefundDocumentWithTargetMediaTypeWithHttpInfo(spaceId, id, targetMediaTypeId);
+		return resp.getData();
+	}
+
+	/**
+	 * getRefundDocumentWithTargetMediaType
+	 *
+	 * Returns the PDF document for the refund with given id and the given target media type.
+	 *
+	 * @param spaceId  (required)
+	 *
+	 * @param id The id of the refund to get the document for. (required)
+	 *
+	 * @param targetMediaTypeId The id of the target media type for which the refund should be generated for. (required)
+	 * @return ApiResponse&lt;RenderedDocument&gt;
+	 * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+	 */
+	public ApiResponse<RenderedDocument> getRefundDocumentWithTargetMediaTypeWithHttpInfo(Long spaceId, Long id, Long targetMediaTypeId) throws ApiException {
+		com.squareup.okhttp.Call call = getRefundDocumentWithTargetMediaTypeCall(spaceId, id, targetMediaTypeId, null, null);
+		Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
+		return apiClient.execute(call, localVarReturnType);
+	}
+
+	/**
+	 * getRefundDocumentWithTargetMediaType (asynchronously)
+	 *
+	 * Returns the PDF document for the refund with given id and the given target media type.
+	 *
+	 * @param spaceId  (required)
+	 *
+	 * @param id The id of the refund to get the document for. (required)
+	 *
+	 * @param targetMediaTypeId The id of the target media type for which the refund should be generated for. (required)
+	 * @param callback The callback to be executed when the API call finishes
+	 * @return The request call
+	 * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+	 */
+	public com.squareup.okhttp.Call getRefundDocumentWithTargetMediaTypeAsync(Long spaceId, Long id, Long targetMediaTypeId, final ApiCallback<RenderedDocument> callback) throws ApiException {
+
+		ProgressResponseBody.ProgressListener progressListener = null;
+		ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+		if (callback != null) {
+			progressListener = new ProgressResponseBody.ProgressListener() {
+				@Override
+				public void update(long bytesRead, long contentLength, boolean done) {
+					callback.onDownloadProgress(bytesRead, contentLength, done);
+				}
+			};
+
+			progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+				@Override
+				public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+					callback.onUploadProgress(bytesWritten, contentLength, done);
+				}
+			};
+		}
+
+		com.squareup.okhttp.Call call = getRefundDocumentWithTargetMediaTypeCall(spaceId, id, targetMediaTypeId, progressListener, progressRequestListener);
+		Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
+		apiClient.executeAsync(call, localVarReturnType, callback);
+		return call;
+	}
+
 	/* Build call for read */
 	private com.squareup.okhttp.Call readCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
 		Object localVarPostBody = null;
@@ -585,7 +719,7 @@ public class RefundService {
 		if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
 		final String[] localVarContentTypes = {
-			
+			"application/json;charset=utf-8"
 		};
 		final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 		localVarHeaderParams.put("Content-Type", localVarContentType);

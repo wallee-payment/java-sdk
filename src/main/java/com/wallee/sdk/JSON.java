@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 
 package com.wallee.sdk;
@@ -34,6 +30,8 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -58,6 +56,7 @@ public class JSON {
             .registerTypeAdapter(Date.class, new DateAdapter(apiClient))
             .registerTypeAdapter(OffsetDateTime.class, new OffsetDateTimeTypeAdapter())
             .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
+            .registerTypeAdapter(byte[].class, new ByteArrayToBase64TypeAdapter())
             .create();
     }
 
@@ -120,6 +119,19 @@ public class JSON {
         }
     }
 }
+
+
+class ByteArrayToBase64TypeAdapter implements JsonSerializer<byte[]>, JsonDeserializer<byte[]> {
+	public byte[] deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+			throws JsonParseException {
+		return Base64.getDecoder().decode(json.getAsString());
+	}
+
+	public JsonElement serialize(byte[] src, Type typeOfSrc, JsonSerializationContext context) {
+		return new JsonPrimitive(new String(Base64.getEncoder().encode(src), StandardCharsets.UTF_8));
+	}
+}
+
 
 class DateAdapter implements JsonSerializer<Date>, JsonDeserializer<Date> {
     private final ApiClient apiClient;

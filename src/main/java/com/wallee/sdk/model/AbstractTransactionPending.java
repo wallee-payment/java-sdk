@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -421,9 +417,9 @@ public class AbstractTransactionPending {
 	}
 
 	/**
-	 * The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
 	 *
-	 * @return The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 * @return The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
 	 */
 	public TokenizationnMode getTokenizationMode() {
 		return tokenizationMode;

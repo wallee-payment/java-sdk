@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -57,6 +53,9 @@ public class Permission {
 
 	@SerializedName("title")
 	private Map<String, String> title = new HashMap<String, String>();
+
+	@SerializedName("twoFactorRequired")
+	private Boolean twoFactorRequired = null;
 
 	/**
 	 * description
@@ -139,6 +138,15 @@ public class Permission {
 		return title;
 	}
 
+	/**
+	 * twoFactorRequired
+	 *
+	 * @return twoFactorRequired
+	 */
+	public Boolean getTwoFactorRequired() {
+		return twoFactorRequired;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {
@@ -157,12 +165,13 @@ public class Permission {
 				Objects.equals(this.name, permission.name) &&
 				Objects.equals(this.parent, permission.parent) &&
 				Objects.equals(this.pathToRoot, permission.pathToRoot) &&
-				Objects.equals(this.title, permission.title);
+				Objects.equals(this.title, permission.title) &&
+				Objects.equals(this.twoFactorRequired, permission.twoFactorRequired);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title);
+		return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title, twoFactorRequired);
 	}
 
 
@@ -180,6 +189,7 @@ public class Permission {
 		sb.append("		parent: ").append(toIndentedString(parent)).append("\n");
 		sb.append("		pathToRoot: ").append(toIndentedString(pathToRoot)).append("\n");
 		sb.append("		title: ").append(toIndentedString(title)).append("\n");
+		sb.append("		twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,12 +10,15 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Address;
+import com.wallee.sdk.model.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.CustomersPresence;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.FailureReason;
@@ -61,6 +58,9 @@ public class Transaction {
 	@SerializedName("authorizationAmount")
 	private BigDecimal authorizationAmount = null;
 
+	@SerializedName("authorizationEnvironment")
+	private ChargeAttemptEnvironment authorizationEnvironment = null;
+
 	@SerializedName("authorizationTimeoutOn")
 	private OffsetDateTime authorizationTimeoutOn = null;
 
@@ -75,6 +75,9 @@ public class Transaction {
 
 	@SerializedName("chargeRetryEnabled")
 	private Boolean chargeRetryEnabled = null;
+
+	@SerializedName("completedAmount")
+	private BigDecimal completedAmount = null;
 
 	@SerializedName("completedOn")
 	private OffsetDateTime completedOn = null;
@@ -159,6 +162,9 @@ public class Transaction {
 
 	@SerializedName("metaData")
 	private Map<String, String> metaData = new HashMap<String, String>();
+
+	@SerializedName("parent")
+	private Long parent = null;
 
 	@SerializedName("paymentConnectorConfiguration")
 	private PaymentConnectorConfiguration paymentConnectorConfiguration = null;
@@ -254,6 +260,15 @@ public class Transaction {
 	}
 
 	/**
+	 * The environment in which this transaction was successfully authorized.
+	 *
+	 * @return The environment in which this transaction was successfully authorized.
+	 */
+	public ChargeAttemptEnvironment getAuthorizationEnvironment() {
+		return authorizationEnvironment;
+	}
+
+	/**
 	 * This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
 	 *
 	 * @return This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
@@ -296,6 +311,15 @@ public class Transaction {
 	 */
 	public Boolean getChargeRetryEnabled() {
 		return chargeRetryEnabled;
+	}
+
+	/**
+	 * The completed amount is the total amount which has been captured.
+	 *
+	 * @return The completed amount is the total amount which has been captured.
+	 */
+	public BigDecimal getCompletedAmount() {
+		return completedAmount;
 	}
 
 	/**
@@ -551,6 +575,15 @@ public class Transaction {
 	}
 
 	/**
+	 * parent
+	 *
+	 * @return parent
+	 */
+	public Long getParent() {
+		return parent;
+	}
+
+	/**
 	 * paymentConnectorConfiguration
 	 *
 	 * @return paymentConnectorConfiguration
@@ -650,9 +683,9 @@ public class Transaction {
 	}
 
 	/**
-	 * The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
 	 *
-	 * @return The tokenization mode controls if and how a token is automatically applied to the transaction. When a token is directly assigned to the transaction the mode will have no effect at all. Obmitting the mode will disable the automatic application of a token.
+	 * @return The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
 	 */
 	public TokenizationnMode getTokenizationMode() {
 		return tokenizationMode;
@@ -709,11 +742,13 @@ public class Transaction {
 				Objects.equals(this.allowedPaymentMethodBrands, transaction.allowedPaymentMethodBrands) &&
 				Objects.equals(this.allowedPaymentMethodConfigurations, transaction.allowedPaymentMethodConfigurations) &&
 				Objects.equals(this.authorizationAmount, transaction.authorizationAmount) &&
+				Objects.equals(this.authorizationEnvironment, transaction.authorizationEnvironment) &&
 				Objects.equals(this.authorizationTimeoutOn, transaction.authorizationTimeoutOn) &&
 				Objects.equals(this.authorizedOn, transaction.authorizedOn) &&
 				Objects.equals(this.autoConfirmationEnabled, transaction.autoConfirmationEnabled) &&
 				Objects.equals(this.billingAddress, transaction.billingAddress) &&
 				Objects.equals(this.chargeRetryEnabled, transaction.chargeRetryEnabled) &&
+				Objects.equals(this.completedAmount, transaction.completedAmount) &&
 				Objects.equals(this.completedOn, transaction.completedOn) &&
 				Objects.equals(this.completionTimeoutOn, transaction.completionTimeoutOn) &&
 				Objects.equals(this.confirmedBy, transaction.confirmedBy) &&
@@ -742,6 +777,7 @@ public class Transaction {
 				Objects.equals(this.linkedSpaceId, transaction.linkedSpaceId) &&
 				Objects.equals(this.merchantReference, transaction.merchantReference) &&
 				Objects.equals(this.metaData, transaction.metaData) &&
+				Objects.equals(this.parent, transaction.parent) &&
 				Objects.equals(this.paymentConnectorConfiguration, transaction.paymentConnectorConfiguration) &&
 				Objects.equals(this.plannedPurgeDate, transaction.plannedPurgeDate) &&
 				Objects.equals(this.processingOn, transaction.processingOn) &&
@@ -762,7 +798,7 @@ public class Transaction {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
+		return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
 	}
 
 
@@ -776,11 +812,13 @@ public class Transaction {
 		sb.append("		allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
 		sb.append("		allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
 		sb.append("		authorizationAmount: ").append(toIndentedString(authorizationAmount)).append("\n");
+		sb.append("		authorizationEnvironment: ").append(toIndentedString(authorizationEnvironment)).append("\n");
 		sb.append("		authorizationTimeoutOn: ").append(toIndentedString(authorizationTimeoutOn)).append("\n");
 		sb.append("		authorizedOn: ").append(toIndentedString(authorizedOn)).append("\n");
 		sb.append("		autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
 		sb.append("		billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
 		sb.append("		chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
+		sb.append("		completedAmount: ").append(toIndentedString(completedAmount)).append("\n");
 		sb.append("		completedOn: ").append(toIndentedString(completedOn)).append("\n");
 		sb.append("		completionTimeoutOn: ").append(toIndentedString(completionTimeoutOn)).append("\n");
 		sb.append("		confirmedBy: ").append(toIndentedString(confirmedBy)).append("\n");
@@ -809,6 +847,7 @@ public class Transaction {
 		sb.append("		linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
 		sb.append("		merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
 		sb.append("		metaData: ").append(toIndentedString(metaData)).append("\n");
+		sb.append("		parent: ").append(toIndentedString(parent)).append("\n");
 		sb.append("		paymentConnectorConfiguration: ").append(toIndentedString(paymentConnectorConfiguration)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		processingOn: ").append(toIndentedString(processingOn)).append("\n");

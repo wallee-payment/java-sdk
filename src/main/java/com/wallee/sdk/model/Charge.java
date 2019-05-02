@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -50,6 +46,9 @@ public class Charge extends TransactionAwareEntity {
 
 	@SerializedName("state")
 	private ChargeState state = null;
+
+	@SerializedName("timeZone")
+	private String timeZone = null;
 
 	@SerializedName("timeoutOn")
 	private OffsetDateTime timeoutOn = null;
@@ -121,6 +120,15 @@ public class Charge extends TransactionAwareEntity {
 	}
 
 	/**
+	 * timeZone
+	 *
+	 * @return timeZone
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * timeoutOn
 	 *
 	 * @return timeoutOn
@@ -181,6 +189,7 @@ public class Charge extends TransactionAwareEntity {
 				Objects.equals(this.plannedPurgeDate, charge.plannedPurgeDate) &&
 				Objects.equals(this.spaceViewId, charge.spaceViewId) &&
 				Objects.equals(this.state, charge.state) &&
+				Objects.equals(this.timeZone, charge.timeZone) &&
 				Objects.equals(this.timeoutOn, charge.timeoutOn) &&
 				Objects.equals(this.transaction, charge.transaction) &&
 				Objects.equals(this.type, charge.type) &&
@@ -191,7 +200,7 @@ public class Charge extends TransactionAwareEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
+		return Objects.hash(createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeZone, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
 	}
 
 
@@ -206,6 +215,7 @@ public class Charge extends TransactionAwareEntity {
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
 		sb.append("		transaction: ").append(toIndentedString(transaction)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");

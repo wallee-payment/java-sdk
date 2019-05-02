@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -23,6 +19,7 @@ import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.Scope;
+import com.wallee.sdk.model.TwoFactorAuthenticationType;
 
 /**
  * HumanUser
@@ -44,6 +41,12 @@ public class HumanUser {
 	@SerializedName("lastname")
 	private String lastname = null;
 
+	@SerializedName("mobilePhoneNumber")
+	private String mobilePhoneNumber = null;
+
+	@SerializedName("mobilePhoneVerified")
+	private Boolean mobilePhoneVerified = null;
+
 	@SerializedName("primaryAccount")
 	private Account primaryAccount = null;
 
@@ -52,6 +55,12 @@ public class HumanUser {
 
 	@SerializedName("timeZone")
 	private String timeZone = null;
+
+	@SerializedName("twoFactorEnabled")
+	private Boolean twoFactorEnabled = null;
+
+	@SerializedName("twoFactorType")
+	private TwoFactorAuthenticationType twoFactorType = null;
 
 	/**
 	 * The email address of the user.
@@ -99,6 +108,24 @@ public class HumanUser {
 	}
 
 	/**
+	 * mobilePhoneNumber
+	 *
+	 * @return mobilePhoneNumber
+	 */
+	public String getMobilePhoneNumber() {
+		return mobilePhoneNumber;
+	}
+
+	/**
+	 * Defines whether a users mobile phone number is verified or not.
+	 *
+	 * @return Defines whether a users mobile phone number is verified or not.
+	 */
+	public Boolean getMobilePhoneVerified() {
+		return mobilePhoneVerified;
+	}
+
+	/**
 	 * The primary account links the user to a specific account.
 	 *
 	 * @return The primary account links the user to a specific account.
@@ -125,6 +152,24 @@ public class HumanUser {
 		return timeZone;
 	}
 
+	/**
+	 * Defines whether two-factor authentication is enabled for this user.
+	 *
+	 * @return Defines whether two-factor authentication is enabled for this user.
+	 */
+	public Boolean getTwoFactorEnabled() {
+		return twoFactorEnabled;
+	}
+
+	/**
+	 * twoFactorType
+	 *
+	 * @return twoFactorType
+	 */
+	public TwoFactorAuthenticationType getTwoFactorType() {
+		return twoFactorType;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {
@@ -140,14 +185,18 @@ public class HumanUser {
 				Objects.equals(this.firstname, humanUser.firstname) &&
 				Objects.equals(this.language, humanUser.language) &&
 				Objects.equals(this.lastname, humanUser.lastname) &&
+				Objects.equals(this.mobilePhoneNumber, humanUser.mobilePhoneNumber) &&
+				Objects.equals(this.mobilePhoneVerified, humanUser.mobilePhoneVerified) &&
 				Objects.equals(this.primaryAccount, humanUser.primaryAccount) &&
 				Objects.equals(this.scope, humanUser.scope) &&
-				Objects.equals(this.timeZone, humanUser.timeZone);
+				Objects.equals(this.timeZone, humanUser.timeZone) &&
+				Objects.equals(this.twoFactorEnabled, humanUser.twoFactorEnabled) &&
+				Objects.equals(this.twoFactorType, humanUser.twoFactorType);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, primaryAccount, scope, timeZone);
+		return Objects.hash(emailAddress, emailAddressVerified, firstname, language, lastname, mobilePhoneNumber, mobilePhoneVerified, primaryAccount, scope, timeZone, twoFactorEnabled, twoFactorType);
 	}
 
 
@@ -161,9 +210,13 @@ public class HumanUser {
 		sb.append("		firstname: ").append(toIndentedString(firstname)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		lastname: ").append(toIndentedString(lastname)).append("\n");
+		sb.append("		mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
+		sb.append("		mobilePhoneVerified: ").append(toIndentedString(mobilePhoneVerified)).append("\n");
 		sb.append("		primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
 		sb.append("		scope: ").append(toIndentedString(scope)).append("\n");
 		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
+		sb.append("		twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
+		sb.append("		twoFactorType: ").append(toIndentedString(twoFactorType)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -40,6 +36,9 @@ public class LineItemCreate {
 
 	@SerializedName("attributes")
 	private Map<String, LineItemAttributeCreate> attributes = new HashMap<String, LineItemAttributeCreate>();
+
+	@SerializedName("discountIncludingTax")
+	private BigDecimal discountIncludingTax = null;
 
 	@SerializedName("name")
 	private String name = null;
@@ -101,6 +100,24 @@ public class LineItemCreate {
 
 	public void setAttributes(Map<String, LineItemAttributeCreate> attributes) {
 		this.attributes = attributes;
+	}
+
+	public LineItemCreate discountIncludingTax(BigDecimal discountIncludingTax) {
+		this.discountIncludingTax = discountIncludingTax;
+		return this;
+	}
+
+	/**
+	 * discountIncludingTax
+	 *
+	 * @return discountIncludingTax
+	 */
+	public BigDecimal getDiscountIncludingTax() {
+		return discountIncludingTax;
+	}
+
+	public void setDiscountIncludingTax(BigDecimal discountIncludingTax) {
+		this.discountIncludingTax = discountIncludingTax;
 	}
 
 	public LineItemCreate name(String name) {
@@ -246,6 +263,7 @@ public class LineItemCreate {
 		LineItemCreate lineItemCreate = (LineItemCreate) o;
 		return Objects.equals(this.amountIncludingTax, lineItemCreate.amountIncludingTax) &&
 				Objects.equals(this.attributes, lineItemCreate.attributes) &&
+				Objects.equals(this.discountIncludingTax, lineItemCreate.discountIncludingTax) &&
 				Objects.equals(this.name, lineItemCreate.name) &&
 				Objects.equals(this.quantity, lineItemCreate.quantity) &&
 				Objects.equals(this.shippingRequired, lineItemCreate.shippingRequired) &&
@@ -257,7 +275,7 @@ public class LineItemCreate {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amountIncludingTax, attributes, name, quantity, shippingRequired, sku, taxes, type, uniqueId);
+		return Objects.hash(amountIncludingTax, attributes, discountIncludingTax, name, quantity, shippingRequired, sku, taxes, type, uniqueId);
 	}
 
 
@@ -268,6 +286,7 @@ public class LineItemCreate {
 		
 		sb.append("		amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
 		sb.append("		attributes: ").append(toIndentedString(attributes)).append("\n");
+		sb.append("		discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		quantity: ").append(toIndentedString(quantity)).append("\n");
 		sb.append("		shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");

@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,11 +10,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.TransactionAwareEntity;
@@ -38,6 +35,9 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 	@SerializedName("amount")
 	private BigDecimal amount = null;
+
+	@SerializedName("billingAddress")
+	private Address billingAddress = null;
 
 	@SerializedName("completion")
 	private TransactionCompletion completion = null;
@@ -84,6 +84,9 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	@SerializedName("taxAmount")
 	private BigDecimal taxAmount = null;
 
+	@SerializedName("timeZone")
+	private String timeZone = null;
+
 	@SerializedName("version")
 	private Integer version = null;
 
@@ -94,6 +97,15 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	 */
 	public BigDecimal getAmount() {
 		return amount;
+	}
+
+	/**
+	 * billingAddress
+	 *
+	 * @return billingAddress
+	 */
+	public Address getBillingAddress() {
+		return billingAddress;
 	}
 
 	/**
@@ -142,9 +154,9 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	}
 
 	/**
-	 * externalId
+	 * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 *
-	 * @return externalId
+	 * @return The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
 	 */
 	public String getExternalId() {
 		return externalId;
@@ -232,6 +244,15 @@ public class TransactionInvoice extends TransactionAwareEntity {
 	}
 
 	/**
+	 * timeZone
+	 *
+	 * @return timeZone
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
 	 *
 	 * @return The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
@@ -251,6 +272,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 		}
 		TransactionInvoice transactionInvoice = (TransactionInvoice) o;
 		return Objects.equals(this.amount, transactionInvoice.amount) &&
+				Objects.equals(this.billingAddress, transactionInvoice.billingAddress) &&
 				Objects.equals(this.completion, transactionInvoice.completion) &&
 				Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
 				Objects.equals(this.derecognizedOn, transactionInvoice.derecognizedOn) &&
@@ -266,13 +288,14 @@ public class TransactionInvoice extends TransactionAwareEntity {
 				Objects.equals(this.spaceViewId, transactionInvoice.spaceViewId) &&
 				Objects.equals(this.state, transactionInvoice.state) &&
 				Objects.equals(this.taxAmount, transactionInvoice.taxAmount) &&
+				Objects.equals(this.timeZone, transactionInvoice.timeZone) &&
 				Objects.equals(this.version, transactionInvoice.version) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(amount, completion, createdOn, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, version, super.hashCode());
+		return Objects.hash(amount, billingAddress, completion, createdOn, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
 	}
 
 
@@ -282,6 +305,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 		sb.append("class TransactionInvoice {\n");
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
 		sb.append("		amount: ").append(toIndentedString(amount)).append("\n");
+		sb.append("		billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
 		sb.append("		completion: ").append(toIndentedString(completion)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		derecognizedOn: ").append(toIndentedString(derecognizedOn)).append("\n");
@@ -297,6 +321,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");
 		return sb.toString();

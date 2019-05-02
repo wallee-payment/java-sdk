@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -80,6 +76,9 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 	@SerializedName("succeededOn")
 	private OffsetDateTime succeededOn = null;
+
+	@SerializedName("timeZone")
+	private String timeZone = null;
 
 	@SerializedName("timeoutOn")
 	private OffsetDateTime timeoutOn = null;
@@ -223,6 +222,15 @@ public class TransactionCompletion extends TransactionAwareEntity {
 	}
 
 	/**
+	 * timeZone
+	 *
+	 * @return timeZone
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * timeoutOn
 	 *
 	 * @return timeoutOn
@@ -265,6 +273,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 				Objects.equals(this.spaceViewId, transactionCompletion.spaceViewId) &&
 				Objects.equals(this.state, transactionCompletion.state) &&
 				Objects.equals(this.succeededOn, transactionCompletion.succeededOn) &&
+				Objects.equals(this.timeZone, transactionCompletion.timeZone) &&
 				Objects.equals(this.timeoutOn, transactionCompletion.timeoutOn) &&
 				Objects.equals(this.version, transactionCompletion.version) &&
 				super.equals(o);
@@ -272,7 +281,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(createdBy, createdOn, failedOn, failureReason, labels, language, lineItemVersion, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeoutOn, version, super.hashCode());
+		return Objects.hash(createdBy, createdOn, failedOn, failureReason, labels, language, lineItemVersion, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeZone, timeoutOn, version, super.hashCode());
 	}
 
 
@@ -296,6 +305,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
 		sb.append("		version: ").append(toIndentedString(version)).append("\n");
 		sb.append("}");

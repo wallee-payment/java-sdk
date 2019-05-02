@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -39,6 +35,9 @@ public class ApplicationUser extends User {
 	@SerializedName("primaryAccount")
 	private Account primaryAccount = null;
 
+	@SerializedName("requestLimit")
+	private Long requestLimit = null;
+
 	/**
 	 * The user name is used to identify the application user in administrative interfaces.
 	 *
@@ -57,6 +56,15 @@ public class ApplicationUser extends User {
 		return primaryAccount;
 	}
 
+	/**
+	 * The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.
+	 *
+	 * @return The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.
+	 */
+	public Long getRequestLimit() {
+		return requestLimit;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {
@@ -69,12 +77,13 @@ public class ApplicationUser extends User {
 		ApplicationUser applicationUser = (ApplicationUser) o;
 		return Objects.equals(this.name, applicationUser.name) &&
 				Objects.equals(this.primaryAccount, applicationUser.primaryAccount) &&
+				Objects.equals(this.requestLimit, applicationUser.requestLimit) &&
 				super.equals(o);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(name, primaryAccount, super.hashCode());
+		return Objects.hash(name, primaryAccount, requestLimit, super.hashCode());
 	}
 
 
@@ -85,6 +94,7 @@ public class ApplicationUser extends User {
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
+		sb.append("		requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

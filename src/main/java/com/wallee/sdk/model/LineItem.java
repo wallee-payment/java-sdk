@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -47,6 +43,12 @@ public class LineItem {
 	@SerializedName("attributes")
 	private Map<String, LineItemAttribute> attributes = new HashMap<String, LineItemAttribute>();
 
+	@SerializedName("discountExcludingTax")
+	private BigDecimal discountExcludingTax = null;
+
+	@SerializedName("discountIncludingTax")
+	private BigDecimal discountIncludingTax = null;
+
 	@SerializedName("name")
 	private String name = null;
 
@@ -70,6 +72,12 @@ public class LineItem {
 
 	@SerializedName("type")
 	private LineItemType type = null;
+
+	@SerializedName("undiscountedAmountExcludingTax")
+	private BigDecimal undiscountedAmountExcludingTax = null;
+
+	@SerializedName("undiscountedAmountIncludingTax")
+	private BigDecimal undiscountedAmountIncludingTax = null;
 
 	@SerializedName("uniqueId")
 	private String uniqueId = null;
@@ -114,6 +122,24 @@ public class LineItem {
 	 */
 	public Map<String, LineItemAttribute> getAttributes() {
 		return attributes;
+	}
+
+	/**
+	 * discountExcludingTax
+	 *
+	 * @return discountExcludingTax
+	 */
+	public BigDecimal getDiscountExcludingTax() {
+		return discountExcludingTax;
+	}
+
+	/**
+	 * discountIncludingTax
+	 *
+	 * @return discountIncludingTax
+	 */
+	public BigDecimal getDiscountIncludingTax() {
+		return discountIncludingTax;
 	}
 
 	/**
@@ -189,6 +215,24 @@ public class LineItem {
 	}
 
 	/**
+	 * undiscountedAmountExcludingTax
+	 *
+	 * @return undiscountedAmountExcludingTax
+	 */
+	public BigDecimal getUndiscountedAmountExcludingTax() {
+		return undiscountedAmountExcludingTax;
+	}
+
+	/**
+	 * undiscountedAmountIncludingTax
+	 *
+	 * @return undiscountedAmountIncludingTax
+	 */
+	public BigDecimal getUndiscountedAmountIncludingTax() {
+		return undiscountedAmountIncludingTax;
+	}
+
+	/**
 	 * The unique id identifies the line item within the set of line items associated with the transaction.
 	 *
 	 * @return The unique id identifies the line item within the set of line items associated with the transaction.
@@ -229,6 +273,8 @@ public class LineItem {
 				Objects.equals(this.amountExcludingTax, lineItem.amountExcludingTax) &&
 				Objects.equals(this.amountIncludingTax, lineItem.amountIncludingTax) &&
 				Objects.equals(this.attributes, lineItem.attributes) &&
+				Objects.equals(this.discountExcludingTax, lineItem.discountExcludingTax) &&
+				Objects.equals(this.discountIncludingTax, lineItem.discountIncludingTax) &&
 				Objects.equals(this.name, lineItem.name) &&
 				Objects.equals(this.quantity, lineItem.quantity) &&
 				Objects.equals(this.shippingRequired, lineItem.shippingRequired) &&
@@ -237,6 +283,8 @@ public class LineItem {
 				Objects.equals(this.taxAmountPerUnit, lineItem.taxAmountPerUnit) &&
 				Objects.equals(this.taxes, lineItem.taxes) &&
 				Objects.equals(this.type, lineItem.type) &&
+				Objects.equals(this.undiscountedAmountExcludingTax, lineItem.undiscountedAmountExcludingTax) &&
+				Objects.equals(this.undiscountedAmountIncludingTax, lineItem.undiscountedAmountIncludingTax) &&
 				Objects.equals(this.uniqueId, lineItem.uniqueId) &&
 				Objects.equals(this.unitPriceExcludingTax, lineItem.unitPriceExcludingTax) &&
 				Objects.equals(this.unitPriceIncludingTax, lineItem.unitPriceIncludingTax);
@@ -244,7 +292,7 @@ public class LineItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, attributes, name, quantity, shippingRequired, sku, taxAmount, taxAmountPerUnit, taxes, type, uniqueId, unitPriceExcludingTax, unitPriceIncludingTax);
+		return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, attributes, discountExcludingTax, discountIncludingTax, name, quantity, shippingRequired, sku, taxAmount, taxAmountPerUnit, taxes, type, undiscountedAmountExcludingTax, undiscountedAmountIncludingTax, uniqueId, unitPriceExcludingTax, unitPriceIncludingTax);
 	}
 
 
@@ -257,6 +305,8 @@ public class LineItem {
 		sb.append("		amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
 		sb.append("		amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
 		sb.append("		attributes: ").append(toIndentedString(attributes)).append("\n");
+		sb.append("		discountExcludingTax: ").append(toIndentedString(discountExcludingTax)).append("\n");
+		sb.append("		discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		quantity: ").append(toIndentedString(quantity)).append("\n");
 		sb.append("		shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");
@@ -265,6 +315,8 @@ public class LineItem {
 		sb.append("		taxAmountPerUnit: ").append(toIndentedString(taxAmountPerUnit)).append("\n");
 		sb.append("		taxes: ").append(toIndentedString(taxes)).append("\n");
 		sb.append("		type: ").append(toIndentedString(type)).append("\n");
+		sb.append("		undiscountedAmountExcludingTax: ").append(toIndentedString(undiscountedAmountExcludingTax)).append("\n");
+		sb.append("		undiscountedAmountIncludingTax: ").append(toIndentedString(undiscountedAmountIncludingTax)).append("\n");
 		sb.append("		uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
 		sb.append("		unitPriceExcludingTax: ").append(toIndentedString(unitPriceExcludingTax)).append("\n");
 		sb.append("		unitPriceIncludingTax: ").append(toIndentedString(unitPriceIncludingTax)).append("\n");

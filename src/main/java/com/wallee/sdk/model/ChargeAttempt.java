@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -86,6 +82,9 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 	@SerializedName("succeededOn")
 	private OffsetDateTime succeededOn = null;
+
+	@SerializedName("timeZone")
+	private String timeZone = null;
 
 	@SerializedName("timeoutOn")
 	private OffsetDateTime timeoutOn = null;
@@ -244,6 +243,15 @@ public class ChargeAttempt extends TransactionAwareEntity {
 	}
 
 	/**
+	 * timeZone
+	 *
+	 * @return timeZone
+	 */
+	public String getTimeZone() {
+		return timeZone;
+	}
+
+	/**
 	 * timeoutOn
 	 *
 	 * @return timeoutOn
@@ -305,6 +313,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 				Objects.equals(this.spaceViewId, chargeAttempt.spaceViewId) &&
 				Objects.equals(this.state, chargeAttempt.state) &&
 				Objects.equals(this.succeededOn, chargeAttempt.succeededOn) &&
+				Objects.equals(this.timeZone, chargeAttempt.timeZone) &&
 				Objects.equals(this.timeoutOn, chargeAttempt.timeoutOn) &&
 				Objects.equals(this.tokenVersion, chargeAttempt.tokenVersion) &&
 				Objects.equals(this.userFailureMessage, chargeAttempt.userFailureMessage) &&
@@ -314,7 +323,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(charge, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, spaceViewId, state, succeededOn, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
+		return Objects.hash(charge, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, spaceViewId, state, succeededOn, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
 	}
 
 
@@ -339,6 +348,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 		sb.append("		spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
+		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
 		sb.append("		timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
 		sb.append("		tokenVersion: ").append(toIndentedString(tokenVersion)).append("\n");
 		sb.append("		userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");

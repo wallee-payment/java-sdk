@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -40,11 +36,17 @@ public class AbstractHumanUserUpdate {
 	@SerializedName("lastname")
 	private String lastname = null;
 
+	@SerializedName("mobilePhoneNumber")
+	private String mobilePhoneNumber = null;
+
 	@SerializedName("state")
 	private CreationEntityState state = null;
 
 	@SerializedName("timeZone")
 	private String timeZone = null;
+
+	@SerializedName("twoFactorEnabled")
+	private Boolean twoFactorEnabled = null;
 
 	public AbstractHumanUserUpdate emailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
@@ -118,6 +120,24 @@ public class AbstractHumanUserUpdate {
 		this.lastname = lastname;
 	}
 
+	public AbstractHumanUserUpdate mobilePhoneNumber(String mobilePhoneNumber) {
+		this.mobilePhoneNumber = mobilePhoneNumber;
+		return this;
+	}
+
+	/**
+	 * mobilePhoneNumber
+	 *
+	 * @return mobilePhoneNumber
+	 */
+	public String getMobilePhoneNumber() {
+		return mobilePhoneNumber;
+	}
+
+	public void setMobilePhoneNumber(String mobilePhoneNumber) {
+		this.mobilePhoneNumber = mobilePhoneNumber;
+	}
+
 	public AbstractHumanUserUpdate state(CreationEntityState state) {
 		this.state = state;
 		return this;
@@ -154,6 +174,24 @@ public class AbstractHumanUserUpdate {
 		this.timeZone = timeZone;
 	}
 
+	public AbstractHumanUserUpdate twoFactorEnabled(Boolean twoFactorEnabled) {
+		this.twoFactorEnabled = twoFactorEnabled;
+		return this;
+	}
+
+	/**
+	 * Defines whether two-factor authentication is enabled for this user.
+	 *
+	 * @return Defines whether two-factor authentication is enabled for this user.
+	 */
+	public Boolean getTwoFactorEnabled() {
+		return twoFactorEnabled;
+	}
+
+	public void setTwoFactorEnabled(Boolean twoFactorEnabled) {
+		this.twoFactorEnabled = twoFactorEnabled;
+	}
+
 
 	@Override
 	public boolean equals(java.lang.Object o) {
@@ -168,13 +206,15 @@ public class AbstractHumanUserUpdate {
 				Objects.equals(this.firstname, abstractHumanUserUpdate.firstname) &&
 				Objects.equals(this.language, abstractHumanUserUpdate.language) &&
 				Objects.equals(this.lastname, abstractHumanUserUpdate.lastname) &&
+				Objects.equals(this.mobilePhoneNumber, abstractHumanUserUpdate.mobilePhoneNumber) &&
 				Objects.equals(this.state, abstractHumanUserUpdate.state) &&
-				Objects.equals(this.timeZone, abstractHumanUserUpdate.timeZone);
+				Objects.equals(this.timeZone, abstractHumanUserUpdate.timeZone) &&
+				Objects.equals(this.twoFactorEnabled, abstractHumanUserUpdate.twoFactorEnabled);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(emailAddress, firstname, language, lastname, state, timeZone);
+		return Objects.hash(emailAddress, firstname, language, lastname, mobilePhoneNumber, state, timeZone, twoFactorEnabled);
 	}
 
 
@@ -187,8 +227,10 @@ public class AbstractHumanUserUpdate {
 		sb.append("		firstname: ").append(toIndentedString(firstname)).append("\n");
 		sb.append("		language: ").append(toIndentedString(language)).append("\n");
 		sb.append("		lastname: ").append(toIndentedString(lastname)).append("\n");
+		sb.append("		mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");
 		sb.append("		timeZone: ").append(toIndentedString(timeZone)).append("\n");
+		sb.append("		twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
 		sb.append("}");
 		return sb.toString();
 	}

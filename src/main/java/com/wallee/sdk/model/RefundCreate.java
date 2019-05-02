@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -31,6 +27,9 @@ import java.util.List;
  */
 public class RefundCreate {
 
+	@SerializedName("completion")
+	private Long completion = null;
+
 	@SerializedName("externalId")
 	private String externalId = null;
 
@@ -45,6 +44,24 @@ public class RefundCreate {
 
 	@SerializedName("type")
 	private RefundType type = null;
+
+	public RefundCreate completion(Long completion) {
+		this.completion = completion;
+		return this;
+	}
+
+	/**
+	 * completion
+	 *
+	 * @return completion
+	 */
+	public Long getCompletion() {
+		return completion;
+	}
+
+	public void setCompletion(Long completion) {
+		this.completion = completion;
+	}
 
 	public RefundCreate externalId(String externalId) {
 		this.externalId = externalId;
@@ -151,7 +168,8 @@ public class RefundCreate {
 			return false;
 		}
 		RefundCreate refundCreate = (RefundCreate) o;
-		return Objects.equals(this.externalId, refundCreate.externalId) &&
+		return Objects.equals(this.completion, refundCreate.completion) &&
+				Objects.equals(this.externalId, refundCreate.externalId) &&
 				Objects.equals(this.merchantReference, refundCreate.merchantReference) &&
 				Objects.equals(this.reductions, refundCreate.reductions) &&
 				Objects.equals(this.transaction, refundCreate.transaction) &&
@@ -160,7 +178,7 @@ public class RefundCreate {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(externalId, merchantReference, reductions, transaction, type);
+		return Objects.hash(completion, externalId, merchantReference, reductions, transaction, type);
 	}
 
 
@@ -169,6 +187,7 @@ public class RefundCreate {
 		StringBuilder sb = new StringBuilder();
 		sb.append("class RefundCreate {\n");
 		
+		sb.append("		completion: ").append(toIndentedString(completion)).append("\n");
 		sb.append("		externalId: ").append(toIndentedString(externalId)).append("\n");
 		sb.append("		merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
 		sb.append("		reductions: ").append(toIndentedString(reductions)).append("\n");

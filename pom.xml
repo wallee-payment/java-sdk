@@ -6,9 +6,9 @@
 	<artifactId>wallee-java-sdk</artifactId>
 	<packaging>jar</packaging>
 	<name>wallee-java-sdk</name>
-	<version>1.0.1</version>
+	<version>1.0.0</version>
 	<description>The SDK for simplifying the integration with wallee API.</description>
-	<url>https://wallee.com</url>
+	<url>https://www.wallee.com</url>
 
 	<licenses>
 	  <license>
@@ -27,12 +27,6 @@
 	      <organizationUrl>https://www.customweb.com</organizationUrl>
 	    </developer>
 	</developers>
-	
-	<scm>
-		<connection>scm:git:git@github.com:wallee-payment/wallee-java-sdk.git</connection>
-		<developerConnection>scm:git:git@github.com:wallee-payment/wallee-java-sdk.git</developerConnection>
-		<url>https://github.com/wallee-payment/wallee-java-sdk</url>
-	</scm>
 
 	<distributionManagement>
 		<snapshotRepository>

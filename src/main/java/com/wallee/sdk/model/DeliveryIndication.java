@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -37,6 +33,9 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
 	@SerializedName("automaticallyDecidedOn")
 	private OffsetDateTime automaticallyDecidedOn = null;
+
+	@SerializedName("completion")
+	private Long completion = null;
 
 	@SerializedName("createdOn")
 	private OffsetDateTime createdOn = null;
@@ -78,6 +77,15 @@ public class DeliveryIndication extends TransactionAwareEntity {
 	 */
 	public OffsetDateTime getAutomaticallyDecidedOn() {
 		return automaticallyDecidedOn;
+	}
+
+	/**
+	 * completion
+	 *
+	 * @return completion
+	 */
+	public Long getCompletion() {
+		return completion;
 	}
 
 	/**
@@ -164,6 +172,7 @@ public class DeliveryIndication extends TransactionAwareEntity {
 		DeliveryIndication deliveryIndication = (DeliveryIndication) o;
 		return Objects.equals(this.automaticDecisionReason, deliveryIndication.automaticDecisionReason) &&
 				Objects.equals(this.automaticallyDecidedOn, deliveryIndication.automaticallyDecidedOn) &&
+				Objects.equals(this.completion, deliveryIndication.completion) &&
 				Objects.equals(this.createdOn, deliveryIndication.createdOn) &&
 				Objects.equals(this.manualDecisionTimeoutOn, deliveryIndication.manualDecisionTimeoutOn) &&
 				Objects.equals(this.manuallyDecidedBy, deliveryIndication.manuallyDecidedBy) &&
@@ -177,7 +186,7 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(automaticDecisionReason, automaticallyDecidedOn, createdOn, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction, super.hashCode());
+		return Objects.hash(automaticDecisionReason, automaticallyDecidedOn, completion, createdOn, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction, super.hashCode());
 	}
 
 
@@ -188,6 +197,7 @@ public class DeliveryIndication extends TransactionAwareEntity {
 		sb.append("		").append(toIndentedString(super.toString())).append("\n");
 		sb.append("		automaticDecisionReason: ").append(toIndentedString(automaticDecisionReason)).append("\n");
 		sb.append("		automaticallyDecidedOn: ").append(toIndentedString(automaticallyDecidedOn)).append("\n");
+		sb.append("		completion: ").append(toIndentedString(completion)).append("\n");
 		sb.append("		createdOn: ").append(toIndentedString(createdOn)).append("\n");
 		sb.append("		manualDecisionTimeoutOn: ").append(toIndentedString(manualDecisionTimeoutOn)).append("\n");
 		sb.append("		manuallyDecidedBy: ").append(toIndentedString(manuallyDecidedBy)).append("\n");

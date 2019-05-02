@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,6 +10,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
@@ -57,6 +53,9 @@ public class Space {
 
 	@SerializedName("postalAddress")
 	private SpaceAddress postalAddress = null;
+
+	@SerializedName("primaryCurrency")
+	private String primaryCurrency = null;
 
 	@SerializedName("requestLimit")
 	private Long requestLimit = null;
@@ -149,9 +148,18 @@ public class Space {
 	}
 
 	/**
-	 * The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.
+	 * This is the currency that is used to display aggregated amounts in the space.
 	 *
-	 * @return The request limit defines the maximum number of API request accepted within 2 minutes per cluster node. This limit can only be changed with special privileges.
+	 * @return This is the currency that is used to display aggregated amounts in the space.
+	 */
+	public String getPrimaryCurrency() {
+		return primaryCurrency;
+	}
+
+	/**
+	 * The request limit defines the maximum number of API request accepted within 2 minutes for this space. This limit can only be changed with special privileges.
+	 *
+	 * @return The request limit defines the maximum number of API request accepted within 2 minutes for this space. This limit can only be changed with special privileges.
 	 */
 	public Long getRequestLimit() {
 		return requestLimit;
@@ -220,6 +228,7 @@ public class Space {
 				Objects.equals(this.name, space.name) &&
 				Objects.equals(this.plannedPurgeDate, space.plannedPurgeDate) &&
 				Objects.equals(this.postalAddress, space.postalAddress) &&
+				Objects.equals(this.primaryCurrency, space.primaryCurrency) &&
 				Objects.equals(this.requestLimit, space.requestLimit) &&
 				Objects.equals(this.restrictedActive, space.restrictedActive) &&
 				Objects.equals(this.state, space.state) &&
@@ -230,7 +239,7 @@ public class Space {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(account, active, activeOrRestrictedActive, database, id, name, plannedPurgeDate, postalAddress, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
+		return Objects.hash(account, active, activeOrRestrictedActive, database, id, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
 	}
 
 
@@ -247,6 +256,7 @@ public class Space {
 		sb.append("		name: ").append(toIndentedString(name)).append("\n");
 		sb.append("		plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
 		sb.append("		postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+		sb.append("		primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
 		sb.append("		requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
 		sb.append("		restrictedActive: ").append(toIndentedString(restrictedActive)).append("\n");
 		sb.append("		state: ").append(toIndentedString(state)).append("\n");

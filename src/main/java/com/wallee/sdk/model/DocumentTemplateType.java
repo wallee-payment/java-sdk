@@ -1,10 +1,4 @@
 /**
- * Wallee SDK Client
- *
- * This client allows to interact with the Wallee API.
- *
- * Wallee API: 1.0.0
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,11 +10,14 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @author   customweb GmbH (www.customweb.com)
  */
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import com.google.gson.annotations.SerializedName;
+import com.wallee.sdk.model.DocumentTemplateTypeGroup;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +32,9 @@ public class DocumentTemplateType {
 
 	@SerializedName("feature")
 	private Long feature = null;
+
+	@SerializedName("group")
+	private DocumentTemplateTypeGroup group = null;
 
 	@SerializedName("id")
 	private Long id = null;
@@ -58,6 +58,15 @@ public class DocumentTemplateType {
 	 */
 	public Long getFeature() {
 		return feature;
+	}
+
+	/**
+	 * group
+	 *
+	 * @return group
+	 */
+	public DocumentTemplateTypeGroup getGroup() {
+		return group;
 	}
 
 	/**
@@ -90,13 +99,14 @@ public class DocumentTemplateType {
 		DocumentTemplateType documentTemplateType = (DocumentTemplateType) o;
 		return Objects.equals(this.description, documentTemplateType.description) &&
 				Objects.equals(this.feature, documentTemplateType.feature) &&
+				Objects.equals(this.group, documentTemplateType.group) &&
 				Objects.equals(this.id, documentTemplateType.id) &&
 				Objects.equals(this.title, documentTemplateType.title);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, feature, id, title);
+		return Objects.hash(description, feature, group, id, title);
 	}
 
 
@@ -107,6 +117,7 @@ public class DocumentTemplateType {
 		
 		sb.append("		description: ").append(toIndentedString(description)).append("\n");
 		sb.append("		feature: ").append(toIndentedString(feature)).append("\n");
+		sb.append("		group: ").append(toIndentedString(group)).append("\n");
 		sb.append("		id: ").append(toIndentedString(id)).append("\n");
 		sb.append("		title: ").append(toIndentedString(title)).append("\n");
 		sb.append("}");
