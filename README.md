@@ -1,12 +1,12 @@
 [![Build Status](https://travis-ci.org/wallee-payment/java-sdk.svg?branch=master)](https://travis-ci.org/wallee-payment/java-sdk)
 
-# 
+# wallee SDK for Java
 
-
+This repository contains the open source Java SDK that allows you to access wallee from your Java app.
 
 ## Documentation
 
-doc/api/web-service
+https://app-wallee.com/doc/api/web-service
 
 ### Maven users
 
@@ -16,7 +16,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -26,7 +26,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:1.0.0"
+compile "com.wallee:wallee-java-sdk:1.1.1"
 ```
 
 ### Example
