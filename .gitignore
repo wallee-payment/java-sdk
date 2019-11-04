@@ -16,14 +16,6 @@ hs_err_pid*
 
 # build files
 **/target
-/target
+target
 .gradle
-/build
-/bin
-.externalToolBuilders
-
-/.eclipse-classes
-.settings
-.classpath
-.project
-.buildpath
+build
