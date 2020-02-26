@@ -18,71 +18,69 @@ import java.util.UUID;
 public class TransactionPaymentPageServiceTest {
     private TransactionService transactionService;
     private TransactionCreate transactionCreate;
-    private Long spaceId;
-    private Long applicationUserId;
-    private String authenticationKey;
+    private Long spaceId = (long) 405;
+    private Long applicationUserId = (long) 512;
+    private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
     private ApiClient apiClient;
     private ApiResponse<Transaction> transaction;
+    TransactionPaymentPageService transactionPaymentPageService;
 
     @Before
     public void setup() {
-        this.applicationUserId = (long) 512;
-        this.spaceId = (long) 405;
-        this.authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
         this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        this.apiClient.setBasePath("https://app-wallee.com:443/api");
         this.transactionService = new TransactionService(this.apiClient);
+        this.transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
         this.createTransaction();
     }
 
     private void createTransaction() {
 
-        AddressCreate billingAddress = new AddressCreate()
-                .salutation("Ms")
-                .givenName("Good")
-                .familyName("Customer")
-                .gender(Gender.FEMALE)
-                .country("CH")
-                .city("Winterthur")
-                .postCode("8400")
-                .dateOfBirth(LocalDate.of(1991, 1, 11))
-                .organizationName("Test GmbH")
-                .mobilePhoneNumber("+41791234567")
-                .emailAddress("test@wallee.com");
+        AddressCreate billingAddress = new AddressCreate();
+        billingAddress.salutation("Ms");
+        billingAddress.givenName("Good");
+        billingAddress.familyName("Customer");
+        billingAddress.gender(Gender.FEMALE);
+        billingAddress.country("CH");
+        billingAddress.city("Winterthur");
+        billingAddress.postcode("8400");
+        billingAddress.dateOfBirth(LocalDate.of(1991, 1, 11));
+        billingAddress.organizationName("Test GmbH");
+        billingAddress.mobilePhoneNumber("+41791234567");
+        billingAddress.emailAddress("test@wallee.com");
 
-        AddressCreate shippingAddress = new AddressCreate()
-                .salutation("Ms")
-                .givenName("Good")
-                .familyName("Customer")
-                .gender(Gender.FEMALE)
-                .country("CH")
-                .city("Winterthur")
-                .postCode("8400")
-                .dateOfBirth(LocalDate.of(1991, 1, 11))
-                .organizationName("Test GmbH")
-                .mobilePhoneNumber("+41791234567")
-                .emailAddress("test@wallee.com");
+        AddressCreate shippingAddress = new AddressCreate();
+        shippingAddress.salutation("Ms");
+        shippingAddress.givenName("Good");
+        shippingAddress.familyName("Customer");
+        shippingAddress.gender(Gender.FEMALE);
+        shippingAddress.country("CH");
+        shippingAddress.city("Winterthur");
+        shippingAddress.postcode("8400");
+        shippingAddress.dateOfBirth(LocalDate.of(1991, 1, 11));
+        shippingAddress.organizationName("Test GmbH");
+        shippingAddress.mobilePhoneNumber("+41791234567");
+        shippingAddress.emailAddress("test@wallee.com");
 
-        LineItemCreate lineItem1 = new LineItemCreate()
-                .sku("item-1")
-                .name("Item 1")
-                .uniqueId("unique-id-item-1")
-                .type(LineItemType.PRODUCT)
-                .quantity(BigDecimal.ONE)
-                .shippingRequired(true)
-                .amountIncludingTax(new BigDecimal("67.47"))
-                .addTaxesItem(
+        LineItemCreate lineItem1 = new LineItemCreate();
+        lineItem1.sku("item-1");
+        lineItem1.name("Item 1");
+        lineItem1.uniqueId("unique-id-item-1");
+        lineItem1.type(LineItemType.PRODUCT);
+        lineItem1.quantity(BigDecimal.ONE);
+        lineItem1.shippingRequired(true);
+        lineItem1.amountIncludingTax(new BigDecimal("67.47"));
+        lineItem1.addTaxesItem(
                         new TaxCreate().title("VAT").rate(new BigDecimal(8))
                 );
 
-        LineItemCreate lineItem2 = new LineItemCreate()
-                .sku("test-shipping")
-                .name("Shipping")
-                .uniqueId("unique-id-test-shipping")
-                .type(LineItemType.SHIPPING)
-                .quantity(BigDecimal.ONE)
-                .amountIncludingTax(new BigDecimal("3.12"))
-                .addTaxesItem(
+        LineItemCreate lineItem2 = new LineItemCreate();
+        lineItem2.sku("test-shipping");
+        lineItem2.name("Shipping");
+        lineItem2.uniqueId("unique-id-test-shipping");
+        lineItem2.type(LineItemType.SHIPPING);
+        lineItem2.quantity(BigDecimal.ONE);
+        lineItem2.amountIncludingTax(new BigDecimal("3.12"));
+        lineItem2.addTaxesItem(
                         new TaxCreate().title("VAT").rate(new BigDecimal(8))
                 );
 
@@ -112,17 +110,21 @@ public class TransactionPaymentPageServiceTest {
         }
     }
 
+    /**
+    * Build Payment Page URL
+    *
+    * This operation creates the URL to which the user should be redirected to when the payment page should be used.
+    *
+    */
     @Test
-    public void testPaymentPageUrl() {
+    public void paymentPageUrlTest() {
 
-        TransactionPaymentPageService transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
-        String paymentPageUrl     = null;
         try {
-            paymentPageUrl = transactionPaymentPageService.paymentPageUrl(this.spaceId, this.transaction.getData().getId());
+            String paymentPageUrl = transactionPaymentPageService.paymentPageUrl(this.spaceId, this.transaction.getData().getId());
+            Assert.assertTrue(paymentPageUrl.contains("https://"));
         } catch (ApiException e) {
             e.printStackTrace();
         }
-        System.out.println(paymentPageUrl);
-        Assert.assertTrue(paymentPageUrl.contains("http"));
+
     }
 }
