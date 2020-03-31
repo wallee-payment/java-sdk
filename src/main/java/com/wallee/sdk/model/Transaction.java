@@ -81,6 +81,10 @@ public class Transaction {
   protected ChargeAttemptEnvironment authorizationEnvironment = null;
 
   
+  @SerializedName("authorizationSalesChannel")
+  protected Long authorizationSalesChannel = null;
+
+  
   @SerializedName("authorizationTimeoutOn")
   protected OffsetDateTime authorizationTimeoutOn = null;
 
@@ -343,6 +347,16 @@ public class Transaction {
   @ApiModelProperty(value = "The environment in which this transaction was successfully authorized.")
   public ChargeAttemptEnvironment getAuthorizationEnvironment() {
     return authorizationEnvironment;
+  }
+
+  
+   /**
+   * The sales channel through which the transaction was placed.
+   * @return authorizationSalesChannel
+  **/
+  @ApiModelProperty(value = "The sales channel through which the transaction was placed.")
+  public Long getAuthorizationSalesChannel() {
+    return authorizationSalesChannel;
   }
 
   
@@ -872,6 +886,7 @@ public class Transaction {
         Objects.equals(this.allowedPaymentMethodConfigurations, transaction.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.authorizationAmount, transaction.authorizationAmount) &&
         Objects.equals(this.authorizationEnvironment, transaction.authorizationEnvironment) &&
+        Objects.equals(this.authorizationSalesChannel, transaction.authorizationSalesChannel) &&
         Objects.equals(this.authorizationTimeoutOn, transaction.authorizationTimeoutOn) &&
         Objects.equals(this.authorizedOn, transaction.authorizedOn) &&
         Objects.equals(this.autoConfirmationEnabled, transaction.autoConfirmationEnabled) &&
@@ -927,7 +942,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
+    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
   }
 
 
@@ -942,6 +957,7 @@ public class Transaction {
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    authorizationAmount: ").append(toIndentedString(authorizationAmount)).append("\n");
     sb.append("    authorizationEnvironment: ").append(toIndentedString(authorizationEnvironment)).append("\n");
+    sb.append("    authorizationSalesChannel: ").append(toIndentedString(authorizationSalesChannel)).append("\n");
     sb.append("    authorizationTimeoutOn: ").append(toIndentedString(authorizationTimeoutOn)).append("\n");
     sb.append("    authorizedOn: ").append(toIndentedString(authorizedOn)).append("\n");
     sb.append("    autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");

@@ -26,6 +26,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.wallee.sdk.model.FeatureCategory;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -43,6 +44,10 @@ public class Feature {
   
   @SerializedName("beta")
   protected Boolean beta = null;
+
+  
+  @SerializedName("category")
+  protected FeatureCategory category = null;
 
   
   @SerializedName("description")
@@ -81,6 +86,16 @@ public class Feature {
   @ApiModelProperty(value = "")
   public Boolean isBeta() {
     return beta;
+  }
+
+  
+   /**
+   * 
+   * @return category
+  **/
+  @ApiModelProperty(value = "")
+  public FeatureCategory getCategory() {
+    return category;
   }
 
   
@@ -165,6 +180,7 @@ public class Feature {
     }
     Feature feature = (Feature) o;
     return Objects.equals(this.beta, feature.beta) &&
+        Objects.equals(this.category, feature.category) &&
         Objects.equals(this.description, feature.description) &&
         Objects.equals(this.id, feature.id) &&
         Objects.equals(this.logoPath, feature.logoPath) &&
@@ -176,7 +192,7 @@ public class Feature {
 
   @Override
   public int hashCode() {
-    return Objects.hash(beta, description, id, logoPath, name, requiredFeatures, sortOrder, visible);
+    return Objects.hash(beta, category, description, id, logoPath, name, requiredFeatures, sortOrder, visible);
   }
 
 
@@ -186,6 +202,7 @@ public class Feature {
     sb.append("class Feature {\n");
     
     sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
+    sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    logoPath: ").append(toIndentedString(logoPath)).append("\n");

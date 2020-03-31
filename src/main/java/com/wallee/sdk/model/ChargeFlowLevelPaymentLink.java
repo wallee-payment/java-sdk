@@ -26,74 +26,45 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.wallee.sdk.model.ChargeFlowLevel;
+import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * 
  */
-public class ChargeFlowLevelConfigurationType {
+public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   
-  @SerializedName("description")
-  protected Map<String, String> description = null;
+  @SerializedName("chargeFlowLevel")
+  protected ChargeFlowLevel chargeFlowLevel = null;
 
   
-  @SerializedName("id")
-  protected Long id = null;
-
-  
-  @SerializedName("label")
-  protected Map<String, String> label = null;
-
-  
-  @SerializedName("name")
-  protected Map<String, String> name = null;
+  @SerializedName("paymentLink")
+  protected String paymentLink = null;
 
   
   
    /**
    * 
-   * @return description
+   * @return chargeFlowLevel
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getDescription() {
-    return description;
-  }
-
-  
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
+  public ChargeFlowLevel getChargeFlowLevel() {
+    return chargeFlowLevel;
   }
 
   
    /**
    * 
-   * @return label
+   * @return paymentLink
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getLabel() {
-    return label;
-  }
-
-  
-   /**
-   * 
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getName() {
-    return name;
+  public String getPaymentLink() {
+    return paymentLink;
   }
 
   
@@ -106,28 +77,31 @@ public class ChargeFlowLevelConfigurationType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargeFlowLevelConfigurationType chargeFlowLevelConfigurationType = (ChargeFlowLevelConfigurationType) o;
-    return Objects.equals(this.description, chargeFlowLevelConfigurationType.description) &&
-        Objects.equals(this.id, chargeFlowLevelConfigurationType.id) &&
-        Objects.equals(this.label, chargeFlowLevelConfigurationType.label) &&
-        Objects.equals(this.name, chargeFlowLevelConfigurationType.name);
+    ChargeFlowLevelPaymentLink chargeFlowLevelPaymentLink = (ChargeFlowLevelPaymentLink) o;
+    return Objects.equals(this.id, chargeFlowLevelPaymentLink.id) &&
+        Objects.equals(this.linkedSpaceId, chargeFlowLevelPaymentLink.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, chargeFlowLevelPaymentLink.linkedTransaction) &&
+        Objects.equals(this.chargeFlowLevel, chargeFlowLevelPaymentLink.chargeFlowLevel) &&
+        Objects.equals(this.paymentLink, chargeFlowLevelPaymentLink.paymentLink) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, name);
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, chargeFlowLevel, paymentLink, super.hashCode());
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlowLevelConfigurationType {\n");
-    
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("class ChargeFlowLevelPaymentLink {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
+    sb.append("    paymentLink: ").append(toIndentedString(paymentLink)).append("\n");
     sb.append("}");
     return sb.toString();
   }

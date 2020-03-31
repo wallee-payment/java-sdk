@@ -29,71 +29,59 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * 
  */
-public class ChargeFlowLevelConfigurationType {
+public class ShopifySubscriptionEditModelTaxLine {
   
-  @SerializedName("description")
-  protected Map<String, String> description = null;
+  @SerializedName("rate")
+  protected BigDecimal rate = null;
 
   
-  @SerializedName("id")
-  protected Long id = null;
-
-  
-  @SerializedName("label")
-  protected Map<String, String> label = null;
-
-  
-  @SerializedName("name")
-  protected Map<String, String> name = null;
+  @SerializedName("title")
+  protected String title = null;
 
   
   
+  public ShopifySubscriptionEditModelTaxLine rate(BigDecimal rate) {
+    this.rate = rate;
+    return this;
+  }
+
    /**
    * 
-   * @return description
+   * @return rate
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getDescription() {
-    return description;
+  public BigDecimal getRate() {
+    return rate;
+  }
+
+  public void setRate(BigDecimal rate) {
+    this.rate = rate;
   }
 
   
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
+  public ShopifySubscriptionEditModelTaxLine title(String title) {
+    this.title = title;
+    return this;
   }
 
-  
    /**
    * 
-   * @return label
+   * @return title
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getLabel() {
-    return label;
+  public String getTitle() {
+    return title;
   }
 
-  
-   /**
-   * 
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getName() {
-    return name;
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   
@@ -106,28 +94,24 @@ public class ChargeFlowLevelConfigurationType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargeFlowLevelConfigurationType chargeFlowLevelConfigurationType = (ChargeFlowLevelConfigurationType) o;
-    return Objects.equals(this.description, chargeFlowLevelConfigurationType.description) &&
-        Objects.equals(this.id, chargeFlowLevelConfigurationType.id) &&
-        Objects.equals(this.label, chargeFlowLevelConfigurationType.label) &&
-        Objects.equals(this.name, chargeFlowLevelConfigurationType.name);
+    ShopifySubscriptionEditModelTaxLine shopifySubscriptionEditModelTaxLine = (ShopifySubscriptionEditModelTaxLine) o;
+    return Objects.equals(this.rate, shopifySubscriptionEditModelTaxLine.rate) &&
+        Objects.equals(this.title, shopifySubscriptionEditModelTaxLine.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, name);
+    return Objects.hash(rate, title);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlowLevelConfigurationType {\n");
+    sb.append("class ShopifySubscriptionEditModelTaxLine {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -113,7 +113,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("com.wallee.wallee-java-sdk-2.0.10");
+        setUserAgent("com.wallee.wallee-java-sdk-2.0.11");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();

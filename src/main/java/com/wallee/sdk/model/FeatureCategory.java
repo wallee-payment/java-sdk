@@ -38,7 +38,7 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
-public class ChargeFlowLevelConfigurationType {
+public class FeatureCategory {
   
   @SerializedName("description")
   protected Map<String, String> description = null;
@@ -48,12 +48,12 @@ public class ChargeFlowLevelConfigurationType {
   protected Long id = null;
 
   
-  @SerializedName("label")
-  protected Map<String, String> label = null;
-
-  
   @SerializedName("name")
   protected Map<String, String> name = null;
+
+  
+  @SerializedName("orderWeight")
+  protected Integer orderWeight = null;
 
   
   
@@ -79,21 +79,21 @@ public class ChargeFlowLevelConfigurationType {
   
    /**
    * 
-   * @return label
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getLabel() {
-    return label;
-  }
-
-  
-   /**
-   * 
    * @return name
   **/
   @ApiModelProperty(value = "")
   public Map<String, String> getName() {
     return name;
+  }
+
+  
+   /**
+   * 
+   * @return orderWeight
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getOrderWeight() {
+    return orderWeight;
   }
 
   
@@ -106,28 +106,28 @@ public class ChargeFlowLevelConfigurationType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargeFlowLevelConfigurationType chargeFlowLevelConfigurationType = (ChargeFlowLevelConfigurationType) o;
-    return Objects.equals(this.description, chargeFlowLevelConfigurationType.description) &&
-        Objects.equals(this.id, chargeFlowLevelConfigurationType.id) &&
-        Objects.equals(this.label, chargeFlowLevelConfigurationType.label) &&
-        Objects.equals(this.name, chargeFlowLevelConfigurationType.name);
+    FeatureCategory featureCategory = (FeatureCategory) o;
+    return Objects.equals(this.description, featureCategory.description) &&
+        Objects.equals(this.id, featureCategory.id) &&
+        Objects.equals(this.name, featureCategory.name) &&
+        Objects.equals(this.orderWeight, featureCategory.orderWeight);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, name);
+    return Objects.hash(description, id, name, orderWeight);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlowLevelConfigurationType {\n");
+    sb.append("class FeatureCategory {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    orderWeight: ").append(toIndentedString(orderWeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

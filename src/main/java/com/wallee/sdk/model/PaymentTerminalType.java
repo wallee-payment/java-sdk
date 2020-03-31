@@ -40,10 +40,6 @@ import java.time.OffsetDateTime;
  */
 public class PaymentTerminalType {
   
-  @SerializedName("activeAccountRequired")
-  protected Boolean activeAccountRequired = null;
-
-  
   @SerializedName("description")
   protected Map<String, String> description = null;
 
@@ -56,16 +52,6 @@ public class PaymentTerminalType {
   protected Map<String, String> name = null;
 
   
-  
-   /**
-   * 
-   * @return activeAccountRequired
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isActiveAccountRequired() {
-    return activeAccountRequired;
-  }
-
   
    /**
    * 
@@ -107,15 +93,14 @@ public class PaymentTerminalType {
       return false;
     }
     PaymentTerminalType paymentTerminalType = (PaymentTerminalType) o;
-    return Objects.equals(this.activeAccountRequired, paymentTerminalType.activeAccountRequired) &&
-        Objects.equals(this.description, paymentTerminalType.description) &&
+    return Objects.equals(this.description, paymentTerminalType.description) &&
         Objects.equals(this.id, paymentTerminalType.id) &&
         Objects.equals(this.name, paymentTerminalType.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeAccountRequired, description, id, name);
+    return Objects.hash(description, id, name);
   }
 
 
@@ -124,7 +109,6 @@ public class PaymentTerminalType {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalType {\n");
     
-    sb.append("    activeAccountRequired: ").append(toIndentedString(activeAccountRequired)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

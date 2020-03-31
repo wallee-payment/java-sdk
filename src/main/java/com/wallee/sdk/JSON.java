@@ -99,9 +99,12 @@ public class JSON {
                 classByDiscriminatorValue.put("Charge".toUpperCase(), Charge.class);
                 classByDiscriminatorValue.put("ChargeAttempt".toUpperCase(), ChargeAttempt.class);
                 classByDiscriminatorValue.put("ChargeFlowLevel".toUpperCase(), ChargeFlowLevel.class);
+                classByDiscriminatorValue.put("ChargeFlowLevelPaymentLink".toUpperCase(), ChargeFlowLevelPaymentLink.class);
                 classByDiscriminatorValue.put("ConnectorInvocation".toUpperCase(), ConnectorInvocation.class);
                 classByDiscriminatorValue.put("DeliveryIndication".toUpperCase(), DeliveryIndication.class);
                 classByDiscriminatorValue.put("InstallmentPaymentSlice".toUpperCase(), InstallmentPaymentSlice.class);
+                classByDiscriminatorValue.put("ShopifyRecurringOrder".toUpperCase(), ShopifyRecurringOrder.class);
+                classByDiscriminatorValue.put("ShopifyTransaction".toUpperCase(), ShopifyTransaction.class);
                 classByDiscriminatorValue.put("TransactionCompletion".toUpperCase(), TransactionCompletion.class);
                 classByDiscriminatorValue.put("TransactionInvoice".toUpperCase(), TransactionInvoice.class);
                 classByDiscriminatorValue.put("TransactionLineItemVersion".toUpperCase(), TransactionLineItemVersion.class);
@@ -201,6 +204,29 @@ public class JSON {
                 classByDiscriminatorValue.put("RefundComment.Active".toUpperCase(), RefundCommentActive.class);
                 classByDiscriminatorValue.put("RefundComment.Create".toUpperCase(), RefundCommentCreate.class);
                 classByDiscriminatorValue.put("AbstractRefundCommentActive".toUpperCase(), AbstractRefundCommentActive.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, ""));
+            }
+          })
+          .registerTypeSelector(Address.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("ShopifySubscriptionAddress".toUpperCase(), ShopifySubscriptionAddress.class);
+                classByDiscriminatorValue.put("Address".toUpperCase(), Address.class);
+                return getClassByDiscriminator(
+                                           classByDiscriminatorValue,
+                                           getDiscriminatorValue(readElement, ""));
+            }
+          })
+          .registerTypeSelector(AbstractShopifySubscriptionProductActive.class, new TypeSelector() {
+            @Override
+            public Class getClassForElement(JsonElement readElement) {
+                Map classByDiscriminatorValue = new HashMap();
+                classByDiscriminatorValue.put("ShopifySubscriptionProduct.Active".toUpperCase(), ShopifySubscriptionProductActive.class);
+                classByDiscriminatorValue.put("ShopifySubscriptionProduct.Create".toUpperCase(), ShopifySubscriptionProductCreate.class);
+                classByDiscriminatorValue.put("AbstractShopifySubscriptionProductActive".toUpperCase(), AbstractShopifySubscriptionProductActive.class);
                 return getClassByDiscriminator(
                                            classByDiscriminatorValue,
                                            getDiscriminatorValue(readElement, ""));

@@ -29,71 +29,59 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * 
  */
-public class ChargeFlowLevelConfigurationType {
+public class ShopifyRecurringOrderUpdateRequest {
   
-  @SerializedName("description")
-  protected Map<String, String> description = null;
+  @SerializedName("executionDate")
+  protected OffsetDateTime executionDate = null;
 
   
-  @SerializedName("id")
-  protected Long id = null;
-
-  
-  @SerializedName("label")
-  protected Map<String, String> label = null;
-
-  
-  @SerializedName("name")
-  protected Map<String, String> name = null;
+  @SerializedName("recurringOrderId")
+  protected Long recurringOrderId = null;
 
   
   
+  public ShopifyRecurringOrderUpdateRequest executionDate(OffsetDateTime executionDate) {
+    this.executionDate = executionDate;
+    return this;
+  }
+
    /**
    * 
-   * @return description
+   * @return executionDate
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getDescription() {
-    return description;
+  public OffsetDateTime getExecutionDate() {
+    return executionDate;
+  }
+
+  public void setExecutionDate(OffsetDateTime executionDate) {
+    this.executionDate = executionDate;
   }
 
   
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
+  public ShopifyRecurringOrderUpdateRequest recurringOrderId(Long recurringOrderId) {
+    this.recurringOrderId = recurringOrderId;
+    return this;
   }
 
-  
    /**
    * 
-   * @return label
+   * @return recurringOrderId
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getLabel() {
-    return label;
+  public Long getRecurringOrderId() {
+    return recurringOrderId;
   }
 
-  
-   /**
-   * 
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getName() {
-    return name;
+  public void setRecurringOrderId(Long recurringOrderId) {
+    this.recurringOrderId = recurringOrderId;
   }
 
   
@@ -106,28 +94,24 @@ public class ChargeFlowLevelConfigurationType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargeFlowLevelConfigurationType chargeFlowLevelConfigurationType = (ChargeFlowLevelConfigurationType) o;
-    return Objects.equals(this.description, chargeFlowLevelConfigurationType.description) &&
-        Objects.equals(this.id, chargeFlowLevelConfigurationType.id) &&
-        Objects.equals(this.label, chargeFlowLevelConfigurationType.label) &&
-        Objects.equals(this.name, chargeFlowLevelConfigurationType.name);
+    ShopifyRecurringOrderUpdateRequest shopifyRecurringOrderUpdateRequest = (ShopifyRecurringOrderUpdateRequest) o;
+    return Objects.equals(this.executionDate, shopifyRecurringOrderUpdateRequest.executionDate) &&
+        Objects.equals(this.recurringOrderId, shopifyRecurringOrderUpdateRequest.recurringOrderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, name);
+    return Objects.hash(executionDate, recurringOrderId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlowLevelConfigurationType {\n");
+    sb.append("class ShopifyRecurringOrderUpdateRequest {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
+    sb.append("    recurringOrderId: ").append(toIndentedString(recurringOrderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

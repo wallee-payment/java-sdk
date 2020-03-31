@@ -102,6 +102,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   protected String redirectionUrl = null;
 
   
+  @SerializedName("salesChannel")
+  protected Long salesChannel = null;
+
+  
   @SerializedName("spaceViewId")
   protected Long spaceViewId = null;
 
@@ -271,6 +275,16 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
    /**
    * 
+   * @return salesChannel
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSalesChannel() {
+    return salesChannel;
+  }
+
+  
+   /**
+   * 
    * @return spaceViewId
   **/
   @ApiModelProperty(value = "")
@@ -385,6 +399,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.nextUpdateOn, chargeAttempt.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, chargeAttempt.plannedPurgeDate) &&
         Objects.equals(this.redirectionUrl, chargeAttempt.redirectionUrl) &&
+        Objects.equals(this.salesChannel, chargeAttempt.salesChannel) &&
         Objects.equals(this.spaceViewId, chargeAttempt.spaceViewId) &&
         Objects.equals(this.state, chargeAttempt.state) &&
         Objects.equals(this.succeededOn, chargeAttempt.succeededOn) &&
@@ -399,7 +414,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
   }
 
 
@@ -424,6 +439,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    redirectionUrl: ").append(toIndentedString(redirectionUrl)).append("\n");
+    sb.append("    salesChannel: ").append(toIndentedString(salesChannel)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");

@@ -29,41 +29,43 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.math.BigDecimal;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * 
  */
-public class ChargeFlowLevelConfigurationType {
+public class ShopifyTaxLine {
   
-  @SerializedName("description")
-  protected Map<String, String> description = null;
+  @SerializedName("fractionRate")
+  protected BigDecimal fractionRate = null;
 
   
   @SerializedName("id")
   protected Long id = null;
 
   
-  @SerializedName("label")
-  protected Map<String, String> label = null;
+  @SerializedName("rate")
+  protected BigDecimal rate = null;
 
   
-  @SerializedName("name")
-  protected Map<String, String> name = null;
+  @SerializedName("title")
+  protected String title = null;
+
+  
+  @SerializedName("version")
+  protected Integer version = null;
 
   
   
    /**
    * 
-   * @return description
+   * @return fractionRate
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getDescription() {
-    return description;
+  public BigDecimal getFractionRate() {
+    return fractionRate;
   }
 
   
@@ -79,21 +81,31 @@ public class ChargeFlowLevelConfigurationType {
   
    /**
    * 
-   * @return label
+   * @return rate
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getLabel() {
-    return label;
+  public BigDecimal getRate() {
+    return rate;
   }
 
   
    /**
    * 
-   * @return name
+   * @return title
   **/
   @ApiModelProperty(value = "")
-  public Map<String, String> getName() {
-    return name;
+  public String getTitle() {
+    return title;
+  }
+
+  
+   /**
+   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * @return version
+  **/
+  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  public Integer getVersion() {
+    return version;
   }
 
   
@@ -106,28 +118,30 @@ public class ChargeFlowLevelConfigurationType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChargeFlowLevelConfigurationType chargeFlowLevelConfigurationType = (ChargeFlowLevelConfigurationType) o;
-    return Objects.equals(this.description, chargeFlowLevelConfigurationType.description) &&
-        Objects.equals(this.id, chargeFlowLevelConfigurationType.id) &&
-        Objects.equals(this.label, chargeFlowLevelConfigurationType.label) &&
-        Objects.equals(this.name, chargeFlowLevelConfigurationType.name);
+    ShopifyTaxLine shopifyTaxLine = (ShopifyTaxLine) o;
+    return Objects.equals(this.fractionRate, shopifyTaxLine.fractionRate) &&
+        Objects.equals(this.id, shopifyTaxLine.id) &&
+        Objects.equals(this.rate, shopifyTaxLine.rate) &&
+        Objects.equals(this.title, shopifyTaxLine.title) &&
+        Objects.equals(this.version, shopifyTaxLine.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, label, name);
+    return Objects.hash(fractionRate, id, rate, title, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlowLevelConfigurationType {\n");
+    sb.append("class ShopifyTaxLine {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    fractionRate: ").append(toIndentedString(fractionRate)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    label: ").append(toIndentedString(label)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

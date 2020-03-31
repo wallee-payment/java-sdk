@@ -11,11 +11,9 @@ The wallee Java library wraps around the wallee API. This library facilitates yo
 
 ## Requirements
 
-- Java 1.7+
+- Java 1.8+
 
 ## Installation
-
-You can use **Composer** or **install manually**
 
 ### Maven users
 
@@ -25,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>2.0.10</version>
+    <version>2.0.11</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -35,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:2.0.10"
+compile "com.wallee:wallee-java-sdk:2.0.11"
 ```
 
 ### Others
@@ -48,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-2.0.10.jar`
+* `target/wallee-java-sdk-2.0.11.jar`
 * `target/lib/*.jar`
 
 ## Usage
@@ -115,7 +113,6 @@ public class TransactionPaymentPageServiceTest {
         this.spaceId = (long) 405;
         this.authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
         this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        this.apiClient.setBasePath("https://app-wallee.com:443/api");
         this.transactionService = new TransactionService(this.apiClient);
         this.createTransaction();
     }
@@ -129,7 +126,7 @@ public class TransactionPaymentPageServiceTest {
         .gender(Gender.FEMALE)
         .country("CH")
         .city("Winterthur")
-        .postCode("8400")
+        .postcode("8400")
         .dateOfBirth(LocalDate.of(1991, 1, 11))
         .organizationName("Test GmbH")
         .mobilePhoneNumber("+41791234567")
@@ -142,7 +139,7 @@ public class TransactionPaymentPageServiceTest {
         .gender(Gender.FEMALE)
         .country("CH")
         .city("Winterthur")
-        .postCode("8400")
+        .postcode("8400")
         .dateOfBirth(LocalDate.of(1991, 1, 11))
         .organizationName("Test GmbH")
         .mobilePhoneNumber("+41791234567")
