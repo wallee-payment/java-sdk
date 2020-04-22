@@ -39,7 +39,7 @@ import java.time.OffsetDateTime;
  * A Shopify Integration allows to connect a Shopify shop.
  */
 @ApiModel(description = "A Shopify Integration allows to connect a Shopify shop.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
 public class ShopifyIntegration {
   
   @JsonProperty("allowInvoiceDownload")

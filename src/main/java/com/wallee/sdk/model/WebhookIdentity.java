@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * The webhook identity represents a set of keys that will be used to sign the webhook messages.
  */
 @ApiModel(description = "The webhook identity represents a set of keys that will be used to sign the webhook messages.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
 public class WebhookIdentity {
   
   @JsonProperty("id")

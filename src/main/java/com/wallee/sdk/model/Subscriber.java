@@ -40,7 +40,7 @@ import java.time.OffsetDateTime;
  * A subscriber represents everyone who is subscribed to a product.
  */
 @ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
 public class Subscriber {
   
   @JsonProperty("additionalAllowedPaymentMethodConfigurations")

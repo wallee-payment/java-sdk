@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.
  */
 @ApiModel(description = "The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
 public class EntityQuery {
   
   @JsonProperty("filter")

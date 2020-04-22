@@ -39,7 +39,7 @@ import java.time.OffsetDateTime;
  * The subscription ledger entry represents a single change on the subscription balance.
  */
 @ApiModel(description = "The subscription ledger entry represents a single change on the subscription balance.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
 public class SubscriptionLedgerEntry {
   
   @JsonProperty("aggregatedTaxRate")
