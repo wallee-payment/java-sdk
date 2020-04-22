@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.InstallmentPayment;
 import com.wallee.sdk.model.InstallmentPaymentSliceState;
 import com.wallee.sdk.model.LineItem;
@@ -33,7 +31,6 @@ import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,37 +40,39 @@ import java.time.OffsetDateTime;
 /**
  * An installment payment slice represents a single transaction of money from the buyer to the merchant.
  */
+@ApiModel(description = "An installment payment slice represents a single transaction of money from the buyer to the merchant.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class InstallmentPaymentSlice extends TransactionAwareEntity {
   
-  @SerializedName("chargeOn")
+  @JsonProperty("chargeOn")
   protected OffsetDateTime chargeOn = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("installmentPayment")
+  @JsonProperty("installmentPayment")
   protected InstallmentPayment installmentPayment = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected InstallmentPaymentSliceState state = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

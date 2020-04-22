@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionChargeProcessingType;
 import com.wallee.sdk.model.SubscriptionChargeState;
@@ -34,7 +32,6 @@ import com.wallee.sdk.model.SubscriptionLedgerEntry;
 import com.wallee.sdk.model.Transaction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,89 +41,91 @@ import java.time.OffsetDateTime;
 /**
  * The subscription charge represents a single charge carried out for a particular subscription.
  */
+@ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionCharge {
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("discardedBy")
+  @JsonProperty("discardedBy")
   protected Long discardedBy = null;
 
   
-  @SerializedName("discardedOn")
+  @JsonProperty("discardedOn")
   protected OffsetDateTime discardedOn = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("failedOn")
+  @JsonProperty("failedOn")
   protected OffsetDateTime failedOn = null;
 
   
-  @SerializedName("failedUrl")
+  @JsonProperty("failedUrl")
   protected String failedUrl = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("ledgerEntries")
+  @JsonProperty("ledgerEntries")
   protected List<SubscriptionLedgerEntry> ledgerEntries = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("plannedExecutionDate")
+  @JsonProperty("plannedExecutionDate")
   protected OffsetDateTime plannedExecutionDate = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("processingType")
+  @JsonProperty("processingType")
   protected SubscriptionChargeProcessingType processingType = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected String reference = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected SubscriptionChargeState state = null;
 
   
-  @SerializedName("subscription")
+  @JsonProperty("subscription")
   protected Subscription subscription = null;
 
   
-  @SerializedName("succeedOn")
+  @JsonProperty("succeedOn")
   protected OffsetDateTime succeedOn = null;
 
   
-  @SerializedName("successUrl")
+  @JsonProperty("successUrl")
   protected String successUrl = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected SubscriptionChargeType type = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

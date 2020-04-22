@@ -21,15 +21,12 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DataCollectionType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,33 +37,35 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class PaymentMethod {
   
-  @SerializedName("dataCollectionTypes")
+  @JsonProperty("dataCollectionTypes")
   protected List<DataCollectionType> dataCollectionTypes = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected Map<String, String> description = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("imagePath")
+  @JsonProperty("imagePath")
   protected String imagePath = null;
 
   
-  @SerializedName("merchantDescription")
+  @JsonProperty("merchantDescription")
   protected Map<String, String> merchantDescription = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected Map<String, String> name = null;
 
   
-  @SerializedName("supportedCurrencies")
+  @JsonProperty("supportedCurrencies")
   protected List<String> supportedCurrencies = null;
 
   

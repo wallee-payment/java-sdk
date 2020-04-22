@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.InstallmentCalculatedSlice;
 import com.wallee.sdk.model.InstallmentPlanConfiguration;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.Transaction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,25 +39,27 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class InstallmentCalculatedPlan {
   
-  @SerializedName("configuration")
+  @JsonProperty("configuration")
   protected InstallmentPlanConfiguration _configuration = null;
 
   
-  @SerializedName("paymentMethodConfigurations")
+  @JsonProperty("paymentMethodConfigurations")
   protected List<PaymentMethodConfiguration> paymentMethodConfigurations = null;
 
   
-  @SerializedName("slices")
+  @JsonProperty("slices")
   protected List<InstallmentCalculatedSlice> slices = null;
 
   
-  @SerializedName("totalAmount")
+  @JsonProperty("totalAmount")
   protected BigDecimal totalAmount = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   

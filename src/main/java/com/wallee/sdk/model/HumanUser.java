@@ -21,70 +21,69 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.TwoFactorAuthenticationType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class HumanUser {
   
-  @SerializedName("emailAddress")
+  @JsonProperty("emailAddress")
   protected String emailAddress = null;
 
   
-  @SerializedName("emailAddressVerified")
+  @JsonProperty("emailAddressVerified")
   protected Boolean emailAddressVerified = null;
 
   
-  @SerializedName("firstname")
+  @JsonProperty("firstname")
   protected String firstname = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lastname")
+  @JsonProperty("lastname")
   protected String lastname = null;
 
   
-  @SerializedName("mobilePhoneNumber")
+  @JsonProperty("mobilePhoneNumber")
   protected String mobilePhoneNumber = null;
 
   
-  @SerializedName("mobilePhoneVerified")
+  @JsonProperty("mobilePhoneVerified")
   protected Boolean mobilePhoneVerified = null;
 
   
-  @SerializedName("primaryAccount")
+  @JsonProperty("primaryAccount")
   protected Account primaryAccount = null;
 
   
-  @SerializedName("scope")
+  @JsonProperty("scope")
   protected Scope scope = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("twoFactorEnabled")
+  @JsonProperty("twoFactorEnabled")
   protected Boolean twoFactorEnabled = null;
 
   
-  @SerializedName("twoFactorType")
+  @JsonProperty("twoFactorType")
   protected TwoFactorAuthenticationType twoFactorType = null;
 
   

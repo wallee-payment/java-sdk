@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.PaymentTerminalAddress;
 import com.wallee.sdk.model.PaymentTerminalConfiguration;
 import com.wallee.sdk.model.PaymentTerminalLocationState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -39,37 +36,39 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class PaymentTerminalLocation {
   
-  @SerializedName("defaultConfiguration")
+  @JsonProperty("defaultConfiguration")
   protected PaymentTerminalConfiguration defaultConfiguration = null;
 
   
-  @SerializedName("deliveryAddress")
+  @JsonProperty("deliveryAddress")
   protected PaymentTerminalAddress deliveryAddress = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected PaymentTerminalLocationState state = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

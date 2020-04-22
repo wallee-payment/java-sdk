@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ChargeFlowLevelConfiguration;
 import com.wallee.sdk.model.ChargeFlowLevelState;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -40,45 +37,47 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ChargeFlowLevel extends TransactionAwareEntity {
   
-  @SerializedName("asynchronousCharge")
+  @JsonProperty("asynchronousCharge")
   protected Long asynchronousCharge = null;
 
   
-  @SerializedName("configuration")
+  @JsonProperty("configuration")
   protected ChargeFlowLevelConfiguration _configuration = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ChargeFlowLevelState state = null;
 
   
-  @SerializedName("synchronousCharge")
+  @JsonProperty("synchronousCharge")
   protected Long synchronousCharge = null;
 
   
-  @SerializedName("timeoutOn")
+  @JsonProperty("timeoutOn")
   protected OffsetDateTime timeoutOn = null;
 
   
-  @SerializedName("tokenCharge")
+  @JsonProperty("tokenCharge")
   protected Long tokenCharge = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

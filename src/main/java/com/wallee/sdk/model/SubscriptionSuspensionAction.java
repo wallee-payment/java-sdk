@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(SubscriptionSuspensionAction.Adapter.class)
 public enum SubscriptionSuspensionAction {
   
   TERMINATE("TERMINATE"),
@@ -48,6 +43,7 @@ public enum SubscriptionSuspensionAction {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -57,6 +53,7 @@ public enum SubscriptionSuspensionAction {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static SubscriptionSuspensionAction fromValue(String text) {
     for (SubscriptionSuspensionAction b : SubscriptionSuspensionAction.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -64,19 +61,6 @@ public enum SubscriptionSuspensionAction {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<SubscriptionSuspensionAction> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final SubscriptionSuspensionAction enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public SubscriptionSuspensionAction read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return SubscriptionSuspensionAction.fromValue(String.valueOf(value));
-    }
   }
 }
 

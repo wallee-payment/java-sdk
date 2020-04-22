@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.DebtCollectionEnvironment;
 import com.wallee.sdk.model.LineItemCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,37 +38,38 @@ import java.time.OffsetDateTime;
 /**
  * AbstractDebtCollectionCaseUpdate
  */
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class AbstractDebtCollectionCaseUpdate {
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected AddressCreate billingAddress = null;
 
   
-  @SerializedName("contractDate")
+  @JsonProperty("contractDate")
   protected OffsetDateTime contractDate = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("dueDate")
+  @JsonProperty("dueDate")
   protected OffsetDateTime dueDate = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected DebtCollectionEnvironment environment = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItemCreate> lineItems = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   

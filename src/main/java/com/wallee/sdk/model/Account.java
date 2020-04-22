@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.AccountState;
 import com.wallee.sdk.model.AccountType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -39,53 +36,55 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Account {
   
-  @SerializedName("active")
+  @JsonProperty("active")
   protected Boolean active = null;
 
   
-  @SerializedName("activeOrRestrictedActive")
+  @JsonProperty("activeOrRestrictedActive")
   protected Boolean activeOrRestrictedActive = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("parentAccount")
+  @JsonProperty("parentAccount")
   protected Account parentAccount = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("restrictedActive")
+  @JsonProperty("restrictedActive")
   protected Boolean restrictedActive = null;
 
   
-  @SerializedName("scope")
+  @JsonProperty("scope")
   protected Long scope = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected AccountState state = null;
 
   
-  @SerializedName("subaccountLimit")
+  @JsonProperty("subaccountLimit")
   protected Long subaccountLimit = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected AccountType type = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

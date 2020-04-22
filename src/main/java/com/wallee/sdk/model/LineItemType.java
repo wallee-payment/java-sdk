@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(LineItemType.Adapter.class)
 public enum LineItemType {
   
   SHIPPING("SHIPPING"),
@@ -52,6 +47,7 @@ public enum LineItemType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -61,6 +57,7 @@ public enum LineItemType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static LineItemType fromValue(String text) {
     for (LineItemType b : LineItemType.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -68,19 +65,6 @@ public enum LineItemType {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<LineItemType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final LineItemType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public LineItemType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return LineItemType.fromValue(String.valueOf(value));
-    }
   }
 }
 

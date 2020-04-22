@@ -23,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>2.0.11</version>
+    <version>2.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:2.0.11"
+compile "com.wallee:wallee-java-sdk:2.1.0"
 ```
 
 ### Others
@@ -46,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-2.0.11.jar`
+* `target/wallee-java-sdk-2.1.0.jar`
 * `target/lib/*.jar`
 
 ## Usage
@@ -81,132 +81,104 @@ public class Example {
 To get started with sending transactions, please review the example below:
 
 ```java
-package com.wallee.sdk.example;
+package com.wallee.sdk.test;
 
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.service.TransactionPaymentPageService;
-import com.wallee.sdk.service.TransactionService;
 import com.wallee.sdk.model.*;
+import com.wallee.sdk.service.*;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.UUID;
 
+/**
+ * API tests for TransactionPaymentPageService
+ */
 public class TransactionPaymentPageServiceTest {
-    private TransactionService transactionService;
-    private TransactionCreate transactionCreate;
-    private Long spaceId;
-    private Long applicationUserId;
-    private String authenticationKey;
+
+    // Credentials
+    private Long spaceId = (long) 405;
+    private Long applicationUserId = (long) 512;
+    private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+
+    // Services
     private ApiClient apiClient;
-    private ApiResponse<Transaction> transaction;
+    private TransactionPaymentPageService transactionPaymentPageService;
+    private TransactionService transactionService;
+
+    // Models
+    private TransactionCreate transactionPayload;
 
     @Before
     public void setup() {
-        this.applicationUserId = (long) 512;
-        this.spaceId = (long) 405;
-        this.authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
-        this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        this.transactionService = new TransactionService(this.apiClient);
-        this.createTransaction();
-    }
-
-    private void createTransaction() {
-
-        AddressCreate billingAddress = new AddressCreate()
-        .salutation("Ms")
-        .givenName("Good")
-        .familyName("Customer")
-        .gender(Gender.FEMALE)
-        .country("CH")
-        .city("Winterthur")
-        .postcode("8400")
-        .dateOfBirth(LocalDate.of(1991, 1, 11))
-        .organizationName("Test GmbH")
-        .mobilePhoneNumber("+41791234567")
-        .emailAddress("test@wallee.com");
-
-        AddressCreate shippingAddress = new AddressCreate()
-        .salutation("Ms")
-        .givenName("Good")
-        .familyName("Customer")
-        .gender(Gender.FEMALE)
-        .country("CH")
-        .city("Winterthur")
-        .postcode("8400")
-        .dateOfBirth(LocalDate.of(1991, 1, 11))
-        .organizationName("Test GmbH")
-        .mobilePhoneNumber("+41791234567")
-        .emailAddress("test@wallee.com");
-
-        LineItemCreate lineItem1 = new LineItemCreate()
-        .sku("item-1")
-        .name("Item 1")
-        .uniqueId("unique-id-item-1")
-        .type(LineItemType.PRODUCT)
-        .quantity(BigDecimal.ONE)
-        .shippingRequired(true)
-        .amountIncludingTax(new BigDecimal("67.47"))
-        .addTaxesItem(
-            new TaxCreate().title("VAT").rate(new BigDecimal(8))
-        );
-
-        LineItemCreate lineItem2 = new LineItemCreate()
-        .sku("test-shipping")
-        .name("Shipping")
-        .uniqueId("unique-id-test-shipping")
-        .type(LineItemType.SHIPPING)
-        .quantity(BigDecimal.ONE)
-        .amountIncludingTax(new BigDecimal("3.12"))
-        .addTaxesItem(
-            new TaxCreate().title("VAT").rate(new BigDecimal(8))
-        );
-
-        this.transactionCreate = new TransactionCreate();
-        this.transactionCreate.customerEmailAddress("test@wallee.com");
-        this.transactionCreate.customerId("cutomer-x");
-        this.transactionCreate.merchantReference(UUID.randomUUID().toString());
-        this.transactionCreate.invoiceMerchantReference("order-1");
-        this.transactionCreate.successUrl("http://localhost/success?orderId=1");
-        this.transactionCreate.failedUrl("http://localhost/failed?orderId=1");
-        this.transactionCreate.shippingMethod("Test Shipping");
-        this.transactionCreate.chargeRetryEnabled(false);
-        this.transactionCreate.allowedPaymentMethodConfigurations(Arrays.asList(8656l));
-        this.transactionCreate.language("en-US");
-        this.transactionCreate.currency("CHF");
-        this.transactionCreate.billingAddress(billingAddress);
-        this.transactionCreate.shippingAddress(shippingAddress);
-        this.transactionCreate.addLineItemsItem(lineItem1);
-        this.transactionCreate.addLineItemsItem(lineItem2);
-        try {
-            this.transaction = this.transactionService.createWithHttpInfo(
-                this.spaceId,
-                this.transactionCreate
-            );
-        } catch (ApiException e) {
-            Assert.fail("Failed to create transaction. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+        if (this.apiClient == null) {
+            this.apiClient = new ApiClient(applicationUserId, authenticationKey);
+        }
+        if (this.transactionPaymentPageService == null) {
+            this.transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
+        }
+        if (this.transactionService == null) {
+            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
-    @Test
-    public void testPaymentPageUrl() {
+    /**
+     * Get transaction payload
+     *
+     * @return TransactionCreate
+     */
+    private TransactionCreate getTransactionPayload() {
+        if (this.transactionPayload == null) {
+            // Line item
+            LineItemCreate lineItem = new LineItemCreate();
+            lineItem.name("Red T-Shirt")
+                    .uniqueId("5412")
+                    .type(LineItemType.PRODUCT)
+                    .quantity(BigDecimal.valueOf(1))
+                    .amountIncludingTax(BigDecimal.valueOf(29.95))
+                    .sku("red-t-shirt-123");
 
-        TransactionPaymentPageService transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
-        String paymentPageUrl     = null;
+            // Customer Billind Address
+            AddressCreate billingAddress = new AddressCreate();
+            billingAddress.city("Winterthur")
+                    .country("CH")
+                    .emailAddress("test@example.com")
+                    .familyName("Customer")
+                    .givenName("Good")
+                    .postcode("8400")
+                    .postalState("ZH")
+                    .organizationName("Test GmbH")
+                    .mobilePhoneNumber("+41791234567")
+                    .salutation("Ms");
+
+            this.transactionPayload = new TransactionCreate();
+            this.transactionPayload.autoConfirmationEnabled(true).currency("CHF").language("en-US");
+            this.transactionPayload.setBillingAddress(billingAddress);
+            this.transactionPayload.setShippingAddress(billingAddress);
+            this.transactionPayload.addLineItemsItem(lineItem);
+        }
+        return this.transactionPayload;
+    }
+
+    /**
+     * Build Payment Page URL
+     *
+     * This operation creates the URL to which the user should be redirected to when the payment page should be used.
+     *
+     */
+    @Test
+    public void paymentPageUrlTest() {
         try {
-            paymentPageUrl = transactionPaymentPageService.paymentPageUrl(this.spaceId, this.transaction.getData().getId());
-        } catch (ApiException e) {
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            String paymentPageUrl = this.transactionPaymentPageService.paymentPageUrl(spaceId, transaction.getId());
+            Assert.assertTrue(paymentPageUrl.contains("https://"));
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(paymentPageUrl);
-        Assert.assertTrue(paymentPageUrl.contains("http"));
     }
+
 }
 
 ```

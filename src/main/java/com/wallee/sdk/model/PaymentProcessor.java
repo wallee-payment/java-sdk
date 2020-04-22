@@ -21,14 +21,11 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,37 +35,39 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class PaymentProcessor {
   
-  @SerializedName("companyName")
+  @JsonProperty("companyName")
   protected Map<String, String> companyName = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected Map<String, String> description = null;
 
   
-  @SerializedName("feature")
+  @JsonProperty("feature")
   protected Long feature = null;
 
   
-  @SerializedName("headquartersLocation")
+  @JsonProperty("headquartersLocation")
   protected Map<String, String> headquartersLocation = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("logoPath")
+  @JsonProperty("logoPath")
   protected String logoPath = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected Map<String, String> name = null;
 
   
-  @SerializedName("productName")
+  @JsonProperty("productName")
   protected Map<String, String> productName = null;
 
   

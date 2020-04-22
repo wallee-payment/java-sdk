@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ShopifySubscriptionBillingIntervalUnit;
 import com.wallee.sdk.model.ShopifySubscriptionProductPricingOption;
 import com.wallee.sdk.model.ShopifySubscriptionProductState;
 import com.wallee.sdk.model.ShopifySubscriptionWeekday;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -40,65 +37,66 @@ import java.time.OffsetDateTime;
 /**
  * AbstractShopifySubscriptionProductActive
  */
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class AbstractShopifySubscriptionProductActive {
   
-  @SerializedName("absolutePriceAdjustment")
+  @JsonProperty("absolutePriceAdjustment")
   protected BigDecimal absolutePriceAdjustment = null;
 
   
-  @SerializedName("billingDayOfMonth")
+  @JsonProperty("billingDayOfMonth")
   protected Integer billingDayOfMonth = null;
 
   
-  @SerializedName("billingIntervalAmount")
+  @JsonProperty("billingIntervalAmount")
   protected Integer billingIntervalAmount = null;
 
   
-  @SerializedName("billingIntervalUnit")
+  @JsonProperty("billingIntervalUnit")
   protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
 
   
-  @SerializedName("billingWeekday")
+  @JsonProperty("billingWeekday")
   protected ShopifySubscriptionWeekday billingWeekday = null;
 
   
-  @SerializedName("fixedPrice")
+  @JsonProperty("fixedPrice")
   protected BigDecimal fixedPrice = null;
 
   
-  @SerializedName("maximalBillingCycles")
+  @JsonProperty("maximalBillingCycles")
   protected Integer maximalBillingCycles = null;
 
   
-  @SerializedName("maximalSuspendableCycles")
+  @JsonProperty("maximalSuspendableCycles")
   protected Integer maximalSuspendableCycles = null;
 
   
-  @SerializedName("minimalBillingCycles")
+  @JsonProperty("minimalBillingCycles")
   protected Integer minimalBillingCycles = null;
 
   
-  @SerializedName("pricingOption")
+  @JsonProperty("pricingOption")
   protected ShopifySubscriptionProductPricingOption pricingOption = null;
 
   
-  @SerializedName("relativePriceAdjustment")
+  @JsonProperty("relativePriceAdjustment")
   protected BigDecimal relativePriceAdjustment = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ShopifySubscriptionProductState state = null;
 
   
-  @SerializedName("storeOrderConfirmationEmailEnabled")
+  @JsonProperty("storeOrderConfirmationEmailEnabled")
   protected Boolean storeOrderConfirmationEmailEnabled = null;
 
   
-  @SerializedName("subscriberSuspensionAllowed")
+  @JsonProperty("subscriberSuspensionAllowed")
   protected Boolean subscriberSuspensionAllowed = null;
 
   
-  @SerializedName("terminationBillingCycles")
+  @JsonProperty("terminationBillingCycles")
   protected Integer terminationBillingCycles = null;
 
   

@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.DebtCollectionCaseSource;
 import com.wallee.sdk.model.DebtCollectionCaseState;
@@ -36,7 +34,6 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.LineItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -47,129 +44,131 @@ import java.time.OffsetDateTime;
 /**
  * The debt collection case represents a try to collect the money from the debtor.
  */
+@ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class DebtCollectionCase {
   
-  @SerializedName("amount")
+  @JsonProperty("amount")
   protected BigDecimal amount = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected Address billingAddress = null;
 
   
-  @SerializedName("closedOn")
+  @JsonProperty("closedOn")
   protected OffsetDateTime closedOn = null;
 
   
-  @SerializedName("collectorConfiguration")
+  @JsonProperty("collectorConfiguration")
   protected DebtCollectorConfiguration collectorConfiguration = null;
 
   
-  @SerializedName("contractDate")
+  @JsonProperty("contractDate")
   protected OffsetDateTime contractDate = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("creator")
+  @JsonProperty("creator")
   protected Long creator = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("dueDate")
+  @JsonProperty("dueDate")
   protected OffsetDateTime dueDate = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected DebtCollectionEnvironment environment = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("failedOn")
+  @JsonProperty("failedOn")
   protected OffsetDateTime failedOn = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("labels")
+  @JsonProperty("labels")
   protected List<Label> labels = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("nextAttemptOn")
+  @JsonProperty("nextAttemptOn")
   protected OffsetDateTime nextAttemptOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("processingStartedOn")
+  @JsonProperty("processingStartedOn")
   protected OffsetDateTime processingStartedOn = null;
 
   
-  @SerializedName("processingTimeoutOn")
+  @JsonProperty("processingTimeoutOn")
   protected OffsetDateTime processingTimeoutOn = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected String reference = null;
 
   
-  @SerializedName("reviewStartedOn")
+  @JsonProperty("reviewStartedOn")
   protected OffsetDateTime reviewStartedOn = null;
 
   
-  @SerializedName("reviewedOn")
+  @JsonProperty("reviewedOn")
   protected OffsetDateTime reviewedOn = null;
 
   
-  @SerializedName("reviewer")
+  @JsonProperty("reviewer")
   protected Long reviewer = null;
 
   
-  @SerializedName("source")
+  @JsonProperty("source")
   protected DebtCollectionCaseSource source = null;
 
   
-  @SerializedName("sourceEntityId")
+  @JsonProperty("sourceEntityId")
   protected Long sourceEntityId = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected DebtCollectionCaseState state = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

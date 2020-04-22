@@ -1,36 +1,6 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
@@ -43,12 +13,23 @@ import com.wallee.sdk.model.SubscriptionCreateRequest;
 import com.wallee.sdk.model.SubscriptionVersion;
 import com.wallee.sdk.model.TransactionInvoice;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionService {
     private ApiClient apiClient;
 
@@ -64,1460 +45,1439 @@ public class SubscriptionService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for applyChanges
-     * @param spaceId  (required)
-     * @param request  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-     */
-    public com.squareup.okhttp.Call applyChangesCall(Long spaceId, SubscriptionChangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request;
+  /**
+    * apply changes
+    * This operation allows to apply changes on a subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param request 
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/subscription/applyChanges";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public SubscriptionVersion applyChanges(Long spaceId, SubscriptionChangeRequest request) throws IOException {
+        HttpResponse response = applyChangesForHttpResponse(spaceId, request);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+          return (SubscriptionVersion) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call applyChangesValidateBeforeCall(Long spaceId, SubscriptionChangeRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * apply changes
+    * This operation allows to apply changes on a subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param request 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
+
+    **/
+    public SubscriptionVersion applyChanges(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
+        HttpResponse response = applyChangesForHttpResponse(spaceId, request, params);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+            return (SubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling applyChanges(Async)");
-        }
-        
-        // verify the required parameter 'request' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+        }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new ApiException("Missing the required parameter 'request' when calling applyChanges(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
         }
-        
-
-        com.squareup.okhttp.Call call = applyChangesCall(spaceId, request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * apply changes
-     * This operation allows to apply changes on a subscription.
-     * @param spaceId  (required)
-     * @param request  (required)
-     * @return SubscriptionVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-     */
-    public SubscriptionVersion applyChanges(Long spaceId, SubscriptionChangeRequest request) throws ApiException {
-        ApiResponse<SubscriptionVersion> resp = applyChangesWithHttpInfo(spaceId, request);
-        return resp.getData();
-    }
-
-    /**
-     * apply changes
-     * This operation allows to apply changes on a subscription.
-     * @param spaceId  (required)
-     * @param request  (required)
-     * @return ApiResponse&lt;SubscriptionVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-     */
-    public ApiResponse<SubscriptionVersion> applyChangesWithHttpInfo(Long spaceId, SubscriptionChangeRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = applyChangesValidateBeforeCall(spaceId, request, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * apply changes (asynchronously)
-     * This operation allows to apply changes on a subscription.
-     * @param spaceId  (required)
-     * @param request  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-     */
-    public com.squareup.okhttp.Call applyChangesAsync(Long spaceId, SubscriptionChangeRequest request, final ApiCallback<SubscriptionVersion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = applyChangesValidateBeforeCall(spaceId, request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for count
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = filter;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/count";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call countValidateBeforeCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse applyChangesForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+              }// verify the required parameter 'request' is set
+              if (request == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = request == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling count(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
 
-        com.squareup.okhttp.Call call = countCall(spaceId, filter, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return Long
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-     */
-    public Long count(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        ApiResponse<Long> resp = countWithHttpInfo(spaceId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return ApiResponse&lt;Long&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-     */
-    public ApiResponse<Long> countWithHttpInfo(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, null, null);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Count (asynchronously)
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countAsync(Long spaceId, EntityQueryFilter filter, final ApiCallback<Long> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for create
-     * @param spaceId  (required)
-     * @param createRequest  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-     */
-    public com.squareup.okhttp.Call createCall(Long spaceId, SubscriptionCreateRequest createRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = createRequest;
 
-        // create path and map variables
-        String localVarPath = "/subscription/create";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param filter The filter which restricts the entities which are used to calculate the count.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
+        HttpResponse response = countForHttpResponse(spaceId, filter);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+          return (Long) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createValidateBeforeCall(Long spaceId, SubscriptionCreateRequest createRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
+
+    **/
+    public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        HttpResponse response = countForHttpResponse(filter, spaceId, params);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+            return (Long) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling create(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        
-        // verify the required parameter 'createRequest' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = filter == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Create
+    * The create operation creates a new subscription and a corresponding subscription version.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param createRequest 
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
+
+    **/
+    public SubscriptionVersion create(Long spaceId, SubscriptionCreateRequest createRequest) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, createRequest);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+          return (SubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Create
+    * The create operation creates a new subscription and a corresponding subscription version.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param createRequest 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
+
+    **/
+    public SubscriptionVersion create(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, createRequest, params);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+            return (SubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'createRequest' is set
         if (createRequest == null) {
-            throw new ApiException("Missing the required parameter 'createRequest' when calling create(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
         }
-        
-
-        com.squareup.okhttp.Call call = createCall(spaceId, createRequest, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Create
-     * The create operation creates a new subscription and a corresponding subscription version.
-     * @param spaceId  (required)
-     * @param createRequest  (required)
-     * @return SubscriptionVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-     */
-    public SubscriptionVersion create(Long spaceId, SubscriptionCreateRequest createRequest) throws ApiException {
-        ApiResponse<SubscriptionVersion> resp = createWithHttpInfo(spaceId, createRequest);
-        return resp.getData();
-    }
-
-    /**
-     * Create
-     * The create operation creates a new subscription and a corresponding subscription version.
-     * @param spaceId  (required)
-     * @param createRequest  (required)
-     * @return ApiResponse&lt;SubscriptionVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-     */
-    public ApiResponse<SubscriptionVersion> createWithHttpInfo(Long spaceId, SubscriptionCreateRequest createRequest) throws ApiException {
-        com.squareup.okhttp.Call call = createValidateBeforeCall(spaceId, createRequest, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create (asynchronously)
-     * The create operation creates a new subscription and a corresponding subscription version.
-     * @param spaceId  (required)
-     * @param createRequest  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-     */
-    public com.squareup.okhttp.Call createAsync(Long spaceId, SubscriptionCreateRequest createRequest, final ApiCallback<SubscriptionVersion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = createValidateBeforeCall(spaceId, createRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for initialize
-     * @param spaceId  (required)
-     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-     */
-    public com.squareup.okhttp.Call initializeCall(Long spaceId, Long subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/initialize";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (subscriptionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("subscriptionId", subscriptionId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(createRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call initializeValidateBeforeCall(Long spaceId, Long subscriptionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream createRequest, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+              }// verify the required parameter 'createRequest' is set
+              if (createRequest == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = createRequest == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, createRequest);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling initialize(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'createRequest' is set
+        if (createRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
         }
-        
-        // verify the required parameter 'subscriptionId' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(createRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * initialize
+    * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
+    * @return SubscriptionCharge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
+
+    **/
+    public SubscriptionCharge initialize(Long spaceId, Long subscriptionId) throws IOException {
+        HttpResponse response = initializeForHttpResponse(spaceId, subscriptionId);
+        String returnType = "SubscriptionCharge";
+        if(returnType.equals("String")){
+          return (SubscriptionCharge) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
+        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * initialize
+    * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return SubscriptionCharge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
+
+    **/
+    public SubscriptionCharge initialize(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
+        HttpResponse response = initializeForHttpResponse(spaceId, subscriptionId, params);
+        String returnType = "SubscriptionCharge";
+        if(returnType.equals("String")){
+            return (SubscriptionCharge) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
+        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initialize");
+        }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling initialize(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initialize");
         }
-        
-
-        com.squareup.okhttp.Call call = initializeCall(spaceId, subscriptionId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * initialize
-     * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
-     * @param spaceId  (required)
-     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized. (required)
-     * @return SubscriptionCharge
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-     */
-    public SubscriptionCharge initialize(Long spaceId, Long subscriptionId) throws ApiException {
-        ApiResponse<SubscriptionCharge> resp = initializeWithHttpInfo(spaceId, subscriptionId);
-        return resp.getData();
-    }
-
-    /**
-     * initialize
-     * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
-     * @param spaceId  (required)
-     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized. (required)
-     * @return ApiResponse&lt;SubscriptionCharge&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-     */
-    public ApiResponse<SubscriptionCharge> initializeWithHttpInfo(Long spaceId, Long subscriptionId) throws ApiException {
-        com.squareup.okhttp.Call call = initializeValidateBeforeCall(spaceId, subscriptionId, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionCharge>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * initialize (asynchronously)
-     * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
-     * @param spaceId  (required)
-     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-     */
-    public com.squareup.okhttp.Call initializeAsync(Long spaceId, Long subscriptionId, final ApiCallback<SubscriptionCharge> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = initializeValidateBeforeCall(spaceId, subscriptionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionCharge>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for initializeSubscriberPresent
-     * @param spaceId  (required)
-     * @param subscriptionId  (required)
-     * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful. (optional)
-     * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-     */
-    public com.squareup.okhttp.Call initializeSubscriberPresentCall(Long spaceId, Long subscriptionId, String successUrl, String failedUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/initializeSubscriberPresent";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (subscriptionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("subscriptionId", subscriptionId));
-        if (successUrl != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("successUrl", successUrl));
-        if (failedUrl != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("failedUrl", failedUrl));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call initializeSubscriberPresentValidateBeforeCall(Long spaceId, Long subscriptionId, String successUrl, String failedUrl, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling initializeSubscriberPresent(Async)");
-        }
-        
-        // verify the required parameter 'subscriptionId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initialize");
+        }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initialize");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
 
-        com.squareup.okhttp.Call call = initializeSubscriberPresentCall(spaceId, subscriptionId, successUrl, failedUrl, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * initializeSubscriberPresent
-     * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
-     * @param spaceId  (required)
-     * @param subscriptionId  (required)
-     * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful. (optional)
-     * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails. (optional)
-     * @return SubscriptionCharge
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-     */
-    public SubscriptionCharge initializeSubscriberPresent(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws ApiException {
-        ApiResponse<SubscriptionCharge> resp = initializeSubscriberPresentWithHttpInfo(spaceId, subscriptionId, successUrl, failedUrl);
-        return resp.getData();
-    }
-
-    /**
-     * initializeSubscriberPresent
-     * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
-     * @param spaceId  (required)
-     * @param subscriptionId  (required)
-     * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful. (optional)
-     * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails. (optional)
-     * @return ApiResponse&lt;SubscriptionCharge&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-     */
-    public ApiResponse<SubscriptionCharge> initializeSubscriberPresentWithHttpInfo(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws ApiException {
-        com.squareup.okhttp.Call call = initializeSubscriberPresentValidateBeforeCall(spaceId, subscriptionId, successUrl, failedUrl, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionCharge>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * initializeSubscriberPresent (asynchronously)
-     * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
-     * @param spaceId  (required)
-     * @param subscriptionId  (required)
-     * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful. (optional)
-     * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-     */
-    public com.squareup.okhttp.Call initializeSubscriberPresentAsync(Long spaceId, Long subscriptionId, String successUrl, String failedUrl, final ApiCallback<SubscriptionCharge> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = initializeSubscriberPresentValidateBeforeCall(spaceId, subscriptionId, successUrl, failedUrl, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionCharge>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for read
-     * @param spaceId  (required)
-     * @param id The id of the subscription which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/subscription/read";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
+  /**
+    * initializeSubscriberPresent
+    * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId 
+    * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful.
+    * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails.
+    * @return SubscriptionCharge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public SubscriptionCharge initializeSubscriberPresent(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws IOException {
+        HttpResponse response = initializeSubscriberPresentForHttpResponse(spaceId, subscriptionId, successUrl, failedUrl);
+        String returnType = "SubscriptionCharge";
+        if(returnType.equals("String")){
+          return (SubscriptionCharge) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
+        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * initializeSubscriberPresent
+    * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return SubscriptionCharge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
+
+    **/
+    public SubscriptionCharge initializeSubscriberPresent(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
+        HttpResponse response = initializeSubscriberPresentForHttpResponse(spaceId, subscriptionId, params);
+        String returnType = "SubscriptionCharge";
+        if(returnType.equals("String")){
+            return (SubscriptionCharge) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
+        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling read(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initializeSubscriberPresent");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent");
         }
-        
-        // verify the required parameter 'id' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (successUrl != null) {
+            String key = "successUrl";
+            Object value = successUrl;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (failedUrl != null) {
+            String key = "failedUrl";
+            Object value = failedUrl;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+    public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initializeSubscriberPresent");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the subscription which should be returned.
+    * @return Subscription
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
+
+    **/
+    public Subscription read(Long spaceId, Long id) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id);
+        String returnType = "Subscription";
+        if(returnType.equals("String")){
+          return (Subscription) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Subscription>() {};
+        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the subscription which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Subscription
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
+
+    **/
+    public Subscription read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id, params);
+        String returnType = "Subscription";
+        if(returnType.equals("String")){
+            return (Subscription) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Subscription>() {};
+        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling read(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        
-
-        com.squareup.okhttp.Call call = readCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the subscription which should be returned. (required)
-     * @return Subscription
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-     */
-    public Subscription read(Long spaceId, Long id) throws ApiException {
-        ApiResponse<Subscription> resp = readWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the subscription which should be returned. (required)
-     * @return ApiResponse&lt;Subscription&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-     */
-    public ApiResponse<Subscription> readWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<Subscription>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read (asynchronously)
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the subscription which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readAsync(Long spaceId, Long id, final ApiCallback<Subscription> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Subscription>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for search
-     * @param spaceId  (required)
-     * @param query The query restricts the subscriptions which are returned by the search. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = query;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/search";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        
-        // verify the required parameter 'query' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the subscriptions which are returned by the search.
+    * @return List&lt;Subscription&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
+
+    **/
+    public List<Subscription> search(Long spaceId, EntityQuery query) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query);
+        String returnType = "List&lt;Subscription&gt;";
+        if(returnType.equals("String")){
+          return (List<Subscription>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<Subscription>>() {};
+        return (List<Subscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the subscriptions which are returned by the search.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;Subscription&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
+
+    **/
+    public List<Subscription> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query, params);
+        String returnType = "List&lt;Subscription&gt;";
+        if(returnType.equals("String")){
+            return (List<Subscription>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<Subscription>>() {};
+        return (List<Subscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-
-        com.squareup.okhttp.Call call = searchCall(spaceId, query, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the subscriptions which are returned by the search. (required)
-     * @return List&lt;Subscription&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-     */
-    public List<Subscription> search(Long spaceId, EntityQuery query) throws ApiException {
-        ApiResponse<List<Subscription>> resp = searchWithHttpInfo(spaceId, query);
-        return resp.getData();
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the subscriptions which are returned by the search. (required)
-     * @return ApiResponse&lt;List&lt;Subscription&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-     */
-    public ApiResponse<List<Subscription>> searchWithHttpInfo(Long spaceId, EntityQuery query) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, null, null);
-        Type localVarReturnType = new TypeToken<List<Subscription>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search (asynchronously)
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the subscriptions which are returned by the search. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchAsync(Long spaceId, EntityQuery query, final ApiCallback<List<Subscription>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Subscription>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for searchSubscriptionInvoices
-     * @param spaceId  (required)
-     * @param subscriptionId The id of the subscription for which the invoices should be searched for. (required)
-     * @param query The query restricts the invoices which are returned by the search. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchSubscriptionInvoicesCall(Long spaceId, Long subscriptionId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = query;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/searchSubscriptionInvoices";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (subscriptionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("subscriptionId", subscriptionId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchSubscriptionInvoicesValidateBeforeCall(Long spaceId, Long subscriptionId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+              }// verify the required parameter 'query' is set
+              if (query == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = query == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices(Async)");
-        }
-        
-        // verify the required parameter 'subscriptionId' is set
-        if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices(Async)");
-        }
-        
-        // verify the required parameter 'query' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling searchSubscriptionInvoices(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
 
-        com.squareup.okhttp.Call call = searchSubscriptionInvoicesCall(spaceId, subscriptionId, query, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Search Subscription Invoices
-     * This operation allows to search for subscription invoices.
-     * @param spaceId  (required)
-     * @param subscriptionId The id of the subscription for which the invoices should be searched for. (required)
-     * @param query The query restricts the invoices which are returned by the search. (required)
-     * @return List&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-     */
-    public List<TransactionInvoice> searchSubscriptionInvoices(Long spaceId, Long subscriptionId, EntityQuery query) throws ApiException {
-        ApiResponse<List<TransactionInvoice>> resp = searchSubscriptionInvoicesWithHttpInfo(spaceId, subscriptionId, query);
-        return resp.getData();
-    }
-
-    /**
-     * Search Subscription Invoices
-     * This operation allows to search for subscription invoices.
-     * @param spaceId  (required)
-     * @param subscriptionId The id of the subscription for which the invoices should be searched for. (required)
-     * @param query The query restricts the invoices which are returned by the search. (required)
-     * @return ApiResponse&lt;List&lt;TransactionInvoice&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-     */
-    public ApiResponse<List<TransactionInvoice>> searchSubscriptionInvoicesWithHttpInfo(Long spaceId, Long subscriptionId, EntityQuery query) throws ApiException {
-        com.squareup.okhttp.Call call = searchSubscriptionInvoicesValidateBeforeCall(spaceId, subscriptionId, query, null, null);
-        Type localVarReturnType = new TypeToken<List<TransactionInvoice>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search Subscription Invoices (asynchronously)
-     * This operation allows to search for subscription invoices.
-     * @param spaceId  (required)
-     * @param subscriptionId The id of the subscription for which the invoices should be searched for. (required)
-     * @param query The query restricts the invoices which are returned by the search. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchSubscriptionInvoicesAsync(Long spaceId, Long subscriptionId, EntityQuery query, final ApiCallback<List<TransactionInvoice>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = searchSubscriptionInvoicesValidateBeforeCall(spaceId, subscriptionId, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<TransactionInvoice>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for terminate
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be terminated. (required)
-     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-     */
-    public com.squareup.okhttp.Call terminateCall(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/subscription/terminate";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (subscriptionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("subscriptionId", subscriptionId));
-        if (respectTerminationPeriod != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("respectTerminationPeriod", respectTerminationPeriod));
+  /**
+    * Search Subscription Invoices
+    * This operation allows to search for subscription invoices.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The id of the subscription for which the invoices should be searched for.
+    * @param query The query restricts the invoices which are returned by the search.
+    * @return List&lt;TransactionInvoice&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public List<TransactionInvoice> searchSubscriptionInvoices(Long spaceId, Long subscriptionId, EntityQuery query) throws IOException {
+        HttpResponse response = searchSubscriptionInvoicesForHttpResponse(spaceId, subscriptionId, query);
+        String returnType = "List&lt;TransactionInvoice&gt;";
+        if(returnType.equals("String")){
+          return (List<TransactionInvoice>) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
+        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call terminateValidateBeforeCall(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Search Subscription Invoices
+    * This operation allows to search for subscription invoices.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The id of the subscription for which the invoices should be searched for.
+    * @param query The query restricts the invoices which are returned by the search.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;TransactionInvoice&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
+
+    **/
+    public List<TransactionInvoice> searchSubscriptionInvoices(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
+        HttpResponse response = searchSubscriptionInvoicesForHttpResponse(spaceId, subscriptionId, query, params);
+        String returnType = "List&lt;TransactionInvoice&gt;";
+        if(returnType.equals("String")){
+            return (List<TransactionInvoice>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
+        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling terminate(Async)");
-        }
-        
-        // verify the required parameter 'subscriptionId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling terminate(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
         }
-        
-        // verify the required parameter 'respectTerminationPeriod' is set
-        if (respectTerminationPeriod == null) {
-            throw new ApiException("Missing the required parameter 'respectTerminationPeriod' when calling terminate(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = terminateCall(spaceId, subscriptionId, respectTerminationPeriod, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * terminate
-     * This operation allows to terminate a subscription.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be terminated. (required)
-     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-     */
-    public void terminate(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws ApiException {
-        terminateWithHttpInfo(spaceId, subscriptionId, respectTerminationPeriod);
-    }
-
-    /**
-     * terminate
-     * This operation allows to terminate a subscription.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be terminated. (required)
-     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-     */
-    public ApiResponse<Void> terminateWithHttpInfo(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws ApiException {
-        com.squareup.okhttp.Call call = terminateValidateBeforeCall(spaceId, subscriptionId, respectTerminationPeriod, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * terminate (asynchronously)
-     * This operation allows to terminate a subscription.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be terminated. (required)
-     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-     */
-    public com.squareup.okhttp.Call terminateAsync(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = terminateValidateBeforeCall(spaceId, subscriptionId, respectTerminationPeriod, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
-    }
-    /**
-     * Build call for updateProductVersion
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version. (required)
-     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateProductVersionCall(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/subscription/updateProductVersion";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (subscriptionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("subscriptionId", subscriptionId));
-        if (respectTerminationPeriod != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("respectTerminationPeriod", respectTerminationPeriod));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateProductVersionValidateBeforeCall(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, java.io.InputStream query, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+              }// verify the required parameter 'subscriptionId' is set
+              if (subscriptionId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+              }// verify the required parameter 'query' is set
+              if (query == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (subscriptionId != null) {
+                  String key = "subscriptionId";
+                  Object value = subscriptionId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = query == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling updateProductVersion(Async)");
-        }
-        
-        // verify the required parameter 'subscriptionId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new ApiException("Missing the required parameter 'subscriptionId' when calling updateProductVersion(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
         }
-        
-        // verify the required parameter 'respectTerminationPeriod' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * terminate
+    * This operation allows to terminate a subscription.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The subscription id identifies the subscription which should be terminated.
+    * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
+
+    **/
+    public void terminate(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
+        terminateForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod);
+    }
+
+  /**
+    * terminate
+    * This operation allows to terminate a subscription.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The subscription id identifies the subscription which should be terminated.
+    * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
+
+    **/
+    public void terminate(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
+        terminateForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod, params);
+    }
+
+    public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+        }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new ApiException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
         }
-        
-
-        com.squareup.okhttp.Call call = updateProductVersionCall(spaceId, subscriptionId, respectTerminationPeriod, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * update product version
-     * The update product version operation updates the product version of the subscription to the latest active product version.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version. (required)
-     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @return SubscriptionVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-     */
-    public SubscriptionVersion updateProductVersion(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws ApiException {
-        ApiResponse<SubscriptionVersion> resp = updateProductVersionWithHttpInfo(spaceId, subscriptionId, respectTerminationPeriod);
-        return resp.getData();
-    }
-
-    /**
-     * update product version
-     * The update product version operation updates the product version of the subscription to the latest active product version.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version. (required)
-     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @return ApiResponse&lt;SubscriptionVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-     */
-    public ApiResponse<SubscriptionVersion> updateProductVersionWithHttpInfo(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws ApiException {
-        com.squareup.okhttp.Call call = updateProductVersionValidateBeforeCall(spaceId, subscriptionId, respectTerminationPeriod, null, null);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * update product version (asynchronously)
-     * The update product version operation updates the product version of the subscription to the latest active product version.
-     * @param spaceId  (required)
-     * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version. (required)
-     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateProductVersionAsync(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, final ApiCallback<SubscriptionVersion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (respectTerminationPeriod != null) {
+            String key = "respectTerminationPeriod";
+            Object value = respectTerminationPeriod;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = updateProductVersionValidateBeforeCall(spaceId, subscriptionId, respectTerminationPeriod, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SubscriptionVersion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+    public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+        }// verify the required parameter 'respectTerminationPeriod' is set
+        if (respectTerminationPeriod == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
+        // Add the required query param 'respectTerminationPeriod' to the map of query params
+        allParams.put("respectTerminationPeriod", respectTerminationPeriod);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * update product version
+    * The update product version operation updates the product version of the subscription to the latest active product version.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version.
+    * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
+
+    **/
+    public SubscriptionVersion updateProductVersion(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
+        HttpResponse response = updateProductVersionForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+          return (SubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * update product version
+    * The update product version operation updates the product version of the subscription to the latest active product version.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version.
+    * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return SubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
+
+    **/
+    public SubscriptionVersion updateProductVersion(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateProductVersionForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod, params);
+        String returnType = "SubscriptionVersion";
+        if(returnType.equals("String")){
+            return (SubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
+        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateProductVersion");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling updateProductVersion");
+        }// verify the required parameter 'respectTerminationPeriod' is set
+        if (respectTerminationPeriod == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (respectTerminationPeriod != null) {
+            String key = "respectTerminationPeriod";
+            Object value = respectTerminationPeriod;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+    public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateProductVersion");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling updateProductVersion");
+        }// verify the required parameter 'respectTerminationPeriod' is set
+        if (respectTerminationPeriod == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
+        // Add the required query param 'respectTerminationPeriod' to the map of query params
+        allParams.put("respectTerminationPeriod", respectTerminationPeriod);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

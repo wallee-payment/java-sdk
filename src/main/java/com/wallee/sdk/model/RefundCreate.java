@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.LineItemReductionCreate;
 import com.wallee.sdk.model.RefundType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,33 +37,35 @@ import java.time.OffsetDateTime;
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
  */
+@ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class RefundCreate {
   
-  @SerializedName("amount")
+  @JsonProperty("amount")
   protected BigDecimal amount = null;
 
   
-  @SerializedName("completion")
+  @JsonProperty("completion")
   protected Long completion = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("merchantReference")
+  @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
   
-  @SerializedName("reductions")
+  @JsonProperty("reductions")
   protected List<LineItemReductionCreate> reductions = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Long transaction = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected RefundType type = null;
 
   

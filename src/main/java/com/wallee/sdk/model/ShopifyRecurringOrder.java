@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.ShopifyRecurringOrderState;
 import com.wallee.sdk.model.ShopifySubscriptionVersion;
@@ -33,7 +31,6 @@ import com.wallee.sdk.model.ShopifyTransaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -41,61 +38,63 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ShopifyRecurringOrder extends TransactionAwareEntity {
   
-  @SerializedName("billedOn")
+  @JsonProperty("billedOn")
   protected OffsetDateTime billedOn = null;
 
   
-  @SerializedName("checkoutToken")
+  @JsonProperty("checkoutToken")
   protected String checkoutToken = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("orderId")
+  @JsonProperty("orderId")
   protected String orderId = null;
 
   
-  @SerializedName("orderName")
+  @JsonProperty("orderName")
   protected String orderName = null;
 
   
-  @SerializedName("plannedExecutionDate")
+  @JsonProperty("plannedExecutionDate")
   protected OffsetDateTime plannedExecutionDate = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("recurrenceNumber")
+  @JsonProperty("recurrenceNumber")
   protected Integer recurrenceNumber = null;
 
   
-  @SerializedName("shop")
+  @JsonProperty("shop")
   protected Long shop = null;
 
   
-  @SerializedName("startedProcessingOn")
+  @JsonProperty("startedProcessingOn")
   protected OffsetDateTime startedProcessingOn = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ShopifyRecurringOrderState state = null;
 
   
-  @SerializedName("subscriptionVersion")
+  @JsonProperty("subscriptionVersion")
   protected ShopifySubscriptionVersion subscriptionVersion = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected ShopifyTransaction transaction = null;
 
   

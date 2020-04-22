@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.CustomersPresence;
@@ -42,7 +40,6 @@ import com.wallee.sdk.model.TransactionState;
 import com.wallee.sdk.model.TransactionUserInterfaceType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -55,237 +52,243 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Transaction {
   
-  @SerializedName("acceptHeader")
+  @JsonProperty("acceptHeader")
   protected String acceptHeader = null;
 
   
-  @SerializedName("acceptLanguageHeader")
+  @JsonProperty("acceptLanguageHeader")
   protected String acceptLanguageHeader = null;
 
   
-  @SerializedName("allowedPaymentMethodBrands")
+  @JsonProperty("allowedPaymentMethodBrands")
   protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
 
   
-  @SerializedName("allowedPaymentMethodConfigurations")
+  @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<Long> allowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("authorizationAmount")
+  @JsonProperty("authorizationAmount")
   protected BigDecimal authorizationAmount = null;
 
   
-  @SerializedName("authorizationEnvironment")
+  @JsonProperty("authorizationEnvironment")
   protected ChargeAttemptEnvironment authorizationEnvironment = null;
 
   
-  @SerializedName("authorizationSalesChannel")
+  @JsonProperty("authorizationSalesChannel")
   protected Long authorizationSalesChannel = null;
 
   
-  @SerializedName("authorizationTimeoutOn")
+  @JsonProperty("authorizationTimeoutOn")
   protected OffsetDateTime authorizationTimeoutOn = null;
 
   
-  @SerializedName("authorizedOn")
+  @JsonProperty("authorizedOn")
   protected OffsetDateTime authorizedOn = null;
 
   
-  @SerializedName("autoConfirmationEnabled")
+  @JsonProperty("autoConfirmationEnabled")
   protected Boolean autoConfirmationEnabled = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected Address billingAddress = null;
 
   
-  @SerializedName("chargeRetryEnabled")
+  @JsonProperty("chargeRetryEnabled")
   protected Boolean chargeRetryEnabled = null;
 
   
-  @SerializedName("completedAmount")
+  @JsonProperty("completedAmount")
   protected BigDecimal completedAmount = null;
 
   
-  @SerializedName("completedOn")
+  @JsonProperty("completedOn")
   protected OffsetDateTime completedOn = null;
 
   
-  @SerializedName("completionTimeoutOn")
+  @JsonProperty("completionTimeoutOn")
   protected OffsetDateTime completionTimeoutOn = null;
 
   
-  @SerializedName("confirmedBy")
+  @JsonProperty("confirmedBy")
   protected Long confirmedBy = null;
 
   
-  @SerializedName("confirmedOn")
+  @JsonProperty("confirmedOn")
   protected OffsetDateTime confirmedOn = null;
 
   
-  @SerializedName("createdBy")
+  @JsonProperty("createdBy")
   protected Long createdBy = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("customerEmailAddress")
+  @JsonProperty("customerEmailAddress")
   protected String customerEmailAddress = null;
 
   
-  @SerializedName("customerId")
+  @JsonProperty("customerId")
   protected String customerId = null;
 
   
-  @SerializedName("customersPresence")
+  @JsonProperty("customersPresence")
   protected CustomersPresence customersPresence = null;
 
   
-  @SerializedName("deliveryDecisionMadeOn")
+  @JsonProperty("deliveryDecisionMadeOn")
   protected OffsetDateTime deliveryDecisionMadeOn = null;
 
   
-  @SerializedName("deviceSessionIdentifier")
+  @JsonProperty("deviceSessionIdentifier")
   protected String deviceSessionIdentifier = null;
 
   
-  @SerializedName("endOfLife")
+  @JsonProperty("emailsDisabled")
+  protected Boolean emailsDisabled = null;
+
+  
+  @JsonProperty("endOfLife")
   protected OffsetDateTime endOfLife = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected Environment environment = null;
 
   
-  @SerializedName("environmentSelectionStrategy")
+  @JsonProperty("environmentSelectionStrategy")
   protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
 
   
-  @SerializedName("failedOn")
+  @JsonProperty("failedOn")
   protected OffsetDateTime failedOn = null;
 
   
-  @SerializedName("failedUrl")
+  @JsonProperty("failedUrl")
   protected String failedUrl = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("group")
+  @JsonProperty("group")
   protected TransactionGroup group = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("internetProtocolAddress")
+  @JsonProperty("internetProtocolAddress")
   protected String internetProtocolAddress = null;
 
   
-  @SerializedName("internetProtocolAddressCountry")
+  @JsonProperty("internetProtocolAddressCountry")
   protected String internetProtocolAddressCountry = null;
 
   
-  @SerializedName("invoiceMerchantReference")
+  @JsonProperty("invoiceMerchantReference")
   protected String invoiceMerchantReference = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("merchantReference")
+  @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
   
-  @SerializedName("metaData")
+  @JsonProperty("metaData")
   protected Map<String, String> metaData = null;
 
   
-  @SerializedName("parent")
+  @JsonProperty("parent")
   protected Long parent = null;
 
   
-  @SerializedName("paymentConnectorConfiguration")
+  @JsonProperty("paymentConnectorConfiguration")
   protected PaymentConnectorConfiguration paymentConnectorConfiguration = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("processingOn")
+  @JsonProperty("processingOn")
   protected OffsetDateTime processingOn = null;
 
   
-  @SerializedName("refundedAmount")
+  @JsonProperty("refundedAmount")
   protected BigDecimal refundedAmount = null;
 
   
-  @SerializedName("shippingAddress")
+  @JsonProperty("shippingAddress")
   protected Address shippingAddress = null;
 
   
-  @SerializedName("shippingMethod")
+  @JsonProperty("shippingMethod")
   protected String shippingMethod = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected TransactionState state = null;
 
   
-  @SerializedName("successUrl")
+  @JsonProperty("successUrl")
   protected String successUrl = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("token")
+  @JsonProperty("token")
   protected Token token = null;
 
   
-  @SerializedName("tokenizationMode")
+  @JsonProperty("tokenizationMode")
   protected TokenizationMode tokenizationMode = null;
 
   
-  @SerializedName("userAgentHeader")
+  @JsonProperty("userAgentHeader")
   protected String userAgentHeader = null;
 
   
-  @SerializedName("userFailureMessage")
+  @JsonProperty("userFailureMessage")
   protected String userFailureMessage = null;
 
   
-  @SerializedName("userInterfaceType")
+  @JsonProperty("userInterfaceType")
   protected TransactionUserInterfaceType userInterfaceType = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   
@@ -537,6 +540,16 @@ public class Transaction {
   @ApiModelProperty(value = "The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.")
   public String getDeviceSessionIdentifier() {
     return deviceSessionIdentifier;
+  }
+
+  
+   /**
+   * Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.
+   * @return emailsDisabled
+  **/
+  @ApiModelProperty(value = "Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.")
+  public Boolean isEmailsDisabled() {
+    return emailsDisabled;
   }
 
   
@@ -905,6 +918,7 @@ public class Transaction {
         Objects.equals(this.customersPresence, transaction.customersPresence) &&
         Objects.equals(this.deliveryDecisionMadeOn, transaction.deliveryDecisionMadeOn) &&
         Objects.equals(this.deviceSessionIdentifier, transaction.deviceSessionIdentifier) &&
+        Objects.equals(this.emailsDisabled, transaction.emailsDisabled) &&
         Objects.equals(this.endOfLife, transaction.endOfLife) &&
         Objects.equals(this.environment, transaction.environment) &&
         Objects.equals(this.environmentSelectionStrategy, transaction.environmentSelectionStrategy) &&
@@ -942,7 +956,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
+    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
   }
 
 
@@ -976,6 +990,7 @@ public class Transaction {
     sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
     sb.append("    deliveryDecisionMadeOn: ").append(toIndentedString(deliveryDecisionMadeOn)).append("\n");
     sb.append("    deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
+    sb.append("    emailsDisabled: ").append(toIndentedString(emailsDisabled)).append("\n");
     sb.append("    endOfLife: ").append(toIndentedString(endOfLife)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");

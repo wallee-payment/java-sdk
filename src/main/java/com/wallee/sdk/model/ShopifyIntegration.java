@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.ShopifyIntegrationAppVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,81 +38,83 @@ import java.time.OffsetDateTime;
 /**
  * A Shopify Integration allows to connect a Shopify shop.
  */
+@ApiModel(description = "A Shopify Integration allows to connect a Shopify shop.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ShopifyIntegration {
   
-  @SerializedName("allowInvoiceDownload")
+  @JsonProperty("allowInvoiceDownload")
   protected Boolean allowInvoiceDownload = null;
 
   
-  @SerializedName("allowedPaymentMethodConfigurations")
+  @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("appVersion")
+  @JsonProperty("appVersion")
   protected ShopifyIntegrationAppVersion appVersion = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("integratedPaymentFormEnabled")
+  @JsonProperty("integratedPaymentFormEnabled")
   protected Boolean integratedPaymentFormEnabled = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("loginName")
+  @JsonProperty("loginName")
   protected String loginName = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("proxyPath")
+  @JsonProperty("proxyPath")
   protected String proxyPath = null;
 
   
-  @SerializedName("replacePaymentMethodImage")
+  @JsonProperty("replacePaymentMethodImage")
   protected Boolean replacePaymentMethodImage = null;
 
   
-  @SerializedName("shopName")
+  @JsonProperty("shopName")
   protected String shopName = null;
 
   
-  @SerializedName("showPaymentInformation")
+  @JsonProperty("showPaymentInformation")
   protected Boolean showPaymentInformation = null;
 
   
-  @SerializedName("showSubscriptionInformation")
+  @JsonProperty("showSubscriptionInformation")
   protected Boolean showSubscriptionInformation = null;
 
   
-  @SerializedName("spaceId")
+  @JsonProperty("spaceId")
   protected Long spaceId = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

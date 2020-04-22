@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(SubscriptionProductComponentReferenceState.Adapter.class)
 public enum SubscriptionProductComponentReferenceState {
   
   CREATE("CREATE"),
@@ -52,6 +47,7 @@ public enum SubscriptionProductComponentReferenceState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -61,6 +57,7 @@ public enum SubscriptionProductComponentReferenceState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static SubscriptionProductComponentReferenceState fromValue(String text) {
     for (SubscriptionProductComponentReferenceState b : SubscriptionProductComponentReferenceState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -68,19 +65,6 @@ public enum SubscriptionProductComponentReferenceState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<SubscriptionProductComponentReferenceState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final SubscriptionProductComponentReferenceState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public SubscriptionProductComponentReferenceState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return SubscriptionProductComponentReferenceState.fromValue(String.valueOf(value));
-    }
   }
 }
 

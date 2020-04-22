@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,85 +38,87 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionProductVersion {
   
-  @SerializedName("activatedOn")
+  @JsonProperty("activatedOn")
   protected OffsetDateTime activatedOn = null;
 
   
-  @SerializedName("billingCycle")
+  @JsonProperty("billingCycle")
   protected String billingCycle = null;
 
   
-  @SerializedName("comment")
+  @JsonProperty("comment")
   protected String comment = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("defaultCurrency")
+  @JsonProperty("defaultCurrency")
   protected String defaultCurrency = null;
 
   
-  @SerializedName("enabledCurrencies")
+  @JsonProperty("enabledCurrencies")
   protected List<String> enabledCurrencies = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("incrementNumber")
+  @JsonProperty("incrementNumber")
   protected Integer incrementNumber = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("minimalNumberOfPeriods")
+  @JsonProperty("minimalNumberOfPeriods")
   protected Integer minimalNumberOfPeriods = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected DatabaseTranslatedString name = null;
 
   
-  @SerializedName("numberOfNoticePeriods")
+  @JsonProperty("numberOfNoticePeriods")
   protected Integer numberOfNoticePeriods = null;
 
   
-  @SerializedName("obsoletedOn")
+  @JsonProperty("obsoletedOn")
   protected OffsetDateTime obsoletedOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("product")
+  @JsonProperty("product")
   protected SubscriptionProduct product = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected String reference = null;
 
   
-  @SerializedName("retiringFinishedOn")
+  @JsonProperty("retiringFinishedOn")
   protected OffsetDateTime retiringFinishedOn = null;
 
   
-  @SerializedName("retiringStartedOn")
+  @JsonProperty("retiringStartedOn")
   protected OffsetDateTime retiringStartedOn = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected SubscriptionProductVersionState state = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

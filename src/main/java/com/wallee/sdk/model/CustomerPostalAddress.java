@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Gender;
 import com.wallee.sdk.model.LegalOrganizationForm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -38,85 +35,87 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class CustomerPostalAddress {
   
-  @SerializedName("city")
+  @JsonProperty("city")
   protected String city = null;
 
   
-  @SerializedName("commercialRegisterNumber")
+  @JsonProperty("commercialRegisterNumber")
   protected String commercialRegisterNumber = null;
 
   
-  @SerializedName("country")
+  @JsonProperty("country")
   protected String country = null;
 
   
-  @SerializedName("dateOfBirth")
+  @JsonProperty("dateOfBirth")
   protected LocalDate dateOfBirth = null;
 
   
-  @SerializedName("dependentLocality")
+  @JsonProperty("dependentLocality")
   protected String dependentLocality = null;
 
   
-  @SerializedName("emailAddress")
+  @JsonProperty("emailAddress")
   protected String emailAddress = null;
 
   
-  @SerializedName("familyName")
+  @JsonProperty("familyName")
   protected String familyName = null;
 
   
-  @SerializedName("gender")
+  @JsonProperty("gender")
   protected Gender gender = null;
 
   
-  @SerializedName("givenName")
+  @JsonProperty("givenName")
   protected String givenName = null;
 
   
-  @SerializedName("legalOrganizationForm")
+  @JsonProperty("legalOrganizationForm")
   protected LegalOrganizationForm legalOrganizationForm = null;
 
   
-  @SerializedName("mobilePhoneNumber")
+  @JsonProperty("mobilePhoneNumber")
   protected String mobilePhoneNumber = null;
 
   
-  @SerializedName("organizationName")
+  @JsonProperty("organizationName")
   protected String organizationName = null;
 
   
-  @SerializedName("phoneNumber")
+  @JsonProperty("phoneNumber")
   protected String phoneNumber = null;
 
   
-  @SerializedName("postalState")
+  @JsonProperty("postalState")
   protected String postalState = null;
 
   
-  @SerializedName("postcode")
+  @JsonProperty("postcode")
   protected String postcode = null;
 
   
-  @SerializedName("salesTaxNumber")
+  @JsonProperty("salesTaxNumber")
   protected String salesTaxNumber = null;
 
   
-  @SerializedName("salutation")
+  @JsonProperty("salutation")
   protected String salutation = null;
 
   
-  @SerializedName("socialSecurityNumber")
+  @JsonProperty("socialSecurityNumber")
   protected String socialSecurityNumber = null;
 
   
-  @SerializedName("sortingCode")
+  @JsonProperty("sortingCode")
   protected String sortingCode = null;
 
   
-  @SerializedName("street")
+  @JsonProperty("street")
   protected String street = null;
 
   

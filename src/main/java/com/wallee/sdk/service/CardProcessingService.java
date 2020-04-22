@@ -1,48 +1,29 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.UnencryptedCardDataCreate;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class CardProcessingService {
     private ApiClient apiClient;
 
@@ -58,330 +39,430 @@ public class CardProcessingService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for process
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
-     */
-    public com.squareup.okhttp.Call processCall(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = cardData;
+  /**
+    * Process
+    * The process method will process the transaction with the given card details without using 3-D secure.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The ID of the transaction which should be processed.
+    * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction.
+    * @param cardData The card details as JSON in plain which should be used to authorize the payment.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/card-processing/process";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (transactionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("transactionId", transactionId));
-        if (paymentMethodConfigurationId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("paymentMethodConfigurationId", paymentMethodConfigurationId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+        HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call processValidateBeforeCall(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Process
+    * The process method will process the transaction with the given card details without using 3-D secure.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The ID of the transaction which should be processed.
+    * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction.
+    * @param cardData The card details as JSON in plain which should be used to authorize the payment.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
+
+    **/
+    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+        HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling process(Async)");
-        }
-        
-        // verify the required parameter 'transactionId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
+        }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new ApiException("Missing the required parameter 'transactionId' when calling process(Async)");
-        }
-        
-        // verify the required parameter 'paymentMethodConfigurationId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling process");
+        }// verify the required parameter 'paymentMethodConfigurationId' is set
         if (paymentMethodConfigurationId == null) {
-            throw new ApiException("Missing the required parameter 'paymentMethodConfigurationId' when calling process(Async)");
-        }
-        
-        // verify the required parameter 'cardData' is set
+            throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling process");
+        }// verify the required parameter 'cardData' is set
         if (cardData == null) {
-            throw new ApiException("Missing the required parameter 'cardData' when calling process(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling process");
         }
-        
-
-        com.squareup.okhttp.Call call = processCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Process
-     * The process method will process the transaction with the given card details without using 3-D secure.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
-     */
-    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws ApiException {
-        ApiResponse<Transaction> resp = processWithHttpInfo(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        return resp.getData();
-    }
-
-    /**
-     * Process
-     * The process method will process the transaction with the given card details without using 3-D secure.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
-     */
-    public ApiResponse<Transaction> processWithHttpInfo(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws ApiException {
-        com.squareup.okhttp.Call call = processValidateBeforeCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Process (asynchronously)
-     * The process method will process the transaction with the given card details without using 3-D secure.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
-     */
-    public com.squareup.okhttp.Call processAsync(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (transactionId != null) {
+            String key = "transactionId";
+            Object value = transactionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (paymentMethodConfigurationId != null) {
+            String key = "paymentMethodConfigurationId";
+            Object value = paymentMethodConfigurationId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = processValidateBeforeCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for processWith3DSecure
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
-     */
-    public com.squareup.okhttp.Call processWith3DSecureCall(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = cardData;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/card-processing/processWith3DSecure";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (transactionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("transactionId", transactionId));
-        if (paymentMethodConfigurationId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("paymentMethodConfigurationId", paymentMethodConfigurationId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call processWith3DSecureValidateBeforeCall(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, java.io.InputStream cardData, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
+              }// verify the required parameter 'transactionId' is set
+              if (transactionId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling process");
+              }// verify the required parameter 'paymentMethodConfigurationId' is set
+              if (paymentMethodConfigurationId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling process");
+              }// verify the required parameter 'cardData' is set
+              if (cardData == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling process");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (transactionId != null) {
+                  String key = "transactionId";
+                  Object value = transactionId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (paymentMethodConfigurationId != null) {
+                  String key = "paymentMethodConfigurationId";
+                  Object value = paymentMethodConfigurationId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = cardData == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling processWith3DSecure(Async)");
-        }
-        
-        // verify the required parameter 'transactionId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
+        }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new ApiException("Missing the required parameter 'transactionId' when calling processWith3DSecure(Async)");
-        }
-        
-        // verify the required parameter 'paymentMethodConfigurationId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling process");
+        }// verify the required parameter 'paymentMethodConfigurationId' is set
         if (paymentMethodConfigurationId == null) {
-            throw new ApiException("Missing the required parameter 'paymentMethodConfigurationId' when calling processWith3DSecure(Async)");
-        }
-        
-        // verify the required parameter 'cardData' is set
+            throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling process");
+        }// verify the required parameter 'cardData' is set
         if (cardData == null) {
-            throw new ApiException("Missing the required parameter 'cardData' when calling processWith3DSecure(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling process");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
 
-        com.squareup.okhttp.Call call = processWith3DSecureCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'transactionId' to the map of query params
+        allParams.put("transactionId", transactionId);
+        // Add the required query param 'paymentMethodConfigurationId' to the map of query params
+        allParams.put("paymentMethodConfigurationId", paymentMethodConfigurationId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Process With 3-D Secure
-     * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
-     */
-    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws ApiException {
-        ApiResponse<String> resp = processWith3DSecureWithHttpInfo(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        return resp.getData();
-    }
-
-    /**
-     * Process With 3-D Secure
-     * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
-     */
-    public ApiResponse<String> processWith3DSecureWithHttpInfo(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws ApiException {
-        com.squareup.okhttp.Call call = processWith3DSecureValidateBeforeCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Process With 3-D Secure (asynchronously)
-     * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
-     * @param spaceId  (required)
-     * @param transactionId The ID of the transaction which should be processed. (required)
-     * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction. (required)
-     * @param cardData The card details as JSON in plain which should be used to authorize the payment. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
-     */
-    public com.squareup.okhttp.Call processWith3DSecureAsync(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = processWith3DSecureValidateBeforeCall(spaceId, transactionId, paymentMethodConfigurationId, cardData, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+
+  /**
+    * Process With 3-D Secure
+    * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The ID of the transaction which should be processed.
+    * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction.
+    * @param cardData The card details as JSON in plain which should be used to authorize the payment.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
+
+    **/
+    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+        HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
+        String returnType = "String";
+        if(returnType.equals("String")){
+          return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Process With 3-D Secure
+    * The process method will process the transaction with the given card details by eventually using 3-D secure. The buyer has to be redirect to the URL returned by this method.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The ID of the transaction which should be processed.
+    * @param paymentMethodConfigurationId The payment method configuration ID which is applied to the transaction.
+    * @param cardData The card details as JSON in plain which should be used to authorize the payment.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
+
+    **/
+    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+        HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
+        String returnType = "String";
+        if(returnType.equals("String")){
+            return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");
+        }// verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling processWith3DSecure");
+        }// verify the required parameter 'paymentMethodConfigurationId' is set
+        if (paymentMethodConfigurationId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling processWith3DSecure");
+        }// verify the required parameter 'cardData' is set
+        if (cardData == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling processWith3DSecure");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (transactionId != null) {
+            String key = "transactionId";
+            Object value = transactionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (paymentMethodConfigurationId != null) {
+            String key = "paymentMethodConfigurationId";
+            Object value = paymentMethodConfigurationId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, java.io.InputStream cardData, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");
+              }// verify the required parameter 'transactionId' is set
+              if (transactionId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling processWith3DSecure");
+              }// verify the required parameter 'paymentMethodConfigurationId' is set
+              if (paymentMethodConfigurationId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling processWith3DSecure");
+              }// verify the required parameter 'cardData' is set
+              if (cardData == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling processWith3DSecure");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (transactionId != null) {
+                  String key = "transactionId";
+                  Object value = transactionId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (paymentMethodConfigurationId != null) {
+                  String key = "paymentMethodConfigurationId";
+                  Object value = paymentMethodConfigurationId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = cardData == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");
+        }// verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling processWith3DSecure");
+        }// verify the required parameter 'paymentMethodConfigurationId' is set
+        if (paymentMethodConfigurationId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'paymentMethodConfigurationId' when calling processWith3DSecure");
+        }// verify the required parameter 'cardData' is set
+        if (cardData == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling processWith3DSecure");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'transactionId' to the map of query params
+        allParams.put("transactionId", transactionId);
+        // Add the required query param 'paymentMethodConfigurationId' to the map of query params
+        allParams.put("paymentMethodConfigurationId", paymentMethodConfigurationId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

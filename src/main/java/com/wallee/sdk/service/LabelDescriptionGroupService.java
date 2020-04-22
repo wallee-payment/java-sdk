@@ -1,47 +1,28 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.LabelDescriptorGroup;
 import com.wallee.sdk.model.ServerError;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class LabelDescriptionGroupService {
     private ApiClient apiClient;
 
@@ -57,257 +38,197 @@ public class LabelDescriptionGroupService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for all
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
-     */
-    public com.squareup.okhttp.Call allCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+  /**
+    * All
+    * This operation returns all entities which are available.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @return List&lt;LabelDescriptorGroup&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/label-description-group-service/all";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public List<LabelDescriptorGroup> all() throws IOException {
+        HttpResponse response = allForHttpResponse();
+        String returnType = "List&lt;LabelDescriptorGroup&gt;";
+        if(returnType.equals("String")){
+          return (List<LabelDescriptorGroup>) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<List<LabelDescriptorGroup>>() {};
+        return (List<LabelDescriptorGroup>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call allValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+  /**
+    * All
+    * This operation returns all entities which are available.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;LabelDescriptorGroup&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
+
+    **/
+    public List<LabelDescriptorGroup> all(Map<String, Object> params) throws IOException {
+        HttpResponse response = allForHttpResponse(params);
+        String returnType = "List&lt;LabelDescriptorGroup&gt;";
+        if(returnType.equals("String")){
+            return (List<LabelDescriptorGroup>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<LabelDescriptorGroup>>() {};
+        return (List<LabelDescriptorGroup>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse allForHttpResponse() throws IOException {
         
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/label-description-group-service/all");
 
-        com.squareup.okhttp.Call call = allCall(progressListener, progressRequestListener);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    /**
-     * All
-     * This operation returns all entities which are available.
-     * @return List&lt;LabelDescriptorGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
-     */
-    public List<LabelDescriptorGroup> all() throws ApiException {
-        ApiResponse<List<LabelDescriptorGroup>> resp = allWithHttpInfo();
-        return resp.getData();
-    }
-
-    /**
-     * All
-     * This operation returns all entities which are available.
-     * @return ApiResponse&lt;List&lt;LabelDescriptorGroup&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
-     */
-    public ApiResponse<List<LabelDescriptorGroup>> allWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = allValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<LabelDescriptorGroup>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * All (asynchronously)
-     * This operation returns all entities which are available.
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--all">All Documentation</a>
-     */
-    public com.squareup.okhttp.Call allAsync(final ApiCallback<List<LabelDescriptorGroup>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = allValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<LabelDescriptorGroup>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for read
-     * @param id The id of the label descriptor group which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/label-description-group-service/read";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readValidateBeforeCall(Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
         
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/label-description-group-service/all");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param id The id of the label descriptor group which should be returned.
+    * @return LabelDescriptorGroup
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
+
+    **/
+    public LabelDescriptorGroup read(Long id) throws IOException {
+        HttpResponse response = readForHttpResponse(id);
+        String returnType = "LabelDescriptorGroup";
+        if(returnType.equals("String")){
+          return (LabelDescriptorGroup) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<LabelDescriptorGroup>() {};
+        return (LabelDescriptorGroup)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param id The id of the label descriptor group which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return LabelDescriptorGroup
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
+
+    **/
+    public LabelDescriptorGroup read(Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = readForHttpResponse(id, params);
+        String returnType = "LabelDescriptorGroup";
+        if(returnType.equals("String")){
+            return (LabelDescriptorGroup) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<LabelDescriptorGroup>() {};
+        return (LabelDescriptorGroup)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling read(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        
-
-        com.squareup.okhttp.Call call = readCall(id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param id The id of the label descriptor group which should be returned. (required)
-     * @return LabelDescriptorGroup
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
-     */
-    public LabelDescriptorGroup read(Long id) throws ApiException {
-        ApiResponse<LabelDescriptorGroup> resp = readWithHttpInfo(id);
-        return resp.getData();
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param id The id of the label descriptor group which should be returned. (required)
-     * @return ApiResponse&lt;LabelDescriptorGroup&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
-     */
-    public ApiResponse<LabelDescriptorGroup> readWithHttpInfo(Long id) throws ApiException {
-        com.squareup.okhttp.Call call = readValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<LabelDescriptorGroup>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read (asynchronously)
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param id The id of the label descriptor group which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-group-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readAsync(Long id, final ApiCallback<LabelDescriptorGroup> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/label-description-group-service/read");
+        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = readValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LabelDescriptorGroup>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
+
+    public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/label-description-group-service/read");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
 }

@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractTransactionPending;
 import com.wallee.sdk.model.CustomersPresence;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.TransactionEnvironmentSelectionStrategy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.*;
@@ -41,33 +38,39 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class TransactionCreate extends AbstractTransactionPending {
   
-  @SerializedName("autoConfirmationEnabled")
+  @JsonProperty("autoConfirmationEnabled")
   protected Boolean autoConfirmationEnabled = null;
 
   
-  @SerializedName("chargeRetryEnabled")
+  @JsonProperty("chargeRetryEnabled")
   protected Boolean chargeRetryEnabled = null;
 
   
-  @SerializedName("customersPresence")
+  @JsonProperty("customersPresence")
   protected CustomersPresence customersPresence = null;
 
   
-  @SerializedName("deviceSessionIdentifier")
+  @JsonProperty("deviceSessionIdentifier")
   protected String deviceSessionIdentifier = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("emailsDisabled")
+  protected Boolean emailsDisabled = null;
+
+  
+  @JsonProperty("environment")
   protected Environment environment = null;
 
   
-  @SerializedName("environmentSelectionStrategy")
+  @JsonProperty("environmentSelectionStrategy")
   protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
@@ -145,6 +148,25 @@ public class TransactionCreate extends AbstractTransactionPending {
 
   public void setDeviceSessionIdentifier(String deviceSessionIdentifier) {
     this.deviceSessionIdentifier = deviceSessionIdentifier;
+  }
+
+  
+  public TransactionCreate emailsDisabled(Boolean emailsDisabled) {
+    this.emailsDisabled = emailsDisabled;
+    return this;
+  }
+
+   /**
+   * Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.
+   * @return emailsDisabled
+  **/
+  @ApiModelProperty(value = "Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.")
+  public Boolean isEmailsDisabled() {
+    return emailsDisabled;
+  }
+
+  public void setEmailsDisabled(Boolean emailsDisabled) {
+    this.emailsDisabled = emailsDisabled;
   }
 
   
@@ -237,6 +259,7 @@ public class TransactionCreate extends AbstractTransactionPending {
         Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) &&
         Objects.equals(this.customersPresence, transactionCreate.customersPresence) &&
         Objects.equals(this.deviceSessionIdentifier, transactionCreate.deviceSessionIdentifier) &&
+        Objects.equals(this.emailsDisabled, transactionCreate.emailsDisabled) &&
         Objects.equals(this.environment, transactionCreate.environment) &&
         Objects.equals(this.environmentSelectionStrategy, transactionCreate.environmentSelectionStrategy) &&
         Objects.equals(this.spaceViewId, transactionCreate.spaceViewId) &&
@@ -245,7 +268,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode, autoConfirmationEnabled, chargeRetryEnabled, customersPresence, deviceSessionIdentifier, environment, environmentSelectionStrategy, spaceViewId, super.hashCode());
+    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode, autoConfirmationEnabled, chargeRetryEnabled, customersPresence, deviceSessionIdentifier, emailsDisabled, environment, environmentSelectionStrategy, spaceViewId, super.hashCode());
   }
 
 
@@ -276,6 +299,7 @@ public class TransactionCreate extends AbstractTransactionPending {
     sb.append("    chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
     sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
     sb.append("    deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
+    sb.append("    emailsDisabled: ").append(toIndentedString(emailsDisabled)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");

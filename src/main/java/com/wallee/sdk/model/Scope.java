@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.Feature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,49 +37,55 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Scope {
   
-  @SerializedName("domainName")
+  @JsonProperty("domainName")
   protected String domainName = null;
 
   
-  @SerializedName("features")
+  @JsonProperty("features")
   protected List<Feature> features = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("machineName")
+  protected String machineName = null;
+
+  
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("port")
+  @JsonProperty("port")
   protected Integer port = null;
 
   
-  @SerializedName("sslActive")
+  @JsonProperty("sslActive")
   protected Boolean sslActive = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("themes")
+  @JsonProperty("themes")
   protected List<String> themes = null;
 
   
-  @SerializedName("url")
+  @JsonProperty("url")
   protected String url = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   
@@ -114,6 +117,16 @@ public class Scope {
   @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return machineName
+  **/
+  @ApiModelProperty(value = "")
+  public String getMachineName() {
+    return machineName;
   }
 
   
@@ -210,6 +223,7 @@ public class Scope {
     return Objects.equals(this.domainName, scope.domainName) &&
         Objects.equals(this.features, scope.features) &&
         Objects.equals(this.id, scope.id) &&
+        Objects.equals(this.machineName, scope.machineName) &&
         Objects.equals(this.name, scope.name) &&
         Objects.equals(this.plannedPurgeDate, scope.plannedPurgeDate) &&
         Objects.equals(this.port, scope.port) &&
@@ -222,7 +236,7 @@ public class Scope {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainName, features, id, name, plannedPurgeDate, port, sslActive, state, themes, url, version);
+    return Objects.hash(domainName, features, id, machineName, name, plannedPurgeDate, port, sslActive, state, themes, url, version);
   }
 
 
@@ -234,6 +248,7 @@ public class Scope {
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    machineName: ").append(toIndentedString(machineName)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");

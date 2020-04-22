@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.WebhookIdentity;
 import com.wallee.sdk.model.WebhookUrl;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,49 +38,51 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class WebhookListener {
   
-  @SerializedName("entity")
+  @JsonProperty("entity")
   protected Long entity = null;
 
   
-  @SerializedName("entityStates")
+  @JsonProperty("entityStates")
   protected List<String> entityStates = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("identity")
+  @JsonProperty("identity")
   protected WebhookIdentity identity = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("notifyEveryChange")
+  @JsonProperty("notifyEveryChange")
   protected Boolean notifyEveryChange = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("url")
+  @JsonProperty("url")
   protected WebhookUrl url = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

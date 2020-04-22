@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ShopifyRecurringOrderState.Adapter.class)
 public enum ShopifyRecurringOrderState {
   
   PENDING("PENDING"),
@@ -56,6 +51,7 @@ public enum ShopifyRecurringOrderState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -65,6 +61,7 @@ public enum ShopifyRecurringOrderState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ShopifyRecurringOrderState fromValue(String text) {
     for (ShopifyRecurringOrderState b : ShopifyRecurringOrderState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -72,19 +69,6 @@ public enum ShopifyRecurringOrderState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ShopifyRecurringOrderState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ShopifyRecurringOrderState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ShopifyRecurringOrderState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ShopifyRecurringOrderState.fromValue(String.valueOf(value));
-    }
   }
 }
 

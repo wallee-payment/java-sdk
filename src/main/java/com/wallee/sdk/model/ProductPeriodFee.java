@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.PersistableCurrencyAmount;
 import com.wallee.sdk.model.ProductFeeType;
 import com.wallee.sdk.model.SubscriptionProductComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -41,45 +38,47 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ProductPeriodFee {
   
-  @SerializedName("component")
+  @JsonProperty("component")
   protected SubscriptionProductComponent component = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected DatabaseTranslatedString description = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("ledgerEntryTitle")
+  @JsonProperty("ledgerEntryTitle")
   protected DatabaseTranslatedString ledgerEntryTitle = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected DatabaseTranslatedString name = null;
 
   
-  @SerializedName("numberOfFreeTrialPeriods")
+  @JsonProperty("numberOfFreeTrialPeriods")
   protected Integer numberOfFreeTrialPeriods = null;
 
   
-  @SerializedName("periodFee")
+  @JsonProperty("periodFee")
   protected List<PersistableCurrencyAmount> periodFee = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected ProductFeeType type = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(UserType.Adapter.class)
 public enum UserType {
   
   HUMAN_USER("HUMAN_USER"),
@@ -54,6 +49,7 @@ public enum UserType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -63,6 +59,7 @@ public enum UserType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static UserType fromValue(String text) {
     for (UserType b : UserType.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -70,19 +67,6 @@ public enum UserType {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<UserType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final UserType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public UserType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return UserType.fromValue(String.valueOf(value));
-    }
   }
 }
 

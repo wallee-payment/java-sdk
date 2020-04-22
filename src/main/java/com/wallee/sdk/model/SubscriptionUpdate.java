@@ -21,14 +21,11 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -36,25 +33,27 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionUpdate {
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Long version = null;
 
   
-  @SerializedName("affiliate")
+  @JsonProperty("affiliate")
   protected Long affiliate = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected String description = null;
 
   
-  @SerializedName("plannedTerminationDate")
+  @JsonProperty("plannedTerminationDate")
   protected OffsetDateTime plannedTerminationDate = null;
 
   

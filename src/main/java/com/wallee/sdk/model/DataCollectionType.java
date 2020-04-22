@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(DataCollectionType.Adapter.class)
 public enum DataCollectionType {
   
   ONSITE("ONSITE"),
@@ -48,6 +43,7 @@ public enum DataCollectionType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -57,6 +53,7 @@ public enum DataCollectionType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static DataCollectionType fromValue(String text) {
     for (DataCollectionType b : DataCollectionType.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -64,19 +61,6 @@ public enum DataCollectionType {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<DataCollectionType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final DataCollectionType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public DataCollectionType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return DataCollectionType.fromValue(String.valueOf(value));
-    }
   }
 }
 

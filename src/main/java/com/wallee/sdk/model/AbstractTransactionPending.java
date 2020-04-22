@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.TokenizationMode;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,77 +40,78 @@ import java.time.OffsetDateTime;
 /**
  * AbstractTransactionPending
  */
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class AbstractTransactionPending {
   
-  @SerializedName("allowedPaymentMethodBrands")
+  @JsonProperty("allowedPaymentMethodBrands")
   protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
 
   
-  @SerializedName("allowedPaymentMethodConfigurations")
+  @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<Long> allowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected AddressCreate billingAddress = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("customerEmailAddress")
+  @JsonProperty("customerEmailAddress")
   protected String customerEmailAddress = null;
 
   
-  @SerializedName("customerId")
+  @JsonProperty("customerId")
   protected String customerId = null;
 
   
-  @SerializedName("failedUrl")
+  @JsonProperty("failedUrl")
   protected String failedUrl = null;
 
   
-  @SerializedName("invoiceMerchantReference")
+  @JsonProperty("invoiceMerchantReference")
   protected String invoiceMerchantReference = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItemCreate> lineItems = null;
 
   
-  @SerializedName("merchantReference")
+  @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
   
-  @SerializedName("metaData")
+  @JsonProperty("metaData")
   protected Map<String, String> metaData = null;
 
   
-  @SerializedName("shippingAddress")
+  @JsonProperty("shippingAddress")
   protected AddressCreate shippingAddress = null;
 
   
-  @SerializedName("shippingMethod")
+  @JsonProperty("shippingMethod")
   protected String shippingMethod = null;
 
   
-  @SerializedName("successUrl")
+  @JsonProperty("successUrl")
   protected String successUrl = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("token")
+  @JsonProperty("token")
   protected Long token = null;
 
   
-  @SerializedName("tokenizationMode")
+  @JsonProperty("tokenizationMode")
   protected TokenizationMode tokenizationMode = null;
 
   

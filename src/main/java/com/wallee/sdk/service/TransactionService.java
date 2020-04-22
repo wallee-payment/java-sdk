@@ -1,36 +1,6 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityExportRequest;
@@ -46,12 +16,23 @@ import com.wallee.sdk.model.TransactionLineItemUpdateRequest;
 import com.wallee.sdk.model.TransactionLineItemVersion;
 import com.wallee.sdk.model.TransactionPending;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class TransactionService {
     private ApiClient apiClient;
 
@@ -67,2665 +48,2463 @@ public class TransactionService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for confirm
-     * @param spaceId  (required)
-     * @param transactionModel The transaction JSON object to update and confirm. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
-     */
-    public com.squareup.okhttp.Call confirmCall(Long spaceId, TransactionPending transactionModel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = transactionModel;
+  /**
+    * Confirm
+    * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionModel The transaction JSON object to update and confirm.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/transaction/confirm";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Transaction confirm(Long spaceId, TransactionPending transactionModel) throws IOException {
+        HttpResponse response = confirmForHttpResponse(spaceId, transactionModel);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call confirmValidateBeforeCall(Long spaceId, TransactionPending transactionModel, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Confirm
+    * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionModel The transaction JSON object to update and confirm.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
+
+    **/
+    public Transaction confirm(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
+        HttpResponse response = confirmForHttpResponse(spaceId, transactionModel, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling confirm(Async)");
-        }
-        
-        // verify the required parameter 'transactionModel' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+        }// verify the required parameter 'transactionModel' is set
         if (transactionModel == null) {
-            throw new ApiException("Missing the required parameter 'transactionModel' when calling confirm(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
         }
-        
-
-        com.squareup.okhttp.Call call = confirmCall(spaceId, transactionModel, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Confirm
-     * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
-     * @param spaceId  (required)
-     * @param transactionModel The transaction JSON object to update and confirm. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
-     */
-    public Transaction confirm(Long spaceId, TransactionPending transactionModel) throws ApiException {
-        ApiResponse<Transaction> resp = confirmWithHttpInfo(spaceId, transactionModel);
-        return resp.getData();
-    }
-
-    /**
-     * Confirm
-     * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
-     * @param spaceId  (required)
-     * @param transactionModel The transaction JSON object to update and confirm. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
-     */
-    public ApiResponse<Transaction> confirmWithHttpInfo(Long spaceId, TransactionPending transactionModel) throws ApiException {
-        com.squareup.okhttp.Call call = confirmValidateBeforeCall(spaceId, transactionModel, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Confirm (asynchronously)
-     * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
-     * @param spaceId  (required)
-     * @param transactionModel The transaction JSON object to update and confirm. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
-     */
-    public com.squareup.okhttp.Call confirmAsync(Long spaceId, TransactionPending transactionModel, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = confirmValidateBeforeCall(spaceId, transactionModel, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for count
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = filter;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/count";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(transactionModel);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call countValidateBeforeCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse confirmForHttpResponse(Long spaceId, java.io.InputStream transactionModel, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+              }// verify the required parameter 'transactionModel' is set
+              if (transactionModel == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = transactionModel == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transactionModel);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling count(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+        }// verify the required parameter 'transactionModel' is set
+        if (transactionModel == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
 
-        com.squareup.okhttp.Call call = countCall(spaceId, filter, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return Long
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
-     */
-    public Long count(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        ApiResponse<Long> resp = countWithHttpInfo(spaceId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return ApiResponse&lt;Long&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
-     */
-    public ApiResponse<Long> countWithHttpInfo(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, null, null);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Count (asynchronously)
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countAsync(Long spaceId, EntityQueryFilter filter, final ApiCallback<Long> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(transactionModel);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for create
-     * @param spaceId  (required)
-     * @param transaction The transaction object which should be created. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
-     */
-    public com.squareup.okhttp.Call createCall(Long spaceId, TransactionCreate transaction, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = transaction;
 
-        // create path and map variables
-        String localVarPath = "/transaction/create";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param filter The filter which restricts the entities which are used to calculate the count.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
+        HttpResponse response = countForHttpResponse(spaceId, filter);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+          return (Long) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createValidateBeforeCall(Long spaceId, TransactionCreate transaction, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
+
+    **/
+    public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        HttpResponse response = countForHttpResponse(filter, spaceId, params);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+            return (Long) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling create(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        
-        // verify the required parameter 'transaction' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = filter == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Create
+    * Creates the entity with the given properties.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transaction The transaction object which should be created.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
+
+    **/
+    public Transaction create(Long spaceId, TransactionCreate transaction) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, transaction);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Create
+    * Creates the entity with the given properties.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transaction The transaction object which should be created.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
+
+    **/
+    public Transaction create(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, transaction, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'transaction' is set
         if (transaction == null) {
-            throw new ApiException("Missing the required parameter 'transaction' when calling create(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
         }
-        
-
-        com.squareup.okhttp.Call call = createCall(spaceId, transaction, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Create
-     * Creates the entity with the given properties.
-     * @param spaceId  (required)
-     * @param transaction The transaction object which should be created. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
-     */
-    public Transaction create(Long spaceId, TransactionCreate transaction) throws ApiException {
-        ApiResponse<Transaction> resp = createWithHttpInfo(spaceId, transaction);
-        return resp.getData();
-    }
-
-    /**
-     * Create
-     * Creates the entity with the given properties.
-     * @param spaceId  (required)
-     * @param transaction The transaction object which should be created. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
-     */
-    public ApiResponse<Transaction> createWithHttpInfo(Long spaceId, TransactionCreate transaction) throws ApiException {
-        com.squareup.okhttp.Call call = createValidateBeforeCall(spaceId, transaction, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create (asynchronously)
-     * Creates the entity with the given properties.
-     * @param spaceId  (required)
-     * @param transaction The transaction object which should be created. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
-     */
-    public com.squareup.okhttp.Call createAsync(Long spaceId, TransactionCreate transaction, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = createValidateBeforeCall(spaceId, transaction, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for createTransactionCredentials
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call createTransactionCredentialsCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/createTransactionCredentials";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(transaction);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call createTransactionCredentialsValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream transaction, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+              }// verify the required parameter 'transaction' is set
+              if (transaction == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = transaction == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transaction);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling createTransactionCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'transaction' is set
+        if (transaction == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
         }
-        
-        // verify the required parameter 'id' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(transaction);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Create Transaction Credentials
+    * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
+
+    **/
+    public String createTransactionCredentials(Long spaceId, Long id) throws IOException {
+        HttpResponse response = createTransactionCredentialsForHttpResponse(spaceId, id);
+        String returnType = "String";
+        if(returnType.equals("String")){
+          return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Create Transaction Credentials
+    * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
+
+    **/
+    public String createTransactionCredentials(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = createTransactionCredentialsForHttpResponse(spaceId, id, params);
+        String returnType = "String";
+        if(returnType.equals("String")){
+            return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createTransactionCredentials");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling createTransactionCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling createTransactionCredentials");
         }
-        
-
-        com.squareup.okhttp.Call call = createTransactionCredentialsCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Create Transaction Credentials
-     * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
-     */
-    public String createTransactionCredentials(Long spaceId, Long id) throws ApiException {
-        ApiResponse<String> resp = createTransactionCredentialsWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Create Transaction Credentials
-     * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
-     */
-    public ApiResponse<String> createTransactionCredentialsWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = createTransactionCredentialsValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create Transaction Credentials (asynchronously)
-     * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call createTransactionCredentialsAsync(Long spaceId, Long id, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = createTransactionCredentialsValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for deleteOneClickTokenWithCredentials
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID will be used to find the token which should be removed. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call deleteOneClickTokenWithCredentialsCall(String credentials, Long tokenId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction/deleteOneClickTokenWithCredentials";
+    public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createTransactionCredentials");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling createTransactionCredentials");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials");
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (credentials != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("credentials", credentials));
-        if (tokenId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("tokenId", tokenId));
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            });
+            }
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call deleteOneClickTokenWithCredentialsValidateBeforeCall(String credentials, Long tokenId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
+  /**
+    * Delete One-Click Token with Credentials
+    * This operation removes the given token.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param tokenId The token ID will be used to find the token which should be removed.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
+
+    **/
+    public void deleteOneClickTokenWithCredentials(String credentials, Long tokenId) throws IOException {
+        deleteOneClickTokenWithCredentialsForHttpResponse(credentials, tokenId);
+    }
+
+  /**
+    * Delete One-Click Token with Credentials
+    * This operation removes the given token.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param tokenId The token ID will be used to find the token which should be removed.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
+
+    **/
+    public void deleteOneClickTokenWithCredentials(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
+        deleteOneClickTokenWithCredentialsForHttpResponse(credentials, tokenId, params);
+    }
+
+    public HttpResponse deleteOneClickTokenWithCredentialsForHttpResponse(String credentials, Long tokenId) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new ApiException("Missing the required parameter 'credentials' when calling deleteOneClickTokenWithCredentials(Async)");
-        }
-        
-        // verify the required parameter 'tokenId' is set
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling deleteOneClickTokenWithCredentials");
+        }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new ApiException("Missing the required parameter 'tokenId' when calling deleteOneClickTokenWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling deleteOneClickTokenWithCredentials");
         }
-        
-
-        com.squareup.okhttp.Call call = deleteOneClickTokenWithCredentialsCall(credentials, tokenId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Delete One-Click Token with Credentials
-     * This operation removes the given token.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID will be used to find the token which should be removed. (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
-     */
-    public void deleteOneClickTokenWithCredentials(String credentials, Long tokenId) throws ApiException {
-        deleteOneClickTokenWithCredentialsWithHttpInfo(credentials, tokenId);
-    }
-
-    /**
-     * Delete One-Click Token with Credentials
-     * This operation removes the given token.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID will be used to find the token which should be removed. (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
-     */
-    public ApiResponse<Void> deleteOneClickTokenWithCredentialsWithHttpInfo(String credentials, Long tokenId) throws ApiException {
-        com.squareup.okhttp.Call call = deleteOneClickTokenWithCredentialsValidateBeforeCall(credentials, tokenId, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * Delete One-Click Token with Credentials (asynchronously)
-     * This operation removes the given token.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID will be used to find the token which should be removed. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call deleteOneClickTokenWithCredentialsAsync(String credentials, Long tokenId, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials");
+        if (credentials != null) {
+            String key = "credentials";
+            Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (tokenId != null) {
+            String key = "tokenId";
+            Object value = tokenId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = deleteOneClickTokenWithCredentialsValidateBeforeCall(credentials, tokenId, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for export
-     * @param spaceId  (required)
-     * @param request The request controls the entries which are exported. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
-     */
-    public com.squareup.okhttp.Call exportCall(Long spaceId, EntityExportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = request;
 
-        // create path and map variables
-        String localVarPath = "/transaction/export";
+    public HttpResponse deleteOneClickTokenWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'credentials' is set
+        if (credentials == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling deleteOneClickTokenWithCredentials");
+        }// verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling deleteOneClickTokenWithCredentials");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials");
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'credentials' to the map of query params
+        allParams.put("credentials", credentials);
+        // Add the required query param 'tokenId' to the map of query params
+        allParams.put("tokenId", tokenId);
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8", "text/csv"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            });
+            }
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call exportValidateBeforeCall(Long spaceId, EntityExportRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
+  /**
+    * Export
+    * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param request The request controls the entries which are exported.
+    * @return byte[]
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
+
+    **/
+    public byte[] export(Long spaceId, EntityExportRequest request) throws IOException {
+        HttpResponse response = exportForHttpResponse(spaceId, request);
+        String returnType = "byte[]";
+        if(returnType.equals("String")){
+          return (byte[]) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<byte[]>() {};
+        return (byte[])apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Export
+    * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param request The request controls the entries which are exported.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return byte[]
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
+
+    **/
+    public byte[] export(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
+        HttpResponse response = exportForHttpResponse(spaceId, request, params);
+        String returnType = "byte[]";
+        if(returnType.equals("String")){
+            return (byte[]) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<byte[]>() {};
+        return (byte[])apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling export(Async)");
-        }
-        
-        // verify the required parameter 'request' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+        }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new ApiException("Missing the required parameter 'request' when calling export(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
         }
-        
-
-        com.squareup.okhttp.Call call = exportCall(spaceId, request, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Export
-     * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
-     * @param spaceId  (required)
-     * @param request The request controls the entries which are exported. (required)
-     * @return byte[]
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
-     */
-    public byte[] export(Long spaceId, EntityExportRequest request) throws ApiException {
-        ApiResponse<byte[]> resp = exportWithHttpInfo(spaceId, request);
-        return resp.getData();
-    }
-
-    /**
-     * Export
-     * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
-     * @param spaceId  (required)
-     * @param request The request controls the entries which are exported. (required)
-     * @return ApiResponse&lt;byte[]&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
-     */
-    public ApiResponse<byte[]> exportWithHttpInfo(Long spaceId, EntityExportRequest request) throws ApiException {
-        com.squareup.okhttp.Call call = exportValidateBeforeCall(spaceId, request, null, null);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Export (asynchronously)
-     * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
-     * @param spaceId  (required)
-     * @param request The request controls the entries which are exported. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
-     */
-    public com.squareup.okhttp.Call exportAsync(Long spaceId, EntityExportRequest request, final ApiCallback<byte[]> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = exportValidateBeforeCall(spaceId, request, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<byte[]>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for fetchOneClickTokensWithCredentials
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchOneClickTokensWithCredentialsCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction/fetchOneClickTokensWithCredentials";
+      public HttpResponse exportForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+              }// verify the required parameter 'request' is set
+              if (request == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (credentials != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("credentials", credentials));
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+              HttpContent content = request == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
 
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
 
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
 
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            });
+            }
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchOneClickTokensWithCredentialsValidateBeforeCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
+  /**
+    * Fetch One Click Tokens with Credentials
+    * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @return List&lt;TokenVersion&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
+
+    **/
+    public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials) throws IOException {
+        HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials);
+        String returnType = "List&lt;TokenVersion&gt;";
+        if(returnType.equals("String")){
+          return (List<TokenVersion>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Fetch One Click Tokens with Credentials
+    * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;TokenVersion&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
+
+    **/
+    public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials, params);
+        String returnType = "List&lt;TokenVersion&gt;";
+        if(returnType.equals("String")){
+            return (List<TokenVersion>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new ApiException("Missing the required parameter 'credentials' when calling fetchOneClickTokensWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchOneClickTokensWithCredentials");
         }
-        
-
-        com.squareup.okhttp.Call call = fetchOneClickTokensWithCredentialsCall(credentials, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Fetch One Click Tokens with Credentials
-     * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return List&lt;TokenVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
-     */
-    public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials) throws ApiException {
-        ApiResponse<List<TokenVersion>> resp = fetchOneClickTokensWithCredentialsWithHttpInfo(credentials);
-        return resp.getData();
-    }
-
-    /**
-     * Fetch One Click Tokens with Credentials
-     * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return ApiResponse&lt;List&lt;TokenVersion&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
-     */
-    public ApiResponse<List<TokenVersion>> fetchOneClickTokensWithCredentialsWithHttpInfo(String credentials) throws ApiException {
-        com.squareup.okhttp.Call call = fetchOneClickTokensWithCredentialsValidateBeforeCall(credentials, null, null);
-        Type localVarReturnType = new TypeToken<List<TokenVersion>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Fetch One Click Tokens with Credentials (asynchronously)
-     * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchOneClickTokensWithCredentialsAsync(String credentials, final ApiCallback<List<TokenVersion>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials");
+        if (credentials != null) {
+            String key = "credentials";
+            Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = fetchOneClickTokensWithCredentialsValidateBeforeCall(credentials, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<TokenVersion>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for fetchPossiblePaymentMethods
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchPossiblePaymentMethodsCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/fetchPossiblePaymentMethods";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchPossiblePaymentMethodsValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling fetchPossiblePaymentMethods(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling fetchPossiblePaymentMethods(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Fetch Possible Payment Methods
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return List&lt;PaymentMethodConfiguration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
-     */
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethods(Long spaceId, Long id) throws ApiException {
-        ApiResponse<List<PaymentMethodConfiguration>> resp = fetchPossiblePaymentMethodsWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Fetch Possible Payment Methods
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return ApiResponse&lt;List&lt;PaymentMethodConfiguration&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
-     */
-    public ApiResponse<List<PaymentMethodConfiguration>> fetchPossiblePaymentMethodsWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<List<PaymentMethodConfiguration>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Fetch Possible Payment Methods (asynchronously)
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchPossiblePaymentMethodsAsync(Long spaceId, Long id, final ApiCallback<List<PaymentMethodConfiguration>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<PaymentMethodConfiguration>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for fetchPossiblePaymentMethodsWithCredentials
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchPossiblePaymentMethodsWithCredentialsCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/transaction/fetchPossiblePaymentMethodsWithCredentials";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (credentials != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("credentials", credentials));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call fetchPossiblePaymentMethodsWithCredentialsValidateBeforeCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new ApiException("Missing the required parameter 'credentials' when calling fetchPossiblePaymentMethodsWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchOneClickTokensWithCredentials");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials");
 
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsWithCredentialsCall(credentials, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'credentials' to the map of query params
+        allParams.put("credentials", credentials);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Fetch Possible Payment Methods with Credentials
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return List&lt;PaymentMethodConfiguration&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
-     */
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethodsWithCredentials(String credentials) throws ApiException {
-        ApiResponse<List<PaymentMethodConfiguration>> resp = fetchPossiblePaymentMethodsWithCredentialsWithHttpInfo(credentials);
-        return resp.getData();
-    }
-
-    /**
-     * Fetch Possible Payment Methods with Credentials
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return ApiResponse&lt;List&lt;PaymentMethodConfiguration&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
-     */
-    public ApiResponse<List<PaymentMethodConfiguration>> fetchPossiblePaymentMethodsWithCredentialsWithHttpInfo(String credentials) throws ApiException {
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsWithCredentialsValidateBeforeCall(credentials, null, null);
-        Type localVarReturnType = new TypeToken<List<PaymentMethodConfiguration>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Fetch Possible Payment Methods with Credentials (asynchronously)
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call fetchPossiblePaymentMethodsWithCredentialsAsync(String credentials, final ApiCallback<List<PaymentMethodConfiguration>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = fetchPossiblePaymentMethodsWithCredentialsValidateBeforeCall(credentials, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<PaymentMethodConfiguration>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
-    /**
-     * Build call for getInvoiceDocument
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the invoice document for. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction/getInvoiceDocument";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
+  /**
+    * Fetch Possible Payment Methods
+    * This operation allows to get the payment method configurations which can be used with the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @return List&lt;PaymentMethodConfiguration&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethods(Long spaceId, Long id) throws IOException {
+        HttpResponse response = fetchPossiblePaymentMethodsForHttpResponse(spaceId, id);
+        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
+        if(returnType.equals("String")){
+          return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInvoiceDocumentValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Fetch Possible Payment Methods
+    * This operation allows to get the payment method configurations which can be used with the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;PaymentMethodConfiguration&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
+
+    **/
+    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethods(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchPossiblePaymentMethodsForHttpResponse(spaceId, id, params);
+        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
+        if(returnType.equals("String")){
+            return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse fetchPossiblePaymentMethodsForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling getInvoiceDocument(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPossiblePaymentMethods");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getInvoiceDocument(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPossiblePaymentMethods");
         }
-        
-
-        com.squareup.okhttp.Call call = getInvoiceDocumentCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * getInvoiceDocument
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the invoice document for. (required)
-     * @return RenderedDocument
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws ApiException {
-        ApiResponse<RenderedDocument> resp = getInvoiceDocumentWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * getInvoiceDocument
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the invoice document for. (required)
-     * @return ApiResponse&lt;RenderedDocument&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public ApiResponse<RenderedDocument> getInvoiceDocumentWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = getInvoiceDocumentValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getInvoiceDocument (asynchronously)
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the invoice document for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentAsync(Long spaceId, Long id, final ApiCallback<RenderedDocument> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethods");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = getInvoiceDocumentValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getLatestTransactionLineItemVersion
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the latest line item version for. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
-     */
-    public com.squareup.okhttp.Call getLatestTransactionLineItemVersionCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/getLatestTransactionLineItemVersion";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getLatestTransactionLineItemVersionValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse fetchPossiblePaymentMethodsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling getLatestTransactionLineItemVersion(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPossiblePaymentMethods");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getLatestTransactionLineItemVersion(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPossiblePaymentMethods");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethods");
 
-        com.squareup.okhttp.Call call = getLatestTransactionLineItemVersionCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * getLatestTransactionLineItemVersion
-     * 
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the latest line item version for. (required)
-     * @return TransactionLineItemVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
-     */
-    public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws ApiException {
-        ApiResponse<TransactionLineItemVersion> resp = getLatestTransactionLineItemVersionWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * getLatestTransactionLineItemVersion
-     * 
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the latest line item version for. (required)
-     * @return ApiResponse&lt;TransactionLineItemVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
-     */
-    public ApiResponse<TransactionLineItemVersion> getLatestTransactionLineItemVersionWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = getLatestTransactionLineItemVersionValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<TransactionLineItemVersion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getLatestTransactionLineItemVersion (asynchronously)
-     * 
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the latest line item version for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
-     */
-    public com.squareup.okhttp.Call getLatestTransactionLineItemVersionAsync(Long spaceId, Long id, final ApiCallback<TransactionLineItemVersion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = getLatestTransactionLineItemVersionValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionLineItemVersion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
-    /**
-     * Build call for getPackingSlip
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the packing slip for. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
-     */
-    public com.squareup.okhttp.Call getPackingSlipCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction/getPackingSlip";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
+  /**
+    * Fetch Possible Payment Methods with Credentials
+    * This operation allows to get the payment method configurations which can be used with the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @return List&lt;PaymentMethodConfiguration&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethodsWithCredentials(String credentials) throws IOException {
+        HttpResponse response = fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(credentials);
+        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
+        if(returnType.equals("String")){
+          return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getPackingSlipValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling getPackingSlip(Async)");
+  /**
+    * Fetch Possible Payment Methods with Credentials
+    * This operation allows to get the payment method configurations which can be used with the provided transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;PaymentMethodConfiguration&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
+
+    **/
+    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethodsWithCredentials(String credentials, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(credentials, params);
+        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
+        if(returnType.equals("String")){
+            return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
         }
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getPackingSlip(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = getPackingSlipCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    /**
-     * getPackingSlip
-     * Returns the packing slip for the transaction with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the packing slip for. (required)
-     * @return RenderedDocument
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
-     */
-    public RenderedDocument getPackingSlip(Long spaceId, Long id) throws ApiException {
-        ApiResponse<RenderedDocument> resp = getPackingSlipWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * getPackingSlip
-     * Returns the packing slip for the transaction with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the packing slip for. (required)
-     * @return ApiResponse&lt;RenderedDocument&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
-     */
-    public ApiResponse<RenderedDocument> getPackingSlipWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = getPackingSlipValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getPackingSlip (asynchronously)
-     * Returns the packing slip for the transaction with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction to get the packing slip for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
-     */
-    public com.squareup.okhttp.Call getPackingSlipAsync(Long spaceId, Long id, final ApiCallback<RenderedDocument> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = getPackingSlipValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for processOneClickTokenAndRedirectWithCredentials
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call processOneClickTokenAndRedirectWithCredentialsCall(String credentials, Long tokenId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/transaction/processOneClickTokenAndRedirectWithCredentials";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (credentials != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("credentials", credentials));
-        if (tokenId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("tokenId", tokenId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call processOneClickTokenAndRedirectWithCredentialsValidateBeforeCall(String credentials, Long tokenId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(String credentials) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new ApiException("Missing the required parameter 'credentials' when calling processOneClickTokenAndRedirectWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPossiblePaymentMethodsWithCredentials");
         }
-        
-        // verify the required parameter 'tokenId' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethodsWithCredentials");
+        if (credentials != null) {
+            String key = "credentials";
+            Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'credentials' is set
+        if (credentials == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPossiblePaymentMethodsWithCredentials");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethodsWithCredentials");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'credentials' to the map of query params
+        allParams.put("credentials", credentials);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * getInvoiceDocument
+    * Returns the PDF document for the transaction invoice with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the invoice document for.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
+        HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+          return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * getInvoiceDocument
+    * Returns the PDF document for the transaction invoice with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the invoice document for.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+            return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * getLatestTransactionLineItemVersion
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the latest line item version for.
+    * @return TransactionLineItemVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
+
+    **/
+    public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws IOException {
+        HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id);
+        String returnType = "TransactionLineItemVersion";
+        if(returnType.equals("String")){
+          return (TransactionLineItemVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * getLatestTransactionLineItemVersion
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the latest line item version for.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionLineItemVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
+
+    **/
+    public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id, params);
+        String returnType = "TransactionLineItemVersion";
+        if(returnType.equals("String")){
+            return (TransactionLineItemVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getLatestTransactionLineItemVersion");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getLatestTransactionLineItemVersion");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getLatestTransactionLineItemVersion");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getLatestTransactionLineItemVersion");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * getPackingSlip
+    * Returns the packing slip for the transaction with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the packing slip for.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
+
+    **/
+    public RenderedDocument getPackingSlip(Long spaceId, Long id) throws IOException {
+        HttpResponse response = getPackingSlipForHttpResponse(spaceId, id);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+          return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * getPackingSlip
+    * Returns the packing slip for the transaction with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction to get the packing slip for.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
+
+    **/
+    public RenderedDocument getPackingSlip(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = getPackingSlipForHttpResponse(spaceId, id, params);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+            return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getPackingSlip");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getPackingSlip");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getPackingSlip");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getPackingSlip");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Process One-Click Token with Credentials
+    * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
+
+    **/
+    public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId) throws IOException {
+        HttpResponse response = processOneClickTokenAndRedirectWithCredentialsForHttpResponse(credentials, tokenId);
+        String returnType = "String";
+        if(returnType.equals("String")){
+          return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Process One-Click Token with Credentials
+    * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return String
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
+
+    **/
+    public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
+        HttpResponse response = processOneClickTokenAndRedirectWithCredentialsForHttpResponse(credentials, tokenId, params);
+        String returnType = "String";
+        if(returnType.equals("String")){
+            return (String) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<String>() {};
+        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId) throws IOException {
+        // verify the required parameter 'credentials' is set
+        if (credentials == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling processOneClickTokenAndRedirectWithCredentials");
+        }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new ApiException("Missing the required parameter 'tokenId' when calling processOneClickTokenAndRedirectWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling processOneClickTokenAndRedirectWithCredentials");
         }
-        
-
-        com.squareup.okhttp.Call call = processOneClickTokenAndRedirectWithCredentialsCall(credentials, tokenId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Process One-Click Token with Credentials
-     * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it. (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
-     */
-    public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId) throws ApiException {
-        ApiResponse<String> resp = processOneClickTokenAndRedirectWithCredentialsWithHttpInfo(credentials, tokenId);
-        return resp.getData();
-    }
-
-    /**
-     * Process One-Click Token with Credentials
-     * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it. (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
-     */
-    public ApiResponse<String> processOneClickTokenAndRedirectWithCredentialsWithHttpInfo(String credentials, Long tokenId) throws ApiException {
-        com.squareup.okhttp.Call call = processOneClickTokenAndRedirectWithCredentialsValidateBeforeCall(credentials, tokenId, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Process One-Click Token with Credentials (asynchronously)
-     * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param tokenId The token ID is used to load the corresponding token and to process the transaction with it. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call processOneClickTokenAndRedirectWithCredentialsAsync(String credentials, Long tokenId, final ApiCallback<String> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials");
+        if (credentials != null) {
+            String key = "credentials";
+            Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (tokenId != null) {
+            String key = "tokenId";
+            Object value = tokenId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = processOneClickTokenAndRedirectWithCredentialsValidateBeforeCall(credentials, tokenId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for processWithoutUserInteraction
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be processed. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
-     */
-    public com.squareup.okhttp.Call processWithoutUserInteractionCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/processWithoutUserInteraction";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call processWithoutUserInteractionValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling processWithoutUserInteraction(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling processWithoutUserInteraction(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = processWithoutUserInteractionCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Process Without User Interaction
-     * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be processed. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
-     */
-    public Transaction processWithoutUserInteraction(Long spaceId, Long id) throws ApiException {
-        ApiResponse<Transaction> resp = processWithoutUserInteractionWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Process Without User Interaction
-     * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be processed. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
-     */
-    public ApiResponse<Transaction> processWithoutUserInteractionWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = processWithoutUserInteractionValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Process Without User Interaction (asynchronously)
-     * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be processed. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
-     */
-    public com.squareup.okhttp.Call processWithoutUserInteractionAsync(Long spaceId, Long id, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = processWithoutUserInteractionValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for read
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/transaction/read";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling read(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling read(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = readCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
-     */
-    public Transaction read(Long spaceId, Long id) throws ApiException {
-        ApiResponse<Transaction> resp = readWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
-     */
-    public ApiResponse<Transaction> readWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read (asynchronously)
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readAsync(Long spaceId, Long id, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for readWithCredentials
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call readWithCredentialsCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/transaction/readWithCredentials";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (credentials != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("credentials", credentials));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readWithCredentialsValidateBeforeCall(String credentials, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new ApiException("Missing the required parameter 'credentials' when calling readWithCredentials(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling processOneClickTokenAndRedirectWithCredentials");
+        }// verify the required parameter 'tokenId' is set
+        if (tokenId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling processOneClickTokenAndRedirectWithCredentials");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials");
 
-        com.squareup.okhttp.Call call = readWithCredentialsCall(credentials, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'credentials' to the map of query params
+        allParams.put("credentials", credentials);
+        // Add the required query param 'tokenId' to the map of query params
+        allParams.put("tokenId", tokenId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Read With Credentials
-     * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
-     */
-    public Transaction readWithCredentials(String credentials) throws ApiException {
-        ApiResponse<Transaction> resp = readWithCredentialsWithHttpInfo(credentials);
-        return resp.getData();
-    }
-
-    /**
-     * Read With Credentials
-     * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
-     */
-    public ApiResponse<Transaction> readWithCredentialsWithHttpInfo(String credentials) throws ApiException {
-        com.squareup.okhttp.Call call = readWithCredentialsValidateBeforeCall(credentials, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read With Credentials (asynchronously)
-     * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
-     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
-     */
-    public com.squareup.okhttp.Call readWithCredentialsAsync(String credentials, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = readWithCredentialsValidateBeforeCall(credentials, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for search
-     * @param spaceId  (required)
-     * @param query The query restricts the transactions which are returned by the search. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = query;
 
-        // create path and map variables
-        String localVarPath = "/transaction/search";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
+  /**
+    * Process Without User Interaction
+    * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be processed.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Transaction processWithoutUserInteraction(Long spaceId, Long id) throws IOException {
+        HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Process Without User Interaction
+    * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be processed.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
+
+    **/
+    public Transaction processWithoutUserInteraction(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWithoutUserInteraction");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling processWithoutUserInteraction");
         }
-        
-        // verify the required parameter 'query' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+    public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWithoutUserInteraction");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling processWithoutUserInteraction");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
+
+    **/
+    public Transaction read(Long spaceId, Long id) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
+
+    **/
+    public Transaction read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/read");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/read");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read With Credentials
+    * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
+
+    **/
+    public Transaction readWithCredentials(String credentials) throws IOException {
+        HttpResponse response = readWithCredentialsForHttpResponse(credentials);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read With Credentials
+    * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
+
+    **/
+    public Transaction readWithCredentials(String credentials, Map<String, Object> params) throws IOException {
+        HttpResponse response = readWithCredentialsForHttpResponse(credentials, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readWithCredentialsForHttpResponse(String credentials) throws IOException {
+        // verify the required parameter 'credentials' is set
+        if (credentials == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling readWithCredentials");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials");
+        if (credentials != null) {
+            String key = "credentials";
+            Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse readWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'credentials' is set
+        if (credentials == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling readWithCredentials");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'credentials' to the map of query params
+        allParams.put("credentials", credentials);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the transactions which are returned by the search.
+    * @return List&lt;Transaction&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
+
+    **/
+    public List<Transaction> search(Long spaceId, EntityQuery query) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query);
+        String returnType = "List&lt;Transaction&gt;";
+        if(returnType.equals("String")){
+          return (List<Transaction>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<Transaction>>() {};
+        return (List<Transaction>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the transactions which are returned by the search.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;Transaction&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
+
+    **/
+    public List<Transaction> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query, params);
+        String returnType = "List&lt;Transaction&gt;";
+        if(returnType.equals("String")){
+            return (List<Transaction>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<Transaction>>() {};
+        return (List<Transaction>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-
-        com.squareup.okhttp.Call call = searchCall(spaceId, query, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transactions which are returned by the search. (required)
-     * @return List&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
-     */
-    public List<Transaction> search(Long spaceId, EntityQuery query) throws ApiException {
-        ApiResponse<List<Transaction>> resp = searchWithHttpInfo(spaceId, query);
-        return resp.getData();
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transactions which are returned by the search. (required)
-     * @return ApiResponse&lt;List&lt;Transaction&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
-     */
-    public ApiResponse<List<Transaction>> searchWithHttpInfo(Long spaceId, EntityQuery query) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, null, null);
-        Type localVarReturnType = new TypeToken<List<Transaction>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search (asynchronously)
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transactions which are returned by the search. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchAsync(Long spaceId, EntityQuery query, final ApiCallback<List<Transaction>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Transaction>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for update
-     * @param spaceId  (required)
-     * @param entity The transaction object with the properties which should be updated. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateCall(Long spaceId, TransactionPending entity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = entity;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/update";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateValidateBeforeCall(Long spaceId, TransactionPending entity, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+              }// verify the required parameter 'query' is set
+              if (query == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = query == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling update(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-        // verify the required parameter 'entity' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Update
+    * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param entity The transaction object with the properties which should be updated.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
+
+    **/
+    public Transaction update(Long spaceId, TransactionPending entity) throws IOException {
+        HttpResponse response = updateForHttpResponse(spaceId, entity);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Update
+    * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param entity The transaction object with the properties which should be updated.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
+
+    **/
+    public Transaction update(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateForHttpResponse(spaceId, entity, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+        }// verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new ApiException("Missing the required parameter 'entity' when calling update(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
-        
-
-        com.squareup.okhttp.Call call = updateCall(spaceId, entity, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Update
-     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-     * @param spaceId  (required)
-     * @param entity The transaction object with the properties which should be updated. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
-     */
-    public Transaction update(Long spaceId, TransactionPending entity) throws ApiException {
-        ApiResponse<Transaction> resp = updateWithHttpInfo(spaceId, entity);
-        return resp.getData();
-    }
-
-    /**
-     * Update
-     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-     * @param spaceId  (required)
-     * @param entity The transaction object with the properties which should be updated. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
-     */
-    public ApiResponse<Transaction> updateWithHttpInfo(Long spaceId, TransactionPending entity) throws ApiException {
-        com.squareup.okhttp.Call call = updateValidateBeforeCall(spaceId, entity, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Update (asynchronously)
-     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-     * @param spaceId  (required)
-     * @param entity The transaction object with the properties which should be updated. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateAsync(Long spaceId, TransactionPending entity, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = updateValidateBeforeCall(spaceId, entity, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for updateTransactionLineItems
-     * @param spaceId  (required)
-     * @param updateRequest  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateTransactionLineItemsCall(Long spaceId, TransactionLineItemUpdateRequest updateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = updateRequest;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction/updateTransactionLineItems";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateTransactionLineItemsValidateBeforeCall(Long spaceId, TransactionLineItemUpdateRequest updateRequest, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+              }// verify the required parameter 'entity' is set
+              if (entity == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = entity == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+        }// verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
-        
-        // verify the required parameter 'updateRequest' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * updateTransactionLineItems
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param updateRequest 
+    * @return TransactionLineItemVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
+
+    **/
+    public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
+        HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest);
+        String returnType = "TransactionLineItemVersion";
+        if(returnType.equals("String")){
+          return (TransactionLineItemVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * updateTransactionLineItems
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param updateRequest 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionLineItemVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
+
+    **/
+    public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest, params);
+        String returnType = "TransactionLineItemVersion";
+        if(returnType.equals("String")){
+            return (TransactionLineItemVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+        }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new ApiException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
         }
-        
-
-        com.squareup.okhttp.Call call = updateTransactionLineItemsCall(spaceId, updateRequest, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * updateTransactionLineItems
-     * 
-     * @param spaceId  (required)
-     * @param updateRequest  (required)
-     * @return TransactionLineItemVersion
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-     */
-    public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws ApiException {
-        ApiResponse<TransactionLineItemVersion> resp = updateTransactionLineItemsWithHttpInfo(spaceId, updateRequest);
-        return resp.getData();
-    }
-
-    /**
-     * updateTransactionLineItems
-     * 
-     * @param spaceId  (required)
-     * @param updateRequest  (required)
-     * @return ApiResponse&lt;TransactionLineItemVersion&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-     */
-    public ApiResponse<TransactionLineItemVersion> updateTransactionLineItemsWithHttpInfo(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws ApiException {
-        com.squareup.okhttp.Call call = updateTransactionLineItemsValidateBeforeCall(spaceId, updateRequest, null, null);
-        Type localVarReturnType = new TypeToken<TransactionLineItemVersion>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * updateTransactionLineItems (asynchronously)
-     * 
-     * @param spaceId  (required)
-     * @param updateRequest  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateTransactionLineItemsAsync(Long spaceId, TransactionLineItemUpdateRequest updateRequest, final ApiCallback<TransactionLineItemVersion> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = updateTransactionLineItemsValidateBeforeCall(spaceId, updateRequest, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionLineItemVersion>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+      public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, java.io.InputStream updateRequest, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+              }// verify the required parameter 'updateRequest' is set
+              if (updateRequest == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = updateRequest == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+        }// verify the required parameter 'updateRequest' is set
+        if (updateRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

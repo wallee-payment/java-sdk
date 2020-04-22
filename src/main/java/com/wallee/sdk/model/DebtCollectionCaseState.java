@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(DebtCollectionCaseState.Adapter.class)
 public enum DebtCollectionCaseState {
   
   CREATE("CREATE"),
@@ -58,6 +53,7 @@ public enum DebtCollectionCaseState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -67,6 +63,7 @@ public enum DebtCollectionCaseState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static DebtCollectionCaseState fromValue(String text) {
     for (DebtCollectionCaseState b : DebtCollectionCaseState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -74,19 +71,6 @@ public enum DebtCollectionCaseState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<DebtCollectionCaseState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final DebtCollectionCaseState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public DebtCollectionCaseState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return DebtCollectionCaseState.fromValue(String.valueOf(value));
-    }
   }
 }
 

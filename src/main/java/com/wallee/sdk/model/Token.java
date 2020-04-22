@@ -21,15 +21,12 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -37,57 +34,59 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Token {
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("customerEmailAddress")
+  @JsonProperty("customerEmailAddress")
   protected String customerEmailAddress = null;
 
   
-  @SerializedName("customerId")
+  @JsonProperty("customerId")
   protected String customerId = null;
 
   
-  @SerializedName("enabledForOneClickPayment")
+  @JsonProperty("enabledForOneClickPayment")
   protected Boolean enabledForOneClickPayment = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("tokenReference")
+  @JsonProperty("tokenReference")
   protected String tokenReference = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

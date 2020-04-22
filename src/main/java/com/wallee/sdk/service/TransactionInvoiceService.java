@@ -1,36 +1,6 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
@@ -40,12 +10,23 @@ import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.TransactionInvoice;
 import com.wallee.sdk.model.TransactionInvoiceReplacement;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class TransactionInvoiceService {
     private ApiClient apiClient;
 
@@ -61,1302 +42,1244 @@ public class TransactionInvoiceService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for count
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = filter;
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param filter The filter which restricts the entities which are used to calculate the count.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/count";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
+        HttpResponse response = countForHttpResponse(spaceId, filter);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+          return (Long) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call countValidateBeforeCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
+
+    **/
+    public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        HttpResponse response = countForHttpResponse(filter, spaceId, params);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+            return (Long) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling count(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        
-
-        com.squareup.okhttp.Call call = countCall(spaceId, filter, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return Long
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-     */
-    public Long count(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        ApiResponse<Long> resp = countWithHttpInfo(spaceId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return ApiResponse&lt;Long&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-     */
-    public ApiResponse<Long> countWithHttpInfo(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, null, null);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Count (asynchronously)
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countAsync(Long spaceId, EntityQueryFilter filter, final ApiCallback<Long> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getInvoiceDocument
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/getInvoiceDocument";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInvoiceDocumentValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = filter == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling getInvoiceDocument(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        
-        // verify the required parameter 'id' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * getInvoiceDocument
+    * Returns the PDF document for the transaction invoice with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice to get the document for.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
+        HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+          return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * getInvoiceDocument
+    * Returns the PDF document for the transaction invoice with given id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice to get the document for.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+            return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getInvoiceDocument(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
         }
-        
-
-        com.squareup.okhttp.Call call = getInvoiceDocumentCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * getInvoiceDocument
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @return RenderedDocument
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws ApiException {
-        ApiResponse<RenderedDocument> resp = getInvoiceDocumentWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * getInvoiceDocument
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @return ApiResponse&lt;RenderedDocument&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public ApiResponse<RenderedDocument> getInvoiceDocumentWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = getInvoiceDocumentValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getInvoiceDocument (asynchronously)
-     * Returns the PDF document for the transaction invoice with given id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentAsync(Long spaceId, Long id, final ApiCallback<RenderedDocument> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocument");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = getInvoiceDocumentValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for getInvoiceDocumentWithTargetMediaType
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentWithTargetMediaTypeCall(Long spaceId, Long id, Long targetMediaTypeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/getInvoiceDocumentWithTargetMediaType";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-        if (targetMediaTypeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("targetMediaTypeId", targetMediaTypeId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getInvoiceDocumentWithTargetMediaTypeValidateBeforeCall(Long spaceId, Long id, Long targetMediaTypeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling getInvoiceDocumentWithTargetMediaType(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling getInvoiceDocumentWithTargetMediaType(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
         }
-        
-        // verify the required parameter 'targetMediaTypeId' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocument");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * getInvoiceDocumentWithTargetMediaType
+    * Returns the PDF document for the transaction invoice with given id and target media type id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice to get the document for.
+    * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
+        HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+          return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * getInvoiceDocumentWithTargetMediaType
+    * Returns the PDF document for the transaction invoice with given id and target media type id.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice to get the document for.
+    * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return RenderedDocument
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+
+    **/
+    public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
+        HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
+        String returnType = "RenderedDocument";
+        if(returnType.equals("String")){
+            return (RenderedDocument) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse getInvoiceDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocumentWithTargetMediaType");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocumentWithTargetMediaType");
+        }// verify the required parameter 'targetMediaTypeId' is set
         if (targetMediaTypeId == null) {
-            throw new ApiException("Missing the required parameter 'targetMediaTypeId' when calling getInvoiceDocumentWithTargetMediaType(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'targetMediaTypeId' when calling getInvoiceDocumentWithTargetMediaType");
         }
-        
-
-        com.squareup.okhttp.Call call = getInvoiceDocumentWithTargetMediaTypeCall(spaceId, id, targetMediaTypeId, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * getInvoiceDocumentWithTargetMediaType
-     * Returns the PDF document for the transaction invoice with given id and target media type id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for. (required)
-     * @return RenderedDocument
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-     */
-    public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws ApiException {
-        ApiResponse<RenderedDocument> resp = getInvoiceDocumentWithTargetMediaTypeWithHttpInfo(spaceId, id, targetMediaTypeId);
-        return resp.getData();
-    }
-
-    /**
-     * getInvoiceDocumentWithTargetMediaType
-     * Returns the PDF document for the transaction invoice with given id and target media type id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for. (required)
-     * @return ApiResponse&lt;RenderedDocument&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-     */
-    public ApiResponse<RenderedDocument> getInvoiceDocumentWithTargetMediaTypeWithHttpInfo(Long spaceId, Long id, Long targetMediaTypeId) throws ApiException {
-        com.squareup.okhttp.Call call = getInvoiceDocumentWithTargetMediaTypeValidateBeforeCall(spaceId, id, targetMediaTypeId, null, null);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * getInvoiceDocumentWithTargetMediaType (asynchronously)
-     * Returns the PDF document for the transaction invoice with given id and target media type id.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice to get the document for. (required)
-     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-     */
-    public com.squareup.okhttp.Call getInvoiceDocumentWithTargetMediaTypeAsync(Long spaceId, Long id, Long targetMediaTypeId, final ApiCallback<RenderedDocument> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocumentWithTargetMediaType");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (targetMediaTypeId != null) {
+            String key = "targetMediaTypeId";
+            Object value = targetMediaTypeId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = getInvoiceDocumentWithTargetMediaTypeValidateBeforeCall(spaceId, id, targetMediaTypeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RenderedDocument>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for isReplacementPossible
-     * @param spaceId  (required)
-     * @param id The invoice which should be checked if a replacement is possible. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-     */
-    public com.squareup.okhttp.Call isReplacementPossibleCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/isReplacementPossible";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call isReplacementPossibleValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse getInvoiceDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling isReplacementPossible(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocumentWithTargetMediaType");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling isReplacementPossible(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocumentWithTargetMediaType");
+        }// verify the required parameter 'targetMediaTypeId' is set
+        if (targetMediaTypeId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'targetMediaTypeId' when calling getInvoiceDocumentWithTargetMediaType");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocumentWithTargetMediaType");
 
-        com.squareup.okhttp.Call call = isReplacementPossibleCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+        // Add the required query param 'targetMediaTypeId' to the map of query params
+        allParams.put("targetMediaTypeId", targetMediaTypeId);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * isReplacementPossible
-     * Returns whether the transaction invoice with the given id can be replaced.
-     * @param spaceId  (required)
-     * @param id The invoice which should be checked if a replacement is possible. (required)
-     * @return Boolean
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-     */
-    public Boolean isReplacementPossible(Long spaceId, Long id) throws ApiException {
-        ApiResponse<Boolean> resp = isReplacementPossibleWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * isReplacementPossible
-     * Returns whether the transaction invoice with the given id can be replaced.
-     * @param spaceId  (required)
-     * @param id The invoice which should be checked if a replacement is possible. (required)
-     * @return ApiResponse&lt;Boolean&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-     */
-    public ApiResponse<Boolean> isReplacementPossibleWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = isReplacementPossibleValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * isReplacementPossible (asynchronously)
-     * Returns whether the transaction invoice with the given id can be replaced.
-     * @param spaceId  (required)
-     * @param id The invoice which should be checked if a replacement is possible. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-     */
-    public com.squareup.okhttp.Call isReplacementPossibleAsync(Long spaceId, Long id, final ApiCallback<Boolean> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = isReplacementPossibleValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Boolean>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
-    /**
-     * Build call for markAsDerecognized
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as derecognized. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-     */
-    public com.squareup.okhttp.Call markAsDerecognizedCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/markAsDerecognized";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
+  /**
+    * isReplacementPossible
+    * Returns whether the transaction invoice with the given id can be replaced.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The invoice which should be checked if a replacement is possible.
+    * @return Boolean
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
+        HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id);
+        String returnType = "Boolean";
+        if(returnType.equals("String")){
+          return (Boolean) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Boolean>() {};
+        return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call markAsDerecognizedValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * isReplacementPossible
+    * Returns whether the transaction invoice with the given id can be replaced.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The invoice which should be checked if a replacement is possible.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Boolean
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
+
+    **/
+    public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id, params);
+        String returnType = "Boolean";
+        if(returnType.equals("String")){
+            return (Boolean) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Boolean>() {};
+        return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse isReplacementPossibleForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling markAsDerecognized(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling isReplacementPossible");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling markAsDerecognized(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling isReplacementPossible");
         }
-        
-
-        com.squareup.okhttp.Call call = markAsDerecognizedCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Mark as Derecognized
-     * Marks the transaction invoice with the given id as derecognized.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as derecognized. (required)
-     * @return TransactionInvoice
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-     */
-    public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws ApiException {
-        ApiResponse<TransactionInvoice> resp = markAsDerecognizedWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Mark as Derecognized
-     * Marks the transaction invoice with the given id as derecognized.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as derecognized. (required)
-     * @return ApiResponse&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-     */
-    public ApiResponse<TransactionInvoice> markAsDerecognizedWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = markAsDerecognizedValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Mark as Derecognized (asynchronously)
-     * Marks the transaction invoice with the given id as derecognized.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as derecognized. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-     */
-    public com.squareup.okhttp.Call markAsDerecognizedAsync(Long spaceId, Long id, final ApiCallback<TransactionInvoice> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/isReplacementPossible");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = markAsDerecognizedValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for markAsPaid
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as paid. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-     */
-    public com.squareup.okhttp.Call markAsPaidCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/markAsPaid";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call markAsPaidValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse isReplacementPossibleForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling markAsPaid(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling isReplacementPossible");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling markAsPaid(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling isReplacementPossible");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/isReplacementPossible");
 
-        com.squareup.okhttp.Call call = markAsPaidCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Mark as Paid
-     * Marks the transaction invoice with the given id as paid.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as paid. (required)
-     * @return TransactionInvoice
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-     */
-    public TransactionInvoice markAsPaid(Long spaceId, Long id) throws ApiException {
-        ApiResponse<TransactionInvoice> resp = markAsPaidWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Mark as Paid
-     * Marks the transaction invoice with the given id as paid.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as paid. (required)
-     * @return ApiResponse&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-     */
-    public ApiResponse<TransactionInvoice> markAsPaidWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = markAsPaidValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Mark as Paid (asynchronously)
-     * Marks the transaction invoice with the given id as paid.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoice which should be marked as paid. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-     */
-    public com.squareup.okhttp.Call markAsPaidAsync(Long spaceId, Long id, final ApiCallback<TransactionInvoice> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = markAsPaidValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
-    /**
-     * Build call for read
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/read";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
+  /**
+    * Mark as Derecognized
+    * Marks the transaction invoice with the given id as derecognized.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice which should be marked as derecognized.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
+        HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+          return (TransactionInvoice) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Mark as Derecognized
+    * Marks the transaction invoice with the given id as derecognized.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice which should be marked as derecognized.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
+
+    **/
+    public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id, params);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+            return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse markAsDerecognizedForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling read(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsDerecognized");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling read(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsDerecognized");
         }
-        
-
-        com.squareup.okhttp.Call call = readCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be returned. (required)
-     * @return TransactionInvoice
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-     */
-    public TransactionInvoice read(Long spaceId, Long id) throws ApiException {
-        ApiResponse<TransactionInvoice> resp = readWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be returned. (required)
-     * @return ApiResponse&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-     */
-    public ApiResponse<TransactionInvoice> readWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read (asynchronously)
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readAsync(Long spaceId, Long id, final ApiCallback<TransactionInvoice> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsDerecognized");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for replace
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be replaced. (required)
-     * @param replacement  (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-     */
-    public com.squareup.okhttp.Call replaceCall(Long spaceId, Long id, TransactionInvoiceReplacement replacement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = replacement;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/replace";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call replaceValidateBeforeCall(Long spaceId, Long id, TransactionInvoiceReplacement replacement, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse markAsDerecognizedForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling replace(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsDerecognized");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling replace(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsDerecognized");
         }
-        
-        // verify the required parameter 'replacement' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsDerecognized");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Mark as Paid
+    * Marks the transaction invoice with the given id as paid.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice which should be marked as paid.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+
+    **/
+    public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
+        HttpResponse response = markAsPaidForHttpResponse(spaceId, id);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+          return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Mark as Paid
+    * Marks the transaction invoice with the given id as paid.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoice which should be marked as paid.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+
+    **/
+    public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = markAsPaidForHttpResponse(spaceId, id, params);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+            return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse markAsPaidForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsPaid");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsPaid");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsPaid");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+    public HttpResponse markAsPaidForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsPaid");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsPaid");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsPaid");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoices which should be returned.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+
+    **/
+    public TransactionInvoice read(Long spaceId, Long id) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+          return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoices which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+
+    **/
+    public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id, params);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+            return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/read");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/read");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * replace
+    * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoices which should be replaced.
+    * @param replacement 
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+
+    **/
+    public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
+        HttpResponse response = replaceForHttpResponse(spaceId, id, replacement);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+          return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * replace
+    * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the transaction invoices which should be replaced.
+    * @param replacement 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return TransactionInvoice
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+
+    **/
+    public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
+        HttpResponse response = replaceForHttpResponse(spaceId, id, replacement, params);
+        String returnType = "TransactionInvoice";
+        if(returnType.equals("String")){
+            return (TransactionInvoice) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
+        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse replaceForHttpResponse(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling replace");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling replace");
+        }// verify the required parameter 'replacement' is set
         if (replacement == null) {
-            throw new ApiException("Missing the required parameter 'replacement' when calling replace(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
         }
-        
-
-        com.squareup.okhttp.Call call = replaceCall(spaceId, id, replacement, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * replace
-     * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be replaced. (required)
-     * @param replacement  (required)
-     * @return TransactionInvoice
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-     */
-    public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws ApiException {
-        ApiResponse<TransactionInvoice> resp = replaceWithHttpInfo(spaceId, id, replacement);
-        return resp.getData();
-    }
-
-    /**
-     * replace
-     * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be replaced. (required)
-     * @param replacement  (required)
-     * @return ApiResponse&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-     */
-    public ApiResponse<TransactionInvoice> replaceWithHttpInfo(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws ApiException {
-        com.squareup.okhttp.Call call = replaceValidateBeforeCall(spaceId, id, replacement, null, null);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * replace (asynchronously)
-     * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
-     * @param spaceId  (required)
-     * @param id The id of the transaction invoices which should be replaced. (required)
-     * @param replacement  (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-     */
-    public com.squareup.okhttp.Call replaceAsync(Long spaceId, Long id, TransactionInvoiceReplacement replacement, final ApiCallback<TransactionInvoice> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = replaceValidateBeforeCall(spaceId, id, replacement, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionInvoice>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for search
-     * @param spaceId  (required)
-     * @param query The query restricts the transaction invoices which are returned by the search. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = query;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/transaction-invoice/search";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(replacement);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse replaceForHttpResponse(Long spaceId, Long id, java.io.InputStream replacement, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling replace");
+              }// verify the required parameter 'id' is set
+              if (id == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'id' when calling replace");
+              }// verify the required parameter 'replacement' is set
+              if (replacement == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (id != null) {
+                  String key = "id";
+                  Object value = id;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = replacement == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, replacement);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse replaceForHttpResponse(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling replace");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling replace");
+        }// verify the required parameter 'replacement' is set
+        if (replacement == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
         }
-        
-        // verify the required parameter 'query' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(replacement);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the transaction invoices which are returned by the search.
+    * @return List&lt;TransactionInvoice&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+
+    **/
+    public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query);
+        String returnType = "List&lt;TransactionInvoice&gt;";
+        if(returnType.equals("String")){
+          return (List<TransactionInvoice>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
+        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the transaction invoices which are returned by the search.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;TransactionInvoice&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+
+    **/
+    public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query, params);
+        String returnType = "List&lt;TransactionInvoice&gt;";
+        if(returnType.equals("String")){
+            return (List<TransactionInvoice>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
+        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-
-        com.squareup.okhttp.Call call = searchCall(spaceId, query, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transaction invoices which are returned by the search. (required)
-     * @return List&lt;TransactionInvoice&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-     */
-    public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws ApiException {
-        ApiResponse<List<TransactionInvoice>> resp = searchWithHttpInfo(spaceId, query);
-        return resp.getData();
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transaction invoices which are returned by the search. (required)
-     * @return ApiResponse&lt;List&lt;TransactionInvoice&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-     */
-    public ApiResponse<List<TransactionInvoice>> searchWithHttpInfo(Long spaceId, EntityQuery query) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, null, null);
-        Type localVarReturnType = new TypeToken<List<TransactionInvoice>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search (asynchronously)
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the transaction invoices which are returned by the search. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchAsync(Long spaceId, EntityQuery query, final ApiCallback<List<TransactionInvoice>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<TransactionInvoice>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+              }// verify the required parameter 'query' is set
+              if (query == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = query == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

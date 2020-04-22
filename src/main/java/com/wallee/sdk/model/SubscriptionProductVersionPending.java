@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -39,49 +36,51 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionProductVersionPending {
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Long version = null;
 
   
-  @SerializedName("billingCycle")
+  @JsonProperty("billingCycle")
   protected String billingCycle = null;
 
   
-  @SerializedName("comment")
+  @JsonProperty("comment")
   protected String comment = null;
 
   
-  @SerializedName("defaultCurrency")
+  @JsonProperty("defaultCurrency")
   protected String defaultCurrency = null;
 
   
-  @SerializedName("enabledCurrencies")
+  @JsonProperty("enabledCurrencies")
   protected List<String> enabledCurrencies = null;
 
   
-  @SerializedName("minimalNumberOfPeriods")
+  @JsonProperty("minimalNumberOfPeriods")
   protected Integer minimalNumberOfPeriods = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected DatabaseTranslatedStringCreate name = null;
 
   
-  @SerializedName("numberOfNoticePeriods")
+  @JsonProperty("numberOfNoticePeriods")
   protected Integer numberOfNoticePeriods = null;
 
   
-  @SerializedName("product")
+  @JsonProperty("product")
   protected Long product = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected SubscriptionProductVersionState state = null;
 
   

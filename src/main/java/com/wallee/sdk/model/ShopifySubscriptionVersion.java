@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ShopifySubscription;
 import com.wallee.sdk.model.ShopifySubscriptionAddress;
 import com.wallee.sdk.model.ShopifySubscriptionBillingIntervalUnit;
@@ -34,7 +32,6 @@ import com.wallee.sdk.model.ShopifySubscriptionVersionState;
 import com.wallee.sdk.model.ShopifySubscriptionWeekday;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,113 +41,115 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ShopifySubscriptionVersion {
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected ShopifySubscriptionAddress billingAddress = null;
 
   
-  @SerializedName("billingDayOfMonth")
+  @JsonProperty("billingDayOfMonth")
   protected Integer billingDayOfMonth = null;
 
   
-  @SerializedName("billingIntervalAmount")
+  @JsonProperty("billingIntervalAmount")
   protected Integer billingIntervalAmount = null;
 
   
-  @SerializedName("billingIntervalUnit")
+  @JsonProperty("billingIntervalUnit")
   protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
 
   
-  @SerializedName("billingWeekday")
+  @JsonProperty("billingWeekday")
   protected ShopifySubscriptionWeekday billingWeekday = null;
 
   
-  @SerializedName("createdBy")
+  @JsonProperty("createdBy")
   protected Long createdBy = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("dischargedBy")
+  @JsonProperty("dischargedBy")
   protected Long dischargedBy = null;
 
   
-  @SerializedName("dischargedOn")
+  @JsonProperty("dischargedOn")
   protected OffsetDateTime dischargedOn = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("items")
+  @JsonProperty("items")
   protected List<ShopifySubscriptionVersionItem> items = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("maximalBillingCycles")
+  @JsonProperty("maximalBillingCycles")
   protected Integer maximalBillingCycles = null;
 
   
-  @SerializedName("maximalSuspendableCycles")
+  @JsonProperty("maximalSuspendableCycles")
   protected Integer maximalSuspendableCycles = null;
 
   
-  @SerializedName("minimalBillingCycles")
+  @JsonProperty("minimalBillingCycles")
   protected Integer minimalBillingCycles = null;
 
   
-  @SerializedName("paymentGateway")
+  @JsonProperty("paymentGateway")
   protected String paymentGateway = null;
 
   
-  @SerializedName("shippingAddress")
+  @JsonProperty("shippingAddress")
   protected ShopifySubscriptionAddress shippingAddress = null;
 
   
-  @SerializedName("shippingRate")
+  @JsonProperty("shippingRate")
   protected String shippingRate = null;
 
   
-  @SerializedName("shop")
+  @JsonProperty("shop")
   protected Long shop = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ShopifySubscriptionVersionState state = null;
 
   
-  @SerializedName("storeOrderConfirmationEmailEnabled")
+  @JsonProperty("storeOrderConfirmationEmailEnabled")
   protected Boolean storeOrderConfirmationEmailEnabled = null;
 
   
-  @SerializedName("subscriberSuspensionAllowed")
+  @JsonProperty("subscriberSuspensionAllowed")
   protected Boolean subscriberSuspensionAllowed = null;
 
   
-  @SerializedName("subscription")
+  @JsonProperty("subscription")
   protected ShopifySubscription subscription = null;
 
   
-  @SerializedName("terminationBillingCycles")
+  @JsonProperty("terminationBillingCycles")
   protected Integer terminationBillingCycles = null;
 
   
-  @SerializedName("token")
+  @JsonProperty("token")
   protected Long token = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

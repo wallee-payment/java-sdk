@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Charge;
 import com.wallee.sdk.model.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.ChargeAttemptState;
@@ -38,7 +36,6 @@ import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,97 +45,99 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ChargeAttempt extends TransactionAwareEntity {
   
-  @SerializedName("charge")
+  @JsonProperty("charge")
   protected Charge charge = null;
 
   
-  @SerializedName("connectorConfiguration")
+  @JsonProperty("connectorConfiguration")
   protected PaymentConnectorConfiguration connectorConfiguration = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected ChargeAttemptEnvironment environment = null;
 
   
-  @SerializedName("failedOn")
+  @JsonProperty("failedOn")
   protected OffsetDateTime failedOn = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("initializingTokenVersion")
+  @JsonProperty("initializingTokenVersion")
   protected Boolean initializingTokenVersion = null;
 
   
-  @SerializedName("invocation")
+  @JsonProperty("invocation")
   protected ConnectorInvocation invocation = null;
 
   
-  @SerializedName("labels")
+  @JsonProperty("labels")
   protected List<Label> labels = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("nextUpdateOn")
+  @JsonProperty("nextUpdateOn")
   protected OffsetDateTime nextUpdateOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("redirectionUrl")
+  @JsonProperty("redirectionUrl")
   protected String redirectionUrl = null;
 
   
-  @SerializedName("salesChannel")
+  @JsonProperty("salesChannel")
   protected Long salesChannel = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ChargeAttemptState state = null;
 
   
-  @SerializedName("succeededOn")
+  @JsonProperty("succeededOn")
   protected OffsetDateTime succeededOn = null;
 
   
-  @SerializedName("terminal")
+  @JsonProperty("terminal")
   protected PaymentTerminal terminal = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("timeoutOn")
+  @JsonProperty("timeoutOn")
   protected OffsetDateTime timeoutOn = null;
 
   
-  @SerializedName("tokenVersion")
+  @JsonProperty("tokenVersion")
   protected TokenVersion tokenVersion = null;
 
   
-  @SerializedName("userFailureMessage")
+  @JsonProperty("userFailureMessage")
   protected String userFailureMessage = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

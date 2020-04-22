@@ -16,20 +16,23 @@
 * limitations under the License.
 */
 
+package com.wallee.sdk;
 
-package com.wallee.sdk.auth;
+import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
+import com.fasterxml.jackson.databind.util.ISO8601Utils;
 
-import com.wallee.sdk.Pair;
+import java.text.FieldPosition;
+import java.util.Date;
 
-import java.util.Map;
-import java.util.List;
 
-public interface Authentication {
-    /**
-     * Apply authentication settings to header and query params.
-     *
-     * @param queryParams List of query parameters
-     * @param headerParams Map of header parameters
-     */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams);
+public class RFC3339DateFormat extends ISO8601DateFormat {
+
+  // Same as ISO8601DateFormat but serializing milliseconds.
+  @Override
+  public StringBuffer format(Date date, StringBuffer toAppendTo, FieldPosition fieldPosition) {
+    String value = ISO8601Utils.format(date, true);
+    toAppendTo.append(value);
+    return toAppendTo;
+  }
+
 }

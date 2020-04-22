@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.PaymentLinkProtectionMode;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,81 +39,83 @@ import java.time.OffsetDateTime;
 /**
  * The payment link defines an URL to automatically create transactions.
  */
+@ApiModel(description = "The payment link defines an URL to automatically create transactions.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class PaymentLink {
   
-  @SerializedName("allowedPaymentMethodConfigurations")
+  @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("appliedSpaceView")
+  @JsonProperty("appliedSpaceView")
   protected Long appliedSpaceView = null;
 
   
-  @SerializedName("availableFrom")
+  @JsonProperty("availableFrom")
   protected OffsetDateTime availableFrom = null;
 
   
-  @SerializedName("availableUntil")
+  @JsonProperty("availableUntil")
   protected OffsetDateTime availableUntil = null;
 
   
-  @SerializedName("billingAddressRequired")
+  @JsonProperty("billingAddressRequired")
   protected Boolean billingAddressRequired = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("maximalNumberOfTransactions")
+  @JsonProperty("maximalNumberOfTransactions")
   protected Integer maximalNumberOfTransactions = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("protectionMode")
+  @JsonProperty("protectionMode")
   protected PaymentLinkProtectionMode protectionMode = null;
 
   
-  @SerializedName("shippingAddressRequired")
+  @JsonProperty("shippingAddressRequired")
   protected Boolean shippingAddressRequired = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("url")
+  @JsonProperty("url")
   protected String url = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

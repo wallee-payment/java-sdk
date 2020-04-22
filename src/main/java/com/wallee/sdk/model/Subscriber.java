@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,65 +39,67 @@ import java.time.OffsetDateTime;
 /**
  * A subscriber represents everyone who is subscribed to a product.
  */
+@ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Subscriber {
   
-  @SerializedName("additionalAllowedPaymentMethodConfigurations")
+  @JsonProperty("additionalAllowedPaymentMethodConfigurations")
   protected List<Long> additionalAllowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected Address billingAddress = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected String description = null;
 
   
-  @SerializedName("disallowedPaymentMethodConfigurations")
+  @JsonProperty("disallowedPaymentMethodConfigurations")
   protected List<Long> disallowedPaymentMethodConfigurations = null;
 
   
-  @SerializedName("emailAddress")
+  @JsonProperty("emailAddress")
   protected String emailAddress = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("metaData")
+  @JsonProperty("metaData")
   protected Map<String, String> metaData = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected String reference = null;
 
   
-  @SerializedName("shippingAddress")
+  @JsonProperty("shippingAddress")
   protected Address shippingAddress = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

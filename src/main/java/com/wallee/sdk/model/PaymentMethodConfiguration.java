@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.DataCollectionType;
 import com.wallee.sdk.model.DatabaseTranslatedString;
@@ -33,7 +31,6 @@ import com.wallee.sdk.model.OneClickPaymentMode;
 import com.wallee.sdk.model.ResourcePath;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -44,73 +41,75 @@ import java.time.OffsetDateTime;
 /**
  * The payment method configuration builds the base to connect with different payment method connectors.
  */
+@ApiModel(description = "The payment method configuration builds the base to connect with different payment method connectors.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class PaymentMethodConfiguration {
   
-  @SerializedName("dataCollectionType")
+  @JsonProperty("dataCollectionType")
   protected DataCollectionType dataCollectionType = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected DatabaseTranslatedString description = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("imageResourcePath")
+  @JsonProperty("imageResourcePath")
   protected ResourcePath imageResourcePath = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("oneClickPaymentMode")
+  @JsonProperty("oneClickPaymentMode")
   protected OneClickPaymentMode oneClickPaymentMode = null;
 
   
-  @SerializedName("paymentMethod")
+  @JsonProperty("paymentMethod")
   protected Long paymentMethod = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("resolvedDescription")
+  @JsonProperty("resolvedDescription")
   protected Map<String, String> resolvedDescription = null;
 
   
-  @SerializedName("resolvedImageUrl")
+  @JsonProperty("resolvedImageUrl")
   protected String resolvedImageUrl = null;
 
   
-  @SerializedName("resolvedTitle")
+  @JsonProperty("resolvedTitle")
   protected Map<String, String> resolvedTitle = null;
 
   
-  @SerializedName("sortOrder")
+  @JsonProperty("sortOrder")
   protected Integer sortOrder = null;
 
   
-  @SerializedName("spaceId")
+  @JsonProperty("spaceId")
   protected Long spaceId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("title")
+  @JsonProperty("title")
   protected DatabaseTranslatedString title = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddress;
 import com.wallee.sdk.model.TenantDatabase;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,65 +39,67 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Space {
   
-  @SerializedName("account")
+  @JsonProperty("account")
   protected Account account = null;
 
   
-  @SerializedName("active")
+  @JsonProperty("active")
   protected Boolean active = null;
 
   
-  @SerializedName("activeOrRestrictedActive")
+  @JsonProperty("activeOrRestrictedActive")
   protected Boolean activeOrRestrictedActive = null;
 
   
-  @SerializedName("database")
+  @JsonProperty("database")
   protected TenantDatabase database = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("postalAddress")
+  @JsonProperty("postalAddress")
   protected SpaceAddress postalAddress = null;
 
   
-  @SerializedName("primaryCurrency")
+  @JsonProperty("primaryCurrency")
   protected String primaryCurrency = null;
 
   
-  @SerializedName("requestLimit")
+  @JsonProperty("requestLimit")
   protected Long requestLimit = null;
 
   
-  @SerializedName("restrictedActive")
+  @JsonProperty("restrictedActive")
   protected Boolean restrictedActive = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("technicalContactAddresses")
+  @JsonProperty("technicalContactAddresses")
   protected List<String> technicalContactAddresses = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

@@ -1,36 +1,6 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ChargeFlow;
 import com.wallee.sdk.model.ClientError;
@@ -39,12 +9,23 @@ import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.Transaction;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ChargeFlowService {
     private ApiClient apiClient;
 
@@ -60,728 +41,691 @@ public class ChargeFlowService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for applyFlow
-     * @param spaceId  (required)
-     * @param id The transaction id of the transaction which should be process asynchronously. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
-     */
-    public com.squareup.okhttp.Call applyFlowCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+  /**
+    * applyFlow
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The transaction id of the transaction which should be process asynchronously.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/charge-flow/applyFlow";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Transaction applyFlow(Long spaceId, Long id) throws IOException {
+        HttpResponse response = applyFlowForHttpResponse(spaceId, id);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+          return (Transaction) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call applyFlowValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * applyFlow
+    * 
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The transaction id of the transaction which should be process asynchronously.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Transaction
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
+
+    **/
+    public Transaction applyFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = applyFlowForHttpResponse(spaceId, id, params);
+        String returnType = "Transaction";
+        if(returnType.equals("String")){
+            return (Transaction) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Transaction>() {};
+        return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse applyFlowForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling applyFlow(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyFlow");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling applyFlow(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling applyFlow");
         }
-        
-
-        com.squareup.okhttp.Call call = applyFlowCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * applyFlow
-     * 
-     * @param spaceId  (required)
-     * @param id The transaction id of the transaction which should be process asynchronously. (required)
-     * @return Transaction
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
-     */
-    public Transaction applyFlow(Long spaceId, Long id) throws ApiException {
-        ApiResponse<Transaction> resp = applyFlowWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * applyFlow
-     * 
-     * @param spaceId  (required)
-     * @param id The transaction id of the transaction which should be process asynchronously. (required)
-     * @return ApiResponse&lt;Transaction&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
-     */
-    public ApiResponse<Transaction> applyFlowWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = applyFlowValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * applyFlow (asynchronously)
-     * 
-     * @param spaceId  (required)
-     * @param id The transaction id of the transaction which should be process asynchronously. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
-     */
-    public com.squareup.okhttp.Call applyFlowAsync(Long spaceId, Long id, final ApiCallback<Transaction> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = applyFlowValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Transaction>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for count
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = filter;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/charge-flow/count";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call countValidateBeforeCall(Long spaceId, EntityQueryFilter filter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+    public HttpResponse applyFlowForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling count(Async)");
-        }
-        
-
-        com.squareup.okhttp.Call call = countCall(spaceId, filter, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return Long
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
-     */
-    public Long count(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        ApiResponse<Long> resp = countWithHttpInfo(spaceId, filter);
-        return resp.getData();
-    }
-
-    /**
-     * Count
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @return ApiResponse&lt;Long&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
-     */
-    public ApiResponse<Long> countWithHttpInfo(Long spaceId, EntityQueryFilter filter) throws ApiException {
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, null, null);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Count (asynchronously)
-     * Counts the number of items in the database as restricted by the given filter.
-     * @param spaceId  (required)
-     * @param filter The filter which restricts the entities which are used to calculate the count. (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
-     */
-    public com.squareup.okhttp.Call countAsync(Long spaceId, EntityQueryFilter filter, final ApiCallback<Long> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = countValidateBeforeCall(spaceId, filter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Long>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for read
-     * @param spaceId  (required)
-     * @param id The id of the charge flow which should be returned. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/charge-flow/read";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (id != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("id", id));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call readValidateBeforeCall(Long spaceId, Long id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling read(Async)");
-        }
-        
-        // verify the required parameter 'id' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyFlow");
+        }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling read(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling applyFlow");
         }
-        
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
 
-        com.squareup.okhttp.Call call = readCall(spaceId, id, progressListener, progressRequestListener);
-        return call;
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
 
-    }
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
 
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the charge flow which should be returned. (required)
-     * @return ChargeFlow
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
-     */
-    public ChargeFlow read(Long spaceId, Long id) throws ApiException {
-        ApiResponse<ChargeFlow> resp = readWithHttpInfo(spaceId, id);
-        return resp.getData();
-    }
-
-    /**
-     * Read
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the charge flow which should be returned. (required)
-     * @return ApiResponse&lt;ChargeFlow&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
-     */
-    public ApiResponse<ChargeFlow> readWithHttpInfo(Long spaceId, Long id) throws ApiException {
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, null, null);
-        Type localVarReturnType = new TypeToken<ChargeFlow>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Read (asynchronously)
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     * @param spaceId  (required)
-     * @param id The id of the charge flow which should be returned. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
-     */
-    public com.squareup.okhttp.Call readAsync(Long spaceId, Long id, final ApiCallback<ChargeFlow> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
                 }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+            }
         }
 
-        com.squareup.okhttp.Call call = readValidateBeforeCall(spaceId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ChargeFlow>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
-    /**
-     * Build call for search
-     * @param spaceId  (required)
-     * @param query The query restricts the charge flows which are returned by the search. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = query;
 
-        // create path and map variables
-        String localVarPath = "/charge-flow/search";
 
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param filter The filter which restricts the entities which are used to calculate the count.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
+        HttpResponse response = countForHttpResponse(spaceId, filter);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+          return (Long) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(Long spaceId, EntityQuery query, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Count
+    * Counts the number of items in the database as restricted by the given filter.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Long
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
+
+    **/
+    public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        HttpResponse response = countForHttpResponse(filter, spaceId, params);
+        String returnType = "Long";
+        if(returnType.equals("String")){
+            return (Long) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Long>() {};
+        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        
-        // verify the required parameter 'query' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/count");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = filter == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/count");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the charge flow which should be returned.
+    * @return ChargeFlow
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
+
+    **/
+    public ChargeFlow read(Long spaceId, Long id) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id);
+        String returnType = "ChargeFlow";
+        if(returnType.equals("String")){
+          return (ChargeFlow) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ChargeFlow>() {};
+        return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Read
+    * Reads the entity with the given &#39;id&#39; and returns it.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param id The id of the charge flow which should be returned.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return ChargeFlow
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
+
+    **/
+    public ChargeFlow read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        HttpResponse response = readForHttpResponse(spaceId, id, params);
+        String returnType = "ChargeFlow";
+        if(returnType.equals("String")){
+            return (ChargeFlow) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ChargeFlow>() {};
+        return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/read");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (id != null) {
+            String key = "id";
+            Object value = id;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+    public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/read");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'id' to the map of query params
+        allParams.put("id", id);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = null;
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the charge flows which are returned by the search.
+    * @return List&lt;ChargeFlow&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
+
+    **/
+    public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query);
+        String returnType = "List&lt;ChargeFlow&gt;";
+        if(returnType.equals("String")){
+          return (List<ChargeFlow>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
+        return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Search
+    * Searches for the entities as specified by the given query.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param query The query restricts the charge flows which are returned by the search.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;ChargeFlow&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
+
+    **/
+    public List<ChargeFlow> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+        HttpResponse response = searchForHttpResponse(spaceId, query, params);
+        String returnType = "List&lt;ChargeFlow&gt;";
+        if(returnType.equals("String")){
+            return (List<ChargeFlow>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
+        return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new ApiException("Missing the required parameter 'query' when calling search(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-
-        com.squareup.okhttp.Call call = searchCall(spaceId, query, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the charge flows which are returned by the search. (required)
-     * @return List&lt;ChargeFlow&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
-     */
-    public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws ApiException {
-        ApiResponse<List<ChargeFlow>> resp = searchWithHttpInfo(spaceId, query);
-        return resp.getData();
-    }
-
-    /**
-     * Search
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the charge flows which are returned by the search. (required)
-     * @return ApiResponse&lt;List&lt;ChargeFlow&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
-     */
-    public ApiResponse<List<ChargeFlow>> searchWithHttpInfo(Long spaceId, EntityQuery query) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, null, null);
-        Type localVarReturnType = new TypeToken<List<ChargeFlow>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Search (asynchronously)
-     * Searches for the entities as specified by the given query.
-     * @param spaceId  (required)
-     * @param query The query restricts the charge flows which are returned by the search. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
-     */
-    public com.squareup.okhttp.Call searchAsync(Long spaceId, EntityQuery query, final ApiCallback<List<ChargeFlow>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(spaceId, query, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<ChargeFlow>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for updateRecipient
-     * @param spaceId  (required)
-     * @param transactionId The transaction id of the transaction whose recipient should be updated. (required)
-     * @param type The id of the charge flow configuration type to recipient should be updated for. (required)
-     * @param recipient The recipient address that should be used to send the payment URL. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateRecipientCall(Long spaceId, Long transactionId, Long type, String recipient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-        // create path and map variables
-        String localVarPath = "/charge-flow/updateRecipient";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (transactionId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("transactionId", transactionId));
-        if (type != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
-        if (recipient != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("recipient", recipient));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call updateRecipientValidateBeforeCall(Long spaceId, Long transactionId, Long type, String recipient, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+              }// verify the required parameter 'query' is set
+              if (query == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = query == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling updateRecipient(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        
-        // verify the required parameter 'transactionId' is set
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * updateRecipient
+    * 
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The transaction id of the transaction whose recipient should be updated.
+    * @param type The id of the charge flow configuration type to recipient should be updated for.
+    * @param recipient The recipient address that should be used to send the payment URL.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
+
+    **/
+    public void updateRecipient(Long spaceId, Long transactionId, Long type, String recipient) throws IOException {
+        updateRecipientForHttpResponse(spaceId, transactionId, type, recipient);
+    }
+
+  /**
+    * updateRecipient
+    * 
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The transaction id of the transaction whose recipient should be updated.
+    * @param type The id of the charge flow configuration type to recipient should be updated for.
+    * @param recipient The recipient address that should be used to send the payment URL.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
+
+    **/
+    public void updateRecipient(Long spaceId, Long transactionId, Long type, String recipient, Map<String, Object> params) throws IOException {
+        updateRecipientForHttpResponse(spaceId, transactionId, type, recipient, params);
+    }
+
+    public HttpResponse updateRecipientForHttpResponse(Long spaceId, Long transactionId, Long type, String recipient) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateRecipient");
+        }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new ApiException("Missing the required parameter 'transactionId' when calling updateRecipient(Async)");
-        }
-        
-        // verify the required parameter 'type' is set
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling updateRecipient");
+        }// verify the required parameter 'type' is set
         if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling updateRecipient(Async)");
-        }
-        
-        // verify the required parameter 'recipient' is set
+            throw new IllegalArgumentException("Missing the required parameter 'type' when calling updateRecipient");
+        }// verify the required parameter 'recipient' is set
         if (recipient == null) {
-            throw new ApiException("Missing the required parameter 'recipient' when calling updateRecipient(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'recipient' when calling updateRecipient");
         }
-        
-
-        com.squareup.okhttp.Call call = updateRecipientCall(spaceId, transactionId, type, recipient, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * updateRecipient
-     * 
-     * @param spaceId  (required)
-     * @param transactionId The transaction id of the transaction whose recipient should be updated. (required)
-     * @param type The id of the charge flow configuration type to recipient should be updated for. (required)
-     * @param recipient The recipient address that should be used to send the payment URL. (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
-     */
-    public void updateRecipient(Long spaceId, Long transactionId, Long type, String recipient) throws ApiException {
-        updateRecipientWithHttpInfo(spaceId, transactionId, type, recipient);
-    }
-
-    /**
-     * updateRecipient
-     * 
-     * @param spaceId  (required)
-     * @param transactionId The transaction id of the transaction whose recipient should be updated. (required)
-     * @param type The id of the charge flow configuration type to recipient should be updated for. (required)
-     * @param recipient The recipient address that should be used to send the payment URL. (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
-     */
-    public ApiResponse<Void> updateRecipientWithHttpInfo(Long spaceId, Long transactionId, Long type, String recipient) throws ApiException {
-        com.squareup.okhttp.Call call = updateRecipientValidateBeforeCall(spaceId, transactionId, type, recipient, null, null);
-        return apiClient.execute(call);
-    }
-
-    /**
-     * updateRecipient (asynchronously)
-     * 
-     * @param spaceId  (required)
-     * @param transactionId The transaction id of the transaction whose recipient should be updated. (required)
-     * @param type The id of the charge flow configuration type to recipient should be updated for. (required)
-     * @param recipient The recipient address that should be used to send the payment URL. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
-     */
-    public com.squareup.okhttp.Call updateRecipientAsync(Long spaceId, Long transactionId, Long type, String recipient, final ApiCallback<Void> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/updateRecipient");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (transactionId != null) {
+            String key = "transactionId";
+            Object value = transactionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (type != null) {
+            String key = "type";
+            Object value = type;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (recipient != null) {
+            String key = "recipient";
+            Object value = recipient;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = updateRecipientValidateBeforeCall(spaceId, transactionId, type, recipient, progressListener, progressRequestListener);
-        apiClient.executeAsync(call, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+    public HttpResponse updateRecipientForHttpResponse(Long spaceId, Long transactionId, Long type, String recipient, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateRecipient");
+        }// verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling updateRecipient");
+        }// verify the required parameter 'type' is set
+        if (type == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'type' when calling updateRecipient");
+        }// verify the required parameter 'recipient' is set
+        if (recipient == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'recipient' when calling updateRecipient");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/updateRecipient");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'transactionId' to the map of query params
+        allParams.put("transactionId", transactionId);
+        // Add the required query param 'type' to the map of query params
+        allParams.put("type", type);
+        // Add the required query param 'recipient' to the map of query params
+        allParams.put("recipient", recipient);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

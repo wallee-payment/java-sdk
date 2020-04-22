@@ -1,1279 +1,451 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk;
 
-import com.squareup.okhttp.*;
-import com.squareup.okhttp.internal.http.HttpMethod;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
-import okio.BufferedSink;
-import okio.Okio;
+import com.wallee.sdk.service.*;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.google.api.client.http.AbstractHttpContent;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestFactory;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.Json;
 
-import javax.net.ssl.*;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.security.GeneralSecurityException;
-import java.security.KeyStore;
-import java.security.SecureRandom;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
-import java.text.DateFormat;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.OutputStream;
 
-import com.wallee.sdk.auth.Authentication;
-import com.wallee.sdk.auth.HttpBasicAuth;
-import com.wallee.sdk.auth.ApiKeyAuth;
-import com.wallee.sdk.auth.OAuth;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.security.*;
-
-
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ApiClient {
+    private final String basePath = "https://app-wallee.com:443/api";
+    private final HttpRequestFactory httpRequestFactory;
+    private final ObjectMapper objectMapper;
+    private long userId;
+    private String applicationKey;
 
-    private String basePath = "https://app-wallee.com:443/api";
-    private boolean debugging = false;
-    private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-    private String tempFolderPath = null;
+    // A reasonable default object mapper. Client can pass in a chosen ObjectMapper anyway, this is just for reasonable defaults.
+    private static ObjectMapper createDefaultObjectMapper() {
+        ObjectMapper objectMapper = new ObjectMapper()
+            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+            .setDateFormat(new RFC3339DateFormat());
+        objectMapper.registerModule(new JavaTimeModule());
+        return objectMapper;
+    }
 
-    private Map<String, Authentication> authentications;
-
-    private DateFormat dateFormat;
-    private DateFormat datetimeFormat;
-    private boolean lenientDatetimeFormat;
-    private int dateLength;
-
-    private InputStream sslCaCert;
-    private boolean verifyingSsl;
-    private KeyManager[] keyManagers;
-
-    private OkHttpClient httpClient;
-    private JSON json;
-
-    private HttpLoggingInterceptor loggingInterceptor;
-
-    private final long userId;
-    private final String applicationKey;
-
-    /*
+    /**
      * Constructor for ApiClient
+     *
+     * @param userId
+     * @param applicationKey
      */
     public ApiClient(long userId, String applicationKey) {
-
         if (applicationKey == null || applicationKey.trim().isEmpty()) {
             throw new IllegalArgumentException("The application key cannot be empty or null.");
         }
-        if (userId <= (long) 0) {
+        if (userId < 1) {
             throw new IllegalArgumentException("The user id is invalid.");
         }
 
         this.userId = userId;
         this.applicationKey = applicationKey;
-
-        httpClient = new OkHttpClient();
-
-
-        verifyingSsl = true;
-
-        json = new JSON();
-
-        // Set default User-Agent.
-        setUserAgent("com.wallee.wallee-java-sdk-2.0.11");
-
-        // Setup authentications (key: authentication name, value: authentication).
-        authentications = new HashMap<String, Authentication>();
-        // Prevent the authentications from being modified.
-        authentications = Collections.unmodifiableMap(authentications);
+        this.httpRequestFactory = this.createRequestFactory();
+        this.objectMapper = createDefaultObjectMapper();
     }
 
-    /**
-     * Get base path
-     *
-     * @return Baes path
-     */
-    public String getBasePath() {
-        return basePath;
+    public HttpRequestFactory getHttpRequestFactory() {
+        return httpRequestFactory;
     }
 
-    /**
-     * Set base path
-     *
-     * @param basePath Base path of the URL (e.g https://app-wallee.com:443/api
-     * @return An instance of OkHttpClient
-     */
-    public ApiClient setBasePath(String basePath) {
-        this.basePath = basePath;
-        return this;
-    }
-
-    /**
-     * Get HTTP client
-     *
-     * @return An instance of OkHttpClient
-     */
-    public OkHttpClient getHttpClient() {
-        return httpClient;
-    }
-
-    /**
-     * Set HTTP client
-     *
-     * @param httpClient An instance of OkHttpClient
-     * @return Api Client
-     */
-    public ApiClient setHttpClient(OkHttpClient httpClient) {
-        this.httpClient = httpClient;
-        return this;
-    }
-
-    /**
-     * Get JSON
-     *
-     * @return JSON object
-     */
-    public JSON getJSON() {
-        return json;
-    }
-
-    /**
-     * Set JSON
-     *
-     * @param json JSON object
-     * @return Api client
-     */
-    public ApiClient setJSON(JSON json) {
-        this.json = json;
-        return this;
-    }
-
-    /**
-     * True if isVerifyingSsl flag is on
-     *
-     * @return True if isVerifySsl flag is on
-     */
-    public boolean isVerifyingSsl() {
-        return verifyingSsl;
-    }
-
-    /**
-     * Configure whether to verify certificate and hostname when making https requests.
-     * Default to true.
-     * NOTE: Do NOT set to false in production code, otherwise you would face multiple types of cryptographic attacks.
-     *
-     * @param verifyingSsl True to verify TLS/SSL connection
-     * @return ApiClient
-     */
-    public ApiClient setVerifyingSsl(boolean verifyingSsl) {
-        this.verifyingSsl = verifyingSsl;
-        applySslSettings();
-        return this;
-    }
-
-    /**
-     * Get SSL CA cert.
-     *
-     * @return Input stream to the SSL CA cert
-     */
-    public InputStream getSslCaCert() {
-        return sslCaCert;
-    }
-
-    /**
-     * Configure the CA certificate to be trusted when making https requests.
-     * Use null to reset to default.
-     *
-     * @param sslCaCert input stream for SSL CA cert
-     * @return ApiClient
-     */
-    public ApiClient setSslCaCert(InputStream sslCaCert) {
-        this.sslCaCert = sslCaCert;
-        applySslSettings();
-        return this;
-    }
-
-    public KeyManager[] getKeyManagers() {
-        return keyManagers;
-    }
-
-    /**
-     * Configure client keys to use for authorization in an SSL session.
-     * Use null to reset to default.
-     *
-     * @param managers The KeyManagers to use
-     * @return ApiClient
-     */
-    public ApiClient setKeyManagers(KeyManager[] managers) {
-        this.keyManagers = managers;
-        applySslSettings();
-        return this;
-    }
-
-    public DateFormat getDateFormat() {
-        return dateFormat;
-    }
-
-    public ApiClient setDateFormat(DateFormat dateFormat) {
-        this.json.setDateFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setSqlDateFormat(DateFormat dateFormat) {
-        this.json.setSqlDateFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-        this.json.setOffsetDateTimeFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setLocalDateFormat(DateTimeFormatter dateFormat) {
-        this.json.setLocalDateFormat(dateFormat);
-        return this;
-    }
-
-    public ApiClient setLenientOnJson(boolean lenientOnJson) {
-        this.json.setLenientOnJson(lenientOnJson);
-        return this;
-    }
-
-    /**
-     * Get authentications (key: authentication name, value: authentication).
-     *
-     * @return Map of authentication objects
-     */
-    public Map<String, Authentication> getAuthentications() {
-        return authentications;
-    }
-
-    /**
-     * Get authentication for the given name.
-     *
-     * @param authName The authentication name
-     * @return The authentication, null if not found
-     */
-    public Authentication getAuthentication(String authName) {
-        return authentications.get(authName);
-    }
-
-    /**
-     * Helper method to set username for the first HTTP basic authentication.
-     *
-     * @param username Username
-     */
-    public void setUsername(String username) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof HttpBasicAuth) {
-                ((HttpBasicAuth) auth).setUsername(username);
-                return;
-            }
-        }
-        throw new RuntimeException("No HTTP basic authentication configured!");
-    }
-
-    /**
-     * Helper method to set password for the first HTTP basic authentication.
-     *
-     * @param password Password
-     */
-    public void setPassword(String password) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof HttpBasicAuth) {
-                ((HttpBasicAuth) auth).setPassword(password);
-                return;
-            }
-        }
-        throw new RuntimeException("No HTTP basic authentication configured!");
-    }
-
-    /**
-     * Helper method to set API key value for the first API key authentication.
-     *
-     * @param apiKey API key
-     */
-    public void setApiKey(String apiKey) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof ApiKeyAuth) {
-                ((ApiKeyAuth) auth).setApiKey(apiKey);
-                return;
-            }
-        }
-        throw new RuntimeException("No API key authentication configured!");
-    }
-
-    /**
-     * Helper method to set API key prefix for the first API key authentication.
-     *
-     * @param apiKeyPrefix API key prefix
-     */
-    public void setApiKeyPrefix(String apiKeyPrefix) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof ApiKeyAuth) {
-                ((ApiKeyAuth) auth).setApiKeyPrefix(apiKeyPrefix);
-                return;
-            }
-        }
-        throw new RuntimeException("No API key authentication configured!");
-    }
-
-    /**
-     * Helper method to set access token for the first OAuth2 authentication.
-     *
-     * @param accessToken Access token
-     */
-    public void setAccessToken(String accessToken) {
-        for (Authentication auth : authentications.values()) {
-            if (auth instanceof OAuth) {
-                ((OAuth) auth).setAccessToken(accessToken);
-                return;
-            }
-        }
-        throw new RuntimeException("No OAuth2 authentication configured!");
-    }
-
-    /**
-     * Set the User-Agent header's value (by adding to the default header map).
-     *
-     * @param userAgent HTTP request's user agent
-     * @return ApiClient
-     */
-    public ApiClient setUserAgent(String userAgent) {
-        addDefaultHeader("User-Agent", userAgent);
-        return this;
-    }
-
-    /**
-     * Add a default header.
-     *
-     * @param key The header's key
-     * @param value The header's value
-     * @return ApiClient
-     */
-    public ApiClient addDefaultHeader(String key, String value) {
-        defaultHeaderMap.put(key, value);
-        return this;
-    }
-
-    /**
-     * Check that whether debugging is enabled for this API client.
-     *
-     * @return True if debugging is enabled, false otherwise.
-     */
-    public boolean isDebugging() {
-        return debugging;
-    }
-
-    /**
-     * Enable/disable debugging for this API client.
-     *
-     * @param debugging To enable (true) or disable (false) debugging
-     * @return ApiClient
-     */
-    public ApiClient setDebugging(boolean debugging) {
-        if (debugging != this.debugging) {
-            if (debugging) {
-                loggingInterceptor = new HttpLoggingInterceptor();
-                loggingInterceptor.setLevel(Level.BODY);
-                httpClient.interceptors().add(loggingInterceptor);
-            } else {
-                httpClient.interceptors().remove(loggingInterceptor);
-                loggingInterceptor = null;
-            }
-        }
-        this.debugging = debugging;
-        return this;
-    }
-
-    /**
-     * The path of temporary folder used to store downloaded files from endpoints
-     * with file response. The default value is <code>null</code>, i.e. using
-     * the system's default tempopary folder.
-     *
-     * @see <a href="https://docs.oracle.com/javase/7/docs/api/java/io/File.html#createTempFile">createTempFile</a>
-     * @return Temporary folder path
-     */
-    public String getTempFolderPath() {
-        return tempFolderPath;
-    }
-
-    /**
-     * Set the temporary folder path (for downloading files)
-     *
-     * @param tempFolderPath Temporary folder path
-     * @return ApiClient
-     */
-    public ApiClient setTempFolderPath(String tempFolderPath) {
-        this.tempFolderPath = tempFolderPath;
-        return this;
-    }
-
-    /**
-     * Get connection timeout (in milliseconds).
-     *
-     * @return Timeout in milliseconds
-     */
-    public int getConnectTimeout() {
-        return httpClient.getConnectTimeout();
-    }
-
-    /**
-     * Sets the connect timeout (in milliseconds).
-     * A value of 0 means no timeout, otherwise values must be between 1 and
-     * {@link Integer#MAX_VALUE}.
-     *
-     * @param connectionTimeout connection timeout in milliseconds
-     * @return Api client
-     */
-    public ApiClient setConnectTimeout(int connectionTimeout) {
-        httpClient.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
-        return this;
-    }
-
-    /**
-     * Get read timeout (in milliseconds).
-     *
-     * @return Timeout in milliseconds
-     */
-    public int getReadTimeout() {
-        return httpClient.getReadTimeout();
-    }
-
-    /**
-     * Sets the read timeout (in milliseconds).
-     * A value of 0 means no timeout, otherwise values must be between 1 and
-     * {@link Integer#MAX_VALUE}.
-     *
-     * @param readTimeout read timeout in milliseconds
-     * @return Api client
-     */
-    public ApiClient setReadTimeout(int readTimeout) {
-        httpClient.setReadTimeout(readTimeout, TimeUnit.MILLISECONDS);
-        return this;
-    }
-
-    /**
-     * Get write timeout (in milliseconds).
-     *
-     * @return Timeout in milliseconds
-     */
-    public int getWriteTimeout() {
-        return httpClient.getWriteTimeout();
-    }
-
-    /**
-     * Sets the write timeout (in milliseconds).
-     * A value of 0 means no timeout, otherwise values must be between 1 and
-     * {@link Integer#MAX_VALUE}.
-     *
-     * @param writeTimeout connection timeout in milliseconds
-     * @return Api client
-     */
-    public ApiClient setWriteTimeout(int writeTimeout) {
-        httpClient.setWriteTimeout(writeTimeout, TimeUnit.MILLISECONDS);
-        return this;
-    }
-
-    /**
-     * Format the given parameter object into string.
-     *
-     * @param param Parameter
-     * @return String representation of the parameter
-     */
-    public String parameterToString(Object param) {
-        if (param == null) {
-            return "";
-        } else if (param instanceof Date || param instanceof OffsetDateTime || param instanceof LocalDate) {
-            //Serialize to json string and remove the " enclosing characters
-            String jsonStr = json.serialize(param);
-            return jsonStr.substring(1, jsonStr.length() - 1);
-        } else if (param instanceof Collection) {
-            StringBuilder b = new StringBuilder();
-            for (Object o : (Collection)param) {
-                if (b.length() > 0) {
-                    b.append(",");
-                }
-                b.append(String.valueOf(o));
-            }
-            return b.toString();
-        } else {
-            return String.valueOf(param);
-        }
-    }
-
-    /**
-     * Formats the specified query parameter to a list containing a single {@code Pair} object.
-     *
-     * Note that {@code value} must not be a collection.
-     *
-     * @param name The name of the parameter.
-     * @param value The value of the parameter.
-     * @return A list containing a single {@code Pair} object.
-     */
-    public List<Pair> parameterToPair(String name, Object value) {
-        List<Pair> params = new ArrayList<Pair>();
-
-        // preconditions
-        if (name == null || name.isEmpty() || value == null || value instanceof Collection) return params;
-
-        params.add(new Pair(name, parameterToString(value)));
-        return params;
-    }
-
-    /**
-     * Formats the specified collection query parameters to a list of {@code Pair} objects.
-     *
-     * Note that the values of each of the returned Pair objects are percent-encoded.
-     *
-     * @param collectionFormat The collection format of the parameter.
-     * @param name The name of the parameter.
-     * @param value The value of the parameter.
-     * @return A list of {@code Pair} objects.
-     */
-    public List<Pair> parameterToPairs(String collectionFormat, String name, Collection value) {
-        List<Pair> params = new ArrayList<Pair>();
-
-        // preconditions
-        if (name == null || name.isEmpty() || value == null || value.isEmpty()) {
-            return params;
-        }
-
-        // create the params based on the collection format
-        if ("multi".equals(collectionFormat)) {
-            for (Object item : value) {
-                params.add(new Pair(name, escapeString(parameterToString(item))));
-            }
-            return params;
-        }
-
-        // collectionFormat is assumed to be "csv" by default
-        String delimiter = ",";
-
-        // escape all delimiters except commas, which are URI reserved
-        // characters
-        if ("ssv".equals(collectionFormat)) {
-            delimiter = escapeString(" ");
-        } else if ("tsv".equals(collectionFormat)) {
-            delimiter = escapeString("\t");
-        } else if ("pipes".equals(collectionFormat)) {
-            delimiter = escapeString("|");
-        }
-
-        StringBuilder sb = new StringBuilder() ;
-        for (Object item : value) {
-            sb.append(delimiter);
-            sb.append(escapeString(parameterToString(item)));
-        }
-
-        params.add(new Pair(name, sb.substring(delimiter.length())));
-
-        return params;
-    }
-
-    /**
-     * Sanitize filename by removing path.
-     * e.g. ../../sun.gif becomes sun.gif
-     *
-     * @param filename The filename to be sanitized
-     * @return The sanitized filename
-     */
-    public String sanitizeFilename(String filename) {
-        return filename.replaceAll(".*[/\\\\]", "");
-    }
-
-    /**
-     * Check if the given MIME is a JSON MIME.
-     * JSON MIME examples:
-     *   application/json
-     *   application/json; charset=UTF8
-     *   APPLICATION/JSON
-     *   application/vnd.company+json
-     * "* / *" is also default to JSON
-     * @param mime MIME (Multipurpose Internet Mail Extensions)
-     * @return True if the given MIME is JSON, false otherwise.
-     */
-    public boolean isJsonMime(String mime) {
-      String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
-      return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
-    }
-
-    /**
-     * Select the Accept header's value from the given accepts array:
-     *   if JSON exists in the given array, use it;
-     *   otherwise use all of them (joining into a string)
-     *
-     * @param accepts The accepts array to select from
-     * @return The Accept header to use. If the given array is empty,
-     *   null will be returned (not to set the Accept header explicitly).
-     */
-    public String selectHeaderAccept(String[] accepts) {
-        if (accepts.length == 0) {
-            return null;
-        }
-        for (String accept : accepts) {
-            if (isJsonMime(accept)) {
-                return accept;
-            }
-        }
-        return StringUtil.join(accepts, ",");
-    }
-
-    /**
-     * Select the Content-Type header's value from the given array:
-     *   if JSON exists in the given array, use it;
-     *   otherwise use the first one of the array.
-     *
-     * @param contentTypes The Content-Type array to select from
-     * @return The Content-Type header to use. If the given array is empty,
-     *   or matches "any", JSON will be used.
-     */
-    public String selectHeaderContentType(String[] contentTypes) {
-        if (contentTypes.length == 0 || contentTypes[0].equals("*/*")) {
-             return "application/json";
-        }
-        for (String contentType : contentTypes) {
-            if (isJsonMime(contentType)) {
-                return contentType;
-            }
-        }
-        return contentTypes[0];
-    }
-
-    /**
-     * Escape the given string to be used as URL query value.
-     *
-     * @param str String to be escaped
-     * @return Escaped string
-     */
-    public String escapeString(String str) {
-        try {
-            return URLEncoder.encode(str, "utf8").replaceAll("\\+", "%20");
-        } catch (UnsupportedEncodingException e) {
-            return str;
-        }
-    }
-
-    /**
-     * Deserialize response body to Java object, according to the return type and
-     * the Content-Type response header.
-     *
-     * @param <T> Type
-     * @param response HTTP response
-     * @param returnType The type of the Java object
-     * @return The deserialized Java object
-     * @throws ApiException If fail to deserialize response body, i.e. cannot read response body
-     *   or the Content-Type of the response is not supported.
-     */
-    @SuppressWarnings("unchecked")
-    public <T> T deserialize(Response response, Type returnType) throws ApiException {
-        if (response == null || returnType == null) {
-            return null;
-        }
-
-        if ("byte[]".equals(returnType.toString())) {
-            // Handle binary response (byte array).
-            try {
-                return (T) response.body().bytes();
-            } catch (IOException e) {
-                throw new ApiException(e);
-            }
-        } else if (returnType.equals(File.class)) {
-            // Handle file downloading.
-            return (T) downloadFileFromResponse(response);
-        }
-
-        String respBody;
-        try {
-            if (response.body() != null)
-                respBody = response.body().string();
-            else
-                respBody = null;
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-
-        if (respBody == null || "".equals(respBody)) {
-            return null;
-        }
-
-        String contentType = response.headers().get("Content-Type");
-        if (contentType == null) {
-            // ensuring a default content type
-            contentType = "application/json";
-        }
-        if (isJsonMime(contentType)) {
-            return json.deserialize(respBody, returnType);
-        } else if (returnType.equals(String.class)) {
-            // Expecting string, return the raw response body.
-            return (T) respBody;
-        } else {
-            throw new ApiException(
-                    "Content type \"" + contentType + "\" is not supported for type: " + returnType,
-                    response.code(),
-                    response.headers().toMultimap(),
-                    respBody);
-        }
-    }
-
-    /**
-     * Serialize the given Java object into request body according to the object's
-     * class and the request Content-Type.
-     *
-     * @param obj The Java object
-     * @param contentType The request Content-Type
-     * @return The serialized request body
-     * @throws ApiException If fail to serialize the given object
-     */
-    public RequestBody serialize(Object obj, String contentType) throws ApiException {
-        if (obj instanceof byte[]) {
-            // Binary (byte array) body parameter support.
-            return RequestBody.create(MediaType.parse(contentType), (byte[]) obj);
-        } else if (obj instanceof File) {
-            // File body parameter support.
-            return RequestBody.create(MediaType.parse(contentType), (File) obj);
-        } else if (isJsonMime(contentType)) {
-            String content;
-            if (obj != null) {
-                content = json.serialize(obj);
-            } else {
-                content = null;
-            }
-            return RequestBody.create(MediaType.parse(contentType), content);
-        } else {
-            throw new ApiException("Content type \"" + contentType + "\" is not supported");
-        }
-    }
-
-    /**
-     * Download file from the given response.
-     *
-     * @param response An instance of the Response object
-     * @throws ApiException If fail to read file content from response and write to disk
-     * @return Downloaded file
-     */
-    public File downloadFileFromResponse(Response response) throws ApiException {
-        try {
-            File file = prepareDownloadFile(response);
-            BufferedSink sink = Okio.buffer(Okio.sink(file));
-            sink.writeAll(response.body().source());
-            sink.close();
-            return file;
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
-    /**
-     * Prepare file for download
-     *
-     * @param response An instance of the Response object
-     * @throws IOException If fail to prepare file for download
-     * @return Prepared file for the download
-     */
-    public File prepareDownloadFile(Response response) throws IOException {
-        String filename = null;
-        String contentDisposition = response.header("Content-Disposition");
-        if (contentDisposition != null && !"".equals(contentDisposition)) {
-            // Get filename from the Content-Disposition header.
-            Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
-            Matcher matcher = pattern.matcher(contentDisposition);
-            if (matcher.find()) {
-                filename = sanitizeFilename(matcher.group(1));
-            }
-        }
-
-        String prefix = null;
-        String suffix = null;
-        if (filename == null) {
-            prefix = "download-";
-            suffix = "";
-        } else {
-            int pos = filename.lastIndexOf(".");
-            if (pos == -1) {
-                prefix = filename + "-";
-            } else {
-                prefix = filename.substring(0, pos) + "-";
-                suffix = filename.substring(pos);
-            }
-            // File.createTempFile requires the prefix to be at least three characters long
-            if (prefix.length() < 3)
-                prefix = "download-";
-        }
-
-        if (tempFolderPath == null)
-            return File.createTempFile(prefix, suffix);
-        else
-            return File.createTempFile(prefix, suffix, new File(tempFolderPath));
-    }
-
-    /**
-     * {@link #execute(Call, Type)}
-     *
-     * @param <T> Type
-     * @param call An instance of the Call object
-     * @throws ApiException If fail to execute the call
-     * @return ApiResponse&lt;T&gt;
-     */
-    public <T> ApiResponse<T> execute(Call call) throws ApiException {
-        return execute(call, null);
-    }
-
-    /**
-     * Execute HTTP call and deserialize the HTTP response body into the given return type.
-     *
-     * @param returnType The return type used to deserialize HTTP response body
-     * @param <T> The return type corresponding to (same with) returnType
-     * @param call Call
-     * @return ApiResponse object containing response status, headers and
-     *   data, which is a Java object deserialized from response body and would be null
-     *   when returnType is null.
-     * @throws ApiException If fail to execute the call
-     */
-    public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {
-        try {
-            Response response = call.execute();
-            T data = handleResponse(response, returnType);
-            return new ApiResponse<T>(response.code(), response.headers().toMultimap(), data);
-        } catch (IOException e) {
-            throw new ApiException(e);
-        }
-    }
-
-    /**
-     * {@link #executeAsync(Call, Type, ApiCallback)}
-     *
-     * @param <T> Type
-     * @param call An instance of the Call object
-     * @param callback ApiCallback&lt;T&gt;
-     */
-    public <T> void executeAsync(Call call, ApiCallback<T> callback) {
-        executeAsync(call, null, callback);
-    }
-
-    /**
-     * Execute HTTP call asynchronously.
-     *
-     * @see #execute(Call, Type)
-     * @param <T> Type
-     * @param call The callback to be executed when the API call finishes
-     * @param returnType Return type
-     * @param callback ApiCallback
-     */
-    @SuppressWarnings("unchecked")
-    public <T> void executeAsync(Call call, final Type returnType, final ApiCallback<T> callback) {
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Request request, IOException e) {
-                callback.onFailure(new ApiException(e), 0, null);
-            }
-
-            @Override
-            public void onResponse(Response response) throws IOException {
-                T result;
-                try {
-                    result = (T) handleResponse(response, returnType);
-                } catch (ApiException e) {
-                    callback.onFailure(e, response.code(), response.headers().toMultimap());
-                    return;
-                }
-                callback.onSuccess(result, response.code(), response.headers().toMultimap());
+    public HttpRequestFactory createRequestFactory() {
+        final Auth signer = new Auth(this.userId, this.applicationKey);
+        NetHttpTransport transport = new NetHttpTransport();
+        return transport.createRequestFactory(new HttpRequestInitializer() {
+            public void initialize(HttpRequest request) {
+                request.setInterceptor(signer);
             }
         });
     }
 
-    /**
-     * Handle the given response, return the deserialized object when the response is successful.
-     *
-     * @param <T> Type
-     * @param response Response
-     * @param returnType Return type
-     * @throws ApiException If the response has a unsuccessful status code or
-     *   fail to deserialize the response body
-     * @return Type
-     */
-    public <T> T handleResponse(Response response, Type returnType) throws ApiException {
-        if (response.isSuccessful()) {
-            if (returnType == null || response.code() == 204) {
-                // returning null if the returnType is not defined,
-                // or the status code is 204 (No Content)
-                if (response.body() != null) {
-                    try {
-                        response.body().close();
-                    } catch (IOException e) {
-                        throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                    }
-                }
-                return null;
-            } else {
-                return deserialize(response, returnType);
-            }
-        } else {
-            String respBody = null;
-            if (response.body() != null) {
-                try {
-                    respBody = response.body().string();
-                } catch (IOException e) {
-                    throw new ApiException(response.message(), e, response.code(), response.headers().toMultimap());
-                }
-            }
-            throw new ApiException(response.message(), response.code(), response.headers().toMultimap(), respBody);
+    public String getBasePath() {
+        return basePath;
+    }
+
+    public ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
+
+    public class JacksonJsonHttpContent extends AbstractHttpContent {
+        /* A POJO that can be serialized with a com.fasterxml Jackson ObjectMapper */
+        private final Object data;
+
+        public JacksonJsonHttpContent(Object data) {
+            super(Json.MEDIA_TYPE);
+            this.data = data;
+        }
+
+        @Override
+        public void writeTo(OutputStream out) throws IOException {
+            objectMapper.writeValue(out, data);
         }
     }
 
-    /**
-     * Build HTTP call with the given options.
-     *
-     * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
-     * @param queryParams The query parameters
-     * @param collectionQueryParams The collection query parameters
-     * @param body The request body object
-     * @param headerParams The header parameters
-     * @param formParams The form parameters
-     * @param authNames The authentications to apply
-     * @param progressRequestListener Progress request listener
-     * @return The HTTP call
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public Call buildCall(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Request request = buildRequest(path, method, queryParams, collectionQueryParams, body, headerParams, formParams, authNames, progressRequestListener);
-
-        return httpClient.newCall(request);
+    // Builder pattern to get API instances for this client.
+    
+    public AccountService accountServiceApi() {
+        return new AccountService(this);
     }
-
-    /**
-     * Build an HTTP request with the given options.
-     *
-     * @param path The sub-path of the HTTP URL
-     * @param method The request method, one of "GET", "HEAD", "OPTIONS", "POST", "PUT", "PATCH" and "DELETE"
-     * @param queryParams The query parameters
-     * @param collectionQueryParams The collection query parameters
-     * @param body The request body object
-     * @param headerParams The header parameters
-     * @param formParams The form parameters
-     * @param authNames The authentications to apply
-     * @param progressRequestListener Progress request listener
-     * @return The HTTP request
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public Request buildRequest(String path, String method, List<Pair> queryParams, List<Pair> collectionQueryParams, Object body, Map<String, String> headerParams, Map<String, Object> formParams, String[] authNames, ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        updateParamsForAuth(authNames, queryParams, headerParams);
-
-        final String url = buildUrl(path, queryParams, collectionQueryParams);
-        final Request.Builder reqBuilder = new Request.Builder().url(url);
-        processHeaderParams(headerParams, reqBuilder);
-
-        Map<String, String> headers = this.getAuthHeaders(method, url);
-        for (Map.Entry<String, String> entry : headers.entrySet()) {
-            reqBuilder.addHeader(entry.getKey(), entry.getValue());
-        }
-
-        String contentType = (String) headerParams.get("Content-Type");
-        // ensuring a default content type
-        if (contentType == null) {
-            contentType = "application/json";
-        }
-
-        RequestBody reqBody;
-        if (!HttpMethod.permitsRequestBody(method)) {
-            reqBody = null;
-        } else if ("application/x-www-form-urlencoded".equals(contentType)) {
-            reqBody = buildRequestBodyFormEncoding(formParams);
-        } else if ("multipart/form-data".equals(contentType)) {
-            reqBody = buildRequestBodyMultipart(formParams);
-        } else if (body == null) {
-            if ("DELETE".equals(method)) {
-                // allow calling DELETE without sending a request body
-                reqBody = null;
-            } else {
-                // use an empty request body (for POST, PUT and PATCH)
-                reqBody = RequestBody.create(MediaType.parse(contentType), "");
-            }
-        } else {
-            reqBody = serialize(body, contentType);
-        }
-
-        Request request = null;
-
-        if(progressRequestListener != null && reqBody != null) {
-            ProgressRequestBody progressRequestBody = new ProgressRequestBody(reqBody, progressRequestListener);
-            request = reqBuilder.method(method, progressRequestBody).build();
-        } else {
-            request = reqBuilder.method(method, reqBody).build();
-        }
-
-        return request;
+    
+    public ApplicationUserService applicationUserServiceApi() {
+        return new ApplicationUserService(this);
     }
-
-    /**
-     * Build full URL by concatenating base path, the given sub path and query parameters.
-     *
-     * @param path The sub path
-     * @param queryParams The query parameters
-     * @param collectionQueryParams The collection query parameters
-     * @return The full URL
-     */
-    public String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams) {
-        final StringBuilder url = new StringBuilder();
-        url.append(basePath).append(path);
-
-        if (queryParams != null && !queryParams.isEmpty()) {
-            // support (constant) query string in `path`, e.g. "/posts?draft=1"
-            String prefix = path.contains("?") ? "&" : "?";
-            for (Pair param : queryParams) {
-                if (param.getValue() != null) {
-                    if (prefix != null) {
-                        url.append(prefix);
-                        prefix = null;
-                    } else {
-                        url.append("&");
-                    }
-                    String value = parameterToString(param.getValue());
-                    url.append(escapeString(param.getName())).append("=").append(escapeString(value));
-                }
-            }
-        }
-
-        if (collectionQueryParams != null && !collectionQueryParams.isEmpty()) {
-            String prefix = url.toString().contains("?") ? "&" : "?";
-            for (Pair param : collectionQueryParams) {
-                if (param.getValue() != null) {
-                    if (prefix != null) {
-                        url.append(prefix);
-                        prefix = null;
-                    } else {
-                        url.append("&");
-                    }
-                    String value = parameterToString(param.getValue());
-                    // collection query parameter value already escaped as part of parameterToPairs
-                    url.append(escapeString(param.getName())).append("=").append(value);
-                }
-            }
-        }
-
-        return url.toString();
+    
+    public CardProcessingService cardProcessingServiceApi() {
+        return new CardProcessingService(this);
     }
-
-    /**
-     * Set header parameters to the request builder, including default headers.
-     *
-     * @param headerParams Header parameters in the ofrm of Map
-     * @param reqBuilder Reqeust.Builder
-     */
-    public void processHeaderParams(Map<String, String> headerParams, Request.Builder reqBuilder) {
-        for (Entry<String, String> param : headerParams.entrySet()) {
-            reqBuilder.header(param.getKey(), parameterToString(param.getValue()));
-        }
-        for (Entry<String, String> header : defaultHeaderMap.entrySet()) {
-            if (!headerParams.containsKey(header.getKey())) {
-                reqBuilder.header(header.getKey(), parameterToString(header.getValue()));
-            }
-        }
+    
+    public ChargeAttemptService chargeAttemptServiceApi() {
+        return new ChargeAttemptService(this);
     }
-
-    /**
-     * Update query and header parameters based on authentication settings.
-     *
-     * @param authNames The authentications to apply
-     * @param queryParams  List of query parameters
-     * @param headerParams  Map of header parameters
-     */
-    public void updateParamsForAuth(String[] authNames, List<Pair> queryParams, Map<String, String> headerParams) {
-        for (String authName : authNames) {
-            Authentication auth = authentications.get(authName);
-            if (auth == null) throw new RuntimeException("Authentication undefined: " + authName);
-            auth.applyToParams(queryParams, headerParams);
-        }
+    
+    public ChargeFlowLevelPaymentLinkService chargeFlowLevelPaymentLinkServiceApi() {
+        return new ChargeFlowLevelPaymentLinkService(this);
     }
-
-    /**
-     * Build a form-encoding request body with the given form parameters.
-     *
-     * @param formParams Form parameters in the form of Map
-     * @return RequestBody
-     */
-    public RequestBody buildRequestBodyFormEncoding(Map<String, Object> formParams) {
-        FormEncodingBuilder formBuilder  = new FormEncodingBuilder();
-        for (Entry<String, Object> param : formParams.entrySet()) {
-            formBuilder.add(param.getKey(), parameterToString(param.getValue()));
-        }
-        return formBuilder.build();
+    
+    public ChargeFlowLevelService chargeFlowLevelServiceApi() {
+        return new ChargeFlowLevelService(this);
     }
-
-    /**
-     * Build a multipart (file uploading) request body with the given form parameters,
-     * which could contain text fields and file fields.
-     *
-     * @param formParams Form parameters in the form of Map
-     * @return RequestBody
-     */
-    public RequestBody buildRequestBodyMultipart(Map<String, Object> formParams) {
-        MultipartBuilder mpBuilder = new MultipartBuilder().type(MultipartBuilder.FORM);
-        for (Entry<String, Object> param : formParams.entrySet()) {
-            if (param.getValue() instanceof File) {
-                File file = (File) param.getValue();
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"; filename=\"" + file.getName() + "\"");
-                MediaType mediaType = MediaType.parse(guessContentTypeFromFile(file));
-                mpBuilder.addPart(partHeaders, RequestBody.create(mediaType, file));
-            } else {
-                Headers partHeaders = Headers.of("Content-Disposition", "form-data; name=\"" + param.getKey() + "\"");
-                mpBuilder.addPart(partHeaders, RequestBody.create(null, parameterToString(param.getValue())));
-            }
-        }
-        return mpBuilder.build();
+    
+    public ChargeFlowService chargeFlowServiceApi() {
+        return new ChargeFlowService(this);
     }
-
-    /**
-     * Guess Content-Type header from the given file (defaults to "application/octet-stream").
-     *
-     * @param file The given file
-     * @return The guessed Content-Type
-     */
-    public String guessContentTypeFromFile(File file) {
-        String contentType = URLConnection.guessContentTypeFromName(file.getName());
-        if (contentType == null) {
-            return "application/octet-stream";
-        } else {
-            return contentType;
-        }
+    
+    public ConditionTypeService conditionTypeServiceApi() {
+        return new ConditionTypeService(this);
     }
-
-    /**
-     * Apply SSL related settings to httpClient according to the current values of
-     * verifyingSsl and sslCaCert.
-     */
-    private void applySslSettings() {
-        try {
-            TrustManager[] trustManagers = null;
-            HostnameVerifier hostnameVerifier = null;
-            if (!verifyingSsl) {
-                TrustManager trustAll = new X509TrustManager() {
-                    @Override
-                    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
-                    @Override
-                    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
-                    @Override
-                    public X509Certificate[] getAcceptedIssuers() { return null; }
-                };
-                SSLContext sslContext = SSLContext.getInstance("TLS");
-                trustManagers = new TrustManager[]{ trustAll };
-                hostnameVerifier = new HostnameVerifier() {
-                    @Override
-                    public boolean verify(String hostname, SSLSession session) { return true; }
-                };
-            } else if (sslCaCert != null) {
-                char[] password = null; // Any password will work.
-                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                Collection<? extends Certificate> certificates = certificateFactory.generateCertificates(sslCaCert);
-                if (certificates.isEmpty()) {
-                    throw new IllegalArgumentException("expected non-empty set of trusted certificates");
-                }
-                KeyStore caKeyStore = newEmptyKeyStore(password);
-                int index = 0;
-                for (Certificate certificate : certificates) {
-                    String certificateAlias = "ca" + Integer.toString(index++);
-                    caKeyStore.setCertificateEntry(certificateAlias, certificate);
-                }
-                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                trustManagerFactory.init(caKeyStore);
-                trustManagers = trustManagerFactory.getTrustManagers();
-            }
-
-            if (keyManagers != null || trustManagers != null) {
-                SSLContext sslContext = SSLContext.getInstance("TLS");
-                sslContext.init(keyManagers, trustManagers, new SecureRandom());
-                httpClient.setSslSocketFactory(sslContext.getSocketFactory());
-            } else {
-                httpClient.setSslSocketFactory(null);
-            }
-            httpClient.setHostnameVerifier(hostnameVerifier);
-        } catch (GeneralSecurityException e) {
-            throw new RuntimeException(e);
-        }
+    
+    public CountryService countryServiceApi() {
+        return new CountryService(this);
     }
-
-    private KeyStore newEmptyKeyStore(char[] password) throws GeneralSecurityException {
-        try {
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null, password);
-            return keyStore;
-        } catch (IOException e) {
-            throw new AssertionError(e);
-        }
+    
+    public CountryStateService countryStateServiceApi() {
+        return new CountryStateService(this);
     }
-
-    private Map<String, String> getAuthHeaders(String method, String url) {
-        Map<String, String> headers = new HashMap<>();
-        String timestamp = Long.toString(System.currentTimeMillis() / 1000);
-        final String version = "1";
-        String resourcePath = this.getPath(url);
-
-        headers.put("x-mac-version", version);
-        headers.put("x-mac-userid", Long.toString(this.userId));
-        headers.put("x-mac-timestamp", timestamp);
-        headers.put("x-mac-value", this.getSignature(version, method, resourcePath, timestamp));
-        return headers;
+    
+    public CurrencyService currencyServiceApi() {
+        return new CurrencyService(this);
     }
-
-    private String getPath(String url) {
-        try {
-            final URL urlObject = new URL(url);
-            StringBuilder path = new StringBuilder(urlObject.getPath());
-            String query = urlObject.getQuery();
-            if (!(query == null || query.isEmpty())) {
-                path.append("?").append(query);
-            }
-            return path.toString();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+    
+    public CustomerAddressService customerAddressServiceApi() {
+        return new CustomerAddressService(this);
     }
-
-    private String getSignature(String version, String method, String resourcePath, String timestamp) {
-        final String securedData = version + "|" + this.userId + "|" + timestamp + "|" + method.toUpperCase() + "|" + resourcePath;
-        byte[] decodedSecret = Base64.getDecoder().decode(this.applicationKey);
-        Mac mac = null;
-        try {
-            mac = Mac.getInstance("HmacSHA512");
-            mac.init(new SecretKeySpec(decodedSecret, "HmacSHA512"));
-        } catch (InvalidKeyException | NoSuchAlgorithmException e) {
-            throw new RuntimeException("The required HMAC algorithm (HmacSHA512) is not supported.", (Throwable) e);
-        }
-        byte[] bytes = mac.doFinal(securedData.getBytes(StandardCharsets.UTF_8));
-        return new String(Base64.getEncoder().encode(bytes), StandardCharsets.UTF_8);
+    
+    public CustomerCommentService customerCommentServiceApi() {
+        return new CustomerCommentService(this);
     }
+    
+    public CustomerService customerServiceApi() {
+        return new CustomerService(this);
+    }
+    
+    public DebtCollectionCaseService debtCollectionCaseServiceApi() {
+        return new DebtCollectionCaseService(this);
+    }
+    
+    public DebtCollectorConfigurationService debtCollectorConfigurationServiceApi() {
+        return new DebtCollectorConfigurationService(this);
+    }
+    
+    public DebtCollectorService debtCollectorServiceApi() {
+        return new DebtCollectorService(this);
+    }
+    
+    public DeliveryIndicationService deliveryIndicationServiceApi() {
+        return new DeliveryIndicationService(this);
+    }
+    
+    public DocumentTemplateService documentTemplateServiceApi() {
+        return new DocumentTemplateService(this);
+    }
+    
+    public DocumentTemplateTypeService documentTemplateTypeServiceApi() {
+        return new DocumentTemplateTypeService(this);
+    }
+    
+    public HumanUserService humanUserServiceApi() {
+        return new HumanUserService(this);
+    }
+    
+    public InstallmentPaymentService installmentPaymentServiceApi() {
+        return new InstallmentPaymentService(this);
+    }
+    
+    public InstallmentPaymentSliceService installmentPaymentSliceServiceApi() {
+        return new InstallmentPaymentSliceService(this);
+    }
+    
+    public InstallmentPlanCalculationService installmentPlanCalculationServiceApi() {
+        return new InstallmentPlanCalculationService(this);
+    }
+    
+    public InstallmentPlanConfigurationService installmentPlanConfigurationServiceApi() {
+        return new InstallmentPlanConfigurationService(this);
+    }
+    
+    public InstallmentPlanSliceConfigurationService installmentPlanSliceConfigurationServiceApi() {
+        return new InstallmentPlanSliceConfigurationService(this);
+    }
+    
+    public LabelDescriptionGroupService labelDescriptionGroupServiceApi() {
+        return new LabelDescriptionGroupService(this);
+    }
+    
+    public LabelDescriptionService labelDescriptionServiceApi() {
+        return new LabelDescriptionService(this);
+    }
+    
+    public LanguageService languageServiceApi() {
+        return new LanguageService(this);
+    }
+    
+    public LegalOrganizationFormService legalOrganizationFormServiceApi() {
+        return new LegalOrganizationFormService(this);
+    }
+    
+    public ManualTaskService manualTaskServiceApi() {
+        return new ManualTaskService(this);
+    }
+    
+    public MerticUsageService merticUsageServiceApi() {
+        return new MerticUsageService(this);
+    }
+    
+    public PaymentConnectorConfigurationService paymentConnectorConfigurationServiceApi() {
+        return new PaymentConnectorConfigurationService(this);
+    }
+    
+    public PaymentConnectorService paymentConnectorServiceApi() {
+        return new PaymentConnectorService(this);
+    }
+    
+    public PaymentLinkService paymentLinkServiceApi() {
+        return new PaymentLinkService(this);
+    }
+    
+    public PaymentMethodBrandService paymentMethodBrandServiceApi() {
+        return new PaymentMethodBrandService(this);
+    }
+    
+    public PaymentMethodConfigurationService paymentMethodConfigurationServiceApi() {
+        return new PaymentMethodConfigurationService(this);
+    }
+    
+    public PaymentMethodService paymentMethodServiceApi() {
+        return new PaymentMethodService(this);
+    }
+    
+    public PaymentProcessorConfigurationService paymentProcessorConfigurationServiceApi() {
+        return new PaymentProcessorConfigurationService(this);
+    }
+    
+    public PaymentProcessorService paymentProcessorServiceApi() {
+        return new PaymentProcessorService(this);
+    }
+    
+    public PaymentTerminalService paymentTerminalServiceApi() {
+        return new PaymentTerminalService(this);
+    }
+    
+    public PermissionService permissionServiceApi() {
+        return new PermissionService(this);
+    }
+    
+    public RefundCommentService refundCommentServiceApi() {
+        return new RefundCommentService(this);
+    }
+    
+    public RefundService refundServiceApi() {
+        return new RefundService(this);
+    }
+    
+    public ShopifyRecurringOrderService shopifyRecurringOrderServiceApi() {
+        return new ShopifyRecurringOrderService(this);
+    }
+    
+    public ShopifySubscriberService shopifySubscriberServiceApi() {
+        return new ShopifySubscriberService(this);
+    }
+    
+    public ShopifySubscriptionProductService shopifySubscriptionProductServiceApi() {
+        return new ShopifySubscriptionProductService(this);
+    }
+    
+    public ShopifySubscriptionService shopifySubscriptionServiceApi() {
+        return new ShopifySubscriptionService(this);
+    }
+    
+    public ShopifySubscriptionSuspensionService shopifySubscriptionSuspensionServiceApi() {
+        return new ShopifySubscriptionSuspensionService(this);
+    }
+    
+    public ShopifySubscriptionVersionService shopifySubscriptionVersionServiceApi() {
+        return new ShopifySubscriptionVersionService(this);
+    }
+    
+    public SpaceService spaceServiceApi() {
+        return new SpaceService(this);
+    }
+    
+    public StaticValueService staticValueServiceApi() {
+        return new StaticValueService(this);
+    }
+    
+    public SubscriberService subscriberServiceApi() {
+        return new SubscriberService(this);
+    }
+    
+    public SubscriptionAffiliateService subscriptionAffiliateServiceApi() {
+        return new SubscriptionAffiliateService(this);
+    }
+    
+    public SubscriptionChargeService subscriptionChargeServiceApi() {
+        return new SubscriptionChargeService(this);
+    }
+    
+    public SubscriptionLedgerEntryService subscriptionLedgerEntryServiceApi() {
+        return new SubscriptionLedgerEntryService(this);
+    }
+    
+    public SubscriptionMetricService subscriptionMetricServiceApi() {
+        return new SubscriptionMetricService(this);
+    }
+    
+    public SubscriptionMetricUsageService subscriptionMetricUsageServiceApi() {
+        return new SubscriptionMetricUsageService(this);
+    }
+    
+    public SubscriptionPeriodBillService subscriptionPeriodBillServiceApi() {
+        return new SubscriptionPeriodBillService(this);
+    }
+    
+    public SubscriptionProductComponentGroupService subscriptionProductComponentGroupServiceApi() {
+        return new SubscriptionProductComponentGroupService(this);
+    }
+    
+    public SubscriptionProductComponentService subscriptionProductComponentServiceApi() {
+        return new SubscriptionProductComponentService(this);
+    }
+    
+    public SubscriptionProductFeeTierService subscriptionProductFeeTierServiceApi() {
+        return new SubscriptionProductFeeTierService(this);
+    }
+    
+    public SubscriptionProductMeteredFeeService subscriptionProductMeteredFeeServiceApi() {
+        return new SubscriptionProductMeteredFeeService(this);
+    }
+    
+    public SubscriptionProductPeriodFeeService subscriptionProductPeriodFeeServiceApi() {
+        return new SubscriptionProductPeriodFeeService(this);
+    }
+    
+    public SubscriptionProductRetirementService subscriptionProductRetirementServiceApi() {
+        return new SubscriptionProductRetirementService(this);
+    }
+    
+    public SubscriptionProductService subscriptionProductServiceApi() {
+        return new SubscriptionProductService(this);
+    }
+    
+    public SubscriptionProductSetupFeeService subscriptionProductSetupFeeServiceApi() {
+        return new SubscriptionProductSetupFeeService(this);
+    }
+    
+    public SubscriptionProductVersionRetirementService subscriptionProductVersionRetirementServiceApi() {
+        return new SubscriptionProductVersionRetirementService(this);
+    }
+    
+    public SubscriptionProductVersionService subscriptionProductVersionServiceApi() {
+        return new SubscriptionProductVersionService(this);
+    }
+    
+    public SubscriptionService subscriptionServiceApi() {
+        return new SubscriptionService(this);
+    }
+    
+    public SubscriptionSuspensionService subscriptionSuspensionServiceApi() {
+        return new SubscriptionSuspensionService(this);
+    }
+    
+    public SubscriptionVersionService subscriptionVersionServiceApi() {
+        return new SubscriptionVersionService(this);
+    }
+    
+    public TokenService tokenServiceApi() {
+        return new TokenService(this);
+    }
+    
+    public TokenVersionService tokenVersionServiceApi() {
+        return new TokenVersionService(this);
+    }
+    
+    public TransactionCommentService transactionCommentServiceApi() {
+        return new TransactionCommentService(this);
+    }
+    
+    public TransactionCompletionService transactionCompletionServiceApi() {
+        return new TransactionCompletionService(this);
+    }
+    
+    public TransactionIframeService transactionIframeServiceApi() {
+        return new TransactionIframeService(this);
+    }
+    
+    public TransactionInvoiceCommentService transactionInvoiceCommentServiceApi() {
+        return new TransactionInvoiceCommentService(this);
+    }
+    
+    public TransactionInvoiceService transactionInvoiceServiceApi() {
+        return new TransactionInvoiceService(this);
+    }
+    
+    public TransactionLightboxService transactionLightboxServiceApi() {
+        return new TransactionLightboxService(this);
+    }
+    
+    public TransactionMobileSdkService transactionMobileSdkServiceApi() {
+        return new TransactionMobileSdkService(this);
+    }
+    
+    public TransactionPaymentPageService transactionPaymentPageServiceApi() {
+        return new TransactionPaymentPageService(this);
+    }
+    
+    public TransactionService transactionServiceApi() {
+        return new TransactionService(this);
+    }
+    
+    public TransactionTerminalService transactionTerminalServiceApi() {
+        return new TransactionTerminalService(this);
+    }
+    
+    public TransactionVoidService transactionVoidServiceApi() {
+        return new TransactionVoidService(this);
+    }
+    
+    public UserAccountRoleService userAccountRoleServiceApi() {
+        return new UserAccountRoleService(this);
+    }
+    
+    public UserSpaceRoleService userSpaceRoleServiceApi() {
+        return new UserSpaceRoleService(this);
+    }
+    
+    public WebhookListenerService webhookListenerServiceApi() {
+        return new WebhookListenerService(this);
+    }
+    
+    public WebhookUrlService webhookUrlServiceApi() {
+        return new WebhookUrlService(this);
+    }
+    
 }

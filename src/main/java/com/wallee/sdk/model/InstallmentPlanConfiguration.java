@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.ResourcePath;
@@ -33,7 +31,6 @@ import com.wallee.sdk.model.SpaceReference;
 import com.wallee.sdk.model.TaxClass;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -44,73 +41,75 @@ import java.time.OffsetDateTime;
 /**
  * The installment plan allows to setup a template for an installment.
  */
+@ApiModel(description = "The installment plan allows to setup a template for an installment.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class InstallmentPlanConfiguration {
   
-  @SerializedName("baseCurrency")
+  @JsonProperty("baseCurrency")
   protected String baseCurrency = null;
 
   
-  @SerializedName("conditions")
+  @JsonProperty("conditions")
   protected List<Long> conditions = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("installmentFee")
+  @JsonProperty("installmentFee")
   protected BigDecimal installmentFee = null;
 
   
-  @SerializedName("interestRate")
+  @JsonProperty("interestRate")
   protected BigDecimal interestRate = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("minimalAmount")
+  @JsonProperty("minimalAmount")
   protected BigDecimal minimalAmount = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("paymentMethodConfigurations")
+  @JsonProperty("paymentMethodConfigurations")
   protected List<Long> paymentMethodConfigurations = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("sortOrder")
+  @JsonProperty("sortOrder")
   protected Integer sortOrder = null;
 
   
-  @SerializedName("spaceReference")
+  @JsonProperty("spaceReference")
   protected SpaceReference spaceReference = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("taxClass")
+  @JsonProperty("taxClass")
   protected TaxClass taxClass = null;
 
   
-  @SerializedName("termsAndConditions")
+  @JsonProperty("termsAndConditions")
   protected ResourcePath termsAndConditions = null;
 
   
-  @SerializedName("title")
+  @JsonProperty("title")
   protected DatabaseTranslatedString title = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

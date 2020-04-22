@@ -1,48 +1,29 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiCallback;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
-import com.wallee.sdk.Pair;
-import com.wallee.sdk.ProgressRequestBody;
-import com.wallee.sdk.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.MetricUsage;
 import java.time.OffsetDateTime;
 import com.wallee.sdk.model.ServerError;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.json.Json;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class MerticUsageService {
     private ApiClient apiClient;
 
@@ -58,158 +39,151 @@ public class MerticUsageService {
         this.apiClient = apiClient;
     }
 
-    /**
-     * Build call for calculate
-     * @param spaceId  (required)
-     * @param start The start date from which on the consumed units should be returned from. (required)
-     * @param end The end date to which the consumed units should be returned to. The end date is not included in the result. (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-     */
-    public com.squareup.okhttp.Call calculateCall(Long spaceId, OffsetDateTime start, OffsetDateTime end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
+  /**
+    * Calculate
+    * Calculates the consumed resources for the given space and time range.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param start The start date from which on the consumed units should be returned from.
+    * @param end The end date to which the consumed units should be returned to. The end date is not included in the result.
+    * @return List&lt;MetricUsage&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
 
-        // create path and map variables
-        String localVarPath = "/mertic-usage/calculate";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (spaceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("spaceId", spaceId));
-        if (start != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("start", start));
-        if (end != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("end", end));
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json;charset=utf-8"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "*/*"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
+    **/
+    public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
+        HttpResponse response = calculateForHttpResponse(spaceId, start, end);
+        String returnType = "List&lt;MetricUsage&gt;";
+        if(returnType.equals("String")){
+          return (List<MetricUsage>) (Object) response.parseAsString();
         }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
+        return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call calculateValidateBeforeCall(Long spaceId, OffsetDateTime start, OffsetDateTime end, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+  /**
+    * Calculate
+    * Calculates the consumed resources for the given space and time range.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param start The start date from which on the consumed units should be returned from.
+    * @param end The end date to which the consumed units should be returned to. The end date is not included in the result.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return List&lt;MetricUsage&gt;
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
+
+    **/
+    public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
+        HttpResponse response = calculateForHttpResponse(spaceId, start, end, params);
+        String returnType = "List&lt;MetricUsage&gt;";
+        if(returnType.equals("String")){
+            return (List<MetricUsage>) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
+        return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new ApiException("Missing the required parameter 'spaceId' when calling calculate(Async)");
-        }
-        
-        // verify the required parameter 'start' is set
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling calculate");
+        }// verify the required parameter 'start' is set
         if (start == null) {
-            throw new ApiException("Missing the required parameter 'start' when calling calculate(Async)");
-        }
-        
-        // verify the required parameter 'end' is set
+            throw new IllegalArgumentException("Missing the required parameter 'start' when calling calculate");
+        }// verify the required parameter 'end' is set
         if (end == null) {
-            throw new ApiException("Missing the required parameter 'end' when calling calculate(Async)");
+            throw new IllegalArgumentException("Missing the required parameter 'end' when calling calculate");
         }
-        
-
-        com.squareup.okhttp.Call call = calculateCall(spaceId, start, end, progressListener, progressRequestListener);
-        return call;
-
-    }
-
-    /**
-     * Calculate
-     * Calculates the consumed resources for the given space and time range.
-     * @param spaceId  (required)
-     * @param start The start date from which on the consumed units should be returned from. (required)
-     * @param end The end date to which the consumed units should be returned to. The end date is not included in the result. (required)
-     * @return List&lt;MetricUsage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-     */
-    public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws ApiException {
-        ApiResponse<List<MetricUsage>> resp = calculateWithHttpInfo(spaceId, start, end);
-        return resp.getData();
-    }
-
-    /**
-     * Calculate
-     * Calculates the consumed resources for the given space and time range.
-     * @param spaceId  (required)
-     * @param start The start date from which on the consumed units should be returned from. (required)
-     * @param end The end date to which the consumed units should be returned to. The end date is not included in the result. (required)
-     * @return ApiResponse&lt;List&lt;MetricUsage&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-     */
-    public ApiResponse<List<MetricUsage>> calculateWithHttpInfo(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws ApiException {
-        com.squareup.okhttp.Call call = calculateValidateBeforeCall(spaceId, start, end, null, null);
-        Type localVarReturnType = new TypeToken<List<MetricUsage>>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Calculate (asynchronously)
-     * Calculates the consumed resources for the given space and time range.
-     * @param spaceId  (required)
-     * @param start The start date from which on the consumed units should be returned from. (required)
-     * @param end The end date to which the consumed units should be returned to. The end date is not included in the result. (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * For more information visit this link.
-     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-     */
-    public com.squareup.okhttp.Call calculateAsync(Long spaceId, OffsetDateTime start, OffsetDateTime end, final ApiCallback<List<MetricUsage>> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (start != null) {
+            String key = "start";
+            Object value = start;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (end != null) {
+            String key = "end";
+            Object value = end;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
-        com.squareup.okhttp.Call call = calculateValidateBeforeCall(spaceId, start, end, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<MetricUsage>>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
+
+    public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling calculate");
+        }// verify the required parameter 'start' is set
+        if (start == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'start' when calling calculate");
+        }// verify the required parameter 'end' is set
+        if (end == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'end' when calling calculate");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'start' to the map of query params
+        allParams.put("start", start);
+        // Add the required query param 'end' to the map of query params
+        allParams.put("end", end);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
 }

@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CriteriaOperator;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.EntityQueryFilterType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -40,25 +37,27 @@ import java.time.OffsetDateTime;
 /**
  * The query filter allows to restrict the entities which are returned.
  */
+@ApiModel(description = "The query filter allows to restrict the entities which are returned.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class EntityQueryFilter {
   
-  @SerializedName("children")
+  @JsonProperty("children")
   protected List<EntityQueryFilter> children = null;
 
   
-  @SerializedName("fieldName")
+  @JsonProperty("fieldName")
   protected String fieldName = null;
 
   
-  @SerializedName("operator")
+  @JsonProperty("operator")
   protected CriteriaOperator operator = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected EntityQueryFilterType type = null;
 
   
-  @SerializedName("value")
+  @JsonProperty("value")
   protected Object value = null;
 
   

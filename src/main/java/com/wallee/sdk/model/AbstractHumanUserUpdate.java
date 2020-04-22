@@ -21,52 +21,50 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * AbstractHumanUserUpdate
  */
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class AbstractHumanUserUpdate {
   
-  @SerializedName("emailAddress")
+  @JsonProperty("emailAddress")
   protected String emailAddress = null;
 
   
-  @SerializedName("firstname")
+  @JsonProperty("firstname")
   protected String firstname = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lastname")
+  @JsonProperty("lastname")
   protected String lastname = null;
 
   
-  @SerializedName("mobilePhoneNumber")
+  @JsonProperty("mobilePhoneNumber")
   protected String mobilePhoneNumber = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected CreationEntityState state = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("twoFactorEnabled")
+  @JsonProperty("twoFactorEnabled")
   protected Boolean twoFactorEnabled = null;
 
   

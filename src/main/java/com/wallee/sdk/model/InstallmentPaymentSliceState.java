@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(InstallmentPaymentSliceState.Adapter.class)
 public enum InstallmentPaymentSliceState {
   
   CREATE("CREATE"),
@@ -58,6 +53,7 @@ public enum InstallmentPaymentSliceState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -67,6 +63,7 @@ public enum InstallmentPaymentSliceState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static InstallmentPaymentSliceState fromValue(String text) {
     for (InstallmentPaymentSliceState b : InstallmentPaymentSliceState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -74,19 +71,6 @@ public enum InstallmentPaymentSliceState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<InstallmentPaymentSliceState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final InstallmentPaymentSliceState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public InstallmentPaymentSliceState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return InstallmentPaymentSliceState.fromValue(String.valueOf(value));
-    }
   }
 }
 

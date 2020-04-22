@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ChargeAttemptEnvironment.Adapter.class)
 public enum ChargeAttemptEnvironment {
   
   PRODUCTION("PRODUCTION"),
@@ -48,6 +43,7 @@ public enum ChargeAttemptEnvironment {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -57,6 +53,7 @@ public enum ChargeAttemptEnvironment {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ChargeAttemptEnvironment fromValue(String text) {
     for (ChargeAttemptEnvironment b : ChargeAttemptEnvironment.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -64,19 +61,6 @@ public enum ChargeAttemptEnvironment {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ChargeAttemptEnvironment> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ChargeAttemptEnvironment enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ChargeAttemptEnvironment read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ChargeAttemptEnvironment.fromValue(String.valueOf(value));
-    }
   }
 }
 

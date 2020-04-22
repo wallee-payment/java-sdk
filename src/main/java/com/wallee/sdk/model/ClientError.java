@@ -21,40 +21,39 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ClientErrorType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
  * An error that is returned as the result of a bad user request or a misconfiguration.
  */
+@ApiModel(description = "An error that is returned as the result of a bad user request or a misconfiguration.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ClientError {
   
-  @SerializedName("date")
+  @JsonProperty("date")
   protected String date = null;
 
   
-  @SerializedName("defaultMessage")
+  @JsonProperty("defaultMessage")
   protected String defaultMessage = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected String id = null;
 
   
-  @SerializedName("message")
+  @JsonProperty("message")
   protected String message = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected ClientErrorType type = null;
 
   

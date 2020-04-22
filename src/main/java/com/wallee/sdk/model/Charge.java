@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ChargeState;
 import com.wallee.sdk.model.ChargeType;
 import com.wallee.sdk.model.FailureReason;
@@ -33,7 +31,6 @@ import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -41,53 +38,55 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Charge extends TransactionAwareEntity {
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ChargeState state = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("timeoutOn")
+  @JsonProperty("timeoutOn")
   protected OffsetDateTime timeoutOn = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected ChargeType type = null;
 
   
-  @SerializedName("userFailureMessage")
+  @JsonProperty("userFailureMessage")
   protected String userFailureMessage = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

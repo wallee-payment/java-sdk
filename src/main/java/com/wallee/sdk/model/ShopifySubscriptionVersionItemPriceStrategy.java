@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ShopifySubscriptionVersionItemPriceStrategy.Adapter.class)
 public enum ShopifySubscriptionVersionItemPriceStrategy {
   
   INITIALLY_CALCULATED("INITIALLY_CALCULATED"),
@@ -48,6 +43,7 @@ public enum ShopifySubscriptionVersionItemPriceStrategy {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -57,6 +53,7 @@ public enum ShopifySubscriptionVersionItemPriceStrategy {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ShopifySubscriptionVersionItemPriceStrategy fromValue(String text) {
     for (ShopifySubscriptionVersionItemPriceStrategy b : ShopifySubscriptionVersionItemPriceStrategy.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -64,19 +61,6 @@ public enum ShopifySubscriptionVersionItemPriceStrategy {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ShopifySubscriptionVersionItemPriceStrategy> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ShopifySubscriptionVersionItemPriceStrategy enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ShopifySubscriptionVersionItemPriceStrategy read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ShopifySubscriptionVersionItemPriceStrategy.fromValue(String.valueOf(value));
-    }
   }
 }
 

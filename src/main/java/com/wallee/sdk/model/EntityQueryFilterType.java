@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * The filter type defines how the filter is interpreted. Depending of the type different properties are relevant on the filter itself.
  */
-@JsonAdapter(EntityQueryFilterType.Adapter.class)
 public enum EntityQueryFilterType {
   
   LEAF("LEAF"),
@@ -50,6 +45,7 @@ public enum EntityQueryFilterType {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -59,6 +55,7 @@ public enum EntityQueryFilterType {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static EntityQueryFilterType fromValue(String text) {
     for (EntityQueryFilterType b : EntityQueryFilterType.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -66,19 +63,6 @@ public enum EntityQueryFilterType {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<EntityQueryFilterType> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final EntityQueryFilterType enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public EntityQueryFilterType read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return EntityQueryFilterType.fromValue(String.valueOf(value));
-    }
   }
 }
 

@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
@@ -37,7 +35,6 @@ import com.wallee.sdk.model.Tax;
 import com.wallee.sdk.model.Transaction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -48,125 +45,127 @@ import java.time.OffsetDateTime;
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
  */
+@ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Refund {
   
-  @SerializedName("amount")
+  @JsonProperty("amount")
   protected BigDecimal amount = null;
 
   
-  @SerializedName("baseLineItems")
+  @JsonProperty("baseLineItems")
   protected List<LineItem> baseLineItems = null;
 
   
-  @SerializedName("completion")
+  @JsonProperty("completion")
   protected Long completion = null;
 
   
-  @SerializedName("createdBy")
+  @JsonProperty("createdBy")
   protected Long createdBy = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected Environment environment = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("failedOn")
+  @JsonProperty("failedOn")
   protected OffsetDateTime failedOn = null;
 
   
-  @SerializedName("failureReason")
+  @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("labels")
+  @JsonProperty("labels")
   protected List<Label> labels = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("merchantReference")
+  @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
   
-  @SerializedName("nextUpdateOn")
+  @JsonProperty("nextUpdateOn")
   protected OffsetDateTime nextUpdateOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("processingOn")
+  @JsonProperty("processingOn")
   protected OffsetDateTime processingOn = null;
 
   
-  @SerializedName("processorReference")
+  @JsonProperty("processorReference")
   protected String processorReference = null;
 
   
-  @SerializedName("reducedLineItems")
+  @JsonProperty("reducedLineItems")
   protected List<LineItem> reducedLineItems = null;
 
   
-  @SerializedName("reductions")
+  @JsonProperty("reductions")
   protected List<LineItemReduction> reductions = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected RefundState state = null;
 
   
-  @SerializedName("succeededOn")
+  @JsonProperty("succeededOn")
   protected OffsetDateTime succeededOn = null;
 
   
-  @SerializedName("taxes")
+  @JsonProperty("taxes")
   protected List<Tax> taxes = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("timeoutOn")
+  @JsonProperty("timeoutOn")
   protected OffsetDateTime timeoutOn = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected RefundType type = null;
 
   
-  @SerializedName("updatedInvoice")
+  @JsonProperty("updatedInvoice")
   protected Long updatedInvoice = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

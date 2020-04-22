@@ -21,15 +21,12 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -37,57 +34,59 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionProductComponentUpdate {
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Long version = null;
 
   
-  @SerializedName("componentChangeWeight")
+  @JsonProperty("componentChangeWeight")
   protected Integer componentChangeWeight = null;
 
   
-  @SerializedName("componentGroup")
+  @JsonProperty("componentGroup")
   protected Long componentGroup = null;
 
   
-  @SerializedName("defaultComponent")
+  @JsonProperty("defaultComponent")
   protected Boolean defaultComponent = null;
 
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected DatabaseTranslatedStringCreate description = null;
 
   
-  @SerializedName("maximalQuantity")
+  @JsonProperty("maximalQuantity")
   protected BigDecimal maximalQuantity = null;
 
   
-  @SerializedName("minimalQuantity")
+  @JsonProperty("minimalQuantity")
   protected BigDecimal minimalQuantity = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected DatabaseTranslatedStringCreate name = null;
 
   
-  @SerializedName("quantityStep")
+  @JsonProperty("quantityStep")
   protected BigDecimal quantityStep = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected Long reference = null;
 
   
-  @SerializedName("sortOrder")
+  @JsonProperty("sortOrder")
   protected Integer sortOrder = null;
 
   
-  @SerializedName("taxClass")
+  @JsonProperty("taxClass")
   protected Long taxClass = null;
 
   

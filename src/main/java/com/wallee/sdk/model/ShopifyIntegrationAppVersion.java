@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ShopifyIntegrationAppVersion.Adapter.class)
 public enum ShopifyIntegrationAppVersion {
   
   BASIC("BASIC"),
@@ -50,6 +45,7 @@ public enum ShopifyIntegrationAppVersion {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -59,6 +55,7 @@ public enum ShopifyIntegrationAppVersion {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ShopifyIntegrationAppVersion fromValue(String text) {
     for (ShopifyIntegrationAppVersion b : ShopifyIntegrationAppVersion.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -66,19 +63,6 @@ public enum ShopifyIntegrationAppVersion {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ShopifyIntegrationAppVersion> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ShopifyIntegrationAppVersion enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ShopifyIntegrationAppVersion read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ShopifyIntegrationAppVersion.fromValue(String.valueOf(value));
-    }
   }
 }
 

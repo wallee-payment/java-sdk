@@ -21,17 +21,14 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.LineItemAttributeCreate;
 import com.wallee.sdk.model.LineItemType;
 import com.wallee.sdk.model.TaxCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,45 +40,47 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class LineItemCreate {
   
-  @SerializedName("amountIncludingTax")
+  @JsonProperty("amountIncludingTax")
   protected BigDecimal amountIncludingTax = null;
 
   
-  @SerializedName("attributes")
+  @JsonProperty("attributes")
   protected Map<String, LineItemAttributeCreate> attributes = null;
 
   
-  @SerializedName("discountIncludingTax")
+  @JsonProperty("discountIncludingTax")
   protected BigDecimal discountIncludingTax = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("quantity")
+  @JsonProperty("quantity")
   protected BigDecimal quantity = null;
 
   
-  @SerializedName("shippingRequired")
+  @JsonProperty("shippingRequired")
   protected Boolean shippingRequired = null;
 
   
-  @SerializedName("sku")
+  @JsonProperty("sku")
   protected String sku = null;
 
   
-  @SerializedName("taxes")
+  @JsonProperty("taxes")
   protected List<TaxCreate> taxes = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected LineItemType type = null;
 
   
-  @SerializedName("uniqueId")
+  @JsonProperty("uniqueId")
   protected String uniqueId = null;
 
   

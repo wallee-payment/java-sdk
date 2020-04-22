@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(TransactionInvoiceState.Adapter.class)
 public enum TransactionInvoiceState {
   
   CREATE("CREATE"),
@@ -58,6 +53,7 @@ public enum TransactionInvoiceState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -67,6 +63,7 @@ public enum TransactionInvoiceState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TransactionInvoiceState fromValue(String text) {
     for (TransactionInvoiceState b : TransactionInvoiceState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -74,19 +71,6 @@ public enum TransactionInvoiceState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<TransactionInvoiceState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TransactionInvoiceState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public TransactionInvoiceState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TransactionInvoiceState.fromValue(String.valueOf(value));
-    }
   }
 }
 

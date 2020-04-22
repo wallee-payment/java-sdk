@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.LineItem;
@@ -34,7 +32,6 @@ import com.wallee.sdk.model.TransactionCompletion;
 import com.wallee.sdk.model.TransactionInvoiceState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -45,81 +42,87 @@ import java.time.OffsetDateTime;
 /**
  * The transaction invoice represents the invoice document for a particular transaction.
  */
+@ApiModel(description = "The transaction invoice represents the invoice document for a particular transaction.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class TransactionInvoice extends TransactionAwareEntity {
   
-  @SerializedName("amount")
+  @JsonProperty("amount")
   protected BigDecimal amount = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected Address billingAddress = null;
 
   
-  @SerializedName("completion")
+  @JsonProperty("completion")
   protected TransactionCompletion completion = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("derecognizedOn")
+  @JsonProperty("derecognizedBy")
+  protected Long derecognizedBy = null;
+
+  
+  @JsonProperty("derecognizedOn")
   protected OffsetDateTime derecognizedOn = null;
 
   
-  @SerializedName("dueOn")
+  @JsonProperty("dueOn")
   protected OffsetDateTime dueOn = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected Environment environment = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("lineItems")
+  @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
 
   
-  @SerializedName("merchantReference")
+  @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
   
-  @SerializedName("outstandingAmount")
+  @JsonProperty("outstandingAmount")
   protected BigDecimal outstandingAmount = null;
 
   
-  @SerializedName("paidOn")
+  @JsonProperty("paidOn")
   protected OffsetDateTime paidOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("spaceViewId")
+  @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected TransactionInvoiceState state = null;
 
   
-  @SerializedName("taxAmount")
+  @JsonProperty("taxAmount")
   protected BigDecimal taxAmount = null;
 
   
-  @SerializedName("timeZone")
+  @JsonProperty("timeZone")
   protected String timeZone = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   
@@ -161,6 +164,16 @@ public class TransactionInvoice extends TransactionAwareEntity {
   @ApiModelProperty(value = "The date on which the invoice is created on.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * The id of the user which marked the invoice as derecognized.
+   * @return derecognizedBy
+  **/
+  @ApiModelProperty(value = "The id of the user which marked the invoice as derecognized.")
+  public Long getDerecognizedBy() {
+    return derecognizedBy;
   }
 
   
@@ -331,6 +344,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.billingAddress, transactionInvoice.billingAddress) &&
         Objects.equals(this.completion, transactionInvoice.completion) &&
         Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
+        Objects.equals(this.derecognizedBy, transactionInvoice.derecognizedBy) &&
         Objects.equals(this.derecognizedOn, transactionInvoice.derecognizedOn) &&
         Objects.equals(this.dueOn, transactionInvoice.dueOn) &&
         Objects.equals(this.environment, transactionInvoice.environment) &&
@@ -351,7 +365,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, billingAddress, completion, createdOn, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, billingAddress, completion, createdOn, derecognizedBy, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
   }
 
 
@@ -367,6 +381,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    derecognizedBy: ").append(toIndentedString(derecognizedBy)).append("\n");
     sb.append("    derecognizedOn: ").append(toIndentedString(derecognizedOn)).append("\n");
     sb.append("    dueOn: ").append(toIndentedString(dueOn)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");

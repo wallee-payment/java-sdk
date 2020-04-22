@@ -21,14 +21,11 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
@@ -39,21 +36,23 @@ import java.time.OffsetDateTime;
 /**
  * The metric usage provides details about the consumption of a particular metric.
  */
+@ApiModel(description = "The metric usage provides details about the consumption of a particular metric.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class MetricUsage {
   
-  @SerializedName("consumedUnits")
+  @JsonProperty("consumedUnits")
   protected BigDecimal consumedUnits = null;
 
   
-  @SerializedName("metricDescription")
+  @JsonProperty("metricDescription")
   protected Map<String, String> metricDescription = null;
 
   
-  @SerializedName("metricId")
+  @JsonProperty("metricId")
   protected Long metricId = null;
 
   
-  @SerializedName("metricName")
+  @JsonProperty("metricName")
   protected Map<String, String> metricName = null;
 
   

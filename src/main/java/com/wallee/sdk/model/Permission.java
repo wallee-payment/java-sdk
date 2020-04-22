@@ -21,14 +21,11 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,45 +36,47 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class Permission {
   
-  @SerializedName("description")
+  @JsonProperty("description")
   protected Map<String, String> description = null;
 
   
-  @SerializedName("feature")
+  @JsonProperty("feature")
   protected Long feature = null;
 
   
-  @SerializedName("group")
+  @JsonProperty("group")
   protected Boolean group = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("leaf")
+  @JsonProperty("leaf")
   protected Boolean leaf = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected Map<String, String> name = null;
 
   
-  @SerializedName("parent")
+  @JsonProperty("parent")
   protected Long parent = null;
 
   
-  @SerializedName("pathToRoot")
+  @JsonProperty("pathToRoot")
   protected List<Long> pathToRoot = null;
 
   
-  @SerializedName("title")
+  @JsonProperty("title")
   protected Map<String, String> title = null;
 
   
-  @SerializedName("twoFactorRequired")
+  @JsonProperty("twoFactorRequired")
   protected Boolean twoFactorRequired = null;
 
   

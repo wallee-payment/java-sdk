@@ -21,18 +21,15 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DeliveryIndicationDecisionReason;
 import com.wallee.sdk.model.DeliveryIndicationState;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -40,49 +37,51 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class DeliveryIndication extends TransactionAwareEntity {
   
-  @SerializedName("automaticDecisionReason")
+  @JsonProperty("automaticDecisionReason")
   protected DeliveryIndicationDecisionReason automaticDecisionReason = null;
 
   
-  @SerializedName("automaticallyDecidedOn")
+  @JsonProperty("automaticallyDecidedOn")
   protected OffsetDateTime automaticallyDecidedOn = null;
 
   
-  @SerializedName("completion")
+  @JsonProperty("completion")
   protected Long completion = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("manualDecisionTimeoutOn")
+  @JsonProperty("manualDecisionTimeoutOn")
   protected OffsetDateTime manualDecisionTimeoutOn = null;
 
   
-  @SerializedName("manuallyDecidedBy")
+  @JsonProperty("manuallyDecidedBy")
   protected Long manuallyDecidedBy = null;
 
   
-  @SerializedName("manuallyDecidedOn")
+  @JsonProperty("manuallyDecidedOn")
   protected OffsetDateTime manuallyDecidedOn = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected DeliveryIndicationState state = null;
 
   
-  @SerializedName("timeoutOn")
+  @JsonProperty("timeoutOn")
   protected OffsetDateTime timeoutOn = null;
 
   
-  @SerializedName("transaction")
+  @JsonProperty("transaction")
   protected Transaction transaction = null;
 
   

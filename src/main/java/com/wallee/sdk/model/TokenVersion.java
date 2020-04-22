@@ -21,11 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.Label;
@@ -36,7 +34,6 @@ import com.wallee.sdk.model.TokenVersionState;
 import com.wallee.sdk.model.TokenVersionType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,93 +43,99 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class TokenVersion {
   
-  @SerializedName("activatedOn")
+  @JsonProperty("activatedOn")
   protected OffsetDateTime activatedOn = null;
 
   
-  @SerializedName("billingAddress")
+  @JsonProperty("billingAddress")
   protected Address billingAddress = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("environment")
+  @JsonProperty("environment")
   protected ChargeAttemptEnvironment environment = null;
 
   
-  @SerializedName("expiresOn")
+  @JsonProperty("expiresOn")
   protected OffsetDateTime expiresOn = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("iconUrl")
+  protected String iconUrl = null;
+
+  
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("labels")
+  @JsonProperty("labels")
   protected List<Label> labels = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("name")
+  @JsonProperty("name")
   protected String name = null;
 
   
-  @SerializedName("obsoletedOn")
+  @JsonProperty("obsoletedOn")
   protected OffsetDateTime obsoletedOn = null;
 
   
-  @SerializedName("paymentConnectorConfiguration")
+  @JsonProperty("paymentConnectorConfiguration")
   protected PaymentConnectorConfiguration paymentConnectorConfiguration = null;
 
   
-  @SerializedName("paymentInformationHashes")
+  @JsonProperty("paymentInformationHashes")
   protected List<PaymentInformationHash> paymentInformationHashes = null;
 
   
-  @SerializedName("paymentMethod")
+  @JsonProperty("paymentMethod")
   protected Long paymentMethod = null;
 
   
-  @SerializedName("paymentMethodBrand")
+  @JsonProperty("paymentMethodBrand")
   protected Long paymentMethodBrand = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("processorToken")
+  @JsonProperty("processorToken")
   protected String processorToken = null;
 
   
-  @SerializedName("shippingAddress")
+  @JsonProperty("shippingAddress")
   protected Address shippingAddress = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected TokenVersionState state = null;
 
   
-  @SerializedName("token")
+  @JsonProperty("token")
   protected Token token = null;
 
   
-  @SerializedName("type")
+  @JsonProperty("type")
   protected TokenVersionType type = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   
@@ -184,6 +187,16 @@ public class TokenVersion {
   @ApiModelProperty(value = "The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.")
   public OffsetDateTime getExpiresOn() {
     return expiresOn;
+  }
+
+  
+   /**
+   * 
+   * @return iconUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getIconUrl() {
+    return iconUrl;
   }
 
   
@@ -372,6 +385,7 @@ public class TokenVersion {
         Objects.equals(this.createdOn, tokenVersion.createdOn) &&
         Objects.equals(this.environment, tokenVersion.environment) &&
         Objects.equals(this.expiresOn, tokenVersion.expiresOn) &&
+        Objects.equals(this.iconUrl, tokenVersion.iconUrl) &&
         Objects.equals(this.id, tokenVersion.id) &&
         Objects.equals(this.labels, tokenVersion.labels) &&
         Objects.equals(this.language, tokenVersion.language) &&
@@ -393,7 +407,7 @@ public class TokenVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, billingAddress, createdOn, environment, expiresOn, id, labels, language, linkedSpaceId, name, obsoletedOn, paymentConnectorConfiguration, paymentInformationHashes, paymentMethod, paymentMethodBrand, plannedPurgeDate, processorToken, shippingAddress, state, token, type, version);
+    return Objects.hash(activatedOn, billingAddress, createdOn, environment, expiresOn, iconUrl, id, labels, language, linkedSpaceId, name, obsoletedOn, paymentConnectorConfiguration, paymentInformationHashes, paymentMethod, paymentMethodBrand, plannedPurgeDate, processorToken, shippingAddress, state, token, type, version);
   }
 
 
@@ -407,6 +421,7 @@ public class TokenVersion {
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
+    sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");

@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ShopifySubscriptionWeekday.Adapter.class)
 public enum ShopifySubscriptionWeekday {
   
   MONDAY("MONDAY"),
@@ -58,6 +53,7 @@ public enum ShopifySubscriptionWeekday {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -67,6 +63,7 @@ public enum ShopifySubscriptionWeekday {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ShopifySubscriptionWeekday fromValue(String text) {
     for (ShopifySubscriptionWeekday b : ShopifySubscriptionWeekday.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -74,19 +71,6 @@ public enum ShopifySubscriptionWeekday {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ShopifySubscriptionWeekday> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ShopifySubscriptionWeekday enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ShopifySubscriptionWeekday read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ShopifySubscriptionWeekday.fromValue(String.valueOf(value));
-    }
   }
 }
 

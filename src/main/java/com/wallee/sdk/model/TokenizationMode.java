@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * The tokenization mode controls how the tokenization of payment information is applied on the transaction.
  */
-@JsonAdapter(TokenizationMode.Adapter.class)
 public enum TokenizationMode {
   
   FORCE_UPDATE("FORCE_UPDATE"),
@@ -52,6 +47,7 @@ public enum TokenizationMode {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -61,6 +57,7 @@ public enum TokenizationMode {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TokenizationMode fromValue(String text) {
     for (TokenizationMode b : TokenizationMode.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -68,19 +65,6 @@ public enum TokenizationMode {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<TokenizationMode> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TokenizationMode enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public TokenizationMode read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TokenizationMode.fromValue(String.valueOf(value));
-    }
   }
 }
 

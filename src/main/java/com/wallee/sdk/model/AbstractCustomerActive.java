@@ -21,14 +21,11 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,33 +35,34 @@ import java.time.OffsetDateTime;
 /**
  * AbstractCustomerActive
  */
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class AbstractCustomerActive {
   
-  @SerializedName("customerId")
+  @JsonProperty("customerId")
   protected String customerId = null;
 
   
-  @SerializedName("emailAddress")
+  @JsonProperty("emailAddress")
   protected String emailAddress = null;
 
   
-  @SerializedName("familyName")
+  @JsonProperty("familyName")
   protected String familyName = null;
 
   
-  @SerializedName("givenName")
+  @JsonProperty("givenName")
   protected String givenName = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("metaData")
+  @JsonProperty("metaData")
   protected Map<String, String> metaData = null;
 
   
-  @SerializedName("preferredCurrency")
+  @JsonProperty("preferredCurrency")
   protected String preferredCurrency = null;
 
   

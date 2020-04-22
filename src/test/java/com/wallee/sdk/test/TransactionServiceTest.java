@@ -1,268 +1,369 @@
-/**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
-
 package com.wallee.sdk.test;
 
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.ApiException;
-import com.wallee.sdk.ApiResponse;
 import com.wallee.sdk.model.*;
-import com.wallee.sdk.service.TransactionService;
+import com.wallee.sdk.service.*;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.UUID;
 
 /**
-* API tests for TransactionService
-*/
+ * API tests for TransactionService
+ */
 public class TransactionServiceTest {
 
-    private TransactionService transactionService;
-    private TransactionCreate transactionCreate;
+    // Credentials
     private Long spaceId = (long) 405;
     private Long applicationUserId = (long) 512;
     private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+
+    // Services
     private ApiClient apiClient;
-    private ApiResponse<Transaction> transaction;
+    private TransactionService transactionService;
+
+    // Models
+    private TransactionCreate transactionPayload;
 
     @Before
     public void setup() {
-        this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        this.transactionService = new TransactionService(this.apiClient);
-        this.createTransaction();
-    }
-
-    private void createTransaction() {
-
-        AddressCreate billingAddress = new AddressCreate();
-        billingAddress.salutation("Ms");
-        billingAddress.givenName("Good");
-        billingAddress.familyName("Customer");
-        billingAddress.gender(Gender.FEMALE);
-        billingAddress.country("CH");
-        billingAddress.city("Winterthur");
-        billingAddress.postcode("8400");
-        billingAddress.dateOfBirth(LocalDate.of(1991, 1, 11));
-        billingAddress.organizationName("Test GmbH");
-        billingAddress.mobilePhoneNumber("+41791234567");
-        billingAddress.emailAddress("test@wallee.com");
-
-        AddressCreate shippingAddress = new AddressCreate();
-        shippingAddress.salutation("Ms");
-        shippingAddress.givenName("Good");
-        shippingAddress.familyName("Customer");
-        shippingAddress.gender(Gender.FEMALE);
-        shippingAddress.country("CH");
-        shippingAddress.city("Winterthur");
-        shippingAddress.postcode("8400");
-        shippingAddress.dateOfBirth(LocalDate.of(1991, 1, 11));
-        shippingAddress.organizationName("Test GmbH");
-        shippingAddress.mobilePhoneNumber("+41791234567");
-        shippingAddress.emailAddress("test@wallee.com");
-
-        LineItemCreate lineItem1 = new LineItemCreate();
-        lineItem1.sku("item-1");
-        lineItem1.name("Item 1");
-        lineItem1.uniqueId("unique-id-item-1");
-        lineItem1.type(LineItemType.PRODUCT);
-        lineItem1.quantity(BigDecimal.ONE);
-        lineItem1.shippingRequired(true);
-        lineItem1.amountIncludingTax(new BigDecimal("67.47"));
-        lineItem1.addTaxesItem(
-            new TaxCreate().title("VAT").rate(new BigDecimal(8))
-        );
-
-        LineItemCreate lineItem2 = new LineItemCreate();
-        lineItem2.sku("test-shipping");
-        lineItem2.name("Shipping");
-        lineItem2.uniqueId("unique-id-test-shipping");
-        lineItem2.type(LineItemType.SHIPPING);
-        lineItem2.quantity(BigDecimal.ONE);
-        lineItem2.amountIncludingTax(new BigDecimal("3.12"));
-        lineItem2.addTaxesItem(
-            new TaxCreate().title("VAT").rate(new BigDecimal(8))
-        );
-
-        this.transactionCreate = new TransactionCreate();
-        this.transactionCreate.customerEmailAddress("test@wallee.com");
-        this.transactionCreate.customerId("cutomer-x");
-        this.transactionCreate.merchantReference(UUID.randomUUID().toString());
-        this.transactionCreate.invoiceMerchantReference("order-1");
-        this.transactionCreate.successUrl("http://localhost/success?orderId=1");
-        this.transactionCreate.failedUrl("http://localhost/failed?orderId=1");
-        this.transactionCreate.shippingMethod("Test Shipping");
-        this.transactionCreate.chargeRetryEnabled(false);
-        this.transactionCreate.allowedPaymentMethodConfigurations(Arrays.asList(8656l));
-        this.transactionCreate.language("en-US");
-        this.transactionCreate.currency("CHF");
-        this.transactionCreate.billingAddress(billingAddress);
-        this.transactionCreate.shippingAddress(shippingAddress);
-        this.transactionCreate.addLineItemsItem(lineItem1);
-        this.transactionCreate.addLineItemsItem(lineItem2);
-        try {
-            this.transaction = this.transactionService.createWithHttpInfo(
-                this.spaceId,
-                this.transactionCreate
-            );
-        } catch (ApiException e) {
-            Assert.fail("Failed to create transaction. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+        if (this.apiClient == null) {
+            this.apiClient = new ApiClient(applicationUserId, authenticationKey);
+        }
+        if (this.transactionService == null) {
+            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
     /**
-     * Count
+     * Get transaction payload
      *
+     * @return TransactionCreate
+     */
+    private TransactionCreate getTransactionPayload() {
+        if (this.transactionPayload == null) {
+            // Line item
+            LineItemCreate lineItem = new LineItemCreate();
+            lineItem.name("Red T-Shirt")
+                .uniqueId("5412")
+                .type(LineItemType.PRODUCT)
+                .quantity(BigDecimal.valueOf(1))
+                .amountIncludingTax(BigDecimal.valueOf(29.95))
+                .sku("red-t-shirt-123");
+
+            // Customer Billind Address
+            AddressCreate billingAddress = new AddressCreate();
+            billingAddress.city("Winterthur")
+                .country("CH")
+                .emailAddress("test@example.com")
+                .familyName("Customer")
+                .givenName("Good")
+                .postcode("8400")
+                .postalState("ZH")
+                .organizationName("Test GmbH")
+                .mobilePhoneNumber("+41791234567")
+                .salutation("Ms");
+
+            this.transactionPayload = new TransactionCreate();
+            this.transactionPayload.autoConfirmationEnabled(true).currency("CHF").language("en-US");
+            this.transactionPayload.setBillingAddress(billingAddress);
+            this.transactionPayload.setShippingAddress(billingAddress);
+            this.transactionPayload.addLineItemsItem(lineItem);
+        }
+        return this.transactionPayload;
+    }
+
+
+    /**
+     * Confirm
+     * <p>
+     * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
+     *
+     */
+    @Ignore
+    @Test
+    public void confirmTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * Count
+     * <p>
      * Counts the number of items in the database as restricted by the given filter.
      *
-     * @
-     *          if the Api call fails
-    */
+     */
     @Test
-    public void countTest()  {
-        EntityQueryFilter entityQueryFilter = new EntityQueryFilter();
-        entityQueryFilter.setFieldName("id");
-        entityQueryFilter.setValue(this.transaction.getData().getId());
-        entityQueryFilter.setType(EntityQueryFilterType.LEAF);
-        entityQueryFilter.setOperator(CriteriaOperator.EQUALS);
+    public void countTest() {
         try {
-            Long transactionCount = this.transactionService.count(this.spaceId, entityQueryFilter);
-            Assert.assertEquals((long) transactionCount, (long) 1);
-        }catch (ApiException e){
-            Assert.fail("Failed to create transaction. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            EntityQueryFilter filter = new EntityQueryFilter();
+            filter.type(EntityQueryFilterType.LEAF)
+                .fieldName("id")
+                .value(transaction.getId())
+                .operator(CriteriaOperator.EQUALS);
+            Long count = this.transactionService.count(this.spaceId, filter);
+            Assert.assertEquals((long) count, (long) 1);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * Create
-     *
+     * <p>
      * Creates the entity with the given properties.
-     *
-     * @
-     *          if the Api call fails
-    */
+     */
     @Test
-    public void createTest()  {
-        Assert.assertEquals(this.transaction.getStatusCode(), 200);
-        Assert.assertEquals(this.spaceId, this.transaction.getData().getLinkedSpaceId());
-        Assert.assertEquals(new BigDecimal("70.59"), this.transaction.getData().getAuthorizationAmount());
+    public void createTest() {
+        try {
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Assert.assertEquals(transaction.getState(), TransactionState.PENDING);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * Create Transaction Credentials
-     *
+     * <p>
      * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
-     *
-    */
+     */
     @Test
-    public void createTransactionCredentialsTest()  {
-        try{
-            String response = this.transactionService.createTransactionCredentials(spaceId, this.transaction.getData().getId());
-            Assert.assertTrue(!response.isEmpty());
-        }catch(ApiException e){
-            Assert.fail("Failed to get possible payment methods. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+    public void createTransactionCredentialsTest() {
+        try {
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            String transactionCredentials = this.transactionService.createTransactionCredentials(this.spaceId, transaction.getId());
+            Assert.assertTrue(!transactionCredentials.isEmpty());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    /**
+     * Delete One-Click Token with Credentials
+     * <p>
+     * This operation removes the given token.
+     */
+    @Ignore
+    @Test
+    public void deleteOneClickTokenWithCredentialsTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * Export
+     * <p>
+     * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
+     */
+    @Ignore
+    @Test
+    public void exportTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * Fetch One Click Tokens with Credentials
+     * <p>
+     * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
+     */
+    @Ignore
+    @Test
+    public void fetchOneClickTokensWithCredentialsTest() {
+        // TODO: test validations
     }
 
     /**
      * Fetch Possible Payment Methods
-     *
+     * <p>
      * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     *
-    */
+     */
     @Test
-    public void fetchPossiblePaymentMethodsTest()  {
-
+    public void fetchPossiblePaymentMethodsTest() {
         try {
-            List<PaymentMethodConfiguration> response = this.transactionService.fetchPossiblePaymentMethods(spaceId, this.transaction.getData().getId());
-            Assert.assertTrue(response.size() >= 1);
-        }catch (ApiException e){
-            Assert.fail("Failed to get possible payment methods. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            List<PaymentMethodConfiguration> possiblePaymentMethods = transactionService.fetchPossiblePaymentMethods(this.spaceId, transaction.getId());
+            Assert.assertTrue(possiblePaymentMethods.size() >= 1);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /**
+     * Fetch Possible Payment Methods with Credentials
+     * <p>
+     * This operation allows to get the payment method configurations which can be used with the provided transaction.
+     */
+    @Ignore
+    @Test
+    public void fetchPossiblePaymentMethodsWithCredentialsTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * getInvoiceDocument
+     * <p>
+     * Returns the PDF document for the transaction invoice with given id.
+     */
+    @Ignore
+    @Test
+    public void getInvoiceDocumentTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * getLatestTransactionLineItemVersion
+     */
+    @Ignore
+    @Test
+    public void getLatestTransactionLineItemVersionTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * getPackingSlip
+     * <p>
+     * Returns the packing slip for the transaction with given id.
+     */
+    @Ignore
+    @Test
+    public void getPackingSlipTest() {
+        // TODO: test validations
+    }
+
+    /**
+     * Process One-Click Token with Credentials
+     * <p>
+     * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
+     */
+    @Ignore
+    @Test
+    public void processOneClickTokenAndRedirectWithCredentialsTest() {
+        // TODO: test validations
+    }
+
+    /**
      * Process Without User Interaction
-     *
+     * <p>
      * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
      *
-    */
+     */
     @Test
-    public void processWithoutUserInteractionTest()  {
-       
+    public void processWithoutUserInteractionTest() {
         try {
-            Transaction response = this.transactionService.processWithoutUserInteraction(spaceId, this.transaction.getData().getId());
-            Assert.assertEquals(response.getId(), this.transaction.getData().getId());
-        } catch (ApiException e){
-             Assert.fail("Failed to get packing slip. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            transaction = this.transactionService.processWithoutUserInteraction(spaceId, transaction.getId());
+            for (int i = 1; i <= 5; i++) {
+                if (
+                    transaction.getState() == TransactionState.FULFILL ||
+                    transaction.getState() == TransactionState.FAILED
+                ) {
+                    break;
+                }
+
+                try {
+                    Thread.sleep(i * 30);
+                } catch (InterruptedException e) {
+                    System.err.println(e.getMessage());
+                }
+                transaction = this.transactionService.read(this.spaceId, transaction.getId());
+            }
+            TransactionState[] TransactionStates = {
+                TransactionState.FULFILL,
+                TransactionState.FAILED
+            };
+            Assert.assertTrue(Arrays.asList(TransactionStates).contains(transaction.getState()));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * Read
-     *
+     * <p>
      * Reads the entity with the given &#39;id&#39; and returns it.
-     *
-    */
+     */
     @Test
-    public void readTest(){
+    public void readTest() {
         try {
-            Transaction transactionRead = this.transactionService.read(this.spaceId, this.transaction.getData().getId());
-            Assert.assertEquals(transactionRead.getState(), TransactionState.PENDING);
-        }catch (ApiException e){
-            Assert.fail("Failed to read transaction. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Transaction transactionRead = this.transactionService.read(this.spaceId, transaction.getId());
+            Assert.assertTrue(transaction.getId().equals(transactionRead.getId()));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Read With Credentials
+     * <p>
+     * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
+     */
+    @Ignore
+    @Test
+    public void readWithCredentialsTest() {
+        // TODO: test validations
+    }
 
     /**
      * Search
-     *
+     * <p>
      * Searches for the entities as specified by the given query.
-     *
-    */
+     */
     @Test
-    public void searchTest(){
-        EntityQueryFilter entityQueryFilter = new EntityQueryFilter();
-        entityQueryFilter.setFieldName("id");
-        entityQueryFilter.setValue(this.transaction.getData().getId());
-        entityQueryFilter.setType(EntityQueryFilterType.LEAF);
-        entityQueryFilter.setOperator(CriteriaOperator.EQUALS);
-
-        EntityQuery entityQuery = new EntityQuery();
-        entityQuery.setFilter(entityQueryFilter);
+    public void searchTest() {
 
         try {
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            EntityQueryFilter entityQueryFilter = new EntityQueryFilter();
+            entityQueryFilter.fieldName("id")
+                .value(transaction.getId())
+                .type(EntityQueryFilterType.LEAF)
+                .operator(CriteriaOperator.EQUALS);
+
+            EntityQuery entityQuery = new EntityQuery();
+            entityQuery.setFilter(entityQueryFilter);
             List<Transaction> transactionSearch = this.transactionService.search(this.spaceId, entityQuery);
             Assert.assertEquals(transactionSearch.size(), 1);
-            for (Transaction t: transactionSearch) {
+            for (Transaction t : transactionSearch) {
                 Assert.assertEquals(t.getState(), TransactionState.PENDING);
             }
-        }catch (ApiException e){
-            Assert.fail("Failed to search transaction. Reason: " + e.getMessage() + " Details: " + e.getResponseBody());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    /**
+     * Update
+     * <p>
+     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
+     */
+    @Test
+    public void updateTest() {
+        try {
+            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            TransactionPending transactionPending = new TransactionPending();
+            transactionPending.id(transaction.getId()).language("en-US");
+            transactionPending.version(transaction.getVersion().longValue());
+            transactionPending.setCurrency(transaction.getCurrency());
+            Transaction transactionUpdate = transactionService.update(spaceId, transactionPending);
+            Assert.assertEquals(transaction.getId(), transactionUpdate.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * updateTransactionLineItems
+     */
+    @Ignore
+    @Test
+    public void updateTransactionLineItemsTest() {
+        // TODO: test validations
     }
 
 }

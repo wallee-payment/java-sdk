@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(TransactionGroupState.Adapter.class)
 public enum TransactionGroupState {
   
   PENDING("PENDING"),
@@ -50,6 +45,7 @@ public enum TransactionGroupState {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -59,6 +55,7 @@ public enum TransactionGroupState {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static TransactionGroupState fromValue(String text) {
     for (TransactionGroupState b : TransactionGroupState.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -66,19 +63,6 @@ public enum TransactionGroupState {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<TransactionGroupState> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final TransactionGroupState enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public TransactionGroupState read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return TransactionGroupState.fromValue(String.valueOf(value));
-    }
   }
 }
 

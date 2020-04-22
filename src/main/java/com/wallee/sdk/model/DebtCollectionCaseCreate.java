@@ -21,15 +21,12 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractDebtCollectionCaseUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -37,17 +34,19 @@ import java.time.OffsetDateTime;
 /**
  * The debt collection case represents a try to collect the money from the debtor.
  */
+@ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
   
-  @SerializedName("collectorConfiguration")
+  @JsonProperty("collectorConfiguration")
   protected Long collectorConfiguration = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("reference")
+  @JsonProperty("reference")
   protected String reference = null;
 
   

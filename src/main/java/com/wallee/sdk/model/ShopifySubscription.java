@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ShopifySubscriber;
 import com.wallee.sdk.model.ShopifySubscriptionState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
@@ -38,61 +35,63 @@ import java.time.OffsetDateTime;
 /**
  * 
  */
+@ApiModel(description = "")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class ShopifySubscription {
   
-  @SerializedName("createdBy")
+  @JsonProperty("createdBy")
   protected Long createdBy = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("initialTransaction")
+  @JsonProperty("initialTransaction")
   protected Long initialTransaction = null;
 
   
-  @SerializedName("language")
+  @JsonProperty("language")
   protected String language = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("orderRecurrenceNumber")
+  @JsonProperty("orderRecurrenceNumber")
   protected Integer orderRecurrenceNumber = null;
 
   
-  @SerializedName("shop")
+  @JsonProperty("shop")
   protected Long shop = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected ShopifySubscriptionState state = null;
 
   
-  @SerializedName("subscriber")
+  @JsonProperty("subscriber")
   protected ShopifySubscriber subscriber = null;
 
   
-  @SerializedName("terminatedBy")
+  @JsonProperty("terminatedBy")
   protected Long terminatedBy = null;
 
   
-  @SerializedName("terminatedOn")
+  @JsonProperty("terminatedOn")
   protected OffsetDateTime terminatedOn = null;
 
   
-  @SerializedName("terminationRequestDate")
+  @JsonProperty("terminationRequestDate")
   protected OffsetDateTime terminationRequestDate = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

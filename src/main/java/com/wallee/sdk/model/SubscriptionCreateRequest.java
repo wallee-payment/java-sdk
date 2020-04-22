@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.SubscriptionComponentReferenceConfiguration;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -39,25 +36,27 @@ import java.time.OffsetDateTime;
 /**
  * The subscription create request holds all the data required to create a new subscription.
  */
+@ApiModel(description = "The subscription create request holds all the data required to create a new subscription.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionCreateRequest {
   
-  @SerializedName("componentConfigurations")
+  @JsonProperty("componentConfigurations")
   protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations = null;
 
   
-  @SerializedName("currency")
+  @JsonProperty("currency")
   protected String currency = null;
 
   
-  @SerializedName("product")
+  @JsonProperty("product")
   protected Long product = null;
 
   
-  @SerializedName("selectedComponents")
+  @JsonProperty("selectedComponents")
   protected List<SubscriptionProductComponentReference> selectedComponents = null;
 
   
-  @SerializedName("subscription")
+  @JsonProperty("subscription")
   protected Long subscription = null;
 
   

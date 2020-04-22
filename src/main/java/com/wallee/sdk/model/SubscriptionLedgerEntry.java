@@ -21,16 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.SubscriptionLedgerEntryState;
 import com.wallee.sdk.model.Tax;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -41,69 +38,71 @@ import java.time.OffsetDateTime;
 /**
  * The subscription ledger entry represents a single change on the subscription balance.
  */
+@ApiModel(description = "The subscription ledger entry represents a single change on the subscription balance.")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
 public class SubscriptionLedgerEntry {
   
-  @SerializedName("aggregatedTaxRate")
+  @JsonProperty("aggregatedTaxRate")
   protected BigDecimal aggregatedTaxRate = null;
 
   
-  @SerializedName("amountExcludingTax")
+  @JsonProperty("amountExcludingTax")
   protected BigDecimal amountExcludingTax = null;
 
   
-  @SerializedName("amountIncludingTax")
+  @JsonProperty("amountIncludingTax")
   protected BigDecimal amountIncludingTax = null;
 
   
-  @SerializedName("createdBy")
+  @JsonProperty("createdBy")
   protected Long createdBy = null;
 
   
-  @SerializedName("createdOn")
+  @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
 
   
-  @SerializedName("externalId")
+  @JsonProperty("externalId")
   protected String externalId = null;
 
   
-  @SerializedName("id")
+  @JsonProperty("id")
   protected Long id = null;
 
   
-  @SerializedName("linkedSpaceId")
+  @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
   
-  @SerializedName("plannedPurgeDate")
+  @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @SerializedName("quantity")
+  @JsonProperty("quantity")
   protected BigDecimal quantity = null;
 
   
-  @SerializedName("state")
+  @JsonProperty("state")
   protected SubscriptionLedgerEntryState state = null;
 
   
-  @SerializedName("subscriptionVersion")
+  @JsonProperty("subscriptionVersion")
   protected Long subscriptionVersion = null;
 
   
-  @SerializedName("taxAmount")
+  @JsonProperty("taxAmount")
   protected BigDecimal taxAmount = null;
 
   
-  @SerializedName("taxes")
+  @JsonProperty("taxes")
   protected List<Tax> taxes = null;
 
   
-  @SerializedName("title")
+  @JsonProperty("title")
   protected String title = null;
 
   
-  @SerializedName("version")
+  @JsonProperty("version")
   protected Integer version = null;
 
   

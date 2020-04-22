@@ -22,20 +22,15 @@ package com.wallee.sdk.model;
 import java.util.Objects;
 import java.util.Arrays;
 import io.swagger.annotations.ApiModel;
-import com.google.gson.annotations.SerializedName;
 import java.util.*;
 import java.time.OffsetDateTime;
 
-import java.io.IOException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 
  */
-@JsonAdapter(ShopifySubscriptionBillingIntervalUnit.Adapter.class)
 public enum ShopifySubscriptionBillingIntervalUnit {
   
   MINUTES("MINUTES"),
@@ -56,6 +51,7 @@ public enum ShopifySubscriptionBillingIntervalUnit {
     this.value = value;
   }
 
+  @JsonValue
   public String getValue() {
     return value;
   }
@@ -65,6 +61,7 @@ public enum ShopifySubscriptionBillingIntervalUnit {
     return String.valueOf(value);
   }
 
+  @JsonCreator
   public static ShopifySubscriptionBillingIntervalUnit fromValue(String text) {
     for (ShopifySubscriptionBillingIntervalUnit b : ShopifySubscriptionBillingIntervalUnit.values()) {
       if (String.valueOf(b.value).equals(text)) {
@@ -72,19 +69,6 @@ public enum ShopifySubscriptionBillingIntervalUnit {
       }
     }
     return null;
-  }
-
-  public static class Adapter extends TypeAdapter<ShopifySubscriptionBillingIntervalUnit> {
-    @Override
-    public void write(final JsonWriter jsonWriter, final ShopifySubscriptionBillingIntervalUnit enumeration) throws IOException {
-      jsonWriter.value(enumeration.getValue());
-    }
-
-    @Override
-    public ShopifySubscriptionBillingIntervalUnit read(final JsonReader jsonReader) throws IOException {
-      String value = jsonReader.nextString();
-      return ShopifySubscriptionBillingIntervalUnit.fromValue(String.valueOf(value));
-    }
   }
 }
 
