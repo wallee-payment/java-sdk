@@ -34,7 +34,7 @@ import java.time.OffsetDateTime;
  * A metric represents the usage of a resource that can be measured.
  */
 @ApiModel(description = "A metric represents the usage of a resource that can be measured.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
   
   @JsonProperty("type")

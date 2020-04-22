@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.
  */
 @ApiModel(description = "The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class SubscriptionProductComponentReference {
   
   @JsonProperty("id")

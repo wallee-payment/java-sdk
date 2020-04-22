@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * The debt collection case represents a try to collect the money from the debtor.
  */
 @ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
   
   @JsonProperty("collectorConfiguration")

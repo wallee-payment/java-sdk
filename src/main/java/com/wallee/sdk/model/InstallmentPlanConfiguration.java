@@ -42,7 +42,7 @@ import java.time.OffsetDateTime;
  * The installment plan allows to setup a template for an installment.
  */
 @ApiModel(description = "The installment plan allows to setup a template for an installment.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class InstallmentPlanConfiguration {
   
   @JsonProperty("baseCurrency")

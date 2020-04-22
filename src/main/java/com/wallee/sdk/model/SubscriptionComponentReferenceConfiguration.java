@@ -34,7 +34,7 @@ import java.time.OffsetDateTime;
  * The component reference configuration adjusts the product component for a particular subscription.
  */
 @ApiModel(description = "The component reference configuration adjusts the product component for a particular subscription.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class SubscriptionComponentReferenceConfiguration {
   
   @JsonProperty("productComponentReferenceId")

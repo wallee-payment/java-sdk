@@ -38,7 +38,7 @@ import java.time.OffsetDateTime;
  * The installment plan slice defines a single slice of an installment plan.
  */
 @ApiModel(description = "The installment plan slice defines a single slice of an installment plan.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class InstallmentPlanSliceConfiguration {
   
   @JsonProperty("id")

@@ -34,7 +34,7 @@ import java.time.OffsetDateTime;
  * The &#39;order by&#39; allows to order the returned entities.
  */
 @ApiModel(description = "The 'order by' allows to order the returned entities.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T15:39:51.189+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:20:41.240+02:00")
 public class EntityQueryOrderBy {
   
   @JsonProperty("fieldName")
