@@ -39,7 +39,7 @@ import java.time.OffsetDateTime;
  * An installment payment represents a payment paid in multiple slices.
  */
 @ApiModel(description = "An installment payment represents a payment paid in multiple slices.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class InstallmentPayment {
   
   @JsonProperty("createdOn")

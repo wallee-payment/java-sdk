@@ -24,8 +24,6 @@ public class TransactionCompletionServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionCompletionService transactionCompletionService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -34,12 +32,6 @@ public class TransactionCompletionServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionCompletionService == null) {
-            this.transactionCompletionService = new TransactionCompletionService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -89,9 +81,9 @@ public class TransactionCompletionServiceTest {
     @Test
     public void completeOfflineTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            transaction = this.transactionService.processWithoutUserInteraction(this.spaceId, transaction.getId());
-            TransactionCompletion transactionCompletion = this.transactionCompletionService.completeOffline(this.spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+            TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
             TransactionCompletionState[] TransactionCompletionStates = {
                     TransactionCompletionState.SUCCESSFUL,
                     TransactionCompletionState.PENDING
@@ -110,9 +102,9 @@ public class TransactionCompletionServiceTest {
     @Test
     public void completeOnlineTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            transaction = this.transactionService.processWithoutUserInteraction(this.spaceId, transaction.getId());
-            TransactionCompletion transactionCompletion = this.transactionCompletionService.completeOnline(this.spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+            TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOnline(this.spaceId, transaction.getId());
             TransactionCompletionState[] TransactionCompletionStates = {
                     TransactionCompletionState.SUCCESSFUL,
                     TransactionCompletionState.PENDING

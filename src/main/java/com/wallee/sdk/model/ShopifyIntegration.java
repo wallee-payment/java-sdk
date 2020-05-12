@@ -39,7 +39,7 @@ import java.time.OffsetDateTime;
  * A Shopify Integration allows to connect a Shopify shop.
  */
 @ApiModel(description = "A Shopify Integration allows to connect a Shopify shop.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class ShopifyIntegration {
   
   @JsonProperty("allowInvoiceDownload")
@@ -60,6 +60,10 @@ public class ShopifyIntegration {
   
   @JsonProperty("id")
   protected Long id = null;
+
+  
+  @JsonProperty("installed")
+  protected Boolean installed = null;
 
   
   @JsonProperty("integratedPaymentFormEnabled")
@@ -166,6 +170,16 @@ public class ShopifyIntegration {
   @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return installed
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isInstalled() {
+    return installed;
   }
 
   
@@ -324,6 +338,7 @@ public class ShopifyIntegration {
         Objects.equals(this.appVersion, shopifyIntegration.appVersion) &&
         Objects.equals(this.currency, shopifyIntegration.currency) &&
         Objects.equals(this.id, shopifyIntegration.id) &&
+        Objects.equals(this.installed, shopifyIntegration.installed) &&
         Objects.equals(this.integratedPaymentFormEnabled, shopifyIntegration.integratedPaymentFormEnabled) &&
         Objects.equals(this.language, shopifyIntegration.language) &&
         Objects.equals(this.loginName, shopifyIntegration.loginName) &&
@@ -342,7 +357,7 @@ public class ShopifyIntegration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowInvoiceDownload, allowedPaymentMethodConfigurations, appVersion, currency, id, integratedPaymentFormEnabled, language, loginName, name, plannedPurgeDate, proxyPath, replacePaymentMethodImage, shopName, showPaymentInformation, showSubscriptionInformation, spaceId, spaceViewId, state, version);
+    return Objects.hash(allowInvoiceDownload, allowedPaymentMethodConfigurations, appVersion, currency, id, installed, integratedPaymentFormEnabled, language, loginName, name, plannedPurgeDate, proxyPath, replacePaymentMethodImage, shopName, showPaymentInformation, showSubscriptionInformation, spaceId, spaceViewId, state, version);
   }
 
 
@@ -356,6 +371,7 @@ public class ShopifyIntegration {
     sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    installed: ").append(toIndentedString(installed)).append("\n");
     sb.append("    integratedPaymentFormEnabled: ").append(toIndentedString(integratedPaymentFormEnabled)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    loginName: ").append(toIndentedString(loginName)).append("\n");

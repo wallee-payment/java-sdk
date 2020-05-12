@@ -43,7 +43,7 @@ import java.time.OffsetDateTime;
  * The transaction invoice represents the invoice document for a particular transaction.
  */
 @ApiModel(description = "The transaction invoice represents the invoice document for a particular transaction.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class TransactionInvoice extends TransactionAwareEntity {
   
   @JsonProperty("amount")

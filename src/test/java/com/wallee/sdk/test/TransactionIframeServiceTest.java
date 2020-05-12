@@ -22,8 +22,6 @@ public class TransactionIframeServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionIframeService transactionIframeService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -32,12 +30,6 @@ public class TransactionIframeServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionIframeService == null) {
-            this.transactionIframeService = new TransactionIframeService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -87,8 +79,8 @@ public class TransactionIframeServiceTest {
     @Test
     public void javascriptUrlTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            String javascriptUrl = this.transactionIframeService.javascriptUrl(spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            String javascriptUrl = this.apiClient.getTransactionIframeService().javascriptUrl(spaceId, transaction.getId());
             Assert.assertTrue(javascriptUrl.contains("https://"));
         } catch (Exception e) {
             e.printStackTrace();

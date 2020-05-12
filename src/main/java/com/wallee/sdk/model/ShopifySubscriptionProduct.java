@@ -39,7 +39,7 @@ import java.time.OffsetDateTime;
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class ShopifySubscriptionProduct {
   
   @JsonProperty("absolutePriceAdjustment")
@@ -148,6 +148,10 @@ public class ShopifySubscriptionProduct {
   
   @JsonProperty("terminationBillingCycles")
   protected Integer terminationBillingCycles = null;
+
+  
+  @JsonProperty("updatedAt")
+  protected OffsetDateTime updatedAt = null;
 
   
   @JsonProperty("version")
@@ -426,6 +430,16 @@ public class ShopifySubscriptionProduct {
 
   
    /**
+   * 
+   * @return updatedAt
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+  
+   /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
   **/
@@ -472,12 +486,13 @@ public class ShopifySubscriptionProduct {
         Objects.equals(this.storeOrderConfirmationEmailEnabled, shopifySubscriptionProduct.storeOrderConfirmationEmailEnabled) &&
         Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionProduct.subscriberSuspensionAllowed) &&
         Objects.equals(this.terminationBillingCycles, shopifySubscriptionProduct.terminationBillingCycles) &&
+        Objects.equals(this.updatedAt, shopifySubscriptionProduct.updatedAt) &&
         Objects.equals(this.version, shopifySubscriptionProduct.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, id, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, plannedPurgeDate, pricingOption, productId, productName, productPrice, productSku, productVariantId, productVariantName, relativePriceAdjustment, shippingRequired, shop, state, stockCheckRequired, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, version);
+    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, id, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, plannedPurgeDate, pricingOption, productId, productName, productPrice, productSku, productVariantId, productVariantName, relativePriceAdjustment, shippingRequired, shop, state, stockCheckRequired, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, updatedAt, version);
   }
 
 
@@ -513,6 +528,7 @@ public class ShopifySubscriptionProduct {
     sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
     sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
     sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

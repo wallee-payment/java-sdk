@@ -25,7 +25,6 @@ public class TransactionServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -34,9 +33,6 @@ public class TransactionServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -100,13 +96,13 @@ public class TransactionServiceTest {
     @Test
     public void countTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             EntityQueryFilter filter = new EntityQueryFilter();
             filter.type(EntityQueryFilterType.LEAF)
                 .fieldName("id")
                 .value(transaction.getId())
                 .operator(CriteriaOperator.EQUALS);
-            Long count = this.transactionService.count(this.spaceId, filter);
+            Long count = this.apiClient.getTransactionService().count(this.spaceId, filter);
             Assert.assertEquals((long) count, (long) 1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,7 +117,7 @@ public class TransactionServiceTest {
     @Test
     public void createTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             Assert.assertEquals(transaction.getState(), TransactionState.PENDING);
         } catch (Exception e) {
             e.printStackTrace();
@@ -136,8 +132,8 @@ public class TransactionServiceTest {
     @Test
     public void createTransactionCredentialsTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            String transactionCredentials = this.transactionService.createTransactionCredentials(this.spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            String transactionCredentials = this.apiClient.getTransactionService().createTransactionCredentials(this.spaceId, transaction.getId());
             Assert.assertTrue(!transactionCredentials.isEmpty());
         } catch (Exception e) {
             e.printStackTrace();
@@ -181,13 +177,14 @@ public class TransactionServiceTest {
      * Fetch Possible Payment Methods
      * <p>
      * This operation allows to get the payment method configurations which can be used with the provided transaction.
+     * payment_page, iframe, lightbox, mobile_web_view, terminal, payment_link, charge_flow, direct_card_processing
      */
     @Test
-    public void fetchPossiblePaymentMethodsTest() {
+    public void fetchPaymentMethodsTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            List<PaymentMethodConfiguration> possiblePaymentMethods = transactionService.fetchPossiblePaymentMethods(this.spaceId, transaction.getId());
-            Assert.assertTrue(possiblePaymentMethods.size() >= 1);
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            List<PaymentMethodConfiguration> paymentMethods = this.apiClient.getTransactionService().fetchPaymentMethods(this.spaceId, transaction.getId(), "payment_page");
+            Assert.assertTrue(paymentMethods.size() >= 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -200,7 +197,7 @@ public class TransactionServiceTest {
      */
     @Ignore
     @Test
-    public void fetchPossiblePaymentMethodsWithCredentialsTest() {
+    public void fetchPaymentMethodsWithCredentialsTest() {
         // TODO: test validations
     }
 
@@ -255,8 +252,8 @@ public class TransactionServiceTest {
     @Test
     public void processWithoutUserInteractionTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            transaction = this.transactionService.processWithoutUserInteraction(spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
             for (int i = 1; i <= 5; i++) {
                 if (
                     transaction.getState() == TransactionState.FULFILL ||
@@ -270,7 +267,7 @@ public class TransactionServiceTest {
                 } catch (InterruptedException e) {
                     System.err.println(e.getMessage());
                 }
-                transaction = this.transactionService.read(this.spaceId, transaction.getId());
+                transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
             }
             TransactionState[] TransactionStates = {
                 TransactionState.FULFILL,
@@ -290,8 +287,8 @@ public class TransactionServiceTest {
     @Test
     public void readTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            Transaction transactionRead = this.transactionService.read(this.spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            Transaction transactionRead = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
             Assert.assertTrue(transaction.getId().equals(transactionRead.getId()));
         } catch (Exception e) {
             e.printStackTrace();
@@ -318,7 +315,7 @@ public class TransactionServiceTest {
     public void searchTest() {
 
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             EntityQueryFilter entityQueryFilter = new EntityQueryFilter();
             entityQueryFilter.fieldName("id")
                 .value(transaction.getId())
@@ -327,7 +324,7 @@ public class TransactionServiceTest {
 
             EntityQuery entityQuery = new EntityQuery();
             entityQuery.setFilter(entityQueryFilter);
-            List<Transaction> transactionSearch = this.transactionService.search(this.spaceId, entityQuery);
+            List<Transaction> transactionSearch = this.apiClient.getTransactionService().search(this.spaceId, entityQuery);
             Assert.assertEquals(transactionSearch.size(), 1);
             for (Transaction t : transactionSearch) {
                 Assert.assertEquals(t.getState(), TransactionState.PENDING);
@@ -345,12 +342,12 @@ public class TransactionServiceTest {
     @Test
     public void updateTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             TransactionPending transactionPending = new TransactionPending();
             transactionPending.id(transaction.getId()).language("en-US");
             transactionPending.version(transaction.getVersion().longValue());
             transactionPending.setCurrency(transaction.getCurrency());
-            Transaction transactionUpdate = transactionService.update(spaceId, transactionPending);
+            Transaction transactionUpdate = this.apiClient.getTransactionService().update(spaceId, transactionPending);
             Assert.assertEquals(transaction.getId(), transactionUpdate.getId());
         } catch (Exception e) {
             e.printStackTrace();

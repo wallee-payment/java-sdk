@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class TransactionService {
     private ApiClient apiClient;
 
@@ -973,14 +973,15 @@ public class TransactionService {
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param id The id of the transaction which should be returned.
+    * @param integrationMode The integration mode defines the type of integration that is applied on the transaction.
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
 
     **/
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethods(Long spaceId, Long id) throws IOException {
-        HttpResponse response = fetchPossiblePaymentMethodsForHttpResponse(spaceId, id);
+    public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode) throws IOException {
+        HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode);
         String returnType = "List&lt;PaymentMethodConfiguration&gt;";
         if(returnType.equals("String")){
           return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
@@ -997,15 +998,16 @@ public class TransactionService {
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param id The id of the transaction which should be returned.
+    * @param integrationMode The integration mode defines the type of integration that is applied on the transaction.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods">Fetch Possible Payment Methods Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
 
     **/
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethods(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        HttpResponse response = fetchPossiblePaymentMethodsForHttpResponse(spaceId, id, params);
+    public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode, params);
         String returnType = "List&lt;PaymentMethodConfiguration&gt;";
         if(returnType.equals("String")){
             return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
@@ -1014,15 +1016,18 @@ public class TransactionService {
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse fetchPossiblePaymentMethodsForHttpResponse(Long spaceId, Long id) throws IOException {
+    public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPossiblePaymentMethods");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPaymentMethods");
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPossiblePaymentMethods");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPaymentMethods");
+        }// verify the required parameter 'integrationMode' is set
+        if (integrationMode == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethods");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethods");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
@@ -1043,6 +1048,16 @@ public class TransactionService {
             } else {
                 uriBuilder = uriBuilder.queryParam(key, value);
             }
+        }        if (integrationMode != null) {
+            String key = "integrationMode";
+            Object value = integrationMode;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
         }
 
         String url = uriBuilder.build().toString();
@@ -1052,15 +1067,18 @@ public class TransactionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    public HttpResponse fetchPossiblePaymentMethodsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
+    public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPossiblePaymentMethods");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPaymentMethods");
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPossiblePaymentMethods");
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPaymentMethods");
+        }// verify the required parameter 'integrationMode' is set
+        if (integrationMode == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethods");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethods");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1068,6 +1086,8 @@ public class TransactionService {
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
+        // Add the required query param 'integrationMode' to the map of query params
+        allParams.put("integrationMode", integrationMode);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -1099,14 +1119,15 @@ public class TransactionService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param integrationMode The integration mode defines the type of integration that is applied on the transaction.
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
 
     **/
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethodsWithCredentials(String credentials) throws IOException {
-        HttpResponse response = fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(credentials);
+    public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode) throws IOException {
+        HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode);
         String returnType = "List&lt;PaymentMethodConfiguration&gt;";
         if(returnType.equals("String")){
           return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
@@ -1122,15 +1143,16 @@ public class TransactionService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param credentials The credentials identifies the transaction and contains the security details which grants the access this operation.
+    * @param integrationMode The integration mode defines the type of integration that is applied on the transaction.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-possible-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
 
     **/
-    public List<PaymentMethodConfiguration> fetchPossiblePaymentMethodsWithCredentials(String credentials, Map<String, Object> params) throws IOException {
-        HttpResponse response = fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(credentials, params);
+    public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode, params);
         String returnType = "List&lt;PaymentMethodConfiguration&gt;";
         if(returnType.equals("String")){
             return (List<PaymentMethodConfiguration>) (Object) response.parseAsString();
@@ -1139,15 +1161,28 @@ public class TransactionService {
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(String credentials) throws IOException {
+    public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPossiblePaymentMethodsWithCredentials");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPaymentMethodsWithCredentials");
+        }// verify the required parameter 'integrationMode' is set
+        if (integrationMode == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethodsWithCredentials");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethodsWithCredentials");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials");
         if (credentials != null) {
             String key = "credentials";
             Object value = credentials;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (integrationMode != null) {
+            String key = "integrationMode";
+            Object value = integrationMode;
             if (value instanceof Collection) {
                 uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
             } else if (value instanceof Object[]) {
@@ -1164,17 +1199,22 @@ public class TransactionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
     }
 
-    public HttpResponse fetchPossiblePaymentMethodsWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
+    public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPossiblePaymentMethodsWithCredentials");
+            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPaymentMethodsWithCredentials");
+        }// verify the required parameter 'integrationMode' is set
+        if (integrationMode == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethodsWithCredentials");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchPossiblePaymentMethodsWithCredentials");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
         // Add the required query param 'credentials' to the map of query params
         allParams.put("credentials", credentials);
+        // Add the required query param 'integrationMode' to the map of query params
+        allParams.put("integrationMode", integrationMode);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();

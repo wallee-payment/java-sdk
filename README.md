@@ -23,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>2.1.2</version>
+    <version>2.2.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:2.1.2"
+compile "com.wallee:wallee-java-sdk:2.2.0"
 ```
 
 ### Others
@@ -46,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-2.1.2.jar`
+* `target/wallee-java-sdk-2.2.0.jar`
 * `target/lib/*.jar`
 
 ## Usage
@@ -72,7 +72,7 @@ public class Example {
         ApiClient apiClient = new ApiClient(userId, secret);
 
         // Create API service instance.
-        TransactionService transactionService = new TransactionService(apiClient);
+        TransactionService transactionService = apiClient.getTransactionService();
 
     }
 }
@@ -105,8 +105,6 @@ public class TransactionPaymentPageServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionPaymentPageService transactionPaymentPageService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -115,12 +113,6 @@ public class TransactionPaymentPageServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionPaymentPageService == null) {
-            this.transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -171,8 +163,8 @@ public class TransactionPaymentPageServiceTest {
     @Test
     public void paymentPageUrlTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            String paymentPageUrl = this.transactionPaymentPageService.paymentPageUrl(spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            String paymentPageUrl = this.apiClient.getTransactionPaymentPageService.paymentPageUrl(spaceId, transaction.getId());
             Assert.assertTrue(paymentPageUrl.contains("https://"));
         } catch (Exception e) {
             e.printStackTrace();

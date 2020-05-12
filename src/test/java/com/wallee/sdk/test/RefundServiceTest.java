@@ -12,7 +12,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 /**
- * API tests for this.refundService
+ * API tests for RefundService
  */
 public class RefundServiceTest {
 
@@ -23,9 +23,6 @@ public class RefundServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private RefundService refundService;
-    private TransactionCompletionService transactionCompletionService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -34,15 +31,6 @@ public class RefundServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.refundService == null) {
-            this.refundService = new RefundService(this.apiClient);
-        }
-        if (this.transactionCompletionService == null) {
-            this.transactionCompletionService = new TransactionCompletionService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -164,12 +152,12 @@ public class RefundServiceTest {
     @Test
     public void refundTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            transaction = this.transactionService.processWithoutUserInteraction(this.spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
             for (int i = 1; i <= 5; i++) {
                 if (
-                        transaction.getState() == TransactionState.FULFILL ||
-                                transaction.getState() == TransactionState.FAILED
+                    transaction.getState() == TransactionState.FULFILL ||
+                    transaction.getState() == TransactionState.FAILED
                 ) {
                     break;
                 }
@@ -179,19 +167,19 @@ public class RefundServiceTest {
                 } catch (InterruptedException e) {
                     System.err.println(e.getMessage());
                 }
-                transaction = this.transactionService.read(this.spaceId, transaction.getId());
+                transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
             }
 
             if (transaction.getState() == TransactionState.FULFILL) {
-                TransactionCompletion transactionCompletion = this.transactionCompletionService.completeOffline(this.spaceId, transaction.getId());
+                TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
                 Assert.assertEquals(
                         "Transaction completion successful",
                         transactionCompletion.getState(),
                         TransactionCompletionState.SUCCESSFUL
                 );
 
-                transaction = this.transactionService.read(transaction.getLinkedSpaceId(), transactionCompletion.getLinkedTransaction());
-                Refund refund = this.refundService.refund(this.spaceId, getRefundPayload(transaction));
+                transaction = this.apiClient.getTransactionService().read(transaction.getLinkedSpaceId(), transactionCompletion.getLinkedTransaction());
+                Refund refund = this.apiClient.getRefundService().refund(this.spaceId, getRefundPayload(transaction));
 
                 Assert.assertEquals(
                         "Refund successful",

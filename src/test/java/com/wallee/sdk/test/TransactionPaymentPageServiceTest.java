@@ -22,8 +22,6 @@ public class TransactionPaymentPageServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionPaymentPageService transactionPaymentPageService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -32,12 +30,6 @@ public class TransactionPaymentPageServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionPaymentPageService == null) {
-            this.transactionPaymentPageService = new TransactionPaymentPageService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -88,8 +80,8 @@ public class TransactionPaymentPageServiceTest {
     @Test
     public void paymentPageUrlTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            String paymentPageUrl = this.transactionPaymentPageService.paymentPageUrl(spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            String paymentPageUrl = this.apiClient.getTransactionPaymentPageService().paymentPageUrl(spaceId, transaction.getId());
             Assert.assertTrue(paymentPageUrl.contains("https://"));
         } catch (Exception e) {
             e.printStackTrace();

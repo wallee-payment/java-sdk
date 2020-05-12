@@ -36,7 +36,7 @@ import java.time.OffsetDateTime;
  * The debt collector connects to an external service to process the debt collection case and as such directs the debt collection process.
  */
 @ApiModel(description = "The debt collector connects to an external service to process the debt collection case and as such directs the debt collection process.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class DebtCollector {
   
   @JsonProperty("description")

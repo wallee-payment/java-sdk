@@ -36,7 +36,7 @@ import java.time.OffsetDateTime;
  * The debt collection case source represents the origin of the case. It allows to understand from where the amount receivable is coming from.
  */
 @ApiModel(description = "The debt collection case source represents the origin of the case. It allows to understand from where the amount receivable is coming from.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class DebtCollectionCaseSource {
   
   @JsonProperty("description")

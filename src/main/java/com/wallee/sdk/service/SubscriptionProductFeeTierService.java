@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
 
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class SubscriptionProductFeeTierService {
     private ApiClient apiClient;
 

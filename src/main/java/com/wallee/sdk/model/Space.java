@@ -40,7 +40,7 @@ import java.time.OffsetDateTime;
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class Space {
   
   @JsonProperty("account")
@@ -57,6 +57,14 @@ public class Space {
   
   @JsonProperty("database")
   protected TenantDatabase database = null;
+
+  
+  @JsonProperty("deletedBy")
+  protected Long deletedBy = null;
+
+  
+  @JsonProperty("deletedOn")
+  protected OffsetDateTime deletedOn = null;
 
   
   @JsonProperty("id")
@@ -141,6 +149,26 @@ public class Space {
   @ApiModelProperty(value = "The database in which the space's data are stored in.")
   public TenantDatabase getDatabase() {
     return database;
+  }
+
+  
+   /**
+   * The ID of a user that deleted this entity.
+   * @return deletedBy
+  **/
+  @ApiModelProperty(value = "The ID of a user that deleted this entity.")
+  public Long getDeletedBy() {
+    return deletedBy;
+  }
+
+  
+   /**
+   * The date and time when this entity was deleted.
+   * @return deletedOn
+  **/
+  @ApiModelProperty(value = "The date and time when this entity was deleted.")
+  public OffsetDateTime getDeletedOn() {
+    return deletedOn;
   }
 
   
@@ -268,6 +296,8 @@ public class Space {
         Objects.equals(this.active, space.active) &&
         Objects.equals(this.activeOrRestrictedActive, space.activeOrRestrictedActive) &&
         Objects.equals(this.database, space.database) &&
+        Objects.equals(this.deletedBy, space.deletedBy) &&
+        Objects.equals(this.deletedOn, space.deletedOn) &&
         Objects.equals(this.id, space.id) &&
         Objects.equals(this.name, space.name) &&
         Objects.equals(this.plannedPurgeDate, space.plannedPurgeDate) &&
@@ -283,7 +313,7 @@ public class Space {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, active, activeOrRestrictedActive, database, id, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
+    return Objects.hash(account, active, activeOrRestrictedActive, database, deletedBy, deletedOn, id, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
   }
 
 
@@ -296,6 +326,8 @@ public class Space {
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
+    sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
+    sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

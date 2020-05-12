@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class Account {
   
   @JsonProperty("active")
@@ -46,6 +46,14 @@ public class Account {
   
   @JsonProperty("activeOrRestrictedActive")
   protected Boolean activeOrRestrictedActive = null;
+
+  
+  @JsonProperty("deletedBy")
+  protected Long deletedBy = null;
+
+  
+  @JsonProperty("deletedOn")
+  protected OffsetDateTime deletedOn = null;
 
   
   @JsonProperty("id")
@@ -106,6 +114,26 @@ public class Account {
   @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
   public Boolean isActiveOrRestrictedActive() {
     return activeOrRestrictedActive;
+  }
+
+  
+   /**
+   * The ID of a user that deleted this entity.
+   * @return deletedBy
+  **/
+  @ApiModelProperty(value = "The ID of a user that deleted this entity.")
+  public Long getDeletedBy() {
+    return deletedBy;
+  }
+
+  
+   /**
+   * The date and time when this entity was deleted.
+   * @return deletedOn
+  **/
+  @ApiModelProperty(value = "The date and time when this entity was deleted.")
+  public OffsetDateTime getDeletedOn() {
+    return deletedOn;
   }
 
   
@@ -221,6 +249,8 @@ public class Account {
     Account account = (Account) o;
     return Objects.equals(this.active, account.active) &&
         Objects.equals(this.activeOrRestrictedActive, account.activeOrRestrictedActive) &&
+        Objects.equals(this.deletedBy, account.deletedBy) &&
+        Objects.equals(this.deletedOn, account.deletedOn) &&
         Objects.equals(this.id, account.id) &&
         Objects.equals(this.name, account.name) &&
         Objects.equals(this.parentAccount, account.parentAccount) &&
@@ -235,7 +265,7 @@ public class Account {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, activeOrRestrictedActive, id, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
+    return Objects.hash(active, activeOrRestrictedActive, deletedBy, deletedOn, id, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
   }
 
 
@@ -246,6 +276,8 @@ public class Account {
     
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
+    sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
+    sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentAccount: ").append(toIndentedString(parentAccount)).append("\n");

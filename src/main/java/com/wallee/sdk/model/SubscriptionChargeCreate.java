@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * The subscription charge represents a single charge carried out for a particular subscription.
  */
 @ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class SubscriptionChargeCreate {
   
   @JsonProperty("externalId")

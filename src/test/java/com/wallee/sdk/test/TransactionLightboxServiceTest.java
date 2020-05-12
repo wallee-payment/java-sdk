@@ -22,8 +22,6 @@ public class TransactionLightboxServiceTest {
 
     // Services
     private ApiClient apiClient;
-    private TransactionLightboxService transactionLightboxService;
-    private TransactionService transactionService;
 
     // Models
     private TransactionCreate transactionPayload;
@@ -32,12 +30,6 @@ public class TransactionLightboxServiceTest {
     public void setup() {
         if (this.apiClient == null) {
             this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-        if (this.transactionLightboxService == null) {
-            this.transactionLightboxService = new TransactionLightboxService(this.apiClient);
-        }
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this.apiClient);
         }
     }
 
@@ -87,8 +79,8 @@ public class TransactionLightboxServiceTest {
     @Test
     public void javascriptUrlTest() {
         try {
-            Transaction transaction = this.transactionService.create(this.spaceId, this.getTransactionPayload());
-            String javascriptUrl = this.transactionLightboxService.javascriptUrl(spaceId, transaction.getId());
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            String javascriptUrl = this.apiClient.getTransactionLightboxService().javascriptUrl(spaceId, transaction.getId());
             Assert.assertTrue(javascriptUrl.contains("https://"));
         } catch (Exception e) {
             e.printStackTrace();

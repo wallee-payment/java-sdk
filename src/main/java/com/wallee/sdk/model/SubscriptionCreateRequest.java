@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * The subscription create request holds all the data required to create a new subscription.
  */
 @ApiModel(description = "The subscription create request holds all the data required to create a new subscription.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-04-22T16:32:44.639+02:00")
+@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
 public class SubscriptionCreateRequest {
   
   @JsonProperty("componentConfigurations")
