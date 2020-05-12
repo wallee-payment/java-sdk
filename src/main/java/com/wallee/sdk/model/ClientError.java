@@ -34,7 +34,7 @@ import java.time.OffsetDateTime;
  * An error that is returned as the result of a bad user request or a misconfiguration.
  */
 @ApiModel(description = "An error that is returned as the result of a bad user request or a misconfiguration.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class ClientError {
   
   @JsonProperty("date")

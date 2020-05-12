@@ -41,7 +41,7 @@ import java.time.OffsetDateTime;
  * An installment payment slice represents a single transaction of money from the buyer to the merchant.
  */
 @ApiModel(description = "An installment payment slice represents a single transaction of money from the buyer to the merchant.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class InstallmentPaymentSlice extends TransactionAwareEntity {
   
   @JsonProperty("chargeOn")

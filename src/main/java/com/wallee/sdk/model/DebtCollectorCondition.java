@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * A condition controls under which circumstances a collector configuration is applied to a debt collection case.
  */
 @ApiModel(description = "A condition controls under which circumstances a collector configuration is applied to a debt collection case.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class DebtCollectorCondition {
   
   @JsonProperty("id")

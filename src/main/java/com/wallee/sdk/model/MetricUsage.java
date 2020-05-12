@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * The metric usage provides details about the consumption of a particular metric.
  */
 @ApiModel(description = "The metric usage provides details about the consumption of a particular metric.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class MetricUsage {
   
   @JsonProperty("consumedUnits")

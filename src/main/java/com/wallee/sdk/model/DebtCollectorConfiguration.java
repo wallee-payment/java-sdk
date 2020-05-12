@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * The debt collector configuration defines the behavior of the collection process for a particular collector.
  */
 @ApiModel(description = "The debt collector configuration defines the behavior of the collection process for a particular collector.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class DebtCollectorConfiguration {
   
   @JsonProperty("collector")

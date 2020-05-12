@@ -40,7 +40,7 @@ import java.time.OffsetDateTime;
 /**
  * AbstractTransactionPending
  */
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class AbstractTransactionPending {
   
   @JsonProperty("allowedPaymentMethodBrands")

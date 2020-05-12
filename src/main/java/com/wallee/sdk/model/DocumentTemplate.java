@@ -36,7 +36,7 @@ import java.time.OffsetDateTime;
  * A document template contains the customizations for a particular document template type.
  */
 @ApiModel(description = "A document template contains the customizations for a particular document template type.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class DocumentTemplate {
   
   @JsonProperty("defaultTemplate")

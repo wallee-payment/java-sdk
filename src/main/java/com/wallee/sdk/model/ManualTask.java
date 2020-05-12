@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * A manual task requires a manual intervention by a human.
  */
 @ApiModel(description = "A manual task requires a manual intervention by a human.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class ManualTask {
   
   @JsonProperty("actions")

@@ -33,7 +33,7 @@ import java.time.OffsetDateTime;
  * This error is thrown when something unexpected happens on our side.
  */
 @ApiModel(description = "This error is thrown when something unexpected happens on our side.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class ServerError {
   
   @JsonProperty("date")

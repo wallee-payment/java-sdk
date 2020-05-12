@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  * The subscription change request allows to change a subscription.
  */
 @ApiModel(description = "The subscription change request allows to change a subscription.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class SubscriptionChangeRequest {
   
   @JsonProperty("componentConfigurations")

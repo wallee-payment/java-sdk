@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.
  */
 @ApiModel(description = "A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class SubscriptionProductCreate extends AbstractSubscriptionProductActive {
   
   @JsonProperty("reference")

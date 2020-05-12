@@ -15,7 +15,7 @@ import com.google.api.client.json.Json;
 import java.io.IOException;
 import java.io.OutputStream;
 
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class ApiClient {
     private final String basePath = "https://app-wallee.com:443/api";
     private final HttpRequestFactory httpRequestFactory;

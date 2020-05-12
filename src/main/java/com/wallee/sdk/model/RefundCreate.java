@@ -38,7 +38,7 @@ import java.time.OffsetDateTime;
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
  */
 @ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class RefundCreate {
   
   @JsonProperty("amount")

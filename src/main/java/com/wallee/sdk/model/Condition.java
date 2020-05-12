@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  * A condition configuration controls under which condition a payment connector is applied to a transaction.
  */
 @ApiModel(description = "A condition configuration controls under which condition a payment connector is applied to a transaction.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class Condition {
   
   @JsonProperty("conditionType")

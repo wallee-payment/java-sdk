@@ -34,7 +34,7 @@ import java.time.OffsetDateTime;
  * A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.
  */
 @ApiModel(description = "A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class PaymentInformationHash {
   
   @JsonProperty("id")

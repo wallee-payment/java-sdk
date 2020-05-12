@@ -36,7 +36,7 @@ import java.time.OffsetDateTime;
  * The payment link defines an URL to automatically create transactions.
  */
 @ApiModel(description = "The payment link defines an URL to automatically create transactions.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class PaymentLinkActive extends PaymentLinkUpdate {
   
   @JsonProperty("state")

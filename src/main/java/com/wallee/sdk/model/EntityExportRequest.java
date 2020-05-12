@@ -36,7 +36,7 @@ import java.time.OffsetDateTime;
  * The entity property export request contains the information required to create an export of a list of entities.
  */
 @ApiModel(description = "The entity property export request contains the information required to create an export of a list of entities.")
-@javax.annotation.Generated(value = "io.wallee.sdk.java.WalleeJavaClientCodegen", date = "2020-05-12T11:16:45.520+02:00")
+
 public class EntityExportRequest {
   
   @JsonProperty("properties")
