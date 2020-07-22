@@ -105,6 +105,10 @@ public class Subscription {
   protected OffsetDateTime terminatingOn = null;
 
   
+  @JsonProperty("terminationScheduledOn")
+  protected OffsetDateTime terminationScheduledOn = null;
+
+  
   @JsonProperty("token")
   protected Token token = null;
 
@@ -276,6 +280,16 @@ public class Subscription {
   
    /**
    * 
+   * @return terminationScheduledOn
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getTerminationScheduledOn() {
+    return terminationScheduledOn;
+  }
+
+  
+   /**
+   * 
    * @return token
   **/
   @ApiModelProperty(value = "")
@@ -320,13 +334,14 @@ public class Subscription {
         Objects.equals(this.terminatedBy, subscription.terminatedBy) &&
         Objects.equals(this.terminatedOn, subscription.terminatedOn) &&
         Objects.equals(this.terminatingOn, subscription.terminatingOn) &&
+        Objects.equals(this.terminationScheduledOn, subscription.terminationScheduledOn) &&
         Objects.equals(this.token, subscription.token) &&
         Objects.equals(this.version, subscription.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedBy, terminatedOn, terminatingOn, token, version);
+    return Objects.hash(activatedOn, affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedBy, terminatedOn, terminatingOn, terminationScheduledOn, token, version);
   }
 
 
@@ -351,6 +366,7 @@ public class Subscription {
     sb.append("    terminatedBy: ").append(toIndentedString(terminatedBy)).append("\n");
     sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");
     sb.append("    terminatingOn: ").append(toIndentedString(terminatingOn)).append("\n");
+    sb.append("    terminationScheduledOn: ").append(toIndentedString(terminationScheduledOn)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.SubscriptionComponentReferenceConfiguration;
+import com.wallee.sdk.model.SubscriptionPending;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -57,7 +58,7 @@ public class SubscriptionCreateRequest {
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected SubscriptionPending subscription = null;
 
   
   
@@ -153,7 +154,7 @@ public class SubscriptionCreateRequest {
   }
 
   
-  public SubscriptionCreateRequest subscription(Long subscription) {
+  public SubscriptionCreateRequest subscription(SubscriptionPending subscription) {
     this.subscription = subscription;
     return this;
   }
@@ -163,11 +164,11 @@ public class SubscriptionCreateRequest {
    * @return subscription
   **/
   @ApiModelProperty(required = true, value = "")
-  public Long getSubscription() {
+  public SubscriptionPending getSubscription() {
     return subscription;
   }
 
-  public void setSubscription(Long subscription) {
+  public void setSubscription(SubscriptionPending subscription) {
     this.subscription = subscription;
   }
 

@@ -153,6 +153,14 @@ public class Refund {
   protected OffsetDateTime timeoutOn = null;
 
   
+  @JsonProperty("totalAppliedFees")
+  protected BigDecimal totalAppliedFees = null;
+
+  
+  @JsonProperty("totalSettledAmount")
+  protected BigDecimal totalSettledAmount = null;
+
+  
   @JsonProperty("transaction")
   protected Transaction transaction = null;
 
@@ -431,6 +439,26 @@ public class Refund {
 
   
    /**
+   * The total applied fees is the sum of all fees that have been applied so far.
+   * @return totalAppliedFees
+  **/
+  @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
+  public BigDecimal getTotalAppliedFees() {
+    return totalAppliedFees;
+  }
+
+  
+   /**
+   * The total settled amount is the total amount which has been settled so far.
+   * @return totalSettledAmount
+  **/
+  @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
+  public BigDecimal getTotalSettledAmount() {
+    return totalSettledAmount;
+  }
+
+  
+   /**
    * 
    * @return transaction
   **/
@@ -506,6 +534,8 @@ public class Refund {
         Objects.equals(this.taxes, refund.taxes) &&
         Objects.equals(this.timeZone, refund.timeZone) &&
         Objects.equals(this.timeoutOn, refund.timeoutOn) &&
+        Objects.equals(this.totalAppliedFees, refund.totalAppliedFees) &&
+        Objects.equals(this.totalSettledAmount, refund.totalSettledAmount) &&
         Objects.equals(this.transaction, refund.transaction) &&
         Objects.equals(this.type, refund.type) &&
         Objects.equals(this.updatedInvoice, refund.updatedInvoice) &&
@@ -514,7 +544,7 @@ public class Refund {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, baseLineItems, completion, createdBy, createdOn, environment, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processingOn, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeZone, timeoutOn, transaction, type, updatedInvoice, version);
+    return Objects.hash(amount, baseLineItems, completion, createdBy, createdOn, environment, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, merchantReference, nextUpdateOn, plannedPurgeDate, processingOn, processorReference, reducedLineItems, reductions, state, succeededOn, taxes, timeZone, timeoutOn, totalAppliedFees, totalSettledAmount, transaction, type, updatedInvoice, version);
   }
 
 
@@ -549,6 +579,8 @@ public class Refund {
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
+    sb.append("    totalAppliedFees: ").append(toIndentedString(totalAppliedFees)).append("\n");
+    sb.append("    totalSettledAmount: ").append(toIndentedString(totalSettledAmount)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedInvoice: ").append(toIndentedString(updatedInvoice)).append("\n");

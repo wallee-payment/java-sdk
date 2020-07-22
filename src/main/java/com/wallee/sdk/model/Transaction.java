@@ -276,6 +276,14 @@ public class Transaction {
   protected TokenizationMode tokenizationMode = null;
 
   
+  @JsonProperty("totalAppliedFees")
+  protected BigDecimal totalAppliedFees = null;
+
+  
+  @JsonProperty("totalSettledAmount")
+  protected BigDecimal totalSettledAmount = null;
+
+  
   @JsonProperty("userAgentHeader")
   protected String userAgentHeader = null;
 
@@ -844,6 +852,26 @@ public class Transaction {
 
   
    /**
+   * The total applied fees is the sum of all fees that have been applied so far.
+   * @return totalAppliedFees
+  **/
+  @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
+  public BigDecimal getTotalAppliedFees() {
+    return totalAppliedFees;
+  }
+
+  
+   /**
+   * The total settled amount is the total amount which has been settled so far.
+   * @return totalSettledAmount
+  **/
+  @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
+  public BigDecimal getTotalSettledAmount() {
+    return totalSettledAmount;
+  }
+
+  
+   /**
    * The user agent header provides the exact string which contains the user agent of the buyer.
    * @return userAgentHeader
   **/
@@ -948,6 +976,8 @@ public class Transaction {
         Objects.equals(this.timeZone, transaction.timeZone) &&
         Objects.equals(this.token, transaction.token) &&
         Objects.equals(this.tokenizationMode, transaction.tokenizationMode) &&
+        Objects.equals(this.totalAppliedFees, transaction.totalAppliedFees) &&
+        Objects.equals(this.totalSettledAmount, transaction.totalSettledAmount) &&
         Objects.equals(this.userAgentHeader, transaction.userAgentHeader) &&
         Objects.equals(this.userFailureMessage, transaction.userFailureMessage) &&
         Objects.equals(this.userInterfaceType, transaction.userInterfaceType) &&
@@ -956,7 +986,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, userAgentHeader, userFailureMessage, userInterfaceType, version);
+    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, totalAppliedFees, totalSettledAmount, userAgentHeader, userFailureMessage, userInterfaceType, version);
   }
 
 
@@ -1020,6 +1050,8 @@ public class Transaction {
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
+    sb.append("    totalAppliedFees: ").append(toIndentedString(totalAppliedFees)).append("\n");
+    sb.append("    totalSettledAmount: ").append(toIndentedString(totalSettledAmount)).append("\n");
     sb.append("    userAgentHeader: ").append(toIndentedString(userAgentHeader)).append("\n");
     sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
     sb.append("    userInterfaceType: ").append(toIndentedString(userInterfaceType)).append("\n");

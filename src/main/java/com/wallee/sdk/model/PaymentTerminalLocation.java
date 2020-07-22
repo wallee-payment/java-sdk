@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.PaymentTerminalAddress;
 import com.wallee.sdk.model.PaymentTerminalConfiguration;
+import com.wallee.sdk.model.PaymentTerminalContactAddress;
 import com.wallee.sdk.model.PaymentTerminalLocationState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,6 +40,10 @@ import java.time.OffsetDateTime;
 @ApiModel(description = "")
 
 public class PaymentTerminalLocation {
+  
+  @JsonProperty("contactAddress")
+  protected PaymentTerminalContactAddress contactAddress = null;
+
   
   @JsonProperty("defaultConfiguration")
   protected PaymentTerminalConfiguration defaultConfiguration = null;
@@ -72,6 +77,16 @@ public class PaymentTerminalLocation {
   protected Integer version = null;
 
   
+  
+   /**
+   * 
+   * @return contactAddress
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentTerminalContactAddress getContactAddress() {
+    return contactAddress;
+  }
+
   
    /**
    * 
@@ -163,7 +178,8 @@ public class PaymentTerminalLocation {
       return false;
     }
     PaymentTerminalLocation paymentTerminalLocation = (PaymentTerminalLocation) o;
-    return Objects.equals(this.defaultConfiguration, paymentTerminalLocation.defaultConfiguration) &&
+    return Objects.equals(this.contactAddress, paymentTerminalLocation.contactAddress) &&
+        Objects.equals(this.defaultConfiguration, paymentTerminalLocation.defaultConfiguration) &&
         Objects.equals(this.deliveryAddress, paymentTerminalLocation.deliveryAddress) &&
         Objects.equals(this.id, paymentTerminalLocation.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
@@ -175,7 +191,7 @@ public class PaymentTerminalLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultConfiguration, deliveryAddress, id, linkedSpaceId, name, plannedPurgeDate, state, version);
+    return Objects.hash(contactAddress, defaultConfiguration, deliveryAddress, id, linkedSpaceId, name, plannedPurgeDate, state, version);
   }
 
 
@@ -184,6 +200,7 @@ public class PaymentTerminalLocation {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalLocation {\n");
     
+    sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
     sb.append("    defaultConfiguration: ").append(toIndentedString(defaultConfiguration)).append("\n");
     sb.append("    deliveryAddress: ").append(toIndentedString(deliveryAddress)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
