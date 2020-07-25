@@ -153,40 +153,58 @@ public class RefundServiceTest {
     public void refundTest() {
         try {
             Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+	        // wait for transaction to be authorized
             for (int i = 1; i <= 5; i++) {
-                if (
-                    transaction.getState() == TransactionState.FULFILL ||
-                    transaction.getState() == TransactionState.FAILED
-                ) {
+                if (transaction.getState() == TransactionState.AUTHORIZED) {
                     break;
                 }
+                System.out.println("Waiting for transaction for be authorized --- transaction current state: " + transaction.getState());
 
                 try {
-                    Thread.sleep(i * 30);
+                    Thread.sleep(i * 15000);
                 } catch (InterruptedException e) {
                     System.err.println(e.getMessage());
                 }
                 transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
             }
+			if (transaction.getState() == TransactionState.AUTHORIZED) {
+				transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+				for (int i = 1; i <= 5; i++) {
+					if (
+						transaction.getState() == TransactionState.FULFILL ||
+						transaction.getState() == TransactionState.FAILED
+					) {
+						break;
+					}
 
-            if (transaction.getState() == TransactionState.FULFILL) {
-                TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
-                Assert.assertEquals(
-                        "Transaction completion successful",
-                        transactionCompletion.getState(),
-                        TransactionCompletionState.SUCCESSFUL
-                );
+					try {
+						Thread.sleep(i * 15000);
+					} catch (InterruptedException e) {
+						System.err.println(e.getMessage());
+					}
+					transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
+				}
 
-                transaction = this.apiClient.getTransactionService().read(transaction.getLinkedSpaceId(), transactionCompletion.getLinkedTransaction());
-                Refund refund = this.apiClient.getRefundService().refund(this.spaceId, getRefundPayload(transaction));
+				if (transaction.getState() == TransactionState.FULFILL) {
+					TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
+					Assert.assertEquals(
+							"Transaction completion successful",
+							transactionCompletion.getState(),
+							TransactionCompletionState.SUCCESSFUL
+					);
 
-                Assert.assertEquals(
-                        "Refund successful",
-                        refund.getState(),
-                        RefundState.SUCCESSFUL
-                );
-            }
+					transaction = this.apiClient.getTransactionService().read(transaction.getLinkedSpaceId(), transactionCompletion.getLinkedTransaction());
+					Refund refund = this.apiClient.getRefundService().refund(this.spaceId, getRefundPayload(transaction));
+
+					Assert.assertEquals(
+							"Refund successful",
+							refund.getState(),
+							RefundState.SUCCESSFUL
+					);
+				}
+			} else {
+				Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+			}
         } catch (Exception e) {
             e.printStackTrace();
         }

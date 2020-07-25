@@ -253,27 +253,45 @@ public class TransactionServiceTest {
     public void processWithoutUserInteractionTest() {
         try {
             Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
+            // wait for transaction to be authorized
             for (int i = 1; i <= 5; i++) {
-                if (
-                    transaction.getState() == TransactionState.FULFILL ||
-                    transaction.getState() == TransactionState.FAILED
-                ) {
+                if (transaction.getState() == TransactionState.AUTHORIZED) {
                     break;
                 }
+                System.out.println("Waiting for transaction for be authorized --- transaction current state: " + transaction.getState());
 
                 try {
-                    Thread.sleep(i * 30);
+                    Thread.sleep(i * 15000);
                 } catch (InterruptedException e) {
                     System.err.println(e.getMessage());
                 }
                 transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
             }
-            TransactionState[] TransactionStates = {
-                TransactionState.FULFILL,
-                TransactionState.FAILED
-            };
-            Assert.assertTrue(Arrays.asList(TransactionStates).contains(transaction.getState()));
+			if (transaction.getState() == TransactionState.AUTHORIZED) {
+				transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
+				for (int i = 1; i <= 5; i++) {
+					if (
+						transaction.getState() == TransactionState.FULFILL ||
+						transaction.getState() == TransactionState.FAILED
+					) {
+						break;
+					}
+
+					try {
+						Thread.sleep(i * 15000);
+					} catch (InterruptedException e) {
+						System.err.println(e.getMessage());
+					}
+					transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
+				}
+				TransactionState[] TransactionStates = {
+					TransactionState.FULFILL,
+					TransactionState.FAILED
+				};
+				Assert.assertTrue(Arrays.asList(TransactionStates).contains(transaction.getState()));
+	        } else {
+                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
