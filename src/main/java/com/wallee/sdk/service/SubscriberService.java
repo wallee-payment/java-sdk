@@ -185,20 +185,20 @@ public class SubscriberService {
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param entity The customer object with the properties which should be created.
-    * @return SubscriberCreate
+    * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--create">Create Documentation</a>
 
     **/
-    public SubscriberCreate create(Long spaceId, SubscriberCreate entity) throws IOException {
+    public Subscriber create(Long spaceId, SubscriberCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "SubscriberCreate";
+        String returnType = "Subscriber";
         if(returnType.equals("String")){
-          return (SubscriberCreate) (Object) response.parseAsString();
+          return (Subscriber) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<SubscriberCreate>() {};
-        return (SubscriberCreate)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Subscriber>() {};
+        return (Subscriber)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
@@ -210,20 +210,20 @@ public class SubscriberService {
     * @param spaceId 
     * @param entity The customer object with the properties which should be created.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriberCreate
+    * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--create">Create Documentation</a>
 
     **/
-    public SubscriberCreate create(Long spaceId, SubscriberCreate entity, Map<String, Object> params) throws IOException {
+    public Subscriber create(Long spaceId, SubscriberCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "SubscriberCreate";
+        String returnType = "Subscriber";
         if(returnType.equals("String")){
-            return (SubscriberCreate) (Object) response.parseAsString();
+            return (Subscriber) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<SubscriberCreate>() {};
-        return (SubscriberCreate)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Subscriber>() {};
+        return (Subscriber)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriberCreate entity) throws IOException {
