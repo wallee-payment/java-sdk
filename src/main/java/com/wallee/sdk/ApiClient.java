@@ -17,11 +17,11 @@ import java.io.OutputStream;
 
 
 public class ApiClient {
-    private final String basePath = "https://app-wallee.com:443/api";
+    private final String basePath;
     private final HttpRequestFactory httpRequestFactory;
     private final ObjectMapper objectMapper;
-    private long userId;
-    private String applicationKey;
+    private final long userId;
+    private final String applicationKey;
 
     // A reasonable default object mapper. Client can pass in a chosen ObjectMapper anyway, this is just for reasonable defaults.
     private static ObjectMapper createDefaultObjectMapper() {
@@ -40,13 +40,27 @@ public class ApiClient {
      * @param applicationKey
      */
     public ApiClient(long userId, String applicationKey) {
+		this(userId, applicationKey, "https://app-wallee.com:443/api");
+	}
+	
+    /**
+     * Constructor for ApiClient
+     *
+     * @param userId
+     * @param applicationKey
+     */
+    public ApiClient(long userId, String applicationKey, String basePath) {
         if (applicationKey == null || applicationKey.trim().isEmpty()) {
             throw new IllegalArgumentException("The application key cannot be empty or null.");
         }
         if (userId < 1) {
             throw new IllegalArgumentException("The user id is invalid.");
         }
-
+        if (basePath == null || basePath.trim().isEmpty()) {
+	        throw new IllegalArgumentException("The base path cannot be empty.");
+	    }
+	    
+		this.basePath = basePath;
         this.userId = userId;
         this.applicationKey = applicationKey;
         this.httpRequestFactory = this.createRequestFactory();
