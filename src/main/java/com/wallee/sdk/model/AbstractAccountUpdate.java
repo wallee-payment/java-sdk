@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -35,6 +36,10 @@ import java.time.OffsetDateTime;
 
 public class AbstractAccountUpdate {
   
+  @JsonProperty("lastModifiedDate")
+  protected OffsetDateTime lastModifiedDate = null;
+
+  
   @JsonProperty("name")
   protected String name = null;
 
@@ -43,6 +48,25 @@ public class AbstractAccountUpdate {
   protected Long subaccountLimit = null;
 
   
+  
+  public AbstractAccountUpdate lastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+    return this;
+  }
+
+   /**
+   * 
+   * @return lastModifiedDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
+  }
+
+  public void setLastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+  }
+
   
   public AbstractAccountUpdate name(String name) {
     this.name = name;
@@ -92,13 +116,14 @@ public class AbstractAccountUpdate {
       return false;
     }
     AbstractAccountUpdate abstractAccountUpdate = (AbstractAccountUpdate) o;
-    return Objects.equals(this.name, abstractAccountUpdate.name) &&
+    return Objects.equals(this.lastModifiedDate, abstractAccountUpdate.lastModifiedDate) &&
+        Objects.equals(this.name, abstractAccountUpdate.name) &&
         Objects.equals(this.subaccountLimit, abstractAccountUpdate.subaccountLimit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, subaccountLimit);
+    return Objects.hash(lastModifiedDate, name, subaccountLimit);
   }
 
 
@@ -107,6 +132,7 @@ public class AbstractAccountUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AbstractAccountUpdate {\n");
     
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
     sb.append("}");

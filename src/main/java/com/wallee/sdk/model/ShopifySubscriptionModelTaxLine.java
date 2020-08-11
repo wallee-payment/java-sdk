@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifySubscriptionEditModelTaxLine {
+public class ShopifySubscriptionModelTaxLine {
   
   @JsonProperty("rate")
   protected BigDecimal rate = null;
@@ -46,7 +46,7 @@ public class ShopifySubscriptionEditModelTaxLine {
 
   
   
-  public ShopifySubscriptionEditModelTaxLine rate(BigDecimal rate) {
+  public ShopifySubscriptionModelTaxLine rate(BigDecimal rate) {
     this.rate = rate;
     return this;
   }
@@ -65,7 +65,7 @@ public class ShopifySubscriptionEditModelTaxLine {
   }
 
   
-  public ShopifySubscriptionEditModelTaxLine title(String title) {
+  public ShopifySubscriptionModelTaxLine title(String title) {
     this.title = title;
     return this;
   }
@@ -93,9 +93,9 @@ public class ShopifySubscriptionEditModelTaxLine {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifySubscriptionEditModelTaxLine shopifySubscriptionEditModelTaxLine = (ShopifySubscriptionEditModelTaxLine) o;
-    return Objects.equals(this.rate, shopifySubscriptionEditModelTaxLine.rate) &&
-        Objects.equals(this.title, shopifySubscriptionEditModelTaxLine.title);
+    ShopifySubscriptionModelTaxLine shopifySubscriptionModelTaxLine = (ShopifySubscriptionModelTaxLine) o;
+    return Objects.equals(this.rate, shopifySubscriptionModelTaxLine.rate) &&
+        Objects.equals(this.title, shopifySubscriptionModelTaxLine.title);
   }
 
   @Override
@@ -107,7 +107,7 @@ public class ShopifySubscriptionEditModelTaxLine {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionEditModelTaxLine {\n");
+    sb.append("class ShopifySubscriptionModelTaxLine {\n");
     
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

@@ -60,6 +60,10 @@ public class Account {
   protected Long id = null;
 
   
+  @JsonProperty("lastModifiedDate")
+  protected OffsetDateTime lastModifiedDate = null;
+
+  
   @JsonProperty("name")
   protected String name = null;
 
@@ -144,6 +148,16 @@ public class Account {
   @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return lastModifiedDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
   }
 
   
@@ -252,6 +266,7 @@ public class Account {
         Objects.equals(this.deletedBy, account.deletedBy) &&
         Objects.equals(this.deletedOn, account.deletedOn) &&
         Objects.equals(this.id, account.id) &&
+        Objects.equals(this.lastModifiedDate, account.lastModifiedDate) &&
         Objects.equals(this.name, account.name) &&
         Objects.equals(this.parentAccount, account.parentAccount) &&
         Objects.equals(this.plannedPurgeDate, account.plannedPurgeDate) &&
@@ -265,7 +280,7 @@ public class Account {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, activeOrRestrictedActive, deletedBy, deletedOn, id, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
+    return Objects.hash(active, activeOrRestrictedActive, deletedBy, deletedOn, id, lastModifiedDate, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
   }
 
 
@@ -279,6 +294,7 @@ public class Account {
     sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
     sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

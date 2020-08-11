@@ -94,7 +94,8 @@ public class AccountUpdate extends AbstractAccountUpdate {
       return false;
     }
     AccountUpdate accountUpdate = (AccountUpdate) o;
-    return Objects.equals(this.name, accountUpdate.name) &&
+    return Objects.equals(this.lastModifiedDate, accountUpdate.lastModifiedDate) &&
+        Objects.equals(this.name, accountUpdate.name) &&
         Objects.equals(this.subaccountLimit, accountUpdate.subaccountLimit) &&
         Objects.equals(this.id, accountUpdate.id) &&
         Objects.equals(this.version, accountUpdate.version) &&
@@ -103,7 +104,7 @@ public class AccountUpdate extends AbstractAccountUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, subaccountLimit, id, version, super.hashCode());
+    return Objects.hash(lastModifiedDate, name, subaccountLimit, id, version, super.hashCode());
   }
 
 
@@ -112,6 +113,7 @@ public class AccountUpdate extends AbstractAccountUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

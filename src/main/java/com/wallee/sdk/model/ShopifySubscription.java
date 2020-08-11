@@ -47,12 +47,20 @@ public class ShopifySubscription {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("externalId")
+  protected String externalId = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
   
-  @JsonProperty("initialTransaction")
-  protected Long initialTransaction = null;
+  @JsonProperty("initialPaymentTransaction")
+  protected Long initialPaymentTransaction = null;
+
+  
+  @JsonProperty("initialShopifyTransaction")
+  protected Long initialShopifyTransaction = null;
 
   
   @JsonProperty("language")
@@ -117,6 +125,16 @@ public class ShopifySubscription {
 
   
    /**
+   * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+   * @return externalId
+  **/
+  @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
+  public String getExternalId() {
+    return externalId;
+  }
+
+  
+   /**
    * The ID is the primary key of the entity. The ID identifies the entity uniquely.
    * @return id
   **/
@@ -128,11 +146,21 @@ public class ShopifySubscription {
   
    /**
    * 
-   * @return initialTransaction
+   * @return initialPaymentTransaction
   **/
   @ApiModelProperty(value = "")
-  public Long getInitialTransaction() {
-    return initialTransaction;
+  public Long getInitialPaymentTransaction() {
+    return initialPaymentTransaction;
+  }
+
+  
+   /**
+   * 
+   * @return initialShopifyTransaction
+  **/
+  @ApiModelProperty(value = "")
+  public Long getInitialShopifyTransaction() {
+    return initialShopifyTransaction;
   }
 
   
@@ -248,8 +276,10 @@ public class ShopifySubscription {
     ShopifySubscription shopifySubscription = (ShopifySubscription) o;
     return Objects.equals(this.createdBy, shopifySubscription.createdBy) &&
         Objects.equals(this.createdOn, shopifySubscription.createdOn) &&
+        Objects.equals(this.externalId, shopifySubscription.externalId) &&
         Objects.equals(this.id, shopifySubscription.id) &&
-        Objects.equals(this.initialTransaction, shopifySubscription.initialTransaction) &&
+        Objects.equals(this.initialPaymentTransaction, shopifySubscription.initialPaymentTransaction) &&
+        Objects.equals(this.initialShopifyTransaction, shopifySubscription.initialShopifyTransaction) &&
         Objects.equals(this.language, shopifySubscription.language) &&
         Objects.equals(this.linkedSpaceId, shopifySubscription.linkedSpaceId) &&
         Objects.equals(this.orderRecurrenceNumber, shopifySubscription.orderRecurrenceNumber) &&
@@ -264,7 +294,7 @@ public class ShopifySubscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdBy, createdOn, id, initialTransaction, language, linkedSpaceId, orderRecurrenceNumber, shop, state, subscriber, terminatedBy, terminatedOn, terminationRequestDate, version);
+    return Objects.hash(createdBy, createdOn, externalId, id, initialPaymentTransaction, initialShopifyTransaction, language, linkedSpaceId, orderRecurrenceNumber, shop, state, subscriber, terminatedBy, terminatedOn, terminationRequestDate, version);
   }
 
 
@@ -275,8 +305,10 @@ public class ShopifySubscription {
     
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    initialTransaction: ").append(toIndentedString(initialTransaction)).append("\n");
+    sb.append("    initialPaymentTransaction: ").append(toIndentedString(initialPaymentTransaction)).append("\n");
+    sb.append("    initialShopifyTransaction: ").append(toIndentedString(initialShopifyTransaction)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    orderRecurrenceNumber: ").append(toIndentedString(orderRecurrenceNumber)).append("\n");

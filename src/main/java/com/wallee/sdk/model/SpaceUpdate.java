@@ -95,7 +95,8 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
       return false;
     }
     SpaceUpdate spaceUpdate = (SpaceUpdate) o;
-    return Objects.equals(this.name, spaceUpdate.name) &&
+    return Objects.equals(this.lastModifiedDate, spaceUpdate.lastModifiedDate) &&
+        Objects.equals(this.name, spaceUpdate.name) &&
         Objects.equals(this.postalAddress, spaceUpdate.postalAddress) &&
         Objects.equals(this.primaryCurrency, spaceUpdate.primaryCurrency) &&
         Objects.equals(this.requestLimit, spaceUpdate.requestLimit) &&
@@ -109,7 +110,7 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, id, version, super.hashCode());
+    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, id, version, super.hashCode());
   }
 
 
@@ -118,6 +119,7 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpaceUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
     sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");

@@ -24,7 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ShopifySubscriptionEditModelTaxLine;
+import com.wallee.sdk.model.ShopifySubscriptionModelTaxLine;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -38,7 +38,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifySubscriptionEditModelItem {
+public class ShopifySubscriptionModelItem {
   
   @JsonProperty("priceIncludingTax")
   protected BigDecimal priceIncludingTax = null;
@@ -57,11 +57,11 @@ public class ShopifySubscriptionEditModelItem {
 
   
   @JsonProperty("taxLines")
-  protected List<ShopifySubscriptionEditModelTaxLine> taxLines = null;
+  protected List<ShopifySubscriptionModelTaxLine> taxLines = null;
 
   
   
-  public ShopifySubscriptionEditModelItem priceIncludingTax(BigDecimal priceIncludingTax) {
+  public ShopifySubscriptionModelItem priceIncludingTax(BigDecimal priceIncludingTax) {
     this.priceIncludingTax = priceIncludingTax;
     return this;
   }
@@ -80,7 +80,7 @@ public class ShopifySubscriptionEditModelItem {
   }
 
   
-  public ShopifySubscriptionEditModelItem productId(Long productId) {
+  public ShopifySubscriptionModelItem productId(Long productId) {
     this.productId = productId;
     return this;
   }
@@ -99,7 +99,7 @@ public class ShopifySubscriptionEditModelItem {
   }
 
   
-  public ShopifySubscriptionEditModelItem quantity(BigDecimal quantity) {
+  public ShopifySubscriptionModelItem quantity(BigDecimal quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -118,7 +118,7 @@ public class ShopifySubscriptionEditModelItem {
   }
 
   
-  public ShopifySubscriptionEditModelItem recalculatePrice(Boolean recalculatePrice) {
+  public ShopifySubscriptionModelItem recalculatePrice(Boolean recalculatePrice) {
     this.recalculatePrice = recalculatePrice;
     return this;
   }
@@ -137,12 +137,12 @@ public class ShopifySubscriptionEditModelItem {
   }
 
   
-  public ShopifySubscriptionEditModelItem taxLines(List<ShopifySubscriptionEditModelTaxLine> taxLines) {
+  public ShopifySubscriptionModelItem taxLines(List<ShopifySubscriptionModelTaxLine> taxLines) {
     this.taxLines = taxLines;
     return this;
   }
 
-  public ShopifySubscriptionEditModelItem addTaxLinesItem(ShopifySubscriptionEditModelTaxLine taxLinesItem) {
+  public ShopifySubscriptionModelItem addTaxLinesItem(ShopifySubscriptionModelTaxLine taxLinesItem) {
     if (this.taxLines == null) {
       this.taxLines = new ArrayList<>();
     }
@@ -155,11 +155,11 @@ public class ShopifySubscriptionEditModelItem {
    * @return taxLines
   **/
   @ApiModelProperty(value = "")
-  public List<ShopifySubscriptionEditModelTaxLine> getTaxLines() {
+  public List<ShopifySubscriptionModelTaxLine> getTaxLines() {
     return taxLines;
   }
 
-  public void setTaxLines(List<ShopifySubscriptionEditModelTaxLine> taxLines) {
+  public void setTaxLines(List<ShopifySubscriptionModelTaxLine> taxLines) {
     this.taxLines = taxLines;
   }
 
@@ -173,12 +173,12 @@ public class ShopifySubscriptionEditModelItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifySubscriptionEditModelItem shopifySubscriptionEditModelItem = (ShopifySubscriptionEditModelItem) o;
-    return Objects.equals(this.priceIncludingTax, shopifySubscriptionEditModelItem.priceIncludingTax) &&
-        Objects.equals(this.productId, shopifySubscriptionEditModelItem.productId) &&
-        Objects.equals(this.quantity, shopifySubscriptionEditModelItem.quantity) &&
-        Objects.equals(this.recalculatePrice, shopifySubscriptionEditModelItem.recalculatePrice) &&
-        Objects.equals(this.taxLines, shopifySubscriptionEditModelItem.taxLines);
+    ShopifySubscriptionModelItem shopifySubscriptionModelItem = (ShopifySubscriptionModelItem) o;
+    return Objects.equals(this.priceIncludingTax, shopifySubscriptionModelItem.priceIncludingTax) &&
+        Objects.equals(this.productId, shopifySubscriptionModelItem.productId) &&
+        Objects.equals(this.quantity, shopifySubscriptionModelItem.quantity) &&
+        Objects.equals(this.recalculatePrice, shopifySubscriptionModelItem.recalculatePrice) &&
+        Objects.equals(this.taxLines, shopifySubscriptionModelItem.taxLines);
   }
 
   @Override
@@ -190,7 +190,7 @@ public class ShopifySubscriptionEditModelItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionEditModelItem {\n");
+    sb.append("class ShopifySubscriptionModelItem {\n");
     
     sb.append("    priceIncludingTax: ").append(toIndentedString(priceIncludingTax)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");

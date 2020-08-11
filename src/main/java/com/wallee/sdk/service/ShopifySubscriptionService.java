@@ -7,6 +7,8 @@ import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.ShopifySubscription;
+import com.wallee.sdk.model.ShopifySubscriptionCreationRequest;
+import com.wallee.sdk.model.ShopifySubscriptionUpdateAddressesRequest;
 import com.wallee.sdk.model.ShopifySubscriptionUpdateRequest;
 import com.wallee.sdk.model.ShopifySubscriptionVersion;
 
@@ -173,6 +175,151 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Create
+    * This operation allows to create a Shopify subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param creationRequest 
+    * @return ShopifySubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-service--create">Create Documentation</a>
+
+    **/
+    public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, creationRequest);
+        String returnType = "ShopifySubscriptionVersion";
+        if(returnType.equals("String")){
+          return (ShopifySubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Create
+    * This operation allows to create a Shopify subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param creationRequest 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return ShopifySubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-service--create">Create Documentation</a>
+
+    **/
+    public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
+        HttpResponse response = createForHttpResponse(spaceId, creationRequest, params);
+        String returnType = "ShopifySubscriptionVersion";
+        if(returnType.equals("String")){
+            return (ShopifySubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'creationRequest' is set
+        if (creationRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(creationRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream creationRequest, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+              }// verify the required parameter 'creationRequest' is set
+              if (creationRequest == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = creationRequest == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, creationRequest);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'creationRequest' is set
+        if (creationRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(creationRequest);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
@@ -721,6 +868,151 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(subscription);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+
+  /**
+    * Update Addresses
+    * This operation allows to update a Shopify subscription addresses.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param updateRequest 
+    * @return ShopifySubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-service--update-addresses">Update Addresses Documentation</a>
+
+    **/
+    public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
+        HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest);
+        String returnType = "ShopifySubscriptionVersion";
+        if(returnType.equals("String")){
+          return (ShopifySubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Update Addresses
+    * This operation allows to update a Shopify subscription addresses.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param updateRequest 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return ShopifySubscriptionVersion
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-service--update-addresses">Update Addresses Documentation</a>
+
+    **/
+    public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest, params);
+        String returnType = "ShopifySubscriptionVersion";
+        if(returnType.equals("String")){
+            return (ShopifySubscriptionVersion) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+        }// verify the required parameter 'updateRequest' is set
+        if (updateRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
+
+      public HttpResponse updateAddressesForHttpResponse(Long spaceId, java.io.InputStream updateRequest, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+              }// verify the required parameter 'updateRequest' is set
+              if (updateRequest == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = updateRequest == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
+              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+      }
+
+    public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+        }// verify the required parameter 'updateRequest' is set
+        if (updateRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 

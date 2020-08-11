@@ -71,6 +71,10 @@ public class Space {
   protected Long id = null;
 
   
+  @JsonProperty("lastModifiedDate")
+  protected OffsetDateTime lastModifiedDate = null;
+
+  
   @JsonProperty("name")
   protected String name = null;
 
@@ -179,6 +183,16 @@ public class Space {
   @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return lastModifiedDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
   }
 
   
@@ -299,6 +313,7 @@ public class Space {
         Objects.equals(this.deletedBy, space.deletedBy) &&
         Objects.equals(this.deletedOn, space.deletedOn) &&
         Objects.equals(this.id, space.id) &&
+        Objects.equals(this.lastModifiedDate, space.lastModifiedDate) &&
         Objects.equals(this.name, space.name) &&
         Objects.equals(this.plannedPurgeDate, space.plannedPurgeDate) &&
         Objects.equals(this.postalAddress, space.postalAddress) &&
@@ -313,7 +328,7 @@ public class Space {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, active, activeOrRestrictedActive, database, deletedBy, deletedOn, id, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
+    return Objects.hash(account, active, activeOrRestrictedActive, database, deletedBy, deletedOn, id, lastModifiedDate, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
   }
 
 
@@ -329,6 +344,7 @@ public class Space {
     sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
     sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");

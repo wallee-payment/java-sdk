@@ -28,6 +28,7 @@ import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SpaceAddressCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -38,6 +39,10 @@ import java.time.OffsetDateTime;
  */
 
 public class AbstractSpaceUpdate {
+  
+  @JsonProperty("lastModifiedDate")
+  protected OffsetDateTime lastModifiedDate = null;
+
   
   @JsonProperty("name")
   protected String name = null;
@@ -67,6 +72,25 @@ public class AbstractSpaceUpdate {
   protected String timeZone = null;
 
   
+  
+  public AbstractSpaceUpdate lastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+    return this;
+  }
+
+   /**
+   * 
+   * @return lastModifiedDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
+  }
+
+  public void setLastModifiedDate(OffsetDateTime lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
+  }
+
   
   public AbstractSpaceUpdate name(String name) {
     this.name = name;
@@ -219,7 +243,8 @@ public class AbstractSpaceUpdate {
       return false;
     }
     AbstractSpaceUpdate abstractSpaceUpdate = (AbstractSpaceUpdate) o;
-    return Objects.equals(this.name, abstractSpaceUpdate.name) &&
+    return Objects.equals(this.lastModifiedDate, abstractSpaceUpdate.lastModifiedDate) &&
+        Objects.equals(this.name, abstractSpaceUpdate.name) &&
         Objects.equals(this.postalAddress, abstractSpaceUpdate.postalAddress) &&
         Objects.equals(this.primaryCurrency, abstractSpaceUpdate.primaryCurrency) &&
         Objects.equals(this.requestLimit, abstractSpaceUpdate.requestLimit) &&
@@ -230,7 +255,7 @@ public class AbstractSpaceUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone);
+    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone);
   }
 
 
@@ -239,6 +264,7 @@ public class AbstractSpaceUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AbstractSpaceUpdate {\n");
     
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
     sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
