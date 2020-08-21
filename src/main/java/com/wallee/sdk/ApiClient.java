@@ -1,6 +1,7 @@
 package com.wallee.sdk;
 
 import com.wallee.sdk.service.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -29,6 +30,7 @@ public class ApiClient {
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
             .setDateFormat(new RFC3339DateFormat());
+		objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         objectMapper.registerModule(new JavaTimeModule());
         return objectMapper;
     }

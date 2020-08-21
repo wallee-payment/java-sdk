@@ -52,11 +52,16 @@ public class TransactionServiceTest {
                 .amountIncludingTax(BigDecimal.valueOf(29.95))
                 .sku("red-t-shirt-123");
 
+
+            // Customer email address
+            String customerEmailAddress = "test@example.com";
+
+
             // Customer Billind Address
             AddressCreate billingAddress = new AddressCreate();
             billingAddress.city("Winterthur")
                 .country("CH")
-                .emailAddress("test@example.com")
+                .emailAddress(customerEmailAddress)
                 .familyName("Customer")
                 .givenName("Good")
                 .postcode("8400")
@@ -70,6 +75,8 @@ public class TransactionServiceTest {
             this.transactionPayload.setBillingAddress(billingAddress);
             this.transactionPayload.setShippingAddress(billingAddress);
             this.transactionPayload.addLineItemsItem(lineItem);
+			this.transactionPayload.setCustomerId("1234");
+			this.transactionPayload.setCustomerEmailAddress(customerEmailAddress);
         }
         return this.transactionPayload;
     }
@@ -375,10 +382,31 @@ public class TransactionServiceTest {
     /**
      * updateTransactionLineItems
      */
-    @Ignore
     @Test
     public void updateTransactionLineItemsTest() {
-        // TODO: test validations
+        try {
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+
+            // Line item
+            LineItemCreate lineItem = new LineItemCreate();
+            lineItem.name("Blue T-Shirt")
+                    .uniqueId("5413")
+                    .type(LineItemType.PRODUCT)
+                    .quantity(BigDecimal.valueOf(1))
+                    .amountIncludingTax(BigDecimal.valueOf(39.95))
+                    .sku("blue-t-shirt-123");
+
+            TransactionPending transactionPending = new TransactionPending();
+            transactionPending.version(transaction.getVersion().longValue())
+                              .id(transaction.getId())
+                              .addLineItemsItem(lineItem)
+                              .customerId(transaction.getCustomerId())
+                              .currency(transaction.getCurrency());
+            Transaction transactionUpdate = this.apiClient.getTransactionService().update(spaceId, transactionPending);
+            Assert.assertEquals(transaction.getId(), transactionUpdate.getId());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }
