@@ -165,11 +165,7 @@ public class ApiClient {
     public HttpRequestFactory createRequestFactory() {
         final Auth signer = new Auth(this.userId, this.applicationKey);
         NetHttpTransport transport = new NetHttpTransport();
-        return transport.createRequestFactory(new HttpRequestInitializer() {
-            public void initialize(HttpRequest request) {
-                request.setInterceptor(signer);
-            }
-        });
+        return transport.createRequestFactory(request -> request.setInterceptor(signer));
     }
 
     public String getBasePath() {
