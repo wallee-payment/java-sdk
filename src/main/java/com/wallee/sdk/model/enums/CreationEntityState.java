@@ -30,7 +30,7 @@ public enum CreationEntityState {
     DELETING,
     DELETED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

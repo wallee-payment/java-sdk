@@ -50,7 +50,6 @@ public class DatabaseTranslatedStringCreate extends Indentable {
     }
 
     /**
-     *
      * @return items
      **/
     @ApiModelProperty(value = "")

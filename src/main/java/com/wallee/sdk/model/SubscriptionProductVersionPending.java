@@ -83,6 +83,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -102,6 +103,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -121,6 +123,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.
+     *
      * @return billingCycle
      **/
     @ApiModelProperty(value = "The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.")
@@ -140,6 +143,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.
+     *
      * @return comment
      **/
     @ApiModelProperty(value = "The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.")
@@ -159,6 +163,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The default currency has to be used in all fees.
+     *
      * @return defaultCurrency
      **/
     @ApiModelProperty(value = "The default currency has to be used in all fees.")
@@ -186,6 +191,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.
+     *
      * @return enabledCurrencies
      **/
     @ApiModelProperty(value = "The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.")
@@ -205,6 +211,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.
+     *
      * @return minimalNumberOfPeriods
      **/
     @ApiModelProperty(value = "The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.")
@@ -224,6 +231,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.")
@@ -243,6 +251,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.
+     *
      * @return numberOfNoticePeriods
      **/
     @ApiModelProperty(value = "The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.")
@@ -262,6 +271,7 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     /**
      * Each product version is linked to a product.
+     *
      * @return product
      **/
     @ApiModelProperty(value = "Each product version is linked to a product.")
@@ -280,7 +290,6 @@ public class SubscriptionProductVersionPending extends Indentable {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

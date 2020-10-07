@@ -67,7 +67,6 @@ public class SubscriptionMetric extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -78,6 +77,7 @@ public class SubscriptionMetric extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -88,6 +88,7 @@ public class SubscriptionMetric extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -97,7 +98,6 @@ public class SubscriptionMetric extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -108,6 +108,7 @@ public class SubscriptionMetric extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -117,7 +118,6 @@ public class SubscriptionMetric extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -127,7 +127,6 @@ public class SubscriptionMetric extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -138,6 +137,7 @@ public class SubscriptionMetric extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

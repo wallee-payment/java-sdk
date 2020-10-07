@@ -52,9 +52,8 @@ public class TransactionCommentService {
      **/
     public List<TransactionComment> all(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId);
-        TypeReference typeRef = new TypeReference<List<TransactionComment>>() {
-        };
-        return (List<TransactionComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class TransactionCommentService {
      **/
     public List<TransactionComment> all(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId, params);
-        TypeReference typeRef = new TypeReference<List<TransactionComment>>() {
-        };
-        return (List<TransactionComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long transactionId) throws IOException {
@@ -158,9 +156,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     /**
@@ -180,9 +177,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCommentCreate entity) throws IOException {
@@ -471,9 +467,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     /**
@@ -493,9 +488,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -672,9 +666,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     /**
@@ -695,9 +688,8 @@ public class TransactionCommentService {
      **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<TransactionComment>() {
-        };
-        return (TransactionComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionCommentActive entity) throws IOException {

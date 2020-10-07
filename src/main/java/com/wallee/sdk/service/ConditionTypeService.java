@@ -44,9 +44,8 @@ public class ConditionTypeService {
      **/
     public List<ConditionType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<ConditionType>>() {
-        };
-        return (List<ConditionType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class ConditionTypeService {
      **/
     public List<ConditionType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<ConditionType>>() {
-        };
-        return (List<ConditionType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class ConditionTypeService {
      **/
     public ConditionType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<ConditionType>() {
-        };
-        return (ConditionType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class ConditionTypeService {
      **/
     public ConditionType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<ConditionType>() {
-        };
-        return (ConditionType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

@@ -70,6 +70,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * The email address of the user.
+     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "The email address of the user.")
@@ -89,6 +90,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * The first name of the user.
+     *
      * @return firstname
      **/
     @ApiModelProperty(value = "The first name of the user.")
@@ -108,6 +110,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * The preferred language of the user.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The preferred language of the user.")
@@ -127,6 +130,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * The last name of the user.
+     *
      * @return lastname
      **/
     @ApiModelProperty(value = "The last name of the user.")
@@ -145,7 +149,6 @@ public class AbstractHumanUserUpdate extends Indentable {
     }
 
     /**
-     *
      * @return mobilePhoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -164,7 +167,6 @@ public class AbstractHumanUserUpdate extends Indentable {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -184,6 +186,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
+     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
@@ -203,6 +206,7 @@ public class AbstractHumanUserUpdate extends Indentable {
 
     /**
      * Defines whether two-factor authentication is enabled for this user.
+     *
      * @return twoFactorEnabled
      **/
     @ApiModelProperty(value = "Defines whether two-factor authentication is enabled for this user.")

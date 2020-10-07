@@ -54,9 +54,8 @@ public class CustomerCommentService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -75,9 +74,8 @@ public class CustomerCommentService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -165,9 +163,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment create(Long spaceId, CustomerCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     /**
@@ -187,9 +184,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment create(Long spaceId, CustomerCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, CustomerCommentCreate entity) throws IOException {
@@ -491,9 +487,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     /**
@@ -513,9 +508,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -595,9 +589,8 @@ public class CustomerCommentService {
      **/
     public List<CustomerComment> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<CustomerComment>>() {
-        };
-        return (List<CustomerComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<CustomerComment>>() {
+        });
     }
 
     /**
@@ -617,9 +610,8 @@ public class CustomerCommentService {
      **/
     public List<CustomerComment> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<CustomerComment>>() {
-        };
-        return (List<CustomerComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<CustomerComment>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -811,9 +803,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment update(Long spaceId, CustomerCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     /**
@@ -834,9 +825,8 @@ public class CustomerCommentService {
      **/
     public CustomerComment update(Long spaceId, CustomerCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<CustomerComment>() {
-        };
-        return (CustomerComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<CustomerComment>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, CustomerCommentActive entity) throws IOException {

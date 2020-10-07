@@ -51,6 +51,7 @@ public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
 
     /**
      * The collector configuration determines how the debt collection case is processed.
+     *
      * @return collectorConfiguration
      **/
     @ApiModelProperty(value = "The collector configuration determines how the debt collection case is processed.")
@@ -70,6 +71,7 @@ public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -89,6 +91,7 @@ public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
 
     /**
      * The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.
+     *
      * @return reference
      **/
     @ApiModelProperty(required = true, value = "The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.")

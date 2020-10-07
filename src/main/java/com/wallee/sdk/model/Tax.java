@@ -40,7 +40,6 @@ public class Tax extends Indentable {
 
 
     /**
-     *
      * @return rate
      **/
     @ApiModelProperty(value = "")
@@ -50,7 +49,6 @@ public class Tax extends Indentable {
 
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(value = "")

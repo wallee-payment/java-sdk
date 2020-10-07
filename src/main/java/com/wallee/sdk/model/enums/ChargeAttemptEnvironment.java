@@ -27,7 +27,7 @@ public enum ChargeAttemptEnvironment {
     PRODUCTION,
     TEST;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

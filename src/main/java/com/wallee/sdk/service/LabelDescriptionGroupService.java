@@ -44,9 +44,8 @@ public class LabelDescriptionGroupService {
      **/
     public List<LabelDescriptorGroup> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<LabelDescriptorGroup>>() {
-        };
-        return (List<LabelDescriptorGroup>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptorGroup>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class LabelDescriptionGroupService {
      **/
     public List<LabelDescriptorGroup> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<LabelDescriptorGroup>>() {
-        };
-        return (List<LabelDescriptorGroup>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptorGroup>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class LabelDescriptionGroupService {
      **/
     public LabelDescriptorGroup read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<LabelDescriptorGroup>() {
-        };
-        return (LabelDescriptorGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptorGroup>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class LabelDescriptionGroupService {
      **/
     public LabelDescriptorGroup read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<LabelDescriptorGroup>() {
-        };
-        return (LabelDescriptorGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptorGroup>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

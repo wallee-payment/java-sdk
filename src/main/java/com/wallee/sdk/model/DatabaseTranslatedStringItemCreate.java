@@ -44,7 +44,6 @@ public class DatabaseTranslatedStringItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(required = true, value = "")
@@ -63,7 +62,6 @@ public class DatabaseTranslatedStringItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return translation
      **/
     @ApiModelProperty(value = "")

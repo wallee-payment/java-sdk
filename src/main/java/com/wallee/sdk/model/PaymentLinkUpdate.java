@@ -94,6 +94,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -113,6 +114,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -140,6 +142,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The allowed payment method configurations restrict the payment methods which can be used with this payment link.
+     *
      * @return allowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "The allowed payment method configurations restrict the payment methods which can be used with this payment link.")
@@ -159,6 +162,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The payment link can be conducted in a specific space view. The space view may apply a specific design to the payment page.
+     *
      * @return appliedSpaceView
      **/
     @ApiModelProperty(value = "The payment link can be conducted in a specific space view. The space view may apply a specific design to the payment page.")
@@ -178,6 +182,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The available from date defines the earliest date on which the payment link can be used. When no date is specified there will be no restriction.
+     *
      * @return availableFrom
      **/
     @ApiModelProperty(value = "The available from date defines the earliest date on which the payment link can be used. When no date is specified there will be no restriction.")
@@ -197,6 +202,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The available from date defines the latest date on which the payment link can be used to initialize a transaction. When no date is specified there will be no restriction.
+     *
      * @return availableUntil
      **/
     @ApiModelProperty(value = "The available from date defines the latest date on which the payment link can be used to initialize a transaction. When no date is specified there will be no restriction.")
@@ -216,6 +222,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * By making the billing address required the transaction can only be created when a billing address is provided within the request.
+     *
      * @return billingAddressRequired
      **/
     @ApiModelProperty(value = "By making the billing address required the transaction can only be created when a billing address is provided within the request.")
@@ -235,6 +242,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The currency defines in which currency the payment is executed in. If no currency is defined it has to be specified within the request parameter &#39;currency&#39;.
+     *
      * @return currency
      **/
     @ApiModelProperty(value = "The currency defines in which currency the payment is executed in. If no currency is defined it has to be specified within the request parameter 'currency'.")
@@ -254,6 +262,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The language defines the language of the payment page. If no language is provided it can be provided through the request parameter.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The language defines the language of the payment page. If no language is provided it can be provided through the request parameter.")
@@ -281,6 +290,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The line items allows to define the line items for this payment link. When the line items are defined they cannot be overridden through the request parameters.
+     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "The line items allows to define the line items for this payment link. When the line items are defined they cannot be overridden through the request parameters.")
@@ -300,6 +310,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The maximal number of transactions limits the number of transactions which can be created with this payment link.
+     *
      * @return maximalNumberOfTransactions
      **/
     @ApiModelProperty(value = "The maximal number of transactions limits the number of transactions which can be created with this payment link.")
@@ -319,6 +330,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * The payment link name is used internally to identify the payment link. For example the name is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The payment link name is used internally to identify the payment link. For example the name is used within search fields and hence it should be distinct and descriptive.")
@@ -338,6 +350,7 @@ public class PaymentLinkUpdate extends Indentable {
 
     /**
      * By making the shipping address required the transaction can only be created when a shipping address is provided within the request.
+     *
      * @return shippingAddressRequired
      **/
     @ApiModelProperty(value = "By making the shipping address required the transaction can only be created when a shipping address is provided within the request.")

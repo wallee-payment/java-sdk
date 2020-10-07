@@ -55,6 +55,7 @@ public class TransactionCompletionRequest extends Indentable {
 
     /**
      * The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -74,6 +75,7 @@ public class TransactionCompletionRequest extends Indentable {
 
     /**
      * The last completion flag indicates if this is the last completion. After the last completion is created no further completions can be issued.
+     *
      * @return lastCompletion
      **/
     @ApiModelProperty(required = true, value = "The last completion flag indicates if this is the last completion. After the last completion is created no further completions can be issued.")
@@ -101,6 +103,7 @@ public class TransactionCompletionRequest extends Indentable {
 
     /**
      * The line items which will be used to complete the transaction.
+     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "The line items which will be used to complete the transaction.")
@@ -120,6 +123,7 @@ public class TransactionCompletionRequest extends Indentable {
 
     /**
      * The ID of the transaction which should be completed.
+     *
      * @return transactionId
      **/
     @ApiModelProperty(required = true, value = "The ID of the transaction which should be completed.")

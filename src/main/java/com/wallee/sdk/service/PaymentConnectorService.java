@@ -44,9 +44,8 @@ public class PaymentConnectorService {
      **/
     public List<PaymentConnector> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {
-        };
-        return (List<PaymentConnector>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentConnector>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class PaymentConnectorService {
      **/
     public List<PaymentConnector> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {
-        };
-        return (List<PaymentConnector>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentConnector>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class PaymentConnectorService {
      **/
     public PaymentConnector read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<PaymentConnector>() {
-        };
-        return (PaymentConnector) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentConnector>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class PaymentConnectorService {
      **/
     public PaymentConnector read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<PaymentConnector>() {
-        };
-        return (PaymentConnector) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentConnector>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

@@ -40,7 +40,6 @@ public class PersistableCurrencyAmount extends Indentable {
 
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -50,7 +49,6 @@ public class PersistableCurrencyAmount extends Indentable {
 
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(value = "")

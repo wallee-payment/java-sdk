@@ -32,17 +32,17 @@ public enum EntityQueryOrderByType {
 
     @JsonValue
     public String getValue() {
-      return name();
+        return name();
     }
 
     @JsonCreator
     public static EntityQueryFilterType fromValue(String text) {
-      for (EntityQueryFilterType b : EntityQueryFilterType.values()) {
-        if (b.name().equals(text)) {
-          return b;
+        for (EntityQueryFilterType b : EntityQueryFilterType.values()) {
+            if (b.name().equals(text)) {
+                return b;
+            }
         }
-      }
-      return null;
+        return null;
     }
 }
 

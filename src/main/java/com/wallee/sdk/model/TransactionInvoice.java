@@ -118,7 +118,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -128,7 +127,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -138,7 +136,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return completion
      **/
     @ApiModelProperty(value = "")
@@ -149,6 +146,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The date on which the invoice is created on.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The date on which the invoice is created on.")
@@ -159,6 +157,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The id of the user which marked the invoice as derecognized.
+     *
      * @return derecognizedBy
      **/
     @ApiModelProperty(value = "The id of the user which marked the invoice as derecognized.")
@@ -169,6 +168,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The date on which the invoice is marked as derecognized.
+     *
      * @return derecognizedOn
      **/
     @ApiModelProperty(value = "The date on which the invoice is marked as derecognized.")
@@ -179,6 +179,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The date on which the invoice should be paid on.
+     *
      * @return dueOn
      **/
     @ApiModelProperty(value = "The date on which the invoice should be paid on.")
@@ -188,7 +189,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -199,6 +199,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -208,7 +209,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -218,7 +218,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")
@@ -228,7 +227,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -239,6 +237,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.
+     *
      * @return outstandingAmount
      **/
     @ApiModelProperty(value = "The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.")
@@ -249,6 +248,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.
+     *
      * @return paidOn
      **/
     @ApiModelProperty(value = "The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.")
@@ -259,6 +259,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -268,7 +269,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -278,7 +278,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -288,7 +287,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return taxAmount
      **/
     @ApiModelProperty(value = "")
@@ -298,7 +296,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "")
@@ -309,6 +306,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

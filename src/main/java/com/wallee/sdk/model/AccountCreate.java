@@ -45,6 +45,7 @@ public class AccountCreate extends AbstractAccountUpdate {
 
     /**
      * The account which is responsible for administering the account.
+     *
      * @return parentAccount
      **/
     @ApiModelProperty(value = "The account which is responsible for administering the account.")
@@ -64,6 +65,7 @@ public class AccountCreate extends AbstractAccountUpdate {
 
     /**
      * This is the scope to which the account belongs to.
+     *
      * @return scope
      **/
     @ApiModelProperty(required = true, value = "This is the scope to which the account belongs to.")

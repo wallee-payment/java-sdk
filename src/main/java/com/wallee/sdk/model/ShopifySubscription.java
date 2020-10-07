@@ -96,7 +96,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -106,7 +105,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "")
@@ -117,6 +115,7 @@ public class ShopifySubscription extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -127,6 +126,7 @@ public class ShopifySubscription extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -136,7 +136,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return initialPaymentTransaction
      **/
     @ApiModelProperty(value = "")
@@ -146,7 +145,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return initialShopifyTransaction
      **/
     @ApiModelProperty(value = "")
@@ -156,7 +154,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -167,6 +164,7 @@ public class ShopifySubscription extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -176,7 +174,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return orderRecurrenceNumber
      **/
     @ApiModelProperty(value = "")
@@ -186,7 +183,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return shop
      **/
     @ApiModelProperty(value = "")
@@ -196,7 +192,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -206,7 +201,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return subscriber
      **/
     @ApiModelProperty(value = "")
@@ -216,7 +210,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return terminatedBy
      **/
     @ApiModelProperty(value = "")
@@ -226,7 +219,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return terminatedOn
      **/
     @ApiModelProperty(value = "")
@@ -236,7 +228,6 @@ public class ShopifySubscription extends Indentable {
 
 
     /**
-     *
      * @return terminationRequestDate
      **/
     @ApiModelProperty(value = "")
@@ -247,6 +238,7 @@ public class ShopifySubscription extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

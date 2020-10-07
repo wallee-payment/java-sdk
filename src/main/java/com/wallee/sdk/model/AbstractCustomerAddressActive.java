@@ -45,7 +45,6 @@ public class AbstractCustomerAddressActive extends Indentable {
     }
 
     /**
-     *
      * @return address
      **/
     @ApiModelProperty(value = "")
@@ -64,7 +63,6 @@ public class AbstractCustomerAddressActive extends Indentable {
     }
 
     /**
-     *
      * @return addressType
      **/
     @ApiModelProperty(value = "")

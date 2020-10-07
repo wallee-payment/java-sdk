@@ -88,7 +88,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return city
      **/
     @ApiModelProperty(value = "")
@@ -107,7 +106,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return country
      **/
     @ApiModelProperty(value = "")
@@ -126,7 +124,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return dependentLocality
      **/
     @ApiModelProperty(value = "")
@@ -146,6 +143,7 @@ public class SpaceAddressCreate extends Indentable {
 
     /**
      * The email address is used within emails and as reply to address.
+     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "The email address is used within emails and as reply to address.")
@@ -164,7 +162,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return familyName
      **/
     @ApiModelProperty(value = "")
@@ -183,7 +180,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return givenName
      **/
     @ApiModelProperty(value = "")
@@ -202,7 +198,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return organizationName
      **/
     @ApiModelProperty(value = "")
@@ -221,7 +216,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return postalState
      **/
     @ApiModelProperty(value = "")
@@ -240,7 +234,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return postcode
      **/
     @ApiModelProperty(value = "")
@@ -259,7 +252,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return salesTaxNumber
      **/
     @ApiModelProperty(value = "")
@@ -278,7 +270,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return salutation
      **/
     @ApiModelProperty(value = "")
@@ -298,6 +289,7 @@ public class SpaceAddressCreate extends Indentable {
 
     /**
      * The sorting code identifies the post office at which the post box is located in.
+     *
      * @return sortingCode
      **/
     @ApiModelProperty(value = "The sorting code identifies the post office at which the post box is located in.")
@@ -316,7 +308,6 @@ public class SpaceAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return street
      **/
     @ApiModelProperty(value = "")

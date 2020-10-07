@@ -68,7 +68,6 @@ public class PaymentTerminalLocation extends Indentable {
 
 
     /**
-     *
      * @return contactAddress
      **/
     @ApiModelProperty(value = "")
@@ -78,7 +77,6 @@ public class PaymentTerminalLocation extends Indentable {
 
 
     /**
-     *
      * @return defaultConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -88,7 +86,6 @@ public class PaymentTerminalLocation extends Indentable {
 
 
     /**
-     *
      * @return deliveryAddress
      **/
     @ApiModelProperty(value = "")
@@ -99,6 +96,7 @@ public class PaymentTerminalLocation extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -109,6 +107,7 @@ public class PaymentTerminalLocation extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -119,6 +118,7 @@ public class PaymentTerminalLocation extends Indentable {
 
     /**
      * The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -129,6 +129,7 @@ public class PaymentTerminalLocation extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -138,7 +139,6 @@ public class PaymentTerminalLocation extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -149,6 +149,7 @@ public class PaymentTerminalLocation extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

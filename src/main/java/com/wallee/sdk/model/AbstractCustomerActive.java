@@ -66,7 +66,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return customerId
      **/
     @ApiModelProperty(value = "")
@@ -85,7 +84,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "")
@@ -104,7 +102,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return familyName
      **/
     @ApiModelProperty(value = "")
@@ -123,7 +120,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return givenName
      **/
     @ApiModelProperty(value = "")
@@ -142,7 +138,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -170,6 +165,7 @@ public class AbstractCustomerActive extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -188,7 +184,6 @@ public class AbstractCustomerActive extends Indentable {
     }
 
     /**
-     *
      * @return preferredCurrency
      **/
     @ApiModelProperty(value = "")

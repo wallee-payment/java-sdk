@@ -53,7 +53,6 @@ public class InstallmentCalculatedPlan extends Indentable {
 
 
     /**
-     *
      * @return _configuration
      **/
     @ApiModelProperty(value = "")
@@ -63,7 +62,6 @@ public class InstallmentCalculatedPlan extends Indentable {
 
 
     /**
-     *
      * @return paymentMethodConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -73,7 +71,6 @@ public class InstallmentCalculatedPlan extends Indentable {
 
 
     /**
-     *
      * @return slices
      **/
     @ApiModelProperty(value = "")
@@ -83,7 +80,6 @@ public class InstallmentCalculatedPlan extends Indentable {
 
 
     /**
-     *
      * @return totalAmount
      **/
     @ApiModelProperty(value = "")
@@ -93,7 +89,6 @@ public class InstallmentCalculatedPlan extends Indentable {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")

@@ -50,6 +50,7 @@ public class LineItemReductionCreate extends Indentable {
 
     /**
      * The unique id identifies the line item on which the reduction is applied on.
+     *
      * @return lineItemUniqueId
      **/
     @ApiModelProperty(required = true, value = "The unique id identifies the line item on which the reduction is applied on.")
@@ -68,7 +69,6 @@ public class LineItemReductionCreate extends Indentable {
     }
 
     /**
-     *
      * @return quantityReduction
      **/
     @ApiModelProperty(required = true, value = "")
@@ -87,7 +87,6 @@ public class LineItemReductionCreate extends Indentable {
     }
 
     /**
-     *
      * @return unitPriceReduction
      **/
     @ApiModelProperty(required = true, value = "")

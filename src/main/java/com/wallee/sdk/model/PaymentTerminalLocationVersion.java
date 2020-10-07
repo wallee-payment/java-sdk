@@ -72,7 +72,6 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
 
     /**
-     *
      * @return address
      **/
     @ApiModelProperty(value = "")
@@ -82,7 +81,6 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -93,6 +91,7 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -103,6 +102,7 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -113,6 +113,7 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -122,7 +123,6 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
 
     /**
-     *
      * @return location
      **/
     @ApiModelProperty(value = "")
@@ -133,6 +133,7 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -142,7 +143,6 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -153,6 +153,7 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -162,7 +163,6 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
 
     /**
-     *
      * @return versionAppliedImmediately
      **/
     @ApiModelProperty(value = "")

@@ -53,9 +53,8 @@ public class SpaceService {
      **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -73,9 +72,8 @@ public class SpaceService {
      **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter) throws IOException {
@@ -147,9 +145,8 @@ public class SpaceService {
      **/
     public Space create(SpaceCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     /**
@@ -168,9 +165,8 @@ public class SpaceService {
      **/
     public Space create(SpaceCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(SpaceCreate entity) throws IOException {
@@ -343,9 +339,8 @@ public class SpaceService {
      **/
     public Space read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     /**
@@ -364,9 +359,8 @@ public class SpaceService {
      **/
     public Space read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -433,9 +427,8 @@ public class SpaceService {
      **/
     public List<Space> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        TypeReference typeRef = new TypeReference<List<Space>>() {
-        };
-        return (List<Space>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>() {
+        });
     }
 
     /**
@@ -454,9 +447,8 @@ public class SpaceService {
      **/
     public List<Space> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        TypeReference typeRef = new TypeReference<List<Space>>() {
-        };
-        return (List<Space>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -536,9 +528,8 @@ public class SpaceService {
      **/
     public Space update(SpaceUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     /**
@@ -558,9 +549,8 @@ public class SpaceService {
      **/
     public Space update(SpaceUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<Space>() {
-        };
-        return (Space) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(SpaceUpdate entity) throws IOException {

@@ -55,7 +55,6 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -83,6 +82,7 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -101,7 +101,6 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -120,7 +119,6 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

@@ -49,7 +49,6 @@ public class StaticValue extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -59,7 +58,6 @@ public class StaticValue extends Indentable {
 
 
     /**
-     *
      * @return features
      **/
     @ApiModelProperty(value = "")
@@ -70,6 +68,7 @@ public class StaticValue extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -79,7 +78,6 @@ public class StaticValue extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

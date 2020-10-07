@@ -71,6 +71,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+     *
      * @return autoConfirmationEnabled
      **/
     @ApiModelProperty(value = "When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.")
@@ -90,6 +91,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.
+     *
      * @return chargeRetryEnabled
      **/
     @ApiModelProperty(value = "When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.")
@@ -109,6 +111,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * The customer&#39;s presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, &#39;Virtually Present&#39; is used by default.
+     *
      * @return customersPresence
      **/
     @ApiModelProperty(value = "The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.")
@@ -128,6 +131,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+     *
      * @return deviceSessionIdentifier
      **/
     @ApiModelProperty(value = "The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.")
@@ -147,6 +151,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.
+     *
      * @return emailsDisabled
      **/
     @ApiModelProperty(value = "Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.")
@@ -165,7 +170,6 @@ public class TransactionCreate extends AbstractTransactionPending {
     }
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -185,6 +189,7 @@ public class TransactionCreate extends AbstractTransactionPending {
 
     /**
      * The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+     *
      * @return environmentSelectionStrategy
      **/
     @ApiModelProperty(value = "The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.")
@@ -203,7 +208,6 @@ public class TransactionCreate extends AbstractTransactionPending {
     }
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")

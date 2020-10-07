@@ -86,6 +86,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.
+     *
      * @return applicableForTransactionProcessing
      **/
     @ApiModelProperty(value = "This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.")
@@ -96,6 +97,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.
+     *
      * @return conditions
      **/
     @ApiModelProperty(value = "If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.")
@@ -105,7 +107,6 @@ public class PaymentConnectorConfiguration extends Indentable {
 
 
     /**
-     *
      * @return connector
      **/
     @ApiModelProperty(value = "")
@@ -116,6 +117,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.
+     *
      * @return enabledSpaceViews
      **/
     @ApiModelProperty(value = "The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.")
@@ -126,6 +128,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -136,6 +139,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -146,6 +150,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -155,7 +160,6 @@ public class PaymentConnectorConfiguration extends Indentable {
 
 
     /**
-     *
      * @return paymentMethodConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -166,6 +170,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -176,6 +181,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.
+     *
      * @return priority
      **/
     @ApiModelProperty(value = "The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.")
@@ -185,7 +191,6 @@ public class PaymentConnectorConfiguration extends Indentable {
 
 
     /**
-     *
      * @return processorConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -195,7 +200,6 @@ public class PaymentConnectorConfiguration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -206,6 +210,7 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

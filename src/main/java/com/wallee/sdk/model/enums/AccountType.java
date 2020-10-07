@@ -28,7 +28,7 @@ public enum AccountType {
     REGULAR,
     SUBACCOUNT;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -56,7 +56,6 @@ public class PaymentMethodBrand extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -66,7 +65,6 @@ public class PaymentMethodBrand extends Indentable {
 
 
     /**
-     *
      * @return grayImagePath
      **/
     @ApiModelProperty(value = "")
@@ -77,6 +75,7 @@ public class PaymentMethodBrand extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -86,7 +85,6 @@ public class PaymentMethodBrand extends Indentable {
 
 
     /**
-     *
      * @return imagePath
      **/
     @ApiModelProperty(value = "")
@@ -96,7 +94,6 @@ public class PaymentMethodBrand extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -106,7 +103,6 @@ public class PaymentMethodBrand extends Indentable {
 
 
     /**
-     *
      * @return paymentMethod
      **/
     @ApiModelProperty(value = "")

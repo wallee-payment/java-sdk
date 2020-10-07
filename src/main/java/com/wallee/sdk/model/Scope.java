@@ -82,6 +82,7 @@ public class Scope extends Indentable {
 
     /**
      * The domain name to which this scope is mapped to.
+     *
      * @return domainName
      **/
     @ApiModelProperty(value = "The domain name to which this scope is mapped to.")
@@ -91,7 +92,6 @@ public class Scope extends Indentable {
 
 
     /**
-     *
      * @return features
      **/
     @ApiModelProperty(value = "")
@@ -102,6 +102,7 @@ public class Scope extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -111,7 +112,6 @@ public class Scope extends Indentable {
 
 
     /**
-     *
      * @return machineName
      **/
     @ApiModelProperty(value = "")
@@ -122,6 +122,7 @@ public class Scope extends Indentable {
 
     /**
      * The name of the scope is shown to the user where the user should select a scope.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the scope is shown to the user where the user should select a scope.")
@@ -132,6 +133,7 @@ public class Scope extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -142,6 +144,7 @@ public class Scope extends Indentable {
 
     /**
      * The port number to which this scope is mapped to.
+     *
      * @return port
      **/
     @ApiModelProperty(value = "The port number to which this scope is mapped to.")
@@ -152,6 +155,7 @@ public class Scope extends Indentable {
 
     /**
      * Define whether the scope supports SSL.
+     *
      * @return sslActive
      **/
     @ApiModelProperty(value = "Define whether the scope supports SSL.")
@@ -161,7 +165,6 @@ public class Scope extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -172,6 +175,7 @@ public class Scope extends Indentable {
 
     /**
      * The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.
+     *
      * @return themes
      **/
     @ApiModelProperty(value = "The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.")
@@ -181,7 +185,6 @@ public class Scope extends Indentable {
 
 
     /**
-     *
      * @return url
      **/
     @ApiModelProperty(value = "")
@@ -192,6 +195,7 @@ public class Scope extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

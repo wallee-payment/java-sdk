@@ -44,6 +44,7 @@ public class TenantDatabase extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -54,6 +55,7 @@ public class TenantDatabase extends Indentable {
 
     /**
      * The name of the database.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the database.")
@@ -64,6 +66,7 @@ public class TenantDatabase extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

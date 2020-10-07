@@ -53,9 +53,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -164,9 +162,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee create(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     /**
@@ -186,9 +183,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee create(Long spaceId, ProductMeteredFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {
@@ -394,9 +390,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     /**
@@ -416,9 +411,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -498,9 +492,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public List<ProductMeteredFee> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {
-        };
-        return (List<ProductMeteredFee>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ProductMeteredFee>>() {
+        });
     }
 
     /**
@@ -520,9 +513,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public List<ProductMeteredFee> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {
-        };
-        return (List<ProductMeteredFee>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ProductMeteredFee>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -618,9 +610,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee update(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     /**
@@ -641,9 +632,8 @@ public class SubscriptionProductMeteredFeeService {
      **/
     public ProductMeteredFee update(Long spaceId, ProductMeteredFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {
-        };
-        return (ProductMeteredFee) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ProductMeteredFee>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {

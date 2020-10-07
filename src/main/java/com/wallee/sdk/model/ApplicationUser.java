@@ -44,6 +44,7 @@ public class ApplicationUser extends User {
 
     /**
      * The user name is used to identify the application user in administrative interfaces.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The user name is used to identify the application user in administrative interfaces.")
@@ -54,6 +55,7 @@ public class ApplicationUser extends User {
 
     /**
      * The account that this user is associated with. The account owner will be able to manage this user.
+     *
      * @return primaryAccount
      **/
     @ApiModelProperty(value = "The account that this user is associated with. The account owner will be able to manage this user.")
@@ -64,6 +66,7 @@ public class ApplicationUser extends User {
 
     /**
      * The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.
+     *
      * @return requestLimit
      **/
     @ApiModelProperty(value = "The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.")

@@ -64,6 +64,7 @@ public class AbstractWebhookListenerUpdate extends Indentable {
 
     /**
      * The target state identifies the state into which entities need to move into to trigger the webhook listener.
+     *
      * @return entityStates
      **/
     @ApiModelProperty(value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
@@ -83,6 +84,7 @@ public class AbstractWebhookListenerUpdate extends Indentable {
 
     /**
      * The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -102,6 +104,7 @@ public class AbstractWebhookListenerUpdate extends Indentable {
 
     /**
      * Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
+     *
      * @return notifyEveryChange
      **/
     @ApiModelProperty(value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
@@ -120,7 +123,6 @@ public class AbstractWebhookListenerUpdate extends Indentable {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

@@ -117,7 +117,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return city
      **/
     @ApiModelProperty(value = "")
@@ -136,7 +135,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return commercialRegisterNumber
      **/
     @ApiModelProperty(value = "")
@@ -155,7 +153,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return country
      **/
     @ApiModelProperty(value = "")
@@ -174,7 +171,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return dateOfBirth
      **/
     @ApiModelProperty(value = "")
@@ -193,7 +189,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return dependentLocality
      **/
     @ApiModelProperty(value = "")
@@ -212,7 +207,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "")
@@ -231,7 +225,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return familyName
      **/
     @ApiModelProperty(value = "")
@@ -250,7 +243,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return gender
      **/
     @ApiModelProperty(value = "")
@@ -269,7 +261,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return givenName
      **/
     @ApiModelProperty(value = "")
@@ -288,7 +279,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return legalOrganizationForm
      **/
     @ApiModelProperty(value = "")
@@ -307,7 +297,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return mobilePhoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -326,7 +315,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return organizationName
      **/
     @ApiModelProperty(value = "")
@@ -345,7 +333,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return phoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -364,7 +351,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return postalState
      **/
     @ApiModelProperty(value = "")
@@ -383,7 +369,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return postcode
      **/
     @ApiModelProperty(value = "")
@@ -402,7 +387,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return salesTaxNumber
      **/
     @ApiModelProperty(value = "")
@@ -421,7 +405,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return salutation
      **/
     @ApiModelProperty(value = "")
@@ -440,7 +423,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return socialSecurityNumber
      **/
     @ApiModelProperty(value = "")
@@ -460,6 +442,7 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
 
     /**
      * The sorting code identifies the post office at which the post box is located in.
+     *
      * @return sortingCode
      **/
     @ApiModelProperty(value = "The sorting code identifies the post office at which the post box is located in.")
@@ -478,7 +461,6 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
     }
 
     /**
-     *
      * @return street
      **/
     @ApiModelProperty(value = "")

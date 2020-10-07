@@ -152,7 +152,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return absolutePriceAdjustment
      **/
     @ApiModelProperty(value = "")
@@ -163,6 +162,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the day of the month on which the recurring orders should be created.
+     *
      * @return billingDayOfMonth
      **/
     @ApiModelProperty(value = "Define the day of the month on which the recurring orders should be created.")
@@ -172,7 +172,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return billingIntervalAmount
      **/
     @ApiModelProperty(value = "")
@@ -183,6 +182,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define how frequently recurring orders should be created.
+     *
      * @return billingIntervalUnit
      **/
     @ApiModelProperty(value = "Define how frequently recurring orders should be created.")
@@ -193,6 +193,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the weekday on which the recurring orders should be created.
+     *
      * @return billingWeekday
      **/
     @ApiModelProperty(value = "Define the weekday on which the recurring orders should be created.")
@@ -202,7 +203,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return fixedPrice
      **/
     @ApiModelProperty(value = "")
@@ -213,6 +213,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -223,6 +224,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -233,6 +235,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the maximum number of orders the subscription will run for.
+     *
      * @return maximalBillingCycles
      **/
     @ApiModelProperty(value = "Define the maximum number of orders the subscription will run for.")
@@ -243,6 +246,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the maximum number of orders the subscription can be suspended for at a time.
+     *
      * @return maximalSuspendableCycles
      **/
     @ApiModelProperty(value = "Define the maximum number of orders the subscription can be suspended for at a time.")
@@ -253,6 +257,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the minimal number of orders the subscription will run for.
+     *
      * @return minimalBillingCycles
      **/
     @ApiModelProperty(value = "Define the minimal number of orders the subscription will run for.")
@@ -263,6 +268,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -272,7 +278,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return pricingOption
      **/
     @ApiModelProperty(value = "")
@@ -283,6 +288,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * The ID of the Shopify product that is enabled to be ordered as subscription.
+     *
      * @return productId
      **/
     @ApiModelProperty(value = "The ID of the Shopify product that is enabled to be ordered as subscription.")
@@ -292,7 +298,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return productName
      **/
     @ApiModelProperty(value = "")
@@ -302,7 +307,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return productPrice
      **/
     @ApiModelProperty(value = "")
@@ -312,7 +316,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return productSku
      **/
     @ApiModelProperty(value = "")
@@ -322,7 +325,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return productVariantId
      **/
     @ApiModelProperty(value = "")
@@ -332,7 +334,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return productVariantName
      **/
     @ApiModelProperty(value = "")
@@ -342,7 +343,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return relativePriceAdjustment
      **/
     @ApiModelProperty(value = "")
@@ -352,7 +352,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return shippingRequired
      **/
     @ApiModelProperty(value = "")
@@ -362,7 +361,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return shop
      **/
     @ApiModelProperty(value = "")
@@ -372,7 +370,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -382,7 +379,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return stockCheckRequired
      **/
     @ApiModelProperty(value = "")
@@ -393,6 +389,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define whether the order confirmation email of the Shopify shop is sent to the customer for recurring orders.
+     *
      * @return storeOrderConfirmationEmailEnabled
      **/
     @ApiModelProperty(value = "Define whether the order confirmation email of the Shopify shop is sent to the customer for recurring orders.")
@@ -403,6 +400,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define whether the customer is allowed to suspend subscriptions.
+     *
      * @return subscriberSuspensionAllowed
      **/
     @ApiModelProperty(value = "Define whether the customer is allowed to suspend subscriptions.")
@@ -413,6 +411,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * Define the number of orders the subscription will keep running for after its termination has been requested.
+     *
      * @return terminationBillingCycles
      **/
     @ApiModelProperty(value = "Define the number of orders the subscription will keep running for after its termination has been requested.")
@@ -422,7 +421,6 @@ public class ShopifySubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return updatedAt
      **/
     @ApiModelProperty(value = "")
@@ -433,6 +431,7 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

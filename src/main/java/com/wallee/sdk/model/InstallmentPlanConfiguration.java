@@ -106,6 +106,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The base currency in which the installment fee and minimal amount are defined.
+     *
      * @return baseCurrency
      **/
     @ApiModelProperty(value = "The base currency in which the installment fee and minimal amount are defined.")
@@ -116,6 +117,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * If a transaction meets all selected conditions the installment plan will be available to the customer to be selected.
+     *
      * @return conditions
      **/
     @ApiModelProperty(value = "If a transaction meets all selected conditions the installment plan will be available to the customer to be selected.")
@@ -126,6 +128,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -136,6 +139,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The installment fee is a fixed amount that is charged additionally when applying this installment plan.
+     *
      * @return installmentFee
      **/
     @ApiModelProperty(value = "The installment fee is a fixed amount that is charged additionally when applying this installment plan.")
@@ -146,6 +150,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The interest rate is a percentage of the total amount that is charged additionally when applying this installment plan.
+     *
      * @return interestRate
      **/
     @ApiModelProperty(value = "The interest rate is a percentage of the total amount that is charged additionally when applying this installment plan.")
@@ -156,6 +161,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -166,6 +172,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The installment plan can only be applied if the orders total is at least the defined minimal amount.
+     *
      * @return minimalAmount
      **/
     @ApiModelProperty(value = "The installment plan can only be applied if the orders total is at least the defined minimal amount.")
@@ -176,6 +183,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The installment plan name is used internally to identify the plan in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The installment plan name is used internally to identify the plan in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -186,6 +194,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * A installment plan can be enabled only for specific payment method configurations. Other payment methods will not be selectable by the buyer.
+     *
      * @return paymentMethodConfigurations
      **/
     @ApiModelProperty(value = "A installment plan can be enabled only for specific payment method configurations. Other payment methods will not be selectable by the buyer.")
@@ -196,6 +205,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -206,6 +216,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The sort order controls in which order the installation plans are listed. The sort order is used to order the plans in ascending order.
+     *
      * @return sortOrder
      **/
     @ApiModelProperty(value = "The sort order controls in which order the installation plans are listed. The sort order is used to order the plans in ascending order.")
@@ -215,7 +226,6 @@ public class InstallmentPlanConfiguration extends Indentable {
 
 
     /**
-     *
      * @return spaceReference
      **/
     @ApiModelProperty(value = "")
@@ -225,7 +235,6 @@ public class InstallmentPlanConfiguration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -236,6 +245,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The tax class determines the taxes which are applicable on all fees linked to the installment plan.
+     *
      * @return taxClass
      **/
     @ApiModelProperty(value = "The tax class determines the taxes which are applicable on all fees linked to the installment plan.")
@@ -246,6 +256,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The terms and conditions will be displayed to the customer when he or she selects this installment plan.
+     *
      * @return termsAndConditions
      **/
     @ApiModelProperty(value = "The terms and conditions will be displayed to the customer when he or she selects this installment plan.")
@@ -256,6 +267,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The title of the installment plan is used within the payment process. The title is visible to the buyer.
+     *
      * @return title
      **/
     @ApiModelProperty(value = "The title of the installment plan is used within the payment process. The title is visible to the buyer.")
@@ -266,6 +278,7 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

@@ -28,7 +28,7 @@ public enum CustomerAddressType {
     SHIPPING,
     BOTH;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -46,6 +46,7 @@ public class PaymentInformationHash extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -55,7 +56,6 @@ public class PaymentInformationHash extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -65,7 +65,6 @@ public class PaymentInformationHash extends Indentable {
 
 
     /**
-     *
      * @return value
      **/
     @ApiModelProperty(value = "")

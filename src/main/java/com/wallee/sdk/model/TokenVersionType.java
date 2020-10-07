@@ -48,7 +48,6 @@ public class TokenVersionType extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -58,7 +57,6 @@ public class TokenVersionType extends Indentable {
 
 
     /**
-     *
      * @return feature
      **/
     @ApiModelProperty(value = "")
@@ -69,6 +67,7 @@ public class TokenVersionType extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -78,7 +77,6 @@ public class TokenVersionType extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

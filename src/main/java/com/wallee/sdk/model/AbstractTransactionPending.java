@@ -121,7 +121,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return allowedPaymentMethodBrands
      **/
     @ApiModelProperty(value = "")
@@ -148,7 +147,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return allowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -167,7 +165,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -186,7 +183,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(value = "")
@@ -206,6 +202,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
+     *
      * @return customerEmailAddress
      **/
     @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
@@ -224,7 +221,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return customerId
      **/
     @ApiModelProperty(value = "")
@@ -244,6 +240,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+     *
      * @return failedUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
@@ -262,7 +259,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return invoiceMerchantReference
      **/
     @ApiModelProperty(value = "")
@@ -281,7 +277,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -308,7 +303,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")
@@ -327,7 +321,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -355,6 +348,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -373,7 +367,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(value = "")
@@ -392,7 +385,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return shippingMethod
      **/
     @ApiModelProperty(value = "")
@@ -412,6 +404,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+     *
      * @return successUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
@@ -431,6 +424,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
@@ -449,7 +443,6 @@ public class AbstractTransactionPending extends Indentable {
     }
 
     /**
-     *
      * @return token
      **/
     @ApiModelProperty(value = "")
@@ -469,6 +462,7 @@ public class AbstractTransactionPending extends Indentable {
 
     /**
      * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
+     *
      * @return tokenizationMode
      **/
     @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")

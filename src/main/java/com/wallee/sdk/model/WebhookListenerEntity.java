@@ -45,6 +45,7 @@ public class WebhookListenerEntity extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -54,7 +55,6 @@ public class WebhookListenerEntity extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -64,7 +64,6 @@ public class WebhookListenerEntity extends Indentable {
 
 
     /**
-     *
      * @return technicalName
      **/
     @ApiModelProperty(value = "")

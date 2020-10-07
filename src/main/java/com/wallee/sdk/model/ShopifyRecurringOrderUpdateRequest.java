@@ -45,7 +45,6 @@ public class ShopifyRecurringOrderUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return executionDate
      **/
     @ApiModelProperty(value = "")
@@ -64,7 +63,6 @@ public class ShopifyRecurringOrderUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return recurringOrderId
      **/
     @ApiModelProperty(value = "")

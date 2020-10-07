@@ -44,6 +44,7 @@ public class TransactionAwareEntity {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -54,6 +55,7 @@ public class TransactionAwareEntity {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -63,7 +65,6 @@ public class TransactionAwareEntity {
 
 
     /**
-     *
      * @return linkedTransaction
      **/
     @ApiModelProperty(value = "")

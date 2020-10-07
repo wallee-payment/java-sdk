@@ -47,7 +47,6 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -67,6 +66,7 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")

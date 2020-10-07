@@ -163,6 +163,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The amount is the total amount of the not paid items. The amount cannot be change once the case is reviewed.
+     *
      * @return amount
      **/
     @ApiModelProperty(value = "The amount is the total amount of the not paid items. The amount cannot be change once the case is reviewed.")
@@ -173,6 +174,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The billing address of the case identifies the debtor.
+     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "The billing address of the case identifies the debtor.")
@@ -183,6 +185,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The closed on date indicates when the case is closed on.
+     *
      * @return closedOn
      **/
     @ApiModelProperty(value = "The closed on date indicates when the case is closed on.")
@@ -193,6 +196,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The collector configuration determines how the debt collection case is processed.
+     *
      * @return collectorConfiguration
      **/
     @ApiModelProperty(value = "The collector configuration determines how the debt collection case is processed.")
@@ -203,6 +207,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The contract date is the date on which the contract with the debtor was signed on.
+     *
      * @return contractDate
      **/
     @ApiModelProperty(value = "The contract date is the date on which the contract with the debtor was signed on.")
@@ -213,6 +218,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -223,6 +229,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The creator references the user which has created the debt collection case.
+     *
      * @return creator
      **/
     @ApiModelProperty(value = "The creator references the user which has created the debt collection case.")
@@ -233,6 +240,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The currency defines the billing currency of the debt collection case.
+     *
      * @return currency
      **/
     @ApiModelProperty(value = "The currency defines the billing currency of the debt collection case.")
@@ -243,6 +251,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The due date indicates the date on which the amount receivable was due. This date has to be always in the past.
+     *
      * @return dueDate
      **/
     @ApiModelProperty(value = "The due date indicates the date on which the amount receivable was due. This date has to be always in the past.")
@@ -253,6 +262,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.
+     *
      * @return environment
      **/
     @ApiModelProperty(value = "The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.")
@@ -263,6 +273,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -273,6 +284,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The failed on date indicates when the case is failed on.
+     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "The failed on date indicates when the case is failed on.")
@@ -282,7 +294,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -293,6 +304,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -302,7 +314,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -313,6 +324,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The language indicates the language to be used in the communication with the debtor.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The language indicates the language to be used in the communication with the debtor.")
@@ -323,6 +335,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.
+     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.")
@@ -333,6 +346,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -342,7 +356,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return nextAttemptOn
      **/
     @ApiModelProperty(value = "")
@@ -353,6 +366,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -363,6 +377,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The processing started on date indicates the date on which the processing of the case started on.
+     *
      * @return processingStartedOn
      **/
     @ApiModelProperty(value = "The processing started on date indicates the date on which the processing of the case started on.")
@@ -372,7 +387,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return processingTimeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -383,6 +397,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.
+     *
      * @return reference
      **/
     @ApiModelProperty(value = "The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.")
@@ -392,7 +407,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return reviewStartedOn
      **/
     @ApiModelProperty(value = "")
@@ -403,6 +417,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The reviewed on date indicates when the review of the case was conducted on.
+     *
      * @return reviewedOn
      **/
     @ApiModelProperty(value = "The reviewed on date indicates when the review of the case was conducted on.")
@@ -413,6 +428,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The reviewer references the user which has reviewed the case.
+     *
      * @return reviewer
      **/
     @ApiModelProperty(value = "The reviewer references the user which has reviewed the case.")
@@ -423,6 +439,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The source of the debt collection case indicates the origin of the amount receivable.
+     *
      * @return source
      **/
     @ApiModelProperty(value = "The source of the debt collection case indicates the origin of the amount receivable.")
@@ -433,6 +450,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The source entity ID points to the object which is the origin of the debt collection case. This ID is only set when the case was triggered by an internal process.
+     *
      * @return sourceEntityId
      **/
     @ApiModelProperty(value = "The source entity ID points to the object which is the origin of the debt collection case. This ID is only set when the case was triggered by an internal process.")
@@ -442,7 +460,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -452,7 +469,6 @@ public class DebtCollectionCase extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -463,6 +479,7 @@ public class DebtCollectionCase extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

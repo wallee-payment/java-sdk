@@ -101,7 +101,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return aggregatedTaxRate
      **/
     @ApiModelProperty(value = "")
@@ -111,7 +110,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return amountExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -121,7 +119,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return amountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -131,7 +128,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -142,6 +138,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -152,6 +149,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -162,6 +160,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -172,6 +171,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -182,6 +182,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -191,7 +192,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(value = "")
@@ -201,7 +201,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -211,7 +210,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return subscriptionVersion
      **/
     @ApiModelProperty(value = "")
@@ -221,7 +219,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return taxAmount
      **/
     @ApiModelProperty(value = "")
@@ -231,7 +228,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return taxes
      **/
     @ApiModelProperty(value = "")
@@ -241,7 +237,6 @@ public class SubscriptionLedgerEntry extends Indentable {
 
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(value = "")
@@ -252,6 +247,7 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

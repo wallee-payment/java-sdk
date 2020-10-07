@@ -51,7 +51,6 @@ public class Label extends Indentable {
 
 
     /**
-     *
      * @return content
      **/
     @ApiModelProperty(value = "")
@@ -61,7 +60,6 @@ public class Label extends Indentable {
 
 
     /**
-     *
      * @return contentAsString
      **/
     @ApiModelProperty(value = "")
@@ -71,7 +69,6 @@ public class Label extends Indentable {
 
 
     /**
-     *
      * @return descriptor
      **/
     @ApiModelProperty(value = "")
@@ -82,6 +79,7 @@ public class Label extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -92,6 +90,7 @@ public class Label extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

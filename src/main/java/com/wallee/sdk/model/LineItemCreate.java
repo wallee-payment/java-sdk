@@ -81,7 +81,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return amountIncludingTax
      **/
     @ApiModelProperty(required = true, value = "")
@@ -108,7 +107,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return attributes
      **/
     @ApiModelProperty(value = "")
@@ -127,7 +125,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return discountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -146,7 +143,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(required = true, value = "")
@@ -165,7 +161,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(required = true, value = "")
@@ -184,7 +179,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return shippingRequired
      **/
     @ApiModelProperty(value = "")
@@ -203,7 +197,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return sku
      **/
     @ApiModelProperty(value = "")
@@ -230,7 +223,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return taxes
      **/
     @ApiModelProperty(value = "")
@@ -249,7 +241,6 @@ public class LineItemCreate extends Indentable {
     }
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(required = true, value = "")
@@ -269,6 +260,7 @@ public class LineItemCreate extends Indentable {
 
     /**
      * The unique id identifies the line item within the set of line items associated with the transaction.
+     *
      * @return uniqueId
      **/
     @ApiModelProperty(required = true, value = "The unique id identifies the line item within the set of line items associated with the transaction.")

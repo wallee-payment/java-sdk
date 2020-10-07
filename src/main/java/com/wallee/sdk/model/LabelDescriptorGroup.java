@@ -48,7 +48,6 @@ public class LabelDescriptorGroup extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -59,6 +58,7 @@ public class LabelDescriptorGroup extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -68,7 +68,6 @@ public class LabelDescriptorGroup extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -78,7 +77,6 @@ public class LabelDescriptorGroup extends Indentable {
 
 
     /**
-     *
      * @return weight
      **/
     @ApiModelProperty(value = "")

@@ -29,7 +29,7 @@ public enum ConnectorInvocationStage {
     VALIDATION,
     AUTHORIZATION;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

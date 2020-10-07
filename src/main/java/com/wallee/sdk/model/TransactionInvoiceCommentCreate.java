@@ -40,7 +40,6 @@ public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceC
     }
 
     /**
-     *
      * @return transactionInvoice
      **/
     @ApiModelProperty(required = true, value = "")

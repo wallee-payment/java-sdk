@@ -40,7 +40,6 @@ public class RenderedTerminalReceipt extends Indentable {
 
 
     /**
-     *
      * @return data
      **/
     @ApiModelProperty(value = "")
@@ -50,7 +49,6 @@ public class RenderedTerminalReceipt extends Indentable {
 
 
     /**
-     *
      * @return mimeType
      **/
     @ApiModelProperty(value = "")

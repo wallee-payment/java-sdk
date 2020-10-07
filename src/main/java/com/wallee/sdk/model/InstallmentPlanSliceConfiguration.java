@@ -77,6 +77,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -87,6 +88,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The title of this slices line items. The title is visible to the buyer.
+     *
      * @return lineItemTitle
      **/
     @ApiModelProperty(value = "The title of this slices line items. The title is visible to the buyer.")
@@ -97,6 +99,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -107,6 +110,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The period defines how much time passes between the last slice and this slice. The charge is triggered at the end of the period. When the slice should be charged immediately the period needs to be zero.
+     *
      * @return period
      **/
     @ApiModelProperty(value = "The period defines how much time passes between the last slice and this slice. The charge is triggered at the end of the period. When the slice should be charged immediately the period needs to be zero.")
@@ -117,6 +121,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The installment plan this slice belongs to.
+     *
      * @return plan
      **/
     @ApiModelProperty(value = "The installment plan this slice belongs to.")
@@ -127,6 +132,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -137,6 +143,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The priority controls in which order the slices are applied. The lower the value the higher the precedence.
+     *
      * @return priority
      **/
     @ApiModelProperty(value = "The priority controls in which order the slices are applied. The lower the value the higher the precedence.")
@@ -147,6 +154,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The proportion defines how much of the total installment payment has to be paid in this slice. The value is summed up with the other slices and the ratio of all proportions compared to proportion of this slice determines how much the buyer has to pay in this slice.
+     *
      * @return proportion
      **/
     @ApiModelProperty(value = "The proportion defines how much of the total installment payment has to be paid in this slice. The value is summed up with the other slices and the ratio of all proportions compared to proportion of this slice determines how much the buyer has to pay in this slice.")
@@ -156,7 +164,6 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -167,6 +174,7 @@ public class InstallmentPlanSliceConfiguration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

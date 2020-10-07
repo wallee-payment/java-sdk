@@ -55,6 +55,7 @@ public class UnencryptedCardDataCreate extends Indentable {
 
     /**
      * The card holder name is the name printed onto the card. It identifies the person who owns the card.
+     *
      * @return cardHolderName
      **/
     @ApiModelProperty(value = "The card holder name is the name printed onto the card. It identifies the person who owns the card.")
@@ -74,6 +75,7 @@ public class UnencryptedCardDataCreate extends Indentable {
 
     /**
      * The card verification code (CVC) is a 3 to 4 digit code typically printed on the back of the card. It helps to ensure that the card holder is authorizing the transaction. For card not-present transactions this field is optional.
+     *
      * @return cardVerificationCode
      **/
     @ApiModelProperty(value = "The card verification code (CVC) is a 3 to 4 digit code typically printed on the back of the card. It helps to ensure that the card holder is authorizing the transaction. For card not-present transactions this field is optional.")
@@ -93,6 +95,7 @@ public class UnencryptedCardDataCreate extends Indentable {
 
     /**
      * The card expiry date indicates when the card expires. The format is the format yyyy-mm where yyyy is the year (e.g. 2019) and the mm is the month (e.g. 09).
+     *
      * @return expiryDate
      **/
     @ApiModelProperty(value = "The card expiry date indicates when the card expires. The format is the format yyyy-mm where yyyy is the year (e.g. 2019) and the mm is the month (e.g. 09).")
@@ -112,6 +115,7 @@ public class UnencryptedCardDataCreate extends Indentable {
 
     /**
      * The primary account number (PAN) identifies the card. The number is numeric and typically printed on the front of the card.
+     *
      * @return primaryAccountNumber
      **/
     @ApiModelProperty(required = true, value = "The primary account number (PAN) identifies the card. The number is numeric and typically printed on the front of the card.")

@@ -140,6 +140,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The amount which is captured. The amount represents sum of line items including taxes.
+     *
      * @return amount
      **/
     @ApiModelProperty(value = "The amount which is captured. The amount represents sum of line items including taxes.")
@@ -150,6 +151,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The base line items on which the completion is applied on.
+     *
      * @return baseLineItems
      **/
     @ApiModelProperty(value = "The base line items on which the completion is applied on.")
@@ -159,7 +161,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -170,6 +171,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -180,6 +182,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -189,7 +192,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -199,7 +201,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -209,7 +210,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -219,7 +219,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -230,6 +229,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * Indicates if this is the last completion. After the last completion is created the transaction cannot be completed anymore.
+     *
      * @return lastCompletion
      **/
     @ApiModelProperty(value = "Indicates if this is the last completion. After the last completion is created the transaction cannot be completed anymore.")
@@ -239,7 +239,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return lineItemVersion
      **/
     @ApiModelProperty(value = "")
@@ -250,6 +249,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The line items which are captured.
+     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "The line items which are captured.")
@@ -259,7 +259,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return mode
      **/
     @ApiModelProperty(value = "")
@@ -269,7 +268,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return nextUpdateOn
      **/
     @ApiModelProperty(value = "")
@@ -279,7 +277,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return paymentInformation
      **/
     @ApiModelProperty(value = "")
@@ -290,6 +287,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -299,7 +297,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return processingOn
      **/
     @ApiModelProperty(value = "")
@@ -309,7 +306,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return processorReference
      **/
     @ApiModelProperty(value = "")
@@ -319,7 +315,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return remainingLineItems
      **/
     @ApiModelProperty(value = "")
@@ -329,7 +324,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -339,7 +333,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -349,7 +342,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return succeededOn
      **/
     @ApiModelProperty(value = "")
@@ -360,6 +352,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The total sum of all taxes of line items.
+     *
      * @return taxAmount
      **/
     @ApiModelProperty(value = "The total sum of all taxes of line items.")
@@ -369,7 +362,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "")
@@ -379,7 +371,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -390,6 +381,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

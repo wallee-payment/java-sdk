@@ -72,7 +72,6 @@ public class ProductSetupFee extends Indentable {
 
 
     /**
-     *
      * @return component
      **/
     @ApiModelProperty(value = "")
@@ -83,6 +82,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
@@ -93,6 +93,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -103,6 +104,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -113,6 +115,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The name of the fee should describe for the subscriber in few words for what the fee is for.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
@@ -123,6 +126,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.
+     *
      * @return onDowngradeCreditedAmount
      **/
     @ApiModelProperty(value = "When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.")
@@ -133,6 +137,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.
+     *
      * @return onUpgradeCreditedAmount
      **/
     @ApiModelProperty(value = "When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.")
@@ -143,6 +148,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.
+     *
      * @return setupFee
      **/
     @ApiModelProperty(value = "The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.")
@@ -152,7 +158,6 @@ public class ProductSetupFee extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -163,6 +168,7 @@ public class ProductSetupFee extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

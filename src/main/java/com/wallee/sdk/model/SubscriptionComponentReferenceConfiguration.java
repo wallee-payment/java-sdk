@@ -47,7 +47,6 @@ public class SubscriptionComponentReferenceConfiguration extends Indentable {
     }
 
     /**
-     *
      * @return productComponentReferenceId
      **/
     @ApiModelProperty(value = "")
@@ -66,7 +65,6 @@ public class SubscriptionComponentReferenceConfiguration extends Indentable {
     }
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(value = "")

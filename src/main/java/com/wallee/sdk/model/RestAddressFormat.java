@@ -49,6 +49,7 @@ public class RestAddressFormat extends Indentable {
 
     /**
      * The example post codes allow the user to understand what we expect here.
+     *
      * @return postCodeExamples
      **/
     @ApiModelProperty(value = "The example post codes allow the user to understand what we expect here.")
@@ -59,6 +60,7 @@ public class RestAddressFormat extends Indentable {
 
     /**
      * The post code regex is a regular expression which can validates the input of the post code.
+     *
      * @return postCodeRegex
      **/
     @ApiModelProperty(value = "The post code regex is a regular expression which can validates the input of the post code.")
@@ -69,6 +71,7 @@ public class RestAddressFormat extends Indentable {
 
     /**
      * The required fields indicate what fields are required within an address to comply with the address format.
+     *
      * @return requiredFields
      **/
     @ApiModelProperty(value = "The required fields indicate what fields are required within an address to comply with the address format.")
@@ -79,6 +82,7 @@ public class RestAddressFormat extends Indentable {
 
     /**
      * The used fields indicate what fields are used within this address format.
+     *
      * @return usedFields
      **/
     @ApiModelProperty(value = "The used fields indicate what fields are used within this address format.")

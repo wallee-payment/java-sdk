@@ -45,7 +45,6 @@ public class ShopifySubscriptionModelTaxLine extends Indentable {
     }
 
     /**
-     *
      * @return rate
      **/
     @ApiModelProperty(value = "")
@@ -64,7 +63,6 @@ public class ShopifySubscriptionModelTaxLine extends Indentable {
     }
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(value = "")

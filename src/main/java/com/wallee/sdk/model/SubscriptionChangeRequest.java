@@ -72,7 +72,6 @@ public class SubscriptionChangeRequest extends Indentable {
     }
 
     /**
-     *
      * @return componentConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -91,7 +90,6 @@ public class SubscriptionChangeRequest extends Indentable {
     }
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(required = true, value = "")
@@ -111,6 +109,7 @@ public class SubscriptionChangeRequest extends Indentable {
 
     /**
      * The subscription has to be linked with a product.
+     *
      * @return product
      **/
     @ApiModelProperty(required = true, value = "The subscription has to be linked with a product.")
@@ -130,6 +129,7 @@ public class SubscriptionChangeRequest extends Indentable {
 
     /**
      * The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+     *
      * @return respectTerminationPeriod
      **/
     @ApiModelProperty(value = "The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.")
@@ -156,7 +156,6 @@ public class SubscriptionChangeRequest extends Indentable {
     }
 
     /**
-     *
      * @return selectedComponents
      **/
     @ApiModelProperty(value = "")
@@ -175,7 +174,6 @@ public class SubscriptionChangeRequest extends Indentable {
     }
 
     /**
-     *
      * @return subscription
      **/
     @ApiModelProperty(required = true, value = "")

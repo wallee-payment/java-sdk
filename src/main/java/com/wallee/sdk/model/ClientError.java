@@ -55,6 +55,7 @@ public class ClientError extends Indentable {
 
     /**
      * Date when an error has occurred.
+     *
      * @return date
      **/
     @ApiModelProperty(value = "Date when an error has occurred.")
@@ -65,6 +66,7 @@ public class ClientError extends Indentable {
 
     /**
      * The error message which is translated into the default language (i.e. English).
+     *
      * @return defaultMessage
      **/
     @ApiModelProperty(value = "The error message which is translated into the default language (i.e. English).")
@@ -75,6 +77,7 @@ public class ClientError extends Indentable {
 
     /**
      * Unique identifier of an error.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "Unique identifier of an error.")
@@ -85,6 +88,7 @@ public class ClientError extends Indentable {
 
     /**
      * The error message which is translated in into the language of the client.
+     *
      * @return message
      **/
     @ApiModelProperty(value = "The error message which is translated in into the language of the client.")
@@ -95,6 +99,7 @@ public class ClientError extends Indentable {
 
     /**
      * The type of the client error.
+     *
      * @return type
      **/
     @ApiModelProperty(value = "The type of the client error.")

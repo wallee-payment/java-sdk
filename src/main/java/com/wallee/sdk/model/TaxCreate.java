@@ -45,7 +45,6 @@ public class TaxCreate extends Indentable {
     }
 
     /**
-     *
      * @return rate
      **/
     @ApiModelProperty(required = true, value = "")
@@ -64,7 +63,6 @@ public class TaxCreate extends Indentable {
     }
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(required = true, value = "")

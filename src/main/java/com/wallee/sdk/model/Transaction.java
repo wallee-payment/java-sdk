@@ -285,7 +285,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return acceptHeader
      **/
     @ApiModelProperty(value = "")
@@ -296,6 +295,7 @@ public class Transaction extends Indentable {
 
     /**
      * The accept language contains the header which indicates the language preferences of the buyer.
+     *
      * @return acceptLanguageHeader
      **/
     @ApiModelProperty(value = "The accept language contains the header which indicates the language preferences of the buyer.")
@@ -305,7 +305,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return allowedPaymentMethodBrands
      **/
     @ApiModelProperty(value = "")
@@ -315,7 +314,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return allowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -325,7 +323,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return authorizationAmount
      **/
     @ApiModelProperty(value = "")
@@ -336,6 +333,7 @@ public class Transaction extends Indentable {
 
     /**
      * The environment in which this transaction was successfully authorized.
+     *
      * @return authorizationEnvironment
      **/
     @ApiModelProperty(value = "The environment in which this transaction was successfully authorized.")
@@ -346,6 +344,7 @@ public class Transaction extends Indentable {
 
     /**
      * The sales channel through which the transaction was placed.
+     *
      * @return authorizationSalesChannel
      **/
     @ApiModelProperty(value = "The sales channel through which the transaction was placed.")
@@ -356,6 +355,7 @@ public class Transaction extends Indentable {
 
     /**
      * This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
+     *
      * @return authorizationTimeoutOn
      **/
     @ApiModelProperty(value = "This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.")
@@ -365,7 +365,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return authorizedOn
      **/
     @ApiModelProperty(value = "")
@@ -376,6 +375,7 @@ public class Transaction extends Indentable {
 
     /**
      * When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+     *
      * @return autoConfirmationEnabled
      **/
     @ApiModelProperty(value = "When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.")
@@ -385,7 +385,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -396,6 +395,7 @@ public class Transaction extends Indentable {
 
     /**
      * When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.
+     *
      * @return chargeRetryEnabled
      **/
     @ApiModelProperty(value = "When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.")
@@ -406,6 +406,7 @@ public class Transaction extends Indentable {
 
     /**
      * The completed amount is the total amount which has been captured so far.
+     *
      * @return completedAmount
      **/
     @ApiModelProperty(value = "The completed amount is the total amount which has been captured so far.")
@@ -415,7 +416,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return completedOn
      **/
     @ApiModelProperty(value = "")
@@ -425,7 +425,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return completionTimeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -435,7 +434,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return confirmedBy
      **/
     @ApiModelProperty(value = "")
@@ -445,7 +443,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return confirmedOn
      **/
     @ApiModelProperty(value = "")
@@ -455,7 +452,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -466,6 +462,7 @@ public class Transaction extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -475,7 +472,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(value = "")
@@ -486,6 +482,7 @@ public class Transaction extends Indentable {
 
     /**
      * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
+     *
      * @return customerEmailAddress
      **/
     @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
@@ -495,7 +492,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return customerId
      **/
     @ApiModelProperty(value = "")
@@ -506,6 +502,7 @@ public class Transaction extends Indentable {
 
     /**
      * The customer&#39;s presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, &#39;Virtually Present&#39; is used by default.
+     *
      * @return customersPresence
      **/
     @ApiModelProperty(value = "The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.")
@@ -516,6 +513,7 @@ public class Transaction extends Indentable {
 
     /**
      * This date indicates when the decision has been made if a transaction should be delivered or not.
+     *
      * @return deliveryDecisionMadeOn
      **/
     @ApiModelProperty(value = "This date indicates when the decision has been made if a transaction should be delivered or not.")
@@ -526,6 +524,7 @@ public class Transaction extends Indentable {
 
     /**
      * The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+     *
      * @return deviceSessionIdentifier
      **/
     @ApiModelProperty(value = "The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.")
@@ -536,6 +535,7 @@ public class Transaction extends Indentable {
 
     /**
      * Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.
+     *
      * @return emailsDisabled
      **/
     @ApiModelProperty(value = "Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.")
@@ -546,6 +546,7 @@ public class Transaction extends Indentable {
 
     /**
      * The transaction&#39;s end of life indicates the date from which on no operation can be carried out anymore.
+     *
      * @return endOfLife
      **/
     @ApiModelProperty(value = "The transaction's end of life indicates the date from which on no operation can be carried out anymore.")
@@ -555,7 +556,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -566,6 +566,7 @@ public class Transaction extends Indentable {
 
     /**
      * The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+     *
      * @return environmentSelectionStrategy
      **/
     @ApiModelProperty(value = "The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.")
@@ -575,7 +576,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -586,6 +586,7 @@ public class Transaction extends Indentable {
 
     /**
      * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+     *
      * @return failedUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
@@ -596,6 +597,7 @@ public class Transaction extends Indentable {
 
     /**
      * The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.
+     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.")
@@ -605,7 +607,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return group
      **/
     @ApiModelProperty(value = "")
@@ -616,6 +617,7 @@ public class Transaction extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -626,6 +628,7 @@ public class Transaction extends Indentable {
 
     /**
      * The Internet Protocol (IP) address identifies the device of the buyer.
+     *
      * @return internetProtocolAddress
      **/
     @ApiModelProperty(value = "The Internet Protocol (IP) address identifies the device of the buyer.")
@@ -635,7 +638,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return internetProtocolAddressCountry
      **/
     @ApiModelProperty(value = "")
@@ -645,7 +647,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return invoiceMerchantReference
      **/
     @ApiModelProperty(value = "")
@@ -655,7 +656,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -665,7 +665,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")
@@ -676,6 +675,7 @@ public class Transaction extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -685,7 +685,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -696,6 +695,7 @@ public class Transaction extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -705,7 +705,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return parent
      **/
     @ApiModelProperty(value = "")
@@ -715,7 +714,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return paymentConnectorConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -726,6 +724,7 @@ public class Transaction extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -735,7 +734,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return processingOn
      **/
     @ApiModelProperty(value = "")
@@ -746,6 +744,7 @@ public class Transaction extends Indentable {
 
     /**
      * The refunded amount is the total amount which has been refunded so far.
+     *
      * @return refundedAmount
      **/
     @ApiModelProperty(value = "The refunded amount is the total amount which has been refunded so far.")
@@ -755,7 +754,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(value = "")
@@ -765,7 +763,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return shippingMethod
      **/
     @ApiModelProperty(value = "")
@@ -775,7 +772,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -785,7 +781,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -796,6 +791,7 @@ public class Transaction extends Indentable {
 
     /**
      * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+     *
      * @return successUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
@@ -806,6 +802,7 @@ public class Transaction extends Indentable {
 
     /**
      * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
@@ -815,7 +812,6 @@ public class Transaction extends Indentable {
 
 
     /**
-     *
      * @return token
      **/
     @ApiModelProperty(value = "")
@@ -826,6 +822,7 @@ public class Transaction extends Indentable {
 
     /**
      * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
+     *
      * @return tokenizationMode
      **/
     @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")
@@ -836,6 +833,7 @@ public class Transaction extends Indentable {
 
     /**
      * The total applied fees is the sum of all fees that have been applied so far.
+     *
      * @return totalAppliedFees
      **/
     @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
@@ -846,6 +844,7 @@ public class Transaction extends Indentable {
 
     /**
      * The total settled amount is the total amount which has been settled so far.
+     *
      * @return totalSettledAmount
      **/
     @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
@@ -856,6 +855,7 @@ public class Transaction extends Indentable {
 
     /**
      * The user agent header provides the exact string which contains the user agent of the buyer.
+     *
      * @return userAgentHeader
      **/
     @ApiModelProperty(value = "The user agent header provides the exact string which contains the user agent of the buyer.")
@@ -866,6 +866,7 @@ public class Transaction extends Indentable {
 
     /**
      * The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.
+     *
      * @return userFailureMessage
      **/
     @ApiModelProperty(value = "The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.")
@@ -876,6 +877,7 @@ public class Transaction extends Indentable {
 
     /**
      * The user interface type defines through which user interface the transaction has been processed resp. created.
+     *
      * @return userInterfaceType
      **/
     @ApiModelProperty(value = "The user interface type defines through which user interface the transaction has been processed resp. created.")
@@ -886,6 +888,7 @@ public class Transaction extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

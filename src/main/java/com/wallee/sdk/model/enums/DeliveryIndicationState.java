@@ -30,7 +30,7 @@ public enum DeliveryIndicationState {
     MANUAL_CHECK_REQUIRED,
     SUITABLE;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

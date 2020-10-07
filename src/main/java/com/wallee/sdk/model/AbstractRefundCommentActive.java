@@ -40,7 +40,6 @@ public class AbstractRefundCommentActive extends Indentable {
     }
 
     /**
-     *
      * @return content
      **/
     @ApiModelProperty(value = "")

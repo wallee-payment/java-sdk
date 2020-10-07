@@ -66,6 +66,7 @@ public class Role extends Indentable {
 
     /**
      * The account to which this role belongs to. This role can only be assigned within the assigned account and the sub accounts of the assigned account.
+     *
      * @return account
      **/
     @ApiModelProperty(value = "The account to which this role belongs to. This role can only be assigned within the assigned account and the sub accounts of the assigned account.")
@@ -76,6 +77,7 @@ public class Role extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -86,6 +88,7 @@ public class Role extends Indentable {
 
     /**
      * The name of this role is used to identify the role within administrative interfaces.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of this role is used to identify the role within administrative interfaces.")
@@ -96,6 +99,7 @@ public class Role extends Indentable {
 
     /**
      * Set of permissions that are granted to this role.
+     *
      * @return permissions
      **/
     @ApiModelProperty(value = "Set of permissions that are granted to this role.")
@@ -106,6 +110,7 @@ public class Role extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -115,7 +120,6 @@ public class Role extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -126,6 +130,7 @@ public class Role extends Indentable {
 
     /**
      * Defines whether having been granted this role will force a user to use two-factor authentication.
+     *
      * @return twoFactorRequired
      **/
     @ApiModelProperty(value = "Defines whether having been granted this role will force a user to use two-factor authentication.")
@@ -136,6 +141,7 @@ public class Role extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

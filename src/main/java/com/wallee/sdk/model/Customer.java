@@ -78,6 +78,7 @@ public class Customer extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -87,7 +88,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return customerId
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +97,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "")
@@ -107,7 +106,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return familyName
      **/
     @ApiModelProperty(value = "")
@@ -117,7 +115,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return givenName
      **/
     @ApiModelProperty(value = "")
@@ -128,6 +125,7 @@ public class Customer extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -137,7 +135,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -148,6 +145,7 @@ public class Customer extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -158,6 +156,7 @@ public class Customer extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -167,7 +166,6 @@ public class Customer extends Indentable {
 
 
     /**
-     *
      * @return preferredCurrency
      **/
     @ApiModelProperty(value = "")
@@ -178,6 +176,7 @@ public class Customer extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

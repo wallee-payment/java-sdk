@@ -117,7 +117,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return allowInvoiceDownload
      **/
     @ApiModelProperty(value = "")
@@ -127,7 +126,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return allowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -137,7 +135,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return appVersion
      **/
     @ApiModelProperty(value = "")
@@ -147,7 +144,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(value = "")
@@ -158,6 +154,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -167,7 +164,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return installed
      **/
     @ApiModelProperty(value = "")
@@ -178,6 +174,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * Enabling the integrated payment form will embed the payment form in the Shopify shop. The app needs to be installed for this to be possible.
+     *
      * @return integratedPaymentFormEnabled
      **/
     @ApiModelProperty(value = "Enabling the integrated payment form will embed the payment form in the Shopify shop. The app needs to be installed for this to be possible.")
@@ -188,6 +185,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The checkout language forces a specific language in the checkout. Without a checkout language the browser setting of the buyer is used to determine the language.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The checkout language forces a specific language in the checkout. Without a checkout language the browser setting of the buyer is used to determine the language.")
@@ -198,6 +196,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shops payment gateway configuration.
+     *
      * @return loginName
      **/
     @ApiModelProperty(value = "The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shops payment gateway configuration.")
@@ -208,6 +207,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The integration name is used internally to identify a specific integration.For example the name is used withinsearch fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The integration name is used internally to identify a specific integration.For example the name is used withinsearch fields and hence it should be distinct and descriptive.")
@@ -218,6 +218,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -228,6 +229,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.
+     *
      * @return proxyPath
      **/
     @ApiModelProperty(value = "Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.")
@@ -237,7 +239,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return replacePaymentMethodImage
      **/
     @ApiModelProperty(value = "")
@@ -248,6 +249,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopifys admin URL: [storeAddress].myshopify.com
+     *
      * @return shopName
      **/
     @ApiModelProperty(value = "The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopifys admin URL: [storeAddress].myshopify.com")
@@ -257,7 +259,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return showPaymentInformation
      **/
     @ApiModelProperty(value = "")
@@ -267,7 +268,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return showSubscriptionInformation
      **/
     @ApiModelProperty(value = "")
@@ -277,7 +277,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return spaceId
      **/
     @ApiModelProperty(value = "")
@@ -287,7 +286,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -297,7 +295,6 @@ public class ShopifyIntegration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -308,6 +305,7 @@ public class ShopifyIntegration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

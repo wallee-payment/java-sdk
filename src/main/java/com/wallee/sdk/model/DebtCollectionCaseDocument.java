@@ -78,6 +78,7 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -87,7 +88,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return debtCollectionCase
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +97,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return fileName
      **/
     @ApiModelProperty(value = "")
@@ -108,6 +107,7 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -117,7 +117,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -128,6 +127,7 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -137,7 +137,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return mimeType
      **/
     @ApiModelProperty(value = "")
@@ -148,6 +147,7 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -157,7 +157,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return storageId
      **/
     @ApiModelProperty(value = "")
@@ -167,7 +166,6 @@ public class DebtCollectionCaseDocument extends Indentable {
 
 
     /**
-     *
      * @return uniqueId
      **/
     @ApiModelProperty(value = "")
@@ -178,6 +176,7 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

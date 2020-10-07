@@ -48,9 +48,8 @@ public class TransactionTerminalService {
      **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width);
-        TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {
-        };
-        return (RenderedTerminalReceipt) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>() {
+        });
     }
 
     /**
@@ -72,9 +71,8 @@ public class TransactionTerminalService {
      **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width, params);
-        TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {
-        };
-        return (RenderedTerminalReceipt) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>() {
+        });
     }
 
     public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {

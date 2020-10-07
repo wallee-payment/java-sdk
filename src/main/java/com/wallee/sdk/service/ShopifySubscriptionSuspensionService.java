@@ -53,9 +53,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -260,9 +258,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionSuspension>() {
-        };
-        return (ShopifySubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
+        });
     }
 
     /**
@@ -282,9 +279,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionSuspension>() {
-        };
-        return (ShopifySubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -364,9 +360,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<ShopifySubscriptionSuspension>>() {
-        };
-        return (List<ShopifySubscriptionSuspension>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>() {
+        });
     }
 
     /**
@@ -386,9 +381,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<ShopifySubscriptionSuspension>>() {
-        };
-        return (List<ShopifySubscriptionSuspension>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -483,9 +477,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {
         HttpResponse response = suspendForHttpResponse(spaceId, suspension);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionSuspension>() {
-        };
-        return (ShopifySubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
+        });
     }
 
     /**
@@ -505,9 +498,8 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
         HttpResponse response = suspendForHttpResponse(spaceId, suspension, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionSuspension>() {
-        };
-        return (ShopifySubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
+        });
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {

@@ -49,6 +49,7 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
 
     /**
      * The ID of the Shopify product that is enabled to be ordered as subscription.
+     *
      * @return productId
      **/
     @ApiModelProperty(value = "The ID of the Shopify product that is enabled to be ordered as subscription.")
@@ -67,7 +68,6 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
     }
 
     /**
-     *
      * @return productVariantId
      **/
     @ApiModelProperty(required = true, value = "")
@@ -86,7 +86,6 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
     }
 
     /**
-     *
      * @return shop
      **/
     @ApiModelProperty(value = "")

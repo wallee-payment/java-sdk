@@ -35,7 +35,6 @@ public class ApplicationUserCreateWithMacKey extends ApplicationUser {
 
 
     /**
-     *
      * @return macKey
      **/
     @ApiModelProperty(value = "")

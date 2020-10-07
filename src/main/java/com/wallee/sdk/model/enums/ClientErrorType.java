@@ -31,7 +31,7 @@ public enum ClientErrorType {
     CONFIGURATION_ERROR,
     DEVELOPER_ERROR;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -80,6 +80,7 @@ public class DocumentTemplate extends Indentable {
 
     /**
      * The default document template is used whenever no specific template is specified for a particular template type.
+     *
      * @return defaultTemplate
      **/
     @ApiModelProperty(value = "The default document template is used whenever no specific template is specified for a particular template type.")
@@ -89,7 +90,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return deliveryEnabled
      **/
     @ApiModelProperty(value = "")
@@ -100,6 +100,7 @@ public class DocumentTemplate extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -110,6 +111,7 @@ public class DocumentTemplate extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -119,7 +121,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -130,6 +131,7 @@ public class DocumentTemplate extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -139,7 +141,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return spaceId
      **/
     @ApiModelProperty(value = "")
@@ -149,7 +150,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -159,7 +159,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return templateResource
      **/
     @ApiModelProperty(value = "")
@@ -169,7 +168,6 @@ public class DocumentTemplate extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -180,6 +178,7 @@ public class DocumentTemplate extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

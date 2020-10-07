@@ -49,7 +49,6 @@ public class ShopifySubscriptionSuspensionCreate extends Indentable {
     }
 
     /**
-     *
      * @return plannedEndDate
      **/
     @ApiModelProperty(required = true, value = "")
@@ -68,7 +67,6 @@ public class ShopifySubscriptionSuspensionCreate extends Indentable {
     }
 
     /**
-     *
      * @return subscription
      **/
     @ApiModelProperty(required = true, value = "")
@@ -87,7 +85,6 @@ public class ShopifySubscriptionSuspensionCreate extends Indentable {
     }
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(required = true, value = "")

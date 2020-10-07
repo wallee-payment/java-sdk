@@ -98,7 +98,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -109,6 +108,7 @@ public class TransactionVoid extends TransactionAwareEntity {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -118,7 +118,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -128,7 +127,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -138,7 +136,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -148,7 +145,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -158,7 +154,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return mode
      **/
     @ApiModelProperty(value = "")
@@ -168,7 +163,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return nextUpdateOn
      **/
     @ApiModelProperty(value = "")
@@ -179,6 +173,7 @@ public class TransactionVoid extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -188,7 +183,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return processorReference
      **/
     @ApiModelProperty(value = "")
@@ -198,7 +192,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -208,7 +201,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -218,7 +210,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return succeededOn
      **/
     @ApiModelProperty(value = "")
@@ -228,7 +219,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -238,7 +228,6 @@ public class TransactionVoid extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")
@@ -249,6 +238,7 @@ public class TransactionVoid extends TransactionAwareEntity {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

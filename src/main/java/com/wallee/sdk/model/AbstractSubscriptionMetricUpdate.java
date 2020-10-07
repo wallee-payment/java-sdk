@@ -44,7 +44,6 @@ public class AbstractSubscriptionMetricUpdate extends Indentable {
     }
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -63,7 +62,6 @@ public class AbstractSubscriptionMetricUpdate extends Indentable {
     }
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

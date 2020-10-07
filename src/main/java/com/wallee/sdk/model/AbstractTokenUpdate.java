@@ -61,6 +61,7 @@ public class AbstractTokenUpdate extends Indentable {
 
     /**
      * The customer email address is the email address of the customer.
+     *
      * @return customerEmailAddress
      **/
     @ApiModelProperty(value = "The customer email address is the email address of the customer.")
@@ -80,6 +81,7 @@ public class AbstractTokenUpdate extends Indentable {
 
     /**
      * The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.
+     *
      * @return customerId
      **/
     @ApiModelProperty(value = "The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.")
@@ -99,6 +101,7 @@ public class AbstractTokenUpdate extends Indentable {
 
     /**
      * When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.
+     *
      * @return enabledForOneClickPayment
      **/
     @ApiModelProperty(value = "When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.")
@@ -117,7 +120,6 @@ public class AbstractTokenUpdate extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -137,6 +139,7 @@ public class AbstractTokenUpdate extends Indentable {
 
     /**
      * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
@@ -156,6 +159,7 @@ public class AbstractTokenUpdate extends Indentable {
 
     /**
      * Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).
+     *
      * @return tokenReference
      **/
     @ApiModelProperty(value = "Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).")

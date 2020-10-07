@@ -70,7 +70,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -89,7 +88,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return completion
      **/
     @ApiModelProperty(value = "")
@@ -109,6 +107,7 @@ public class RefundCreate extends Indentable {
 
     /**
      * The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
@@ -127,7 +126,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -154,7 +152,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return reductions
      **/
     @ApiModelProperty(value = "")
@@ -173,7 +170,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")
@@ -192,7 +188,6 @@ public class RefundCreate extends Indentable {
     }
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(required = true, value = "")

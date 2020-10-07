@@ -119,6 +119,7 @@ public class LineItem extends Indentable {
 
     /**
      * The aggregated tax rate is the sum of all tax rates of the line item.
+     *
      * @return aggregatedTaxRate
      **/
     @ApiModelProperty(value = "The aggregated tax rate is the sum of all tax rates of the line item.")
@@ -128,7 +129,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return amountExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -138,7 +138,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return amountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -148,7 +147,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return attributes
      **/
     @ApiModelProperty(value = "")
@@ -158,7 +156,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return discountExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -168,7 +165,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return discountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -178,7 +174,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -188,7 +183,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(value = "")
@@ -198,7 +192,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return shippingRequired
      **/
     @ApiModelProperty(value = "")
@@ -208,7 +201,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return sku
      **/
     @ApiModelProperty(value = "")
@@ -218,7 +210,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return taxAmount
      **/
     @ApiModelProperty(value = "")
@@ -228,7 +219,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return taxAmountPerUnit
      **/
     @ApiModelProperty(value = "")
@@ -238,7 +228,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return taxes
      **/
     @ApiModelProperty(value = "")
@@ -248,7 +237,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -258,7 +246,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return undiscountedAmountExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -268,7 +255,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return undiscountedAmountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -278,7 +264,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return undiscountedUnitPriceExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -288,7 +273,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return undiscountedUnitPriceIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -299,6 +283,7 @@ public class LineItem extends Indentable {
 
     /**
      * The unique id identifies the line item within the set of line items associated with the transaction.
+     *
      * @return uniqueId
      **/
     @ApiModelProperty(value = "The unique id identifies the line item within the set of line items associated with the transaction.")
@@ -308,7 +293,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return unitPriceExcludingTax
      **/
     @ApiModelProperty(value = "")
@@ -318,7 +302,6 @@ public class LineItem extends Indentable {
 
 
     /**
-     *
      * @return unitPriceIncludingTax
      **/
     @ApiModelProperty(value = "")

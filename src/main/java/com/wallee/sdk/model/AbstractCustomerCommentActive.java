@@ -40,7 +40,6 @@ public class AbstractCustomerCommentActive extends Indentable {
     }
 
     /**
-     *
      * @return content
      **/
     @ApiModelProperty(value = "")

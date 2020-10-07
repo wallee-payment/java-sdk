@@ -53,9 +53,8 @@ public class SubscriptionMetricUsageService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class SubscriptionMetricUsageService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -164,9 +162,8 @@ public class SubscriptionMetricUsageService {
      **/
     public SubscriptionMetricUsageReport create(Long spaceId, SubscriptionMetricUsageReportCreate usageReport) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, usageReport);
-        TypeReference typeRef = new TypeReference<SubscriptionMetricUsageReport>() {
-        };
-        return (SubscriptionMetricUsageReport) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionMetricUsageReport>() {
+        });
     }
 
     /**
@@ -186,9 +183,8 @@ public class SubscriptionMetricUsageService {
      **/
     public SubscriptionMetricUsageReport create(Long spaceId, SubscriptionMetricUsageReportCreate usageReport, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, usageReport, params);
-        TypeReference typeRef = new TypeReference<SubscriptionMetricUsageReport>() {
-        };
-        return (SubscriptionMetricUsageReport) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionMetricUsageReport>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionMetricUsageReportCreate usageReport) throws IOException {
@@ -283,9 +279,8 @@ public class SubscriptionMetricUsageService {
      **/
     public SubscriptionMetricUsageReport read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<SubscriptionMetricUsageReport>() {
-        };
-        return (SubscriptionMetricUsageReport) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionMetricUsageReport>() {
+        });
     }
 
     /**
@@ -305,9 +300,8 @@ public class SubscriptionMetricUsageService {
      **/
     public SubscriptionMetricUsageReport read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<SubscriptionMetricUsageReport>() {
-        };
-        return (SubscriptionMetricUsageReport) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionMetricUsageReport>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -387,9 +381,8 @@ public class SubscriptionMetricUsageService {
      **/
     public List<SubscriptionMetricUsageReport> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<SubscriptionMetricUsageReport>>() {
-        };
-        return (List<SubscriptionMetricUsageReport>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionMetricUsageReport>>() {
+        });
     }
 
     /**
@@ -409,9 +402,8 @@ public class SubscriptionMetricUsageService {
      **/
     public List<SubscriptionMetricUsageReport> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<SubscriptionMetricUsageReport>>() {
-        };
-        return (List<SubscriptionMetricUsageReport>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionMetricUsageReport>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {

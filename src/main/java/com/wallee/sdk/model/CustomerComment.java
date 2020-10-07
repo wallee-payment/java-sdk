@@ -72,7 +72,6 @@ public class CustomerComment extends Indentable {
 
 
     /**
-     *
      * @return content
      **/
     @ApiModelProperty(value = "")
@@ -82,7 +81,6 @@ public class CustomerComment extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -93,6 +91,7 @@ public class CustomerComment extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -102,7 +101,6 @@ public class CustomerComment extends Indentable {
 
 
     /**
-     *
      * @return customer
      **/
     @ApiModelProperty(value = "")
@@ -112,7 +110,6 @@ public class CustomerComment extends Indentable {
 
 
     /**
-     *
      * @return editedBy
      **/
     @ApiModelProperty(value = "")
@@ -123,6 +120,7 @@ public class CustomerComment extends Indentable {
 
     /**
      * The date on which the comment was last edited.
+     *
      * @return editedOn
      **/
     @ApiModelProperty(value = "The date on which the comment was last edited.")
@@ -133,6 +131,7 @@ public class CustomerComment extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -143,6 +142,7 @@ public class CustomerComment extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -152,7 +152,6 @@ public class CustomerComment extends Indentable {
 
 
     /**
-     *
      * @return pinned
      **/
     @ApiModelProperty(value = "")
@@ -163,6 +162,7 @@ public class CustomerComment extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

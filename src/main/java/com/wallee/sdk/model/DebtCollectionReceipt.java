@@ -73,7 +73,6 @@ public class DebtCollectionReceipt extends Indentable {
 
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -84,6 +83,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The created by field indicates the user which has created the receipt.
+     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "The created by field indicates the user which has created the receipt.")
@@ -94,6 +94,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -103,7 +104,6 @@ public class DebtCollectionReceipt extends Indentable {
 
 
     /**
-     *
      * @return debtCollectionCase
      **/
     @ApiModelProperty(value = "")
@@ -114,6 +114,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The external id is a unique identifier for the receipt. The external id has to be unique in combination with the debt collection case. When a receipt is sent with an existing external id the existing one is returned rather than a new one is created.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id is a unique identifier for the receipt. The external id has to be unique in combination with the debt collection case. When a receipt is sent with an existing external id the existing one is returned rather than a new one is created.")
@@ -124,6 +125,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -134,6 +136,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -144,6 +147,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -153,7 +157,6 @@ public class DebtCollectionReceipt extends Indentable {
 
 
     /**
-     *
      * @return source
      **/
     @ApiModelProperty(value = "")
@@ -164,6 +167,7 @@ public class DebtCollectionReceipt extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

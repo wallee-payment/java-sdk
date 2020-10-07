@@ -40,7 +40,6 @@ public class CustomerAddressCreate extends AbstractCustomerAddressActive {
     }
 
     /**
-     *
      * @return customer
      **/
     @ApiModelProperty(required = true, value = "")

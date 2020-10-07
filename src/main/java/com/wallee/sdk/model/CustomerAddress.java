@@ -64,7 +64,6 @@ public class CustomerAddress extends Indentable {
 
 
     /**
-     *
      * @return address
      **/
     @ApiModelProperty(value = "")
@@ -74,7 +73,6 @@ public class CustomerAddress extends Indentable {
 
 
     /**
-     *
      * @return addressType
      **/
     @ApiModelProperty(value = "")
@@ -85,6 +83,7 @@ public class CustomerAddress extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -94,7 +93,6 @@ public class CustomerAddress extends Indentable {
 
 
     /**
-     *
      * @return customer
      **/
     @ApiModelProperty(value = "")
@@ -104,7 +102,6 @@ public class CustomerAddress extends Indentable {
 
 
     /**
-     *
      * @return defaultAddress
      **/
     @ApiModelProperty(value = "")
@@ -115,6 +112,7 @@ public class CustomerAddress extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -125,6 +123,7 @@ public class CustomerAddress extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -135,6 +134,7 @@ public class CustomerAddress extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

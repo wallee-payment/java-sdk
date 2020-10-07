@@ -31,7 +31,7 @@ public enum PaymentPrimaryRiskTaker {
     MERCHANT,
     THIRD_PARTY;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

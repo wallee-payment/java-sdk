@@ -167,7 +167,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -177,7 +176,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return baseLineItems
      **/
     @ApiModelProperty(value = "")
@@ -187,7 +185,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return completion
      **/
     @ApiModelProperty(value = "")
@@ -197,7 +194,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -208,6 +204,7 @@ public class Refund extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -217,7 +214,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -228,6 +224,7 @@ public class Refund extends Indentable {
 
     /**
      * The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
@@ -237,7 +234,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -247,7 +243,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -258,6 +253,7 @@ public class Refund extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -267,7 +263,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -277,7 +272,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -287,7 +281,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")
@@ -298,6 +291,7 @@ public class Refund extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -307,7 +301,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -317,7 +310,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return nextUpdateOn
      **/
     @ApiModelProperty(value = "")
@@ -328,6 +320,7 @@ public class Refund extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -337,7 +330,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return processingOn
      **/
     @ApiModelProperty(value = "")
@@ -347,7 +339,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return processorReference
      **/
     @ApiModelProperty(value = "")
@@ -357,7 +348,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return reducedLineItems
      **/
     @ApiModelProperty(value = "")
@@ -367,7 +357,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return reductions
      **/
     @ApiModelProperty(value = "")
@@ -377,7 +366,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -387,7 +375,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return succeededOn
      **/
     @ApiModelProperty(value = "")
@@ -397,7 +384,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return taxes
      **/
     @ApiModelProperty(value = "")
@@ -407,7 +393,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "")
@@ -417,7 +402,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return timeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -428,6 +412,7 @@ public class Refund extends Indentable {
 
     /**
      * The total applied fees is the sum of all fees that have been applied so far.
+     *
      * @return totalAppliedFees
      **/
     @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
@@ -438,6 +423,7 @@ public class Refund extends Indentable {
 
     /**
      * The total settled amount is the total amount which has been settled so far.
+     *
      * @return totalSettledAmount
      **/
     @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
@@ -447,7 +433,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")
@@ -457,7 +442,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -467,7 +451,6 @@ public class Refund extends Indentable {
 
 
     /**
-     *
      * @return updatedInvoice
      **/
     @ApiModelProperty(value = "")
@@ -478,6 +461,7 @@ public class Refund extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

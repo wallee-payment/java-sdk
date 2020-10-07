@@ -64,6 +64,7 @@ public class SubscriptionProductComponentReference extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -74,6 +75,7 @@ public class SubscriptionProductComponentReference extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -84,6 +86,7 @@ public class SubscriptionProductComponentReference extends Indentable {
 
     /**
      * The component reference name is used internally to identify the reference. For example the name is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The component reference name is used internally to identify the reference. For example the name is used within search fields and hence it should be distinct and descriptive.")
@@ -94,6 +97,7 @@ public class SubscriptionProductComponentReference extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -103,7 +107,6 @@ public class SubscriptionProductComponentReference extends Indentable {
 
 
     /**
-     *
      * @return spaceId
      **/
     @ApiModelProperty(value = "")
@@ -113,7 +116,6 @@ public class SubscriptionProductComponentReference extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -124,6 +126,7 @@ public class SubscriptionProductComponentReference extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

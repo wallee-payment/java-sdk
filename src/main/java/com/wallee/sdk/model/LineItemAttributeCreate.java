@@ -44,7 +44,6 @@ public class LineItemAttributeCreate extends Indentable {
     }
 
     /**
-     *
      * @return label
      **/
     @ApiModelProperty(required = true, value = "")
@@ -63,7 +62,6 @@ public class LineItemAttributeCreate extends Indentable {
     }
 
     /**
-     *
      * @return value
      **/
     @ApiModelProperty(required = true, value = "")

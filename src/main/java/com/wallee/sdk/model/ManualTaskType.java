@@ -51,7 +51,6 @@ public class ManualTaskType extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -61,7 +60,6 @@ public class ManualTaskType extends Indentable {
 
 
     /**
-     *
      * @return features
      **/
     @ApiModelProperty(value = "")
@@ -72,6 +70,7 @@ public class ManualTaskType extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -81,7 +80,6 @@ public class ManualTaskType extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

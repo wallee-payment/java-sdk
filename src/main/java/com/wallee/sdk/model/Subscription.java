@@ -108,7 +108,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return activatedOn
      **/
     @ApiModelProperty(value = "")
@@ -118,7 +117,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return affiliate
      **/
     @ApiModelProperty(value = "")
@@ -128,7 +126,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "")
@@ -138,7 +135,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -149,6 +145,7 @@ public class Subscription extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -158,7 +155,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return initializedOn
      **/
     @ApiModelProperty(value = "")
@@ -168,7 +164,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -179,6 +174,7 @@ public class Subscription extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -189,6 +185,7 @@ public class Subscription extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -198,7 +195,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return plannedTerminationDate
      **/
     @ApiModelProperty(value = "")
@@ -208,7 +204,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return reference
      **/
     @ApiModelProperty(value = "")
@@ -218,7 +213,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -228,7 +222,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return subscriber
      **/
     @ApiModelProperty(value = "")
@@ -238,7 +231,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return terminatedBy
      **/
     @ApiModelProperty(value = "")
@@ -248,7 +240,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return terminatedOn
      **/
     @ApiModelProperty(value = "")
@@ -258,7 +249,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return terminatingOn
      **/
     @ApiModelProperty(value = "")
@@ -268,7 +258,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return terminationScheduledOn
      **/
     @ApiModelProperty(value = "")
@@ -278,7 +267,6 @@ public class Subscription extends Indentable {
 
 
     /**
-     *
      * @return token
      **/
     @ApiModelProperty(value = "")
@@ -289,6 +277,7 @@ public class Subscription extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

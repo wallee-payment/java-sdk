@@ -52,7 +52,6 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -72,6 +71,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -91,6 +91,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
 
     /**
      * The protection mode determines if the payment link is protected against tampering and in what way.
+     *
      * @return protectionMode
      **/
     @ApiModelProperty(value = "The protection mode determines if the payment link is protected against tampering and in what way.")

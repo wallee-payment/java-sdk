@@ -74,7 +74,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return amount
      **/
     @ApiModelProperty(value = "")
@@ -84,7 +83,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -95,6 +93,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -104,7 +103,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -114,7 +112,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")
@@ -125,6 +122,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -134,7 +132,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -144,7 +141,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return taxAmount
      **/
     @ApiModelProperty(value = "")
@@ -154,7 +150,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")
@@ -165,6 +160,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

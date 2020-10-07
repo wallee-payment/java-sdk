@@ -28,7 +28,7 @@ public enum OneClickPaymentMode {
     ALLOW,
     FORCE;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

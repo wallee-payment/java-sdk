@@ -59,7 +59,6 @@ public class ShopifySubscriptionModelItem extends Indentable {
     }
 
     /**
-     *
      * @return priceIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -78,7 +77,6 @@ public class ShopifySubscriptionModelItem extends Indentable {
     }
 
     /**
-     *
      * @return productId
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +95,6 @@ public class ShopifySubscriptionModelItem extends Indentable {
     }
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(value = "")
@@ -116,7 +113,6 @@ public class ShopifySubscriptionModelItem extends Indentable {
     }
 
     /**
-     *
      * @return recalculatePrice
      **/
     @ApiModelProperty(value = "")
@@ -143,7 +139,6 @@ public class ShopifySubscriptionModelItem extends Indentable {
     }
 
     /**
-     *
      * @return taxLines
      **/
     @ApiModelProperty(value = "")

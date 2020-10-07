@@ -87,7 +87,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return dataCollectionType
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +96,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return deprecated
      **/
     @ApiModelProperty(value = "")
@@ -107,7 +105,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return deprecationReason
      **/
     @ApiModelProperty(value = "")
@@ -117,7 +114,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -127,7 +123,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return feature
      **/
     @ApiModelProperty(value = "")
@@ -138,6 +133,7 @@ public class PaymentConnector extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -147,7 +143,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -157,7 +152,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return paymentMethod
      **/
     @ApiModelProperty(value = "")
@@ -167,7 +161,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return paymentMethodBrand
      **/
     @ApiModelProperty(value = "")
@@ -177,7 +170,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return primaryRiskTaker
      **/
     @ApiModelProperty(value = "")
@@ -187,7 +179,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return processor
      **/
     @ApiModelProperty(value = "")
@@ -197,7 +188,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return supportedCustomersPresences
      **/
     @ApiModelProperty(value = "")
@@ -207,7 +197,6 @@ public class PaymentConnector extends Indentable {
 
 
     /**
-     *
      * @return supportedFeatures
      **/
     @ApiModelProperty(value = "")

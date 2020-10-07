@@ -72,7 +72,6 @@ public class ProductPeriodFee extends Indentable {
 
 
     /**
-     *
      * @return component
      **/
     @ApiModelProperty(value = "")
@@ -83,6 +82,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
@@ -93,6 +93,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -103,6 +104,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The ledger entry title will be used for the title in the ledger entry and in the invoice.
+     *
      * @return ledgerEntryTitle
      **/
     @ApiModelProperty(value = "The ledger entry title will be used for the title in the ledger entry and in the invoice.")
@@ -113,6 +115,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -123,6 +126,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The name of the fee should describe for the subscriber in few words for what the fee is for.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
@@ -133,6 +137,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The number of free trial periods specify how many periods are free of charge at the begining of the subscription.
+     *
      * @return numberOfFreeTrialPeriods
      **/
     @ApiModelProperty(value = "The number of free trial periods specify how many periods are free of charge at the begining of the subscription.")
@@ -143,6 +148,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The period fee is charged for every period of the subscription except for those periods which are trial periods.
+     *
      * @return periodFee
      **/
     @ApiModelProperty(value = "The period fee is charged for every period of the subscription except for those periods which are trial periods.")
@@ -152,7 +158,6 @@ public class ProductPeriodFee extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -163,6 +168,7 @@ public class ProductPeriodFee extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

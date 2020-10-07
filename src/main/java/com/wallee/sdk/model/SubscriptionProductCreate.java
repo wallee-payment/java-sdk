@@ -43,6 +43,7 @@ public class SubscriptionProductCreate extends AbstractSubscriptionProductActive
 
     /**
      * The product reference identifies the product for external systems. This field may contain the product&#39;s SKU.
+     *
      * @return reference
      **/
     @ApiModelProperty(required = true, value = "The product reference identifies the product for external systems. This field may contain the product's SKU.")

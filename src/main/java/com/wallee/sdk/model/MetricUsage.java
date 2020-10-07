@@ -52,6 +52,7 @@ public class MetricUsage extends Indentable {
 
     /**
      * The consumed units provide the value of how much has been consumed of the particular metric.
+     *
      * @return consumedUnits
      **/
     @ApiModelProperty(value = "The consumed units provide the value of how much has been consumed of the particular metric.")
@@ -62,6 +63,7 @@ public class MetricUsage extends Indentable {
 
     /**
      * The metric description describes the metric.
+     *
      * @return metricDescription
      **/
     @ApiModelProperty(value = "The metric description describes the metric.")
@@ -72,6 +74,7 @@ public class MetricUsage extends Indentable {
 
     /**
      * The metric ID identifies the metric for consumed units.
+     *
      * @return metricId
      **/
     @ApiModelProperty(value = "The metric ID identifies the metric for consumed units.")
@@ -82,6 +85,7 @@ public class MetricUsage extends Indentable {
 
     /**
      * The metric name defines the name of the consumed units.
+     *
      * @return metricName
      **/
     @ApiModelProperty(value = "The metric name defines the name of the consumed units.")

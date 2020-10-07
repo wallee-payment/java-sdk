@@ -54,6 +54,7 @@ public class SubscriptionSuspensionCreate extends Indentable {
 
     /**
      * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
+     *
      * @return endAction
      **/
     @ApiModelProperty(required = true, value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
@@ -73,6 +74,7 @@ public class SubscriptionSuspensionCreate extends Indentable {
 
     /**
      * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
+     *
      * @return note
      **/
     @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
@@ -92,6 +94,7 @@ public class SubscriptionSuspensionCreate extends Indentable {
 
     /**
      * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
+     *
      * @return plannedEndDate
      **/
     @ApiModelProperty(required = true, value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
@@ -110,7 +113,6 @@ public class SubscriptionSuspensionCreate extends Indentable {
     }
 
     /**
-     *
      * @return subscription
      **/
     @ApiModelProperty(required = true, value = "")

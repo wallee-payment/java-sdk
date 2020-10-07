@@ -44,9 +44,8 @@ public class CurrencyService {
      **/
     public List<RestCurrency> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<RestCurrency>>() {
-        };
-        return (List<RestCurrency>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCurrency>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class CurrencyService {
      **/
     public List<RestCurrency> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<RestCurrency>>() {
-        };
-        return (List<RestCurrency>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCurrency>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {

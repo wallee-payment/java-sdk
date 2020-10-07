@@ -28,7 +28,7 @@ public enum ManualTaskActionStyle {
     PRIMARY,
     DANGER;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

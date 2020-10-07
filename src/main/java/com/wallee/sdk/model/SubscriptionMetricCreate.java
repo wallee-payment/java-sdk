@@ -42,7 +42,6 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
     }
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(required = true, value = "")

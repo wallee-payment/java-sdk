@@ -39,7 +39,6 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return chargeFlowLevel
      **/
     @ApiModelProperty(value = "")
@@ -49,7 +48,6 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return paymentLink
      **/
     @ApiModelProperty(value = "")

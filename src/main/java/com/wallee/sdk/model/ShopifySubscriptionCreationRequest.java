@@ -90,7 +90,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(required = true, value = "")
@@ -109,7 +108,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return billingConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -128,7 +126,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(required = true, value = "")
@@ -148,6 +145,7 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -166,7 +164,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return integration
      **/
     @ApiModelProperty(required = true, value = "")
@@ -190,7 +187,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return items
      **/
     @ApiModelProperty(required = true, value = "")
@@ -209,7 +205,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(required = true, value = "")
@@ -228,7 +223,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(required = true, value = "")
@@ -247,7 +241,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return shippingMethodName
      **/
     @ApiModelProperty(value = "")
@@ -266,7 +259,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -285,7 +277,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return storeOrderConfirmationEmailEnabled
      **/
     @ApiModelProperty(value = "")
@@ -304,7 +295,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return subscriber
      **/
     @ApiModelProperty(required = true, value = "")
@@ -323,7 +313,6 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
     }
 
     /**
-     *
      * @return subscriberSuspensionAllowed
      **/
     @ApiModelProperty(value = "")

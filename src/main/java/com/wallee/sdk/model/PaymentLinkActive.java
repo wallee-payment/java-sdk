@@ -43,7 +43,6 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

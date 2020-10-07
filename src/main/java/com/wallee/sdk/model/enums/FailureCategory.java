@@ -30,7 +30,7 @@ public enum FailureCategory {
     CONFIGURATION,
     DEVELOPER;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

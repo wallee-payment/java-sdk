@@ -54,9 +54,8 @@ public class ApplicationUserService {
      **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class ApplicationUserService {
      **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter) throws IOException {
@@ -148,9 +146,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {
-        };
-        return (ApplicationUserCreateWithMacKey) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>() {
+        });
     }
 
     /**
@@ -169,9 +166,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {
-        };
-        return (ApplicationUserCreateWithMacKey) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity) throws IOException {
@@ -344,9 +340,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {
-        };
-        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
+        });
     }
 
     /**
@@ -365,9 +360,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {
-        };
-        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -434,9 +428,8 @@ public class ApplicationUserService {
      **/
     public List<ApplicationUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {
-        };
-        return (List<ApplicationUser>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>() {
+        });
     }
 
     /**
@@ -455,9 +448,8 @@ public class ApplicationUserService {
      **/
     public List<ApplicationUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {
-        };
-        return (List<ApplicationUser>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -537,9 +529,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUser update(ApplicationUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {
-        };
-        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
+        });
     }
 
     /**
@@ -559,9 +550,8 @@ public class ApplicationUserService {
      **/
     public ApplicationUser update(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {
-        };
-        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity) throws IOException {

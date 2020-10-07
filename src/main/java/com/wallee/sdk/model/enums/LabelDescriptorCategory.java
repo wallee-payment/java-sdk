@@ -27,7 +27,7 @@ public enum LabelDescriptorCategory {
     HUMAN,
     APPLICATION;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

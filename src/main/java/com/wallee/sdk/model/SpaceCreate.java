@@ -41,6 +41,7 @@ public class SpaceCreate extends AbstractSpaceUpdate {
 
     /**
      * The account to which the space belongs to.
+     *
      * @return account
      **/
     @ApiModelProperty(required = true, value = "The account to which the space belongs to.")

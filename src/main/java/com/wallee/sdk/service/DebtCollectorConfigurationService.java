@@ -52,9 +52,8 @@ public class DebtCollectorConfigurationService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -73,9 +72,8 @@ public class DebtCollectorConfigurationService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -163,9 +161,8 @@ public class DebtCollectorConfigurationService {
      **/
     public DebtCollectorConfiguration read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<DebtCollectorConfiguration>() {
-        };
-        return (DebtCollectorConfiguration) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectorConfiguration>() {
+        });
     }
 
     /**
@@ -185,9 +182,8 @@ public class DebtCollectorConfigurationService {
      **/
     public DebtCollectorConfiguration read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<DebtCollectorConfiguration>() {
-        };
-        return (DebtCollectorConfiguration) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectorConfiguration>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -267,9 +263,8 @@ public class DebtCollectorConfigurationService {
      **/
     public List<DebtCollectorConfiguration> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<DebtCollectorConfiguration>>() {
-        };
-        return (List<DebtCollectorConfiguration>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectorConfiguration>>() {
+        });
     }
 
     /**
@@ -289,9 +284,8 @@ public class DebtCollectorConfigurationService {
      **/
     public List<DebtCollectorConfiguration> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<DebtCollectorConfiguration>>() {
-        };
-        return (List<DebtCollectorConfiguration>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectorConfiguration>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {

@@ -122,7 +122,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "")
@@ -132,7 +131,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return discardedBy
      **/
     @ApiModelProperty(value = "")
@@ -142,7 +140,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return discardedOn
      **/
     @ApiModelProperty(value = "")
@@ -153,6 +150,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -162,7 +160,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -173,6 +170,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+     *
      * @return failedUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
@@ -183,6 +181,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -192,7 +191,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -202,7 +200,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return ledgerEntries
      **/
     @ApiModelProperty(value = "")
@@ -213,6 +210,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -222,7 +220,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return plannedExecutionDate
      **/
     @ApiModelProperty(value = "")
@@ -233,6 +230,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -242,7 +240,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return processingType
      **/
     @ApiModelProperty(value = "")
@@ -252,7 +249,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return reference
      **/
     @ApiModelProperty(value = "")
@@ -262,7 +258,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -273,6 +268,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The field subscription indicates the subscription to which the charge belongs to.
+     *
      * @return subscription
      **/
     @ApiModelProperty(value = "The field subscription indicates the subscription to which the charge belongs to.")
@@ -282,7 +278,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return succeedOn
      **/
     @ApiModelProperty(value = "")
@@ -293,6 +288,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+     *
      * @return successUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
@@ -302,7 +298,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")
@@ -312,7 +307,6 @@ public class SubscriptionCharge extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -323,6 +317,7 @@ public class SubscriptionCharge extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

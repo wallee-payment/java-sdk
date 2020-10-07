@@ -24,6 +24,14 @@ import java.util.Map;
 
 
 public class AccountService {
+    public static final String MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE = "Missing the required parameter 'entity' when calling create";
+    public static final String ACCOUNT_CREATE = "/account/create";
+    public static final String MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE = "Missing the required parameter 'id' when calling delete";
+    public static final String ACCOUNT_DELETE = "/account/delete";
+    public static final String ACCOUNT_READ = "/account/read";
+    public static final String MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ = "Missing the required parameter 'id' when calling read";
+    public static final String MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH = "Missing the required parameter 'query' when calling search";
+    public static final String ACCOUNT_SEARCH = "/account/search";
     private ApiClient apiClient;
 
     public AccountService(ApiClient apiClient) {
@@ -53,9 +61,8 @@ public class AccountService {
      **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -73,9 +80,8 @@ public class AccountService {
      **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter) throws IOException {
@@ -147,9 +153,8 @@ public class AccountService {
      **/
     public Account create(AccountCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     /**
@@ -168,17 +173,16 @@ public class AccountService {
      **/
     public Account create(AccountCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(AccountCreate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/create");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -190,9 +194,9 @@ public class AccountService {
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/create");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -204,9 +208,9 @@ public class AccountService {
     public HttpResponse createForHttpResponse(AccountCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/create");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
@@ -270,9 +274,9 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/delete");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -284,9 +288,9 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/delete");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -298,9 +302,9 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/delete");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
@@ -343,9 +347,8 @@ public class AccountService {
      **/
     public Account read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     /**
@@ -364,17 +367,16 @@ public class AccountService {
      **/
     public Account read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/read");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_READ);
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
@@ -387,9 +389,9 @@ public class AccountService {
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/read");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_READ);
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
@@ -433,9 +435,8 @@ public class AccountService {
      **/
     public List<Account> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        TypeReference typeRef = new TypeReference<List<Account>>() {
-        };
-        return (List<Account>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>() {
+        });
     }
 
     /**
@@ -454,17 +455,16 @@ public class AccountService {
      **/
     public List<Account> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        TypeReference typeRef = new TypeReference<List<Account>>() {
-        };
-        return (List<Account>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/search");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -476,9 +476,9 @@ public class AccountService {
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/search");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -490,9 +490,9 @@ public class AccountService {
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/search");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
@@ -536,9 +536,8 @@ public class AccountService {
      **/
     public Account update(AccountUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     /**
@@ -558,9 +557,8 @@ public class AccountService {
      **/
     public Account update(AccountUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        TypeReference typeRef = new TypeReference<Account>() {
-        };
-        return (Account) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(AccountUpdate entity) throws IOException {

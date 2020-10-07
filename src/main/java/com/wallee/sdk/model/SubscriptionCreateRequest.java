@@ -68,7 +68,6 @@ public class SubscriptionCreateRequest extends Indentable {
     }
 
     /**
-     *
      * @return componentConfigurations
      **/
     @ApiModelProperty(value = "")
@@ -87,7 +86,6 @@ public class SubscriptionCreateRequest extends Indentable {
     }
 
     /**
-     *
      * @return currency
      **/
     @ApiModelProperty(required = true, value = "")
@@ -107,6 +105,7 @@ public class SubscriptionCreateRequest extends Indentable {
 
     /**
      * The subscription has to be linked with a product.
+     *
      * @return product
      **/
     @ApiModelProperty(required = true, value = "The subscription has to be linked with a product.")
@@ -133,7 +132,6 @@ public class SubscriptionCreateRequest extends Indentable {
     }
 
     /**
-     *
      * @return selectedComponents
      **/
     @ApiModelProperty(value = "")
@@ -152,7 +150,6 @@ public class SubscriptionCreateRequest extends Indentable {
     }
 
     /**
-     *
      * @return subscription
      **/
     @ApiModelProperty(required = true, value = "")

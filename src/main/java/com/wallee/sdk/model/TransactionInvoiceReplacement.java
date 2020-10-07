@@ -63,7 +63,6 @@ public class TransactionInvoiceReplacement extends Indentable {
     }
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -83,6 +82,7 @@ public class TransactionInvoiceReplacement extends Indentable {
 
     /**
      * The date on which the invoice should be paid on.
+     *
      * @return dueOn
      **/
     @ApiModelProperty(value = "The date on which the invoice should be paid on.")
@@ -102,6 +102,7 @@ public class TransactionInvoiceReplacement extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -125,7 +126,6 @@ public class TransactionInvoiceReplacement extends Indentable {
     }
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(required = true, value = "")
@@ -144,7 +144,6 @@ public class TransactionInvoiceReplacement extends Indentable {
     }
 
     /**
-     *
      * @return merchantReference
      **/
     @ApiModelProperty(value = "")
@@ -164,6 +163,7 @@ public class TransactionInvoiceReplacement extends Indentable {
 
     /**
      * When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.
+     *
      * @return sentToCustomer
      **/
     @ApiModelProperty(value = "When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.")

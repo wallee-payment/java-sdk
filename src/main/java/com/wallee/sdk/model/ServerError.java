@@ -46,6 +46,7 @@ public class ServerError extends Indentable {
 
     /**
      * Date when an error has occurred.
+     *
      * @return date
      **/
     @ApiModelProperty(value = "Date when an error has occurred.")
@@ -56,6 +57,7 @@ public class ServerError extends Indentable {
 
     /**
      * Unique identifier of an error.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "Unique identifier of an error.")
@@ -66,6 +68,7 @@ public class ServerError extends Indentable {
 
     /**
      * This message describes an error.
+     *
      * @return message
      **/
     @ApiModelProperty(value = "This message describes an error.")

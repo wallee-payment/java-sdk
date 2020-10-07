@@ -58,6 +58,7 @@ public class User extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -68,6 +69,7 @@ public class User extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -77,7 +79,6 @@ public class User extends Indentable {
 
 
     /**
-     *
      * @return scope
      **/
     @ApiModelProperty(value = "")
@@ -87,7 +88,6 @@ public class User extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +97,6 @@ public class User extends Indentable {
 
 
     /**
-     *
      * @return userType
      **/
     @ApiModelProperty(value = "")
@@ -108,6 +107,7 @@ public class User extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

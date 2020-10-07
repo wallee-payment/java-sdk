@@ -45,6 +45,7 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -63,7 +64,6 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
     }
 
     /**
-     *
      * @return reference
      **/
     @ApiModelProperty(required = true, value = "")

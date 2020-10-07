@@ -55,6 +55,7 @@ public class SubscriptionMetricUpdate extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -74,6 +75,7 @@ public class SubscriptionMetricUpdate extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -92,7 +94,6 @@ public class SubscriptionMetricUpdate extends Indentable {
     }
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -111,7 +112,6 @@ public class SubscriptionMetricUpdate extends Indentable {
     }
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

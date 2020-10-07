@@ -54,9 +54,8 @@ public class RefundService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -75,9 +74,8 @@ public class RefundService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -165,9 +163,8 @@ public class RefundService {
      **/
     public Refund fail(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = failForHttpResponse(spaceId, refundId);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     /**
@@ -187,9 +184,8 @@ public class RefundService {
      **/
     public Refund fail(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = failForHttpResponse(spaceId, refundId, params);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     public HttpResponse failForHttpResponse(Long spaceId, Long refundId) throws IOException {
@@ -271,9 +267,8 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getRefundDocumentForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     /**
@@ -293,9 +288,8 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getRefundDocumentForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     public HttpResponse getRefundDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -376,9 +370,8 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getRefundDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     /**
@@ -399,9 +392,8 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getRefundDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     public HttpResponse getRefundDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -493,9 +485,8 @@ public class RefundService {
      **/
     public Refund read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     /**
@@ -515,9 +506,8 @@ public class RefundService {
      **/
     public Refund read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -597,9 +587,8 @@ public class RefundService {
      **/
     public Refund refund(Long spaceId, RefundCreate refund) throws IOException {
         HttpResponse response = refundForHttpResponse(spaceId, refund);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     /**
@@ -619,9 +608,8 @@ public class RefundService {
      **/
     public Refund refund(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
         HttpResponse response = refundForHttpResponse(spaceId, refund, params);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund) throws IOException {
@@ -716,9 +704,8 @@ public class RefundService {
      **/
     public List<Refund> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<Refund>>() {
-        };
-        return (List<Refund>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>() {
+        });
     }
 
     /**
@@ -738,9 +725,8 @@ public class RefundService {
      **/
     public List<Refund> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<Refund>>() {
-        };
-        return (List<Refund>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -835,9 +821,8 @@ public class RefundService {
      **/
     public Refund succeed(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = succeedForHttpResponse(spaceId, refundId);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     /**
@@ -857,9 +842,8 @@ public class RefundService {
      **/
     public Refund succeed(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = succeedForHttpResponse(spaceId, refundId, params);
-        TypeReference typeRef = new TypeReference<Refund>() {
-        };
-        return (Refund) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
+        });
     }
 
     public HttpResponse succeedForHttpResponse(Long spaceId, Long refundId) throws IOException {

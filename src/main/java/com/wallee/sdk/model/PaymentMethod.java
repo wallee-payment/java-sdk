@@ -61,7 +61,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return dataCollectionTypes
      **/
     @ApiModelProperty(value = "")
@@ -71,7 +70,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -82,6 +80,7 @@ public class PaymentMethod extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -91,7 +90,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return imagePath
      **/
     @ApiModelProperty(value = "")
@@ -101,7 +99,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return merchantDescription
      **/
     @ApiModelProperty(value = "")
@@ -111,7 +108,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -121,7 +117,6 @@ public class PaymentMethod extends Indentable {
 
 
     /**
-     *
      * @return supportedCurrencies
      **/
     @ApiModelProperty(value = "")

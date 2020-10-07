@@ -63,6 +63,7 @@ public class SubscriptionAffiliateUpdate extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -82,6 +83,7 @@ public class SubscriptionAffiliateUpdate extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -100,7 +102,6 @@ public class SubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -128,6 +129,7 @@ public class SubscriptionAffiliateUpdate extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -146,7 +148,6 @@ public class SubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -165,7 +166,6 @@ public class SubscriptionAffiliateUpdate extends Indentable {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

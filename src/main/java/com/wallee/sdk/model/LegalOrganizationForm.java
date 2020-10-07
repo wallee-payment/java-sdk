@@ -52,7 +52,6 @@ public class LegalOrganizationForm extends Indentable {
 
 
     /**
-     *
      * @return country
      **/
     @ApiModelProperty(value = "")
@@ -62,7 +61,6 @@ public class LegalOrganizationForm extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -72,7 +70,6 @@ public class LegalOrganizationForm extends Indentable {
 
 
     /**
-     *
      * @return englishDescription
      **/
     @ApiModelProperty(value = "")
@@ -83,6 +80,7 @@ public class LegalOrganizationForm extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -92,7 +90,6 @@ public class LegalOrganizationForm extends Indentable {
 
 
     /**
-     *
      * @return shortcut
      **/
     @ApiModelProperty(value = "")

@@ -73,7 +73,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -83,7 +82,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return feature
      **/
     @ApiModelProperty(value = "")
@@ -93,7 +91,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return group
      **/
     @ApiModelProperty(value = "")
@@ -104,6 +101,7 @@ public class Permission extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -113,7 +111,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return leaf
      **/
     @ApiModelProperty(value = "")
@@ -123,7 +120,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -133,7 +129,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return parent
      **/
     @ApiModelProperty(value = "")
@@ -143,7 +138,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return pathToRoot
      **/
     @ApiModelProperty(value = "")
@@ -153,7 +147,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(value = "")
@@ -163,7 +156,6 @@ public class Permission extends Indentable {
 
 
     /**
-     *
      * @return twoFactorRequired
      **/
     @ApiModelProperty(value = "")

@@ -27,7 +27,7 @@ public enum DataCollectionType {
     ONSITE,
     OFFSITE;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -52,9 +52,8 @@ public class RefundCommentService {
      **/
     public List<RefundComment> all(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, refundId);
-        TypeReference typeRef = new TypeReference<List<RefundComment>>() {
-        };
-        return (List<RefundComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class RefundCommentService {
      **/
     public List<RefundComment> all(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, refundId, params);
-        TypeReference typeRef = new TypeReference<List<RefundComment>>() {
-        };
-        return (List<RefundComment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long refundId) throws IOException {
@@ -158,9 +156,8 @@ public class RefundCommentService {
      **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     /**
@@ -180,9 +177,8 @@ public class RefundCommentService {
      **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, RefundCommentCreate entity) throws IOException {
@@ -471,9 +467,8 @@ public class RefundCommentService {
      **/
     public RefundComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     /**
@@ -493,9 +488,8 @@ public class RefundCommentService {
      **/
     public RefundComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -672,9 +666,8 @@ public class RefundCommentService {
      **/
     public RefundComment update(Long spaceId, RefundCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     /**
@@ -695,9 +688,8 @@ public class RefundCommentService {
      **/
     public RefundComment update(Long spaceId, RefundCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<RefundComment>() {
-        };
-        return (RefundComment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, RefundCommentActive entity) throws IOException {

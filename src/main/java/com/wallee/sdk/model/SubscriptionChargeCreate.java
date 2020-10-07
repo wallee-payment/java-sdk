@@ -69,6 +69,7 @@ public class SubscriptionChargeCreate extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -88,6 +89,7 @@ public class SubscriptionChargeCreate extends Indentable {
 
     /**
      * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+     *
      * @return failedUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
@@ -106,7 +108,6 @@ public class SubscriptionChargeCreate extends Indentable {
     }
 
     /**
-     *
      * @return plannedExecutionDate
      **/
     @ApiModelProperty(value = "")
@@ -125,7 +126,6 @@ public class SubscriptionChargeCreate extends Indentable {
     }
 
     /**
-     *
      * @return processingType
      **/
     @ApiModelProperty(required = true, value = "")
@@ -144,7 +144,6 @@ public class SubscriptionChargeCreate extends Indentable {
     }
 
     /**
-     *
      * @return reference
      **/
     @ApiModelProperty(value = "")
@@ -164,6 +163,7 @@ public class SubscriptionChargeCreate extends Indentable {
 
     /**
      * The field subscription indicates the subscription to which the charge belongs to.
+     *
      * @return subscription
      **/
     @ApiModelProperty(required = true, value = "The field subscription indicates the subscription to which the charge belongs to.")
@@ -183,6 +183,7 @@ public class SubscriptionChargeCreate extends Indentable {
 
     /**
      * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+     *
      * @return successUrl
      **/
     @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")

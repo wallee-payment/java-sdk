@@ -88,7 +88,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return billedOn
      **/
     @ApiModelProperty(value = "")
@@ -98,7 +97,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return checkoutToken
      **/
     @ApiModelProperty(value = "")
@@ -108,7 +106,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "")
@@ -118,7 +115,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -128,7 +124,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return orderId
      **/
     @ApiModelProperty(value = "")
@@ -138,7 +133,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return orderName
      **/
     @ApiModelProperty(value = "")
@@ -148,7 +142,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return plannedExecutionDate
      **/
     @ApiModelProperty(value = "")
@@ -159,6 +152,7 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -168,7 +162,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return recurrenceNumber
      **/
     @ApiModelProperty(value = "")
@@ -178,7 +171,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return shop
      **/
     @ApiModelProperty(value = "")
@@ -188,7 +180,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return startedProcessingOn
      **/
     @ApiModelProperty(value = "")
@@ -198,7 +189,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -208,7 +198,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return subscriptionVersion
      **/
     @ApiModelProperty(value = "")
@@ -218,7 +207,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(value = "")

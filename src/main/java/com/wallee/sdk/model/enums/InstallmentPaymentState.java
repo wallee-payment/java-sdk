@@ -33,7 +33,7 @@ public enum InstallmentPaymentState {
     DONE,
     DEFAULTED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

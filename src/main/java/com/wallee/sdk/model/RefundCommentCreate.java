@@ -40,7 +40,6 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
     }
 
     /**
-     *
      * @return refund
      **/
     @ApiModelProperty(required = true, value = "")

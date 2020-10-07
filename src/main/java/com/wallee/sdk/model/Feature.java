@@ -69,7 +69,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return beta
      **/
     @ApiModelProperty(value = "")
@@ -79,7 +78,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return category
      **/
     @ApiModelProperty(value = "")
@@ -89,7 +87,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -100,6 +97,7 @@ public class Feature extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -109,7 +107,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return logoPath
      **/
     @ApiModelProperty(value = "")
@@ -119,7 +116,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -129,7 +125,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return requiredFeatures
      **/
     @ApiModelProperty(value = "")
@@ -139,7 +134,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return sortOrder
      **/
     @ApiModelProperty(value = "")
@@ -149,7 +143,6 @@ public class Feature extends Indentable {
 
 
     /**
-     *
      * @return visible
      **/
     @ApiModelProperty(value = "")

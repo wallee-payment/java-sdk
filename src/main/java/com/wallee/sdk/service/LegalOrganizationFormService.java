@@ -44,9 +44,8 @@ public class LegalOrganizationFormService {
      **/
     public List<LegalOrganizationForm> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {
-        };
-        return (List<LegalOrganizationForm>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LegalOrganizationForm>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class LegalOrganizationFormService {
      **/
     public List<LegalOrganizationForm> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {
-        };
-        return (List<LegalOrganizationForm>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LegalOrganizationForm>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class LegalOrganizationFormService {
      **/
     public List<LegalOrganizationForm> country(String code) throws IOException {
         HttpResponse response = countryForHttpResponse(code);
-        TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {
-        };
-        return (List<LegalOrganizationForm>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LegalOrganizationForm>>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class LegalOrganizationFormService {
      **/
     public List<LegalOrganizationForm> country(String code, Map<String, Object> params) throws IOException {
         HttpResponse response = countryForHttpResponse(code, params);
-        TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {
-        };
-        return (List<LegalOrganizationForm>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LegalOrganizationForm>>() {
+        });
     }
 
     public HttpResponse countryForHttpResponse(String code) throws IOException {
@@ -213,9 +209,8 @@ public class LegalOrganizationFormService {
      **/
     public LegalOrganizationForm read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<LegalOrganizationForm>() {
-        };
-        return (LegalOrganizationForm) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LegalOrganizationForm>() {
+        });
     }
 
     /**
@@ -234,9 +229,8 @@ public class LegalOrganizationFormService {
      **/
     public LegalOrganizationForm read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<LegalOrganizationForm>() {
-        };
-        return (LegalOrganizationForm) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LegalOrganizationForm>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

@@ -53,9 +53,8 @@ public class SubscriptionSuspensionService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class SubscriptionSuspensionService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -164,9 +162,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, suspension);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     /**
@@ -186,9 +183,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, suspension, params);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
@@ -283,9 +279,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     /**
@@ -305,9 +300,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -387,9 +381,8 @@ public class SubscriptionSuspensionService {
      **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<SubscriptionSuspension>>() {
-        };
-        return (List<SubscriptionSuspension>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>() {
+        });
     }
 
     /**
@@ -409,9 +402,8 @@ public class SubscriptionSuspensionService {
      **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<SubscriptionSuspension>>() {
-        };
-        return (List<SubscriptionSuspension>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -506,9 +498,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension terminate(Long spaceId, Long suspensionId) throws IOException {
         HttpResponse response = terminateForHttpResponse(spaceId, suspensionId);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     /**
@@ -528,9 +519,8 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension terminate(Long spaceId, Long suspensionId, Map<String, Object> params) throws IOException {
         HttpResponse response = terminateForHttpResponse(spaceId, suspensionId, params);
-        TypeReference typeRef = new TypeReference<SubscriptionSuspension>() {
-        };
-        return (SubscriptionSuspension) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
+        });
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId) throws IOException {

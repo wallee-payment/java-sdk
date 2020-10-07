@@ -58,7 +58,6 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return billingConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -77,7 +76,6 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return id
      **/
     @ApiModelProperty(value = "")
@@ -104,7 +102,6 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return items
      **/
     @ApiModelProperty(value = "")
@@ -123,7 +120,6 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return storeOrderConfirmationEmailEnabled
      **/
     @ApiModelProperty(value = "")
@@ -142,7 +138,6 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return subscriberSuspensionAllowed
      **/
     @ApiModelProperty(value = "")

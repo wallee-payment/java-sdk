@@ -53,9 +53,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -164,9 +162,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup create(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     /**
@@ -186,9 +183,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup create(Long spaceId, SubscriptionProductComponentGroupUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
@@ -394,9 +390,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     /**
@@ -416,9 +411,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -498,9 +492,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public List<SubscriptionProductComponentGroup> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductComponentGroup>>() {
-        };
-        return (List<SubscriptionProductComponentGroup>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>() {
+        });
     }
 
     /**
@@ -520,9 +513,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public List<SubscriptionProductComponentGroup> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductComponentGroup>>() {
-        };
-        return (List<SubscriptionProductComponentGroup>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -618,9 +610,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup update(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     /**
@@ -641,9 +632,8 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup update(Long spaceId, SubscriptionProductComponentGroupUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        TypeReference typeRef = new TypeReference<SubscriptionProductComponentGroup>() {
-        };
-        return (SubscriptionProductComponentGroup) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {

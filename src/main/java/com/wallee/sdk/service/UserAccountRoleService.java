@@ -49,9 +49,8 @@ public class UserAccountRoleService {
      **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, appliesOnSubaccount);
-        TypeReference typeRef = new TypeReference<UserAccountRole>() {
-        };
-        return (UserAccountRole) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>() {
+        });
     }
 
     /**
@@ -72,9 +71,8 @@ public class UserAccountRoleService {
      **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, params);
-        TypeReference typeRef = new TypeReference<UserAccountRole>() {
-        };
-        return (UserAccountRole) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>() {
+        });
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
@@ -174,9 +172,8 @@ public class UserAccountRoleService {
      **/
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId);
-        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {
-        };
-        return (List<UserAccountRole>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>() {
+        });
     }
 
     /**
@@ -196,9 +193,8 @@ public class UserAccountRoleService {
      **/
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId, params);
-        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {
-        };
-        return (List<UserAccountRole>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>() {
+        });
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long accountId) throws IOException {

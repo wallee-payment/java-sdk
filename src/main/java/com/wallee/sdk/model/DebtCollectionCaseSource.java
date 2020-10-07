@@ -50,7 +50,6 @@ public class DebtCollectionCaseSource extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -60,7 +59,6 @@ public class DebtCollectionCaseSource extends Indentable {
 
 
     /**
-     *
      * @return forcedPreparingState
      **/
     @ApiModelProperty(value = "")
@@ -71,6 +69,7 @@ public class DebtCollectionCaseSource extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -80,7 +79,6 @@ public class DebtCollectionCaseSource extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")

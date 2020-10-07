@@ -39,7 +39,6 @@ public class LineItemAttribute extends Indentable {
 
 
     /**
-     *
      * @return label
      **/
     @ApiModelProperty(value = "")
@@ -49,7 +48,6 @@ public class LineItemAttribute extends Indentable {
 
 
     /**
-     *
      * @return value
      **/
     @ApiModelProperty(value = "")

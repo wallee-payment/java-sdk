@@ -52,9 +52,8 @@ public class InstallmentPaymentService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -74,9 +73,8 @@ public class InstallmentPaymentService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -172,9 +170,8 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration) throws IOException {
         HttpResponse response = createInstallmentPaymentForHttpResponse(spaceId, transactionId, installmentPlanConfiguration);
-        TypeReference typeRef = new TypeReference<InstallmentPayment>() {
-        };
-        return (InstallmentPayment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
+        });
     }
 
     /**
@@ -195,9 +192,8 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration, Map<String, Object> params) throws IOException {
         HttpResponse response = createInstallmentPaymentForHttpResponse(spaceId, transactionId, installmentPlanConfiguration, params);
-        TypeReference typeRef = new TypeReference<InstallmentPayment>() {
-        };
-        return (InstallmentPayment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
+        });
     }
 
     public HttpResponse createInstallmentPaymentForHttpResponse(Long spaceId, Long transactionId, Long installmentPlanConfiguration) throws IOException {
@@ -291,9 +287,8 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<InstallmentPayment>() {
-        };
-        return (InstallmentPayment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
+        });
     }
 
     /**
@@ -313,9 +308,8 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<InstallmentPayment>() {
-        };
-        return (InstallmentPayment) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -395,9 +389,8 @@ public class InstallmentPaymentService {
      **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<InstallmentPayment>>() {
-        };
-        return (List<InstallmentPayment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>() {
+        });
     }
 
     /**
@@ -417,9 +410,8 @@ public class InstallmentPaymentService {
      **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<InstallmentPayment>>() {
-        };
-        return (List<InstallmentPayment>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {

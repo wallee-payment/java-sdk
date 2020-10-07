@@ -94,6 +94,7 @@ public class Account extends Indentable {
 
     /**
      * Active means that this account and all accounts in the hierarchy are active.
+     *
      * @return active
      **/
     @ApiModelProperty(value = "Active means that this account and all accounts in the hierarchy are active.")
@@ -104,6 +105,7 @@ public class Account extends Indentable {
 
     /**
      * This property is true when all accounts in the hierarchy are active or restricted active.
+     *
      * @return activeOrRestrictedActive
      **/
     @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
@@ -114,6 +116,7 @@ public class Account extends Indentable {
 
     /**
      * The ID of a user that deleted this entity.
+     *
      * @return deletedBy
      **/
     @ApiModelProperty(value = "The ID of a user that deleted this entity.")
@@ -124,6 +127,7 @@ public class Account extends Indentable {
 
     /**
      * The date and time when this entity was deleted.
+     *
      * @return deletedOn
      **/
     @ApiModelProperty(value = "The date and time when this entity was deleted.")
@@ -134,6 +138,7 @@ public class Account extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -143,7 +148,6 @@ public class Account extends Indentable {
 
 
     /**
-     *
      * @return lastModifiedDate
      **/
     @ApiModelProperty(value = "")
@@ -154,6 +158,7 @@ public class Account extends Indentable {
 
     /**
      * The name of the account identifies the account within the administrative interface.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the account identifies the account within the administrative interface.")
@@ -164,6 +169,7 @@ public class Account extends Indentable {
 
     /**
      * The account which is responsible for administering the account.
+     *
      * @return parentAccount
      **/
     @ApiModelProperty(value = "The account which is responsible for administering the account.")
@@ -174,6 +180,7 @@ public class Account extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -184,6 +191,7 @@ public class Account extends Indentable {
 
     /**
      * Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.
+     *
      * @return restrictedActive
      **/
     @ApiModelProperty(value = "Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.")
@@ -194,6 +202,7 @@ public class Account extends Indentable {
 
     /**
      * This is the scope to which the account belongs to.
+     *
      * @return scope
      **/
     @ApiModelProperty(value = "This is the scope to which the account belongs to.")
@@ -203,7 +212,6 @@ public class Account extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -214,6 +222,7 @@ public class Account extends Indentable {
 
     /**
      * This property restricts the number of subaccounts which can be created within this account.
+     *
      * @return subaccountLimit
      **/
     @ApiModelProperty(value = "This property restricts the number of subaccounts which can be created within this account.")
@@ -224,6 +233,7 @@ public class Account extends Indentable {
 
     /**
      * The account type defines which role and capabilities it has.
+     *
      * @return type
      **/
     @ApiModelProperty(value = "The account type defines which role and capabilities it has.")
@@ -234,6 +244,7 @@ public class Account extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

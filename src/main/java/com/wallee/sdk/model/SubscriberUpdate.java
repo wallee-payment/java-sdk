@@ -87,6 +87,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -106,6 +107,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
@@ -133,6 +135,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
+     *
      * @return additionalAllowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "Those payment methods which are allowed additionally will be available even when the product does not allow those methods.")
@@ -151,7 +154,6 @@ public class SubscriberUpdate extends Indentable {
     }
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -171,6 +173,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.")
@@ -198,6 +201,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.
+     *
      * @return disallowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.")
@@ -217,6 +221,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
+     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
@@ -236,6 +241,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).")
@@ -263,6 +269,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * Meta data allow to store additional data along the object.
+     *
      * @return metaData
      **/
     @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
@@ -282,6 +289,7 @@ public class SubscriberUpdate extends Indentable {
 
     /**
      * The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).
+     *
      * @return reference
      **/
     @ApiModelProperty(value = "The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).")
@@ -300,7 +308,6 @@ public class SubscriberUpdate extends Indentable {
     }
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(value = "")

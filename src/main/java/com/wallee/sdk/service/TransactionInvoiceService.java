@@ -54,9 +54,8 @@ public class TransactionInvoiceService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -75,9 +74,8 @@ public class TransactionInvoiceService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -165,9 +163,8 @@ public class TransactionInvoiceService {
      **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     /**
@@ -187,9 +184,8 @@ public class TransactionInvoiceService {
      **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -270,9 +266,8 @@ public class TransactionInvoiceService {
      **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     /**
@@ -293,9 +288,8 @@ public class TransactionInvoiceService {
      **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {
-        };
-        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
+        });
     }
 
     public HttpResponse getInvoiceDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -387,9 +381,8 @@ public class TransactionInvoiceService {
      **/
     public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<Boolean>() {
-        };
-        return (Boolean) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Boolean>() {
+        });
     }
 
     /**
@@ -409,9 +402,8 @@ public class TransactionInvoiceService {
      **/
     public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<Boolean>() {
-        };
-        return (Boolean) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Boolean>() {
+        });
     }
 
     public HttpResponse isReplacementPossibleForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -491,9 +483,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     /**
@@ -513,9 +504,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     public HttpResponse markAsDerecognizedForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -597,9 +587,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     /**
@@ -619,9 +608,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     public HttpResponse markAsPaidForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -703,9 +691,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     /**
@@ -725,9 +712,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -808,9 +794,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     /**
@@ -831,9 +816,8 @@ public class TransactionInvoiceService {
      **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
-        };
-        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionInvoice>() {
+        });
     }
 
     public HttpResponse replaceForHttpResponse(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
@@ -947,9 +931,8 @@ public class TransactionInvoiceService {
      **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
-        };
-        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionInvoice>>() {
+        });
     }
 
     /**
@@ -969,9 +952,8 @@ public class TransactionInvoiceService {
      **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
-        };
-        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionInvoice>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {

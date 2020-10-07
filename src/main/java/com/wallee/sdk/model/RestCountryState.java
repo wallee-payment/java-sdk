@@ -48,6 +48,7 @@ public class RestCountryState extends Indentable {
 
     /**
      * The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.
+     *
      * @return code
      **/
     @ApiModelProperty(value = "The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.")
@@ -58,6 +59,7 @@ public class RestCountryState extends Indentable {
 
     /**
      * The country code in ISO two letter format (e.g. UK, DE, CH, US).
+     *
      * @return countryCode
      **/
     @ApiModelProperty(value = "The country code in ISO two letter format (e.g. UK, DE, CH, US).")
@@ -68,6 +70,7 @@ public class RestCountryState extends Indentable {
 
     /**
      * The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.")
@@ -78,6 +81,7 @@ public class RestCountryState extends Indentable {
 
     /**
      * The name is a human readable label of the state in the language of the region.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name is a human readable label of the state in the language of the region.")

@@ -27,7 +27,7 @@ public enum PaymentLinkProtectionMode {
     NO_PROTECTION,
     ACCESS_KEY;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

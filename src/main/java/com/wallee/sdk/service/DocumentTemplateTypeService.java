@@ -44,9 +44,8 @@ public class DocumentTemplateTypeService {
      **/
     public List<DocumentTemplateType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {
-        };
-        return (List<DocumentTemplateType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class DocumentTemplateTypeService {
      **/
     public List<DocumentTemplateType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {
-        };
-        return (List<DocumentTemplateType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class DocumentTemplateTypeService {
      **/
     public DocumentTemplateType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<DocumentTemplateType>() {
-        };
-        return (DocumentTemplateType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class DocumentTemplateTypeService {
      **/
     public DocumentTemplateType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<DocumentTemplateType>() {
-        };
-        return (DocumentTemplateType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

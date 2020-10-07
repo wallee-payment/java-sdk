@@ -40,7 +40,6 @@ public class SubscriptionComponentConfiguration extends Indentable {
 
 
     /**
-     *
      * @return component
      **/
     @ApiModelProperty(value = "")
@@ -50,7 +49,6 @@ public class SubscriptionComponentConfiguration extends Indentable {
 
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(value = "")

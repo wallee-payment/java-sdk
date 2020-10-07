@@ -56,6 +56,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The country code represents the region of the language as a 2 letter ISO code.
+     *
      * @return countryCode
      **/
     @ApiModelProperty(value = "The country code represents the region of the language as a 2 letter ISO code.")
@@ -66,6 +67,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).
+     *
      * @return ietfCode
      **/
     @ApiModelProperty(value = "The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).")
@@ -76,6 +78,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The ISO 2 letter code represents the language with two letters.
+     *
      * @return iso2Code
      **/
     @ApiModelProperty(value = "The ISO 2 letter code represents the language with two letters.")
@@ -86,6 +89,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The ISO 3 letter code represents the language with three letters.
+     *
      * @return iso3Code
      **/
     @ApiModelProperty(value = "The ISO 3 letter code represents the language with three letters.")
@@ -96,6 +100,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.
+     *
      * @return pluralExpression
      **/
     @ApiModelProperty(value = "The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.")
@@ -106,6 +111,7 @@ public class RestLanguage extends Indentable {
 
     /**
      * The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.
+     *
      * @return primaryOfGroup
      **/
     @ApiModelProperty(value = "The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.")

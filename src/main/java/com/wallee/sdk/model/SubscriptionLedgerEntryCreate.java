@@ -65,7 +65,6 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
     }
 
     /**
-     *
      * @return amountIncludingTax
      **/
     @ApiModelProperty(required = true, value = "")
@@ -85,6 +84,7 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -103,7 +103,6 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
     }
 
     /**
-     *
      * @return quantity
      **/
     @ApiModelProperty(required = true, value = "")
@@ -122,7 +121,6 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
     }
 
     /**
-     *
      * @return subscriptionVersion
      **/
     @ApiModelProperty(required = true, value = "")
@@ -149,7 +147,6 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
     }
 
     /**
-     *
      * @return taxes
      **/
     @ApiModelProperty(value = "")
@@ -168,7 +165,6 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
     }
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(required = true, value = "")

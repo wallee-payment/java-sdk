@@ -54,7 +54,6 @@ public class TransactionLineItemUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return newLineItems
      **/
     @ApiModelProperty(value = "")
@@ -73,7 +72,6 @@ public class TransactionLineItemUpdateRequest extends Indentable {
     }
 
     /**
-     *
      * @return transactionId
      **/
     @ApiModelProperty(required = true, value = "")

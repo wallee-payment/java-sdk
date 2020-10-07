@@ -49,7 +49,6 @@ public class AbstractAccountUpdate extends Indentable {
     }
 
     /**
-     *
      * @return lastModifiedDate
      **/
     @ApiModelProperty(value = "")
@@ -69,6 +68,7 @@ public class AbstractAccountUpdate extends Indentable {
 
     /**
      * The name of the account identifies the account within the administrative interface.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the account identifies the account within the administrative interface.")
@@ -88,6 +88,7 @@ public class AbstractAccountUpdate extends Indentable {
 
     /**
      * This property restricts the number of subaccounts which can be created within this account.
+     *
      * @return subaccountLimit
      **/
     @ApiModelProperty(value = "This property restricts the number of subaccounts which can be created within this account.")

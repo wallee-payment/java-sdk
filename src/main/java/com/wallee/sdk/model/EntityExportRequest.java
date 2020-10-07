@@ -54,6 +54,7 @@ public class EntityExportRequest extends Indentable {
 
     /**
      * The properties is a list of property paths which should be exported.
+     *
      * @return properties
      **/
     @ApiModelProperty(required = true, value = "The properties is a list of property paths which should be exported.")
@@ -73,6 +74,7 @@ public class EntityExportRequest extends Indentable {
 
     /**
      * The query limits the returned entries. The query allows to restrict the entries to return and it allows to control the order of them.
+     *
      * @return query
      **/
     @ApiModelProperty(value = "The query limits the returned entries. The query allows to restrict the entries to return and it allows to control the order of them.")

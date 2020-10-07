@@ -46,7 +46,6 @@ public class InstallmentCalculatedSlice extends Indentable {
 
 
     /**
-     *
      * @return amountIncludingTax
      **/
     @ApiModelProperty(value = "")
@@ -56,7 +55,6 @@ public class InstallmentCalculatedSlice extends Indentable {
 
 
     /**
-     *
      * @return dueOn
      **/
     @ApiModelProperty(value = "")
@@ -66,7 +64,6 @@ public class InstallmentCalculatedSlice extends Indentable {
 
 
     /**
-     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "")

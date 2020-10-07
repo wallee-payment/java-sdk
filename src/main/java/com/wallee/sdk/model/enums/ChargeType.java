@@ -29,7 +29,7 @@ public enum ChargeType {
     TOKEN,
     TERMINAL;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

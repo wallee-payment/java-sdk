@@ -92,7 +92,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return account
      **/
     @ApiModelProperty(value = "")
@@ -102,7 +101,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return activatedOn
      **/
     @ApiModelProperty(value = "")
@@ -112,7 +110,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return contractIdentifier
      **/
     @ApiModelProperty(value = "")
@@ -122,7 +119,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return contractType
      **/
     @ApiModelProperty(value = "")
@@ -132,7 +128,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return createdBy
      **/
     @ApiModelProperty(value = "")
@@ -143,6 +138,7 @@ public class PaymentContract extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -153,6 +149,7 @@ public class PaymentContract extends Indentable {
 
     /**
      * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+     *
      * @return externalId
      **/
     @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
@@ -163,6 +160,7 @@ public class PaymentContract extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -172,7 +170,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return rejectedOn
      **/
     @ApiModelProperty(value = "")
@@ -182,7 +179,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return rejectionReason
      **/
     @ApiModelProperty(value = "")
@@ -192,7 +188,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return startTerminatingOn
      **/
     @ApiModelProperty(value = "")
@@ -202,7 +197,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -212,7 +206,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return terminatedBy
      **/
     @ApiModelProperty(value = "")
@@ -222,7 +215,6 @@ public class PaymentContract extends Indentable {
 
 
     /**
-     *
      * @return terminatedOn
      **/
     @ApiModelProperty(value = "")
@@ -233,6 +225,7 @@ public class PaymentContract extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

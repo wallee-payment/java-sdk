@@ -80,6 +80,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The email address of the user.
+     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "The email address of the user.")
@@ -90,6 +91,7 @@ public class HumanUser extends Indentable {
 
     /**
      * Defines whether a user is verified or not.
+     *
      * @return emailAddressVerified
      **/
     @ApiModelProperty(value = "Defines whether a user is verified or not.")
@@ -100,6 +102,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The first name of the user.
+     *
      * @return firstname
      **/
     @ApiModelProperty(value = "The first name of the user.")
@@ -110,6 +113,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The preferred language of the user.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The preferred language of the user.")
@@ -120,6 +124,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The last name of the user.
+     *
      * @return lastname
      **/
     @ApiModelProperty(value = "The last name of the user.")
@@ -129,7 +134,6 @@ public class HumanUser extends Indentable {
 
 
     /**
-     *
      * @return mobilePhoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -140,6 +144,7 @@ public class HumanUser extends Indentable {
 
     /**
      * Defines whether a users mobile phone number is verified or not.
+     *
      * @return mobilePhoneVerified
      **/
     @ApiModelProperty(value = "Defines whether a users mobile phone number is verified or not.")
@@ -150,6 +155,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The primary account links the user to a specific account.
+     *
      * @return primaryAccount
      **/
     @ApiModelProperty(value = "The primary account links the user to a specific account.")
@@ -160,6 +166,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The scope to which the user belongs to.
+     *
      * @return scope
      **/
     @ApiModelProperty(value = "The scope to which the user belongs to.")
@@ -170,6 +177,7 @@ public class HumanUser extends Indentable {
 
     /**
      * The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
+     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
@@ -180,6 +188,7 @@ public class HumanUser extends Indentable {
 
     /**
      * Defines whether two-factor authentication is enabled for this user.
+     *
      * @return twoFactorEnabled
      **/
     @ApiModelProperty(value = "Defines whether two-factor authentication is enabled for this user.")
@@ -189,7 +198,6 @@ public class HumanUser extends Indentable {
 
 
     /**
-     *
      * @return twoFactorType
      **/
     @ApiModelProperty(value = "")

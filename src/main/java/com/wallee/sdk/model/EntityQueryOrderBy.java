@@ -47,7 +47,6 @@ public class EntityQueryOrderBy extends Indentable {
     }
 
     /**
-     *
      * @return fieldName
      **/
     @ApiModelProperty(required = true, value = "")
@@ -66,7 +65,6 @@ public class EntityQueryOrderBy extends Indentable {
     }
 
     /**
-     *
      * @return sorting
      **/
     @ApiModelProperty(required = true, value = "")

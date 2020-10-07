@@ -32,7 +32,7 @@ public enum DebtCollectionCaseState {
     CLOSED,
     FAILED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -40,7 +40,6 @@ public class AbstractTransactionInvoiceCommentActive extends Indentable {
     }
 
     /**
-     *
      * @return content
      **/
     @ApiModelProperty(value = "")

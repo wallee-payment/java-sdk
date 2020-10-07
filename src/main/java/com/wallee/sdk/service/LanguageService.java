@@ -44,9 +44,8 @@ public class LanguageService {
      **/
     public List<RestLanguage> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<RestLanguage>>() {
-        };
-        return (List<RestLanguage>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestLanguage>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class LanguageService {
      **/
     public List<RestLanguage> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<RestLanguage>>() {
-        };
-        return (List<RestLanguage>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestLanguage>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {

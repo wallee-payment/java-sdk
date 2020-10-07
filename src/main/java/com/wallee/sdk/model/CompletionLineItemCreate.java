@@ -50,6 +50,7 @@ public class CompletionLineItemCreate extends Indentable {
 
     /**
      * The total amount of the line item including any tax.
+     *
      * @return amount
      **/
     @ApiModelProperty(required = true, value = "The total amount of the line item including any tax.")
@@ -69,6 +70,7 @@ public class CompletionLineItemCreate extends Indentable {
 
     /**
      * The quantity of the line item which should be completed.
+     *
      * @return quantity
      **/
     @ApiModelProperty(required = true, value = "The quantity of the line item which should be completed.")
@@ -88,6 +90,7 @@ public class CompletionLineItemCreate extends Indentable {
 
     /**
      * The unique id identifies the line item on which the capture is applied on.
+     *
      * @return uniqueId
      **/
     @ApiModelProperty(required = true, value = "The unique id identifies the line item on which the capture is applied on.")

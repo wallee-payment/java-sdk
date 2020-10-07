@@ -81,6 +81,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The allowed payment method configurations control which payment methods can be used with this product. When none is selected all methods will be allowed.
+     *
      * @return allowedPaymentMethodConfigurations
      **/
     @ApiModelProperty(value = "The allowed payment method configurations control which payment methods can be used with this product. When none is selected all methods will be allowed.")
@@ -91,6 +92,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * When a payment fails, the subscription to which the payment belongs to will be suspended. When the suspension is not removed within the specified period the subscription will be terminated. A payment is considered as failed when the subscriber issues a refund or when a subscription charge fails.
+     *
      * @return failedPaymentSuspensionPeriod
      **/
     @ApiModelProperty(value = "When a payment fails, the subscription to which the payment belongs to will be suspended. When the suspension is not removed within the specified period the subscription will be terminated. A payment is considered as failed when the subscriber issues a refund or when a subscription charge fails.")
@@ -101,6 +103,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -111,6 +114,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -121,6 +125,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The product name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The product name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -131,6 +136,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -141,6 +147,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The product reference identifies the product for external systems. This field may contain the product&#39;s SKU.
+     *
      * @return reference
      **/
     @ApiModelProperty(value = "The product reference identifies the product for external systems. This field may contain the product's SKU.")
@@ -151,6 +158,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The sort order controls in which order the product is listed. The sort order is used to order the products in ascending order.
+     *
      * @return sortOrder
      **/
     @ApiModelProperty(value = "The sort order controls in which order the product is listed. The sort order is used to order the products in ascending order.")
@@ -160,7 +168,6 @@ public class SubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return spaceId
      **/
     @ApiModelProperty(value = "")
@@ -170,7 +177,6 @@ public class SubscriptionProduct extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -181,6 +187,7 @@ public class SubscriptionProduct extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

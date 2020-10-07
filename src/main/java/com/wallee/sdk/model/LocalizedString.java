@@ -43,7 +43,6 @@ public class LocalizedString extends Indentable {
 
 
     /**
-     *
      * @return displayName
      **/
     @ApiModelProperty(value = "")
@@ -53,7 +52,6 @@ public class LocalizedString extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -63,7 +61,6 @@ public class LocalizedString extends Indentable {
 
 
     /**
-     *
      * @return string
      **/
     @ApiModelProperty(value = "")

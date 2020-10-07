@@ -30,7 +30,7 @@ public enum PaymentContractState {
     TERMINATED,
     REJECTED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

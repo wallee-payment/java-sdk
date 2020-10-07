@@ -28,7 +28,7 @@ public enum ManualTaskState {
     DONE,
     EXPIRED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

@@ -27,7 +27,7 @@ public enum Gender {
     MALE,
     FEMALE;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

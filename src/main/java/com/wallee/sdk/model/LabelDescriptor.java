@@ -65,7 +65,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return category
      **/
     @ApiModelProperty(value = "")
@@ -75,7 +74,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -85,7 +83,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return features
      **/
     @ApiModelProperty(value = "")
@@ -95,7 +92,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return group
      **/
     @ApiModelProperty(value = "")
@@ -106,6 +102,7 @@ public class LabelDescriptor extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -115,7 +112,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -125,7 +121,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -135,7 +130,6 @@ public class LabelDescriptor extends Indentable {
 
 
     /**
-     *
      * @return weight
      **/
     @ApiModelProperty(value = "")

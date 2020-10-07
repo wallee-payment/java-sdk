@@ -43,7 +43,6 @@ public class PaymentConnectorFeature extends Indentable {
 
 
     /**
-     *
      * @return displayName
      **/
     @ApiModelProperty(value = "")
@@ -53,7 +52,6 @@ public class PaymentConnectorFeature extends Indentable {
 
 
     /**
-     *
      * @return feature
      **/
     @ApiModelProperty(value = "")
@@ -64,6 +62,7 @@ public class PaymentConnectorFeature extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")

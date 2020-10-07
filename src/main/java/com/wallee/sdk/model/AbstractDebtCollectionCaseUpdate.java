@@ -73,6 +73,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The billing address of the case identifies the debtor.
+     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "The billing address of the case identifies the debtor.")
@@ -92,6 +93,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The contract date is the date on which the contract with the debtor was signed on.
+     *
      * @return contractDate
      **/
     @ApiModelProperty(value = "The contract date is the date on which the contract with the debtor was signed on.")
@@ -111,6 +113,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The currency defines the billing currency of the debt collection case.
+     *
      * @return currency
      **/
     @ApiModelProperty(value = "The currency defines the billing currency of the debt collection case.")
@@ -130,6 +133,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The due date indicates the date on which the amount receivable was due. This date has to be always in the past.
+     *
      * @return dueDate
      **/
     @ApiModelProperty(value = "The due date indicates the date on which the amount receivable was due. This date has to be always in the past.")
@@ -149,6 +153,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.
+     *
      * @return environment
      **/
     @ApiModelProperty(value = "The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.")
@@ -168,6 +173,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The language indicates the language to be used in the communication with the debtor.
+     *
      * @return language
      **/
     @ApiModelProperty(value = "The language indicates the language to be used in the communication with the debtor.")
@@ -195,6 +201,7 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     /**
      * The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.
+     *
      * @return lineItems
      **/
     @ApiModelProperty(value = "The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.")
@@ -213,7 +220,6 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
     }
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")

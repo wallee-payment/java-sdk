@@ -40,7 +40,6 @@ public class CustomerCommentCreate extends AbstractCustomerCommentActive {
     }
 
     /**
-     *
      * @return customer
      **/
     @ApiModelProperty(required = true, value = "")

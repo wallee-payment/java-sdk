@@ -48,7 +48,6 @@ public class SubscriptionPending extends SubscriptionUpdate {
     }
 
     /**
-     *
      * @return reference
      **/
     @ApiModelProperty(value = "")
@@ -67,7 +66,6 @@ public class SubscriptionPending extends SubscriptionUpdate {
     }
 
     /**
-     *
      * @return subscriber
      **/
     @ApiModelProperty(value = "")
@@ -86,7 +84,6 @@ public class SubscriptionPending extends SubscriptionUpdate {
     }
 
     /**
-     *
      * @return token
      **/
     @ApiModelProperty(value = "")

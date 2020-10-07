@@ -48,7 +48,6 @@ public class RenderedDocument extends Indentable {
 
 
     /**
-     *
      * @return data
      **/
     @ApiModelProperty(value = "")
@@ -58,7 +57,6 @@ public class RenderedDocument extends Indentable {
 
 
     /**
-     *
      * @return documentTemplateType
      **/
     @ApiModelProperty(value = "")
@@ -68,7 +66,6 @@ public class RenderedDocument extends Indentable {
 
 
     /**
-     *
      * @return mimeType
      **/
     @ApiModelProperty(value = "")
@@ -78,7 +75,6 @@ public class RenderedDocument extends Indentable {
 
 
     /**
-     *
      * @return title
      **/
     @ApiModelProperty(value = "")

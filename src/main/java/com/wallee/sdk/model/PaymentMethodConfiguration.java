@@ -107,6 +107,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The data collection type determines who is collecting the payment information. This can be done either by the processor (offsite) or by our application (onsite).
+     *
      * @return dataCollectionType
      **/
     @ApiModelProperty(value = "The data collection type determines who is collecting the payment information. This can be done either by the processor (offsite) or by our application (onsite).")
@@ -117,6 +118,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The payment method configuration description can be used to show a text during the payment process. Choose an appropriate description as it will be displayed to your customer.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The payment method configuration description can be used to show a text during the payment process. Choose an appropriate description as it will be displayed to your customer.")
@@ -127,6 +129,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -137,6 +140,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The image of the payment method configuration overrides the default image of the payment method.
+     *
      * @return imageResourcePath
      **/
     @ApiModelProperty(value = "The image of the payment method configuration overrides the default image of the payment method.")
@@ -147,6 +151,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -157,6 +162,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The payment method configuration name is used internally to identify the payment method configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The payment method configuration name is used internally to identify the payment method configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
@@ -167,6 +173,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * When the buyer is present on the payment page or within the iFrame the payment details can be stored automatically. The buyer will be able to use the stored payment details for subsequent transactions. When the transaction already contains a token one-click payments are disabled anyway
+     *
      * @return oneClickPaymentMode
      **/
     @ApiModelProperty(value = "When the buyer is present on the payment page or within the iFrame the payment details can be stored automatically. The buyer will be able to use the stored payment details for subsequent transactions. When the transaction already contains a token one-click payments are disabled anyway")
@@ -176,7 +183,6 @@ public class PaymentMethodConfiguration extends Indentable {
 
 
     /**
-     *
      * @return paymentMethod
      **/
     @ApiModelProperty(value = "")
@@ -187,6 +193,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -197,6 +204,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The resolved description uses the specified description or the default one when it is not overridden.
+     *
      * @return resolvedDescription
      **/
     @ApiModelProperty(value = "The resolved description uses the specified description or the default one when it is not overridden.")
@@ -207,6 +215,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The resolved URL of the image to use with this payment method.
+     *
      * @return resolvedImageUrl
      **/
     @ApiModelProperty(value = "The resolved URL of the image to use with this payment method.")
@@ -217,6 +226,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The resolved title uses the specified title or the default one when it is not overridden.
+     *
      * @return resolvedTitle
      **/
     @ApiModelProperty(value = "The resolved title uses the specified title or the default one when it is not overridden.")
@@ -227,6 +237,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The sort order of the payment method determines the ordering of the methods shown to the user during the payment process.
+     *
      * @return sortOrder
      **/
     @ApiModelProperty(value = "The sort order of the payment method determines the ordering of the methods shown to the user during the payment process.")
@@ -236,7 +247,6 @@ public class PaymentMethodConfiguration extends Indentable {
 
 
     /**
-     *
      * @return spaceId
      **/
     @ApiModelProperty(value = "")
@@ -246,7 +256,6 @@ public class PaymentMethodConfiguration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -257,6 +266,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The title of the payment method configuration is used within the payment process. The title is visible to the customer.
+     *
      * @return title
      **/
     @ApiModelProperty(value = "The title of the payment method configuration is used within the payment process. The title is visible to the customer.")
@@ -267,6 +277,7 @@ public class PaymentMethodConfiguration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

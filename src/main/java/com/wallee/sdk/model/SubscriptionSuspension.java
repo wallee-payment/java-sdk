@@ -91,6 +91,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -100,7 +101,6 @@ public class SubscriptionSuspension extends Indentable {
 
 
     /**
-     *
      * @return effectiveEndDate
      **/
     @ApiModelProperty(value = "")
@@ -111,6 +111,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
+     *
      * @return endAction
      **/
     @ApiModelProperty(value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
@@ -121,6 +122,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -130,7 +132,6 @@ public class SubscriptionSuspension extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -141,6 +142,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -151,6 +153,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
+     *
      * @return note
      **/
     @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
@@ -160,7 +163,6 @@ public class SubscriptionSuspension extends Indentable {
 
 
     /**
-     *
      * @return periodBill
      **/
     @ApiModelProperty(value = "")
@@ -171,6 +173,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
+     *
      * @return plannedEndDate
      **/
     @ApiModelProperty(value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
@@ -181,6 +184,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -191,6 +195,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The suspension reason indicates why a suspension has been created.
+     *
      * @return reason
      **/
     @ApiModelProperty(value = "The suspension reason indicates why a suspension has been created.")
@@ -200,7 +205,6 @@ public class SubscriptionSuspension extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -210,7 +214,6 @@ public class SubscriptionSuspension extends Indentable {
 
 
     /**
-     *
      * @return subscription
      **/
     @ApiModelProperty(value = "")
@@ -221,6 +224,7 @@ public class SubscriptionSuspension extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

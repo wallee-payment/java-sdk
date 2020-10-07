@@ -27,7 +27,7 @@ public enum Environment {
     LIVE,
     PREVIEW;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

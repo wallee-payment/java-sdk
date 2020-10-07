@@ -55,7 +55,6 @@ public class UserAccountRole extends Indentable {
 
 
     /**
-     *
      * @return account
      **/
     @ApiModelProperty(value = "")
@@ -65,7 +64,6 @@ public class UserAccountRole extends Indentable {
 
 
     /**
-     *
      * @return appliesOnSubAccount
      **/
     @ApiModelProperty(value = "")
@@ -76,6 +74,7 @@ public class UserAccountRole extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -85,7 +84,6 @@ public class UserAccountRole extends Indentable {
 
 
     /**
-     *
      * @return role
      **/
     @ApiModelProperty(value = "")
@@ -95,7 +93,6 @@ public class UserAccountRole extends Indentable {
 
 
     /**
-     *
      * @return user
      **/
     @ApiModelProperty(value = "")
@@ -106,6 +103,7 @@ public class UserAccountRole extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

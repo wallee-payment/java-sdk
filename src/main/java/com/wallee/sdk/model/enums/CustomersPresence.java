@@ -28,7 +28,7 @@ public enum CustomersPresence {
     VIRTUAL_PRESENT,
     PHYSICAL_PRESENT;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

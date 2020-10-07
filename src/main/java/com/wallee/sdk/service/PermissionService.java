@@ -44,9 +44,8 @@ public class PermissionService {
      **/
     public List<Permission> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<Permission>>() {
-        };
-        return (List<Permission>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class PermissionService {
      **/
     public List<Permission> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<Permission>>() {
-        };
-        return (List<Permission>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class PermissionService {
      **/
     public Permission read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<Permission>() {
-        };
-        return (Permission) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class PermissionService {
      **/
     public Permission read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<Permission>() {
-        };
-        return (Permission) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

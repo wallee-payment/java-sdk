@@ -48,7 +48,6 @@ public class SubscriptionProductVersionRetirementCreate extends Indentable {
     }
 
     /**
-     *
      * @return productVersion
      **/
     @ApiModelProperty(required = true, value = "")
@@ -67,7 +66,6 @@ public class SubscriptionProductVersionRetirementCreate extends Indentable {
     }
 
     /**
-     *
      * @return respectTerminiationPeriodsEnabled
      **/
     @ApiModelProperty(value = "")
@@ -86,7 +84,6 @@ public class SubscriptionProductVersionRetirementCreate extends Indentable {
     }
 
     /**
-     *
      * @return targetProduct
      **/
     @ApiModelProperty(value = "")

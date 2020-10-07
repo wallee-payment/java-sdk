@@ -89,6 +89,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.
+     *
      * @return componentChangeWeight
      **/
     @ApiModelProperty(value = "The change weight determines whether if a component change is considered as upgrade or downgrade. If product component with a weight 10 is changed to a product component with a weight 20, the change is considered as upgrade. On the other hand a change from 20 to 10 is considered as a downgrade.")
@@ -98,7 +99,6 @@ public class SubscriptionProductComponent extends Indentable {
 
 
     /**
-     *
      * @return componentGroup
      **/
     @ApiModelProperty(value = "")
@@ -109,6 +109,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * When a component is marked as a &#39;default&#39; component it is used when no other component is selected by the user.
+     *
      * @return defaultComponent
      **/
     @ApiModelProperty(value = "When a component is marked as a 'default' component it is used when no other component is selected by the user.")
@@ -119,6 +120,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
@@ -129,6 +131,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -139,6 +142,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -149,6 +153,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The maximum quantity defines the maximum value which must be entered for the quantity.
+     *
      * @return maximalQuantity
      **/
     @ApiModelProperty(value = "The maximum quantity defines the maximum value which must be entered for the quantity.")
@@ -159,6 +164,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The minimal quantity defines the minimum value which must be entered for the quantity.
+     *
      * @return minimalQuantity
      **/
     @ApiModelProperty(value = "The minimal quantity defines the minimum value which must be entered for the quantity.")
@@ -169,6 +175,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The component name is shown to the subscriber. It should describe in few words what the component does contain.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
@@ -179,6 +186,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The quantity step defines at which interval the quantity can be increased.
+     *
      * @return quantityStep
      **/
     @ApiModelProperty(value = "The quantity step defines at which interval the quantity can be increased.")
@@ -189,6 +197,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.
+     *
      * @return reference
      **/
     @ApiModelProperty(value = "The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.")
@@ -199,6 +208,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.
+     *
      * @return sortOrder
      **/
     @ApiModelProperty(value = "The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.")
@@ -209,6 +219,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The tax class of the component determines the taxes which are applicable on all fees linked with the component.
+     *
      * @return taxClass
      **/
     @ApiModelProperty(value = "The tax class of the component determines the taxes which are applicable on all fees linked with the component.")
@@ -219,6 +230,7 @@ public class SubscriptionProductComponent extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

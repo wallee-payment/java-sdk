@@ -78,6 +78,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The listener listens on state changes of the entity linked with the listener.
+     *
      * @return entity
      **/
     @ApiModelProperty(value = "The listener listens on state changes of the entity linked with the listener.")
@@ -88,6 +89,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The target state identifies the state into which entities need to move into to trigger the webhook listener.
+     *
      * @return entityStates
      **/
     @ApiModelProperty(value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
@@ -98,6 +100,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -108,6 +111,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The identity which will be used to sign messages sent by this listener.
+     *
      * @return identity
      **/
     @ApiModelProperty(value = "The identity which will be used to sign messages sent by this listener.")
@@ -118,6 +122,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -128,6 +133,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
@@ -138,6 +144,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
+     *
      * @return notifyEveryChange
      **/
     @ApiModelProperty(value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
@@ -148,6 +155,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -157,7 +165,6 @@ public class WebhookListener extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -168,6 +175,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The URL which is invoked by the listener to notify the application about the event.
+     *
      * @return url
      **/
     @ApiModelProperty(value = "The URL which is invoked by the listener to notify the application about the event.")
@@ -178,6 +186,7 @@ public class WebhookListener extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

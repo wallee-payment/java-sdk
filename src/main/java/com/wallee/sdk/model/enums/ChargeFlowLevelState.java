@@ -28,7 +28,7 @@ public enum ChargeFlowLevelState {
     FAILED,
     SUCCESSFUL;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

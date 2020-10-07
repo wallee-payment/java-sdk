@@ -126,7 +126,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return charge
      **/
     @ApiModelProperty(value = "")
@@ -136,7 +135,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return connectorConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -147,6 +145,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -156,7 +155,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -166,7 +164,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failedOn
      **/
     @ApiModelProperty(value = "")
@@ -176,7 +173,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return failureReason
      **/
     @ApiModelProperty(value = "")
@@ -186,7 +182,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return initializingTokenVersion
      **/
     @ApiModelProperty(value = "")
@@ -196,7 +191,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return invocation
      **/
     @ApiModelProperty(value = "")
@@ -206,7 +200,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -216,7 +209,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -226,7 +218,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return nextUpdateOn
      **/
     @ApiModelProperty(value = "")
@@ -237,6 +228,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -246,7 +238,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return redirectionUrl
      **/
     @ApiModelProperty(value = "")
@@ -256,7 +247,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return salesChannel
      **/
     @ApiModelProperty(value = "")
@@ -266,7 +256,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return spaceViewId
      **/
     @ApiModelProperty(value = "")
@@ -276,7 +265,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -286,7 +274,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return succeededOn
      **/
     @ApiModelProperty(value = "")
@@ -296,7 +283,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return terminal
      **/
     @ApiModelProperty(value = "")
@@ -306,7 +292,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeZone
      **/
     @ApiModelProperty(value = "")
@@ -316,7 +301,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return timeoutOn
      **/
     @ApiModelProperty(value = "")
@@ -326,7 +310,6 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
 
     /**
-     *
      * @return tokenVersion
      **/
     @ApiModelProperty(value = "")
@@ -337,6 +320,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
     /**
      * The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.
+     *
      * @return userFailureMessage
      **/
     @ApiModelProperty(value = "The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.")
@@ -347,6 +331,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

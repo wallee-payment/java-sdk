@@ -53,9 +53,8 @@ public class CardProcessingService {
      **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        TypeReference typeRef = new TypeReference<Transaction>() {
-        };
-        return (Transaction) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
+        });
     }
 
     /**
@@ -78,9 +77,8 @@ public class CardProcessingService {
      **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
-        TypeReference typeRef = new TypeReference<Transaction>() {
-        };
-        return (Transaction) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
+        });
     }
 
     public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {

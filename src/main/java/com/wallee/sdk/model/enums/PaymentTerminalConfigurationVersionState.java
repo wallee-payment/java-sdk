@@ -31,7 +31,7 @@ public enum PaymentTerminalConfigurationVersionState {
     DELETING,
     DELETED;
 
-   @JsonValue
+    @JsonValue
     public String getValue() {
         return name();
     }

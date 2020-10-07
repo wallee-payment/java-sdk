@@ -64,7 +64,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return companyName
      **/
     @ApiModelProperty(value = "")
@@ -74,7 +73,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return description
      **/
     @ApiModelProperty(value = "")
@@ -84,7 +82,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return feature
      **/
     @ApiModelProperty(value = "")
@@ -94,7 +91,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return headquartersLocation
      **/
     @ApiModelProperty(value = "")
@@ -105,6 +101,7 @@ public class PaymentProcessor extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -114,7 +111,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return logoPath
      **/
     @ApiModelProperty(value = "")
@@ -124,7 +120,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -134,7 +129,6 @@ public class PaymentProcessor extends Indentable {
 
 
     /**
-     *
      * @return productName
      **/
     @ApiModelProperty(value = "")

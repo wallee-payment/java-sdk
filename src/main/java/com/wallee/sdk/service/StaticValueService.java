@@ -44,9 +44,8 @@ public class StaticValueService {
      **/
     public List<StaticValue> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<StaticValue>>() {
-        };
-        return (List<StaticValue>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>() {
+        });
     }
 
     /**
@@ -64,9 +63,8 @@ public class StaticValueService {
      **/
     public List<StaticValue> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<StaticValue>>() {
-        };
-        return (List<StaticValue>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>() {
+        });
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -123,9 +121,8 @@ public class StaticValueService {
      **/
     public StaticValue read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<StaticValue>() {
-        };
-        return (StaticValue) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>() {
+        });
     }
 
     /**
@@ -144,9 +141,8 @@ public class StaticValueService {
      **/
     public StaticValue read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<StaticValue>() {
-        };
-        return (StaticValue) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

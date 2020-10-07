@@ -81,6 +81,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The collector handles the debt collection case based on the settings of this configuration.
+     *
      * @return collector
      **/
     @ApiModelProperty(value = "The collector handles the debt collection case based on the settings of this configuration.")
@@ -91,6 +92,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The conditions applied to the collector configuration restricts the application of this configuration onto a particular debt collection case.
+     *
      * @return conditions
      **/
     @ApiModelProperty(value = "The conditions applied to the collector configuration restricts the application of this configuration onto a particular debt collection case.")
@@ -101,6 +103,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The collector configuration is only enabled for the selected space views. In case the set is empty the collector configuration is enabled for all space views.
+     *
      * @return enabledSpaceViews
      **/
     @ApiModelProperty(value = "The collector configuration is only enabled for the selected space views. In case the set is empty the collector configuration is enabled for all space views.")
@@ -111,6 +114,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -121,6 +125,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -131,6 +136,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The collector configuration name is used internally to identify a specific collector configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The collector configuration name is used internally to identify a specific collector configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
@@ -141,6 +147,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -151,6 +158,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The priority defines the order in which the collector configuration is tried to be applied onto a debt collection case. The higher the value the less likely the configuration is applied on a case.
+     *
      * @return priority
      **/
     @ApiModelProperty(value = "The priority defines the order in which the collector configuration is tried to be applied onto a debt collection case. The higher the value the less likely the configuration is applied on a case.")
@@ -161,6 +169,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * When the review is skipped there will be no review for cases which use this configuration.
+     *
      * @return skipReviewEnabled
      **/
     @ApiModelProperty(value = "When the review is skipped there will be no review for cases which use this configuration.")
@@ -170,7 +179,6 @@ public class DebtCollectorConfiguration extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -181,6 +189,7 @@ public class DebtCollectorConfiguration extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

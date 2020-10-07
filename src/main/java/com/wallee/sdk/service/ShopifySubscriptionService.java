@@ -56,9 +56,8 @@ public class ShopifySubscriptionService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     /**
@@ -77,9 +76,8 @@ public class ShopifySubscriptionService {
      **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {
-        };
-        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
+        });
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -167,9 +165,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     /**
@@ -189,9 +186,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
@@ -286,9 +282,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscription read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<ShopifySubscription>() {
-        };
-        return (ShopifySubscription) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscription>() {
+        });
     }
 
     /**
@@ -308,9 +303,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscription read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscription>() {
-        };
-        return (ShopifySubscription) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscription>() {
+        });
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -390,9 +384,8 @@ public class ShopifySubscriptionService {
      **/
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {
-        };
-        return (List<ShopifySubscription>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscription>>() {
+        });
     }
 
     /**
@@ -412,9 +405,8 @@ public class ShopifySubscriptionService {
      **/
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {
-        };
-        return (List<ShopifySubscription>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscription>>() {
+        });
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -619,9 +611,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     /**
@@ -641,9 +632,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, ShopifySubscriptionUpdateRequest subscription) throws IOException {
@@ -738,9 +728,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     /**
@@ -760,9 +749,8 @@ public class ShopifySubscriptionService {
      **/
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest, params);
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {
-        };
-        return (ShopifySubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionVersion>() {
+        });
     }
 
     public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {

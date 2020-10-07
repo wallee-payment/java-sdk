@@ -87,7 +87,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return city
      **/
     @ApiModelProperty(value = "")
@@ -97,7 +96,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return country
      **/
     @ApiModelProperty(value = "")
@@ -107,7 +105,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return dependentLocality
      **/
     @ApiModelProperty(value = "")
@@ -117,7 +114,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "")
@@ -127,7 +123,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return familyName
      **/
     @ApiModelProperty(value = "")
@@ -137,7 +132,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return givenName
      **/
     @ApiModelProperty(value = "")
@@ -147,7 +141,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return mobilePhoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -157,7 +150,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return organizationName
      **/
     @ApiModelProperty(value = "")
@@ -167,7 +159,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return phoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -177,7 +168,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return postalState
      **/
     @ApiModelProperty(value = "")
@@ -187,7 +177,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return postcode
      **/
     @ApiModelProperty(value = "")
@@ -197,7 +186,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return salutation
      **/
     @ApiModelProperty(value = "")
@@ -208,6 +196,7 @@ public class PaymentTerminalAddress extends Indentable {
 
     /**
      * The sorting code identifies the post office at which the post box is located in.
+     *
      * @return sortingCode
      **/
     @ApiModelProperty(value = "The sorting code identifies the post office at which the post box is located in.")
@@ -217,7 +206,6 @@ public class PaymentTerminalAddress extends Indentable {
 
 
     /**
-     *
      * @return street
      **/
     @ApiModelProperty(value = "")

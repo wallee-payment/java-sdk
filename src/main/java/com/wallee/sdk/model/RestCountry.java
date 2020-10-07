@@ -57,6 +57,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).
+     *
      * @return isOCode2Letter
      **/
     @ApiModelProperty(value = "The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).")
@@ -67,6 +68,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).
+     *
      * @return isOCode3Letter
      **/
     @ApiModelProperty(value = "The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).")
@@ -77,6 +79,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The address format of the country indicates how an address has to look like for the country.
+     *
      * @return addressFormat
      **/
     @ApiModelProperty(value = "The address format of the country indicates how an address has to look like for the country.")
@@ -87,6 +90,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The name labels the country by a name in English.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name labels the country by a name in English.")
@@ -97,6 +101,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).
+     *
      * @return numericCode
      **/
     @ApiModelProperty(value = "The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).")
@@ -107,6 +112,7 @@ public class RestCountry extends Indentable {
 
     /**
      * The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.
+     *
      * @return stateCodes
      **/
     @ApiModelProperty(value = "The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.")

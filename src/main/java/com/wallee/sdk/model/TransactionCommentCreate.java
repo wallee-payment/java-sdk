@@ -40,7 +40,6 @@ public class TransactionCommentCreate extends AbstractTransactionCommentActive {
     }
 
     /**
-     *
      * @return transaction
      **/
     @ApiModelProperty(required = true, value = "")

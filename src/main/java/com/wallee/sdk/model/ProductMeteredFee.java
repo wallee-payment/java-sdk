@@ -68,7 +68,6 @@ public class ProductMeteredFee extends Indentable {
 
 
     /**
-     *
      * @return component
      **/
     @ApiModelProperty(value = "")
@@ -79,6 +78,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+     *
      * @return description
      **/
     @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
@@ -89,6 +89,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -99,6 +100,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -108,7 +110,6 @@ public class ProductMeteredFee extends Indentable {
 
 
     /**
-     *
      * @return metric
      **/
     @ApiModelProperty(value = "")
@@ -119,6 +120,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The name of the fee should describe for the subscriber in few words for what the fee is for.
+     *
      * @return name
      **/
     @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
@@ -129,6 +131,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.
+     *
      * @return tierPricing
      **/
     @ApiModelProperty(value = "The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.")
@@ -138,7 +141,6 @@ public class ProductMeteredFee extends Indentable {
 
 
     /**
-     *
      * @return type
      **/
     @ApiModelProperty(value = "")
@@ -149,6 +151,7 @@ public class ProductMeteredFee extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")

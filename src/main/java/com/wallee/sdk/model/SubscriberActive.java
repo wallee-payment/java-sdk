@@ -43,7 +43,6 @@ public class SubscriberActive extends SubscriberUpdate {
     }
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")

@@ -48,7 +48,6 @@ public class ShopifySubscriberCreation extends Indentable {
     }
 
     /**
-     *
      * @return emailAddress
      **/
     @ApiModelProperty(value = "")
@@ -67,7 +66,6 @@ public class ShopifySubscriberCreation extends Indentable {
     }
 
     /**
-     *
      * @return phoneNumber
      **/
     @ApiModelProperty(value = "")
@@ -87,6 +85,7 @@ public class ShopifySubscriberCreation extends Indentable {
 
     /**
      * The customer ID has to correspond to the ID assigned to the customer by Shopify. When the subscriber already exists no new subscriber will be created.
+     *
      * @return shopifyCustomerId
      **/
     @ApiModelProperty(required = true, value = "The customer ID has to correspond to the ID assigned to the customer by Shopify. When the subscriber already exists no new subscriber will be created.")

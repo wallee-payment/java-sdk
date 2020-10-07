@@ -48,7 +48,6 @@ public class ShopifySubscriptionUpdateAddressesRequest extends Indentable {
     }
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -67,7 +66,6 @@ public class ShopifySubscriptionUpdateAddressesRequest extends Indentable {
     }
 
     /**
-     *
      * @return id
      **/
     @ApiModelProperty(value = "")
@@ -86,7 +84,6 @@ public class ShopifySubscriptionUpdateAddressesRequest extends Indentable {
     }
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(value = "")

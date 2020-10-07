@@ -126,7 +126,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return activatedOn
      **/
     @ApiModelProperty(value = "")
@@ -136,7 +135,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return billingAddress
      **/
     @ApiModelProperty(value = "")
@@ -147,6 +145,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The created on date indicates the date on which the entity was stored into the database.
+     *
      * @return createdOn
      **/
     @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
@@ -156,7 +155,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return environment
      **/
     @ApiModelProperty(value = "")
@@ -167,6 +165,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.
+     *
      * @return expiresOn
      **/
     @ApiModelProperty(value = "The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.")
@@ -176,7 +175,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return iconUrl
      **/
     @ApiModelProperty(value = "")
@@ -187,6 +185,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     *
      * @return id
      **/
     @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
@@ -196,7 +195,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return labels
      **/
     @ApiModelProperty(value = "")
@@ -206,7 +204,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return language
      **/
     @ApiModelProperty(value = "")
@@ -217,6 +214,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The linked space id holds the ID of the space to which the entity belongs to.
+     *
      * @return linkedSpaceId
      **/
     @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
@@ -226,7 +224,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return name
      **/
     @ApiModelProperty(value = "")
@@ -236,7 +233,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return obsoletedOn
      **/
     @ApiModelProperty(value = "")
@@ -246,7 +242,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return paymentConnectorConfiguration
      **/
     @ApiModelProperty(value = "")
@@ -257,6 +252,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The payment information hash set contains hashes of the payment information represented by this token version.
+     *
      * @return paymentInformationHashes
      **/
     @ApiModelProperty(value = "The payment information hash set contains hashes of the payment information represented by this token version.")
@@ -266,7 +262,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return paymentMethod
      **/
     @ApiModelProperty(value = "")
@@ -276,7 +271,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return paymentMethodBrand
      **/
     @ApiModelProperty(value = "")
@@ -287,6 +281,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     *
      * @return plannedPurgeDate
      **/
     @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
@@ -296,7 +291,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return processorToken
      **/
     @ApiModelProperty(value = "")
@@ -306,7 +300,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return shippingAddress
      **/
     @ApiModelProperty(value = "")
@@ -316,7 +309,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return state
      **/
     @ApiModelProperty(value = "")
@@ -326,7 +318,6 @@ public class TokenVersion extends Indentable {
 
 
     /**
-     *
      * @return token
      **/
     @ApiModelProperty(value = "")
@@ -337,6 +328,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The token version type determines what kind of token it is and by which payment connector the token can be processed by.
+     *
      * @return type
      **/
     @ApiModelProperty(value = "The token version type determines what kind of token it is and by which payment connector the token can be processed by.")
@@ -347,6 +339,7 @@ public class TokenVersion extends Indentable {
 
     /**
      * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     *
      * @return version
      **/
     @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
