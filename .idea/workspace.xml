@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7516dafe-33e4-4c57-94cd-84313cb8e631" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SpaceReferenceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SpaceReferenceState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeProcessingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeProcessingType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionLedgerEntryState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionLedgerEntryState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionPeriodBillState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionPeriodBillState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductComponentReferenceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductComponentReferenceState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductVersionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionReason.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionReason.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionVersionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenVersionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenizationMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenizationMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionEnvironmentSelectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionEnvironmentSelectionStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionGroupState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionGroupState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionInvoiceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionInvoiceState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionUserInterfaceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionUserInterfaceType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidState.java" afterDir="false" />
-    </list>
+    <list default="true" id="7516dafe-33e4-4c57-94cd-84313cb8e631" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,10 +143,10 @@
     </state>
     <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602056041163" />
     <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070947946" />
-    <state x="554" y="328" width="837" height="550" key="find.popup" timestamp="1602070532294">
+    <state x="554" y="328" width="837" height="550" key="find.popup" timestamp="1602071467916">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602064572981" />
+    <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602071467916" />
     <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070532294" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1602064659460">
       <screen x="0" y="23" width="1792" height="1097" />

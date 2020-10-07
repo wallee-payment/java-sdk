@@ -151,7 +151,7 @@ public class EntityQueryFilter extends Indentable {
      **/
     @ApiModelProperty(value = "The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.")
     public Object getValue() {
-        return name();
+        return value;
     }
 
     public void setValue(Object value) {
