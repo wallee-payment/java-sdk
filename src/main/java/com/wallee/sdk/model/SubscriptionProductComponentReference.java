@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.")
 
-public class SubscriptionProductComponentReference {
+public class SubscriptionProductComponentReference extends Indentable {
   
   @JsonProperty("id")
   protected Long id;
@@ -174,16 +174,7 @@ public class SubscriptionProductComponentReference {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

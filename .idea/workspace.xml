@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7516dafe-33e4-4c57-94cd-84313cb8e631" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iXYPQ3DsQGDdokbwt7wtmIceVX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="All in java-sdk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-sdk" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in java-sdk" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7516dafe-33e4-4c57-94cd-84313cb8e631" name="Default Changelist" comment="" />
+      <created>1602055379406</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602055379406</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="496" y="237" key="#Project_Structure" timestamp="1602055425801">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="496" y="237" key="#Project_Structure/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602055425801" />
+    <state x="745" y="467" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602061953305">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="745" y="467" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602061953305" />
+    <state x="100" y="123" width="1592" height="897" key="DiffContextDialog" timestamp="1602056464940">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="100" y="123" width="1592" height="897" key="DiffContextDialog/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602056464940" />
+    <state width="1750" height="303" key="GridCell.Tab.0.bottom" timestamp="1602065766951">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.bottom/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766951" />
+    <state width="1750" height="303" key="GridCell.Tab.0.center" timestamp="1602065766950">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.center/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766950" />
+    <state width="1750" height="303" key="GridCell.Tab.0.left" timestamp="1602065766949">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.left/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766949" />
+    <state width="1750" height="303" key="GridCell.Tab.0.right" timestamp="1602065766950">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="1750" height="303" key="GridCell.Tab.0.right/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766950" />
+    <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602056041163">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602056041163" />
+    <state x="554" y="328" width="837" height="550" key="find.popup" timestamp="1602064572981">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602064572981" />
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1602064659460">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602064659460" />
+  </component>
+</project>

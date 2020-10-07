@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractAccountUpdate
  */
 
-public class AbstractAccountUpdate {
+public class AbstractAccountUpdate extends Indentable {
   
   @JsonProperty("lastModifiedDate")
   protected OffsetDateTime lastModifiedDate;
@@ -133,17 +133,6 @@ public class AbstractAccountUpdate {
     sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

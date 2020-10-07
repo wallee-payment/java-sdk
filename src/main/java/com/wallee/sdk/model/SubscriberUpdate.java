@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 
-public class SubscriberUpdate {
+public class SubscriberUpdate extends Indentable {
   
   @JsonProperty("id")
   protected Long id;
@@ -364,16 +364,7 @@ public class SubscriberUpdate {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

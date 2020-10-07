@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The subscription create request holds all the data required to create a new subscription.")
 
-public class SubscriptionCreateRequest {
+public class SubscriptionCreateRequest extends Indentable {
   
   @JsonProperty("componentConfigurations")
   protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations;
@@ -204,16 +204,7 @@ public class SubscriptionCreateRequest {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

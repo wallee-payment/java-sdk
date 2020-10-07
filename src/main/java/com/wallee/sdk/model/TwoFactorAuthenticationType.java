@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "")
 
-public class TwoFactorAuthenticationType {
+public class TwoFactorAuthenticationType extends Indentable {
   
   @JsonProperty("description")
   protected Map<String, String> description;
@@ -142,16 +142,7 @@ public class TwoFactorAuthenticationType {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

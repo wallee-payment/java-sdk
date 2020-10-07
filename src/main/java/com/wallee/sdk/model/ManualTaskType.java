@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The manual task type indicates what kind of manual task is required to be executed by the human.")
 
-public class ManualTaskType {
+public class ManualTaskType extends Indentable {
   
   @JsonProperty("description")
   protected Map<String, String> description;
@@ -127,16 +127,7 @@ public class ManualTaskType {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

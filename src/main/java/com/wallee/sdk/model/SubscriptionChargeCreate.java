@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
 
-public class SubscriptionChargeCreate {
+public class SubscriptionChargeCreate extends Indentable {
   
   @JsonProperty("externalId")
   protected String externalId;
@@ -237,16 +237,7 @@ public class SubscriptionChargeCreate {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

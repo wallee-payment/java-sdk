@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The payment link defines an URL to automatically create transactions.")
 
-public class PaymentLink {
+public class PaymentLink extends Indentable {
   
   @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations;
@@ -367,16 +367,7 @@ public class PaymentLink {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

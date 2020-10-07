@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A manual task requires a manual intervention by a human.")
 
-public class ManualTask {
+public class ManualTask extends Indentable {
   
   @JsonProperty("actions")
   protected List<Long> actions;
@@ -222,16 +222,7 @@ public class ManualTask {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

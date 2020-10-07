@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A Shopify Integration allows to connect a Shopify shop.")
 
-public class ShopifyIntegration {
+public class ShopifyIntegration extends Indentable {
   
   @JsonProperty("allowInvoiceDownload")
   protected Boolean allowInvoiceDownload;
@@ -382,16 +382,7 @@ public class ShopifyIntegration {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

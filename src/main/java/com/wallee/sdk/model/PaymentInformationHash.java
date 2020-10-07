@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.")
 
-public class PaymentInformationHash {
+public class PaymentInformationHash extends Indentable {
   
   @JsonProperty("id")
   protected Long id;
@@ -109,16 +109,7 @@ public class PaymentInformationHash {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

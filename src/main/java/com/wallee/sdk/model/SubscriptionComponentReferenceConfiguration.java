@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The component reference configuration adjusts the product component for a particular subscription.")
 
-public class SubscriptionComponentReferenceConfiguration {
+public class SubscriptionComponentReferenceConfiguration extends Indentable {
   
   @JsonProperty("productComponentReferenceId")
   protected Long productComponentReferenceId;
@@ -112,16 +112,7 @@ public class SubscriptionComponentReferenceConfiguration {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

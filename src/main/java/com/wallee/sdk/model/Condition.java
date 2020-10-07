@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A condition configuration controls under which condition a payment connector is applied to a transaction.")
 
-public class Condition {
+public class Condition extends Indentable {
   
   @JsonProperty("conditionType")
   protected Long conditionType;
@@ -173,16 +173,7 @@ public class Condition {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

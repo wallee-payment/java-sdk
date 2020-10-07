@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractSpaceUpdate
  */
 
-public class AbstractSpaceUpdate {
+public class AbstractSpaceUpdate extends Indentable {
   
   @JsonProperty("lastModifiedDate")
   protected OffsetDateTime lastModifiedDate;
@@ -268,17 +268,6 @@ public class AbstractSpaceUpdate {
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

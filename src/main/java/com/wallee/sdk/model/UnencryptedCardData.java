@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "This model holds the card data in plain.")
 
-public class UnencryptedCardData {
+public class UnencryptedCardData extends Indentable {
   
   @JsonProperty("cardHolderName")
   protected String cardHolderName;
@@ -125,16 +125,7 @@ public class UnencryptedCardData {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

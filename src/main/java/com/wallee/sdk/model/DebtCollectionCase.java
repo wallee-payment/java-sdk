@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
 
-public class DebtCollectionCase {
+public class DebtCollectionCase extends Indentable {
   
   @JsonProperty("amount")
   protected BigDecimal amount;
@@ -559,16 +559,7 @@ public class DebtCollectionCase {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

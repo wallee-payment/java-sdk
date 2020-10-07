@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The metric usage provides details about the consumption of a particular metric.")
 
-public class MetricUsage {
+public class MetricUsage extends Indentable {
   
   @JsonProperty("consumedUnits")
   protected BigDecimal consumedUnits;
@@ -127,16 +127,7 @@ public class MetricUsage {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

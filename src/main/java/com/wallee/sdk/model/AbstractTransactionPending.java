@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractTransactionPending
  */
 
-public class AbstractTransactionPending {
+public class AbstractTransactionPending extends Indentable {
   
   @JsonProperty("allowedPaymentMethodBrands")
   protected List<PaymentMethodBrand> allowedPaymentMethodBrands;
@@ -543,17 +543,6 @@ public class AbstractTransactionPending {
     sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

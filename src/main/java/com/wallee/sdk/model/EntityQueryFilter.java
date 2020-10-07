@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The query filter allows to restrict the entities which are returned.")
 
-public class EntityQueryFilter {
+public class EntityQueryFilter extends Indentable {
   
   @JsonProperty("children")
   protected List<EntityQueryFilter> children;
@@ -195,16 +195,7 @@ public class EntityQueryFilter {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

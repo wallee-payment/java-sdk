@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractSubscriptionProductActive
  */
 
-public class AbstractSubscriptionProductActive {
+public class AbstractSubscriptionProductActive extends Indentable {
   
   @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<Long> allowedPaymentMethodConfigurations;
@@ -192,17 +192,6 @@ public class AbstractSubscriptionProductActive {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

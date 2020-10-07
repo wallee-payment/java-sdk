@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "An error that is returned as the result of a bad user request or a misconfiguration.")
 
-public class ClientError {
+public class ClientError extends Indentable {
   
   @JsonProperty("date")
   protected String date;
@@ -140,16 +140,7 @@ public class ClientError {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

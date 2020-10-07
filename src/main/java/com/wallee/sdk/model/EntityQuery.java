@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.")
 
-public class EntityQuery {
+public class EntityQuery extends Indentable {
   
   @JsonProperty("filter")
   protected EntityQueryFilter filter;
@@ -196,16 +196,7 @@ public class EntityQuery {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

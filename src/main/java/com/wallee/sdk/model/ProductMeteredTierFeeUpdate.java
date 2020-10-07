@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "")
 
-public class ProductMeteredTierFeeUpdate {
+public class ProductMeteredTierFeeUpdate extends Indentable {
   
   @JsonProperty("id")
   protected Long id;
@@ -197,16 +197,7 @@ public class ProductMeteredTierFeeUpdate {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

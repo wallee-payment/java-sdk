@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractWebhookUrlUpdate
  */
 
-public class AbstractWebhookUrlUpdate {
+public class AbstractWebhookUrlUpdate extends Indentable {
   
   @JsonProperty("name")
   protected String name;
@@ -131,17 +131,6 @@ public class AbstractWebhookUrlUpdate {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }

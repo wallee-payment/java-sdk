@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "")
 
-public class PaymentTerminalConfigurationVersion {
+public class PaymentTerminalConfigurationVersion extends Indentable {
   
   @JsonProperty("configuration")
   protected PaymentTerminalConfiguration _configuration;
@@ -271,16 +271,7 @@ public class PaymentTerminalConfigurationVersion {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

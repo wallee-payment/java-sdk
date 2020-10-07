@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The debt collector connects to an external service to process the debt collection case and as such directs the debt collection process.")
 
-public class DebtCollector {
+public class DebtCollector extends Indentable {
   
   @JsonProperty("description")
   protected Map<String, String> description;
@@ -110,16 +110,7 @@ public class DebtCollector {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

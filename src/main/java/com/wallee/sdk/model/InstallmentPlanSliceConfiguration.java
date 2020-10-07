@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The installment plan slice defines a single slice of an installment plan.")
 
-public class InstallmentPlanSliceConfiguration {
+public class InstallmentPlanSliceConfiguration extends Indentable {
   
   @JsonProperty("id")
   protected Long id;
@@ -223,16 +223,7 @@ public class InstallmentPlanSliceConfiguration {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+
 
 }
 

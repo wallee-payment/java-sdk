@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AbstractHumanUserUpdate
  */
 
-public class AbstractHumanUserUpdate {
+public class AbstractHumanUserUpdate extends Indentable {
   
   @JsonProperty("emailAddress")
   protected String emailAddress;
@@ -257,17 +257,6 @@ public class AbstractHumanUserUpdate {
     sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
   }
 
 }
