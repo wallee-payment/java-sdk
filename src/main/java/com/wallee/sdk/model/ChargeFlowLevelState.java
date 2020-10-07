@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum ChargeFlowLevelState {
   
   PENDING("PENDING"),
@@ -33,7 +30,7 @@ public enum ChargeFlowLevelState {
   
   SUCCESSFUL("SUCCESSFUL");
 
-  private String value;
+  private final String value;
 
   ChargeFlowLevelState(String value) {
     this.value = value;

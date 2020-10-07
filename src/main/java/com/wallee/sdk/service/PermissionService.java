@@ -46,7 +46,6 @@ public class PermissionService {
     **/
     public List<Permission> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;Permission&gt;";
         TypeReference typeRef = new TypeReference<List<Permission>>() {};
         return (List<Permission>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -66,7 +65,6 @@ public class PermissionService {
     **/
     public List<Permission> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;Permission&gt;";
         TypeReference typeRef = new TypeReference<List<Permission>>() {};
         return (List<Permission>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -78,7 +76,6 @@ public class PermissionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class PermissionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -127,7 +123,6 @@ public class PermissionService {
     **/
     public Permission read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "Permission";
         TypeReference typeRef = new TypeReference<Permission>() {};
         return (Permission)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -148,7 +143,6 @@ public class PermissionService {
     **/
     public Permission read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "Permission";
         TypeReference typeRef = new TypeReference<Permission>() {};
         return (Permission)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -165,7 +159,6 @@ public class PermissionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -199,7 +192,6 @@ public class PermissionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

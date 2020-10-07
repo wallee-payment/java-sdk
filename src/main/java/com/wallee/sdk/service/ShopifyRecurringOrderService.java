@@ -54,8 +54,7 @@ public class ShopifyRecurringOrderService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -75,8 +74,7 @@ public class ShopifyRecurringOrderService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -165,8 +163,7 @@ public class ShopifyRecurringOrderService {
     **/
     public ShopifyRecurringOrder read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "ShopifyRecurringOrder";
-      TypeReference typeRef = new TypeReference<ShopifyRecurringOrder>() {};
+        TypeReference typeRef = new TypeReference<ShopifyRecurringOrder>() {};
         return (ShopifyRecurringOrder)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -187,8 +184,7 @@ public class ShopifyRecurringOrderService {
     **/
     public ShopifyRecurringOrder read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "ShopifyRecurringOrder";
-      TypeReference typeRef = new TypeReference<ShopifyRecurringOrder>() {};
+        TypeReference typeRef = new TypeReference<ShopifyRecurringOrder>() {};
         return (ShopifyRecurringOrder)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -211,7 +207,6 @@ public class ShopifyRecurringOrderService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -250,7 +245,6 @@ public class ShopifyRecurringOrderService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -271,8 +265,7 @@ public class ShopifyRecurringOrderService {
     **/
     public List<ShopifyRecurringOrder> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;ShopifyRecurringOrder&gt;";
-      TypeReference typeRef = new TypeReference<List<ShopifyRecurringOrder>>() {};
+        TypeReference typeRef = new TypeReference<List<ShopifyRecurringOrder>>() {};
         return (List<ShopifyRecurringOrder>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -293,8 +286,7 @@ public class ShopifyRecurringOrderService {
     **/
     public List<ShopifyRecurringOrder> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;ShopifyRecurringOrder&gt;";
-      TypeReference typeRef = new TypeReference<List<ShopifyRecurringOrder>>() {};
+        TypeReference typeRef = new TypeReference<List<ShopifyRecurringOrder>>() {};
         return (List<ShopifyRecurringOrder>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

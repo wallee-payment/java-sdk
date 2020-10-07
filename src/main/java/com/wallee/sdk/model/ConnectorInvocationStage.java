@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum ConnectorInvocationStage {
   
   PAYMENT_METHOD_LIST("PAYMENT_METHOD_LIST"),
@@ -35,7 +32,7 @@ public enum ConnectorInvocationStage {
   
   AUTHORIZATION("AUTHORIZATION");
 
-  private String value;
+  private final String value;
 
   ConnectorInvocationStage(String value) {
     this.value = value;

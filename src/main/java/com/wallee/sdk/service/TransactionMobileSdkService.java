@@ -45,8 +45,7 @@ public class TransactionMobileSdkService {
     **/
     public String paymentFormUrl(String credentials) throws IOException {
         HttpResponse response = paymentFormUrlForHttpResponse(credentials);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
   /**
@@ -66,8 +65,7 @@ public class TransactionMobileSdkService {
     **/
     public String paymentFormUrl(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = paymentFormUrlForHttpResponse(credentials, params);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
     public HttpResponse paymentFormUrlForHttpResponse(String credentials) throws IOException {
@@ -82,7 +80,6 @@ public class TransactionMobileSdkService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -116,7 +113,6 @@ public class TransactionMobileSdkService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

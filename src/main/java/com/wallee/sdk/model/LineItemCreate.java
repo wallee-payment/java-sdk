@@ -31,9 +31,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * 
- */
+
 @ApiModel(description = "")
 
 public class LineItemCreate extends Indentable {

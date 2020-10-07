@@ -49,7 +49,6 @@ public class UserSpaceRoleService {
     **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId);
-        String returnType = "UserSpaceRole";
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -72,7 +71,6 @@ public class UserSpaceRoleService {
     **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId, params);
-        String returnType = "UserSpaceRole";
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -169,7 +167,6 @@ public class UserSpaceRoleService {
     **/
     public List<UserSpaceRole> list(Long userId, Long spaceId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId);
-        String returnType = "List&lt;UserSpaceRole&gt;";
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -192,7 +189,6 @@ public class UserSpaceRoleService {
     **/
     public List<UserSpaceRole> list(Long userId, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId, params);
-        String returnType = "List&lt;UserSpaceRole&gt;";
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

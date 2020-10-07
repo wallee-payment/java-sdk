@@ -61,7 +61,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId) throws IOException {
         HttpResponse response = addCollectedAmountForHttpResponse(spaceId, id, collectedAmount, externalId);
-        String returnType = "DebtCollectionReceipt";
         TypeReference typeRef = new TypeReference<DebtCollectionReceipt>() {};
         return (DebtCollectionReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -86,7 +85,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId, Map<String, Object> params) throws IOException {
         HttpResponse response = addCollectedAmountForHttpResponse(spaceId, id, collectedAmount, externalId, params);
-        String returnType = "DebtCollectionReceipt";
         TypeReference typeRef = new TypeReference<DebtCollectionReceipt>() {};
         return (DebtCollectionReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -201,7 +199,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64) throws IOException {
         HttpResponse response = attachDocumentForHttpResponse(spaceId, id, fileName, contentBase64);
-        String returnType = "DebtCollectionCaseDocument";
         TypeReference typeRef = new TypeReference<DebtCollectionCaseDocument>() {};
         return (DebtCollectionCaseDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -226,7 +223,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64, Map<String, Object> params) throws IOException {
         HttpResponse response = attachDocumentForHttpResponse(spaceId, id, fileName, contentBase64, params);
-        String returnType = "DebtCollectionCaseDocument";
         TypeReference typeRef = new TypeReference<DebtCollectionCaseDocument>() {};
         return (DebtCollectionCaseDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -335,7 +331,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase close(Long spaceId, Long id) throws IOException {
         HttpResponse response = closeForHttpResponse(spaceId, id);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -358,7 +353,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase close(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = closeForHttpResponse(spaceId, id, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -442,7 +436,6 @@ public class DebtCollectionCaseService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -463,7 +456,6 @@ public class DebtCollectionCaseService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -553,7 +545,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -575,7 +566,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -784,7 +774,6 @@ public class DebtCollectionCaseService {
     **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id) throws IOException {
         HttpResponse response = documentsForHttpResponse(spaceId, id);
-        String returnType = "List&lt;DebtCollectionCaseDocument&gt;";
         TypeReference typeRef = new TypeReference<List<DebtCollectionCaseDocument>>() {};
         return (List<DebtCollectionCaseDocument>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -807,7 +796,6 @@ public class DebtCollectionCaseService {
     **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = documentsForHttpResponse(spaceId, id, params);
-        String returnType = "List&lt;DebtCollectionCaseDocument&gt;";
         TypeReference typeRef = new TypeReference<List<DebtCollectionCaseDocument>>() {};
         return (List<DebtCollectionCaseDocument>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -892,7 +880,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPreparedForHttpResponse(spaceId, id);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -915,7 +902,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPreparedForHttpResponse(spaceId, id, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1000,7 +986,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsReviewedForHttpResponse(spaceId, id);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1023,7 +1008,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsReviewedForHttpResponse(spaceId, id, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1107,7 +1091,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1129,7 +1112,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1153,7 +1135,6 @@ public class DebtCollectionCaseService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1192,7 +1173,6 @@ public class DebtCollectionCaseService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1213,7 +1193,6 @@ public class DebtCollectionCaseService {
     **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;DebtCollectionCase&gt;";
         TypeReference typeRef = new TypeReference<List<DebtCollectionCase>>() {};
         return (List<DebtCollectionCase>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1235,7 +1214,6 @@ public class DebtCollectionCaseService {
     **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;DebtCollectionCase&gt;";
         TypeReference typeRef = new TypeReference<List<DebtCollectionCase>>() {};
         return (List<DebtCollectionCase>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1333,7 +1311,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1356,7 +1333,6 @@ public class DebtCollectionCaseService {
     **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "DebtCollectionCase";
         TypeReference typeRef = new TypeReference<DebtCollectionCase>() {};
         return (DebtCollectionCase)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

@@ -53,8 +53,7 @@ public class TokenVersionService {
     **/
     public TokenVersion activeVersion(Long spaceId, Long id) throws IOException {
         HttpResponse response = activeVersionForHttpResponse(spaceId, id);
-        String returnType = "TokenVersion";
-      TypeReference typeRef = new TypeReference<TokenVersion>() {};
+        TypeReference typeRef = new TypeReference<TokenVersion>() {};
         return (TokenVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -75,8 +74,7 @@ public class TokenVersionService {
     **/
     public TokenVersion activeVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = activeVersionForHttpResponse(spaceId, id, params);
-        String returnType = "TokenVersion";
-      TypeReference typeRef = new TypeReference<TokenVersion>() {};
+        TypeReference typeRef = new TypeReference<TokenVersion>() {};
         return (TokenVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -99,7 +97,6 @@ public class TokenVersionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -138,7 +135,6 @@ public class TokenVersionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -159,8 +155,7 @@ public class TokenVersionService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -180,8 +175,7 @@ public class TokenVersionService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -270,8 +264,7 @@ public class TokenVersionService {
     **/
     public TokenVersion read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "TokenVersion";
-      TypeReference typeRef = new TypeReference<TokenVersion>() {};
+        TypeReference typeRef = new TypeReference<TokenVersion>() {};
         return (TokenVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -292,8 +285,7 @@ public class TokenVersionService {
     **/
     public TokenVersion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "TokenVersion";
-      TypeReference typeRef = new TypeReference<TokenVersion>() {};
+        TypeReference typeRef = new TypeReference<TokenVersion>() {};
         return (TokenVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -316,7 +308,6 @@ public class TokenVersionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -355,7 +346,6 @@ public class TokenVersionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -376,8 +366,7 @@ public class TokenVersionService {
     **/
     public List<TokenVersion> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;TokenVersion&gt;";
-      TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
         return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -398,8 +387,7 @@ public class TokenVersionService {
     **/
     public List<TokenVersion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;TokenVersion&gt;";
-      TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
         return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

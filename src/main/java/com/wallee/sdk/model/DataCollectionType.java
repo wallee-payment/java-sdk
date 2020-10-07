@@ -22,16 +22,13 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum DataCollectionType {
   
   ONSITE("ONSITE"),
   
   OFFSITE("OFFSITE");
 
-  private String value;
+  private final String value;
 
   DataCollectionType(String value) {
     this.value = value;

@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum AccountType {
   
   MASTER("MASTER"),
@@ -33,7 +30,7 @@ public enum AccountType {
   
   SUBACCOUNT("SUBACCOUNT");
 
-  private String value;
+  private final String value;
 
   AccountType(String value) {
     this.value = value;

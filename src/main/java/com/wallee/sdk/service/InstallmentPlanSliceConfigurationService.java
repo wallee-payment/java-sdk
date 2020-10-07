@@ -53,7 +53,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -75,7 +74,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -172,7 +170,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public InstallmentPlanSliceConfiguration read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "InstallmentPlanSliceConfiguration";
       TypeReference typeRef = new TypeReference<InstallmentPlanSliceConfiguration>() {};
         return (InstallmentPlanSliceConfiguration)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -194,7 +191,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public InstallmentPlanSliceConfiguration read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "InstallmentPlanSliceConfiguration";
       TypeReference typeRef = new TypeReference<InstallmentPlanSliceConfiguration>() {};
         return (InstallmentPlanSliceConfiguration)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -218,7 +214,6 @@ public class InstallmentPlanSliceConfigurationService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -257,7 +252,6 @@ public class InstallmentPlanSliceConfigurationService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -278,7 +272,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public List<InstallmentPlanSliceConfiguration> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;InstallmentPlanSliceConfiguration&gt;";
       TypeReference typeRef = new TypeReference<List<InstallmentPlanSliceConfiguration>>() {};
         return (List<InstallmentPlanSliceConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -300,7 +293,6 @@ public class InstallmentPlanSliceConfigurationService {
     **/
     public List<InstallmentPlanSliceConfiguration> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;InstallmentPlanSliceConfiguration&gt;";
       TypeReference typeRef = new TypeReference<List<InstallmentPlanSliceConfiguration>>() {};
         return (List<InstallmentPlanSliceConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

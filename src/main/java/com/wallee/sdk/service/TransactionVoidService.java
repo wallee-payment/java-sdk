@@ -53,8 +53,7 @@ public class TransactionVoidService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -74,8 +73,7 @@ public class TransactionVoidService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -164,8 +162,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -186,8 +183,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -210,7 +206,6 @@ public class TransactionVoidService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -249,7 +244,6 @@ public class TransactionVoidService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -270,8 +264,7 @@ public class TransactionVoidService {
     **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;TransactionVoid&gt;";
-      TypeReference typeRef = new TypeReference<List<TransactionVoid>>() {};
+        TypeReference typeRef = new TypeReference<List<TransactionVoid>>() {};
         return (List<TransactionVoid>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -292,8 +285,7 @@ public class TransactionVoidService {
     **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;TransactionVoid&gt;";
-      TypeReference typeRef = new TypeReference<List<TransactionVoid>>() {};
+        TypeReference typeRef = new TypeReference<List<TransactionVoid>>() {};
         return (List<TransactionVoid>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -389,8 +381,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid voidOffline(Long spaceId, Long id) throws IOException {
         HttpResponse response = voidOfflineForHttpResponse(spaceId, id);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -411,8 +402,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid voidOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = voidOfflineForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -495,8 +485,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid voidOnline(Long spaceId, Long id) throws IOException {
         HttpResponse response = voidOnlineForHttpResponse(spaceId, id);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -517,8 +506,7 @@ public class TransactionVoidService {
     **/
     public TransactionVoid voidOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = voidOnlineForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionVoid";
-      TypeReference typeRef = new TypeReference<TransactionVoid>() {};
+        TypeReference typeRef = new TypeReference<TransactionVoid>() {};
         return (TransactionVoid)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

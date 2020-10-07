@@ -22,16 +22,13 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum Gender {
   
   MALE("MALE"),
   
   FEMALE("FEMALE");
 
-  private String value;
+  private final String value;
 
   Gender(String value) {
     this.value = value;

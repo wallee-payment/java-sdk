@@ -22,9 +22,7 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
+
 public enum PaymentTerminalConfigurationVersionState {
   
   PENDING("PENDING"),
@@ -37,7 +35,7 @@ public enum PaymentTerminalConfigurationVersionState {
   
   DELETED("DELETED");
 
-  private String value;
+  private final String value;
 
   PaymentTerminalConfigurationVersionState(String value) {
     this.value = value;

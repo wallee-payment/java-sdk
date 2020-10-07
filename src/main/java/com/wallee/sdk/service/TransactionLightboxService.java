@@ -46,8 +46,7 @@ public class TransactionLightboxService {
     **/
     public String javascriptUrl(Long spaceId, Long id) throws IOException {
         HttpResponse response = javascriptUrlForHttpResponse(spaceId, id);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
   /**
@@ -68,8 +67,7 @@ public class TransactionLightboxService {
     **/
     public String javascriptUrl(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = javascriptUrlForHttpResponse(spaceId, id, params);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
     public HttpResponse javascriptUrlForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -91,7 +89,6 @@ public class TransactionLightboxService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -130,7 +127,6 @@ public class TransactionLightboxService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

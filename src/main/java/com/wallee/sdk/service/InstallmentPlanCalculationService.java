@@ -48,7 +48,6 @@ public class InstallmentPlanCalculationService {
     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId);
-        String returnType = "List&lt;InstallmentCalculatedPlan&gt;";
         TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
         return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -70,7 +69,6 @@ public class InstallmentPlanCalculationService {
     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId, params);
-        String returnType = "List&lt;InstallmentCalculatedPlan&gt;";
         TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
         return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

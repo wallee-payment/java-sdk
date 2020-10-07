@@ -53,7 +53,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -74,7 +73,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -164,7 +162,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public PaymentConnectorConfiguration read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "PaymentConnectorConfiguration";
       TypeReference typeRef = new TypeReference<PaymentConnectorConfiguration>() {};
         return (PaymentConnectorConfiguration)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -186,7 +183,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public PaymentConnectorConfiguration read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "PaymentConnectorConfiguration";
       TypeReference typeRef = new TypeReference<PaymentConnectorConfiguration>() {};
         return (PaymentConnectorConfiguration)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -210,7 +206,6 @@ public class PaymentConnectorConfigurationService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -249,7 +244,6 @@ public class PaymentConnectorConfigurationService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -270,7 +264,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public List<PaymentConnectorConfiguration> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;PaymentConnectorConfiguration&gt;";
       TypeReference typeRef = new TypeReference<List<PaymentConnectorConfiguration>>() {};
         return (List<PaymentConnectorConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -292,7 +285,6 @@ public class PaymentConnectorConfigurationService {
     **/
     public List<PaymentConnectorConfiguration> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;PaymentConnectorConfiguration&gt;";
       TypeReference typeRef = new TypeReference<List<PaymentConnectorConfiguration>>() {};
         return (List<PaymentConnectorConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

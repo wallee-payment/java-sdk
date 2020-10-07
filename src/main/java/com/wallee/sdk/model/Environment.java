@@ -22,16 +22,13 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum Environment {
   
   LIVE("LIVE"),
   
   PREVIEW("PREVIEW");
 
-  private String value;
+  private final String value;
 
   Environment(String value) {
     this.value = value;

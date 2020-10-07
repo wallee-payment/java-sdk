@@ -49,7 +49,6 @@ public class TransactionTerminalService {
     **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width);
-        String returnType = "RenderedTerminalReceipt";
         TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
         return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -73,7 +72,6 @@ public class TransactionTerminalService {
     **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width, params);
-        String returnType = "RenderedTerminalReceipt";
         TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
         return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -111,7 +109,6 @@ public class TransactionTerminalService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -160,7 +157,6 @@ public class TransactionTerminalService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -183,7 +179,6 @@ public class TransactionTerminalService {
     **/
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
         HttpResponse response = tillConnectionCredentialsForHttpResponse(spaceId, transactionId, terminalId, language);
-        String returnType = "String";
         return response.parseAsString();
     }
 
@@ -205,7 +200,6 @@ public class TransactionTerminalService {
     **/
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, Map<String, Object> params) throws IOException {
         HttpResponse response = tillConnectionCredentialsForHttpResponse(spaceId, transactionId, terminalId, params);
-        String returnType = "String";
         return response.parseAsString();
     }
 

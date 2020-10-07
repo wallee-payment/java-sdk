@@ -57,8 +57,7 @@ public class ShopifySubscriptionService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -78,8 +77,7 @@ public class ShopifySubscriptionService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -168,8 +166,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -190,8 +187,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest, params);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -287,8 +283,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscription read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "ShopifySubscription";
-      TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
         return (ShopifySubscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -309,8 +304,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscription read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "ShopifySubscription";
-      TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
         return (ShopifySubscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -333,7 +327,6 @@ public class ShopifySubscriptionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -372,7 +365,6 @@ public class ShopifySubscriptionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -393,8 +385,7 @@ public class ShopifySubscriptionService {
     **/
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;ShopifySubscription&gt;";
-      TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
+        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
         return (List<ShopifySubscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -415,8 +406,7 @@ public class ShopifySubscriptionService {
     **/
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;ShopifySubscription&gt;";
-      TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
+        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
         return (List<ShopifySubscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -622,8 +612,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -644,8 +633,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription, params);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -741,8 +729,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -763,8 +750,7 @@ public class ShopifySubscriptionService {
     **/
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest, params);
-        String returnType = "ShopifySubscriptionVersion";
-      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

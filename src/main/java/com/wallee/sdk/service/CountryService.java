@@ -46,7 +46,6 @@ public class CountryService {
     **/
     public List<RestCountry> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;RestCountry&gt;";
         TypeReference typeRef = new TypeReference<List<RestCountry>>() {};
         return (List<RestCountry>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -66,7 +65,6 @@ public class CountryService {
     **/
     public List<RestCountry> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;RestCountry&gt;";
         TypeReference typeRef = new TypeReference<List<RestCountry>>() {};
         return (List<RestCountry>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -78,7 +76,6 @@ public class CountryService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class CountryService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

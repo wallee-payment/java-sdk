@@ -54,8 +54,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completeOffline(Long spaceId, Long id) throws IOException {
         HttpResponse response = completeOfflineForHttpResponse(spaceId, id);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -76,8 +75,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completeOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = completeOfflineForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -160,8 +158,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completeOnline(Long spaceId, Long id) throws IOException {
         HttpResponse response = completeOnlineForHttpResponse(spaceId, id);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -182,8 +179,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completeOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = completeOnlineForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -266,8 +262,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         HttpResponse response = completePartiallyOfflineForHttpResponse(spaceId, completion);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -288,8 +283,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
         HttpResponse response = completePartiallyOfflineForHttpResponse(spaceId, completion, params);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -385,8 +379,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         HttpResponse response = completePartiallyOnlineForHttpResponse(spaceId, completion);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -407,8 +400,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
         HttpResponse response = completePartiallyOnlineForHttpResponse(spaceId, completion, params);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -504,8 +496,7 @@ public class TransactionCompletionService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -525,8 +516,7 @@ public class TransactionCompletionService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -615,8 +605,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -637,8 +626,7 @@ public class TransactionCompletionService {
     **/
     public TransactionCompletion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionCompletion";
-      TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
+        TypeReference typeRef = new TypeReference<TransactionCompletion>() {};
         return (TransactionCompletion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -661,7 +649,6 @@ public class TransactionCompletionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -700,7 +687,6 @@ public class TransactionCompletionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -721,8 +707,7 @@ public class TransactionCompletionService {
     **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;TransactionCompletion&gt;";
-      TypeReference typeRef = new TypeReference<List<TransactionCompletion>>() {};
+        TypeReference typeRef = new TypeReference<List<TransactionCompletion>>() {};
         return (List<TransactionCompletion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -743,8 +728,7 @@ public class TransactionCompletionService {
     **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;TransactionCompletion&gt;";
-      TypeReference typeRef = new TypeReference<List<TransactionCompletion>>() {};
+        TypeReference typeRef = new TypeReference<List<TransactionCompletion>>() {};
         return (List<TransactionCompletion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

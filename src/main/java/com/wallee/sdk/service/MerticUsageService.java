@@ -50,7 +50,6 @@ public class MerticUsageService {
     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end);
-        String returnType = "List&lt;MetricUsage&gt;";
         TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
         return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -73,7 +72,6 @@ public class MerticUsageService {
     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end, params);
-        String returnType = "List&lt;MetricUsage&gt;";
         TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
         return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

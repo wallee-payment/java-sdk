@@ -50,7 +50,6 @@ public class UserAccountRoleService {
     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, appliesOnSubaccount);
-        String returnType = "UserAccountRole";
         TypeReference typeRef = new TypeReference<UserAccountRole>() {};
         return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -73,7 +72,6 @@ public class UserAccountRoleService {
     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, params);
-        String returnType = "UserAccountRole";
         TypeReference typeRef = new TypeReference<UserAccountRole>() {};
         return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -175,7 +173,6 @@ public class UserAccountRoleService {
     **/
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId);
-        String returnType = "List&lt;UserAccountRole&gt;";
         TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
         return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -197,7 +194,6 @@ public class UserAccountRoleService {
     **/
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId, params);
-        String returnType = "List&lt;UserAccountRole&gt;";
         TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
         return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

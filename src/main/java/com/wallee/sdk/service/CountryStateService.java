@@ -46,7 +46,6 @@ public class CountryStateService {
     **/
     public List<RestCountryState> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;RestCountryState&gt;";
       TypeReference typeRef = new TypeReference<List<RestCountryState>>() {};
         return (List<RestCountryState>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -66,7 +65,6 @@ public class CountryStateService {
     **/
     public List<RestCountryState> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;RestCountryState&gt;";
       TypeReference typeRef = new TypeReference<List<RestCountryState>>() {};
         return (List<RestCountryState>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -78,7 +76,6 @@ public class CountryStateService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class CountryStateService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -127,7 +123,6 @@ public class CountryStateService {
     **/
     public List<RestCountryState> country(String code) throws IOException {
         HttpResponse response = countryForHttpResponse(code);
-        String returnType = "List&lt;RestCountryState&gt;";
       TypeReference typeRef = new TypeReference<List<RestCountryState>>() {};
         return (List<RestCountryState>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -148,7 +143,6 @@ public class CountryStateService {
     **/
     public List<RestCountryState> country(String code, Map<String, Object> params) throws IOException {
         HttpResponse response = countryForHttpResponse(code, params);
-        String returnType = "List&lt;RestCountryState&gt;";
       TypeReference typeRef = new TypeReference<List<RestCountryState>>() {};
         return (List<RestCountryState>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -165,7 +159,6 @@ public class CountryStateService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -199,7 +192,6 @@ public class CountryStateService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
