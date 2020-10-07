@@ -41,13 +41,10 @@ public enum EntityQueryFilterType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static EntityQueryFilterType fromValue(String text) {

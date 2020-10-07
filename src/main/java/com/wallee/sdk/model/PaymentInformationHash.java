@@ -70,7 +70,7 @@ public class PaymentInformationHash extends Indentable {
      **/
     @ApiModelProperty(value = "")
     public String getValue() {
-        return value;
+        return name();
     }
 
 

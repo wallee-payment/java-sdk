@@ -39,13 +39,10 @@ public enum ShopifyIntegrationAppVersion {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ShopifyIntegrationAppVersion fromValue(String text) {

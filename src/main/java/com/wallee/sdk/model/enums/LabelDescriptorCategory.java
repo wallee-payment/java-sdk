@@ -36,13 +36,10 @@ public enum LabelDescriptorCategory {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static LabelDescriptorCategory fromValue(String text) {

@@ -45,13 +45,10 @@ public enum SubscriptionVersionState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static SubscriptionVersionState fromValue(String text) {

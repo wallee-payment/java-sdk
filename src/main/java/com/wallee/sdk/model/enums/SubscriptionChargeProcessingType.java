@@ -37,13 +37,10 @@ public enum SubscriptionChargeProcessingType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static SubscriptionChargeProcessingType fromValue(String text) {

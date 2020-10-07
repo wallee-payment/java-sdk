@@ -36,13 +36,10 @@ public enum DataCollectionType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static DataCollectionType fromValue(String text) {

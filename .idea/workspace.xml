@@ -2,15 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7516dafe-33e4-4c57-94cd-84313cb8e631" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/EntityQueryFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/EntityQueryFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/LineItemAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/LineItemAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/LineItemAttributeCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/LineItemAttributeCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/PaymentInformationHash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/PaymentInformationHash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/AccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/AccountType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeAttemptEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeAttemptEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeAttemptState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeAttemptState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeFlowLevelState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeFlowLevelState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ChargeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ClientErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ClientErrorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ConnectorInvocationStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ConnectorInvocationStage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CreationEntityState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CreationEntityState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CriteriaOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CriteriaOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CustomerAddressType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CustomerAddressType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CustomersPresence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/CustomersPresence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DataCollectionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DataCollectionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DebtCollectionCaseState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DebtCollectionCaseState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DebtCollectionEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DebtCollectionEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DeliveryIndicationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/DeliveryIndicationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/EntityQueryFilterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/EntityQueryFilterType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/EntityQueryOrderByType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/EntityQueryOrderByType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/FailureCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/FailureCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/Gender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/Gender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/InstallmentPaymentSliceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/InstallmentPaymentSliceState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/InstallmentPaymentState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/InstallmentPaymentState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/LabelDescriptorCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/LabelDescriptorCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/LineItemType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/LineItemType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ManualTaskActionStyle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ManualTaskActionStyle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ManualTaskState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ManualTaskState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/OneClickPaymentMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/OneClickPaymentMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentContractState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentContractState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentLinkProtectionMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentLinkProtectionMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentPrimaryRiskTaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentPrimaryRiskTaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalConfigurationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalConfigurationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalConfigurationVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalConfigurationVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalLocationState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalLocationState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalLocationVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalLocationVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/PaymentTerminalState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ProductFeeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ProductFeeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ProductMeteredTierPricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ProductMeteredTierPricing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RefundState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RefundState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RefundType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RefundType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ResourceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ResourceState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RestAddressFormatField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/RestAddressFormatField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyIntegrationAppVersion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyIntegrationAppVersion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyRecurringOrderState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyRecurringOrderState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriberState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriberState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionBillingIntervalUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionBillingIntervalUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionProductPricingOption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionProductPricingOption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionProductState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionProductState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionInitiator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionInitiator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionSuspensionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionVersionItemPriceStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionVersionItemPriceStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionWeekday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifySubscriptionWeekday.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyTransactionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/ShopifyTransactionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SpaceReferenceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SpaceReferenceState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeProcessingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeProcessingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionChargeType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionLedgerEntryState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionLedgerEntryState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionPeriodBillState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionPeriodBillState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductComponentReferenceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductComponentReferenceState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionProductVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionReason.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionReason.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionSuspensionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/SubscriptionVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenVersionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenVersionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenizationMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TokenizationMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionCompletionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionEnvironmentSelectionStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionEnvironmentSelectionStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionGroupState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionGroupState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionInvoiceState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionInvoiceState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionUserInterfaceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionUserInterfaceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidMode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/TransactionVoidState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wallee/sdk/model/enums/UserType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,30 +205,35 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="100" y="123" width="1592" height="897" key="DiffContextDialog/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602056464940" />
-    <state width="1750" height="303" key="GridCell.Tab.0.bottom" timestamp="1602065766951">
+    <state width="1750" height="299" key="GridCell.Tab.0.bottom" timestamp="1602070083591">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1750" height="303" key="GridCell.Tab.0.bottom/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766951" />
-    <state width="1750" height="303" key="GridCell.Tab.0.center" timestamp="1602065766950">
+    <state width="1750" height="299" key="GridCell.Tab.0.bottom/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070083591" />
+    <state width="1750" height="299" key="GridCell.Tab.0.center" timestamp="1602070083589">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1750" height="303" key="GridCell.Tab.0.center/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766950" />
-    <state width="1750" height="303" key="GridCell.Tab.0.left" timestamp="1602065766949">
+    <state width="1750" height="299" key="GridCell.Tab.0.center/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070083589" />
+    <state width="1750" height="299" key="GridCell.Tab.0.left" timestamp="1602070083588">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1750" height="303" key="GridCell.Tab.0.left/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766949" />
-    <state width="1750" height="303" key="GridCell.Tab.0.right" timestamp="1602065766950">
+    <state width="1750" height="299" key="GridCell.Tab.0.left/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070083588" />
+    <state width="1750" height="299" key="GridCell.Tab.0.right" timestamp="1602070083590">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1750" height="303" key="GridCell.Tab.0.right/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602065766950" />
+    <state width="1750" height="299" key="GridCell.Tab.0.right/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070083590" />
     <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602056041163">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="679" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602056041163" />
-    <state x="554" y="328" width="837" height="550" key="find.popup" timestamp="1602064572981">
+    <state x="554" y="328" width="837" height="550" key="find.popup" timestamp="1602070532294">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1057.1920.1057/0.23.1792.1097@0.23.1792.1097" timestamp="1602064572981" />
+    <state x="554" y="328" width="837" height="550" key="find.popup/880.-1057.1920.1057/-1040.-1080.1920.1080/0.23.1792.1097@0.23.1792.1097" timestamp="1602070532294" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1602064659460">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>

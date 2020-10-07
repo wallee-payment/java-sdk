@@ -37,13 +37,10 @@ public enum ShopifySubscriptionSuspensionType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ShopifySubscriptionSuspensionType fromValue(String text) {

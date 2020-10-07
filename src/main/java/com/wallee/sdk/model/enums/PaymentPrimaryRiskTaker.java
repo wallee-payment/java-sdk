@@ -41,13 +41,10 @@ public enum PaymentPrimaryRiskTaker {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static PaymentPrimaryRiskTaker fromValue(String text) {

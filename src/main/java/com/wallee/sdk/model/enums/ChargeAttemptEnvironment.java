@@ -36,13 +36,10 @@ public enum ChargeAttemptEnvironment {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ChargeAttemptEnvironment fromValue(String text) {

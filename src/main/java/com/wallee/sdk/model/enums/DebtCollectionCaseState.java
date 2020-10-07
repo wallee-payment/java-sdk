@@ -46,13 +46,10 @@ public enum DebtCollectionCaseState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static DebtCollectionCaseState fromValue(String text) {

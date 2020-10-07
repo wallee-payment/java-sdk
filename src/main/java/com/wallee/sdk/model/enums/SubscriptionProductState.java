@@ -43,13 +43,10 @@ public enum SubscriptionProductState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static SubscriptionProductState fromValue(String text) {

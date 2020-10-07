@@ -41,13 +41,10 @@ public enum TransactionVoidState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static TransactionVoidState fromValue(String text) {

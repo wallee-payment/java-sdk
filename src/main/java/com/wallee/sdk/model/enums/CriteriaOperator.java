@@ -57,13 +57,10 @@ public enum CriteriaOperator {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static CriteriaOperator fromValue(String text) {

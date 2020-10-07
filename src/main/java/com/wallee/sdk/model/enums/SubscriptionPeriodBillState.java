@@ -37,13 +37,10 @@ public enum SubscriptionPeriodBillState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static SubscriptionPeriodBillState fromValue(String text) {

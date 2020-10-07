@@ -54,7 +54,7 @@ public class LineItemAttribute extends Indentable {
      **/
     @ApiModelProperty(value = "")
     public String getValue() {
-        return value;
+        return name();
     }
 
 

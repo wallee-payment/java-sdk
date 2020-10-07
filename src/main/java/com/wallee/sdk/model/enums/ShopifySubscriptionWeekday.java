@@ -47,13 +47,10 @@ public enum ShopifySubscriptionWeekday {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ShopifySubscriptionWeekday fromValue(String text) {

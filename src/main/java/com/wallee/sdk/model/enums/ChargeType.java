@@ -40,13 +40,10 @@ public enum ChargeType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ChargeType fromValue(String text) {

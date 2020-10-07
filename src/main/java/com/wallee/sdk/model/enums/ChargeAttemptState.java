@@ -38,13 +38,10 @@ public enum ChargeAttemptState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ChargeAttemptState fromValue(String text) {

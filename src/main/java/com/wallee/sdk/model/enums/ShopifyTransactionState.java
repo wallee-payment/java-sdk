@@ -43,13 +43,10 @@ public enum ShopifyTransactionState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ShopifyTransactionState fromValue(String text) {

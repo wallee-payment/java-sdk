@@ -39,7 +39,7 @@ public enum EntityQueryOrderByType {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
     @Override

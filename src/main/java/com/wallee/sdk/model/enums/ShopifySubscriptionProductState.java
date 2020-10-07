@@ -45,13 +45,10 @@ public enum ShopifySubscriptionProductState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static ShopifySubscriptionProductState fromValue(String text) {

@@ -42,13 +42,10 @@ public enum PaymentContractState {
 
     @JsonValue
     public String getValue() {
-        return value;
+        return name();
     }
 
-    @Override
-    public String toString() {
-        return value;
-    }
+
 
     @JsonCreator
     public static PaymentContractState fromValue(String text) {

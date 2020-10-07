@@ -25,30 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum UserType {
 
-    HUMAN_USER("HUMAN_USER"),
-
-    SINGLE_SIGNON_USER("SINGLE_SIGNON_USER"),
-
-    APPLICATION_USER("APPLICATION_USER"),
-
-    ANONYMOUS_USER("ANONYMOUS_USER"),
-
-    SERVER_USER("SERVER_USER");
-
-    private String value;
-
-    UserType(String value) {
-        this.value = value;
-    }
+    HUMAN_USER,
+    SINGLE_SIGNON_USER,
+    APPLICATION_USER,
+    ANONYMOUS_USER,
+    SERVER_USER;
 
     @JsonValue
     public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return value;
+        return name();
     }
 
     @JsonCreator
