@@ -24,6 +24,7 @@ import java.util.Objects;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.CreationEntityState;
 
 /**
  * AbstractHumanUserUpdate

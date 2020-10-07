@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
-import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.enums.LineItemType;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionCreate;
 

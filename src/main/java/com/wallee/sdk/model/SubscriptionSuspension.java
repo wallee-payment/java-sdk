@@ -26,7 +26,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.wallee.sdk.model.enums.SubscriptionSuspensionAction;
+import com.wallee.sdk.model.enums.SubscriptionSuspensionReason;
+import com.wallee.sdk.model.enums.SubscriptionSuspensionState;
 
 @ApiModel(description = "")
 

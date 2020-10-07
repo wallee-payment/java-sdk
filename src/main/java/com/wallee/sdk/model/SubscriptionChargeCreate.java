@@ -26,6 +26,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.SubscriptionChargeProcessingType;
 
 /**
  * The subscription charge represents a single charge carried out for a particular subscription.
