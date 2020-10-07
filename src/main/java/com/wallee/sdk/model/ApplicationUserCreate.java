@@ -68,8 +68,8 @@ public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
     }
     ApplicationUserCreate applicationUserCreate = (ApplicationUserCreate) o;
     return Objects.equals(this.name, applicationUserCreate.name) &&
-        Objects.equals(this.requestLimit, applicationUserCreate.requestLimit) &&
-        Objects.equals(this.state, applicationUserCreate.state) &&
+        Objects.equals(this.requestLimit, applicationUserCreate.requestLimit) && this.state
+      == applicationUserCreate.state &&
         Objects.equals(this.primaryAccount, applicationUserCreate.primaryAccount) &&
         super.equals(o);
   }

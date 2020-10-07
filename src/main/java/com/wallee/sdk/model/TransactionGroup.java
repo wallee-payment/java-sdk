@@ -162,8 +162,8 @@ public class TransactionGroup {
         Objects.equals(this.endDate, transactionGroup.endDate) &&
         Objects.equals(this.id, transactionGroup.id) &&
         Objects.equals(this.linkedSpaceId, transactionGroup.linkedSpaceId) &&
-        Objects.equals(this.plannedPurgeDate, transactionGroup.plannedPurgeDate) &&
-        Objects.equals(this.state, transactionGroup.state) &&
+        Objects.equals(this.plannedPurgeDate, transactionGroup.plannedPurgeDate) && this.state
+      == transactionGroup.state &&
         Objects.equals(this.version, transactionGroup.version);
   }
 

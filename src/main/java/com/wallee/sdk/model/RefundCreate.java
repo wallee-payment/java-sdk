@@ -221,8 +221,7 @@ public class RefundCreate {
         Objects.equals(this.externalId, refundCreate.externalId) &&
         Objects.equals(this.merchantReference, refundCreate.merchantReference) &&
         Objects.equals(this.reductions, refundCreate.reductions) &&
-        Objects.equals(this.transaction, refundCreate.transaction) &&
-        Objects.equals(this.type, refundCreate.type);
+        Objects.equals(this.transaction, refundCreate.transaction) && this.type == refundCreate.type;
   }
 
   @Override

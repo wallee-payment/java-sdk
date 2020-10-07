@@ -221,8 +221,7 @@ public class Scope {
         Objects.equals(this.name, scope.name) &&
         Objects.equals(this.plannedPurgeDate, scope.plannedPurgeDate) &&
         Objects.equals(this.port, scope.port) &&
-        Objects.equals(this.sslActive, scope.sslActive) &&
-        Objects.equals(this.state, scope.state) &&
+        Objects.equals(this.sslActive, scope.sslActive) && this.state == scope.state &&
         Objects.equals(this.themes, scope.themes) &&
         Objects.equals(this.url, scope.url) &&
         Objects.equals(this.version, scope.version);

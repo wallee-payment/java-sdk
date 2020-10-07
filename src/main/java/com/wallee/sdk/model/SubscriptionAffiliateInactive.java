@@ -45,8 +45,8 @@ public class SubscriptionAffiliateInactive extends SubscriptionAffiliateUpdate {
         Objects.equals(this.version, subscriptionAffiliateInactive.version) &&
         Objects.equals(this.language, subscriptionAffiliateInactive.language) &&
         Objects.equals(this.metaData, subscriptionAffiliateInactive.metaData) &&
-        Objects.equals(this.name, subscriptionAffiliateInactive.name) &&
-        Objects.equals(this.state, subscriptionAffiliateInactive.state) &&
+        Objects.equals(this.name, subscriptionAffiliateInactive.name) && this.state
+      == subscriptionAffiliateInactive.state &&
         super.equals(o);
   }
 

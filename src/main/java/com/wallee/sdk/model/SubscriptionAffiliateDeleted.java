@@ -48,8 +48,8 @@ public class SubscriptionAffiliateDeleted extends SubscriptionAffiliate {
         Objects.equals(this.metaData, subscriptionAffiliateDeleted.metaData) &&
         Objects.equals(this.name, subscriptionAffiliateDeleted.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionAffiliateDeleted.plannedPurgeDate) &&
-        Objects.equals(this.reference, subscriptionAffiliateDeleted.reference) &&
-        Objects.equals(this.state, subscriptionAffiliateDeleted.state) &&
+        Objects.equals(this.reference, subscriptionAffiliateDeleted.reference) && this.state
+      == subscriptionAffiliateDeleted.state &&
         Objects.equals(this.version, subscriptionAffiliateDeleted.version) &&
         super.equals(o);
   }

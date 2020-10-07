@@ -147,8 +147,7 @@ public class TaxClass {
         Objects.equals(this.linkedSpaceId, taxClass.linkedSpaceId) &&
         Objects.equals(this.name, taxClass.name) &&
         Objects.equals(this.plannedPurgeDate, taxClass.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, taxClass.spaceId) &&
-        Objects.equals(this.state, taxClass.state) &&
+        Objects.equals(this.spaceId, taxClass.spaceId) && this.state == taxClass.state &&
         Objects.equals(this.version, taxClass.version);
   }
 

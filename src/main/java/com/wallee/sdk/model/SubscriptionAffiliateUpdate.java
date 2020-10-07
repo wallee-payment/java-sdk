@@ -196,8 +196,7 @@ public class SubscriptionAffiliateUpdate {
         Objects.equals(this.version, subscriptionAffiliateUpdate.version) &&
         Objects.equals(this.language, subscriptionAffiliateUpdate.language) &&
         Objects.equals(this.metaData, subscriptionAffiliateUpdate.metaData) &&
-        Objects.equals(this.name, subscriptionAffiliateUpdate.name) &&
-        Objects.equals(this.state, subscriptionAffiliateUpdate.state);
+        Objects.equals(this.name, subscriptionAffiliateUpdate.name) && this.state == subscriptionAffiliateUpdate.state;
   }
 
   @Override

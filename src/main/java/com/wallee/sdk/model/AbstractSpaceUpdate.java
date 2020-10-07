@@ -241,8 +241,8 @@ public class AbstractSpaceUpdate {
         Objects.equals(this.name, abstractSpaceUpdate.name) &&
         Objects.equals(this.postalAddress, abstractSpaceUpdate.postalAddress) &&
         Objects.equals(this.primaryCurrency, abstractSpaceUpdate.primaryCurrency) &&
-        Objects.equals(this.requestLimit, abstractSpaceUpdate.requestLimit) &&
-        Objects.equals(this.state, abstractSpaceUpdate.state) &&
+        Objects.equals(this.requestLimit, abstractSpaceUpdate.requestLimit) && this.state == abstractSpaceUpdate.state
+      &&
         Objects.equals(this.technicalContactAddresses, abstractSpaceUpdate.technicalContactAddresses) &&
         Objects.equals(this.timeZone, abstractSpaceUpdate.timeZone);
   }

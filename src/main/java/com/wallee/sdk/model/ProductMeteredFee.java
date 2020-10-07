@@ -175,9 +175,8 @@ public class ProductMeteredFee {
         Objects.equals(this.id, productMeteredFee.id) &&
         Objects.equals(this.linkedSpaceId, productMeteredFee.linkedSpaceId) &&
         Objects.equals(this.metric, productMeteredFee.metric) &&
-        Objects.equals(this.name, productMeteredFee.name) &&
-        Objects.equals(this.tierPricing, productMeteredFee.tierPricing) &&
-        Objects.equals(this.type, productMeteredFee.type) &&
+        Objects.equals(this.name, productMeteredFee.name) && this.tierPricing == productMeteredFee.tierPricing
+      && this.type == productMeteredFee.type &&
         Objects.equals(this.version, productMeteredFee.version);
   }
 

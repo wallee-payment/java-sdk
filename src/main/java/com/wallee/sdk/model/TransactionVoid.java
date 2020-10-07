@@ -278,13 +278,11 @@ public class TransactionVoid extends TransactionAwareEntity {
         Objects.equals(this.failedOn, transactionVoid.failedOn) &&
         Objects.equals(this.failureReason, transactionVoid.failureReason) &&
         Objects.equals(this.labels, transactionVoid.labels) &&
-        Objects.equals(this.language, transactionVoid.language) &&
-        Objects.equals(this.mode, transactionVoid.mode) &&
+        Objects.equals(this.language, transactionVoid.language) && this.mode == transactionVoid.mode &&
         Objects.equals(this.nextUpdateOn, transactionVoid.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, transactionVoid.plannedPurgeDate) &&
         Objects.equals(this.processorReference, transactionVoid.processorReference) &&
-        Objects.equals(this.spaceViewId, transactionVoid.spaceViewId) &&
-        Objects.equals(this.state, transactionVoid.state) &&
+        Objects.equals(this.spaceViewId, transactionVoid.spaceViewId) && this.state == transactionVoid.state &&
         Objects.equals(this.succeededOn, transactionVoid.succeededOn) &&
         Objects.equals(this.timeoutOn, transactionVoid.timeoutOn) &&
         Objects.equals(this.transaction, transactionVoid.transaction) &&

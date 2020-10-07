@@ -205,8 +205,7 @@ public class DocumentTemplate {
         Objects.equals(this.linkedSpaceId, documentTemplate.linkedSpaceId) &&
         Objects.equals(this.name, documentTemplate.name) &&
         Objects.equals(this.plannedPurgeDate, documentTemplate.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, documentTemplate.spaceId) &&
-        Objects.equals(this.state, documentTemplate.state) &&
+        Objects.equals(this.spaceId, documentTemplate.spaceId) && this.state == documentTemplate.state &&
         Objects.equals(this.templateResource, documentTemplate.templateResource) &&
         Objects.equals(this.type, documentTemplate.type) &&
         Objects.equals(this.version, documentTemplate.version);

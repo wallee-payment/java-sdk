@@ -93,8 +93,8 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
     return Objects.equals(this.allowedPaymentMethodConfigurations, subscriptionProductActive.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.failedPaymentSuspensionPeriod, subscriptionProductActive.failedPaymentSuspensionPeriod) &&
         Objects.equals(this.name, subscriptionProductActive.name) &&
-        Objects.equals(this.sortOrder, subscriptionProductActive.sortOrder) &&
-        Objects.equals(this.state, subscriptionProductActive.state) &&
+        Objects.equals(this.sortOrder, subscriptionProductActive.sortOrder) && this.state
+      == subscriptionProductActive.state &&
         Objects.equals(this.id, subscriptionProductActive.id) &&
         Objects.equals(this.version, subscriptionProductActive.version) &&
         super.equals(o);

@@ -242,17 +242,16 @@ public class SubscriptionSuspension {
     }
     SubscriptionSuspension subscriptionSuspension = (SubscriptionSuspension) o;
     return Objects.equals(this.createdOn, subscriptionSuspension.createdOn) &&
-        Objects.equals(this.effectiveEndDate, subscriptionSuspension.effectiveEndDate) &&
-        Objects.equals(this.endAction, subscriptionSuspension.endAction) &&
+        Objects.equals(this.effectiveEndDate, subscriptionSuspension.effectiveEndDate) && this.endAction
+      == subscriptionSuspension.endAction &&
         Objects.equals(this.id, subscriptionSuspension.id) &&
         Objects.equals(this.language, subscriptionSuspension.language) &&
         Objects.equals(this.linkedSpaceId, subscriptionSuspension.linkedSpaceId) &&
         Objects.equals(this.note, subscriptionSuspension.note) &&
         Objects.equals(this.periodBill, subscriptionSuspension.periodBill) &&
         Objects.equals(this.plannedEndDate, subscriptionSuspension.plannedEndDate) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionSuspension.plannedPurgeDate) &&
-        Objects.equals(this.reason, subscriptionSuspension.reason) &&
-        Objects.equals(this.state, subscriptionSuspension.state) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionSuspension.plannedPurgeDate) && this.reason
+      == subscriptionSuspension.reason && this.state == subscriptionSuspension.state &&
         Objects.equals(this.subscription, subscriptionSuspension.subscription) &&
         Objects.equals(this.version, subscriptionSuspension.version);
   }

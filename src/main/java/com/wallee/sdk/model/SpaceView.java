@@ -147,8 +147,7 @@ public class SpaceView {
         Objects.equals(this.linkedSpaceId, spaceView.linkedSpaceId) &&
         Objects.equals(this.name, spaceView.name) &&
         Objects.equals(this.plannedPurgeDate, spaceView.plannedPurgeDate) &&
-        Objects.equals(this.space, spaceView.space) &&
-        Objects.equals(this.state, spaceView.state) &&
+        Objects.equals(this.space, spaceView.space) && this.state == spaceView.state &&
         Objects.equals(this.version, spaceView.version);
   }
 

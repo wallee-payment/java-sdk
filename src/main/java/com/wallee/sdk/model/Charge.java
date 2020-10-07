@@ -220,12 +220,10 @@ public class Charge extends TransactionAwareEntity {
         Objects.equals(this.failureReason, charge.failureReason) &&
         Objects.equals(this.language, charge.language) &&
         Objects.equals(this.plannedPurgeDate, charge.plannedPurgeDate) &&
-        Objects.equals(this.spaceViewId, charge.spaceViewId) &&
-        Objects.equals(this.state, charge.state) &&
+        Objects.equals(this.spaceViewId, charge.spaceViewId) && this.state == charge.state &&
         Objects.equals(this.timeZone, charge.timeZone) &&
         Objects.equals(this.timeoutOn, charge.timeoutOn) &&
-        Objects.equals(this.transaction, charge.transaction) &&
-        Objects.equals(this.type, charge.type) &&
+        Objects.equals(this.transaction, charge.transaction) && this.type == charge.type &&
         Objects.equals(this.userFailureMessage, charge.userFailureMessage) &&
         Objects.equals(this.version, charge.version) &&
         super.equals(o);

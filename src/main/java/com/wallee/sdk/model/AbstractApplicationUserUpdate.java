@@ -112,8 +112,8 @@ public class AbstractApplicationUserUpdate {
     }
     AbstractApplicationUserUpdate abstractApplicationUserUpdate = (AbstractApplicationUserUpdate) o;
     return Objects.equals(this.name, abstractApplicationUserUpdate.name) &&
-        Objects.equals(this.requestLimit, abstractApplicationUserUpdate.requestLimit) &&
-        Objects.equals(this.state, abstractApplicationUserUpdate.state);
+        Objects.equals(this.requestLimit, abstractApplicationUserUpdate.requestLimit) && this.state
+      == abstractApplicationUserUpdate.state;
   }
 
   @Override

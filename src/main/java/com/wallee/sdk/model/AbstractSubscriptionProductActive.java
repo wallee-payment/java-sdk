@@ -170,8 +170,8 @@ public class AbstractSubscriptionProductActive {
     return Objects.equals(this.allowedPaymentMethodConfigurations, abstractSubscriptionProductActive.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.failedPaymentSuspensionPeriod, abstractSubscriptionProductActive.failedPaymentSuspensionPeriod) &&
         Objects.equals(this.name, abstractSubscriptionProductActive.name) &&
-        Objects.equals(this.sortOrder, abstractSubscriptionProductActive.sortOrder) &&
-        Objects.equals(this.state, abstractSubscriptionProductActive.state);
+        Objects.equals(this.sortOrder, abstractSubscriptionProductActive.sortOrder) && this.state
+      == abstractSubscriptionProductActive.state;
   }
 
   @Override

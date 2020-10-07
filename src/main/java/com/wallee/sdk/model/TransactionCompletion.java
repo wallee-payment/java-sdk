@@ -425,16 +425,15 @@ public class TransactionCompletion extends TransactionAwareEntity {
         Objects.equals(this.language, transactionCompletion.language) &&
         Objects.equals(this.lastCompletion, transactionCompletion.lastCompletion) &&
         Objects.equals(this.lineItemVersion, transactionCompletion.lineItemVersion) &&
-        Objects.equals(this.lineItems, transactionCompletion.lineItems) &&
-        Objects.equals(this.mode, transactionCompletion.mode) &&
+        Objects.equals(this.lineItems, transactionCompletion.lineItems) && this.mode == transactionCompletion.mode &&
         Objects.equals(this.nextUpdateOn, transactionCompletion.nextUpdateOn) &&
         Objects.equals(this.paymentInformation, transactionCompletion.paymentInformation) &&
         Objects.equals(this.plannedPurgeDate, transactionCompletion.plannedPurgeDate) &&
         Objects.equals(this.processingOn, transactionCompletion.processingOn) &&
         Objects.equals(this.processorReference, transactionCompletion.processorReference) &&
         Objects.equals(this.remainingLineItems, transactionCompletion.remainingLineItems) &&
-        Objects.equals(this.spaceViewId, transactionCompletion.spaceViewId) &&
-        Objects.equals(this.state, transactionCompletion.state) &&
+        Objects.equals(this.spaceViewId, transactionCompletion.spaceViewId) && this.state
+      == transactionCompletion.state &&
         Objects.equals(this.succeededOn, transactionCompletion.succeededOn) &&
         Objects.equals(this.taxAmount, transactionCompletion.taxAmount) &&
         Objects.equals(this.timeZone, transactionCompletion.timeZone) &&

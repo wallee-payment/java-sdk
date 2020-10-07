@@ -324,8 +324,8 @@ public class SubscriptionVersion {
         Objects.equals(this.plannedPurgeDate, subscriptionVersion.plannedPurgeDate) &&
         Objects.equals(this.plannedTerminationDate, subscriptionVersion.plannedTerminationDate) &&
         Objects.equals(this.productVersion, subscriptionVersion.productVersion) &&
-        Objects.equals(this.selectedComponents, subscriptionVersion.selectedComponents) &&
-        Objects.equals(this.state, subscriptionVersion.state) &&
+        Objects.equals(this.selectedComponents, subscriptionVersion.selectedComponents) && this.state
+      == subscriptionVersion.state &&
         Objects.equals(this.subscription, subscriptionVersion.subscription) &&
         Objects.equals(this.terminatedOn, subscriptionVersion.terminatedOn) &&
         Objects.equals(this.terminatingOn, subscriptionVersion.terminatingOn) &&

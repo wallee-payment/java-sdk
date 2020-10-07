@@ -193,8 +193,7 @@ public class SubscriptionAffiliate {
         Objects.equals(this.metaData, subscriptionAffiliate.metaData) &&
         Objects.equals(this.name, subscriptionAffiliate.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionAffiliate.plannedPurgeDate) &&
-        Objects.equals(this.reference, subscriptionAffiliate.reference) &&
-        Objects.equals(this.state, subscriptionAffiliate.state) &&
+        Objects.equals(this.reference, subscriptionAffiliate.reference) && this.state == subscriptionAffiliate.state &&
         Objects.equals(this.version, subscriptionAffiliate.version);
   }
 

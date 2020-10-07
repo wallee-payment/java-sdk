@@ -284,21 +284,21 @@ public class PaymentMethodConfiguration {
       return false;
     }
     PaymentMethodConfiguration paymentMethodConfiguration = (PaymentMethodConfiguration) o;
-    return Objects.equals(this.dataCollectionType, paymentMethodConfiguration.dataCollectionType) &&
+    return this.dataCollectionType == paymentMethodConfiguration.dataCollectionType &&
         Objects.equals(this.description, paymentMethodConfiguration.description) &&
         Objects.equals(this.id, paymentMethodConfiguration.id) &&
         Objects.equals(this.imageResourcePath, paymentMethodConfiguration.imageResourcePath) &&
         Objects.equals(this.linkedSpaceId, paymentMethodConfiguration.linkedSpaceId) &&
-        Objects.equals(this.name, paymentMethodConfiguration.name) &&
-        Objects.equals(this.oneClickPaymentMode, paymentMethodConfiguration.oneClickPaymentMode) &&
+        Objects.equals(this.name, paymentMethodConfiguration.name) && this.oneClickPaymentMode
+      == paymentMethodConfiguration.oneClickPaymentMode &&
         Objects.equals(this.paymentMethod, paymentMethodConfiguration.paymentMethod) &&
         Objects.equals(this.plannedPurgeDate, paymentMethodConfiguration.plannedPurgeDate) &&
         Objects.equals(this.resolvedDescription, paymentMethodConfiguration.resolvedDescription) &&
         Objects.equals(this.resolvedImageUrl, paymentMethodConfiguration.resolvedImageUrl) &&
         Objects.equals(this.resolvedTitle, paymentMethodConfiguration.resolvedTitle) &&
         Objects.equals(this.sortOrder, paymentMethodConfiguration.sortOrder) &&
-        Objects.equals(this.spaceId, paymentMethodConfiguration.spaceId) &&
-        Objects.equals(this.state, paymentMethodConfiguration.state) &&
+        Objects.equals(this.spaceId, paymentMethodConfiguration.spaceId) && this.state
+      == paymentMethodConfiguration.state &&
         Objects.equals(this.title, paymentMethodConfiguration.title) &&
         Objects.equals(this.version, paymentMethodConfiguration.version);
   }

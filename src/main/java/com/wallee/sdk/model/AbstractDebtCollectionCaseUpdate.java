@@ -240,8 +240,8 @@ public class AbstractDebtCollectionCaseUpdate {
     return Objects.equals(this.billingAddress, abstractDebtCollectionCaseUpdate.billingAddress) &&
         Objects.equals(this.contractDate, abstractDebtCollectionCaseUpdate.contractDate) &&
         Objects.equals(this.currency, abstractDebtCollectionCaseUpdate.currency) &&
-        Objects.equals(this.dueDate, abstractDebtCollectionCaseUpdate.dueDate) &&
-        Objects.equals(this.environment, abstractDebtCollectionCaseUpdate.environment) &&
+        Objects.equals(this.dueDate, abstractDebtCollectionCaseUpdate.dueDate) && this.environment
+      == abstractDebtCollectionCaseUpdate.environment &&
         Objects.equals(this.language, abstractDebtCollectionCaseUpdate.language) &&
         Objects.equals(this.lineItems, abstractDebtCollectionCaseUpdate.lineItems) &&
         Objects.equals(this.spaceViewId, abstractDebtCollectionCaseUpdate.spaceViewId);

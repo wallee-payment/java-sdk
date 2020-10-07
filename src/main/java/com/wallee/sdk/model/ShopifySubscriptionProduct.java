@@ -455,16 +455,16 @@ public class ShopifySubscriptionProduct {
     return Objects.equals(this.absolutePriceAdjustment, shopifySubscriptionProduct.absolutePriceAdjustment) &&
         Objects.equals(this.billingDayOfMonth, shopifySubscriptionProduct.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionProduct.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, shopifySubscriptionProduct.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, shopifySubscriptionProduct.billingWeekday) &&
+      this.billingIntervalUnit == shopifySubscriptionProduct.billingIntervalUnit
+      && this.billingWeekday == shopifySubscriptionProduct.billingWeekday &&
         Objects.equals(this.fixedPrice, shopifySubscriptionProduct.fixedPrice) &&
         Objects.equals(this.id, shopifySubscriptionProduct.id) &&
         Objects.equals(this.linkedSpaceId, shopifySubscriptionProduct.linkedSpaceId) &&
         Objects.equals(this.maximalBillingCycles, shopifySubscriptionProduct.maximalBillingCycles) &&
         Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionProduct.maximalSuspendableCycles) &&
         Objects.equals(this.minimalBillingCycles, shopifySubscriptionProduct.minimalBillingCycles) &&
-        Objects.equals(this.plannedPurgeDate, shopifySubscriptionProduct.plannedPurgeDate) &&
-        Objects.equals(this.pricingOption, shopifySubscriptionProduct.pricingOption) &&
+        Objects.equals(this.plannedPurgeDate, shopifySubscriptionProduct.plannedPurgeDate) && this.pricingOption
+      == shopifySubscriptionProduct.pricingOption &&
         Objects.equals(this.productId, shopifySubscriptionProduct.productId) &&
         Objects.equals(this.productName, shopifySubscriptionProduct.productName) &&
         Objects.equals(this.productPrice, shopifySubscriptionProduct.productPrice) &&
@@ -473,8 +473,7 @@ public class ShopifySubscriptionProduct {
         Objects.equals(this.productVariantName, shopifySubscriptionProduct.productVariantName) &&
         Objects.equals(this.relativePriceAdjustment, shopifySubscriptionProduct.relativePriceAdjustment) &&
         Objects.equals(this.shippingRequired, shopifySubscriptionProduct.shippingRequired) &&
-        Objects.equals(this.shop, shopifySubscriptionProduct.shop) &&
-        Objects.equals(this.state, shopifySubscriptionProduct.state) &&
+        Objects.equals(this.shop, shopifySubscriptionProduct.shop) && this.state == shopifySubscriptionProduct.state &&
         Objects.equals(this.stockCheckRequired, shopifySubscriptionProduct.stockCheckRequired) &&
         Objects.equals(this.storeOrderConfirmationEmailEnabled, shopifySubscriptionProduct.storeOrderConfirmationEmailEnabled) &&
         Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionProduct.subscriberSuspensionAllowed) &&

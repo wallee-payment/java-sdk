@@ -254,8 +254,8 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
         Objects.equals(this.plannedPurgeDate, shopifyRecurringOrder.plannedPurgeDate) &&
         Objects.equals(this.recurrenceNumber, shopifyRecurringOrder.recurrenceNumber) &&
         Objects.equals(this.shop, shopifyRecurringOrder.shop) &&
-        Objects.equals(this.startedProcessingOn, shopifyRecurringOrder.startedProcessingOn) &&
-        Objects.equals(this.state, shopifyRecurringOrder.state) &&
+        Objects.equals(this.startedProcessingOn, shopifyRecurringOrder.startedProcessingOn) && this.state
+      == shopifyRecurringOrder.state &&
         Objects.equals(this.subscriptionVersion, shopifyRecurringOrder.subscriptionVersion) &&
         Objects.equals(this.transaction, shopifyRecurringOrder.transaction) &&
         super.equals(o);

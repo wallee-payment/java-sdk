@@ -88,9 +88,8 @@ public class ApplicationUser extends User {
     ApplicationUser applicationUser = (ApplicationUser) o;
     return Objects.equals(this.id, applicationUser.id) &&
         Objects.equals(this.plannedPurgeDate, applicationUser.plannedPurgeDate) &&
-        Objects.equals(this.scope, applicationUser.scope) &&
-        Objects.equals(this.state, applicationUser.state) &&
-        Objects.equals(this.userType, applicationUser.userType) &&
+        Objects.equals(this.scope, applicationUser.scope) && this.state == applicationUser.state
+      && this.userType == applicationUser.userType &&
         Objects.equals(this.version, applicationUser.version) &&
         Objects.equals(this.name, applicationUser.name) &&
         Objects.equals(this.primaryAccount, applicationUser.primaryAccount) &&

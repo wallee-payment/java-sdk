@@ -179,8 +179,8 @@ public class ShopifyTransaction extends TransactionAwareEntity {
         Objects.equals(this.integration, shopifyTransaction.integration) &&
         Objects.equals(this.orderId, shopifyTransaction.orderId) &&
         Objects.equals(this.orderName, shopifyTransaction.orderName) &&
-        Objects.equals(this.plannedPurgeDate, shopifyTransaction.plannedPurgeDate) &&
-        Objects.equals(this.state, shopifyTransaction.state) &&
+        Objects.equals(this.plannedPurgeDate, shopifyTransaction.plannedPurgeDate) && this.state
+      == shopifyTransaction.state &&
         Objects.equals(this.transaction, shopifyTransaction.transaction) &&
         Objects.equals(this.version, shopifyTransaction.version) &&
         super.equals(o);

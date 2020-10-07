@@ -391,15 +391,15 @@ public class AbstractShopifySubscriptionProductActive {
     return Objects.equals(this.absolutePriceAdjustment, abstractShopifySubscriptionProductActive.absolutePriceAdjustment) &&
         Objects.equals(this.billingDayOfMonth, abstractShopifySubscriptionProductActive.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, abstractShopifySubscriptionProductActive.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, abstractShopifySubscriptionProductActive.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, abstractShopifySubscriptionProductActive.billingWeekday) &&
+      this.billingIntervalUnit == abstractShopifySubscriptionProductActive.billingIntervalUnit
+      && this.billingWeekday == abstractShopifySubscriptionProductActive.billingWeekday &&
         Objects.equals(this.fixedPrice, abstractShopifySubscriptionProductActive.fixedPrice) &&
         Objects.equals(this.maximalBillingCycles, abstractShopifySubscriptionProductActive.maximalBillingCycles) &&
         Objects.equals(this.maximalSuspendableCycles, abstractShopifySubscriptionProductActive.maximalSuspendableCycles) &&
         Objects.equals(this.minimalBillingCycles, abstractShopifySubscriptionProductActive.minimalBillingCycles) &&
-        Objects.equals(this.pricingOption, abstractShopifySubscriptionProductActive.pricingOption) &&
+      this.pricingOption == abstractShopifySubscriptionProductActive.pricingOption &&
         Objects.equals(this.relativePriceAdjustment, abstractShopifySubscriptionProductActive.relativePriceAdjustment) &&
-        Objects.equals(this.state, abstractShopifySubscriptionProductActive.state) &&
+      this.state == abstractShopifySubscriptionProductActive.state &&
         Objects.equals(this.storeOrderConfirmationEmailEnabled, abstractShopifySubscriptionProductActive.storeOrderConfirmationEmailEnabled) &&
         Objects.equals(this.subscriberSuspensionAllowed, abstractShopifySubscriptionProductActive.subscriberSuspensionAllowed) &&
         Objects.equals(this.terminationBillingCycles, abstractShopifySubscriptionProductActive.terminationBillingCycles);

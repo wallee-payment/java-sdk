@@ -311,8 +311,7 @@ public class Space {
         Objects.equals(this.postalAddress, space.postalAddress) &&
         Objects.equals(this.primaryCurrency, space.primaryCurrency) &&
         Objects.equals(this.requestLimit, space.requestLimit) &&
-        Objects.equals(this.restrictedActive, space.restrictedActive) &&
-        Objects.equals(this.state, space.state) &&
+        Objects.equals(this.restrictedActive, space.restrictedActive) && this.state == space.state &&
         Objects.equals(this.technicalContactAddresses, space.technicalContactAddresses) &&
         Objects.equals(this.timeZone, space.timeZone) &&
         Objects.equals(this.version, space.version);

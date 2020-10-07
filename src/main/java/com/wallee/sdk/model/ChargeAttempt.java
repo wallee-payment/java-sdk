@@ -373,8 +373,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.linkedTransaction, chargeAttempt.linkedTransaction) &&
         Objects.equals(this.charge, chargeAttempt.charge) &&
         Objects.equals(this.connectorConfiguration, chargeAttempt.connectorConfiguration) &&
-        Objects.equals(this.createdOn, chargeAttempt.createdOn) &&
-        Objects.equals(this.environment, chargeAttempt.environment) &&
+        Objects.equals(this.createdOn, chargeAttempt.createdOn) && this.environment == chargeAttempt.environment &&
         Objects.equals(this.failedOn, chargeAttempt.failedOn) &&
         Objects.equals(this.failureReason, chargeAttempt.failureReason) &&
         Objects.equals(this.initializingTokenVersion, chargeAttempt.initializingTokenVersion) &&
@@ -385,8 +384,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.plannedPurgeDate, chargeAttempt.plannedPurgeDate) &&
         Objects.equals(this.redirectionUrl, chargeAttempt.redirectionUrl) &&
         Objects.equals(this.salesChannel, chargeAttempt.salesChannel) &&
-        Objects.equals(this.spaceViewId, chargeAttempt.spaceViewId) &&
-        Objects.equals(this.state, chargeAttempt.state) &&
+        Objects.equals(this.spaceViewId, chargeAttempt.spaceViewId) && this.state == chargeAttempt.state &&
         Objects.equals(this.succeededOn, chargeAttempt.succeededOn) &&
         Objects.equals(this.terminal, chargeAttempt.terminal) &&
         Objects.equals(this.timeZone, chargeAttempt.timeZone) &&

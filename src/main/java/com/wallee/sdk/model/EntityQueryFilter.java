@@ -170,9 +170,8 @@ public class EntityQueryFilter {
     }
     EntityQueryFilter entityQueryFilter = (EntityQueryFilter) o;
     return Objects.equals(this.children, entityQueryFilter.children) &&
-        Objects.equals(this.fieldName, entityQueryFilter.fieldName) &&
-        Objects.equals(this.operator, entityQueryFilter.operator) &&
-        Objects.equals(this.type, entityQueryFilter.type) &&
+        Objects.equals(this.fieldName, entityQueryFilter.fieldName) && this.operator == entityQueryFilter.operator
+      && this.type == entityQueryFilter.type &&
         Objects.equals(this.value, entityQueryFilter.value);
   }
 

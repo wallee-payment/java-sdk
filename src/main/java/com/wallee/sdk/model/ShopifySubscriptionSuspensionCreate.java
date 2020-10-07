@@ -115,8 +115,8 @@ public class ShopifySubscriptionSuspensionCreate {
     }
     ShopifySubscriptionSuspensionCreate shopifySubscriptionSuspensionCreate = (ShopifySubscriptionSuspensionCreate) o;
     return Objects.equals(this.plannedEndDate, shopifySubscriptionSuspensionCreate.plannedEndDate) &&
-        Objects.equals(this.subscription, shopifySubscriptionSuspensionCreate.subscription) &&
-        Objects.equals(this.type, shopifySubscriptionSuspensionCreate.type);
+        Objects.equals(this.subscription, shopifySubscriptionSuspensionCreate.subscription) && this.type
+      == shopifySubscriptionSuspensionCreate.type;
   }
 
   @Override

@@ -328,7 +328,7 @@ public class ShopifyIntegration {
     ShopifyIntegration shopifyIntegration = (ShopifyIntegration) o;
     return Objects.equals(this.allowInvoiceDownload, shopifyIntegration.allowInvoiceDownload) &&
         Objects.equals(this.allowedPaymentMethodConfigurations, shopifyIntegration.allowedPaymentMethodConfigurations) &&
-        Objects.equals(this.appVersion, shopifyIntegration.appVersion) &&
+      this.appVersion == shopifyIntegration.appVersion &&
         Objects.equals(this.currency, shopifyIntegration.currency) &&
         Objects.equals(this.id, shopifyIntegration.id) &&
         Objects.equals(this.installed, shopifyIntegration.installed) &&
@@ -343,8 +343,7 @@ public class ShopifyIntegration {
         Objects.equals(this.showPaymentInformation, shopifyIntegration.showPaymentInformation) &&
         Objects.equals(this.showSubscriptionInformation, shopifyIntegration.showSubscriptionInformation) &&
         Objects.equals(this.spaceId, shopifyIntegration.spaceId) &&
-        Objects.equals(this.spaceViewId, shopifyIntegration.spaceViewId) &&
-        Objects.equals(this.state, shopifyIntegration.state) &&
+        Objects.equals(this.spaceViewId, shopifyIntegration.spaceViewId) && this.state == shopifyIntegration.state &&
         Objects.equals(this.version, shopifyIntegration.version);
   }
 

@@ -269,8 +269,7 @@ public class Subscriber {
         Objects.equals(this.metaData, subscriber.metaData) &&
         Objects.equals(this.plannedPurgeDate, subscriber.plannedPurgeDate) &&
         Objects.equals(this.reference, subscriber.reference) &&
-        Objects.equals(this.shippingAddress, subscriber.shippingAddress) &&
-        Objects.equals(this.state, subscriber.state) &&
+        Objects.equals(this.shippingAddress, subscriber.shippingAddress) && this.state == subscriber.state &&
         Objects.equals(this.version, subscriber.version);
   }
 

@@ -90,8 +90,8 @@ public class CustomerAddressActive extends AbstractCustomerAddressActive {
       return false;
     }
     CustomerAddressActive customerAddressActive = (CustomerAddressActive) o;
-    return Objects.equals(this.address, customerAddressActive.address) &&
-        Objects.equals(this.addressType, customerAddressActive.addressType) &&
+    return Objects.equals(this.address, customerAddressActive.address) && this.addressType
+      == customerAddressActive.addressType &&
         Objects.equals(this.id, customerAddressActive.id) &&
         Objects.equals(this.version, customerAddressActive.version) &&
         super.equals(o);

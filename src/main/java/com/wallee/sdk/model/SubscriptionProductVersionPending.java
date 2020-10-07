@@ -316,8 +316,8 @@ public class SubscriptionProductVersionPending {
         Objects.equals(this.minimalNumberOfPeriods, subscriptionProductVersionPending.minimalNumberOfPeriods) &&
         Objects.equals(this.name, subscriptionProductVersionPending.name) &&
         Objects.equals(this.numberOfNoticePeriods, subscriptionProductVersionPending.numberOfNoticePeriods) &&
-        Objects.equals(this.product, subscriptionProductVersionPending.product) &&
-        Objects.equals(this.state, subscriptionProductVersionPending.state);
+        Objects.equals(this.product, subscriptionProductVersionPending.product) && this.state
+      == subscriptionProductVersionPending.state;
   }
 
   @Override

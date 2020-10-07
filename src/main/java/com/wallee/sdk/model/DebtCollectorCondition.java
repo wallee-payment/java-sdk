@@ -146,8 +146,8 @@ public class DebtCollectorCondition {
     return Objects.equals(this.id, debtCollectorCondition.id) &&
         Objects.equals(this.linkedSpaceId, debtCollectorCondition.linkedSpaceId) &&
         Objects.equals(this.name, debtCollectorCondition.name) &&
-        Objects.equals(this.plannedPurgeDate, debtCollectorCondition.plannedPurgeDate) &&
-        Objects.equals(this.state, debtCollectorCondition.state) &&
+        Objects.equals(this.plannedPurgeDate, debtCollectorCondition.plannedPurgeDate) && this.state
+      == debtCollectorCondition.state &&
         Objects.equals(this.type, debtCollectorCondition.type) &&
         Objects.equals(this.version, debtCollectorCondition.version);
   }

@@ -280,8 +280,8 @@ public class SubscriptionLedgerEntry {
         Objects.equals(this.id, subscriptionLedgerEntry.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionLedgerEntry.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, subscriptionLedgerEntry.plannedPurgeDate) &&
-        Objects.equals(this.quantity, subscriptionLedgerEntry.quantity) &&
-        Objects.equals(this.state, subscriptionLedgerEntry.state) &&
+        Objects.equals(this.quantity, subscriptionLedgerEntry.quantity) && this.state == subscriptionLedgerEntry.state
+      &&
         Objects.equals(this.subscriptionVersion, subscriptionLedgerEntry.subscriptionVersion) &&
         Objects.equals(this.taxAmount, subscriptionLedgerEntry.taxAmount) &&
         Objects.equals(this.taxes, subscriptionLedgerEntry.taxes) &&

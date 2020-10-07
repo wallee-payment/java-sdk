@@ -230,8 +230,8 @@ public class ShopifySubscriptionModelBillingConfiguration {
     ShopifySubscriptionModelBillingConfiguration shopifySubscriptionModelBillingConfiguration = (ShopifySubscriptionModelBillingConfiguration) o;
     return Objects.equals(this.billingDayOfMonth, shopifySubscriptionModelBillingConfiguration.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionModelBillingConfiguration.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, shopifySubscriptionModelBillingConfiguration.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, shopifySubscriptionModelBillingConfiguration.billingWeekday) &&
+      this.billingIntervalUnit == shopifySubscriptionModelBillingConfiguration.billingIntervalUnit
+      && this.billingWeekday == shopifySubscriptionModelBillingConfiguration.billingWeekday &&
         Objects.equals(this.maximalBillingCycles, shopifySubscriptionModelBillingConfiguration.maximalBillingCycles) &&
         Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionModelBillingConfiguration.maximalSuspendableCycles) &&
         Objects.equals(this.minimalBillingCycles, shopifySubscriptionModelBillingConfiguration.minimalBillingCycles) &&

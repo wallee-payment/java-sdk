@@ -336,8 +336,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
         Objects.equals(this.derecognizedBy, transactionInvoice.derecognizedBy) &&
         Objects.equals(this.derecognizedOn, transactionInvoice.derecognizedOn) &&
-        Objects.equals(this.dueOn, transactionInvoice.dueOn) &&
-        Objects.equals(this.environment, transactionInvoice.environment) &&
+        Objects.equals(this.dueOn, transactionInvoice.dueOn) && this.environment == transactionInvoice.environment &&
         Objects.equals(this.externalId, transactionInvoice.externalId) &&
         Objects.equals(this.language, transactionInvoice.language) &&
         Objects.equals(this.lineItems, transactionInvoice.lineItems) &&
@@ -345,8 +344,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.outstandingAmount, transactionInvoice.outstandingAmount) &&
         Objects.equals(this.paidOn, transactionInvoice.paidOn) &&
         Objects.equals(this.plannedPurgeDate, transactionInvoice.plannedPurgeDate) &&
-        Objects.equals(this.spaceViewId, transactionInvoice.spaceViewId) &&
-        Objects.equals(this.state, transactionInvoice.state) &&
+        Objects.equals(this.spaceViewId, transactionInvoice.spaceViewId) && this.state == transactionInvoice.state &&
         Objects.equals(this.taxAmount, transactionInvoice.taxAmount) &&
         Objects.equals(this.timeZone, transactionInvoice.timeZone) &&
         Objects.equals(this.version, transactionInvoice.version) &&

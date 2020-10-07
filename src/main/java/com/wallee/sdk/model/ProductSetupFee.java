@@ -192,8 +192,7 @@ public class ProductSetupFee {
         Objects.equals(this.name, productSetupFee.name) &&
         Objects.equals(this.onDowngradeCreditedAmount, productSetupFee.onDowngradeCreditedAmount) &&
         Objects.equals(this.onUpgradeCreditedAmount, productSetupFee.onUpgradeCreditedAmount) &&
-        Objects.equals(this.setupFee, productSetupFee.setupFee) &&
-        Objects.equals(this.type, productSetupFee.type) &&
+        Objects.equals(this.setupFee, productSetupFee.setupFee) && this.type == productSetupFee.type &&
         Objects.equals(this.version, productSetupFee.version);
   }
 

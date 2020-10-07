@@ -207,8 +207,8 @@ public class WebhookListener {
         Objects.equals(this.linkedSpaceId, webhookListener.linkedSpaceId) &&
         Objects.equals(this.name, webhookListener.name) &&
         Objects.equals(this.notifyEveryChange, webhookListener.notifyEveryChange) &&
-        Objects.equals(this.plannedPurgeDate, webhookListener.plannedPurgeDate) &&
-        Objects.equals(this.state, webhookListener.state) &&
+        Objects.equals(this.plannedPurgeDate, webhookListener.plannedPurgeDate) && this.state == webhookListener.state
+      &&
         Objects.equals(this.url, webhookListener.url) &&
         Objects.equals(this.version, webhookListener.version);
   }

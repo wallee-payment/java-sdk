@@ -98,8 +98,8 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
         Objects.equals(this.language, subscriberCreate.language) &&
         Objects.equals(this.metaData, subscriberCreate.metaData) &&
         Objects.equals(this.reference, subscriberCreate.reference) &&
-        Objects.equals(this.shippingAddress, subscriberCreate.shippingAddress) &&
-        Objects.equals(this.state, subscriberCreate.state) &&
+        Objects.equals(this.shippingAddress, subscriberCreate.shippingAddress) && this.state == subscriberCreate.state
+      &&
         Objects.equals(this.externalId, subscriberCreate.externalId) &&
         super.equals(o);
   }

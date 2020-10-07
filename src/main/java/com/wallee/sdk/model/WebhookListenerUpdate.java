@@ -92,8 +92,8 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
     WebhookListenerUpdate webhookListenerUpdate = (WebhookListenerUpdate) o;
     return Objects.equals(this.entityStates, webhookListenerUpdate.entityStates) &&
         Objects.equals(this.name, webhookListenerUpdate.name) &&
-        Objects.equals(this.notifyEveryChange, webhookListenerUpdate.notifyEveryChange) &&
-        Objects.equals(this.state, webhookListenerUpdate.state) &&
+        Objects.equals(this.notifyEveryChange, webhookListenerUpdate.notifyEveryChange) && this.state
+      == webhookListenerUpdate.state &&
         Objects.equals(this.id, webhookListenerUpdate.id) &&
         Objects.equals(this.version, webhookListenerUpdate.version) &&
         super.equals(o);

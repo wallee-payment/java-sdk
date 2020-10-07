@@ -244,15 +244,15 @@ public class TransactionCreate extends AbstractTransactionPending {
         Objects.equals(this.shippingMethod, transactionCreate.shippingMethod) &&
         Objects.equals(this.successUrl, transactionCreate.successUrl) &&
         Objects.equals(this.timeZone, transactionCreate.timeZone) &&
-        Objects.equals(this.token, transactionCreate.token) &&
-        Objects.equals(this.tokenizationMode, transactionCreate.tokenizationMode) &&
+        Objects.equals(this.token, transactionCreate.token) && this.tokenizationMode
+      == transactionCreate.tokenizationMode &&
         Objects.equals(this.autoConfirmationEnabled, transactionCreate.autoConfirmationEnabled) &&
-        Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) &&
-        Objects.equals(this.customersPresence, transactionCreate.customersPresence) &&
+        Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) && this.customersPresence
+      == transactionCreate.customersPresence &&
         Objects.equals(this.deviceSessionIdentifier, transactionCreate.deviceSessionIdentifier) &&
-        Objects.equals(this.emailsDisabled, transactionCreate.emailsDisabled) &&
-        Objects.equals(this.environment, transactionCreate.environment) &&
-        Objects.equals(this.environmentSelectionStrategy, transactionCreate.environmentSelectionStrategy) &&
+        Objects.equals(this.emailsDisabled, transactionCreate.emailsDisabled) && this.environment
+      == transactionCreate.environment
+      && this.environmentSelectionStrategy == transactionCreate.environmentSelectionStrategy &&
         Objects.equals(this.spaceViewId, transactionCreate.spaceViewId) &&
         super.equals(o);
   }

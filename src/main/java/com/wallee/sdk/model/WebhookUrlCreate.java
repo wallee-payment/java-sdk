@@ -41,8 +41,7 @@ public class WebhookUrlCreate extends AbstractWebhookUrlUpdate {
       return false;
     }
     WebhookUrlCreate webhookUrlCreate = (WebhookUrlCreate) o;
-    return Objects.equals(this.name, webhookUrlCreate.name) &&
-        Objects.equals(this.state, webhookUrlCreate.state) &&
+    return Objects.equals(this.name, webhookUrlCreate.name) && this.state == webhookUrlCreate.state &&
         Objects.equals(this.url, webhookUrlCreate.url) &&
         super.equals(o);
   }

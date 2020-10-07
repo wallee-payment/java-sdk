@@ -296,8 +296,8 @@ public class InstallmentPlanConfiguration {
         Objects.equals(this.paymentMethodConfigurations, installmentPlanConfiguration.paymentMethodConfigurations) &&
         Objects.equals(this.plannedPurgeDate, installmentPlanConfiguration.plannedPurgeDate) &&
         Objects.equals(this.sortOrder, installmentPlanConfiguration.sortOrder) &&
-        Objects.equals(this.spaceReference, installmentPlanConfiguration.spaceReference) &&
-        Objects.equals(this.state, installmentPlanConfiguration.state) &&
+        Objects.equals(this.spaceReference, installmentPlanConfiguration.spaceReference) && this.state
+      == installmentPlanConfiguration.state &&
         Objects.equals(this.taxClass, installmentPlanConfiguration.taxClass) &&
         Objects.equals(this.termsAndConditions, installmentPlanConfiguration.termsAndConditions) &&
         Objects.equals(this.title, installmentPlanConfiguration.title) &&

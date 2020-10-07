@@ -146,8 +146,7 @@ public class WebhookUrl {
     return Objects.equals(this.id, webhookUrl.id) &&
         Objects.equals(this.linkedSpaceId, webhookUrl.linkedSpaceId) &&
         Objects.equals(this.name, webhookUrl.name) &&
-        Objects.equals(this.plannedPurgeDate, webhookUrl.plannedPurgeDate) &&
-        Objects.equals(this.state, webhookUrl.state) &&
+        Objects.equals(this.plannedPurgeDate, webhookUrl.plannedPurgeDate) && this.state == webhookUrl.state &&
         Objects.equals(this.url, webhookUrl.url) &&
         Objects.equals(this.version, webhookUrl.version);
   }

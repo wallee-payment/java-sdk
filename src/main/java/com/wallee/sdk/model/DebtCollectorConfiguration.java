@@ -208,8 +208,8 @@ public class DebtCollectorConfiguration {
         Objects.equals(this.name, debtCollectorConfiguration.name) &&
         Objects.equals(this.plannedPurgeDate, debtCollectorConfiguration.plannedPurgeDate) &&
         Objects.equals(this.priority, debtCollectorConfiguration.priority) &&
-        Objects.equals(this.skipReviewEnabled, debtCollectorConfiguration.skipReviewEnabled) &&
-        Objects.equals(this.state, debtCollectorConfiguration.state) &&
+        Objects.equals(this.skipReviewEnabled, debtCollectorConfiguration.skipReviewEnabled) && this.state
+      == debtCollectorConfiguration.state &&
         Objects.equals(this.version, debtCollectorConfiguration.version);
   }
 

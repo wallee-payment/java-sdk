@@ -116,15 +116,15 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
     return Objects.equals(this.absolutePriceAdjustment, shopifySubscriptionProductCreate.absolutePriceAdjustment) &&
         Objects.equals(this.billingDayOfMonth, shopifySubscriptionProductCreate.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionProductCreate.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, shopifySubscriptionProductCreate.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, shopifySubscriptionProductCreate.billingWeekday) &&
+      this.billingIntervalUnit == shopifySubscriptionProductCreate.billingIntervalUnit
+      && this.billingWeekday == shopifySubscriptionProductCreate.billingWeekday &&
         Objects.equals(this.fixedPrice, shopifySubscriptionProductCreate.fixedPrice) &&
         Objects.equals(this.maximalBillingCycles, shopifySubscriptionProductCreate.maximalBillingCycles) &&
         Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionProductCreate.maximalSuspendableCycles) &&
         Objects.equals(this.minimalBillingCycles, shopifySubscriptionProductCreate.minimalBillingCycles) &&
-        Objects.equals(this.pricingOption, shopifySubscriptionProductCreate.pricingOption) &&
+      this.pricingOption == shopifySubscriptionProductCreate.pricingOption &&
         Objects.equals(this.relativePriceAdjustment, shopifySubscriptionProductCreate.relativePriceAdjustment) &&
-        Objects.equals(this.state, shopifySubscriptionProductCreate.state) &&
+      this.state == shopifySubscriptionProductCreate.state &&
         Objects.equals(this.storeOrderConfirmationEmailEnabled, shopifySubscriptionProductCreate.storeOrderConfirmationEmailEnabled) &&
         Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionProductCreate.subscriberSuspensionAllowed) &&
         Objects.equals(this.terminationBillingCycles, shopifySubscriptionProductCreate.terminationBillingCycles) &&

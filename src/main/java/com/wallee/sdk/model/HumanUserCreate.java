@@ -71,8 +71,8 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
         Objects.equals(this.firstname, humanUserCreate.firstname) &&
         Objects.equals(this.language, humanUserCreate.language) &&
         Objects.equals(this.lastname, humanUserCreate.lastname) &&
-        Objects.equals(this.mobilePhoneNumber, humanUserCreate.mobilePhoneNumber) &&
-        Objects.equals(this.state, humanUserCreate.state) &&
+        Objects.equals(this.mobilePhoneNumber, humanUserCreate.mobilePhoneNumber) && this.state
+      == humanUserCreate.state &&
         Objects.equals(this.timeZone, humanUserCreate.timeZone) &&
         Objects.equals(this.twoFactorEnabled, humanUserCreate.twoFactorEnabled) &&
         Objects.equals(this.primaryAccount, humanUserCreate.primaryAccount) &&

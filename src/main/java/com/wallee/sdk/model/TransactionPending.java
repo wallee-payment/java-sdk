@@ -106,8 +106,8 @@ public class TransactionPending extends AbstractTransactionPending {
         Objects.equals(this.shippingMethod, transactionPending.shippingMethod) &&
         Objects.equals(this.successUrl, transactionPending.successUrl) &&
         Objects.equals(this.timeZone, transactionPending.timeZone) &&
-        Objects.equals(this.token, transactionPending.token) &&
-        Objects.equals(this.tokenizationMode, transactionPending.tokenizationMode) &&
+        Objects.equals(this.token, transactionPending.token) && this.tokenizationMode
+      == transactionPending.tokenizationMode &&
         Objects.equals(this.id, transactionPending.id) &&
         Objects.equals(this.version, transactionPending.version) &&
         super.equals(o);

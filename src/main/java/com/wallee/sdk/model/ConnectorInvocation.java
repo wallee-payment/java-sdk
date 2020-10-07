@@ -133,8 +133,8 @@ public class ConnectorInvocation extends TransactionAwareEntity {
         Objects.equals(this.linkedSpaceId, connectorInvocation.linkedSpaceId) &&
         Objects.equals(this.linkedTransaction, connectorInvocation.linkedTransaction) &&
         Objects.equals(this.createdOn, connectorInvocation.createdOn) &&
-        Objects.equals(this.plannedPurgeDate, connectorInvocation.plannedPurgeDate) &&
-        Objects.equals(this.stage, connectorInvocation.stage) &&
+        Objects.equals(this.plannedPurgeDate, connectorInvocation.plannedPurgeDate) && this.stage
+      == connectorInvocation.stage &&
         Objects.equals(this.timeTookInMilliseconds, connectorInvocation.timeTookInMilliseconds) &&
         Objects.equals(this.transaction, connectorInvocation.transaction) &&
         Objects.equals(this.version, connectorInvocation.version) &&

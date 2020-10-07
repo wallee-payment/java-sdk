@@ -132,8 +132,8 @@ public class WebhookIdentity {
     return Objects.equals(this.id, webhookIdentity.id) &&
         Objects.equals(this.linkedSpaceId, webhookIdentity.linkedSpaceId) &&
         Objects.equals(this.name, webhookIdentity.name) &&
-        Objects.equals(this.plannedPurgeDate, webhookIdentity.plannedPurgeDate) &&
-        Objects.equals(this.state, webhookIdentity.state) &&
+        Objects.equals(this.plannedPurgeDate, webhookIdentity.plannedPurgeDate) && this.state == webhookIdentity.state
+      &&
         Objects.equals(this.version, webhookIdentity.version);
   }
 

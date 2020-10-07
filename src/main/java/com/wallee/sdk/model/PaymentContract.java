@@ -265,8 +265,8 @@ public class PaymentContract {
         Objects.equals(this.id, paymentContract.id) &&
         Objects.equals(this.rejectedOn, paymentContract.rejectedOn) &&
         Objects.equals(this.rejectionReason, paymentContract.rejectionReason) &&
-        Objects.equals(this.startTerminatingOn, paymentContract.startTerminatingOn) &&
-        Objects.equals(this.state, paymentContract.state) &&
+        Objects.equals(this.startTerminatingOn, paymentContract.startTerminatingOn) && this.state
+      == paymentContract.state &&
         Objects.equals(this.terminatedBy, paymentContract.terminatedBy) &&
         Objects.equals(this.terminatedOn, paymentContract.terminatedOn) &&
         Objects.equals(this.version, paymentContract.version);

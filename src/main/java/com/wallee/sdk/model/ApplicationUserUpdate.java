@@ -91,8 +91,8 @@ public class ApplicationUserUpdate extends AbstractApplicationUserUpdate {
     }
     ApplicationUserUpdate applicationUserUpdate = (ApplicationUserUpdate) o;
     return Objects.equals(this.name, applicationUserUpdate.name) &&
-        Objects.equals(this.requestLimit, applicationUserUpdate.requestLimit) &&
-        Objects.equals(this.state, applicationUserUpdate.state) &&
+        Objects.equals(this.requestLimit, applicationUserUpdate.requestLimit) && this.state
+      == applicationUserUpdate.state &&
         Objects.equals(this.id, applicationUserUpdate.id) &&
         Objects.equals(this.version, applicationUserUpdate.version) &&
         super.equals(o);

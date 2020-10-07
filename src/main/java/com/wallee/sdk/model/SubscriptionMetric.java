@@ -161,8 +161,8 @@ public class SubscriptionMetric {
         Objects.equals(this.id, subscriptionMetric.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionMetric.linkedSpaceId) &&
         Objects.equals(this.name, subscriptionMetric.name) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionMetric.plannedPurgeDate) &&
-        Objects.equals(this.state, subscriptionMetric.state) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionMetric.plannedPurgeDate) && this.state
+      == subscriptionMetric.state &&
         Objects.equals(this.type, subscriptionMetric.type) &&
         Objects.equals(this.version, subscriptionMetric.version);
   }

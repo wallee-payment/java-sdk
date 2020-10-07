@@ -302,8 +302,7 @@ public class LineItemCreate {
         Objects.equals(this.quantity, lineItemCreate.quantity) &&
         Objects.equals(this.shippingRequired, lineItemCreate.shippingRequired) &&
         Objects.equals(this.sku, lineItemCreate.sku) &&
-        Objects.equals(this.taxes, lineItemCreate.taxes) &&
-        Objects.equals(this.type, lineItemCreate.type) &&
+        Objects.equals(this.taxes, lineItemCreate.taxes) && this.type == lineItemCreate.type &&
         Objects.equals(this.uniqueId, lineItemCreate.uniqueId);
   }
 

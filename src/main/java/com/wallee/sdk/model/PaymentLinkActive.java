@@ -79,8 +79,8 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
         Objects.equals(this.lineItems, paymentLinkActive.lineItems) &&
         Objects.equals(this.maximalNumberOfTransactions, paymentLinkActive.maximalNumberOfTransactions) &&
         Objects.equals(this.name, paymentLinkActive.name) &&
-        Objects.equals(this.shippingAddressRequired, paymentLinkActive.shippingAddressRequired) &&
-        Objects.equals(this.state, paymentLinkActive.state) &&
+        Objects.equals(this.shippingAddressRequired, paymentLinkActive.shippingAddressRequired) && this.state
+      == paymentLinkActive.state &&
         super.equals(o);
   }
 

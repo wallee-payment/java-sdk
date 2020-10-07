@@ -60,9 +60,8 @@ public class ApplicationUserCreateWithMacKey extends ApplicationUser {
     ApplicationUserCreateWithMacKey applicationUserCreateWithMacKey = (ApplicationUserCreateWithMacKey) o;
     return Objects.equals(this.id, applicationUserCreateWithMacKey.id) &&
         Objects.equals(this.plannedPurgeDate, applicationUserCreateWithMacKey.plannedPurgeDate) &&
-        Objects.equals(this.scope, applicationUserCreateWithMacKey.scope) &&
-        Objects.equals(this.state, applicationUserCreateWithMacKey.state) &&
-        Objects.equals(this.userType, applicationUserCreateWithMacKey.userType) &&
+        Objects.equals(this.scope, applicationUserCreateWithMacKey.scope) && this.state
+      == applicationUserCreateWithMacKey.state && this.userType == applicationUserCreateWithMacKey.userType &&
         Objects.equals(this.version, applicationUserCreateWithMacKey.version) &&
         Objects.equals(this.name, applicationUserCreateWithMacKey.name) &&
         Objects.equals(this.primaryAccount, applicationUserCreateWithMacKey.primaryAccount) &&

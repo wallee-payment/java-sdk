@@ -177,8 +177,8 @@ public class PaymentTerminalLocation {
         Objects.equals(this.id, paymentTerminalLocation.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
         Objects.equals(this.name, paymentTerminalLocation.name) &&
-        Objects.equals(this.plannedPurgeDate, paymentTerminalLocation.plannedPurgeDate) &&
-        Objects.equals(this.state, paymentTerminalLocation.state) &&
+        Objects.equals(this.plannedPurgeDate, paymentTerminalLocation.plannedPurgeDate) && this.state
+      == paymentTerminalLocation.state &&
         Objects.equals(this.version, paymentTerminalLocation.version);
   }
 

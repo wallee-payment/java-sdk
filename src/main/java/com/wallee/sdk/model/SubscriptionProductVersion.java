@@ -343,8 +343,8 @@ public class SubscriptionProductVersion {
         Objects.equals(this.product, subscriptionProductVersion.product) &&
         Objects.equals(this.reference, subscriptionProductVersion.reference) &&
         Objects.equals(this.retiringFinishedOn, subscriptionProductVersion.retiringFinishedOn) &&
-        Objects.equals(this.retiringStartedOn, subscriptionProductVersion.retiringStartedOn) &&
-        Objects.equals(this.state, subscriptionProductVersion.state) &&
+        Objects.equals(this.retiringStartedOn, subscriptionProductVersion.retiringStartedOn) && this.state
+      == subscriptionProductVersion.state &&
         Objects.equals(this.version, subscriptionProductVersion.version);
   }
 

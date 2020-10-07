@@ -193,8 +193,7 @@ public class ManualTask {
         Objects.equals(this.id, manualTask.id) &&
         Objects.equals(this.linkedSpaceId, manualTask.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, manualTask.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, manualTask.spaceId) &&
-        Objects.equals(this.state, manualTask.state) &&
+        Objects.equals(this.spaceId, manualTask.spaceId) && this.state == manualTask.state &&
         Objects.equals(this.type, manualTask.type);
   }
 

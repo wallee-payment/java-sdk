@@ -94,8 +94,7 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
         Objects.equals(this.name, spaceUpdate.name) &&
         Objects.equals(this.postalAddress, spaceUpdate.postalAddress) &&
         Objects.equals(this.primaryCurrency, spaceUpdate.primaryCurrency) &&
-        Objects.equals(this.requestLimit, spaceUpdate.requestLimit) &&
-        Objects.equals(this.state, spaceUpdate.state) &&
+        Objects.equals(this.requestLimit, spaceUpdate.requestLimit) && this.state == spaceUpdate.state &&
         Objects.equals(this.technicalContactAddresses, spaceUpdate.technicalContactAddresses) &&
         Objects.equals(this.timeZone, spaceUpdate.timeZone) &&
         Objects.equals(this.id, spaceUpdate.id) &&

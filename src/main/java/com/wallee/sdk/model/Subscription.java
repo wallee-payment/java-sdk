@@ -321,8 +321,7 @@ public class Subscription {
         Objects.equals(this.linkedSpaceId, subscription.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, subscription.plannedPurgeDate) &&
         Objects.equals(this.plannedTerminationDate, subscription.plannedTerminationDate) &&
-        Objects.equals(this.reference, subscription.reference) &&
-        Objects.equals(this.state, subscription.state) &&
+        Objects.equals(this.reference, subscription.reference) && this.state == subscription.state &&
         Objects.equals(this.subscriber, subscription.subscriber) &&
         Objects.equals(this.terminatedBy, subscription.terminatedBy) &&
         Objects.equals(this.terminatedOn, subscription.terminatedOn) &&

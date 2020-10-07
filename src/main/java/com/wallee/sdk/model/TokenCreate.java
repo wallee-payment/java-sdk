@@ -96,8 +96,7 @@ public class TokenCreate extends AbstractTokenUpdate {
         Objects.equals(this.language, tokenCreate.language) &&
         Objects.equals(this.timeZone, tokenCreate.timeZone) &&
         Objects.equals(this.tokenReference, tokenCreate.tokenReference) &&
-        Objects.equals(this.externalId, tokenCreate.externalId) &&
-        Objects.equals(this.state, tokenCreate.state) &&
+        Objects.equals(this.externalId, tokenCreate.externalId) && this.state == tokenCreate.state &&
         super.equals(o);
   }
 

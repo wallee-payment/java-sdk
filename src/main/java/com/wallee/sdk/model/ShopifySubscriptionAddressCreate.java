@@ -511,8 +511,8 @@ public class ShopifySubscriptionAddressCreate {
         Objects.equals(this.dateOfBirth, shopifySubscriptionAddressCreate.dateOfBirth) &&
         Objects.equals(this.dependentLocality, shopifySubscriptionAddressCreate.dependentLocality) &&
         Objects.equals(this.emailAddress, shopifySubscriptionAddressCreate.emailAddress) &&
-        Objects.equals(this.familyName, shopifySubscriptionAddressCreate.familyName) &&
-        Objects.equals(this.gender, shopifySubscriptionAddressCreate.gender) &&
+        Objects.equals(this.familyName, shopifySubscriptionAddressCreate.familyName) && this.gender
+      == shopifySubscriptionAddressCreate.gender &&
         Objects.equals(this.givenName, shopifySubscriptionAddressCreate.givenName) &&
         Objects.equals(this.legalOrganizationForm, shopifySubscriptionAddressCreate.legalOrganizationForm) &&
         Objects.equals(this.mobilePhoneNumber, shopifySubscriptionAddressCreate.mobilePhoneNumber) &&

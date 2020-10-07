@@ -70,8 +70,8 @@ public class SubscriptionProductCreate extends AbstractSubscriptionProductActive
     return Objects.equals(this.allowedPaymentMethodConfigurations, subscriptionProductCreate.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.failedPaymentSuspensionPeriod, subscriptionProductCreate.failedPaymentSuspensionPeriod) &&
         Objects.equals(this.name, subscriptionProductCreate.name) &&
-        Objects.equals(this.sortOrder, subscriptionProductCreate.sortOrder) &&
-        Objects.equals(this.state, subscriptionProductCreate.state) &&
+        Objects.equals(this.sortOrder, subscriptionProductCreate.sortOrder) && this.state
+      == subscriptionProductCreate.state &&
         Objects.equals(this.reference, subscriptionProductCreate.reference) &&
         super.equals(o);
   }

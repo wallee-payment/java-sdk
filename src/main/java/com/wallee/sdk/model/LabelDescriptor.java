@@ -158,7 +158,7 @@ public class LabelDescriptor {
       return false;
     }
     LabelDescriptor labelDescriptor = (LabelDescriptor) o;
-    return Objects.equals(this.category, labelDescriptor.category) &&
+    return this.category == labelDescriptor.category &&
         Objects.equals(this.description, labelDescriptor.description) &&
         Objects.equals(this.features, labelDescriptor.features) &&
         Objects.equals(this.group, labelDescriptor.group) &&

@@ -508,8 +508,8 @@ public class AbstractTransactionPending {
         Objects.equals(this.shippingMethod, abstractTransactionPending.shippingMethod) &&
         Objects.equals(this.successUrl, abstractTransactionPending.successUrl) &&
         Objects.equals(this.timeZone, abstractTransactionPending.timeZone) &&
-        Objects.equals(this.token, abstractTransactionPending.token) &&
-        Objects.equals(this.tokenizationMode, abstractTransactionPending.tokenizationMode);
+        Objects.equals(this.token, abstractTransactionPending.token) && this.tokenizationMode
+      == abstractTransactionPending.tokenizationMode;
   }
 
   @Override

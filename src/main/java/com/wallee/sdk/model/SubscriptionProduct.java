@@ -208,8 +208,7 @@ public class SubscriptionProduct {
         Objects.equals(this.plannedPurgeDate, subscriptionProduct.plannedPurgeDate) &&
         Objects.equals(this.reference, subscriptionProduct.reference) &&
         Objects.equals(this.sortOrder, subscriptionProduct.sortOrder) &&
-        Objects.equals(this.spaceId, subscriptionProduct.spaceId) &&
-        Objects.equals(this.state, subscriptionProduct.state) &&
+        Objects.equals(this.spaceId, subscriptionProduct.spaceId) && this.state == subscriptionProduct.state &&
         Objects.equals(this.version, subscriptionProduct.version);
   }
 

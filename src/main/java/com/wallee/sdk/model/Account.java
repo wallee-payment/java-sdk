@@ -265,10 +265,8 @@ public class Account {
         Objects.equals(this.parentAccount, account.parentAccount) &&
         Objects.equals(this.plannedPurgeDate, account.plannedPurgeDate) &&
         Objects.equals(this.restrictedActive, account.restrictedActive) &&
-        Objects.equals(this.scope, account.scope) &&
-        Objects.equals(this.state, account.state) &&
-        Objects.equals(this.subaccountLimit, account.subaccountLimit) &&
-        Objects.equals(this.type, account.type) &&
+        Objects.equals(this.scope, account.scope) && this.state == account.state &&
+        Objects.equals(this.subaccountLimit, account.subaccountLimit) && this.type == account.type &&
         Objects.equals(this.version, account.version);
   }
 

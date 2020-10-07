@@ -209,8 +209,8 @@ public class DeliveryIndication extends TransactionAwareEntity {
         Objects.equals(this.manualDecisionTimeoutOn, deliveryIndication.manualDecisionTimeoutOn) &&
         Objects.equals(this.manuallyDecidedBy, deliveryIndication.manuallyDecidedBy) &&
         Objects.equals(this.manuallyDecidedOn, deliveryIndication.manuallyDecidedOn) &&
-        Objects.equals(this.plannedPurgeDate, deliveryIndication.plannedPurgeDate) &&
-        Objects.equals(this.state, deliveryIndication.state) &&
+        Objects.equals(this.plannedPurgeDate, deliveryIndication.plannedPurgeDate) && this.state
+      == deliveryIndication.state &&
         Objects.equals(this.timeoutOn, deliveryIndication.timeoutOn) &&
         Objects.equals(this.transaction, deliveryIndication.transaction) &&
         super.equals(o);

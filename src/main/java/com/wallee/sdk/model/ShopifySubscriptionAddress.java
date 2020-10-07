@@ -47,8 +47,8 @@ public class ShopifySubscriptionAddress extends Address {
         Objects.equals(this.dateOfBirth, shopifySubscriptionAddress.dateOfBirth) &&
         Objects.equals(this.dependentLocality, shopifySubscriptionAddress.dependentLocality) &&
         Objects.equals(this.emailAddress, shopifySubscriptionAddress.emailAddress) &&
-        Objects.equals(this.familyName, shopifySubscriptionAddress.familyName) &&
-        Objects.equals(this.gender, shopifySubscriptionAddress.gender) &&
+        Objects.equals(this.familyName, shopifySubscriptionAddress.familyName) && this.gender
+      == shopifySubscriptionAddress.gender &&
         Objects.equals(this.givenName, shopifySubscriptionAddress.givenName) &&
         Objects.equals(this.legalOrganizationForm, shopifySubscriptionAddress.legalOrganizationForm) &&
         Objects.equals(this.mobilePhoneNumber, shopifySubscriptionAddress.mobilePhoneNumber) &&

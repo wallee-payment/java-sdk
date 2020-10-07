@@ -236,8 +236,8 @@ public class PaymentTerminalConfigurationVersion {
         Objects.equals(this.linkedSpaceId, paymentTerminalConfigurationVersion.linkedSpaceId) &&
         Objects.equals(this.maintenanceWindowDuration, paymentTerminalConfigurationVersion.maintenanceWindowDuration) &&
         Objects.equals(this.maintenanceWindowStart, paymentTerminalConfigurationVersion.maintenanceWindowStart) &&
-        Objects.equals(this.plannedPurgeDate, paymentTerminalConfigurationVersion.plannedPurgeDate) &&
-        Objects.equals(this.state, paymentTerminalConfigurationVersion.state) &&
+        Objects.equals(this.plannedPurgeDate, paymentTerminalConfigurationVersion.plannedPurgeDate) && this.state
+      == paymentTerminalConfigurationVersion.state &&
         Objects.equals(this.timeZone, paymentTerminalConfigurationVersion.timeZone) &&
         Objects.equals(this.version, paymentTerminalConfigurationVersion.version) &&
         Objects.equals(this.versionAppliedImmediately, paymentTerminalConfigurationVersion.versionAppliedImmediately);

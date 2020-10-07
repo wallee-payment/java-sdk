@@ -137,7 +137,7 @@ public class SubscriptionSuspensionCreate {
       return false;
     }
     SubscriptionSuspensionCreate subscriptionSuspensionCreate = (SubscriptionSuspensionCreate) o;
-    return Objects.equals(this.endAction, subscriptionSuspensionCreate.endAction) &&
+    return this.endAction == subscriptionSuspensionCreate.endAction &&
         Objects.equals(this.note, subscriptionSuspensionCreate.note) &&
         Objects.equals(this.plannedEndDate, subscriptionSuspensionCreate.plannedEndDate) &&
         Objects.equals(this.subscription, subscriptionSuspensionCreate.subscription);

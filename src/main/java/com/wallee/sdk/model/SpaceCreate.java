@@ -71,8 +71,7 @@ public class SpaceCreate extends AbstractSpaceUpdate {
         Objects.equals(this.name, spaceCreate.name) &&
         Objects.equals(this.postalAddress, spaceCreate.postalAddress) &&
         Objects.equals(this.primaryCurrency, spaceCreate.primaryCurrency) &&
-        Objects.equals(this.requestLimit, spaceCreate.requestLimit) &&
-        Objects.equals(this.state, spaceCreate.state) &&
+        Objects.equals(this.requestLimit, spaceCreate.requestLimit) && this.state == spaceCreate.state &&
         Objects.equals(this.technicalContactAddresses, spaceCreate.technicalContactAddresses) &&
         Objects.equals(this.timeZone, spaceCreate.timeZone) &&
         Objects.equals(this.account, spaceCreate.account) &&

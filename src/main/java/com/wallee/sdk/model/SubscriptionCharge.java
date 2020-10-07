@@ -351,15 +351,13 @@ public class SubscriptionCharge {
         Objects.equals(this.ledgerEntries, subscriptionCharge.ledgerEntries) &&
         Objects.equals(this.linkedSpaceId, subscriptionCharge.linkedSpaceId) &&
         Objects.equals(this.plannedExecutionDate, subscriptionCharge.plannedExecutionDate) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionCharge.plannedPurgeDate) &&
-        Objects.equals(this.processingType, subscriptionCharge.processingType) &&
-        Objects.equals(this.reference, subscriptionCharge.reference) &&
-        Objects.equals(this.state, subscriptionCharge.state) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionCharge.plannedPurgeDate) && this.processingType
+      == subscriptionCharge.processingType &&
+        Objects.equals(this.reference, subscriptionCharge.reference) && this.state == subscriptionCharge.state &&
         Objects.equals(this.subscription, subscriptionCharge.subscription) &&
         Objects.equals(this.succeedOn, subscriptionCharge.succeedOn) &&
         Objects.equals(this.successUrl, subscriptionCharge.successUrl) &&
-        Objects.equals(this.transaction, subscriptionCharge.transaction) &&
-        Objects.equals(this.type, subscriptionCharge.type) &&
+        Objects.equals(this.transaction, subscriptionCharge.transaction) && this.type == subscriptionCharge.type &&
         Objects.equals(this.version, subscriptionCharge.version);
   }
 

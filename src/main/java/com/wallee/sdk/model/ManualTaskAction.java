@@ -102,8 +102,7 @@ public class ManualTaskAction {
     }
     ManualTaskAction manualTaskAction = (ManualTaskAction) o;
     return Objects.equals(this.id, manualTaskAction.id) &&
-        Objects.equals(this.label, manualTaskAction.label) &&
-        Objects.equals(this.style, manualTaskAction.style) &&
+        Objects.equals(this.label, manualTaskAction.label) && this.style == manualTaskAction.style &&
         Objects.equals(this.taskType, manualTaskAction.taskType);
   }
 

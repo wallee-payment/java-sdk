@@ -231,14 +231,14 @@ public class ShopifySubscriptionSuspension {
         Objects.equals(this.createdOn, shopifySubscriptionSuspension.createdOn) &&
         Objects.equals(this.endedBy, shopifySubscriptionSuspension.endedBy) &&
         Objects.equals(this.endedOn, shopifySubscriptionSuspension.endedOn) &&
-        Objects.equals(this.id, shopifySubscriptionSuspension.id) &&
-        Objects.equals(this.initiator, shopifySubscriptionSuspension.initiator) &&
+        Objects.equals(this.id, shopifySubscriptionSuspension.id) && this.initiator
+      == shopifySubscriptionSuspension.initiator &&
         Objects.equals(this.linkedSpaceId, shopifySubscriptionSuspension.linkedSpaceId) &&
         Objects.equals(this.plannedEndDate, shopifySubscriptionSuspension.plannedEndDate) &&
-        Objects.equals(this.shop, shopifySubscriptionSuspension.shop) &&
-        Objects.equals(this.state, shopifySubscriptionSuspension.state) &&
-        Objects.equals(this.subscription, shopifySubscriptionSuspension.subscription) &&
-        Objects.equals(this.type, shopifySubscriptionSuspension.type) &&
+        Objects.equals(this.shop, shopifySubscriptionSuspension.shop) && this.state
+      == shopifySubscriptionSuspension.state &&
+        Objects.equals(this.subscription, shopifySubscriptionSuspension.subscription) && this.type
+      == shopifySubscriptionSuspension.type &&
         Objects.equals(this.version, shopifySubscriptionSuspension.version);
   }
 

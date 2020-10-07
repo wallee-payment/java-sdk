@@ -191,8 +191,8 @@ public class PaymentTerminalLocationVersion {
         Objects.equals(this.id, paymentTerminalLocationVersion.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalLocationVersion.linkedSpaceId) &&
         Objects.equals(this.location, paymentTerminalLocationVersion.location) &&
-        Objects.equals(this.plannedPurgeDate, paymentTerminalLocationVersion.plannedPurgeDate) &&
-        Objects.equals(this.state, paymentTerminalLocationVersion.state) &&
+        Objects.equals(this.plannedPurgeDate, paymentTerminalLocationVersion.plannedPurgeDate) && this.state
+      == paymentTerminalLocationVersion.state &&
         Objects.equals(this.version, paymentTerminalLocationVersion.version) &&
         Objects.equals(this.versionAppliedImmediately, paymentTerminalLocationVersion.versionAppliedImmediately);
   }

@@ -77,8 +77,8 @@ public class SubscriberActive extends SubscriberUpdate {
         Objects.equals(this.language, subscriberActive.language) &&
         Objects.equals(this.metaData, subscriberActive.metaData) &&
         Objects.equals(this.reference, subscriberActive.reference) &&
-        Objects.equals(this.shippingAddress, subscriberActive.shippingAddress) &&
-        Objects.equals(this.state, subscriberActive.state) &&
+        Objects.equals(this.shippingAddress, subscriberActive.shippingAddress) && this.state == subscriberActive.state
+      &&
         super.equals(o);
   }
 

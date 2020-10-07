@@ -427,8 +427,8 @@ public class ShopifySubscriptionVersion {
     return Objects.equals(this.billingAddress, shopifySubscriptionVersion.billingAddress) &&
         Objects.equals(this.billingDayOfMonth, shopifySubscriptionVersion.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionVersion.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, shopifySubscriptionVersion.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, shopifySubscriptionVersion.billingWeekday) &&
+      this.billingIntervalUnit == shopifySubscriptionVersion.billingIntervalUnit
+      && this.billingWeekday == shopifySubscriptionVersion.billingWeekday &&
         Objects.equals(this.createdBy, shopifySubscriptionVersion.createdBy) &&
         Objects.equals(this.createdOn, shopifySubscriptionVersion.createdOn) &&
         Objects.equals(this.currency, shopifySubscriptionVersion.currency) &&
@@ -443,8 +443,7 @@ public class ShopifySubscriptionVersion {
         Objects.equals(this.paymentGateway, shopifySubscriptionVersion.paymentGateway) &&
         Objects.equals(this.shippingAddress, shopifySubscriptionVersion.shippingAddress) &&
         Objects.equals(this.shippingRate, shopifySubscriptionVersion.shippingRate) &&
-        Objects.equals(this.shop, shopifySubscriptionVersion.shop) &&
-        Objects.equals(this.state, shopifySubscriptionVersion.state) &&
+        Objects.equals(this.shop, shopifySubscriptionVersion.shop) && this.state == shopifySubscriptionVersion.state &&
         Objects.equals(this.storeOrderConfirmationEmailEnabled, shopifySubscriptionVersion.storeOrderConfirmationEmailEnabled) &&
         Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionVersion.subscriberSuspensionAllowed) &&
         Objects.equals(this.subscription, shopifySubscriptionVersion.subscription) &&

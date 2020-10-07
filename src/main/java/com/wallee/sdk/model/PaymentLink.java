@@ -325,10 +325,10 @@ public class PaymentLink {
         Objects.equals(this.linkedSpaceId, paymentLink.linkedSpaceId) &&
         Objects.equals(this.maximalNumberOfTransactions, paymentLink.maximalNumberOfTransactions) &&
         Objects.equals(this.name, paymentLink.name) &&
-        Objects.equals(this.plannedPurgeDate, paymentLink.plannedPurgeDate) &&
-        Objects.equals(this.protectionMode, paymentLink.protectionMode) &&
-        Objects.equals(this.shippingAddressRequired, paymentLink.shippingAddressRequired) &&
-        Objects.equals(this.state, paymentLink.state) &&
+        Objects.equals(this.plannedPurgeDate, paymentLink.plannedPurgeDate) && this.protectionMode
+      == paymentLink.protectionMode &&
+        Objects.equals(this.shippingAddressRequired, paymentLink.shippingAddressRequired) && this.state
+      == paymentLink.state &&
         Objects.equals(this.url, paymentLink.url) &&
         Objects.equals(this.version, paymentLink.version);
   }

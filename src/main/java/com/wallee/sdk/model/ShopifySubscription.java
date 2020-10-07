@@ -278,8 +278,7 @@ public class ShopifySubscription {
         Objects.equals(this.language, shopifySubscription.language) &&
         Objects.equals(this.linkedSpaceId, shopifySubscription.linkedSpaceId) &&
         Objects.equals(this.orderRecurrenceNumber, shopifySubscription.orderRecurrenceNumber) &&
-        Objects.equals(this.shop, shopifySubscription.shop) &&
-        Objects.equals(this.state, shopifySubscription.state) &&
+        Objects.equals(this.shop, shopifySubscription.shop) && this.state == shopifySubscription.state &&
         Objects.equals(this.subscriber, shopifySubscription.subscriber) &&
         Objects.equals(this.terminatedBy, shopifySubscription.terminatedBy) &&
         Objects.equals(this.terminatedOn, shopifySubscription.terminatedOn) &&

@@ -162,8 +162,7 @@ public class Role {
         Objects.equals(this.id, role.id) &&
         Objects.equals(this.name, role.name) &&
         Objects.equals(this.permissions, role.permissions) &&
-        Objects.equals(this.plannedPurgeDate, role.plannedPurgeDate) &&
-        Objects.equals(this.state, role.state) &&
+        Objects.equals(this.plannedPurgeDate, role.plannedPurgeDate) && this.state == role.state &&
         Objects.equals(this.twoFactorRequired, role.twoFactorRequired) &&
         Objects.equals(this.version, role.version);
   }

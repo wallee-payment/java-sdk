@@ -238,8 +238,8 @@ public class PaymentConnectorConfiguration {
         Objects.equals(this.paymentMethodConfiguration, paymentConnectorConfiguration.paymentMethodConfiguration) &&
         Objects.equals(this.plannedPurgeDate, paymentConnectorConfiguration.plannedPurgeDate) &&
         Objects.equals(this.priority, paymentConnectorConfiguration.priority) &&
-        Objects.equals(this.processorConfiguration, paymentConnectorConfiguration.processorConfiguration) &&
-        Objects.equals(this.state, paymentConnectorConfiguration.state) &&
+        Objects.equals(this.processorConfiguration, paymentConnectorConfiguration.processorConfiguration) && this.state
+      == paymentConnectorConfiguration.state &&
         Objects.equals(this.version, paymentConnectorConfiguration.version);
   }
 

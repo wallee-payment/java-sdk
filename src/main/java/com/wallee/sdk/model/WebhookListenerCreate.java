@@ -115,8 +115,8 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
     WebhookListenerCreate webhookListenerCreate = (WebhookListenerCreate) o;
     return Objects.equals(this.entityStates, webhookListenerCreate.entityStates) &&
         Objects.equals(this.name, webhookListenerCreate.name) &&
-        Objects.equals(this.notifyEveryChange, webhookListenerCreate.notifyEveryChange) &&
-        Objects.equals(this.state, webhookListenerCreate.state) &&
+        Objects.equals(this.notifyEveryChange, webhookListenerCreate.notifyEveryChange) && this.state
+      == webhookListenerCreate.state &&
         Objects.equals(this.entity, webhookListenerCreate.entity) &&
         Objects.equals(this.identity, webhookListenerCreate.identity) &&
         Objects.equals(this.url, webhookListenerCreate.url) &&

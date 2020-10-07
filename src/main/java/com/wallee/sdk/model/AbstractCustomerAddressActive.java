@@ -88,8 +88,8 @@ public class AbstractCustomerAddressActive {
       return false;
     }
     AbstractCustomerAddressActive abstractCustomerAddressActive = (AbstractCustomerAddressActive) o;
-    return Objects.equals(this.address, abstractCustomerAddressActive.address) &&
-        Objects.equals(this.addressType, abstractCustomerAddressActive.addressType);
+    return Objects.equals(this.address, abstractCustomerAddressActive.address) && this.addressType
+      == abstractCustomerAddressActive.addressType;
   }
 
   @Override

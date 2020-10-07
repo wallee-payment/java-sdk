@@ -147,8 +147,7 @@ public class ResourcePath {
         Objects.equals(this.linkedSpaceId, resourcePath.linkedSpaceId) &&
         Objects.equals(this.path, resourcePath.path) &&
         Objects.equals(this.plannedPurgeDate, resourcePath.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, resourcePath.spaceId) &&
-        Objects.equals(this.state, resourcePath.state) &&
+        Objects.equals(this.spaceId, resourcePath.spaceId) && this.state == resourcePath.state &&
         Objects.equals(this.version, resourcePath.version);
   }
 

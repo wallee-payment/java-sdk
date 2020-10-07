@@ -511,8 +511,8 @@ public class CustomerPostalAddressCreate {
         Objects.equals(this.dateOfBirth, customerPostalAddressCreate.dateOfBirth) &&
         Objects.equals(this.dependentLocality, customerPostalAddressCreate.dependentLocality) &&
         Objects.equals(this.emailAddress, customerPostalAddressCreate.emailAddress) &&
-        Objects.equals(this.familyName, customerPostalAddressCreate.familyName) &&
-        Objects.equals(this.gender, customerPostalAddressCreate.gender) &&
+        Objects.equals(this.familyName, customerPostalAddressCreate.familyName) && this.gender
+      == customerPostalAddressCreate.gender &&
         Objects.equals(this.givenName, customerPostalAddressCreate.givenName) &&
         Objects.equals(this.legalOrganizationForm, customerPostalAddressCreate.legalOrganizationForm) &&
         Objects.equals(this.mobilePhoneNumber, customerPostalAddressCreate.mobilePhoneNumber) &&

@@ -111,8 +111,7 @@ public class AbstractWebhookUrlUpdate {
       return false;
     }
     AbstractWebhookUrlUpdate abstractWebhookUrlUpdate = (AbstractWebhookUrlUpdate) o;
-    return Objects.equals(this.name, abstractWebhookUrlUpdate.name) &&
-        Objects.equals(this.state, abstractWebhookUrlUpdate.state) &&
+    return Objects.equals(this.name, abstractWebhookUrlUpdate.name) && this.state == abstractWebhookUrlUpdate.state &&
         Objects.equals(this.url, abstractWebhookUrlUpdate.url);
   }
 

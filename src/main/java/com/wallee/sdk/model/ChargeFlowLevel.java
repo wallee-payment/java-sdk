@@ -191,8 +191,8 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
         Objects.equals(this.asynchronousCharge, chargeFlowLevel.asynchronousCharge) &&
         Objects.equals(this._configuration, chargeFlowLevel._configuration) &&
         Objects.equals(this.createdOn, chargeFlowLevel.createdOn) &&
-        Objects.equals(this.plannedPurgeDate, chargeFlowLevel.plannedPurgeDate) &&
-        Objects.equals(this.state, chargeFlowLevel.state) &&
+        Objects.equals(this.plannedPurgeDate, chargeFlowLevel.plannedPurgeDate) && this.state == chargeFlowLevel.state
+      &&
         Objects.equals(this.synchronousCharge, chargeFlowLevel.synchronousCharge) &&
         Objects.equals(this.timeoutOn, chargeFlowLevel.timeoutOn) &&
         Objects.equals(this.tokenCharge, chargeFlowLevel.tokenCharge) &&

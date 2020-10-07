@@ -210,8 +210,8 @@ public class ProductMeteredFeeUpdate {
         Objects.equals(this.component, productMeteredFeeUpdate.component) &&
         Objects.equals(this.description, productMeteredFeeUpdate.description) &&
         Objects.equals(this.metric, productMeteredFeeUpdate.metric) &&
-        Objects.equals(this.name, productMeteredFeeUpdate.name) &&
-        Objects.equals(this.tierPricing, productMeteredFeeUpdate.tierPricing);
+        Objects.equals(this.name, productMeteredFeeUpdate.name) && this.tierPricing
+      == productMeteredFeeUpdate.tierPricing;
   }
 
   @Override

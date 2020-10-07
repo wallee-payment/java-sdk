@@ -235,8 +235,7 @@ public class Token {
         Objects.equals(this.id, token.id) &&
         Objects.equals(this.language, token.language) &&
         Objects.equals(this.linkedSpaceId, token.linkedSpaceId) &&
-        Objects.equals(this.plannedPurgeDate, token.plannedPurgeDate) &&
-        Objects.equals(this.state, token.state) &&
+        Objects.equals(this.plannedPurgeDate, token.plannedPurgeDate) && this.state == token.state &&
         Objects.equals(this.timeZone, token.timeZone) &&
         Objects.equals(this.tokenReference, token.tokenReference) &&
         Objects.equals(this.version, token.version);

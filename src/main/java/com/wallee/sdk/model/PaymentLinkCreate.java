@@ -123,10 +123,10 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
         Objects.equals(this.lineItems, paymentLinkCreate.lineItems) &&
         Objects.equals(this.maximalNumberOfTransactions, paymentLinkCreate.maximalNumberOfTransactions) &&
         Objects.equals(this.name, paymentLinkCreate.name) &&
-        Objects.equals(this.shippingAddressRequired, paymentLinkCreate.shippingAddressRequired) &&
-        Objects.equals(this.state, paymentLinkCreate.state) &&
-        Objects.equals(this.externalId, paymentLinkCreate.externalId) &&
-        Objects.equals(this.protectionMode, paymentLinkCreate.protectionMode) &&
+        Objects.equals(this.shippingAddressRequired, paymentLinkCreate.shippingAddressRequired) && this.state
+      == paymentLinkCreate.state &&
+        Objects.equals(this.externalId, paymentLinkCreate.externalId) && this.protectionMode
+      == paymentLinkCreate.protectionMode &&
         super.equals(o);
   }
 

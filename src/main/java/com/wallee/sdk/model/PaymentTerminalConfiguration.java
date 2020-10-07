@@ -146,8 +146,8 @@ public class PaymentTerminalConfiguration {
     return Objects.equals(this.id, paymentTerminalConfiguration.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalConfiguration.linkedSpaceId) &&
         Objects.equals(this.name, paymentTerminalConfiguration.name) &&
-        Objects.equals(this.plannedPurgeDate, paymentTerminalConfiguration.plannedPurgeDate) &&
-        Objects.equals(this.state, paymentTerminalConfiguration.state) &&
+        Objects.equals(this.plannedPurgeDate, paymentTerminalConfiguration.plannedPurgeDate) && this.state
+      == paymentTerminalConfiguration.state &&
         Objects.equals(this.type, paymentTerminalConfiguration.type) &&
         Objects.equals(this.version, paymentTerminalConfiguration.version);
   }

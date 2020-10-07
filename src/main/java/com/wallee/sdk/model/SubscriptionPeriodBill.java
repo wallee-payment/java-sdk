@@ -206,8 +206,8 @@ public class SubscriptionPeriodBill {
         Objects.equals(this.linkedSpaceId, subscriptionPeriodBill.linkedSpaceId) &&
         Objects.equals(this.periodStartDate, subscriptionPeriodBill.periodStartDate) &&
         Objects.equals(this.plannedPeriodEndDate, subscriptionPeriodBill.plannedPeriodEndDate) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionPeriodBill.plannedPurgeDate) &&
-        Objects.equals(this.state, subscriptionPeriodBill.state) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionPeriodBill.plannedPurgeDate) && this.state
+      == subscriptionPeriodBill.state &&
         Objects.equals(this.subscriptionVersion, subscriptionPeriodBill.subscriptionVersion) &&
         Objects.equals(this.version, subscriptionPeriodBill.version);
   }

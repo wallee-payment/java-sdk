@@ -90,8 +90,7 @@ public class EntityQueryOrderBy {
       return false;
     }
     EntityQueryOrderBy entityQueryOrderBy = (EntityQueryOrderBy) o;
-    return Objects.equals(this.fieldName, entityQueryOrderBy.fieldName) &&
-        Objects.equals(this.sorting, entityQueryOrderBy.sorting);
+    return Objects.equals(this.fieldName, entityQueryOrderBy.fieldName) && this.sorting == entityQueryOrderBy.sorting;
   }
 
   @Override

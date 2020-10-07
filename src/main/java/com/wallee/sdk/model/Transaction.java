@@ -906,8 +906,8 @@ public class Transaction {
         Objects.equals(this.acceptLanguageHeader, transaction.acceptLanguageHeader) &&
         Objects.equals(this.allowedPaymentMethodBrands, transaction.allowedPaymentMethodBrands) &&
         Objects.equals(this.allowedPaymentMethodConfigurations, transaction.allowedPaymentMethodConfigurations) &&
-        Objects.equals(this.authorizationAmount, transaction.authorizationAmount) &&
-        Objects.equals(this.authorizationEnvironment, transaction.authorizationEnvironment) &&
+        Objects.equals(this.authorizationAmount, transaction.authorizationAmount) && this.authorizationEnvironment
+      == transaction.authorizationEnvironment &&
         Objects.equals(this.authorizationSalesChannel, transaction.authorizationSalesChannel) &&
         Objects.equals(this.authorizationTimeoutOn, transaction.authorizationTimeoutOn) &&
         Objects.equals(this.authorizedOn, transaction.authorizedOn) &&
@@ -923,14 +923,13 @@ public class Transaction {
         Objects.equals(this.createdOn, transaction.createdOn) &&
         Objects.equals(this.currency, transaction.currency) &&
         Objects.equals(this.customerEmailAddress, transaction.customerEmailAddress) &&
-        Objects.equals(this.customerId, transaction.customerId) &&
-        Objects.equals(this.customersPresence, transaction.customersPresence) &&
+        Objects.equals(this.customerId, transaction.customerId) && this.customersPresence
+      == transaction.customersPresence &&
         Objects.equals(this.deliveryDecisionMadeOn, transaction.deliveryDecisionMadeOn) &&
         Objects.equals(this.deviceSessionIdentifier, transaction.deviceSessionIdentifier) &&
         Objects.equals(this.emailsDisabled, transaction.emailsDisabled) &&
-        Objects.equals(this.endOfLife, transaction.endOfLife) &&
-        Objects.equals(this.environment, transaction.environment) &&
-        Objects.equals(this.environmentSelectionStrategy, transaction.environmentSelectionStrategy) &&
+        Objects.equals(this.endOfLife, transaction.endOfLife) && this.environment == transaction.environment
+      && this.environmentSelectionStrategy == transaction.environmentSelectionStrategy &&
         Objects.equals(this.failedOn, transaction.failedOn) &&
         Objects.equals(this.failedUrl, transaction.failedUrl) &&
         Objects.equals(this.failureReason, transaction.failureReason) &&
@@ -951,17 +950,15 @@ public class Transaction {
         Objects.equals(this.refundedAmount, transaction.refundedAmount) &&
         Objects.equals(this.shippingAddress, transaction.shippingAddress) &&
         Objects.equals(this.shippingMethod, transaction.shippingMethod) &&
-        Objects.equals(this.spaceViewId, transaction.spaceViewId) &&
-        Objects.equals(this.state, transaction.state) &&
+        Objects.equals(this.spaceViewId, transaction.spaceViewId) && this.state == transaction.state &&
         Objects.equals(this.successUrl, transaction.successUrl) &&
         Objects.equals(this.timeZone, transaction.timeZone) &&
-        Objects.equals(this.token, transaction.token) &&
-        Objects.equals(this.tokenizationMode, transaction.tokenizationMode) &&
+        Objects.equals(this.token, transaction.token) && this.tokenizationMode == transaction.tokenizationMode &&
         Objects.equals(this.totalAppliedFees, transaction.totalAppliedFees) &&
         Objects.equals(this.totalSettledAmount, transaction.totalSettledAmount) &&
         Objects.equals(this.userAgentHeader, transaction.userAgentHeader) &&
-        Objects.equals(this.userFailureMessage, transaction.userFailureMessage) &&
-        Objects.equals(this.userInterfaceType, transaction.userInterfaceType) &&
+        Objects.equals(this.userFailureMessage, transaction.userFailureMessage) && this.userInterfaceType
+      == transaction.userInterfaceType &&
         Objects.equals(this.version, transaction.version);
   }
 

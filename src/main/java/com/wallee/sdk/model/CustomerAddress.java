@@ -157,8 +157,7 @@ public class CustomerAddress {
       return false;
     }
     CustomerAddress customerAddress = (CustomerAddress) o;
-    return Objects.equals(this.address, customerAddress.address) &&
-        Objects.equals(this.addressType, customerAddress.addressType) &&
+    return Objects.equals(this.address, customerAddress.address) && this.addressType == customerAddress.addressType &&
         Objects.equals(this.createdOn, customerAddress.createdOn) &&
         Objects.equals(this.customer, customerAddress.customer) &&
         Objects.equals(this.defaultAddress, customerAddress.defaultAddress) &&

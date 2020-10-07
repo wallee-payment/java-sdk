@@ -192,8 +192,7 @@ public class ProductPeriodFee {
         Objects.equals(this.linkedSpaceId, productPeriodFee.linkedSpaceId) &&
         Objects.equals(this.name, productPeriodFee.name) &&
         Objects.equals(this.numberOfFreeTrialPeriods, productPeriodFee.numberOfFreeTrialPeriods) &&
-        Objects.equals(this.periodFee, productPeriodFee.periodFee) &&
-        Objects.equals(this.type, productPeriodFee.type) &&
+        Objects.equals(this.periodFee, productPeriodFee.periodFee) && this.type == productPeriodFee.type &&
         Objects.equals(this.version, productPeriodFee.version);
   }
 

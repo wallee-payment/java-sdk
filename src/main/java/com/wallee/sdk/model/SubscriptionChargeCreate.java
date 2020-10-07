@@ -208,8 +208,8 @@ public class SubscriptionChargeCreate {
     SubscriptionChargeCreate subscriptionChargeCreate = (SubscriptionChargeCreate) o;
     return Objects.equals(this.externalId, subscriptionChargeCreate.externalId) &&
         Objects.equals(this.failedUrl, subscriptionChargeCreate.failedUrl) &&
-        Objects.equals(this.plannedExecutionDate, subscriptionChargeCreate.plannedExecutionDate) &&
-        Objects.equals(this.processingType, subscriptionChargeCreate.processingType) &&
+        Objects.equals(this.plannedExecutionDate, subscriptionChargeCreate.plannedExecutionDate) && this.processingType
+      == subscriptionChargeCreate.processingType &&
         Objects.equals(this.reference, subscriptionChargeCreate.reference) &&
         Objects.equals(this.subscription, subscriptionChargeCreate.subscription) &&
         Objects.equals(this.successUrl, subscriptionChargeCreate.successUrl);

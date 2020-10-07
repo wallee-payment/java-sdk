@@ -499,8 +499,7 @@ public class Refund {
         Objects.equals(this.baseLineItems, refund.baseLineItems) &&
         Objects.equals(this.completion, refund.completion) &&
         Objects.equals(this.createdBy, refund.createdBy) &&
-        Objects.equals(this.createdOn, refund.createdOn) &&
-        Objects.equals(this.environment, refund.environment) &&
+        Objects.equals(this.createdOn, refund.createdOn) && this.environment == refund.environment &&
         Objects.equals(this.externalId, refund.externalId) &&
         Objects.equals(this.failedOn, refund.failedOn) &&
         Objects.equals(this.failureReason, refund.failureReason) &&
@@ -515,16 +514,14 @@ public class Refund {
         Objects.equals(this.processingOn, refund.processingOn) &&
         Objects.equals(this.processorReference, refund.processorReference) &&
         Objects.equals(this.reducedLineItems, refund.reducedLineItems) &&
-        Objects.equals(this.reductions, refund.reductions) &&
-        Objects.equals(this.state, refund.state) &&
+        Objects.equals(this.reductions, refund.reductions) && this.state == refund.state &&
         Objects.equals(this.succeededOn, refund.succeededOn) &&
         Objects.equals(this.taxes, refund.taxes) &&
         Objects.equals(this.timeZone, refund.timeZone) &&
         Objects.equals(this.timeoutOn, refund.timeoutOn) &&
         Objects.equals(this.totalAppliedFees, refund.totalAppliedFees) &&
         Objects.equals(this.totalSettledAmount, refund.totalSettledAmount) &&
-        Objects.equals(this.transaction, refund.transaction) &&
-        Objects.equals(this.type, refund.type) &&
+        Objects.equals(this.transaction, refund.transaction) && this.type == refund.type &&
         Objects.equals(this.updatedInvoice, refund.updatedInvoice) &&
         Objects.equals(this.version, refund.version);
   }

@@ -178,8 +178,8 @@ public class InstallmentPayment {
         Objects.equals(this.lineItems, installmentPayment.lineItems) &&
         Objects.equals(this.linkedSpaceId, installmentPayment.linkedSpaceId) &&
         Objects.equals(this.planConfiguration, installmentPayment.planConfiguration) &&
-        Objects.equals(this.plannedPurgeDate, installmentPayment.plannedPurgeDate) &&
-        Objects.equals(this.state, installmentPayment.state) &&
+        Objects.equals(this.plannedPurgeDate, installmentPayment.plannedPurgeDate) && this.state
+      == installmentPayment.state &&
         Objects.equals(this.version, installmentPayment.version);
   }
 

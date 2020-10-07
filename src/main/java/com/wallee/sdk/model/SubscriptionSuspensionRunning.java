@@ -42,17 +42,16 @@ public class SubscriptionSuspensionRunning extends SubscriptionSuspension {
     }
     SubscriptionSuspensionRunning subscriptionSuspensionRunning = (SubscriptionSuspensionRunning) o;
     return Objects.equals(this.createdOn, subscriptionSuspensionRunning.createdOn) &&
-        Objects.equals(this.effectiveEndDate, subscriptionSuspensionRunning.effectiveEndDate) &&
-        Objects.equals(this.endAction, subscriptionSuspensionRunning.endAction) &&
+        Objects.equals(this.effectiveEndDate, subscriptionSuspensionRunning.effectiveEndDate) && this.endAction
+      == subscriptionSuspensionRunning.endAction &&
         Objects.equals(this.id, subscriptionSuspensionRunning.id) &&
         Objects.equals(this.language, subscriptionSuspensionRunning.language) &&
         Objects.equals(this.linkedSpaceId, subscriptionSuspensionRunning.linkedSpaceId) &&
         Objects.equals(this.note, subscriptionSuspensionRunning.note) &&
         Objects.equals(this.periodBill, subscriptionSuspensionRunning.periodBill) &&
         Objects.equals(this.plannedEndDate, subscriptionSuspensionRunning.plannedEndDate) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionSuspensionRunning.plannedPurgeDate) &&
-        Objects.equals(this.reason, subscriptionSuspensionRunning.reason) &&
-        Objects.equals(this.state, subscriptionSuspensionRunning.state) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionSuspensionRunning.plannedPurgeDate) && this.reason
+      == subscriptionSuspensionRunning.reason && this.state == subscriptionSuspensionRunning.state &&
         Objects.equals(this.subscription, subscriptionSuspensionRunning.subscription) &&
         Objects.equals(this.version, subscriptionSuspensionRunning.version) &&
         super.equals(o);

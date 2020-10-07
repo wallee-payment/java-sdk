@@ -191,8 +191,8 @@ public class ChargeFlowLevelConfiguration {
         Objects.equals(this.name, chargeFlowLevelConfiguration.name) &&
         Objects.equals(this.period, chargeFlowLevelConfiguration.period) &&
         Objects.equals(this.plannedPurgeDate, chargeFlowLevelConfiguration.plannedPurgeDate) &&
-        Objects.equals(this.priority, chargeFlowLevelConfiguration.priority) &&
-        Objects.equals(this.state, chargeFlowLevelConfiguration.state) &&
+        Objects.equals(this.priority, chargeFlowLevelConfiguration.priority) && this.state
+      == chargeFlowLevelConfiguration.state &&
         Objects.equals(this.type, chargeFlowLevelConfiguration.type) &&
         Objects.equals(this.version, chargeFlowLevelConfiguration.version);
   }

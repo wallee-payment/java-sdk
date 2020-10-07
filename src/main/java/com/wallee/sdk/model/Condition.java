@@ -147,8 +147,7 @@ public class Condition {
         Objects.equals(this.id, condition.id) &&
         Objects.equals(this.linkedSpaceId, condition.linkedSpaceId) &&
         Objects.equals(this.name, condition.name) &&
-        Objects.equals(this.plannedPurgeDate, condition.plannedPurgeDate) &&
-        Objects.equals(this.state, condition.state) &&
+        Objects.equals(this.plannedPurgeDate, condition.plannedPurgeDate) && this.state == condition.state &&
         Objects.equals(this.version, condition.version);
   }
 

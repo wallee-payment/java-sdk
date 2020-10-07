@@ -116,7 +116,7 @@ public class FailureReason {
       return false;
     }
     FailureReason failureReason = (FailureReason) o;
-    return Objects.equals(this.category, failureReason.category) &&
+    return this.category == failureReason.category &&
         Objects.equals(this.description, failureReason.description) &&
         Objects.equals(this.features, failureReason.features) &&
         Objects.equals(this.id, failureReason.id) &&

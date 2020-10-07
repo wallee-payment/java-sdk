@@ -117,8 +117,7 @@ public class ClientError {
     return Objects.equals(this.date, clientError.date) &&
         Objects.equals(this.defaultMessage, clientError.defaultMessage) &&
         Objects.equals(this.id, clientError.id) &&
-        Objects.equals(this.message, clientError.message) &&
-        Objects.equals(this.type, clientError.type);
+        Objects.equals(this.message, clientError.message) && this.type == clientError.type;
   }
 
   @Override

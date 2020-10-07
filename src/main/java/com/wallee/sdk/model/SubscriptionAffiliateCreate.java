@@ -92,8 +92,8 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
     SubscriptionAffiliateCreate subscriptionAffiliateCreate = (SubscriptionAffiliateCreate) o;
     return Objects.equals(this.language, subscriptionAffiliateCreate.language) &&
         Objects.equals(this.metaData, subscriptionAffiliateCreate.metaData) &&
-        Objects.equals(this.name, subscriptionAffiliateCreate.name) &&
-        Objects.equals(this.state, subscriptionAffiliateCreate.state) &&
+        Objects.equals(this.name, subscriptionAffiliateCreate.name) && this.state == subscriptionAffiliateCreate.state
+      &&
         Objects.equals(this.externalId, subscriptionAffiliateCreate.externalId) &&
         Objects.equals(this.reference, subscriptionAffiliateCreate.reference) &&
         super.equals(o);

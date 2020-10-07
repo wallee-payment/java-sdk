@@ -489,8 +489,8 @@ public class DebtCollectionCase {
         Objects.equals(this.createdOn, debtCollectionCase.createdOn) &&
         Objects.equals(this.creator, debtCollectionCase.creator) &&
         Objects.equals(this.currency, debtCollectionCase.currency) &&
-        Objects.equals(this.dueDate, debtCollectionCase.dueDate) &&
-        Objects.equals(this.environment, debtCollectionCase.environment) &&
+        Objects.equals(this.dueDate, debtCollectionCase.dueDate) && this.environment == debtCollectionCase.environment
+      &&
         Objects.equals(this.externalId, debtCollectionCase.externalId) &&
         Objects.equals(this.failedOn, debtCollectionCase.failedOn) &&
         Objects.equals(this.failureReason, debtCollectionCase.failureReason) &&
@@ -509,8 +509,7 @@ public class DebtCollectionCase {
         Objects.equals(this.reviewer, debtCollectionCase.reviewer) &&
         Objects.equals(this.source, debtCollectionCase.source) &&
         Objects.equals(this.sourceEntityId, debtCollectionCase.sourceEntityId) &&
-        Objects.equals(this.spaceViewId, debtCollectionCase.spaceViewId) &&
-        Objects.equals(this.state, debtCollectionCase.state) &&
+        Objects.equals(this.spaceViewId, debtCollectionCase.spaceViewId) && this.state == debtCollectionCase.state &&
         Objects.equals(this.version, debtCollectionCase.version);
   }
 

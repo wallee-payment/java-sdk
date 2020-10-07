@@ -165,8 +165,8 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
         Objects.equals(this.createdOn, installmentPaymentSlice.createdOn) &&
         Objects.equals(this.installmentPayment, installmentPaymentSlice.installmentPayment) &&
         Objects.equals(this.lineItems, installmentPaymentSlice.lineItems) &&
-        Objects.equals(this.plannedPurgeDate, installmentPaymentSlice.plannedPurgeDate) &&
-        Objects.equals(this.state, installmentPaymentSlice.state) &&
+        Objects.equals(this.plannedPurgeDate, installmentPaymentSlice.plannedPurgeDate) && this.state
+      == installmentPaymentSlice.state &&
         Objects.equals(this.transaction, installmentPaymentSlice.transaction) &&
         Objects.equals(this.version, installmentPaymentSlice.version) &&
         super.equals(o);

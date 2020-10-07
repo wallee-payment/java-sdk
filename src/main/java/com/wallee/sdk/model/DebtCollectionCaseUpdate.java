@@ -93,8 +93,8 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
     return Objects.equals(this.billingAddress, debtCollectionCaseUpdate.billingAddress) &&
         Objects.equals(this.contractDate, debtCollectionCaseUpdate.contractDate) &&
         Objects.equals(this.currency, debtCollectionCaseUpdate.currency) &&
-        Objects.equals(this.dueDate, debtCollectionCaseUpdate.dueDate) &&
-        Objects.equals(this.environment, debtCollectionCaseUpdate.environment) &&
+        Objects.equals(this.dueDate, debtCollectionCaseUpdate.dueDate) && this.environment
+      == debtCollectionCaseUpdate.environment &&
         Objects.equals(this.language, debtCollectionCaseUpdate.language) &&
         Objects.equals(this.lineItems, debtCollectionCaseUpdate.lineItems) &&
         Objects.equals(this.spaceViewId, debtCollectionCaseUpdate.spaceViewId) &&

@@ -162,8 +162,8 @@ public class PaymentProcessorConfiguration {
         Objects.equals(this.linkedSpaceId, paymentProcessorConfiguration.linkedSpaceId) &&
         Objects.equals(this.name, paymentProcessorConfiguration.name) &&
         Objects.equals(this.plannedPurgeDate, paymentProcessorConfiguration.plannedPurgeDate) &&
-        Objects.equals(this.processor, paymentProcessorConfiguration.processor) &&
-        Objects.equals(this.state, paymentProcessorConfiguration.state) &&
+        Objects.equals(this.processor, paymentProcessorConfiguration.processor) && this.state
+      == paymentProcessorConfiguration.state &&
         Objects.equals(this.version, paymentProcessorConfiguration.version);
   }
 

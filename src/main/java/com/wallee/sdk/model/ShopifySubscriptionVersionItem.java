@@ -117,7 +117,7 @@ public class ShopifySubscriptionVersionItem {
     }
     ShopifySubscriptionVersionItem shopifySubscriptionVersionItem = (ShopifySubscriptionVersionItem) o;
     return Objects.equals(this.priceIncludingTax, shopifySubscriptionVersionItem.priceIncludingTax) &&
-        Objects.equals(this.priceStrategy, shopifySubscriptionVersionItem.priceStrategy) &&
+      this.priceStrategy == shopifySubscriptionVersionItem.priceStrategy &&
         Objects.equals(this.product, shopifySubscriptionVersionItem.product) &&
         Objects.equals(this.quantity, shopifySubscriptionVersionItem.quantity) &&
         Objects.equals(this.taxLines, shopifySubscriptionVersionItem.taxLines);

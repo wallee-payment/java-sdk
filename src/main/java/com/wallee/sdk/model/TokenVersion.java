@@ -370,8 +370,7 @@ public class TokenVersion {
     TokenVersion tokenVersion = (TokenVersion) o;
     return Objects.equals(this.activatedOn, tokenVersion.activatedOn) &&
         Objects.equals(this.billingAddress, tokenVersion.billingAddress) &&
-        Objects.equals(this.createdOn, tokenVersion.createdOn) &&
-        Objects.equals(this.environment, tokenVersion.environment) &&
+        Objects.equals(this.createdOn, tokenVersion.createdOn) && this.environment == tokenVersion.environment &&
         Objects.equals(this.expiresOn, tokenVersion.expiresOn) &&
         Objects.equals(this.iconUrl, tokenVersion.iconUrl) &&
         Objects.equals(this.id, tokenVersion.id) &&
@@ -386,8 +385,7 @@ public class TokenVersion {
         Objects.equals(this.paymentMethodBrand, tokenVersion.paymentMethodBrand) &&
         Objects.equals(this.plannedPurgeDate, tokenVersion.plannedPurgeDate) &&
         Objects.equals(this.processorToken, tokenVersion.processorToken) &&
-        Objects.equals(this.shippingAddress, tokenVersion.shippingAddress) &&
-        Objects.equals(this.state, tokenVersion.state) &&
+        Objects.equals(this.shippingAddress, tokenVersion.shippingAddress) && this.state == tokenVersion.state &&
         Objects.equals(this.token, tokenVersion.token) &&
         Objects.equals(this.type, tokenVersion.type) &&
         Objects.equals(this.version, tokenVersion.version);

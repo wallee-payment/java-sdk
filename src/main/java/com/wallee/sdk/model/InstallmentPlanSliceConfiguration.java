@@ -193,8 +193,8 @@ public class InstallmentPlanSliceConfiguration {
         Objects.equals(this.plan, installmentPlanSliceConfiguration.plan) &&
         Objects.equals(this.plannedPurgeDate, installmentPlanSliceConfiguration.plannedPurgeDate) &&
         Objects.equals(this.priority, installmentPlanSliceConfiguration.priority) &&
-        Objects.equals(this.proportion, installmentPlanSliceConfiguration.proportion) &&
-        Objects.equals(this.state, installmentPlanSliceConfiguration.state) &&
+        Objects.equals(this.proportion, installmentPlanSliceConfiguration.proportion) && this.state
+      == installmentPlanSliceConfiguration.state &&
         Objects.equals(this.version, installmentPlanSliceConfiguration.version);
   }
 

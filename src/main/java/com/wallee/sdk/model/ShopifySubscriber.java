@@ -192,8 +192,7 @@ public class ShopifySubscriber {
         Objects.equals(this.linkedSpaceId, shopifySubscriber.linkedSpaceId) &&
         Objects.equals(this.phoneNumber, shopifySubscriber.phoneNumber) &&
         Objects.equals(this.plannedPurgeDate, shopifySubscriber.plannedPurgeDate) &&
-        Objects.equals(this.shop, shopifySubscriber.shop) &&
-        Objects.equals(this.state, shopifySubscriber.state) &&
+        Objects.equals(this.shop, shopifySubscriber.shop) && this.state == shopifySubscriber.state &&
         Objects.equals(this.version, shopifySubscriber.version);
   }
 

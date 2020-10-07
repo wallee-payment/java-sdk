@@ -147,8 +147,7 @@ public class SpaceReference {
         Objects.equals(this.id, spaceReference.id) &&
         Objects.equals(this.linkedSpaceId, spaceReference.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, spaceReference.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, spaceReference.spaceId) &&
-        Objects.equals(this.state, spaceReference.state) &&
+        Objects.equals(this.spaceId, spaceReference.spaceId) && this.state == spaceReference.state &&
         Objects.equals(this.version, spaceReference.version);
   }
 

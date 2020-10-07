@@ -131,9 +131,7 @@ public class User {
     User user = (User) o;
     return Objects.equals(this.id, user.id) &&
         Objects.equals(this.plannedPurgeDate, user.plannedPurgeDate) &&
-        Objects.equals(this.scope, user.scope) &&
-        Objects.equals(this.state, user.state) &&
-        Objects.equals(this.userType, user.userType) &&
+        Objects.equals(this.scope, user.scope) && this.state == user.state && this.userType == user.userType &&
         Objects.equals(this.version, user.version);
   }
 

@@ -147,8 +147,8 @@ public class SubscriptionProductComponentReference {
         Objects.equals(this.linkedSpaceId, subscriptionProductComponentReference.linkedSpaceId) &&
         Objects.equals(this.name, subscriptionProductComponentReference.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionProductComponentReference.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, subscriptionProductComponentReference.spaceId) &&
-        Objects.equals(this.state, subscriptionProductComponentReference.state) &&
+        Objects.equals(this.spaceId, subscriptionProductComponentReference.spaceId) && this.state
+      == subscriptionProductComponentReference.state &&
         Objects.equals(this.version, subscriptionProductComponentReference.version);
   }
 

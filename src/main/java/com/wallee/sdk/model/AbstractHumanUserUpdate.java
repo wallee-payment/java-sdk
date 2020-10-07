@@ -230,8 +230,8 @@ public class AbstractHumanUserUpdate {
         Objects.equals(this.firstname, abstractHumanUserUpdate.firstname) &&
         Objects.equals(this.language, abstractHumanUserUpdate.language) &&
         Objects.equals(this.lastname, abstractHumanUserUpdate.lastname) &&
-        Objects.equals(this.mobilePhoneNumber, abstractHumanUserUpdate.mobilePhoneNumber) &&
-        Objects.equals(this.state, abstractHumanUserUpdate.state) &&
+        Objects.equals(this.mobilePhoneNumber, abstractHumanUserUpdate.mobilePhoneNumber) && this.state
+      == abstractHumanUserUpdate.state &&
         Objects.equals(this.timeZone, abstractHumanUserUpdate.timeZone) &&
         Objects.equals(this.twoFactorEnabled, abstractHumanUserUpdate.twoFactorEnabled);
   }

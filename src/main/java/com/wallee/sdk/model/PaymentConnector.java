@@ -228,7 +228,7 @@ public class PaymentConnector {
       return false;
     }
     PaymentConnector paymentConnector = (PaymentConnector) o;
-    return Objects.equals(this.dataCollectionType, paymentConnector.dataCollectionType) &&
+    return this.dataCollectionType == paymentConnector.dataCollectionType &&
         Objects.equals(this.deprecated, paymentConnector.deprecated) &&
         Objects.equals(this.deprecationReason, paymentConnector.deprecationReason) &&
         Objects.equals(this.description, paymentConnector.description) &&
@@ -236,8 +236,8 @@ public class PaymentConnector {
         Objects.equals(this.id, paymentConnector.id) &&
         Objects.equals(this.name, paymentConnector.name) &&
         Objects.equals(this.paymentMethod, paymentConnector.paymentMethod) &&
-        Objects.equals(this.paymentMethodBrand, paymentConnector.paymentMethodBrand) &&
-        Objects.equals(this.primaryRiskTaker, paymentConnector.primaryRiskTaker) &&
+        Objects.equals(this.paymentMethodBrand, paymentConnector.paymentMethodBrand) && this.primaryRiskTaker
+      == paymentConnector.primaryRiskTaker &&
         Objects.equals(this.processor, paymentConnector.processor) &&
         Objects.equals(this.supportedCustomersPresences, paymentConnector.supportedCustomersPresences) &&
         Objects.equals(this.supportedFeatures, paymentConnector.supportedFeatures);

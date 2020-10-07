@@ -94,8 +94,8 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
         Objects.equals(this.firstname, humanUserUpdate.firstname) &&
         Objects.equals(this.language, humanUserUpdate.language) &&
         Objects.equals(this.lastname, humanUserUpdate.lastname) &&
-        Objects.equals(this.mobilePhoneNumber, humanUserUpdate.mobilePhoneNumber) &&
-        Objects.equals(this.state, humanUserUpdate.state) &&
+        Objects.equals(this.mobilePhoneNumber, humanUserUpdate.mobilePhoneNumber) && this.state
+      == humanUserUpdate.state &&
         Objects.equals(this.timeZone, humanUserUpdate.timeZone) &&
         Objects.equals(this.twoFactorEnabled, humanUserUpdate.twoFactorEnabled) &&
         Objects.equals(this.id, humanUserUpdate.id) &&

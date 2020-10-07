@@ -90,8 +90,7 @@ public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
       return false;
     }
     WebhookUrlUpdate webhookUrlUpdate = (WebhookUrlUpdate) o;
-    return Objects.equals(this.name, webhookUrlUpdate.name) &&
-        Objects.equals(this.state, webhookUrlUpdate.state) &&
+    return Objects.equals(this.name, webhookUrlUpdate.name) && this.state == webhookUrlUpdate.state &&
         Objects.equals(this.url, webhookUrlUpdate.url) &&
         Objects.equals(this.id, webhookUrlUpdate.id) &&
         Objects.equals(this.version, webhookUrlUpdate.version) &&

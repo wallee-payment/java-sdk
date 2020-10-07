@@ -163,8 +163,7 @@ public class ChargeFlow {
         Objects.equals(this.linkedSpaceId, chargeFlow.linkedSpaceId) &&
         Objects.equals(this.name, chargeFlow.name) &&
         Objects.equals(this.plannedPurgeDate, chargeFlow.plannedPurgeDate) &&
-        Objects.equals(this.priority, chargeFlow.priority) &&
-        Objects.equals(this.state, chargeFlow.state) &&
+        Objects.equals(this.priority, chargeFlow.priority) && this.state == chargeFlow.state &&
         Objects.equals(this.version, chargeFlow.version);
   }
 

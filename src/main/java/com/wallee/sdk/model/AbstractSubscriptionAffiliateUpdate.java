@@ -146,8 +146,8 @@ public class AbstractSubscriptionAffiliateUpdate {
     AbstractSubscriptionAffiliateUpdate abstractSubscriptionAffiliateUpdate = (AbstractSubscriptionAffiliateUpdate) o;
     return Objects.equals(this.language, abstractSubscriptionAffiliateUpdate.language) &&
         Objects.equals(this.metaData, abstractSubscriptionAffiliateUpdate.metaData) &&
-        Objects.equals(this.name, abstractSubscriptionAffiliateUpdate.name) &&
-        Objects.equals(this.state, abstractSubscriptionAffiliateUpdate.state);
+        Objects.equals(this.name, abstractSubscriptionAffiliateUpdate.name) && this.state
+      == abstractSubscriptionAffiliateUpdate.state;
   }
 
   @Override

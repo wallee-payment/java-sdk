@@ -331,8 +331,8 @@ public class CustomerPostalAddress {
         Objects.equals(this.dateOfBirth, customerPostalAddress.dateOfBirth) &&
         Objects.equals(this.dependentLocality, customerPostalAddress.dependentLocality) &&
         Objects.equals(this.emailAddress, customerPostalAddress.emailAddress) &&
-        Objects.equals(this.familyName, customerPostalAddress.familyName) &&
-        Objects.equals(this.gender, customerPostalAddress.gender) &&
+        Objects.equals(this.familyName, customerPostalAddress.familyName) && this.gender
+      == customerPostalAddress.gender &&
         Objects.equals(this.givenName, customerPostalAddress.givenName) &&
         Objects.equals(this.legalOrganizationForm, customerPostalAddress.legalOrganizationForm) &&
         Objects.equals(this.mobilePhoneNumber, customerPostalAddress.mobilePhoneNumber) &&

@@ -146,8 +146,8 @@ public class AbstractWebhookListenerUpdate {
     AbstractWebhookListenerUpdate abstractWebhookListenerUpdate = (AbstractWebhookListenerUpdate) o;
     return Objects.equals(this.entityStates, abstractWebhookListenerUpdate.entityStates) &&
         Objects.equals(this.name, abstractWebhookListenerUpdate.name) &&
-        Objects.equals(this.notifyEveryChange, abstractWebhookListenerUpdate.notifyEveryChange) &&
-        Objects.equals(this.state, abstractWebhookListenerUpdate.state);
+        Objects.equals(this.notifyEveryChange, abstractWebhookListenerUpdate.notifyEveryChange) && this.state
+      == abstractWebhookListenerUpdate.state;
   }
 
   @Override

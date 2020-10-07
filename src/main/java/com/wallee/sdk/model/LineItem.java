@@ -353,8 +353,7 @@ public class LineItem {
         Objects.equals(this.sku, lineItem.sku) &&
         Objects.equals(this.taxAmount, lineItem.taxAmount) &&
         Objects.equals(this.taxAmountPerUnit, lineItem.taxAmountPerUnit) &&
-        Objects.equals(this.taxes, lineItem.taxes) &&
-        Objects.equals(this.type, lineItem.type) &&
+        Objects.equals(this.taxes, lineItem.taxes) && this.type == lineItem.type &&
         Objects.equals(this.undiscountedAmountExcludingTax, lineItem.undiscountedAmountExcludingTax) &&
         Objects.equals(this.undiscountedAmountIncludingTax, lineItem.undiscountedAmountIncludingTax) &&
         Objects.equals(this.undiscountedUnitPriceExcludingTax, lineItem.undiscountedUnitPriceExcludingTax) &&
