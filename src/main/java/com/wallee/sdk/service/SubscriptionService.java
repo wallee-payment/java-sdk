@@ -161,7 +161,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -296,7 +296,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -441,7 +441,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -566,7 +566,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'subscriptionId' to the map of query params
@@ -717,7 +717,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'subscriptionId' to the map of query params
@@ -844,7 +844,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -991,7 +991,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -1167,7 +1167,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'subscriptionId' to the map of query params
@@ -1296,7 +1296,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'subscriptionId' to the map of query params
@@ -1445,7 +1445,7 @@ public class SubscriptionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'subscriptionId' to the map of query params

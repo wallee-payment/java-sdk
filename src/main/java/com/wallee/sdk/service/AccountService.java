@@ -113,7 +113,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -223,7 +223,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -319,7 +319,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/delete");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -424,7 +424,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
@@ -536,7 +536,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -648,7 +648,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();

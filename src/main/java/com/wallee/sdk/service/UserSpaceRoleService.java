@@ -148,7 +148,7 @@ public class UserSpaceRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'userId' to the map of query params
         allParams.put("userId", userId);
         // Add the required query param 'spaceId' to the map of query params
@@ -279,7 +279,7 @@ public class UserSpaceRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'userId' to the map of query params
         allParams.put("userId", userId);
         // Add the required query param 'spaceId' to the map of query params
@@ -372,7 +372,7 @@ public class UserSpaceRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 

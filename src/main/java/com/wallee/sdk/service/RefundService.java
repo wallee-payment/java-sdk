@@ -146,7 +146,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -271,7 +271,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'refundId' to the map of query params
@@ -398,7 +398,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -543,7 +543,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -672,7 +672,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -819,7 +819,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -964,7 +964,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -1089,7 +1089,7 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'refundId' to the map of query params

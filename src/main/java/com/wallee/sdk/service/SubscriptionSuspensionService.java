@@ -145,7 +145,7 @@ public class SubscriptionSuspensionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -290,7 +290,7 @@ public class SubscriptionSuspensionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -415,7 +415,7 @@ public class SubscriptionSuspensionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -562,7 +562,7 @@ public class SubscriptionSuspensionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -687,7 +687,7 @@ public class SubscriptionSuspensionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/terminate");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'suspensionId' to the map of query params

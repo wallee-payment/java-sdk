@@ -154,7 +154,7 @@ public class InstallmentPaymentSliceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment-slice/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -279,7 +279,7 @@ public class InstallmentPaymentSliceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment-slice/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -426,7 +426,7 @@ public class InstallmentPaymentSliceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment-slice/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 

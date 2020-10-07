@@ -146,7 +146,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -291,7 +291,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -422,7 +422,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/delete");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -547,7 +547,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -694,7 +694,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -841,7 +841,7 @@ public class WebhookListenerService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/webhook-listener/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 

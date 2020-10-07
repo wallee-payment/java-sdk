@@ -144,7 +144,7 @@ public class DeliveryIndicationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -289,7 +289,7 @@ public class DeliveryIndicationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -434,7 +434,7 @@ public class DeliveryIndicationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -559,7 +559,7 @@ public class DeliveryIndicationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -706,7 +706,7 @@ public class DeliveryIndicationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 

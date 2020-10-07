@@ -112,7 +112,7 @@ public class TransactionMobileSdkService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'credentials' to the map of query params
         allParams.put("credentials", credentials);
 

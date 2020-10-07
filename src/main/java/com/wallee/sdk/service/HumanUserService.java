@@ -114,7 +114,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -224,7 +224,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -320,7 +320,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/delete");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -430,7 +430,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/export");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -535,7 +535,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
@@ -647,7 +647,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -759,7 +759,7 @@ public class HumanUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();

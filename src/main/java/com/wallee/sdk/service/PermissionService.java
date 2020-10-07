@@ -93,7 +93,7 @@ public class PermissionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/permission/all");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -198,7 +198,7 @@ public class PermissionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/permission/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
