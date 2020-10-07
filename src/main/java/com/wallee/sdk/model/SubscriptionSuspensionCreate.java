@@ -1,165 +1,161 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
 
-import java.time.OffsetDateTime;
-import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.SubscriptionSuspensionAction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.SubscriptionSuspensionAction;
+import java.time.OffsetDateTime;
+import java.util.Objects;
 
 @ApiModel(description = "")
 
 public class SubscriptionSuspensionCreate extends Indentable {
-  
-  @JsonProperty("endAction")
-  protected SubscriptionSuspensionAction endAction;
 
-  
-  @JsonProperty("note")
-  protected String note;
+    @JsonProperty("endAction")
+    protected SubscriptionSuspensionAction endAction;
 
-  
-  @JsonProperty("plannedEndDate")
-  protected OffsetDateTime plannedEndDate;
 
-  
-  @JsonProperty("subscription")
-  protected Long subscription;
+    @JsonProperty("note")
+    protected String note;
 
-  
-  
-  public SubscriptionSuspensionCreate endAction(SubscriptionSuspensionAction endAction) {
-    this.endAction = endAction;
-    return this;
-  }
 
-   /**
-   * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
-   * @return endAction
-  **/
-  @ApiModelProperty(required = true, value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
-  public SubscriptionSuspensionAction getEndAction() {
-    return endAction;
-  }
+    @JsonProperty("plannedEndDate")
+    protected OffsetDateTime plannedEndDate;
 
-  public void setEndAction(SubscriptionSuspensionAction endAction) {
-    this.endAction = endAction;
-  }
 
-  
-  public SubscriptionSuspensionCreate note(String note) {
-    this.note = note;
-    return this;
-  }
+    @JsonProperty("subscription")
+    protected Long subscription;
 
-   /**
-   * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
-   * @return note
-  **/
-  @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
-  public String getNote() {
-    return note;
-  }
 
-  public void setNote(String note) {
-    this.note = note;
-  }
-
-  
-  public SubscriptionSuspensionCreate plannedEndDate(OffsetDateTime plannedEndDate) {
-    this.plannedEndDate = plannedEndDate;
-    return this;
-  }
-
-   /**
-   * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
-   * @return plannedEndDate
-  **/
-  @ApiModelProperty(required = true, value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
-  public OffsetDateTime getPlannedEndDate() {
-    return plannedEndDate;
-  }
-
-  public void setPlannedEndDate(OffsetDateTime plannedEndDate) {
-    this.plannedEndDate = plannedEndDate;
-  }
-
-  
-  public SubscriptionSuspensionCreate subscription(Long subscription) {
-    this.subscription = subscription;
-    return this;
-  }
-
-   /**
-   * 
-   * @return subscription
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public Long getSubscription() {
-    return subscription;
-  }
-
-  public void setSubscription(Long subscription) {
-    this.subscription = subscription;
-  }
-
-  
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public SubscriptionSuspensionCreate endAction(SubscriptionSuspensionAction endAction) {
+        this.endAction = endAction;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
+     * @return endAction
+     **/
+    @ApiModelProperty(required = true, value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
+    public SubscriptionSuspensionAction getEndAction() {
+        return endAction;
     }
-    SubscriptionSuspensionCreate subscriptionSuspensionCreate = (SubscriptionSuspensionCreate) o;
-    return this.endAction == subscriptionSuspensionCreate.endAction &&
-        Objects.equals(this.note, subscriptionSuspensionCreate.note) &&
-        Objects.equals(this.plannedEndDate, subscriptionSuspensionCreate.plannedEndDate) &&
-        Objects.equals(this.subscription, subscriptionSuspensionCreate.subscription);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(endAction, note, plannedEndDate, subscription);
-  }
+    public void setEndAction(SubscriptionSuspensionAction endAction) {
+        this.endAction = endAction;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SubscriptionSuspensionCreate {\n");
-    
-    sb.append("    endAction: ").append(toIndentedString(endAction)).append("\n");
-    sb.append("    note: ").append(toIndentedString(note)).append("\n");
-    sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
-    sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public SubscriptionSuspensionCreate note(String note) {
+        this.note = note;
+        return this;
+    }
 
+    /**
+     * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
+     * @return note
+     **/
+    @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
+    public SubscriptionSuspensionCreate plannedEndDate(OffsetDateTime plannedEndDate) {
+        this.plannedEndDate = plannedEndDate;
+        return this;
+    }
+
+    /**
+     * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
+     * @return plannedEndDate
+     **/
+    @ApiModelProperty(required = true, value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
+    public OffsetDateTime getPlannedEndDate() {
+        return plannedEndDate;
+    }
+
+    public void setPlannedEndDate(OffsetDateTime plannedEndDate) {
+        this.plannedEndDate = plannedEndDate;
+    }
+
+
+    public SubscriptionSuspensionCreate subscription(Long subscription) {
+        this.subscription = subscription;
+        return this;
+    }
+
+    /**
+     *
+     * @return subscription
+     **/
+    @ApiModelProperty(required = true, value = "")
+    public Long getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(Long subscription) {
+        this.subscription = subscription;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SubscriptionSuspensionCreate subscriptionSuspensionCreate = (SubscriptionSuspensionCreate) o;
+        return this.endAction == subscriptionSuspensionCreate.endAction &&
+                Objects.equals(this.note, subscriptionSuspensionCreate.note) &&
+                Objects.equals(this.plannedEndDate, subscriptionSuspensionCreate.plannedEndDate) &&
+                Objects.equals(this.subscription, subscriptionSuspensionCreate.subscription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(endAction, note, plannedEndDate, subscription);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SubscriptionSuspensionCreate {\n");
+
+        sb.append("    endAction: ").append(toIndentedString(endAction)).append("\n");
+        sb.append("    note: ").append(toIndentedString(note)).append("\n");
+        sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
+        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

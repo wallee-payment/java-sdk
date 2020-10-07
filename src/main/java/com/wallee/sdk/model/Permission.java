@@ -1,226 +1,222 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 @ApiModel(description = "")
 
 public class Permission extends Indentable {
-  
-  @JsonProperty("description")
-  protected Map<String, String> description;
 
-  
-  @JsonProperty("feature")
-  protected Long feature;
+    @JsonProperty("description")
+    protected Map<String, String> description;
 
-  
-  @JsonProperty("group")
-  protected Boolean group;
 
-  
-  @JsonProperty("id")
-  protected Long id;
+    @JsonProperty("feature")
+    protected Long feature;
 
-  
-  @JsonProperty("leaf")
-  protected Boolean leaf;
 
-  
-  @JsonProperty("name")
-  protected Map<String, String> name;
+    @JsonProperty("group")
+    protected Boolean group;
 
-  
-  @JsonProperty("parent")
-  protected Long parent;
 
-  
-  @JsonProperty("pathToRoot")
-  protected List<Long> pathToRoot;
+    @JsonProperty("id")
+    protected Long id;
 
-  
-  @JsonProperty("title")
-  protected Map<String, String> title;
 
-  
-  @JsonProperty("twoFactorRequired")
-  protected Boolean twoFactorRequired;
+    @JsonProperty("leaf")
+    protected Boolean leaf;
 
-  
-  
-   /**
-   * 
-   * @return description
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getDescription() {
-    return description;
-  }
 
-  
-   /**
-   * 
-   * @return feature
-  **/
-  @ApiModelProperty(value = "")
-  public Long getFeature() {
-    return feature;
-  }
+    @JsonProperty("name")
+    protected Map<String, String> name;
 
-  
-   /**
-   * 
-   * @return group
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isGroup() {
-    return group;
-  }
 
-  
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
-  }
+    @JsonProperty("parent")
+    protected Long parent;
 
-  
-   /**
-   * 
-   * @return leaf
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isLeaf() {
-    return leaf;
-  }
 
-  
-   /**
-   * 
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getName() {
-    return name;
-  }
+    @JsonProperty("pathToRoot")
+    protected List<Long> pathToRoot;
 
-  
-   /**
-   * 
-   * @return parent
-  **/
-  @ApiModelProperty(value = "")
-  public Long getParent() {
-    return parent;
-  }
 
-  
-   /**
-   * 
-   * @return pathToRoot
-  **/
-  @ApiModelProperty(value = "")
-  public List<Long> getPathToRoot() {
-    return pathToRoot;
-  }
+    @JsonProperty("title")
+    protected Map<String, String> title;
 
-  
-   /**
-   * 
-   * @return title
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, String> getTitle() {
-    return title;
-  }
 
-  
-   /**
-   * 
-   * @return twoFactorRequired
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isTwoFactorRequired() {
-    return twoFactorRequired;
-  }
+    @JsonProperty("twoFactorRequired")
+    protected Boolean twoFactorRequired;
 
-  
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, String> getDescription() {
+        return description;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    /**
+     *
+     * @return feature
+     **/
+    @ApiModelProperty(value = "")
+    public Long getFeature() {
+        return feature;
     }
-    Permission permission = (Permission) o;
-    return Objects.equals(this.description, permission.description) &&
-        Objects.equals(this.feature, permission.feature) &&
-        Objects.equals(this.group, permission.group) &&
-        Objects.equals(this.id, permission.id) &&
-        Objects.equals(this.leaf, permission.leaf) &&
-        Objects.equals(this.name, permission.name) &&
-        Objects.equals(this.parent, permission.parent) &&
-        Objects.equals(this.pathToRoot, permission.pathToRoot) &&
-        Objects.equals(this.title, permission.title) &&
-        Objects.equals(this.twoFactorRequired, permission.twoFactorRequired);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title, twoFactorRequired);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Permission {\n");
-    
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
-    sb.append("    pathToRoot: ").append(toIndentedString(pathToRoot)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     *
+     * @return group
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isGroup() {
+        return group;
+    }
 
+
+    /**
+     * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     * @return id
+     **/
+    @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+    public Long getId() {
+        return id;
+    }
+
+
+    /**
+     *
+     * @return leaf
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isLeaf() {
+        return leaf;
+    }
+
+
+    /**
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, String> getName() {
+        return name;
+    }
+
+
+    /**
+     *
+     * @return parent
+     **/
+    @ApiModelProperty(value = "")
+    public Long getParent() {
+        return parent;
+    }
+
+
+    /**
+     *
+     * @return pathToRoot
+     **/
+    @ApiModelProperty(value = "")
+    public List<Long> getPathToRoot() {
+        return pathToRoot;
+    }
+
+
+    /**
+     *
+     * @return title
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, String> getTitle() {
+        return title;
+    }
+
+
+    /**
+     *
+     * @return twoFactorRequired
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isTwoFactorRequired() {
+        return twoFactorRequired;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Permission permission = (Permission) o;
+        return Objects.equals(this.description, permission.description) &&
+                Objects.equals(this.feature, permission.feature) &&
+                Objects.equals(this.group, permission.group) &&
+                Objects.equals(this.id, permission.id) &&
+                Objects.equals(this.leaf, permission.leaf) &&
+                Objects.equals(this.name, permission.name) &&
+                Objects.equals(this.parent, permission.parent) &&
+                Objects.equals(this.pathToRoot, permission.pathToRoot) &&
+                Objects.equals(this.title, permission.title) &&
+                Objects.equals(this.twoFactorRequired, permission.twoFactorRequired);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title, twoFactorRequired);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Permission {\n");
+
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
+        sb.append("    group: ").append(toIndentedString(group)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+        sb.append("    pathToRoot: ").append(toIndentedString(pathToRoot)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

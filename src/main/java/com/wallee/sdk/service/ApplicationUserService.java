@@ -1,14 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -23,6 +14,14 @@ import com.wallee.sdk.model.ApplicationUserCreateWithMacKey;
 import com.wallee.sdk.model.ApplicationUserUpdate;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class ApplicationUserService {
@@ -40,42 +39,44 @@ public class ApplicationUserService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param filter The filter which restricts the entities which are used to calculate the count.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param filter The filter which restricts the entities which are used to calculate the count.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
+     **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-      TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
+     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-      TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter) throws IOException {
@@ -89,18 +90,18 @@ public class ApplicationUserService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(InputStream filter, String mediaType) throws IOException {
+    public HttpResponse countForHttpResponse(InputStream filter, String mediaType) throws IOException {
 
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/count");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/count");
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = filter == null ?
+        HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
 
@@ -109,7 +110,7 @@ public class ApplicationUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -132,43 +133,45 @@ public class ApplicationUserService {
     }
 
 
-  /**
-    * Create
-    * Creates the application user with the given properties.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param entity The user object with the properties which should be created.
-    * @return ApplicationUserCreateWithMacKey
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
-
-    **/
+    /**
+     * Create
+     * Creates the application user with the given properties.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param entity The user object with the properties which should be created.
+     * @return ApplicationUserCreateWithMacKey
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
+     **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-      TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
-        return (ApplicationUserCreateWithMacKey)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {
+        };
+        return (ApplicationUserCreateWithMacKey) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Create
-    * Creates the application user with the given properties.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param entity The user object with the properties which should be created.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return ApplicationUserCreateWithMacKey
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
-
-    **/
+    /**
+     * Create
+     * Creates the application user with the given properties.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param entity The user object with the properties which should be created.
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return ApplicationUserCreateWithMacKey
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
+     **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-      TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
-        return (ApplicationUserCreateWithMacKey)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {
+        };
+        return (ApplicationUserCreateWithMacKey) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity) throws IOException {
@@ -185,19 +188,19 @@ public class ApplicationUserService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
-          // verify the required parameter 'entity' is set
-          if (entity == null) {
-          throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
-          }
-          UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
+    public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
-          String url = uriBuilder.build().toString();
-          GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-          HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-          return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
@@ -209,7 +212,7 @@ public class ApplicationUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -232,35 +235,35 @@ public class ApplicationUserService {
     }
 
 
-  /**
-    * Delete
-    * Deletes the entity with the given id.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
-
-    **/
+    /**
+     * Delete
+     * Deletes the entity with the given id.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
+     **/
     public void delete(Long id) throws IOException {
         deleteForHttpResponse(id);
     }
 
-  /**
-    * Delete
-    * Deletes the entity with the given id.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
-
-    **/
+    /**
+     * Delete
+     * Deletes the entity with the given id.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
+     **/
     public void delete(Long id, Map<String, Object> params) throws IOException {
         deleteForHttpResponse(id, params);
     }
@@ -279,19 +282,19 @@ public class ApplicationUserService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
-          // verify the required parameter 'id' is set
-              if (id == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/delete");
+    public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/delete");
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
@@ -303,7 +306,7 @@ public class ApplicationUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -326,43 +329,45 @@ public class ApplicationUserService {
     }
 
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of the application user which should be returned.
-    * @return ApplicationUser
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id The id of the application user which should be returned.
+     * @return ApplicationUser
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
+     **/
     public ApplicationUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
-        return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUser>() {
+        };
+        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of the application user which should be returned.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return ApplicationUser
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id     The id of the application user which should be returned.
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return ApplicationUser
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
+     **/
     public ApplicationUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
-        return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUser>() {
+        };
+        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -371,10 +376,10 @@ public class ApplicationUserService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/read");
-      String key = "id";
-      uriBuilder = uriBuilder.queryParam(key, id);
+        String key = "id";
+        uriBuilder = uriBuilder.queryParam(key, id);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
@@ -392,7 +397,7 @@ public class ApplicationUserService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -414,43 +419,45 @@ public class ApplicationUserService {
     }
 
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param query The query restricts the application users which are returned by the search.
-    * @return List&lt;ApplicationUser&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param query The query restricts the application users which are returned by the search.
+     * @return List&lt;ApplicationUser&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
+     **/
     public List<ApplicationUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-      TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
-        return (List<ApplicationUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {
+        };
+        return (List<ApplicationUser>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param query The query restricts the application users which are returned by the search.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;ApplicationUser&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param query  The query restricts the application users which are returned by the search.
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;ApplicationUser&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
+     **/
     public List<ApplicationUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-      TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
-        return (List<ApplicationUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {
+        };
+        return (List<ApplicationUser>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -467,19 +474,19 @@ public class ApplicationUserService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
+    public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'query' is set
@@ -491,7 +498,7 @@ public class ApplicationUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -514,45 +521,47 @@ public class ApplicationUserService {
     }
 
 
-  /**
-    * Update
-    * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param entity The application user entity with all the properties which should be updated. The id and the version are required properties.
-    * @return ApplicationUser
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
-
-    **/
+    /**
+     * Update
+     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param entity The application user entity with all the properties which should be updated. The id and the version are required properties.
+     * @return ApplicationUser
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
+     **/
     public ApplicationUser update(ApplicationUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
-        return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUser>() {
+        };
+        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Update
-    * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param entity The application user entity with all the properties which should be updated. The id and the version are required properties.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return ApplicationUser
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
-
-    **/
+    /**
+     * Update
+     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param entity The application user entity with all the properties which should be updated. The id and the version are required properties.
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return ApplicationUser
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
+     **/
     public ApplicationUser update(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
-        return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ApplicationUser>() {
+        };
+        return (ApplicationUser) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity) throws IOException {
@@ -569,19 +578,19 @@ public class ApplicationUserService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
-          // verify the required parameter 'entity' is set
-              if (entity == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
+    public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
@@ -593,7 +602,7 @@ public class ApplicationUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

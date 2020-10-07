@@ -1,139 +1,135 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Objects;
 
 
 @ApiModel(description = "")
 
 public class ShopifySubscriptionUpdateAddressesRequest extends Indentable {
-  
-  @JsonProperty("billingAddress")
-  protected ShopifySubscriptionAddressCreate billingAddress;
 
-  
-  @JsonProperty("id")
-  protected Long id;
+    @JsonProperty("billingAddress")
+    protected ShopifySubscriptionAddressCreate billingAddress;
 
-  
-  @JsonProperty("shippingAddress")
-  protected ShopifySubscriptionAddressCreate shippingAddress;
 
-  
-  
-  public ShopifySubscriptionUpdateAddressesRequest billingAddress(ShopifySubscriptionAddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
+    @JsonProperty("id")
+    protected Long id;
 
-   /**
-   * 
-   * @return billingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public ShopifySubscriptionAddressCreate getBillingAddress() {
-    return billingAddress;
-  }
 
-  public void setBillingAddress(ShopifySubscriptionAddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
-  }
+    @JsonProperty("shippingAddress")
+    protected ShopifySubscriptionAddressCreate shippingAddress;
 
-  
-  public ShopifySubscriptionUpdateAddressesRequest id(Long id) {
-    this.id = id;
-    return this;
-  }
 
-   /**
-   * 
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  
-  public ShopifySubscriptionUpdateAddressesRequest shippingAddress(ShopifySubscriptionAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return shippingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public ShopifySubscriptionAddressCreate getShippingAddress() {
-    return shippingAddress;
-  }
-
-  public void setShippingAddress(ShopifySubscriptionAddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public ShopifySubscriptionUpdateAddressesRequest billingAddress(ShopifySubscriptionAddressCreate billingAddress) {
+        this.billingAddress = billingAddress;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     *
+     * @return billingAddress
+     **/
+    @ApiModelProperty(value = "")
+    public ShopifySubscriptionAddressCreate getBillingAddress() {
+        return billingAddress;
     }
-    ShopifySubscriptionUpdateAddressesRequest shopifySubscriptionUpdateAddressesRequest = (ShopifySubscriptionUpdateAddressesRequest) o;
-    return Objects.equals(this.billingAddress, shopifySubscriptionUpdateAddressesRequest.billingAddress) &&
-        Objects.equals(this.id, shopifySubscriptionUpdateAddressesRequest.id) &&
-        Objects.equals(this.shippingAddress, shopifySubscriptionUpdateAddressesRequest.shippingAddress);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(billingAddress, id, shippingAddress);
-  }
+    public void setBillingAddress(ShopifySubscriptionAddressCreate billingAddress) {
+        this.billingAddress = billingAddress;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionUpdateAddressesRequest {\n");
-    
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public ShopifySubscriptionUpdateAddressesRequest id(Long id) {
+        this.id = id;
+        return this;
+    }
 
+    /**
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "")
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public ShopifySubscriptionUpdateAddressesRequest shippingAddress(ShopifySubscriptionAddressCreate shippingAddress) {
+        this.shippingAddress = shippingAddress;
+        return this;
+    }
+
+    /**
+     *
+     * @return shippingAddress
+     **/
+    @ApiModelProperty(value = "")
+    public ShopifySubscriptionAddressCreate getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(ShopifySubscriptionAddressCreate shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ShopifySubscriptionUpdateAddressesRequest shopifySubscriptionUpdateAddressesRequest = (ShopifySubscriptionUpdateAddressesRequest) o;
+        return Objects.equals(this.billingAddress, shopifySubscriptionUpdateAddressesRequest.billingAddress) &&
+                Objects.equals(this.id, shopifySubscriptionUpdateAddressesRequest.id) &&
+                Objects.equals(this.shippingAddress, shopifySubscriptionUpdateAddressesRequest.shippingAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(billingAddress, id, shippingAddress);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ShopifySubscriptionUpdateAddressesRequest {\n");
+
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

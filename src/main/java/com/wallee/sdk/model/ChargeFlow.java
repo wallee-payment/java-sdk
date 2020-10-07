@@ -1,193 +1,189 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.CreationEntityState;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.CreationEntityState;
-
 @ApiModel(description = "")
 
 public class ChargeFlow extends Indentable {
-  
-  @JsonProperty("conditions")
-  protected List<Long> conditions;
 
-  
-  @JsonProperty("id")
-  protected Long id;
+    @JsonProperty("conditions")
+    protected List<Long> conditions;
 
-  
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId;
 
-  
-  @JsonProperty("name")
-  protected String name;
+    @JsonProperty("id")
+    protected Long id;
 
-  
-  @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate;
 
-  
-  @JsonProperty("priority")
-  protected Integer priority;
+    @JsonProperty("linkedSpaceId")
+    protected Long linkedSpaceId;
 
-  
-  @JsonProperty("state")
-  protected CreationEntityState state;
 
-  
-  @JsonProperty("version")
-  protected Integer version;
+    @JsonProperty("name")
+    protected String name;
 
-  
-  
-   /**
-   * If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.
-   * @return conditions
-  **/
-  @ApiModelProperty(value = "If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.")
-  public List<Long> getConditions() {
-    return conditions;
-  }
 
-  
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
-  }
+    @JsonProperty("plannedPurgeDate")
+    protected OffsetDateTime plannedPurgeDate;
 
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
 
-  
-   /**
-   * The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
-  public String getName() {
-    return name;
-  }
+    @JsonProperty("priority")
+    protected Integer priority;
 
-  
-   /**
-   * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
-   * @return plannedPurgeDate
-  **/
-  @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
-  public OffsetDateTime getPlannedPurgeDate() {
-    return plannedPurgeDate;
-  }
 
-  
-   /**
-   * The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.
-   * @return priority
-  **/
-  @ApiModelProperty(value = "The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.")
-  public Integer getPriority() {
-    return priority;
-  }
+    @JsonProperty("state")
+    protected CreationEntityState state;
 
-  
-   /**
-   * 
-   * @return state
-  **/
-  @ApiModelProperty(value = "")
-  public CreationEntityState getState() {
-    return state;
-  }
 
-  
-   /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
-   * @return version
-  **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
-  public Integer getVersion() {
-    return version;
-  }
+    @JsonProperty("version")
+    protected Integer version;
 
-  
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.
+     * @return conditions
+     **/
+    @ApiModelProperty(value = "If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.")
+    public List<Long> getConditions() {
+        return conditions;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+
+    /**
+     * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+     * @return id
+     **/
+    @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+    public Long getId() {
+        return id;
     }
-    ChargeFlow chargeFlow = (ChargeFlow) o;
-    return Objects.equals(this.conditions, chargeFlow.conditions) &&
-        Objects.equals(this.id, chargeFlow.id) &&
-        Objects.equals(this.linkedSpaceId, chargeFlow.linkedSpaceId) &&
-        Objects.equals(this.name, chargeFlow.name) &&
-        Objects.equals(this.plannedPurgeDate, chargeFlow.plannedPurgeDate) &&
-        Objects.equals(this.priority, chargeFlow.priority) && this.state == chargeFlow.state &&
-        Objects.equals(this.version, chargeFlow.version);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(conditions, id, linkedSpaceId, name, plannedPurgeDate, priority, state, version);
-  }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ChargeFlow {\n");
-    
-    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    /**
+     * The linked space id holds the ID of the space to which the entity belongs to.
+     * @return linkedSpaceId
+     **/
+    @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+    public Long getLinkedSpaceId() {
+        return linkedSpaceId;
+    }
 
+
+    /**
+     * The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+     * @return name
+     **/
+    @ApiModelProperty(value = "The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+    public String getName() {
+        return name;
+    }
+
+
+    /**
+     * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+     * @return plannedPurgeDate
+     **/
+    @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
+    public OffsetDateTime getPlannedPurgeDate() {
+        return plannedPurgeDate;
+    }
+
+
+    /**
+     * The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.
+     * @return priority
+     **/
+    @ApiModelProperty(value = "The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.")
+    public Integer getPriority() {
+        return priority;
+    }
+
+
+    /**
+     *
+     * @return state
+     **/
+    @ApiModelProperty(value = "")
+    public CreationEntityState getState() {
+        return state;
+    }
+
+
+    /**
+     * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+     * @return version
+     **/
+    @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+    public Integer getVersion() {
+        return version;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ChargeFlow chargeFlow = (ChargeFlow) o;
+        return Objects.equals(this.conditions, chargeFlow.conditions) &&
+                Objects.equals(this.id, chargeFlow.id) &&
+                Objects.equals(this.linkedSpaceId, chargeFlow.linkedSpaceId) &&
+                Objects.equals(this.name, chargeFlow.name) &&
+                Objects.equals(this.plannedPurgeDate, chargeFlow.plannedPurgeDate) &&
+                Objects.equals(this.priority, chargeFlow.priority) && this.state == chargeFlow.state &&
+                Objects.equals(this.version, chargeFlow.version);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(conditions, id, linkedSpaceId, name, plannedPurgeDate, priority, state, version);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ChargeFlow {\n");
+
+        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+        sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

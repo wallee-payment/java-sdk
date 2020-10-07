@@ -1,13 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -15,6 +7,13 @@ import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.InstallmentCalculatedPlan;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class InstallmentPlanCalculationService {
@@ -32,45 +31,47 @@ public class InstallmentPlanCalculationService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * Calculate Plans
-    * This operation allows to calculate all plans for the given transaction. The transaction will not be changed in any way.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param transactionId The transaction for which the plans should be calculated for.
-    * @return List&lt;InstallmentCalculatedPlan&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
-
-    **/
+    /**
+     * Calculate Plans
+     * This operation allows to calculate all plans for the given transaction. The transaction will not be changed in any way.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param transactionId The transaction for which the plans should be calculated for.
+     * @return List&lt;InstallmentCalculatedPlan&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
+     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId);
-        TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
-        return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {
+        };
+        return (List<InstallmentCalculatedPlan>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Calculate Plans
-    * This operation allows to calculate all plans for the given transaction. The transaction will not be changed in any way.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param transactionId The transaction for which the plans should be calculated for.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;InstallmentCalculatedPlan&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
-
-    **/
+    /**
+     * Calculate Plans
+     * This operation allows to calculate all plans for the given transaction. The transaction will not be changed in any way.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param transactionId The transaction for which the plans should be calculated for.
+     * @param params        Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;InstallmentCalculatedPlan&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
+     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId, params);
-        TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
-        return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {
+        };
+        return (List<InstallmentCalculatedPlan>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse calculatePlansForHttpResponse(Long spaceId, Long transactionId) throws IOException {
@@ -84,10 +85,10 @@ public class InstallmentPlanCalculationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
         {
             String key = "spaceId";
-          uriBuilder = uriBuilder.queryParam(key, spaceId);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "transactionId";
-      uriBuilder = uriBuilder.queryParam(key, transactionId);
+        uriBuilder = uriBuilder.queryParam(key, transactionId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -113,7 +114,7 @@ public class InstallmentPlanCalculationService {
         // Add the required query param 'transactionId' to the map of query params
         allParams.put("transactionId", transactionId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

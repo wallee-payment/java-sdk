@@ -1,23 +1,27 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.TokenizationMode;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,526 +29,519 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import io.swagger.annotations.ApiModelProperty;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.TokenizationMode;
-
 /**
  * AbstractTransactionPending
  */
 
 public class AbstractTransactionPending extends Indentable {
-  
-  @JsonProperty("allowedPaymentMethodBrands")
-  protected List<PaymentMethodBrand> allowedPaymentMethodBrands;
 
-  
-  @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<Long> allowedPaymentMethodConfigurations;
+    @JsonProperty("allowedPaymentMethodBrands")
+    protected List<PaymentMethodBrand> allowedPaymentMethodBrands;
 
-  
-  @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress;
 
-  
-  @JsonProperty("currency")
-  protected String currency;
+    @JsonProperty("allowedPaymentMethodConfigurations")
+    protected List<Long> allowedPaymentMethodConfigurations;
 
-  
-  @JsonProperty("customerEmailAddress")
-  protected String customerEmailAddress;
 
-  
-  @JsonProperty("customerId")
-  protected String customerId;
+    @JsonProperty("billingAddress")
+    protected AddressCreate billingAddress;
 
-  
-  @JsonProperty("failedUrl")
-  protected String failedUrl;
 
-  
-  @JsonProperty("invoiceMerchantReference")
-  protected String invoiceMerchantReference;
+    @JsonProperty("currency")
+    protected String currency;
 
-  
-  @JsonProperty("language")
-  protected String language;
 
-  
-  @JsonProperty("lineItems")
-  protected List<LineItemCreate> lineItems;
+    @JsonProperty("customerEmailAddress")
+    protected String customerEmailAddress;
 
-  
-  @JsonProperty("merchantReference")
-  protected String merchantReference;
 
-  
-  @JsonProperty("metaData")
-  protected Map<String, String> metaData;
+    @JsonProperty("customerId")
+    protected String customerId;
 
-  
-  @JsonProperty("shippingAddress")
-  protected AddressCreate shippingAddress;
 
-  
-  @JsonProperty("shippingMethod")
-  protected String shippingMethod;
+    @JsonProperty("failedUrl")
+    protected String failedUrl;
 
-  
-  @JsonProperty("successUrl")
-  protected String successUrl;
 
-  
-  @JsonProperty("timeZone")
-  protected String timeZone;
+    @JsonProperty("invoiceMerchantReference")
+    protected String invoiceMerchantReference;
 
-  
-  @JsonProperty("token")
-  protected Long token;
 
-  
-  @JsonProperty("tokenizationMode")
-  protected TokenizationMode tokenizationMode;
+    @JsonProperty("language")
+    protected String language;
 
-  
-  
-  public AbstractTransactionPending allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
-    this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
-    return this;
-  }
 
-  public AbstractTransactionPending addAllowedPaymentMethodBrandsItem(PaymentMethodBrand allowedPaymentMethodBrandsItem) {
-    if (this.allowedPaymentMethodBrands == null) {
-      this.allowedPaymentMethodBrands = new ArrayList<>();
+    @JsonProperty("lineItems")
+    protected List<LineItemCreate> lineItems;
+
+
+    @JsonProperty("merchantReference")
+    protected String merchantReference;
+
+
+    @JsonProperty("metaData")
+    protected Map<String, String> metaData;
+
+
+    @JsonProperty("shippingAddress")
+    protected AddressCreate shippingAddress;
+
+
+    @JsonProperty("shippingMethod")
+    protected String shippingMethod;
+
+
+    @JsonProperty("successUrl")
+    protected String successUrl;
+
+
+    @JsonProperty("timeZone")
+    protected String timeZone;
+
+
+    @JsonProperty("token")
+    protected Long token;
+
+
+    @JsonProperty("tokenizationMode")
+    protected TokenizationMode tokenizationMode;
+
+
+    public AbstractTransactionPending allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
+        this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
+        return this;
     }
-    this.allowedPaymentMethodBrands.add(allowedPaymentMethodBrandsItem);
-    return this;
-  }
 
-   /**
-   * 
-   * @return allowedPaymentMethodBrands
-  **/
-  @ApiModelProperty(value = "")
-  public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
-    return allowedPaymentMethodBrands;
-  }
-
-  public void setAllowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
-    this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
-  }
-
-  
-  public AbstractTransactionPending allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
-    this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
-    return this;
-  }
-
-  public AbstractTransactionPending addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
-    if (this.allowedPaymentMethodConfigurations == null) {
-      this.allowedPaymentMethodConfigurations = new ArrayList<>();
+    public AbstractTransactionPending addAllowedPaymentMethodBrandsItem(PaymentMethodBrand allowedPaymentMethodBrandsItem) {
+        if (this.allowedPaymentMethodBrands == null) {
+            this.allowedPaymentMethodBrands = new ArrayList<>();
+        }
+        this.allowedPaymentMethodBrands.add(allowedPaymentMethodBrandsItem);
+        return this;
     }
-    this.allowedPaymentMethodConfigurations.add(allowedPaymentMethodConfigurationsItem);
-    return this;
-  }
 
-   /**
-   * 
-   * @return allowedPaymentMethodConfigurations
-  **/
-  @ApiModelProperty(value = "")
-  public List<Long> getAllowedPaymentMethodConfigurations() {
-    return allowedPaymentMethodConfigurations;
-  }
-
-  public void setAllowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
-    this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
-  }
-
-  
-  public AbstractTransactionPending billingAddress(AddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return billingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public AddressCreate getBillingAddress() {
-    return billingAddress;
-  }
-
-  public void setBillingAddress(AddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
-  }
-
-  
-  public AbstractTransactionPending currency(String currency) {
-    this.currency = currency;
-    return this;
-  }
-
-   /**
-   * 
-   * @return currency
-  **/
-  @ApiModelProperty(value = "")
-  public String getCurrency() {
-    return currency;
-  }
-
-  public void setCurrency(String currency) {
-    this.currency = currency;
-  }
-
-  
-  public AbstractTransactionPending customerEmailAddress(String customerEmailAddress) {
-    this.customerEmailAddress = customerEmailAddress;
-    return this;
-  }
-
-   /**
-   * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
-   * @return customerEmailAddress
-  **/
-  @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
-  public String getCustomerEmailAddress() {
-    return customerEmailAddress;
-  }
-
-  public void setCustomerEmailAddress(String customerEmailAddress) {
-    this.customerEmailAddress = customerEmailAddress;
-  }
-
-  
-  public AbstractTransactionPending customerId(String customerId) {
-    this.customerId = customerId;
-    return this;
-  }
-
-   /**
-   * 
-   * @return customerId
-  **/
-  @ApiModelProperty(value = "")
-  public String getCustomerId() {
-    return customerId;
-  }
-
-  public void setCustomerId(String customerId) {
-    this.customerId = customerId;
-  }
-
-  
-  public AbstractTransactionPending failedUrl(String failedUrl) {
-    this.failedUrl = failedUrl;
-    return this;
-  }
-
-   /**
-   * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
-   * @return failedUrl
-  **/
-  @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
-  public String getFailedUrl() {
-    return failedUrl;
-  }
-
-  public void setFailedUrl(String failedUrl) {
-    this.failedUrl = failedUrl;
-  }
-
-  
-  public AbstractTransactionPending invoiceMerchantReference(String invoiceMerchantReference) {
-    this.invoiceMerchantReference = invoiceMerchantReference;
-    return this;
-  }
-
-   /**
-   * 
-   * @return invoiceMerchantReference
-  **/
-  @ApiModelProperty(value = "")
-  public String getInvoiceMerchantReference() {
-    return invoiceMerchantReference;
-  }
-
-  public void setInvoiceMerchantReference(String invoiceMerchantReference) {
-    this.invoiceMerchantReference = invoiceMerchantReference;
-  }
-
-  
-  public AbstractTransactionPending language(String language) {
-    this.language = language;
-    return this;
-  }
-
-   /**
-   * 
-   * @return language
-  **/
-  @ApiModelProperty(value = "")
-  public String getLanguage() {
-    return language;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-  
-  public AbstractTransactionPending lineItems(List<LineItemCreate> lineItems) {
-    this.lineItems = lineItems;
-    return this;
-  }
-
-  public AbstractTransactionPending addLineItemsItem(LineItemCreate lineItemsItem) {
-    if (this.lineItems == null) {
-      this.lineItems = new ArrayList<>();
+    /**
+     *
+     * @return allowedPaymentMethodBrands
+     **/
+    @ApiModelProperty(value = "")
+    public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
+        return allowedPaymentMethodBrands;
     }
-    this.lineItems.add(lineItemsItem);
-    return this;
-  }
 
-   /**
-   * 
-   * @return lineItems
-  **/
-  @ApiModelProperty(value = "")
-  public List<LineItemCreate> getLineItems() {
-    return lineItems;
-  }
-
-  public void setLineItems(List<LineItemCreate> lineItems) {
-    this.lineItems = lineItems;
-  }
-
-  
-  public AbstractTransactionPending merchantReference(String merchantReference) {
-    this.merchantReference = merchantReference;
-    return this;
-  }
-
-   /**
-   * 
-   * @return merchantReference
-  **/
-  @ApiModelProperty(value = "")
-  public String getMerchantReference() {
-    return merchantReference;
-  }
-
-  public void setMerchantReference(String merchantReference) {
-    this.merchantReference = merchantReference;
-  }
-
-  
-  public AbstractTransactionPending metaData(Map<String, String> metaData) {
-    this.metaData = metaData;
-    return this;
-  }
-
-  public AbstractTransactionPending putMetaDataItem(String key, String metaDataItem) {
-    if (this.metaData == null) {
-      this.metaData = new HashMap<>();
+    public void setAllowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
+        this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
     }
-    this.metaData.put(key, metaDataItem);
-    return this;
-  }
 
-   /**
-   * Meta data allow to store additional data along the object.
-   * @return metaData
-  **/
-  @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
-  public Map<String, String> getMetaData() {
-    return metaData;
-  }
 
-  public void setMetaData(Map<String, String> metaData) {
-    this.metaData = metaData;
-  }
-
-  
-  public AbstractTransactionPending shippingAddress(AddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return shippingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public AddressCreate getShippingAddress() {
-    return shippingAddress;
-  }
-
-  public void setShippingAddress(AddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  
-  public AbstractTransactionPending shippingMethod(String shippingMethod) {
-    this.shippingMethod = shippingMethod;
-    return this;
-  }
-
-   /**
-   * 
-   * @return shippingMethod
-  **/
-  @ApiModelProperty(value = "")
-  public String getShippingMethod() {
-    return shippingMethod;
-  }
-
-  public void setShippingMethod(String shippingMethod) {
-    this.shippingMethod = shippingMethod;
-  }
-
-  
-  public AbstractTransactionPending successUrl(String successUrl) {
-    this.successUrl = successUrl;
-    return this;
-  }
-
-   /**
-   * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
-   * @return successUrl
-  **/
-  @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
-  public String getSuccessUrl() {
-    return successUrl;
-  }
-
-  public void setSuccessUrl(String successUrl) {
-    this.successUrl = successUrl;
-  }
-
-  
-  public AbstractTransactionPending timeZone(String timeZone) {
-    this.timeZone = timeZone;
-    return this;
-  }
-
-   /**
-   * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
-   * @return timeZone
-  **/
-  @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
-  public String getTimeZone() {
-    return timeZone;
-  }
-
-  public void setTimeZone(String timeZone) {
-    this.timeZone = timeZone;
-  }
-
-  
-  public AbstractTransactionPending token(Long token) {
-    this.token = token;
-    return this;
-  }
-
-   /**
-   * 
-   * @return token
-  **/
-  @ApiModelProperty(value = "")
-  public Long getToken() {
-    return token;
-  }
-
-  public void setToken(Long token) {
-    this.token = token;
-  }
-
-  
-  public AbstractTransactionPending tokenizationMode(TokenizationMode tokenizationMode) {
-    this.tokenizationMode = tokenizationMode;
-    return this;
-  }
-
-   /**
-   * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
-   * @return tokenizationMode
-  **/
-  @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")
-  public TokenizationMode getTokenizationMode() {
-    return tokenizationMode;
-  }
-
-  public void setTokenizationMode(TokenizationMode tokenizationMode) {
-    this.tokenizationMode = tokenizationMode;
-  }
-
-  
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public AbstractTransactionPending allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+        this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public AbstractTransactionPending addAllowedPaymentMethodConfigurationsItem(Long allowedPaymentMethodConfigurationsItem) {
+        if (this.allowedPaymentMethodConfigurations == null) {
+            this.allowedPaymentMethodConfigurations = new ArrayList<>();
+        }
+        this.allowedPaymentMethodConfigurations.add(allowedPaymentMethodConfigurationsItem);
+        return this;
     }
-    AbstractTransactionPending abstractTransactionPending = (AbstractTransactionPending) o;
-    return Objects.equals(this.allowedPaymentMethodBrands, abstractTransactionPending.allowedPaymentMethodBrands) &&
-        Objects.equals(this.allowedPaymentMethodConfigurations, abstractTransactionPending.allowedPaymentMethodConfigurations) &&
-        Objects.equals(this.billingAddress, abstractTransactionPending.billingAddress) &&
-        Objects.equals(this.currency, abstractTransactionPending.currency) &&
-        Objects.equals(this.customerEmailAddress, abstractTransactionPending.customerEmailAddress) &&
-        Objects.equals(this.customerId, abstractTransactionPending.customerId) &&
-        Objects.equals(this.failedUrl, abstractTransactionPending.failedUrl) &&
-        Objects.equals(this.invoiceMerchantReference, abstractTransactionPending.invoiceMerchantReference) &&
-        Objects.equals(this.language, abstractTransactionPending.language) &&
-        Objects.equals(this.lineItems, abstractTransactionPending.lineItems) &&
-        Objects.equals(this.merchantReference, abstractTransactionPending.merchantReference) &&
-        Objects.equals(this.metaData, abstractTransactionPending.metaData) &&
-        Objects.equals(this.shippingAddress, abstractTransactionPending.shippingAddress) &&
-        Objects.equals(this.shippingMethod, abstractTransactionPending.shippingMethod) &&
-        Objects.equals(this.successUrl, abstractTransactionPending.successUrl) &&
-        Objects.equals(this.timeZone, abstractTransactionPending.timeZone) &&
-        Objects.equals(this.token, abstractTransactionPending.token) && this.tokenizationMode
-      == abstractTransactionPending.tokenizationMode;
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode);
-  }
+    /**
+     *
+     * @return allowedPaymentMethodConfigurations
+     **/
+    @ApiModelProperty(value = "")
+    public List<Long> getAllowedPaymentMethodConfigurations() {
+        return allowedPaymentMethodConfigurations;
+    }
+
+    public void setAllowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+        this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AbstractTransactionPending {\n");
-    
-    sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
-    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-    sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-    sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
-    sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
-    sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public AbstractTransactionPending billingAddress(AddressCreate billingAddress) {
+        this.billingAddress = billingAddress;
+        return this;
+    }
+
+    /**
+     *
+     * @return billingAddress
+     **/
+    @ApiModelProperty(value = "")
+    public AddressCreate getBillingAddress() {
+        return billingAddress;
+    }
+
+    public void setBillingAddress(AddressCreate billingAddress) {
+        this.billingAddress = billingAddress;
+    }
+
+
+    public AbstractTransactionPending currency(String currency) {
+        this.currency = currency;
+        return this;
+    }
+
+    /**
+     *
+     * @return currency
+     **/
+    @ApiModelProperty(value = "")
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+
+    public AbstractTransactionPending customerEmailAddress(String customerEmailAddress) {
+        this.customerEmailAddress = customerEmailAddress;
+        return this;
+    }
+
+    /**
+     * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
+     * @return customerEmailAddress
+     **/
+    @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
+    public String getCustomerEmailAddress() {
+        return customerEmailAddress;
+    }
+
+    public void setCustomerEmailAddress(String customerEmailAddress) {
+        this.customerEmailAddress = customerEmailAddress;
+    }
+
+
+    public AbstractTransactionPending customerId(String customerId) {
+        this.customerId = customerId;
+        return this;
+    }
+
+    /**
+     *
+     * @return customerId
+     **/
+    @ApiModelProperty(value = "")
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+
+    public AbstractTransactionPending failedUrl(String failedUrl) {
+        this.failedUrl = failedUrl;
+        return this;
+    }
+
+    /**
+     * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+     * @return failedUrl
+     **/
+    @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
+    public String getFailedUrl() {
+        return failedUrl;
+    }
+
+    public void setFailedUrl(String failedUrl) {
+        this.failedUrl = failedUrl;
+    }
+
+
+    public AbstractTransactionPending invoiceMerchantReference(String invoiceMerchantReference) {
+        this.invoiceMerchantReference = invoiceMerchantReference;
+        return this;
+    }
+
+    /**
+     *
+     * @return invoiceMerchantReference
+     **/
+    @ApiModelProperty(value = "")
+    public String getInvoiceMerchantReference() {
+        return invoiceMerchantReference;
+    }
+
+    public void setInvoiceMerchantReference(String invoiceMerchantReference) {
+        this.invoiceMerchantReference = invoiceMerchantReference;
+    }
+
+
+    public AbstractTransactionPending language(String language) {
+        this.language = language;
+        return this;
+    }
+
+    /**
+     *
+     * @return language
+     **/
+    @ApiModelProperty(value = "")
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+
+    public AbstractTransactionPending lineItems(List<LineItemCreate> lineItems) {
+        this.lineItems = lineItems;
+        return this;
+    }
+
+    public AbstractTransactionPending addLineItemsItem(LineItemCreate lineItemsItem) {
+        if (this.lineItems == null) {
+            this.lineItems = new ArrayList<>();
+        }
+        this.lineItems.add(lineItemsItem);
+        return this;
+    }
+
+    /**
+     *
+     * @return lineItems
+     **/
+    @ApiModelProperty(value = "")
+    public List<LineItemCreate> getLineItems() {
+        return lineItems;
+    }
+
+    public void setLineItems(List<LineItemCreate> lineItems) {
+        this.lineItems = lineItems;
+    }
+
+
+    public AbstractTransactionPending merchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+        return this;
+    }
+
+    /**
+     *
+     * @return merchantReference
+     **/
+    @ApiModelProperty(value = "")
+    public String getMerchantReference() {
+        return merchantReference;
+    }
+
+    public void setMerchantReference(String merchantReference) {
+        this.merchantReference = merchantReference;
+    }
+
+
+    public AbstractTransactionPending metaData(Map<String, String> metaData) {
+        this.metaData = metaData;
+        return this;
+    }
+
+    public AbstractTransactionPending putMetaDataItem(String key, String metaDataItem) {
+        if (this.metaData == null) {
+            this.metaData = new HashMap<>();
+        }
+        this.metaData.put(key, metaDataItem);
+        return this;
+    }
+
+    /**
+     * Meta data allow to store additional data along the object.
+     * @return metaData
+     **/
+    @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
+    public Map<String, String> getMetaData() {
+        return metaData;
+    }
+
+    public void setMetaData(Map<String, String> metaData) {
+        this.metaData = metaData;
+    }
+
+
+    public AbstractTransactionPending shippingAddress(AddressCreate shippingAddress) {
+        this.shippingAddress = shippingAddress;
+        return this;
+    }
+
+    /**
+     *
+     * @return shippingAddress
+     **/
+    @ApiModelProperty(value = "")
+    public AddressCreate getShippingAddress() {
+        return shippingAddress;
+    }
+
+    public void setShippingAddress(AddressCreate shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
+
+
+    public AbstractTransactionPending shippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+        return this;
+    }
+
+    /**
+     *
+     * @return shippingMethod
+     **/
+    @ApiModelProperty(value = "")
+    public String getShippingMethod() {
+        return shippingMethod;
+    }
+
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+    }
+
+
+    public AbstractTransactionPending successUrl(String successUrl) {
+        this.successUrl = successUrl;
+        return this;
+    }
+
+    /**
+     * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+     * @return successUrl
+     **/
+    @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
+    public String getSuccessUrl() {
+        return successUrl;
+    }
+
+    public void setSuccessUrl(String successUrl) {
+        this.successUrl = successUrl;
+    }
+
+
+    public AbstractTransactionPending timeZone(String timeZone) {
+        this.timeZone = timeZone;
+        return this;
+    }
+
+    /**
+     * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+     * @return timeZone
+     **/
+    @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
+    public String getTimeZone() {
+        return timeZone;
+    }
+
+    public void setTimeZone(String timeZone) {
+        this.timeZone = timeZone;
+    }
+
+
+    public AbstractTransactionPending token(Long token) {
+        this.token = token;
+        return this;
+    }
+
+    /**
+     *
+     * @return token
+     **/
+    @ApiModelProperty(value = "")
+    public Long getToken() {
+        return token;
+    }
+
+    public void setToken(Long token) {
+        this.token = token;
+    }
+
+
+    public AbstractTransactionPending tokenizationMode(TokenizationMode tokenizationMode) {
+        this.tokenizationMode = tokenizationMode;
+        return this;
+    }
+
+    /**
+     * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
+     * @return tokenizationMode
+     **/
+    @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")
+    public TokenizationMode getTokenizationMode() {
+        return tokenizationMode;
+    }
+
+    public void setTokenizationMode(TokenizationMode tokenizationMode) {
+        this.tokenizationMode = tokenizationMode;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AbstractTransactionPending abstractTransactionPending = (AbstractTransactionPending) o;
+        return Objects.equals(this.allowedPaymentMethodBrands, abstractTransactionPending.allowedPaymentMethodBrands) &&
+                Objects.equals(this.allowedPaymentMethodConfigurations, abstractTransactionPending.allowedPaymentMethodConfigurations) &&
+                Objects.equals(this.billingAddress, abstractTransactionPending.billingAddress) &&
+                Objects.equals(this.currency, abstractTransactionPending.currency) &&
+                Objects.equals(this.customerEmailAddress, abstractTransactionPending.customerEmailAddress) &&
+                Objects.equals(this.customerId, abstractTransactionPending.customerId) &&
+                Objects.equals(this.failedUrl, abstractTransactionPending.failedUrl) &&
+                Objects.equals(this.invoiceMerchantReference, abstractTransactionPending.invoiceMerchantReference) &&
+                Objects.equals(this.language, abstractTransactionPending.language) &&
+                Objects.equals(this.lineItems, abstractTransactionPending.lineItems) &&
+                Objects.equals(this.merchantReference, abstractTransactionPending.merchantReference) &&
+                Objects.equals(this.metaData, abstractTransactionPending.metaData) &&
+                Objects.equals(this.shippingAddress, abstractTransactionPending.shippingAddress) &&
+                Objects.equals(this.shippingMethod, abstractTransactionPending.shippingMethod) &&
+                Objects.equals(this.successUrl, abstractTransactionPending.successUrl) &&
+                Objects.equals(this.timeZone, abstractTransactionPending.timeZone) &&
+                Objects.equals(this.token, abstractTransactionPending.token) && this.tokenizationMode
+                == abstractTransactionPending.tokenizationMode;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AbstractTransactionPending {\n");
+
+        sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
+        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+        sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
+        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+        sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
+        sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
+        sb.append("    language: ").append(toIndentedString(language)).append("\n");
+        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+        sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
+        sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
+        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+        sb.append("    token: ").append(toIndentedString(token)).append("\n");
+        sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 }
 

@@ -1,14 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.time.OffsetDateTime;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -16,6 +7,14 @@ import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.MetricUsage;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class MerticUsageService {
@@ -33,47 +32,49 @@ public class MerticUsageService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * Calculate
-    * Calculates the consumed resources for the given space and time range.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param start The start date from which on the consumed units should be returned from.
-    * @param end The end date to which the consumed units should be returned to. The end date is not included in the result.
-    * @return List&lt;MetricUsage&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-
-    **/
+    /**
+     * Calculate
+     * Calculates the consumed resources for the given space and time range.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param start   The start date from which on the consumed units should be returned from.
+     * @param end     The end date to which the consumed units should be returned to. The end date is not included in the result.
+     * @return List&lt;MetricUsage&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
+     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end);
-        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
-        return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {
+        };
+        return (List<MetricUsage>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Calculate
-    * Calculates the consumed resources for the given space and time range.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param start The start date from which on the consumed units should be returned from.
-    * @param end The end date to which the consumed units should be returned to. The end date is not included in the result.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;MetricUsage&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
-
-    **/
+    /**
+     * Calculate
+     * Calculates the consumed resources for the given space and time range.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param start   The start date from which on the consumed units should be returned from.
+     * @param end     The end date to which the consumed units should be returned to. The end date is not included in the result.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;MetricUsage&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
+     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end, params);
-        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
-        return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<MetricUsage>>() {
+        };
+        return (List<MetricUsage>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
@@ -90,14 +91,14 @@ public class MerticUsageService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
         {
             String key = "spaceId";
-          uriBuilder = uriBuilder.queryParam(key, spaceId);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "start";
-          uriBuilder = uriBuilder.queryParam(key, start);
+            uriBuilder = uriBuilder.queryParam(key, start);
         }
         String key = "end";
-      uriBuilder = uriBuilder.queryParam(key, end);
+        uriBuilder = uriBuilder.queryParam(key, end);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -128,7 +129,7 @@ public class MerticUsageService {
         // Add the required query param 'end' to the map of query params
         allParams.put("end", end);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

@@ -1,13 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -15,6 +7,13 @@ import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.UserAccountRole;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class UserAccountRoleService {
@@ -32,48 +31,50 @@ public class UserAccountRoleService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * Add Role
-    * This operation grants the role to the given user with in the given account.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param userId The id of the user to whom the role is assigned.
-    * @param accountId The account to which the role is mapped.
-    * @param roleId The role which is mapped to the user and account.
-    * @param appliesOnSubaccount Whether the role applies only on subaccount.
-    * @return UserAccountRole
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
-
-    **/
+    /**
+     * Add Role
+     * This operation grants the role to the given user with in the given account.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param userId              The id of the user to whom the role is assigned.
+     * @param accountId           The account to which the role is mapped.
+     * @param roleId              The role which is mapped to the user and account.
+     * @param appliesOnSubaccount Whether the role applies only on subaccount.
+     * @return UserAccountRole
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
+     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, appliesOnSubaccount);
-        TypeReference typeRef = new TypeReference<UserAccountRole>() {};
-        return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<UserAccountRole>() {
+        };
+        return (UserAccountRole) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Add Role
-    * This operation grants the role to the given user with in the given account.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param userId The id of the user to whom the role is assigned.
-    * @param accountId The account to which the role is mapped.
-    * @param roleId The role which is mapped to the user and account.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return UserAccountRole
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
-
-    **/
+    /**
+     * Add Role
+     * This operation grants the role to the given user with in the given account.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param userId    The id of the user to whom the role is assigned.
+     * @param accountId The account to which the role is mapped.
+     * @param roleId    The role which is mapped to the user and account.
+     * @param params    Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return UserAccountRole
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
+     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, params);
-        TypeReference typeRef = new TypeReference<UserAccountRole>() {};
-        return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<UserAccountRole>() {
+        };
+        return (UserAccountRole) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
@@ -90,19 +91,19 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
         {
             String key = "userId";
-          uriBuilder = uriBuilder.queryParam(key, userId);
+            uriBuilder = uriBuilder.queryParam(key, userId);
         }
         {
             String key = "accountId";
-          uriBuilder = uriBuilder.queryParam(key, accountId);
+            uriBuilder = uriBuilder.queryParam(key, accountId);
         }
         {
             String key = "roleId";
-          uriBuilder = uriBuilder.queryParam(key, roleId);
+            uriBuilder = uriBuilder.queryParam(key, roleId);
         }
         if (appliesOnSubaccount != null) {
             String key = "appliesOnSubaccount";
-          uriBuilder = uriBuilder.queryParam(key, appliesOnSubaccount);
+            uriBuilder = uriBuilder.queryParam(key, appliesOnSubaccount);
         }
 
         String url = uriBuilder.build().toString();
@@ -134,7 +135,7 @@ public class UserAccountRoleService {
         // Add the required query param 'roleId' to the map of query params
         allParams.put("roleId", roleId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -157,45 +158,47 @@ public class UserAccountRoleService {
     }
 
 
-  /**
-    * List Roles
-    * List all the roles that are assigned to the given user in the given account.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param userId The id of the user to whom the role is assigned.
-    * @param accountId The account to which the role is mapped.
-    * @return List&lt;UserAccountRole&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
-
-    **/
+    /**
+     * List Roles
+     * List all the roles that are assigned to the given user in the given account.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param userId    The id of the user to whom the role is assigned.
+     * @param accountId The account to which the role is mapped.
+     * @return List&lt;UserAccountRole&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
+     **/
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId);
-        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
-        return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {
+        };
+        return (List<UserAccountRole>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * List Roles
-    * List all the roles that are assigned to the given user in the given account.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param userId The id of the user to whom the role is assigned.
-    * @param accountId The account to which the role is mapped.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;UserAccountRole&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
-
-    **/
+    /**
+     * List Roles
+     * List all the roles that are assigned to the given user in the given account.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param userId    The id of the user to whom the role is assigned.
+     * @param accountId The account to which the role is mapped.
+     * @param params    Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;UserAccountRole&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
+     **/
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId, params);
-        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
-        return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {
+        };
+        return (List<UserAccountRole>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long accountId) throws IOException {
@@ -209,10 +212,10 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
         {
             String key = "userId";
-          uriBuilder = uriBuilder.queryParam(key, userId);
+            uriBuilder = uriBuilder.queryParam(key, userId);
         }
         String key = "accountId";
-      uriBuilder = uriBuilder.queryParam(key, accountId);
+        uriBuilder = uriBuilder.queryParam(key, accountId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -238,7 +241,7 @@ public class UserAccountRoleService {
         // Add the required query param 'accountId' to the map of query params
         allParams.put("accountId", accountId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -261,33 +264,33 @@ public class UserAccountRoleService {
     }
 
 
-  /**
-    * Remove Role
-    * This operation removes the specified user account role.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of user account role which should be removed
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
-
-    **/
+    /**
+     * Remove Role
+     * This operation removes the specified user account role.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id The id of user account role which should be removed
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
+     **/
     public void removeRole(Long id) throws IOException {
         removeRoleForHttpResponse(id);
     }
 
-  /**
-    * Remove Role
-    * This operation removes the specified user account role.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of user account role which should be removed
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
-
-    **/
+    /**
+     * Remove Role
+     * This operation removes the specified user account role.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id     The id of user account role which should be removed
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
+     **/
     public void removeRole(Long id, Map<String, Object> params) throws IOException {
         removeRoleForHttpResponse(id, params);
     }
@@ -299,7 +302,7 @@ public class UserAccountRoleService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
         String key = "id";
-      uriBuilder = uriBuilder.queryParam(key, id);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -320,7 +323,7 @@ public class UserAccountRoleService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

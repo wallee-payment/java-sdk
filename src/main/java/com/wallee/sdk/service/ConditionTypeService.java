@@ -1,20 +1,18 @@
 package com.wallee.sdk.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.ConditionType;
+
+import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
-import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.ConditionType;
 
 
 public class ConditionTypeService {
@@ -32,45 +30,47 @@ public class ConditionTypeService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * All
-    * This operation returns all entities which are available.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @return List&lt;ConditionType&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--all">All Documentation</a>
-
-    **/
+    /**
+     * All
+     * This operation returns all entities which are available.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @return List&lt;ConditionType&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--all">All Documentation</a>
+     **/
     public List<ConditionType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        TypeReference typeRef = new TypeReference<List<ConditionType>>() {};
-        return (List<ConditionType>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<ConditionType>>() {
+        };
+        return (List<ConditionType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * All
-    * This operation returns all entities which are available.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;ConditionType&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--all">All Documentation</a>
-
-    **/
+    /**
+     * All
+     * This operation returns all entities which are available.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;ConditionType&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--all">All Documentation</a>
+     **/
     public List<ConditionType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        TypeReference typeRef = new TypeReference<List<ConditionType>>() {};
-        return (List<ConditionType>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<ConditionType>>() {
+        };
+        return (List<ConditionType>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
-        
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/condition-type/all");
 
         String url = uriBuilder.build().toString();
@@ -80,13 +80,13 @@ public class ConditionTypeService {
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
-        
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/condition-type/all");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -108,43 +108,45 @@ public class ConditionTypeService {
     }
 
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of the condition type which should be returned.
-    * @return ConditionType
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id The id of the condition type which should be returned.
+     * @return ConditionType
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--read">Read Documentation</a>
+     **/
     public ConditionType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        TypeReference typeRef = new TypeReference<ConditionType>() {};
-        return (ConditionType)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ConditionType>() {
+        };
+        return (ConditionType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id The id of the condition type which should be returned.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return ConditionType
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param id     The id of the condition type which should be returned.
+     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return ConditionType
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#condition-type-service--read">Read Documentation</a>
+     **/
     public ConditionType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        TypeReference typeRef = new TypeReference<ConditionType>() {};
-        return (ConditionType)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<ConditionType>() {
+        };
+        return (ConditionType) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -154,7 +156,7 @@ public class ConditionTypeService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/condition-type/read");
         String key = "id";
-      uriBuilder = uriBuilder.queryParam(key, id);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -174,7 +176,7 @@ public class ConditionTypeService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

@@ -1,20 +1,20 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model.enums;
@@ -24,41 +24,41 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 public enum UserType {
-  
-  HUMAN_USER("HUMAN_USER"),
-  
-  SINGLE_SIGNON_USER("SINGLE_SIGNON_USER"),
-  
-  APPLICATION_USER("APPLICATION_USER"),
-  
-  ANONYMOUS_USER("ANONYMOUS_USER"),
-  
-  SERVER_USER("SERVER_USER");
 
-  private String value;
+    HUMAN_USER("HUMAN_USER"),
 
-  UserType(String value) {
-    this.value = value;
-  }
+    SINGLE_SIGNON_USER("SINGLE_SIGNON_USER"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    APPLICATION_USER("APPLICATION_USER"),
 
-  @Override
-  public String toString() {
-    return value;
-  }
+    ANONYMOUS_USER("ANONYMOUS_USER"),
 
-  @JsonCreator
-  public static UserType fromValue(String text) {
-    for (UserType b : UserType.values()) {
-      if (b.name().equals(text)) {
-        return b;
-      }
+    SERVER_USER("SERVER_USER");
+
+    private String value;
+
+    UserType(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @JsonCreator
+    public static UserType fromValue(String text) {
+        for (UserType b : UserType.values()) {
+            if (b.name().equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

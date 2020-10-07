@@ -1,20 +1,20 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model.enums;
@@ -23,39 +23,39 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ConnectorInvocationStage {
-  
-  PAYMENT_METHOD_LIST("PAYMENT_METHOD_LIST"),
-  
-  FORM_GENERATION("FORM_GENERATION"),
-  
-  VALIDATION("VALIDATION"),
-  
-  AUTHORIZATION("AUTHORIZATION");
 
-  private final String value;
+    PAYMENT_METHOD_LIST("PAYMENT_METHOD_LIST"),
 
-  ConnectorInvocationStage(String value) {
-    this.value = value;
-  }
+    FORM_GENERATION("FORM_GENERATION"),
 
-  @JsonValue
-  public String getValue() {
-    return value;
-  }
+    VALIDATION("VALIDATION"),
 
-  @Override
-  public String toString() {
-    return value;
-  }
+    AUTHORIZATION("AUTHORIZATION");
 
-  @JsonCreator
-  public static ConnectorInvocationStage fromValue(String text) {
-    for (ConnectorInvocationStage b : ConnectorInvocationStage.values()) {
-      if (b.name().equals(text)) {
-        return b;
-      }
+    private final String value;
+
+    ConnectorInvocationStage(String value) {
+        this.value = value;
     }
-    return null;
-  }
+
+    @JsonValue
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return value;
+    }
+
+    @JsonCreator
+    public static ConnectorInvocationStage fromValue(String text) {
+        for (ConnectorInvocationStage b : ConnectorInvocationStage.values()) {
+            if (b.name().equals(text)) {
+                return b;
+            }
+        }
+        return null;
+    }
 }
 

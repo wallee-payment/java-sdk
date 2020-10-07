@@ -1,34 +1,33 @@
 /**
-*  SDK
-*
-* This library allows to interact with the  payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * SDK
+ * <p>
+ * This library allows to interact with the  payment service.
+ * <p>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 
 package com.wallee.sdk.model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.CriteriaOperator;
 import com.wallee.sdk.model.enums.EntityQueryFilterType;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * The query filter allows to restrict the entities which are returned.
@@ -36,167 +35,164 @@ import com.wallee.sdk.model.enums.EntityQueryFilterType;
 @ApiModel(description = "The query filter allows to restrict the entities which are returned.")
 
 public class EntityQueryFilter extends Indentable {
-  
-  @JsonProperty("children")
-  protected List<EntityQueryFilter> children;
 
-  
-  @JsonProperty("fieldName")
-  protected String fieldName;
+    @JsonProperty("children")
+    protected List<EntityQueryFilter> children;
 
-  
-  @JsonProperty("operator")
-  protected CriteriaOperator operator;
 
-  
-  @JsonProperty("type")
-  protected EntityQueryFilterType type;
+    @JsonProperty("fieldName")
+    protected String fieldName;
 
-  
-  @JsonProperty("value")
-  protected Object value;
 
-  
-  
-  public EntityQueryFilter children(List<EntityQueryFilter> children) {
-    this.children = children;
-    return this;
-  }
+    @JsonProperty("operator")
+    protected CriteriaOperator operator;
 
-  public EntityQueryFilter addChildrenItem(EntityQueryFilter childrenItem) {
-    if (this.children == null) {
-      this.children = new ArrayList<>();
+
+    @JsonProperty("type")
+    protected EntityQueryFilterType type;
+
+
+    @JsonProperty("value")
+    protected Object value;
+
+
+    public EntityQueryFilter children(List<EntityQueryFilter> children) {
+        this.children = children;
+        return this;
     }
-    this.children.add(childrenItem);
-    return this;
-  }
 
-   /**
-   * The &#39;children&#39; can contain other filter nodes which are applied to the query. This property is only applicable on filter types &#39;OR&#39; and &#39;AND&#39;.
-   * @return children
-  **/
-  @ApiModelProperty(value = "The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.")
-  public List<EntityQueryFilter> getChildren() {
-    return children;
-  }
-
-  public void setChildren(List<EntityQueryFilter> children) {
-    this.children = children;
-  }
-
-  
-  public EntityQueryFilter fieldName(String fieldName) {
-    this.fieldName = fieldName;
-    return this;
-  }
-
-   /**
-   * The &#39;fieldName&#39; indicates the property on the entity which should be filtered. This property is only applicable on filter type &#39;LEAF&#39;.
-   * @return fieldName
-  **/
-  @ApiModelProperty(value = "The 'fieldName' indicates the property on the entity which should be filtered. This property is only applicable on filter type 'LEAF'.")
-  public String getFieldName() {
-    return fieldName;
-  }
-
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
-  }
-
-  
-  public EntityQueryFilter operator(CriteriaOperator operator) {
-    this.operator = operator;
-    return this;
-  }
-
-   /**
-   * The &#39;operator&#39; indicates what kind of filtering on the &#39;fieldName&#39; is executed on. This property is only applicable on filter type &#39;LEAF&#39;.
-   * @return operator
-  **/
-  @ApiModelProperty(value = "The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.")
-  public CriteriaOperator getOperator() {
-    return operator;
-  }
-
-  public void setOperator(CriteriaOperator operator) {
-    this.operator = operator;
-  }
-
-  
-  public EntityQueryFilter type(EntityQueryFilterType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.")
-  public EntityQueryFilterType getType() {
-    return type;
-  }
-
-  public void setType(EntityQueryFilterType type) {
-    this.type = type;
-  }
-
-  
-  public EntityQueryFilter value(Object value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The &#39;value&#39; is used to compare with the &#39;fieldName&#39; as defined by the &#39;operator&#39;. This property is only applicable on filter type &#39;LEAF&#39;.
-   * @return value
-  **/
-  @ApiModelProperty(value = "The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.")
-  public Object getValue() {
-    return value;
-  }
-
-  public void setValue(Object value) {
-    this.value = value;
-  }
-
-  
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public EntityQueryFilter addChildrenItem(EntityQueryFilter childrenItem) {
+        if (this.children == null) {
+            this.children = new ArrayList<>();
+        }
+        this.children.add(childrenItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The &#39;children&#39; can contain other filter nodes which are applied to the query. This property is only applicable on filter types &#39;OR&#39; and &#39;AND&#39;.
+     * @return children
+     **/
+    @ApiModelProperty(value = "The 'children' can contain other filter nodes which are applied to the query. This property is only applicable on filter types 'OR' and 'AND'.")
+    public List<EntityQueryFilter> getChildren() {
+        return children;
     }
-    EntityQueryFilter entityQueryFilter = (EntityQueryFilter) o;
-    return Objects.equals(this.children, entityQueryFilter.children) &&
-        Objects.equals(this.fieldName, entityQueryFilter.fieldName) && this.operator == entityQueryFilter.operator
-      && this.type == entityQueryFilter.type &&
-        Objects.equals(this.value, entityQueryFilter.value);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(children, fieldName, operator, type, value);
-  }
+    public void setChildren(List<EntityQueryFilter> children) {
+        this.children = children;
+    }
 
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class EntityQueryFilter {\n");
-    
-    sb.append("    children: ").append(toIndentedString(children)).append("\n");
-    sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
-    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+    public EntityQueryFilter fieldName(String fieldName) {
+        this.fieldName = fieldName;
+        return this;
+    }
 
+    /**
+     * The &#39;fieldName&#39; indicates the property on the entity which should be filtered. This property is only applicable on filter type &#39;LEAF&#39;.
+     * @return fieldName
+     **/
+    @ApiModelProperty(value = "The 'fieldName' indicates the property on the entity which should be filtered. This property is only applicable on filter type 'LEAF'.")
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+
+    public EntityQueryFilter operator(CriteriaOperator operator) {
+        this.operator = operator;
+        return this;
+    }
+
+    /**
+     * The &#39;operator&#39; indicates what kind of filtering on the &#39;fieldName&#39; is executed on. This property is only applicable on filter type &#39;LEAF&#39;.
+     * @return operator
+     **/
+    @ApiModelProperty(value = "The 'operator' indicates what kind of filtering on the 'fieldName' is executed on. This property is only applicable on filter type 'LEAF'.")
+    public CriteriaOperator getOperator() {
+        return operator;
+    }
+
+    public void setOperator(CriteriaOperator operator) {
+        this.operator = operator;
+    }
+
+
+    public EntityQueryFilter type(EntityQueryFilterType type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.
+     * @return type
+     **/
+    @ApiModelProperty(required = true, value = "The filter type controls how the query node is interpreted. I.e. if the node acts as leaf node or as a filter group.")
+    public EntityQueryFilterType getType() {
+        return type;
+    }
+
+    public void setType(EntityQueryFilterType type) {
+        this.type = type;
+    }
+
+
+    public EntityQueryFilter value(Object value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * The &#39;value&#39; is used to compare with the &#39;fieldName&#39; as defined by the &#39;operator&#39;. This property is only applicable on filter type &#39;LEAF&#39;.
+     * @return value
+     **/
+    @ApiModelProperty(value = "The 'value' is used to compare with the 'fieldName' as defined by the 'operator'. This property is only applicable on filter type 'LEAF'.")
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        EntityQueryFilter entityQueryFilter = (EntityQueryFilter) o;
+        return Objects.equals(this.children, entityQueryFilter.children) &&
+                Objects.equals(this.fieldName, entityQueryFilter.fieldName) && this.operator == entityQueryFilter.operator
+                && this.type == entityQueryFilter.type &&
+                Objects.equals(this.value, entityQueryFilter.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(children, fieldName, operator, type, value);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class EntityQueryFilter {\n");
+
+        sb.append("    children: ").append(toIndentedString(children)).append("\n");
+        sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
+        sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
 
 
 }

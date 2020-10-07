@@ -1,14 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -22,6 +13,14 @@ import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.RenderedDocument;
 import com.wallee.sdk.model.TransactionInvoice;
 import com.wallee.sdk.model.TransactionInvoiceReplacement;
+
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class TransactionInvoiceService {
@@ -39,44 +38,46 @@ public class TransactionInvoiceService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param filter The filter which restricts the entities which are used to calculate the count.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param filter  The filter which restricts the entities which are used to calculate the count.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
+     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
+     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -95,23 +96,23 @@ public class TransactionInvoiceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
-          String key = "spaceId";
-          uriBuilder = uriBuilder.queryParam(key, spaceId);
+    public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-          String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = filter == null ?
+        HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -125,7 +126,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -148,45 +149,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * getInvoiceDocument
-    * Returns the PDF document for the transaction invoice with given id.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice to get the document for.
-    * @return RenderedDocument
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-
-    **/
+    /**
+     * getInvoiceDocument
+     * Returns the PDF document for the transaction invoice with given id.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice to get the document for.
+     * @return RenderedDocument
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
-        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {
+        };
+        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * getInvoiceDocument
-    * Returns the PDF document for the transaction invoice with given id.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice to get the document for.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return RenderedDocument
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
-
-    **/
+    /**
+     * getInvoiceDocument
+     * Returns the PDF document for the transaction invoice with given id.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice to get the document for.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return RenderedDocument
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
-        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {
+        };
+        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -228,7 +231,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -250,47 +253,49 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * getInvoiceDocumentWithTargetMediaType
-    * Returns the PDF document for the transaction invoice with given id and target media type id.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice to get the document for.
-    * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
-    * @return RenderedDocument
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-
-    **/
+    /**
+     * getInvoiceDocumentWithTargetMediaType
+     * Returns the PDF document for the transaction invoice with given id and target media type id.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id                The id of the transaction invoice to get the document for.
+     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
+     * @return RenderedDocument
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
-        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {
+        };
+        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * getInvoiceDocumentWithTargetMediaType
-    * Returns the PDF document for the transaction invoice with given id and target media type id.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice to get the document for.
-    * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return RenderedDocument
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
-
-    **/
+    /**
+     * getInvoiceDocumentWithTargetMediaType
+     * Returns the PDF document for the transaction invoice with given id and target media type id.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id                The id of the transaction invoice to get the document for.
+     * @param targetMediaTypeId The id of the target media type for which the invoice should be generated for.
+     * @param params            Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return RenderedDocument
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
-        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
-        return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {
+        };
+        return (RenderedDocument) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse getInvoiceDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -344,7 +349,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'targetMediaTypeId' to the map of query params
         allParams.put("targetMediaTypeId", targetMediaTypeId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -366,45 +371,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * isReplacementPossible
-    * Returns whether the transaction invoice with the given id can be replaced.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The invoice which should be checked if a replacement is possible.
-    * @return Boolean
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-
-    **/
+    /**
+     * isReplacementPossible
+     * Returns whether the transaction invoice with the given id can be replaced.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The invoice which should be checked if a replacement is possible.
+     * @return Boolean
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
+     **/
     public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<Boolean>() {};
-        return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Boolean>() {
+        };
+        return (Boolean) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * isReplacementPossible
-    * Returns whether the transaction invoice with the given id can be replaced.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The invoice which should be checked if a replacement is possible.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return Boolean
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
-
-    **/
+    /**
+     * isReplacementPossible
+     * Returns whether the transaction invoice with the given id can be replaced.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The invoice which should be checked if a replacement is possible.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return Boolean
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
+     **/
     public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<Boolean>() {};
-        return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Boolean>() {
+        };
+        return (Boolean) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse isReplacementPossibleForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -446,7 +453,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -468,45 +475,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * Mark as Derecognized
-    * Marks the transaction invoice with the given id as derecognized.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice which should be marked as derecognized.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-
-    **/
+    /**
+     * Mark as Derecognized
+     * Marks the transaction invoice with the given id as derecognized.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice which should be marked as derecognized.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
+     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Mark as Derecognized
-    * Marks the transaction invoice with the given id as derecognized.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice which should be marked as derecognized.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
-
-    **/
+    /**
+     * Mark as Derecognized
+     * Marks the transaction invoice with the given id as derecognized.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice which should be marked as derecognized.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
+     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse markAsDerecognizedForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -549,7 +558,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -572,45 +581,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * Mark as Paid
-    * Marks the transaction invoice with the given id as paid.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice which should be marked as paid.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-
-    **/
+    /**
+     * Mark as Paid
+     * Marks the transaction invoice with the given id as paid.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice which should be marked as paid.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Mark as Paid
-    * Marks the transaction invoice with the given id as paid.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoice which should be marked as paid.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
-
-    **/
+    /**
+     * Mark as Paid
+     * Marks the transaction invoice with the given id as paid.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoice which should be marked as paid.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse markAsPaidForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -653,7 +664,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -676,45 +687,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoices which should be returned.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoices which should be returned.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+     **/
     public TransactionInvoice read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoices which should be returned.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the transaction invoices which should be returned.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+     **/
     public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -756,7 +769,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -778,47 +791,49 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * replace
-    * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoices which should be replaced.
-    * @param replacement 
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-
-    **/
+    /**
+     * replace
+     * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id          The id of the transaction invoices which should be replaced.
+     * @param replacement
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * replace
-    * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the transaction invoices which should be replaced.
-    * @param replacement 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return TransactionInvoice
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
-
-    **/
+    /**
+     * replace
+     * Replaces the transaction invoice with given id with the replacement and returns the new transaction invoice.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id          The id of the transaction invoices which should be replaced.
+     * @param replacement
+     * @param params      Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return TransactionInvoice
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement, params);
-        TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
-        return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<TransactionInvoice>() {
+        };
+        return (TransactionInvoice) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse replaceForHttpResponse(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
@@ -847,31 +862,31 @@ public class TransactionInvoiceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse replaceForHttpResponse(Long spaceId, Long id, InputStream replacement, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling replace");
-              }// verify the required parameter 'id' is set
-              if (id == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'id' when calling replace");
-              }// verify the required parameter 'replacement' is set
-              if (replacement == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
-          {
-              String key = "spaceId";
-              uriBuilder = uriBuilder.queryParam(key, spaceId);
-          }
-          String key = "id";
-          uriBuilder = uriBuilder.queryParam(key, id);
+    public HttpResponse replaceForHttpResponse(Long spaceId, Long id, InputStream replacement, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling replace");
+        }// verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling replace");
+        }// verify the required parameter 'replacement' is set
+        if (replacement == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        String key = "id";
+        uriBuilder = uriBuilder.queryParam(key, id);
 
-          String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, replacement);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, replacement);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse replaceForHttpResponse(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -893,7 +908,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -916,45 +931,47 @@ public class TransactionInvoiceService {
     }
 
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param query The query restricts the transaction invoices which are returned by the search.
-    * @return List&lt;TransactionInvoice&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param query   The query restricts the transaction invoices which are returned by the search.
+     * @return List&lt;TransactionInvoice&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
-        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
+        };
+        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param query The query restricts the transaction invoices which are returned by the search.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;TransactionInvoice&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param query   The query restricts the transaction invoices which are returned by the search.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;TransactionInvoice&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
-        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
+        };
+        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -976,24 +993,24 @@ public class TransactionInvoiceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
-          String key = "spaceId";
-          uriBuilder = uriBuilder.queryParam(key, spaceId);
+    public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-          String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -1010,7 +1027,7 @@ public class TransactionInvoiceService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 

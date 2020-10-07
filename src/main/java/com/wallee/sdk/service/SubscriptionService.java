@@ -1,14 +1,5 @@
 package com.wallee.sdk.service;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.ws.rs.core.UriBuilder;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -26,6 +17,14 @@ import com.wallee.sdk.model.SubscriptionCreateRequest;
 import com.wallee.sdk.model.SubscriptionVersion;
 import com.wallee.sdk.model.TransactionInvoice;
 
+import javax.ws.rs.core.UriBuilder;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class SubscriptionService {
     private ApiClient apiClient;
@@ -42,47 +41,49 @@ public class SubscriptionService {
         this.apiClient = apiClient;
     }
 
-  /**
-    * apply changes
-    * This operation allows to apply changes on a subscription.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param request 
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-
-    **/
+    /**
+     * apply changes
+     * This operation allows to apply changes on a subscription.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param request
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
+     **/
     public SubscriptionVersion applyChanges(Long spaceId, SubscriptionChangeRequest request) throws IOException {
         HttpResponse response = applyChangesForHttpResponse(spaceId, request);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * apply changes
-    * This operation allows to apply changes on a subscription.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param request 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
-
-    **/
+    /**
+     * apply changes
+     * This operation allows to apply changes on a subscription.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param request
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--apply-changes">apply changes Documentation</a>
+     **/
     public SubscriptionVersion applyChanges(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
         HttpResponse response = applyChangesForHttpResponse(spaceId, request, params);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request) throws IOException {
@@ -94,34 +95,34 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
-      String key = "spaceId";
-      uriBuilder = uriBuilder.queryParam(key, spaceId);
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse applyChangesForHttpResponse(Long spaceId, InputStream request, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
-              }// verify the required parameter 'request' is set
-              if (request == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
+    public HttpResponse applyChangesForHttpResponse(Long spaceId, InputStream request, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -138,7 +139,7 @@ public class SubscriptionService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -161,44 +162,46 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param filter The filter which restricts the entities which are used to calculate the count.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param filter  The filter which restricts the entities which are used to calculate the count.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
+     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Count
-    * Counts the number of items in the database as restricted by the given filter.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return Long
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
-
-    **/
+    /**
+     * Count
+     * Counts the number of items in the database as restricted by the given filter.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return Long
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--count">Count Documentation</a>
+     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        TypeReference typeRef = new TypeReference<Long>() {};
-        return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Long>() {
+        };
+        return (Long) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -207,33 +210,33 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
-      String key = "spaceId";
-      uriBuilder = uriBuilder.queryParam(key, spaceId);
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
+    public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = filter == null ?
+        HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -247,7 +250,7 @@ public class SubscriptionService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -270,45 +273,47 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * Create
-    * The create operation creates a new subscription and a corresponding subscription version.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param createRequest 
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-
-    **/
+    /**
+     * Create
+     * The create operation creates a new subscription and a corresponding subscription version.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param createRequest
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
+     **/
     public SubscriptionVersion create(Long spaceId, SubscriptionCreateRequest createRequest) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, createRequest);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Create
-    * The create operation creates a new subscription and a corresponding subscription version.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param createRequest 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
-
-    **/
+    /**
+     * Create
+     * The create operation creates a new subscription and a corresponding subscription version.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param createRequest
+     * @param params        Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--create">Create Documentation</a>
+     **/
     public SubscriptionVersion create(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, createRequest, params);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest) throws IOException {
@@ -320,34 +325,34 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
-      String key = "spaceId";
-      uriBuilder = uriBuilder.queryParam(key, spaceId);
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(createRequest);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse createForHttpResponse(Long spaceId, InputStream createRequest, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-              }// verify the required parameter 'createRequest' is set
-              if (createRequest == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
+    public HttpResponse createForHttpResponse(Long spaceId, InputStream createRequest, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }// verify the required parameter 'createRequest' is set
+        if (createRequest == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, createRequest);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, createRequest);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -364,7 +369,7 @@ public class SubscriptionService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -387,45 +392,47 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * initialize
-    * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
-    * @return SubscriptionCharge
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-
-    **/
+    /**
+     * initialize
+     * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
+     * @return SubscriptionCharge
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
+     **/
     public SubscriptionCharge initialize(Long spaceId, Long subscriptionId) throws IOException {
         HttpResponse response = initializeForHttpResponse(spaceId, subscriptionId);
-        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
-        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {
+        };
+        return (SubscriptionCharge) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * initialize
-    * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriptionCharge
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
-
-    **/
+    /**
+     * initialize
+     * The initialize operation initializes a subscription. This method uses charge flows to carry out the transaction.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId The provided subscription id will be used to lookup the subscription which should be initialized.
+     * @param params         Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return SubscriptionCharge
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize">initialize Documentation</a>
+     **/
     public SubscriptionCharge initialize(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
         HttpResponse response = initializeForHttpResponse(spaceId, subscriptionId, params);
-        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
-        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {
+        };
+        return (SubscriptionCharge) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId) throws IOException {
@@ -437,14 +444,14 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initialize");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      String key = "subscriptionId";
-      uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        String key = "subscriptionId";
+        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -468,7 +475,7 @@ public class SubscriptionService {
         // Add the required query param 'subscriptionId' to the map of query params
         allParams.put("subscriptionId", subscriptionId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -491,49 +498,51 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * initializeSubscriberPresent
-    * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId 
-    * @param successUrl The subscriber will be redirected to the success URL when the transaction is successful.
-    * @param failedUrl The subscriber will be redirected to the fail URL when the transaction fails.
-    * @return SubscriptionCharge
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-
-    **/
+    /**
+     * initializeSubscriberPresent
+     * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId
+     * @param successUrl     The subscriber will be redirected to the success URL when the transaction is successful.
+     * @param failedUrl      The subscriber will be redirected to the fail URL when the transaction fails.
+     * @return SubscriptionCharge
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
+     **/
     public SubscriptionCharge initializeSubscriberPresent(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws IOException {
         HttpResponse response = initializeSubscriberPresentForHttpResponse(spaceId, subscriptionId, successUrl, failedUrl);
-        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
-        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {
+        };
+        return (SubscriptionCharge) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * initializeSubscriberPresent
-    * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriptionCharge
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
-
-    **/
+    /**
+     * initializeSubscriberPresent
+     * The initialize operation initializes a subscription when the subscriber is present. The method will initialize a transaction which has to be completed by using the transaction service.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId
+     * @param params         Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return SubscriptionCharge
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--initialize-subscriber-present">initializeSubscriberPresent Documentation</a>
+     **/
     public SubscriptionCharge initializeSubscriberPresent(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
         HttpResponse response = initializeSubscriberPresentForHttpResponse(spaceId, subscriptionId, params);
-        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {};
-        return (SubscriptionCharge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionCharge>() {
+        };
+        return (SubscriptionCharge) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws IOException {
@@ -545,21 +554,22 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      {
-          String key = "subscriptionId";
-        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
-      }
-      if (successUrl != null) {
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        {
+            String key = "subscriptionId";
+            uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        }
+        if (successUrl != null) {
             String key = "successUrl";
-        uriBuilder = uriBuilder.queryParam(key, successUrl);
-      }        if (failedUrl != null) {
+            uriBuilder = uriBuilder.queryParam(key, successUrl);
+        }
+        if (failedUrl != null) {
             String key = "failedUrl";
-        uriBuilder = uriBuilder.queryParam(key, failedUrl);
-      }
+            uriBuilder = uriBuilder.queryParam(key, failedUrl);
+        }
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -585,7 +595,7 @@ public class SubscriptionService {
         // Add the required query param 'subscriptionId' to the map of query params
         allParams.put("subscriptionId", subscriptionId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -608,45 +618,47 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the subscription which should be returned.
-    * @return Subscription
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the subscription which should be returned.
+     * @return Subscription
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
+     **/
     public Subscription read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        TypeReference typeRef = new TypeReference<Subscription>() {};
-        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Subscription>() {
+        };
+        return (Subscription) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Read
-    * Reads the entity with the given &#39;id&#39; and returns it.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param id The id of the subscription which should be returned.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return Subscription
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
-
-    **/
+    /**
+     * Read
+     * Reads the entity with the given &#39;id&#39; and returns it.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param id      The id of the subscription which should be returned.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return Subscription
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--read">Read Documentation</a>
+     **/
     public Subscription read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        TypeReference typeRef = new TypeReference<Subscription>() {};
-        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<Subscription>() {
+        };
+        return (Subscription) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -658,14 +670,14 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      String key = "id";
-      uriBuilder = uriBuilder.queryParam(key, id);
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        String key = "id";
+        uriBuilder = uriBuilder.queryParam(key, id);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
@@ -688,7 +700,7 @@ public class SubscriptionService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -710,45 +722,47 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param query The query restricts the subscriptions which are returned by the search.
-    * @return List&lt;Subscription&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param query   The query restricts the subscriptions which are returned by the search.
+     * @return List&lt;Subscription&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
+     **/
     public List<Subscription> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        TypeReference typeRef = new TypeReference<List<Subscription>>() {};
-        return (List<Subscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<Subscription>>() {
+        };
+        return (List<Subscription>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Search
-    * Searches for the entities as specified by the given query.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param query The query restricts the subscriptions which are returned by the search.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;Subscription&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
-
-    **/
+    /**
+     * Search
+     * Searches for the entities as specified by the given query.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param query   The query restricts the subscriptions which are returned by the search.
+     * @param params  Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;Subscription&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search">Search Documentation</a>
+     **/
     public List<Subscription> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        TypeReference typeRef = new TypeReference<List<Subscription>>() {};
-        return (List<Subscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<Subscription>>() {
+        };
+        return (List<Subscription>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
@@ -760,34 +774,34 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
-      String key = "spaceId";
-      uriBuilder = uriBuilder.queryParam(key, spaceId);
+        String key = "spaceId";
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
+    public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -804,7 +818,7 @@ public class SubscriptionService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -827,47 +841,49 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * Search Subscription Invoices
-    * This operation allows to search for subscription invoices.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The id of the subscription for which the invoices should be searched for.
-    * @param query The query restricts the invoices which are returned by the search.
-    * @return List&lt;TransactionInvoice&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-
-    **/
+    /**
+     * Search Subscription Invoices
+     * This operation allows to search for subscription invoices.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId The id of the subscription for which the invoices should be searched for.
+     * @param query          The query restricts the invoices which are returned by the search.
+     * @return List&lt;TransactionInvoice&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
+     **/
     public List<TransactionInvoice> searchSubscriptionInvoices(Long spaceId, Long subscriptionId, EntityQuery query) throws IOException {
         HttpResponse response = searchSubscriptionInvoicesForHttpResponse(spaceId, subscriptionId, query);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
-        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
+        };
+        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * Search Subscription Invoices
-    * This operation allows to search for subscription invoices.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The id of the subscription for which the invoices should be searched for.
-    * @param query The query restricts the invoices which are returned by the search.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;TransactionInvoice&gt;
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
-
-    **/
+    /**
+     * Search Subscription Invoices
+     * This operation allows to search for subscription invoices.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId The id of the subscription for which the invoices should be searched for.
+     * @param query          The query restricts the invoices which are returned by the search.
+     * @param params         Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return List&lt;TransactionInvoice&gt;
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--search-subscription-invoices">Search Subscription Invoices Documentation</a>
+     **/
     public List<TransactionInvoice> searchSubscriptionInvoices(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchSubscriptionInvoicesForHttpResponse(spaceId, subscriptionId, query, params);
-        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
-        return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {
+        };
+        return (List<TransactionInvoice>) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query) throws IOException {
@@ -882,45 +898,45 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      String key = "subscriptionId";
-      uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        String key = "subscriptionId";
+        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
-              }// verify the required parameter 'subscriptionId' is set
-              if (subscriptionId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
+    public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+        }// verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
         {
             String key = "spaceId";
-          uriBuilder = uriBuilder.queryParam(key, spaceId);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "subscriptionId";
         uriBuilder = uriBuilder.queryParam(key, subscriptionId);
 
         String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
-      }
+        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    }
 
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -942,7 +958,7 @@ public class SubscriptionService {
         // Add the required query param 'subscriptionId' to the map of query params
         allParams.put("subscriptionId", subscriptionId);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -965,37 +981,37 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * terminate
-    * This operation allows to terminate a subscription.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The subscription id identifies the subscription which should be terminated.
-    * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-
-    **/
+    /**
+     * terminate
+     * This operation allows to terminate a subscription.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId           The subscription id identifies the subscription which should be terminated.
+     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
+     **/
     public void terminate(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
         terminateForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod);
     }
 
-  /**
-    * terminate
-    * This operation allows to terminate a subscription.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The subscription id identifies the subscription which should be terminated.
-    * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
-
-    **/
+    /**
+     * terminate
+     * This operation allows to terminate a subscription.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId           The subscription id identifies the subscription which should be terminated.
+     * @param respectTerminationPeriod The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+     * @param params                   Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--terminate">terminate Documentation</a>
+     **/
     public void terminate(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
         terminateForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod, params);
     }
@@ -1012,18 +1028,18 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      {
-          String key = "subscriptionId";
-        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
-      }
-      String key = "respectTerminationPeriod";
-      uriBuilder = uriBuilder.queryParam(key, respectTerminationPeriod);
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        {
+            String key = "subscriptionId";
+            uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        }
+        String key = "respectTerminationPeriod";
+        uriBuilder = uriBuilder.queryParam(key, respectTerminationPeriod);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -1052,7 +1068,7 @@ public class SubscriptionService {
         // Add the required query param 'respectTerminationPeriod' to the map of query params
         allParams.put("respectTerminationPeriod", respectTerminationPeriod);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
@@ -1075,49 +1091,51 @@ public class SubscriptionService {
     }
 
 
-  /**
-    * update product version
-    * The update product version operation updates the product version of the subscription to the latest active product version.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version.
-    * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-
-    **/
+    /**
+     * update product version
+     * The update product version operation updates the product version of the subscription to the latest active product version.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId           The subscription id identifies the subscription which should be updated to the latest version.
+     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
+     **/
     public SubscriptionVersion updateProductVersion(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
         HttpResponse response = updateProductVersionForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-  /**
-    * update product version
-    * The update product version operation updates the product version of the subscription to the latest active product version.
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param subscriptionId The subscription id identifies the subscription which should be updated to the latest version.
-    * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return SubscriptionVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
-
-    **/
+    /**
+     * update product version
+     * The update product version operation updates the product version of the subscription to the latest active product version.
+     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+     *
+     * @param spaceId
+     * @param subscriptionId           The subscription id identifies the subscription which should be updated to the latest version.
+     * @param respectTerminationPeriod The subscription version may be retired. The respect termination period controls whether the termination period configured on the product version should be respected or if the operation should take effect immediately.
+     * @param params                   Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+     * @return SubscriptionVersion
+     * @throws IOException if an error occurs while attempting to invoke the API
+     *                     For more information visit this link.
+     * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update-product-version">update product version Documentation</a>
+     **/
     public SubscriptionVersion updateProductVersion(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
         HttpResponse response = updateProductVersionForHttpResponse(spaceId, subscriptionId, respectTerminationPeriod, params);
-        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {};
-        return (SubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<SubscriptionVersion>() {
+        };
+        return (SubscriptionVersion) apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
@@ -1132,18 +1150,18 @@ public class SubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
-      {
-          String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-      }
-      {
-          String key = "subscriptionId";
-        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
-      }
-      String key = "respectTerminationPeriod";
-      uriBuilder = uriBuilder.queryParam(key, respectTerminationPeriod);
+        {
+            String key = "spaceId";
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
+        }
+        {
+            String key = "subscriptionId";
+            uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        }
+        String key = "respectTerminationPeriod";
+        uriBuilder = uriBuilder.queryParam(key, respectTerminationPeriod);
 
-      String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -1172,7 +1190,7 @@ public class SubscriptionService {
         // Add the required query param 'respectTerminationPeriod' to the map of query params
         allParams.put("respectTerminationPeriod", respectTerminationPeriod);
 
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
 
