@@ -24,32 +24,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum AccountState {
 
-    CREATE("CREATE"),
-
-    RESTRICTED_ACTIVE("RESTRICTED_ACTIVE"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
-
-    private final String value;
-
-    AccountState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    RESTRICTED_ACTIVE,
+    ACTIVE,
+    INACTIVE,
+    DELETING,
+    DELETED;
 
     @JsonValue
     public String getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return value;
+        return name();
     }
 
     @JsonCreator
