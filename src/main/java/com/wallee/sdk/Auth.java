@@ -84,7 +84,7 @@ public class Auth implements HttpExecuteInterceptor {
      */
     private String getPath(String url) {
         try {
-            final URL urlObject = new URL(url);
+            URL urlObject = new URL(url);
             StringBuilder path = new StringBuilder(urlObject.getPath());
             String query = urlObject.getQuery();
             if (!(query == null || query.isEmpty())) {
@@ -105,7 +105,7 @@ public class Auth implements HttpExecuteInterceptor {
      * @return
      */
     private String getSignature(String method, String resourcePath, String timestamp) {
-        final String securedData = "1" + "|" + this.userId + "|" + timestamp + "|" + method.toUpperCase() + "|" + resourcePath;
+        String securedData = "1" + "|" + this.userId + "|" + timestamp + "|" + method.toUpperCase() + "|" + resourcePath;
         byte[] decodedSecret = Base64.getDecoder().decode(this.applicationKey);
         Mac mac;
         try {

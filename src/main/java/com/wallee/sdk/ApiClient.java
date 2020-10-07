@@ -161,7 +161,7 @@ public class ApiClient {
     }
 
     public HttpRequestFactory createRequestFactory() {
-        final Auth signer = new Auth(this.userId, this.applicationKey);
+        Auth signer = new Auth(this.userId, this.applicationKey);
         NetHttpTransport transport = new NetHttpTransport();
         return transport.createRequestFactory(request -> request.setInterceptor(signer));
     }
