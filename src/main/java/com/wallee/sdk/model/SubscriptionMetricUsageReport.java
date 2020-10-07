@@ -19,17 +19,14 @@
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The metric usage is the actual usage of a metric for a particular subscription as collected by an external application.

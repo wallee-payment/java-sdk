@@ -19,27 +19,15 @@
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Address;
-import com.wallee.sdk.model.DebtCollectionCaseSource;
-import com.wallee.sdk.model.DebtCollectionCaseState;
-import com.wallee.sdk.model.DebtCollectionEnvironment;
-import com.wallee.sdk.model.DebtCollectorConfiguration;
-import com.wallee.sdk.model.FailureReason;
-import com.wallee.sdk.model.Label;
-import com.wallee.sdk.model.LineItem;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The debt collection case represents a try to collect the money from the debtor.

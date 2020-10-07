@@ -1,14 +1,17 @@
 package com.wallee.sdk.test;
 
-import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.*;
-import com.wallee.sdk.service.*;
+import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.AddressCreate;
+import com.wallee.sdk.model.LineItemCreate;
+import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.TransactionCreate;
 
 /**
  * API tests for TransactionPaymentPageService

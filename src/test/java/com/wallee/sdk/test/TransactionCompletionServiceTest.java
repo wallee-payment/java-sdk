@@ -1,16 +1,22 @@
 package com.wallee.sdk.test;
 
-import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.*;
-import com.wallee.sdk.service.*;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.AddressCreate;
+import com.wallee.sdk.model.LineItemCreate;
+import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.TransactionCompletion;
+import com.wallee.sdk.model.TransactionCompletionState;
+import com.wallee.sdk.model.TransactionCreate;
+import com.wallee.sdk.model.TransactionState;
 
 /**
  * API tests for TransactionCompletionService

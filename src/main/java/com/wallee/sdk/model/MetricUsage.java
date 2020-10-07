@@ -19,19 +19,14 @@
 
 package com.wallee.sdk.model;
 
+import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The metric usage provides details about the consumption of a particular metric.

@@ -19,28 +19,14 @@
 
 package com.wallee.sdk.model;
 
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Charge;
-import com.wallee.sdk.model.ChargeAttemptEnvironment;
-import com.wallee.sdk.model.ChargeAttemptState;
-import com.wallee.sdk.model.ConnectorInvocation;
-import com.wallee.sdk.model.FailureReason;
-import com.wallee.sdk.model.Label;
-import com.wallee.sdk.model.PaymentConnectorConfiguration;
-import com.wallee.sdk.model.PaymentTerminal;
-import com.wallee.sdk.model.TokenVersion;
-import com.wallee.sdk.model.TransactionAwareEntity;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 

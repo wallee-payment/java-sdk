@@ -20,19 +20,11 @@
 package com.wallee.sdk.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedString;
-import com.wallee.sdk.model.ProductFeeType;
-import com.wallee.sdk.model.ProductMeteredTierPricing;
-import com.wallee.sdk.model.SubscriptionMetric;
-import com.wallee.sdk.model.SubscriptionProductComponent;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 

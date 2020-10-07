@@ -19,28 +19,15 @@
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Environment;
-import com.wallee.sdk.model.FailureReason;
-import com.wallee.sdk.model.Label;
-import com.wallee.sdk.model.LineItem;
-import com.wallee.sdk.model.LineItemReduction;
-import com.wallee.sdk.model.RefundState;
-import com.wallee.sdk.model.RefundType;
-import com.wallee.sdk.model.Tax;
-import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).

@@ -19,21 +19,15 @@
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.SubscriptionLedgerEntryState;
-import com.wallee.sdk.model.Tax;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The subscription ledger entry represents a single change on the subscription balance.

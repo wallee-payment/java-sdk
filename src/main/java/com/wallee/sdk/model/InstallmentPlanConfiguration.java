@@ -19,24 +19,15 @@
 
 package com.wallee.sdk.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.DatabaseTranslatedString;
-import com.wallee.sdk.model.ResourcePath;
-import com.wallee.sdk.model.SpaceReference;
-import com.wallee.sdk.model.TaxClass;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The installment plan allows to setup a template for an installment.

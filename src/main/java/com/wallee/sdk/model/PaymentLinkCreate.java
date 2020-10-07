@@ -20,18 +20,11 @@
 package com.wallee.sdk.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.AbstractPaymentLinkUpdate;
-import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.PaymentLinkProtectionMode;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The payment link defines an URL to automatically create transactions.

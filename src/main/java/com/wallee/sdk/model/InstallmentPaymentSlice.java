@@ -19,23 +19,14 @@
 
 package com.wallee.sdk.model;
 
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.InstallmentPayment;
-import com.wallee.sdk.model.InstallmentPaymentSliceState;
-import com.wallee.sdk.model.LineItem;
-import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * An installment payment slice represents a single transaction of money from the buyer to the merchant.

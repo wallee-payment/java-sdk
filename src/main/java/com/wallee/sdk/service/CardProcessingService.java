@@ -1,27 +1,22 @@
 package com.wallee.sdk.service;
 
-import com.wallee.sdk.ApiClient;
-
-import com.wallee.sdk.model.ClientError;
-import com.wallee.sdk.model.ServerError;
-import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.UnencryptedCardDataCreate;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
-import com.google.api.client.json.Json;
-
-import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
+
+import javax.ws.rs.core.UriBuilder;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpContent;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.InputStreamContent;
+import com.google.api.client.json.Json;
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.UnencryptedCardDataCreate;
 
 
 public class CardProcessingService {

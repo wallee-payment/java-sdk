@@ -1,15 +1,25 @@
 package com.wallee.sdk.test;
 
-import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.*;
-import com.wallee.sdk.service.*;
+import java.math.BigDecimal;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.AddressCreate;
+import com.wallee.sdk.model.LineItemCreate;
+import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.Refund;
+import com.wallee.sdk.model.RefundCreate;
+import com.wallee.sdk.model.RefundState;
+import com.wallee.sdk.model.RefundType;
+import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.TransactionCompletion;
+import com.wallee.sdk.model.TransactionCompletionState;
+import com.wallee.sdk.model.TransactionCreate;
+import com.wallee.sdk.model.TransactionState;
 
 /**
  * API tests for RefundService

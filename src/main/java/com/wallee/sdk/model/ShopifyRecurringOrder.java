@@ -19,21 +19,13 @@
 
 package com.wallee.sdk.model;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.FailureReason;
-import com.wallee.sdk.model.ShopifyRecurringOrderState;
-import com.wallee.sdk.model.ShopifySubscriptionVersion;
-import com.wallee.sdk.model.ShopifyTransaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.*;
-import java.time.OffsetDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 
