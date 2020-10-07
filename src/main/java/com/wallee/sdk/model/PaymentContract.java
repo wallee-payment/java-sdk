@@ -268,27 +268,25 @@ public class PaymentContract extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentContract {\n");
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
-        sb.append("    contractIdentifier: ").append(toIndentedString(contractIdentifier)).append("\n");
-        sb.append("    contractType: ").append(toIndentedString(contractType)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    rejectedOn: ").append(toIndentedString(rejectedOn)).append("\n");
-        sb.append("    rejectionReason: ").append(toIndentedString(rejectionReason)).append("\n");
-        sb.append("    startTerminatingOn: ").append(toIndentedString(startTerminatingOn)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    terminatedBy: ").append(toIndentedString(terminatedBy)).append("\n");
-        sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentContract { \n" +
+            "    account: " + toIndentedString(account) +  " \n" +
+            "    activatedOn: " + toIndentedString(activatedOn) + " \n" +
+            "    contractIdentifier: " +  toIndentedString(contractIdentifier) + "\n" +
+            "    contractType: " + toIndentedString(contractType) + "\n" +
+            "    createdBy: " + toIndentedString(createdBy) + "\n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    rejectedOn: " + toIndentedString(rejectedOn) + " \n" +
+            "    rejectionReason: " +  toIndentedString(rejectionReason) + "\n" +
+            "    startTerminatingOn: " + toIndentedString(startTerminatingOn) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    terminatedBy: " + toIndentedString(terminatedBy) + "\n" +
+            "    terminatedOn: " + toIndentedString(terminatedOn) + "\n" +
+            "    version: " +  toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

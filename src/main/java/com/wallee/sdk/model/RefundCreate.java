@@ -225,19 +225,17 @@ public class RefundCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundCreate {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    reductions: ").append(toIndentedString(reductions)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RefundCreate { \n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    completion: " + toIndentedString(completion) + " \n" +
+            "    externalId: " + toIndentedString(externalId) +  " \n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + " \n" +
+            "    reductions: " + toIndentedString(reductions) + " \n" +
+            "    transaction: " + toIndentedString(transaction) +  " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "}";
+        }
 
 
 }

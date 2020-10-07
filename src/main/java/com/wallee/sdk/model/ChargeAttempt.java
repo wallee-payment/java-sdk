@@ -384,38 +384,36 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ChargeAttempt {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    charge: ").append(toIndentedString(charge)).append("\n");
-        sb.append("    connectorConfiguration: ").append(toIndentedString(connectorConfiguration)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    initializingTokenVersion: ").append(toIndentedString(initializingTokenVersion)).append("\n");
-        sb.append("    invocation: ").append(toIndentedString(invocation)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    redirectionUrl: ").append(toIndentedString(redirectionUrl)).append("\n");
-        sb.append("    salesChannel: ").append(toIndentedString(salesChannel)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
-        sb.append("    terminal: ").append(toIndentedString(terminal)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    tokenVersion: ").append(toIndentedString(tokenVersion)).append("\n");
-        sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ChargeAttempt { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    charge: " +  toIndentedString(charge) + " \n" +
+            "    connectorConfiguration: " + toIndentedString(connectorConfiguration) +  " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    environment: " +  toIndentedString(environment) + " \n" +
+            "    failedOn: " + toIndentedString(failedOn) + " \n" +
+            "    failureReason: " + toIndentedString(failureReason) + " \n" +
+            "    initializingTokenVersion: " +  toIndentedString(initializingTokenVersion) + " \n" +
+            "    invocation: " + toIndentedString(invocation) + " \n" +
+            "    labels: " + toIndentedString(labels) + " \n" +
+            "    language: " + toIndentedString(language) +  " \n" +
+            "    nextUpdateOn: " + toIndentedString(nextUpdateOn) + " \n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + " \n" +
+            "    redirectionUrl: " + toIndentedString(redirectionUrl) +  " \n" +
+            "    salesChannel: " + toIndentedString(salesChannel) + " \n" +
+            "    spaceViewId: " +  toIndentedString(spaceViewId) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    succeededOn: " + toIndentedString(succeededOn) + " \n" +
+            "    terminal: " + toIndentedString(terminal) +  " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "    timeoutOn: " + toIndentedString(timeoutOn) + " \n" +
+            "    tokenVersion: " + toIndentedString(tokenVersion) + " \n" +
+            "    userFailureMessage: " + toIndentedString(userFailureMessage) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

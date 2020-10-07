@@ -94,15 +94,13 @@ public class WebhookListenerEntity extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WebhookListenerEntity {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    technicalName: ").append(toIndentedString(technicalName)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class WebhookListenerEntity { \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    technicalName: " + toIndentedString(technicalName) + " \n" +
+            "}";
+        }
 
 
 }

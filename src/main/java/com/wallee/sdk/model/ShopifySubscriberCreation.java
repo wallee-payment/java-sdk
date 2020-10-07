@@ -120,15 +120,13 @@ public class ShopifySubscriberCreation extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriberCreation {\n");
 
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    shopifyCustomerId: ").append(toIndentedString(shopifyCustomerId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriberCreation { \n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + "\n" +
+            "    phoneNumber: " + toIndentedString(phoneNumber) + " \n" +
+            "    shopifyCustomerId: " + toIndentedString(shopifyCustomerId) + " \n" +
+            "}";
+        }
 
 
 }

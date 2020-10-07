@@ -211,18 +211,16 @@ public class SubscriptionChangeRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionChangeRequest {\n");
 
-        sb.append("    componentConfigurations: ").append(toIndentedString(componentConfigurations)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    product: ").append(toIndentedString(product)).append("\n");
-        sb.append("    respectTerminationPeriod: ").append(toIndentedString(respectTerminationPeriod)).append("\n");
-        sb.append("    selectedComponents: ").append(toIndentedString(selectedComponents)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionChangeRequest { \n" +
+            "    componentConfigurations: " +  toIndentedString(componentConfigurations) + " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    product: " + toIndentedString(product) + " \n" +
+            "    respectTerminationPeriod: " +  toIndentedString(respectTerminationPeriod) + " \n" +
+            "    selectedComponents: " + toIndentedString(selectedComponents) +  " \n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "}";
+        }
 
 
 }

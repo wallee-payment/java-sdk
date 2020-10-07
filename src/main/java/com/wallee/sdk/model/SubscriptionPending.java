@@ -124,20 +124,18 @@ public class SubscriptionPending extends SubscriptionUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionPending {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    affiliate: ").append(toIndentedString(affiliate)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    plannedTerminationDate: ").append(toIndentedString(plannedTerminationDate)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionPending {\n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "    affiliate: " + toIndentedString(affiliate) + "\n" +
+            "    description: " + toIndentedString(description) +  "\n" +
+            "    plannedTerminationDate: " + toIndentedString(plannedTerminationDate) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    subscriber: " + toIndentedString(subscriber) +  "\n" +
+            "    token: " + toIndentedString(token) + "\n" +
+            "}";
+        }
 
 
 }

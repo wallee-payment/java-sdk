@@ -110,22 +110,20 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DebtCollectionCaseUpdate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DebtCollectionCaseUpdate { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + " \n" +
+            "    contractDate: " +  toIndentedString(contractDate) + " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    dueDate: " + toIndentedString(dueDate) + " \n" +
+            "    environment: " + toIndentedString(environment) +  "\n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + "\n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

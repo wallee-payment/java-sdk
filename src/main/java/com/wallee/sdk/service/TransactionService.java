@@ -603,7 +603,6 @@ public class TransactionService {
      **/
     public byte[] export(Long spaceId, EntityExportRequest request) throws IOException {
         HttpResponse response = exportForHttpResponse(spaceId, request);
-        String returnType = "byte[]";
         return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<byte[]>() {
         });
     }
@@ -625,7 +624,6 @@ public class TransactionService {
      **/
     public byte[] export(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
         HttpResponse response = exportForHttpResponse(spaceId, request, params);
-        String returnType = "byte[]";
         return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<byte[]>() {
         });
     }

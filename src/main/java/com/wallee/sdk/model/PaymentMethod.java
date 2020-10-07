@@ -151,19 +151,17 @@ public class PaymentMethod extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethod {\n");
 
-        sb.append("    dataCollectionTypes: ").append(toIndentedString(dataCollectionTypes)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    imagePath: ").append(toIndentedString(imagePath)).append("\n");
-        sb.append("    merchantDescription: ").append(toIndentedString(merchantDescription)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    supportedCurrencies: ").append(toIndentedString(supportedCurrencies)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentMethod { \n" +
+            "    dataCollectionTypes: " + toIndentedString(dataCollectionTypes) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    imagePath: " + toIndentedString(imagePath) + "\n" +
+            "    merchantDescription: " + toIndentedString(merchantDescription) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    supportedCurrencies: " + toIndentedString(supportedCurrencies) + " \n" +
+            "}";
+        }
 
 
 }

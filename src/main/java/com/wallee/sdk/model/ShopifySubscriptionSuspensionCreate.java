@@ -119,15 +119,13 @@ public class ShopifySubscriptionSuspensionCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionSuspensionCreate {\n");
 
-        sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionSuspensionCreate { \n" +
+            "    plannedEndDate: " +  toIndentedString(plannedEndDate) + " \n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "}";
+        }
 
 
 }

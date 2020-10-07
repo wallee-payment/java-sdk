@@ -193,22 +193,20 @@ public class Permission extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Permission {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
-        sb.append("    pathToRoot: ").append(toIndentedString(pathToRoot)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Permission { \n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    feature: " + toIndentedString(feature) + " \n" +
+            "    group: " + toIndentedString(group) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    leaf: " + toIndentedString(leaf) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    parent: " + toIndentedString(parent) + " \n" +
+            "    pathToRoot: " + toIndentedString(pathToRoot) + " \n" +
+            "    title: " + toIndentedString(title) +  " \n" +
+            "    twoFactorRequired: " + toIndentedString(twoFactorRequired) + " \n" +
+            "}";
+        }
 
 
 }

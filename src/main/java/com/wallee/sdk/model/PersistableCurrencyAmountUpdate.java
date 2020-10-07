@@ -96,14 +96,12 @@ public class PersistableCurrencyAmountUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PersistableCurrencyAmountUpdate {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PersistableCurrencyAmountUpdate { \n" +
+            "    amount: " + toIndentedString(amount) +  "\n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "}";
+        }
 
 
 }

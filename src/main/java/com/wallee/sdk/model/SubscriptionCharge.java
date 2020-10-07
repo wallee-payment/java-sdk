@@ -364,33 +364,31 @@ public class SubscriptionCharge extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionCharge {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    discardedBy: ").append(toIndentedString(discardedBy)).append("\n");
-        sb.append("    discardedOn: ").append(toIndentedString(discardedOn)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    succeedOn: ").append(toIndentedString(succeedOn)).append("\n");
-        sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionCharge { \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    discardedBy: " + toIndentedString(discardedBy) + " \n" +
+            "    discardedOn: " +  toIndentedString(discardedOn) + "\n" +
+            "    externalId: " + toIndentedString(externalId) + "\n" +
+            "    failedOn: " + toIndentedString(failedOn) + "\n" +
+            "    failedUrl: " + toIndentedString(failedUrl) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    ledgerEntries: " + toIndentedString(ledgerEntries) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    plannedExecutionDate: " + toIndentedString(plannedExecutionDate) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    processingType: " + toIndentedString(processingType) + "\n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    subscription: " + toIndentedString(subscription) + "\n" +
+            "    succeedOn: " +  toIndentedString(succeedOn) + "\n" +
+            "    successUrl: " + toIndentedString(successUrl) + "\n" +
+            "    transaction: " + toIndentedString(transaction) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

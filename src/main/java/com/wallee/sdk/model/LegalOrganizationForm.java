@@ -122,17 +122,15 @@ public class LegalOrganizationForm extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LegalOrganizationForm {\n");
 
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    englishDescription: ").append(toIndentedString(englishDescription)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    shortcut: ").append(toIndentedString(shortcut)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LegalOrganizationForm { \n" +
+            "    country: " + toIndentedString(country) +  "\n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    englishDescription: " +  toIndentedString(englishDescription) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    shortcut: " +  toIndentedString(shortcut) + " \n" +
+            "}";
+        }
 
 
 }

@@ -107,19 +107,17 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    failedPaymentSuspensionPeriod: ").append(toIndentedString(failedPaymentSuspensionPeriod)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductActive {\n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    allowedPaymentMethodConfigurations: " + toIndentedString(allowedPaymentMethodConfigurations) +  "\n" +
+            "    failedPaymentSuspensionPeriod: " + toIndentedString(failedPaymentSuspensionPeriod) +  "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    sortOrder: " + toIndentedString(sortOrder) +  "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

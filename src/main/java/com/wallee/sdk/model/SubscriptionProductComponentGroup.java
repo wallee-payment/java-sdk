@@ -159,19 +159,17 @@ public class SubscriptionProductComponentGroup extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductComponentGroup {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    optional: ").append(toIndentedString(optional)).append("\n");
-        sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductComponentGroup {\n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    optional: " + toIndentedString(optional) + "\n" +
+            "    productVersion: " +  toIndentedString(productVersion) + "\n" +
+            "    sortOrder: " + toIndentedString(sortOrder) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

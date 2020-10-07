@@ -118,15 +118,13 @@ public class SubscriptionProductRetirementCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductRetirementCreate {\n");
 
-        sb.append("    product: ").append(toIndentedString(product)).append("\n");
-        sb.append("    respectTerminiationPeriodsEnabled: ").append(toIndentedString(respectTerminiationPeriodsEnabled)).append("\n");
-        sb.append("    targetProduct: ").append(toIndentedString(targetProduct)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductRetirementCreate { \n" +
+            "    product: " + toIndentedString(product) + "\n" +
+            "    respectTerminiationPeriodsEnabled: " + toIndentedString(respectTerminiationPeriodsEnabled) + "\n" +
+            "    targetProduct: " + toIndentedString(targetProduct) + " \n" +
+            "}";
+        }
 
 
 }

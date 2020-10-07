@@ -156,19 +156,17 @@ public class SubscriptionProductVersionRetirement extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductVersionRetirement {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-        sb.append("    respectTerminiationPeriodsEnabled: ").append(toIndentedString(respectTerminiationPeriodsEnabled)).append("\n");
-        sb.append("    targetProduct: ").append(toIndentedString(targetProduct)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductVersionRetirement { \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    productVersion: " + toIndentedString(productVersion) +  "\n" +
+            "    respectTerminiationPeriodsEnabled: " + toIndentedString(respectTerminiationPeriodsEnabled) +  "\n" +
+            "    targetProduct: " + toIndentedString(targetProduct) + " \n" +
+            "    version: " +  toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

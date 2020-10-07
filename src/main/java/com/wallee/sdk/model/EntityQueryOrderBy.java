@@ -97,14 +97,12 @@ public class EntityQueryOrderBy extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EntityQueryOrderBy {\n");
 
-        sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
-        sb.append("    sorting: ").append(toIndentedString(sorting)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class EntityQueryOrderBy { \n" +
+            "    fieldName: " + toIndentedString(fieldName) +  " \n" +
+            "    sorting: " + toIndentedString(sorting) + " \n" +
+            "}";
+      }
 
 
 }

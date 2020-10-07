@@ -34,10 +34,8 @@ public class AbstractApplicationUserUpdate extends Indentable {
     @JsonProperty("name")
     protected String name;
 
-
     @JsonProperty("requestLimit")
     protected Long requestLimit;
-
 
     @JsonProperty("state")
     protected CreationEntityState state;
@@ -123,14 +121,12 @@ public class AbstractApplicationUserUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractApplicationUserUpdate {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractApplicationUserUpdate { \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    requestLimit: " + toIndentedString(requestLimit) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "}";
     }
 
 }

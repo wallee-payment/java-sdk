@@ -66,8 +66,8 @@ public class Example {
     public static void main(String[] args) {
 
         // API Configuration.
-        long spaceId = (Long) 405;
-        long userId = (Long) 512;
+        long spaceId = 405L;
+        long userId = 512L;
         String secret = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
         ApiClient apiClient = new ApiClient(userId, secret);
 

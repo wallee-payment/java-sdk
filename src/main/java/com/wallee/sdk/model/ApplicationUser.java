@@ -103,21 +103,19 @@ public class ApplicationUser extends User {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApplicationUser {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
-        sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ApplicationUser { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  " \n" +
+            "    scope: " + toIndentedString(scope) + " \n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "    userType: " + toIndentedString(userType) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    primaryAccount: " + toIndentedString(primaryAccount) + " \n" +
+            "    requestLimit: " + toIndentedString(requestLimit) + " \n" +
+            "}";
+        }
 
 }
 

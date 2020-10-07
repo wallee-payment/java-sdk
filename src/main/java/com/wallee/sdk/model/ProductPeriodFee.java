@@ -205,22 +205,20 @@ public class ProductPeriodFee extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProductPeriodFee {\n");
 
-        sb.append("    component: ").append(toIndentedString(component)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    ledgerEntryTitle: ").append(toIndentedString(ledgerEntryTitle)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    numberOfFreeTrialPeriods: ").append(toIndentedString(numberOfFreeTrialPeriods)).append("\n");
-        sb.append("    periodFee: ").append(toIndentedString(periodFee)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ProductPeriodFee { \n" +
+            "    component: " + toIndentedString(component) +  " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    ledgerEntryTitle: " + toIndentedString(ledgerEntryTitle) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    numberOfFreeTrialPeriods: " + toIndentedString(numberOfFreeTrialPeriods) + " \n" +
+            "    periodFee: " + toIndentedString(periodFee) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

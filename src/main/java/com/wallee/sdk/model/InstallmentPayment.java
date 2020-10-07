@@ -190,21 +190,19 @@ public class InstallmentPayment extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class InstallmentPayment {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    initialTransaction: ").append(toIndentedString(initialTransaction)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    planConfiguration: ").append(toIndentedString(planConfiguration)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class InstallmentPayment {\n" +
+            "    createdOn: " + toIndentedString(createdOn) +  "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    initialTransaction: " +  toIndentedString(initialTransaction) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    planConfiguration: " + toIndentedString(planConfiguration) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

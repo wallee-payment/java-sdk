@@ -107,21 +107,19 @@ public class CustomerActive extends AbstractCustomerActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CustomerActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
-        sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    preferredCurrency: ").append(toIndentedString(preferredCurrency)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CustomerActive { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    customerId: " + toIndentedString(customerId) + " \n" +
+            "    emailAddress: " +  toIndentedString(emailAddress) + "\n" +
+            "    familyName: " + toIndentedString(familyName) + "\n" +
+            "    givenName: " + toIndentedString(givenName) + "\n" +
+            "    language: " + toIndentedString(language) +  " \n" +
+            "    metaData: " + toIndentedString(metaData) + " \n" +
+            "    preferredCurrency: " +  toIndentedString(preferredCurrency) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " +  toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

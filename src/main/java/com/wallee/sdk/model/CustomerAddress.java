@@ -169,20 +169,18 @@ public class CustomerAddress extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CustomerAddress {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-        sb.append("    defaultAddress: ").append(toIndentedString(defaultAddress)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CustomerAddress { \n" +
+            "    address: " + toIndentedString(address) +  " \n" +
+            "    addressType: " + toIndentedString(addressType) + " \n" +
+            "    createdOn: " +  toIndentedString(createdOn) + "\n" +
+            "    customer: " + toIndentedString(customer) + "\n" +
+            "    defaultAddress: " + toIndentedString(defaultAddress) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

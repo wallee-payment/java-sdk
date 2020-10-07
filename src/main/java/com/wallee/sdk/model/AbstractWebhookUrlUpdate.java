@@ -122,15 +122,13 @@ public class AbstractWebhookUrlUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractWebhookUrlUpdate {\n");
 
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class AbstractWebhookUrlUpdate { \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    url: " + toIndentedString(url) + " \n" +
+            "}";
+      }
 
 }
 

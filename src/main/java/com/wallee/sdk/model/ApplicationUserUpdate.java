@@ -103,17 +103,15 @@ public class ApplicationUserUpdate extends AbstractApplicationUserUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApplicationUserUpdate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ApplicationUserUpdate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    requestLimit: " + toIndentedString(requestLimit) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

@@ -95,15 +95,13 @@ public class TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionAwareEntity {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionAwareEntity { \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "}";
+        }
 
     /**
      * Convert the given object to string with each line indented by 4 spaces

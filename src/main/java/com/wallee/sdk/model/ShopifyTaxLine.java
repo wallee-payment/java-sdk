@@ -124,17 +124,15 @@ public class ShopifyTaxLine extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifyTaxLine {\n");
 
-        sb.append("    fractionRate: ").append(toIndentedString(fractionRate)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifyTaxLine { \n" +
+            "    fractionRate: " + toIndentedString(fractionRate) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    rate: " + toIndentedString(rate) + "\n" +
+            "    title: " + toIndentedString(title) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

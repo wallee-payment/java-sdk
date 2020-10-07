@@ -162,19 +162,17 @@ public class Condition extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Condition {\n");
 
-        sb.append("    conditionType: ").append(toIndentedString(conditionType)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Condition { \n" +
+            "    conditionType: " + toIndentedString(conditionType) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

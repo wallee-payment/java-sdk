@@ -281,28 +281,26 @@ public class ShopifySubscription extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscription {\n");
 
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    initialPaymentTransaction: ").append(toIndentedString(initialPaymentTransaction)).append("\n");
-        sb.append("    initialShopifyTransaction: ").append(toIndentedString(initialShopifyTransaction)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    orderRecurrenceNumber: ").append(toIndentedString(orderRecurrenceNumber)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
-        sb.append("    terminatedBy: ").append(toIndentedString(terminatedBy)).append("\n");
-        sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");
-        sb.append("    terminationRequestDate: ").append(toIndentedString(terminationRequestDate)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscription {\n" +
+            "    createdBy: " + toIndentedString(createdBy) +  "\n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    externalId: " + toIndentedString(externalId) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    initialPaymentTransaction: " +  toIndentedString(initialPaymentTransaction) + "\n" +
+            "    initialShopifyTransaction: " +  toIndentedString(initialShopifyTransaction) + "\n" +
+            "    language: " + toIndentedString(language) +  "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    orderRecurrenceNumber: " + toIndentedString(orderRecurrenceNumber) + "\n" +
+            "    shop: " + toIndentedString(shop) +  "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    subscriber: " + toIndentedString(subscriber) +  "\n" +
+            "    terminatedBy: " + toIndentedString(terminatedBy) + "\n" +
+            "    terminatedOn: " +  toIndentedString(terminatedOn) + "\n" +
+            "    terminationRequestDate: " + toIndentedString(terminationRequestDate) +  "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

@@ -240,25 +240,23 @@ public class ShopifySubscriptionSuspension extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionSuspension {\n");
 
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    endedBy: ").append(toIndentedString(endedBy)).append("\n");
-        sb.append("    endedOn: ").append(toIndentedString(endedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    initiator: ").append(toIndentedString(initiator)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionSuspension { \n" +
+            "    createdBy: " + toIndentedString(createdBy) +  " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    endedBy: " + toIndentedString(endedBy) +  " \n" +
+            "    endedOn: " + toIndentedString(endedOn) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    initiator: " + toIndentedString(initiator) + " \n" +
+            "    linkedSpaceId: " +  toIndentedString(linkedSpaceId) + " \n" +
+            "    plannedEndDate: " + toIndentedString(plannedEndDate) + " \n" +
+            "    shop: " + toIndentedString(shop) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

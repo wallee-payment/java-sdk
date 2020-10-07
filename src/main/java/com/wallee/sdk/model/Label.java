@@ -123,17 +123,15 @@ public class Label extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Label {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    contentAsString: ").append(toIndentedString(contentAsString)).append("\n");
-        sb.append("    descriptor: ").append(toIndentedString(descriptor)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Label { \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    contentAsString: " + toIndentedString(contentAsString) + " \n" +
+            "    descriptor: " + toIndentedString(descriptor) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

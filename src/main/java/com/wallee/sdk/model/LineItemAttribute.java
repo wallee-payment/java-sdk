@@ -77,14 +77,12 @@ public class LineItemAttribute extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LineItemAttribute {\n");
 
-        sb.append("    label: ").append(toIndentedString(label)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LineItemAttribute { \n" +
+            "    label: " + toIndentedString(label) + " \n" +
+            "    value: " + toIndentedString(value) + " \n" +
+            "}";
+        }
 
 
 }

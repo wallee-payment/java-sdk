@@ -114,16 +114,14 @@ public class RestAddressFormat extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RestAddressFormat {\n");
 
-        sb.append("    postCodeExamples: ").append(toIndentedString(postCodeExamples)).append("\n");
-        sb.append("    postCodeRegex: ").append(toIndentedString(postCodeRegex)).append("\n");
-        sb.append("    requiredFields: ").append(toIndentedString(requiredFields)).append("\n");
-        sb.append("    usedFields: ").append(toIndentedString(usedFields)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RestAddressFormat { \n" +
+            "    postCodeExamples: " + toIndentedString(postCodeExamples) + "\n" +
+            "    postCodeRegex: " + toIndentedString(postCodeRegex) + " \n" +
+            "    requiredFields: " + toIndentedString(requiredFields) + " \n" +
+            "    usedFields: " + toIndentedString(usedFields) + " \n" +
+            "}";
+        }
 
 
 }

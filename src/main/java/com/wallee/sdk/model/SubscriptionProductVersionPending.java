@@ -332,23 +332,21 @@ public class SubscriptionProductVersionPending extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductVersionPending {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
-        sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-        sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
-        sb.append("    enabledCurrencies: ").append(toIndentedString(enabledCurrencies)).append("\n");
-        sb.append("    minimalNumberOfPeriods: ").append(toIndentedString(minimalNumberOfPeriods)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    numberOfNoticePeriods: ").append(toIndentedString(numberOfNoticePeriods)).append("\n");
-        sb.append("    product: ").append(toIndentedString(product)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductVersionPending { \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "    billingCycle: " + toIndentedString(billingCycle) + "\n" +
+            "    comment: " + toIndentedString(comment) + "\n" +
+            "    defaultCurrency: " +  toIndentedString(defaultCurrency) + "\n" +
+            "    enabledCurrencies: " + toIndentedString(enabledCurrencies) +  " \n" +
+            "    minimalNumberOfPeriods: " + toIndentedString(minimalNumberOfPeriods) + " \n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    numberOfNoticePeriods: " + toIndentedString(numberOfNoticePeriods) + "\n" +
+            "    product: " + toIndentedString(product) + "\n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "}";
+        }
 
 
 }

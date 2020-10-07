@@ -115,29 +115,27 @@ public class ShopifySubscriptionProductActive extends AbstractShopifySubscriptio
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionProductActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    absolutePriceAdjustment: ").append(toIndentedString(absolutePriceAdjustment)).append("\n");
-        sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
-        sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
-        sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
-        sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
-        sb.append("    fixedPrice: ").append(toIndentedString(fixedPrice)).append("\n");
-        sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
-        sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
-        sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
-        sb.append("    pricingOption: ").append(toIndentedString(pricingOption)).append("\n");
-        sb.append("    relativePriceAdjustment: ").append(toIndentedString(relativePriceAdjustment)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
-        sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
-        sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionProductActive { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    absolutePriceAdjustment: " + toIndentedString(absolutePriceAdjustment) +  "\n" +
+            "    billingDayOfMonth: " + toIndentedString(billingDayOfMonth) + " \n" +
+            "    billingIntervalAmount: " + toIndentedString(billingIntervalAmount) + " \n" +
+            "    billingIntervalUnit: " +  toIndentedString(billingIntervalUnit) + " \n" +
+            "    billingWeekday: " + toIndentedString(billingWeekday) +  "\n" +
+            "    fixedPrice: " + toIndentedString(fixedPrice) + " \n" +
+            "    maximalBillingCycles: " +  toIndentedString(maximalBillingCycles) + " \n" +
+            "    maximalSuspendableCycles: " + toIndentedString(maximalSuspendableCycles) + "\n" +
+            "    minimalBillingCycles: " + toIndentedString(minimalBillingCycles) + " \n" +
+            "    pricingOption: " + toIndentedString(pricingOption) + " \n" +
+            "    relativePriceAdjustment: " +  toIndentedString(relativePriceAdjustment) + " \n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "    storeOrderConfirmationEmailEnabled: " + toIndentedString(storeOrderConfirmationEmailEnabled) +  "\n" +
+            "    subscriberSuspensionAllowed: " + toIndentedString(subscriberSuspensionAllowed) +  "\n" +
+            "    terminationBillingCycles: " + toIndentedString(terminationBillingCycles) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

@@ -512,32 +512,30 @@ public class ShopifySubscriptionAddressCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionAddressCreate {\n");
 
-        sb.append("    city: ").append(toIndentedString(city)).append("\n");
-        sb.append("    commercialRegisterNumber: ").append(toIndentedString(commercialRegisterNumber)).append("\n");
-        sb.append("    country: ").append(toIndentedString(country)).append("\n");
-        sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
-        sb.append("    dependentLocality: ").append(toIndentedString(dependentLocality)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
-        sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
-        sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
-        sb.append("    legalOrganizationForm: ").append(toIndentedString(legalOrganizationForm)).append("\n");
-        sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-        sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
-        sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
-        sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");
-        sb.append("    salutation: ").append(toIndentedString(salutation)).append("\n");
-        sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
-        sb.append("    sortingCode: ").append(toIndentedString(sortingCode)).append("\n");
-        sb.append("    street: ").append(toIndentedString(street)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionAddressCreate { \n" +
+            "    city: " + toIndentedString(city) +  "\n" +
+            "    commercialRegisterNumber: " + toIndentedString(commercialRegisterNumber) + " \n" +
+            "    country: " + toIndentedString(country) + " \n" +
+            "    dateOfBirth: " + toIndentedString(dateOfBirth) +  "\n" +
+            "    dependentLocality: " + toIndentedString(dependentLocality) + " \n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + " \n" +
+            "    familyName: " + toIndentedString(familyName) +  "\n" +
+            "    gender: " + toIndentedString(gender) + " \n" +
+            "    givenName: " + toIndentedString(givenName) +  "\n" +
+            "    legalOrganizationForm: " + toIndentedString(legalOrganizationForm) + " \n" +
+            "    mobilePhoneNumber: " + toIndentedString(mobilePhoneNumber) + " \n" +
+            "    organizationName: " + toIndentedString(organizationName) + " \n" +
+            "    phoneNumber: " + toIndentedString(phoneNumber) + " \n" +
+            "    postalState: " +  toIndentedString(postalState) + " \n" +
+            "    postcode: " + toIndentedString(postcode) + " \n" +
+            "    salesTaxNumber: " + toIndentedString(salesTaxNumber) + " \n" +
+            "    salutation: " + toIndentedString(salutation) +  "\n" +
+            "    socialSecurityNumber: " + toIndentedString(socialSecurityNumber) + " \n" +
+            "    sortingCode: " + toIndentedString(sortingCode) + " \n" +
+            "    street: " + toIndentedString(street) + " \n" +
+            "}";
+        }
 
 
 }

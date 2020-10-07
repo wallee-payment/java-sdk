@@ -137,18 +137,16 @@ public class UserAccountRole extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserAccountRole {\n");
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    appliesOnSubAccount: ").append(toIndentedString(appliesOnSubAccount)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    role: ").append(toIndentedString(role)).append("\n");
-        sb.append("    user: ").append(toIndentedString(user)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class UserAccountRole { \n" +
+            "    account: " + toIndentedString(account) +  "\n" +
+            "    appliesOnSubAccount: " + toIndentedString(appliesOnSubAccount) + " \n" +
+            "    id: " +  toIndentedString(id) + " \n" +
+            "    role: " + toIndentedString(role) + " \n" +
+            "    user: " + toIndentedString(user) +  "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

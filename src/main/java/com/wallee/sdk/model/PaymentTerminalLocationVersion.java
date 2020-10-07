@@ -200,22 +200,20 @@ public class PaymentTerminalLocationVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentTerminalLocationVersion {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    location: ").append(toIndentedString(location)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    versionAppliedImmediately: ").append(toIndentedString(versionAppliedImmediately)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentTerminalLocationVersion { \n" +
+            "    address: " + toIndentedString(address) +  " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    location: " + toIndentedString(location) + " \n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "    versionAppliedImmediately: " +  toIndentedString(versionAppliedImmediately) + " \n" +
+            "}";
+        }
 
 
 }

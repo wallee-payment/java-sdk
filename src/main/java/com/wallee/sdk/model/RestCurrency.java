@@ -97,15 +97,13 @@ public class RestCurrency extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RestCurrency {\n");
 
-        sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
-        sb.append("    fractionDigits: ").append(toIndentedString(fractionDigits)).append("\n");
-        sb.append("    numericCode: ").append(toIndentedString(numericCode)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RestCurrency { \n" +
+            "    currencyCode: " + toIndentedString(currencyCode) +  "\n" +
+            "    fractionDigits: " + toIndentedString(fractionDigits) + " \n" +
+            "    numericCode: " +  toIndentedString(numericCode) + " \n" +
+            "}";
+        }
 
 
 }

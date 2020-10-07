@@ -109,16 +109,14 @@ public class StaticValue extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class StaticValue {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    features: ").append(toIndentedString(features)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class StaticValue { \n" +
+            "    description: " + toIndentedString(description) +  "\n" +
+            "    features: " + toIndentedString(features) + " \n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "}";
+        }
 
 
 }

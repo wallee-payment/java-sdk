@@ -18,8 +18,6 @@
 
 package com.wallee.sdk;
 
-import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
-import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 
 import java.text.DateFormat;

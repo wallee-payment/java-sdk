@@ -334,30 +334,28 @@ public class Space extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Space {\n");
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    active: ").append(toIndentedString(active)).append("\n");
-        sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
-        sb.append("    database: ").append(toIndentedString(database)).append("\n");
-        sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
-        sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
-        sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-        sb.append("    restrictedActive: ").append(toIndentedString(restrictedActive)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    technicalContactAddresses: ").append(toIndentedString(technicalContactAddresses)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Space { \n" +
+            "    account: " + toIndentedString(account) + " \n" +
+            "    active: " + toIndentedString(active) + " \n" +
+            "    activeOrRestrictedActive: " +  toIndentedString(activeOrRestrictedActive) + " \n" +
+            "    database: " + toIndentedString(database) + " \n" +
+            "    deletedBy: " + toIndentedString(deletedBy) + " \n" +
+            "    deletedOn: " + toIndentedString(deletedOn) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    lastModifiedDate: " + toIndentedString(lastModifiedDate) +  "\n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + " \n" +
+            "    postalAddress: " + toIndentedString(postalAddress) +  "\n" +
+            "    primaryCurrency: " + toIndentedString(primaryCurrency) + " \n" +
+            "    requestLimit: " + toIndentedString(requestLimit) + " \n" +
+            "    restrictedActive: " + toIndentedString(restrictedActive) + "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    technicalContactAddresses: " + toIndentedString(technicalContactAddresses) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) +  "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

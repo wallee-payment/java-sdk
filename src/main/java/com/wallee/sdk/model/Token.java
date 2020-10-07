@@ -253,25 +253,23 @@ public class Token extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Token {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-        sb.append("    enabledForOneClickPayment: ").append(toIndentedString(enabledForOneClickPayment)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class Token { \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    customerEmailAddress: " + toIndentedString(customerEmailAddress) + " \n" +
+            "    customerId: " + toIndentedString(customerId) + " \n" +
+            "    enabledForOneClickPayment: " +  toIndentedString(enabledForOneClickPayment) + " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) +  " \n" +
+            "    tokenReference: " + toIndentedString(tokenReference) + " \n" +
+            "    version: " +  toIndentedString(version) + " \n" +
+            "}";
+      }
 
 
 }

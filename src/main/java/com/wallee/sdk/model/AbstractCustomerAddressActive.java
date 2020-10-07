@@ -96,13 +96,11 @@ public class AbstractCustomerAddressActive extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractCustomerAddressActive {\n");
 
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractCustomerAddressActive { \n" +
+            "    address: " + toIndentedString(address) + " \n" +
+            "    addressType: " + toIndentedString(addressType) + " \n" +
+            "}";
     }
 
 }

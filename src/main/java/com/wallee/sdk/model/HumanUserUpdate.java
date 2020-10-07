@@ -108,22 +108,20 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HumanUserUpdate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
-        sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class HumanUserUpdate {\n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + "\n" +
+            "    firstname: " +  toIndentedString(firstname) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lastname: " + toIndentedString(lastname) + "\n" +
+            "    mobilePhoneNumber: " + toIndentedString(mobilePhoneNumber) +  "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    timeZone: " + toIndentedString(timeZone) +  "\n" +
+            "    twoFactorEnabled: " + toIndentedString(twoFactorEnabled) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

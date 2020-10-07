@@ -974,73 +974,71 @@ public class Transaction extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Transaction {\n");
 
-        sb.append("    acceptHeader: ").append(toIndentedString(acceptHeader)).append("\n");
-        sb.append("    acceptLanguageHeader: ").append(toIndentedString(acceptLanguageHeader)).append("\n");
-        sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    authorizationAmount: ").append(toIndentedString(authorizationAmount)).append("\n");
-        sb.append("    authorizationEnvironment: ").append(toIndentedString(authorizationEnvironment)).append("\n");
-        sb.append("    authorizationSalesChannel: ").append(toIndentedString(authorizationSalesChannel)).append("\n");
-        sb.append("    authorizationTimeoutOn: ").append(toIndentedString(authorizationTimeoutOn)).append("\n");
-        sb.append("    authorizedOn: ").append(toIndentedString(authorizedOn)).append("\n");
-        sb.append("    autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
-        sb.append("    completedAmount: ").append(toIndentedString(completedAmount)).append("\n");
-        sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
-        sb.append("    completionTimeoutOn: ").append(toIndentedString(completionTimeoutOn)).append("\n");
-        sb.append("    confirmedBy: ").append(toIndentedString(confirmedBy)).append("\n");
-        sb.append("    confirmedOn: ").append(toIndentedString(confirmedOn)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-        sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
-        sb.append("    deliveryDecisionMadeOn: ").append(toIndentedString(deliveryDecisionMadeOn)).append("\n");
-        sb.append("    deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
-        sb.append("    emailsDisabled: ").append(toIndentedString(emailsDisabled)).append("\n");
-        sb.append("    endOfLife: ").append(toIndentedString(endOfLife)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    internetProtocolAddress: ").append(toIndentedString(internetProtocolAddress)).append("\n");
-        sb.append("    internetProtocolAddressCountry: ").append(toIndentedString(internetProtocolAddressCountry)).append("\n");
-        sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
-        sb.append("    paymentConnectorConfiguration: ").append(toIndentedString(paymentConnectorConfiguration)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processingOn: ").append(toIndentedString(processingOn)).append("\n");
-        sb.append("    refundedAmount: ").append(toIndentedString(refundedAmount)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
-        sb.append("    totalAppliedFees: ").append(toIndentedString(totalAppliedFees)).append("\n");
-        sb.append("    totalSettledAmount: ").append(toIndentedString(totalSettledAmount)).append("\n");
-        sb.append("    userAgentHeader: ").append(toIndentedString(userAgentHeader)).append("\n");
-        sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
-        sb.append("    userInterfaceType: ").append(toIndentedString(userInterfaceType)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Transaction { \n" +
+            "    acceptHeader: " + toIndentedString(acceptHeader) +  " \n" +
+            "    acceptLanguageHeader: " + toIndentedString(acceptLanguageHeader) +  " \n" +
+            "    allowedPaymentMethodBrands: " + toIndentedString(allowedPaymentMethodBrands) +  " \n" +
+            "    allowedPaymentMethodConfigurations: " + toIndentedString(allowedPaymentMethodConfigurations) +  " \n" +
+            "    authorizationAmount: " + toIndentedString(authorizationAmount) +  " \n" +
+            "    authorizationEnvironment: " + toIndentedString(authorizationEnvironment) +  " \n" +
+            "    authorizationSalesChannel: " + toIndentedString(authorizationSalesChannel) +  " \n" +
+            "    authorizationTimeoutOn: " + toIndentedString(authorizationTimeoutOn) + " \n" +
+            "    authorizedOn: " + toIndentedString(authorizedOn) + " \n" +
+            "    autoConfirmationEnabled: " +  toIndentedString(autoConfirmationEnabled) + " \n" +
+            "    billingAddress: " + toIndentedString(billingAddress) +  " \n" +
+            "    chargeRetryEnabled: " + toIndentedString(chargeRetryEnabled) + " \n" +
+            "    completedAmount: " + toIndentedString(completedAmount) + " \n" +
+            "    completedOn: " + toIndentedString(completedOn) +  " \n" +
+            "    completionTimeoutOn: " + toIndentedString(completionTimeoutOn) + " \n" +
+            "    confirmedBy: " + toIndentedString(confirmedBy) + " \n" +
+            "    confirmedOn: " + toIndentedString(confirmedOn) +  " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    customerEmailAddress: " + toIndentedString(customerEmailAddress) + " \n" +
+            "    customerId: " + toIndentedString(customerId) +  " \n" +
+            "    customersPresence: " + toIndentedString(customersPresence) + " \n" +
+            "    deliveryDecisionMadeOn: " + toIndentedString(deliveryDecisionMadeOn) + " \n" +
+            "    deviceSessionIdentifier: " +  toIndentedString(deviceSessionIdentifier) + " \n" +
+            "    emailsDisabled: " + toIndentedString(emailsDisabled) +  " \n" +
+            "    endOfLife: " + toIndentedString(endOfLife) + " \n" +
+            "    environment: " +  toIndentedString(environment) + " \n" +
+            "    environmentSelectionStrategy: " + toIndentedString(environmentSelectionStrategy) + "\n" +
+            "    failedOn: " + toIndentedString(failedOn) + " \n" +
+            "    failedUrl: " +  toIndentedString(failedUrl) + " \n" +
+            "    failureReason: " + toIndentedString(failureReason) + " \n" +
+            "    group: " + toIndentedString(group) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    internetProtocolAddress: " + toIndentedString(internetProtocolAddress) + " \n" +
+            "    internetProtocolAddressCountry: " + toIndentedString(internetProtocolAddressCountry) + " \n" +
+            "    invoiceMerchantReference: " + toIndentedString(invoiceMerchantReference) + " \n" +
+            "    language: " + toIndentedString(language) +  " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    linkedSpaceId: " +  toIndentedString(linkedSpaceId) + " \n" +
+            "    merchantReference: " + toIndentedString(merchantReference) +  " \n" +
+            "    metaData: " + toIndentedString(metaData) + " \n" +
+            "    parent: " + toIndentedString(parent) +  " \n" +
+            "    paymentConnectorConfiguration: " + toIndentedString(paymentConnectorConfiguration) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    processingOn: " + toIndentedString(processingOn) + " \n" +
+            "    refundedAmount: " + toIndentedString(refundedAmount) +  " \n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) + " \n" +
+            "    shippingMethod: " + toIndentedString(shippingMethod) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    successUrl: " + toIndentedString(successUrl) +  " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "    token: " + toIndentedString(token) +  " \n" +
+            "    tokenizationMode: " + toIndentedString(tokenizationMode) + " \n" +
+            "    totalAppliedFees: " + toIndentedString(totalAppliedFees) + " \n" +
+            "    totalSettledAmount: " +  toIndentedString(totalSettledAmount) + " \n" +
+            "    userAgentHeader: " + toIndentedString(userAgentHeader) +  " \n" +
+            "    userFailureMessage: " + toIndentedString(userFailureMessage) + " \n" +
+            "    userInterfaceType: " + toIndentedString(userInterfaceType) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

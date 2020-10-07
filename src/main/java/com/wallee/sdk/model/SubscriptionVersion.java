@@ -329,31 +329,29 @@ public class SubscriptionVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionVersion {\n");
 
-        sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
-        sb.append("    billingCurrency: ").append(toIndentedString(billingCurrency)).append("\n");
-        sb.append("    componentConfigurations: ").append(toIndentedString(componentConfigurations)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    expectedLastPeriodEnd: ").append(toIndentedString(expectedLastPeriodEnd)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    plannedTerminationDate: ").append(toIndentedString(plannedTerminationDate)).append("\n");
-        sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-        sb.append("    selectedComponents: ").append(toIndentedString(selectedComponents)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");
-        sb.append("    terminatingOn: ").append(toIndentedString(terminatingOn)).append("\n");
-        sb.append("    terminationIssuedOn: ").append(toIndentedString(terminationIssuedOn)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionVersion { \n" +
+            "    activatedOn: " + toIndentedString(activatedOn) +  " \n" +
+            "    billingCurrency: " + toIndentedString(billingCurrency) + " \n" +
+            "    componentConfigurations: " + toIndentedString(componentConfigurations) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    expectedLastPeriodEnd: " + toIndentedString(expectedLastPeriodEnd) + " \n" +
+            "    failedOn: " + toIndentedString(failedOn) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    plannedTerminationDate: " + toIndentedString(plannedTerminationDate) + " \n" +
+            "    productVersion: " + toIndentedString(productVersion) + "\n" +
+            "    selectedComponents: " + toIndentedString(selectedComponents) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subscription: " + toIndentedString(subscription) +  " \n" +
+            "    terminatedOn: " + toIndentedString(terminatedOn) + " \n" +
+            "    terminatingOn: " +  toIndentedString(terminatingOn) + " \n" +
+            "    terminationIssuedOn: " + toIndentedString(terminationIssuedOn) +  " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

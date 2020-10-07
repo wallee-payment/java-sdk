@@ -252,29 +252,27 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifyRecurringOrder {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    billedOn: ").append(toIndentedString(billedOn)).append("\n");
-        sb.append("    checkoutToken: ").append(toIndentedString(checkoutToken)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
-        sb.append("    orderName: ").append(toIndentedString(orderName)).append("\n");
-        sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    recurrenceNumber: ").append(toIndentedString(recurrenceNumber)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    startedProcessingOn: ").append(toIndentedString(startedProcessingOn)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifyRecurringOrder {\n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + "\n" +
+            "    billedOn: " + toIndentedString(billedOn) + "\n" +
+            "    checkoutToken: " + toIndentedString(checkoutToken) +  "\n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    failureReason: " +  toIndentedString(failureReason) + "\n" +
+            "    orderId: " + toIndentedString(orderId) + "\n" +
+            "    orderName: " + toIndentedString(orderName) + "\n" +
+            "    plannedExecutionDate: " + toIndentedString(plannedExecutionDate) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    recurrenceNumber: " + toIndentedString(recurrenceNumber) + "\n" +
+            "    shop: " + toIndentedString(shop) +  "\n" +
+            "    startedProcessingOn: " + toIndentedString(startedProcessingOn) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    subscriptionVersion: " + toIndentedString(subscriptionVersion) +  "\n" +
+            "    transaction: " + toIndentedString(transaction) + "\n" +
+            "}";
+        }
 
 
 }

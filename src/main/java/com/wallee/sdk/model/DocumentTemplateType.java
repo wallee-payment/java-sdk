@@ -122,17 +122,15 @@ public class DocumentTemplateType extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DocumentTemplateType {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DocumentTemplateType { \n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    feature: " + toIndentedString(feature) + " \n" +
+            "    group: " + toIndentedString(group) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "}";
+        }
 
 
 }

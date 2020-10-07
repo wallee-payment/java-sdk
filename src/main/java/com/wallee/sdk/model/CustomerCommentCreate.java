@@ -74,14 +74,12 @@ public class CustomerCommentCreate extends AbstractCustomerCommentActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CustomerCommentCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CustomerCommentCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    customer: " + toIndentedString(customer) +  " \n" +
+            "}";
+        }
 
 
 }

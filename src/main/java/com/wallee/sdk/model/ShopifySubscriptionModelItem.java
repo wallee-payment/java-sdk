@@ -175,17 +175,15 @@ public class ShopifySubscriptionModelItem extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionModelItem {\n");
 
-        sb.append("    priceIncludingTax: ").append(toIndentedString(priceIncludingTax)).append("\n");
-        sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    recalculatePrice: ").append(toIndentedString(recalculatePrice)).append("\n");
-        sb.append("    taxLines: ").append(toIndentedString(taxLines)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionModelItem { \n" +
+            "    priceIncludingTax: " +  toIndentedString(priceIncludingTax) + " \n" +
+            "    productId: " + toIndentedString(productId) + " \n" +
+            "    quantity: " + toIndentedString(quantity) + " \n" +
+            "    recalculatePrice: " + toIndentedString(recalculatePrice) +  " \n" +
+            "    taxLines: " + toIndentedString(taxLines) + " \n" +
+            "}";
+        }
 
 
 }

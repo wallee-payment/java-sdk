@@ -179,21 +179,19 @@ public class Feature extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Feature {\n");
 
-        sb.append("    beta: ").append(toIndentedString(beta)).append("\n");
-        sb.append("    category: ").append(toIndentedString(category)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    logoPath: ").append(toIndentedString(logoPath)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    requiredFeatures: ").append(toIndentedString(requiredFeatures)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Feature { \n" +
+            "    beta: " + toIndentedString(beta) + " \n" +
+            "    category: " + toIndentedString(category) + " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    logoPath: " + toIndentedString(logoPath) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    requiredFeatures: " + toIndentedString(requiredFeatures) +  "\n" +
+            "    sortOrder: " + toIndentedString(sortOrder) + " \n" +
+            "    visible: " + toIndentedString(visible) +  "\n" +
+            "}";
+        }
 
 
 }

@@ -74,14 +74,12 @@ public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceC
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionInvoiceCommentCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    transactionInvoice: ").append(toIndentedString(transactionInvoice)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionInvoiceCommentCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    transactionInvoice: " +  toIndentedString(transactionInvoice) + "\n" +
+            "}";
+        }
 
 
 }

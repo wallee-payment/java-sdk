@@ -349,33 +349,31 @@ public class LineItem extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LineItem {\n");
 
-        sb.append("    aggregatedTaxRate: ").append(toIndentedString(aggregatedTaxRate)).append("\n");
-        sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    discountExcludingTax: ").append(toIndentedString(discountExcludingTax)).append("\n");
-        sb.append("    discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");
-        sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
-        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-        sb.append("    taxAmountPerUnit: ").append(toIndentedString(taxAmountPerUnit)).append("\n");
-        sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    undiscountedAmountExcludingTax: ").append(toIndentedString(undiscountedAmountExcludingTax)).append("\n");
-        sb.append("    undiscountedAmountIncludingTax: ").append(toIndentedString(undiscountedAmountIncludingTax)).append("\n");
-        sb.append("    undiscountedUnitPriceExcludingTax: ").append(toIndentedString(undiscountedUnitPriceExcludingTax)).append("\n");
-        sb.append("    undiscountedUnitPriceIncludingTax: ").append(toIndentedString(undiscountedUnitPriceIncludingTax)).append("\n");
-        sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
-        sb.append("    unitPriceExcludingTax: ").append(toIndentedString(unitPriceExcludingTax)).append("\n");
-        sb.append("    unitPriceIncludingTax: ").append(toIndentedString(unitPriceIncludingTax)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LineItem {\n" +
+            "    aggregatedTaxRate: " + toIndentedString(aggregatedTaxRate) +  "\n" +
+            "    amountExcludingTax: " + toIndentedString(amountExcludingTax) + "\n" +
+            "    amountIncludingTax: " + toIndentedString(amountIncludingTax) + "\n" +
+            "    attributes: " + toIndentedString(attributes) +  "\n" +
+            "    discountExcludingTax: " + toIndentedString(discountExcludingTax) + "\n" +
+            "    discountIncludingTax: " + toIndentedString(discountIncludingTax) + "\n" +
+            "    name: " + toIndentedString(name) +  "\n" +
+            "    quantity: " + toIndentedString(quantity) + "\n" +
+            "    shippingRequired: " +  toIndentedString(shippingRequired) + "\n" +
+            "    sku: " + toIndentedString(sku) + "\n" +
+            "    taxAmount: " +  toIndentedString(taxAmount) + "\n" +
+            "    taxAmountPerUnit: " + toIndentedString(taxAmountPerUnit) + "\n" +
+            "    taxes: " + toIndentedString(taxes) + "\n" +
+            "    type: " + toIndentedString(type) +  "\n" +
+            "    undiscountedAmountExcludingTax: " + toIndentedString(undiscountedAmountExcludingTax) +  "\n" +
+            "    undiscountedAmountIncludingTax: " + toIndentedString(undiscountedAmountIncludingTax) +  "\n" +
+            "    undiscountedUnitPriceExcludingTax: " + toIndentedString(undiscountedUnitPriceExcludingTax) +  "\n" +
+            "    undiscountedUnitPriceIncludingTax: " + toIndentedString(undiscountedUnitPriceIncludingTax) +  "\n" +
+            "    uniqueId: " + toIndentedString(uniqueId) + "\n" +
+            "    unitPriceExcludingTax: " +  toIndentedString(unitPriceExcludingTax) + "\n" +
+            "    unitPriceIncludingTax: " + toIndentedString(unitPriceIncludingTax) + "\n" +
+            "}";
+        }
 
 
 }

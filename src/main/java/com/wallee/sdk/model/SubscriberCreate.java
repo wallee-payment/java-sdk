@@ -110,23 +110,21 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriberCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    additionalAllowedPaymentMethodConfigurations: ").append(toIndentedString(additionalAllowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriberCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    additionalAllowedPaymentMethodConfigurations: " +  toIndentedString(additionalAllowedPaymentMethodConfigurations) + "\n" +
+            "    billingAddress: " +  toIndentedString(billingAddress) + "\n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    disallowedPaymentMethodConfigurations: " + toIndentedString(disallowedPaymentMethodConfigurations) + "\n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + "\n" +
+            "    language: " +  toIndentedString(language) + "\n" +
+            "    metaData: " + toIndentedString(metaData) + "\n" +
+            "    reference: " + toIndentedString(reference) + " \n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    externalId: " + toIndentedString(externalId) +  " \n" +
+            "}";
+        }
 
 
 }

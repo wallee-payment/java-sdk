@@ -202,25 +202,23 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionLineItemVersion {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionLineItemVersion { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    amount: " +  toIndentedString(amount) + " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    language: " + toIndentedString(language) +  " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    taxAmount: " + toIndentedString(taxAmount) + " \n" +
+            "    transaction: " + toIndentedString(transaction) +  " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

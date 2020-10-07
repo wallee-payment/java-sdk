@@ -202,18 +202,16 @@ public class SubscriptionAffiliateUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionAffiliateUpdate {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class SubscriptionAffiliateUpdate { \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    metaData: " + toIndentedString(metaData) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "}";
+      }
 
 
 }

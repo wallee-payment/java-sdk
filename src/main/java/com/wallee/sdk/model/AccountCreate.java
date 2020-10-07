@@ -102,17 +102,15 @@ public class AccountCreate extends AbstractAccountUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AccountCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
-        sb.append("    parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
-        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class AccountCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    lastModifiedDate: " + toIndentedString(lastModifiedDate) + " \n" +
+            "    name: " +  toIndentedString(name) + " \n" +
+            "    subaccountLimit: " + toIndentedString(subaccountLimit) + " \n" +
+            "    parentAccount: " + toIndentedString(parentAccount) + " \n" +
+            "    scope: " + toIndentedString(scope) + " \n" +
+            "}";
+        }
 
 }
 

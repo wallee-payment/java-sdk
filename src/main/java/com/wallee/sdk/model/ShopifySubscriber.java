@@ -199,22 +199,20 @@ public class ShopifySubscriber extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriber {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriber { \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + " \n" +
+            "    externalId: " +  toIndentedString(externalId) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " +  toIndentedString(linkedSpaceId) + "\n" +
+            "    phoneNumber: " + toIndentedString(phoneNumber) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    shop: " + toIndentedString(shop) + "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

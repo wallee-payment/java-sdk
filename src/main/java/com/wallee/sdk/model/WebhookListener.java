@@ -225,23 +225,21 @@ public class WebhookListener extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WebhookListener {\n");
 
-        sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
-        sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class WebhookListener { \n" +
+            "    entity: " + toIndentedString(entity) +  " \n" +
+            "    entityStates: " + toIndentedString(entityStates) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    identity: " + toIndentedString(identity) + " \n" +
+            "    linkedSpaceId: " +  toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    notifyEveryChange: " + toIndentedString(notifyEveryChange) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    url: " + toIndentedString(url) +  " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

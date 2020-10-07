@@ -113,16 +113,14 @@ public class RestCountryState extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RestCountryState {\n");
 
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RestCountryState { \n" +
+            "    code: " + toIndentedString(code) + " \n" +
+            "    countryCode: " + toIndentedString(countryCode) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "}";
+        }
 
 
 }

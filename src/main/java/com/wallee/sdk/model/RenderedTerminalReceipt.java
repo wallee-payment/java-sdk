@@ -78,14 +78,12 @@ public class RenderedTerminalReceipt extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RenderedTerminalReceipt {\n");
 
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RenderedTerminalReceipt { \n" +
+            "    data: " + toIndentedString(data) +  " \n" +
+            "    mimeType: " + toIndentedString(mimeType) + " \n" +
+            "}";
+        }
 
 
 }

@@ -94,15 +94,13 @@ public class LineItemReduction extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LineItemReduction {\n");
 
-        sb.append("    lineItemUniqueId: ").append(toIndentedString(lineItemUniqueId)).append("\n");
-        sb.append("    quantityReduction: ").append(toIndentedString(quantityReduction)).append("\n");
-        sb.append("    unitPriceReduction: ").append(toIndentedString(unitPriceReduction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LineItemReduction { \n" +
+            "    lineItemUniqueId: " + toIndentedString(lineItemUniqueId) + "\n" +
+            "    quantityReduction: " + toIndentedString(quantityReduction) + " \n" +
+            "    unitPriceReduction: " + toIndentedString(unitPriceReduction) + " \n" +
+            "}";
+        }
 
 
 }

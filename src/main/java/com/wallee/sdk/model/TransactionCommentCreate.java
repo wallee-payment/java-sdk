@@ -74,14 +74,12 @@ public class TransactionCommentCreate extends AbstractTransactionCommentActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionCommentCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionCommentCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    transaction: " + toIndentedString(transaction) + "\n" +
+            "}";
+        }
 
 
 }

@@ -352,32 +352,30 @@ public class ShopifyIntegration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifyIntegration {\n");
 
-        sb.append("    allowInvoiceDownload: ").append(toIndentedString(allowInvoiceDownload)).append("\n");
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    installed: ").append(toIndentedString(installed)).append("\n");
-        sb.append("    integratedPaymentFormEnabled: ").append(toIndentedString(integratedPaymentFormEnabled)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    loginName: ").append(toIndentedString(loginName)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    proxyPath: ").append(toIndentedString(proxyPath)).append("\n");
-        sb.append("    replacePaymentMethodImage: ").append(toIndentedString(replacePaymentMethodImage)).append("\n");
-        sb.append("    shopName: ").append(toIndentedString(shopName)).append("\n");
-        sb.append("    showPaymentInformation: ").append(toIndentedString(showPaymentInformation)).append("\n");
-        sb.append("    showSubscriptionInformation: ").append(toIndentedString(showSubscriptionInformation)).append("\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifyIntegration { \n" +
+            "    allowInvoiceDownload: " +  toIndentedString(allowInvoiceDownload) + " \n" +
+            "    allowedPaymentMethodConfigurations: " +  toIndentedString(allowedPaymentMethodConfigurations) + " \n" +
+            "    appVersion: " + toIndentedString(appVersion) +  " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    installed: " + toIndentedString(installed) + " \n" +
+            "    integratedPaymentFormEnabled: " + toIndentedString(integratedPaymentFormEnabled) + " \n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    loginName: " + toIndentedString(loginName) + " \n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    proxyPath: " + toIndentedString(proxyPath) + " \n" +
+            "    replacePaymentMethodImage: " +  toIndentedString(replacePaymentMethodImage) + " \n" +
+            "    shopName: " + toIndentedString(shopName) +  " \n" +
+            "    showPaymentInformation: " + toIndentedString(showPaymentInformation) +  " \n" +
+            "    showSubscriptionInformation: " + toIndentedString(showSubscriptionInformation) +  " \n" +
+            "    spaceId: " + toIndentedString(spaceId) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "}";
+        }
 
 
 }

@@ -357,31 +357,29 @@ public class PaymentLink extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentLink {\n");
 
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
-        sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
-        sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-        sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    protectionMode: ").append(toIndentedString(protectionMode)).append("\n");
-        sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentLink { \n" +
+            "    allowedPaymentMethodConfigurations: " +  toIndentedString(allowedPaymentMethodConfigurations) + "\n" +
+            "    appliedSpaceView: " + toIndentedString(appliedSpaceView) + "\n" +
+            "    availableFrom: " + toIndentedString(availableFrom) + "\n" +
+            "    availableUntil: " + toIndentedString(availableUntil) + "\n" +
+            "    billingAddressRequired: " +  toIndentedString(billingAddressRequired) + "\n" +
+            "    currency: " + toIndentedString(currency) + "\n" +
+            "    externalId: " + toIndentedString(externalId) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    maximalNumberOfTransactions: " + toIndentedString(maximalNumberOfTransactions) + "\n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    protectionMode: " + toIndentedString(protectionMode) + "\n" +
+            "    shippingAddressRequired: " +  toIndentedString(shippingAddressRequired) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    url: " + toIndentedString(url) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

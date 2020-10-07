@@ -237,25 +237,23 @@ public class PaymentConnector extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentConnector {\n");
 
-        sb.append("    dataCollectionType: ").append(toIndentedString(dataCollectionType)).append("\n");
-        sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
-        sb.append("    deprecationReason: ").append(toIndentedString(deprecationReason)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    paymentMethodBrand: ").append(toIndentedString(paymentMethodBrand)).append("\n");
-        sb.append("    primaryRiskTaker: ").append(toIndentedString(primaryRiskTaker)).append("\n");
-        sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
-        sb.append("    supportedCustomersPresences: ").append(toIndentedString(supportedCustomersPresences)).append("\n");
-        sb.append("    supportedFeatures: ").append(toIndentedString(supportedFeatures)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentConnector { \n" +
+            "    dataCollectionType: " + toIndentedString(dataCollectionType) + "\n" +
+            "    deprecated: " + toIndentedString(deprecated) + " \n" +
+            "    deprecationReason: " + toIndentedString(deprecationReason) + " \n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    feature: " + toIndentedString(feature) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
+            "    paymentMethodBrand: " + toIndentedString(paymentMethodBrand) + " \n" +
+            "    primaryRiskTaker: " + toIndentedString(primaryRiskTaker) + " \n" +
+            "    processor: " + toIndentedString(processor) +  " \n" +
+            "    supportedCustomersPresences: " + toIndentedString(supportedCustomersPresences) +  " \n" +
+            "    supportedFeatures: " + toIndentedString(supportedFeatures) + " \n" +
+            "}";
+        }
 
 
 }

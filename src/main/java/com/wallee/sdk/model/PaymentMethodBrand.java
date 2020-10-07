@@ -136,18 +136,16 @@ public class PaymentMethodBrand extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodBrand {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    grayImagePath: ").append(toIndentedString(grayImagePath)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    imagePath: ").append(toIndentedString(imagePath)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentMethodBrand { \n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    grayImagePath: " + toIndentedString(grayImagePath) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    imagePath: " + toIndentedString(imagePath) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    paymentMethod: " + toIndentedString(paymentMethod) + " \n" +
+            "}";
+        }
 
 
 }

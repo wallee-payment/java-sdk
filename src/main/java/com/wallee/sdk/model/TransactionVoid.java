@@ -284,31 +284,29 @@ public class TransactionVoid extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionVoid {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
-        sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processorReference: ").append(toIndentedString(processorReference)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionVoid { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    failedOn: " + toIndentedString(failedOn) + " \n" +
+            "    failureReason: " +  toIndentedString(failureReason) + " \n" +
+            "    labels: " + toIndentedString(labels) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    mode: " + toIndentedString(mode) + " \n" +
+            "    nextUpdateOn: " + toIndentedString(nextUpdateOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    processorReference: " + toIndentedString(processorReference) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    succeededOn: " + toIndentedString(succeededOn) + " \n" +
+            "    timeoutOn: " + toIndentedString(timeoutOn) +  " \n" +
+            "    transaction: " + toIndentedString(transaction) + " \n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

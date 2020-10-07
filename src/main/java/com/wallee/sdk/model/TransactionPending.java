@@ -118,32 +118,30 @@ public class TransactionPending extends AbstractTransactionPending {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionPending {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-        sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-        sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
-        sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionPending {\n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    allowedPaymentMethodBrands: " + toIndentedString(allowedPaymentMethodBrands) +  "\n" +
+            "    allowedPaymentMethodConfigurations: " + toIndentedString(allowedPaymentMethodConfigurations) +  "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    currency: " +  toIndentedString(currency) + "\n" +
+            "    customerEmailAddress: " + toIndentedString(customerEmailAddress) +  "\n" +
+            "    customerId: " + toIndentedString(customerId) + "\n" +
+            "    failedUrl: " + toIndentedString(failedUrl) + "\n" +
+            "    invoiceMerchantReference: " + toIndentedString(invoiceMerchantReference) +  "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + "\n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + "\n" +
+            "    metaData: " + toIndentedString(metaData) + "\n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) +  "\n" +
+            "    shippingMethod: " + toIndentedString(shippingMethod) + "\n" +
+            "    successUrl: " +  toIndentedString(successUrl) + "\n" +
+            "    timeZone: " + toIndentedString(timeZone) + "\n" +
+            "    token: " +  toIndentedString(token) + "\n" +
+            "    tokenizationMode: " + toIndentedString(tokenizationMode) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

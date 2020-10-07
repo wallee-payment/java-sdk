@@ -96,14 +96,12 @@ public class TaxCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TaxCreate {\n");
 
-        sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TaxCreate { \n" +
+            "    rate: " + toIndentedString(rate) + " \n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "}";
+        }
 
 
 }

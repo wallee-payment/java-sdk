@@ -131,17 +131,15 @@ public class ClientError extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ClientError {\n");
 
-        sb.append("    date: ").append(toIndentedString(date)).append("\n");
-        sb.append("    defaultMessage: ").append(toIndentedString(defaultMessage)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ClientError { \n" +
+            "    date: " + toIndentedString(date) + " \n" +
+            "    defaultMessage: " + toIndentedString(defaultMessage) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    message: " + toIndentedString(message) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "}";
+        }
 
 
 }

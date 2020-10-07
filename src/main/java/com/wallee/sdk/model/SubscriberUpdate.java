@@ -350,23 +350,21 @@ public class SubscriberUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriberUpdate {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    additionalAllowedPaymentMethodConfigurations: ").append(toIndentedString(additionalAllowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriberUpdate { \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "    additionalAllowedPaymentMethodConfigurations: " +  toIndentedString(additionalAllowedPaymentMethodConfigurations) + " \n" +
+            "    billingAddress: " +  toIndentedString(billingAddress) + " \n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    disallowedPaymentMethodConfigurations: " + toIndentedString(disallowedPaymentMethodConfigurations) + "\n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + " \n" +
+            "    language: " +  toIndentedString(language) + " \n" +
+            "    metaData: " + toIndentedString(metaData) + " \n" +
+            "    reference: " + toIndentedString(reference) + " \n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) +  " \n" +
+            "}";
+        }
 
 
 }

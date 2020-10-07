@@ -118,15 +118,13 @@ public class ShopifySubscriptionUpdateAddressesRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionUpdateAddressesRequest {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionUpdateAddressesRequest {\n" +
+            "    billingAddress: " +  toIndentedString(billingAddress) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) + "\n" +
+            "}";
+        }
 
 
 }

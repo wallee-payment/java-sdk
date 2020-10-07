@@ -99,15 +99,13 @@ public class ServerError extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ServerError {\n");
 
-        sb.append("    date: ").append(toIndentedString(date)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ServerError { \n" +
+            "    date: " + toIndentedString(date) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    message: " + toIndentedString(message) + " \n" +
+            "}";
+        }
 
 
 }

@@ -537,43 +537,41 @@ public class DebtCollectionCase extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DebtCollectionCase {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    closedOn: ").append(toIndentedString(closedOn)).append("\n");
-        sb.append("    collectorConfiguration: ").append(toIndentedString(collectorConfiguration)).append("\n");
-        sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    nextAttemptOn: ").append(toIndentedString(nextAttemptOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processingStartedOn: ").append(toIndentedString(processingStartedOn)).append("\n");
-        sb.append("    processingTimeoutOn: ").append(toIndentedString(processingTimeoutOn)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    reviewStartedOn: ").append(toIndentedString(reviewStartedOn)).append("\n");
-        sb.append("    reviewedOn: ").append(toIndentedString(reviewedOn)).append("\n");
-        sb.append("    reviewer: ").append(toIndentedString(reviewer)).append("\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
-        sb.append("    sourceEntityId: ").append(toIndentedString(sourceEntityId)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DebtCollectionCase { \n" +
+            "    amount: " + toIndentedString(amount) +  " \n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + " \n" +
+            "    closedOn: " +  toIndentedString(closedOn) + " \n" +
+            "    collectorConfiguration: " + toIndentedString(collectorConfiguration) +  " \n" +
+            "    contractDate: " + toIndentedString(contractDate) + " \n" +
+            "    createdOn: " +  toIndentedString(createdOn) + " \n" +
+            "    creator: " + toIndentedString(creator) + " \n" +
+            "    currency: " +  toIndentedString(currency) + " \n" +
+            "    dueDate: " + toIndentedString(dueDate) + " \n" +
+            "    environment: " + toIndentedString(environment) + " \n" +
+            "    externalId: " + toIndentedString(externalId) +  " \n" +
+            "    failedOn: " + toIndentedString(failedOn) + " \n" +
+            "    failureReason: " +  toIndentedString(failureReason) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    labels: " + toIndentedString(labels) + "\n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    lineItems: " +  toIndentedString(lineItems) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    nextAttemptOn: " + toIndentedString(nextAttemptOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    processingStartedOn: " + toIndentedString(processingStartedOn) +  " \n" +
+            "    processingTimeoutOn: " + toIndentedString(processingTimeoutOn) + " \n" +
+            "    reference: " + toIndentedString(reference) + " \n" +
+            "    reviewStartedOn: " + toIndentedString(reviewStartedOn) +  " \n" +
+            "    reviewedOn: " + toIndentedString(reviewedOn) + " \n" +
+            "    reviewer: " + toIndentedString(reviewer) + "\n" +
+            "    source: " + toIndentedString(source) + " \n" +
+            "    sourceEntityId: " +  toIndentedString(sourceEntityId) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

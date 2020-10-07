@@ -248,20 +248,19 @@ public class ShopifySubscriptionModelBillingConfiguration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionModelBillingConfiguration {\n");
 
-        sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
-        sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
-        sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
-        sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
-        sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
-        sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
-        sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
-        sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        String sb =
+          "class ShopifySubscriptionModelBillingConfiguration {\n" +
+            "    billingDayOfMonth: " +  toIndentedString(billingDayOfMonth) + "\n" +
+            "    billingIntervalAmount: " + toIndentedString(billingIntervalAmount) +  " \n" +
+            "    billingIntervalUnit: " + toIndentedString(billingIntervalUnit) + " \n" +
+            "    billingWeekday: " + toIndentedString(billingWeekday) + " \n" +
+            "    maximalBillingCycles: " +  toIndentedString(maximalBillingCycles) + "\n" +
+            "    maximalSuspendableCycles: " +  toIndentedString(maximalSuspendableCycles) + "\n" +
+            "    minimalBillingCycles: " + toIndentedString(minimalBillingCycles) + "\n" +
+            "    terminationBillingCycles: " + toIndentedString(terminationBillingCycles) + "\n" +
+            "}";
+        }
 
 
 }

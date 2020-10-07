@@ -93,15 +93,13 @@ public class PaymentConnectorFeature extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentConnectorFeature {\n");
 
-        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-        sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentConnectorFeature { \n" +
+            "    displayName: " + toIndentedString(displayName) +  "\n" +
+            "    feature: " + toIndentedString(feature) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "}";
+        }
 
 
 }

@@ -105,14 +105,12 @@ public class TransactionLineItemUpdateRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionLineItemUpdateRequest {\n");
 
-        sb.append("    newLineItems: ").append(toIndentedString(newLineItems)).append("\n");
-        sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionLineItemUpdateRequest { \n" +
+            "    newLineItems: " +  toIndentedString(newLineItems) + " \n" +
+            "    transactionId: " + toIndentedString(transactionId) + " \n" +
+            "}";
+        }
 
 
 }

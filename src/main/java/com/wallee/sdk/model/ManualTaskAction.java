@@ -107,16 +107,14 @@ public class ManualTaskAction extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ManualTaskAction {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    label: ").append(toIndentedString(label)).append("\n");
-        sb.append("    style: ").append(toIndentedString(style)).append("\n");
-        sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ManualTaskAction { \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    label: " + toIndentedString(label) + " \n" +
+            "    style: " + toIndentedString(style) + "\n" +
+            "    taskType: " + toIndentedString(taskType) + " \n" +
+            "}";
+        }
 
 
 }

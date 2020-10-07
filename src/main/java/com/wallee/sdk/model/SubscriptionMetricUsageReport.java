@@ -225,23 +225,21 @@ public class SubscriptionMetricUsageReport extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionMetricUsageReport {\n");
 
-        sb.append("    consumedUnits: ").append(toIndentedString(consumedUnits)).append("\n");
-        sb.append("    createdByUserId: ").append(toIndentedString(createdByUserId)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionMetricUsageReport { \n" +
+            "    consumedUnits: " + toIndentedString(consumedUnits) + "\n" +
+            "    createdByUserId: " + toIndentedString(createdByUserId) + "\n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    description: " + toIndentedString(description) +  " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    metric: " + toIndentedString(metric) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    subscription: " + toIndentedString(subscription) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

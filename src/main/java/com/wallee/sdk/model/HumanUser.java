@@ -237,24 +237,22 @@ public class HumanUser extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HumanUser {\n");
 
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    emailAddressVerified: ").append(toIndentedString(emailAddressVerified)).append("\n");
-        sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
-        sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-        sb.append("    mobilePhoneVerified: ").append(toIndentedString(mobilePhoneVerified)).append("\n");
-        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
-        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
-        sb.append("    twoFactorType: ").append(toIndentedString(twoFactorType)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class HumanUser {\n" +
+            "    emailAddress: " + toIndentedString(emailAddress) +  "\n" +
+            "    emailAddressVerified: " + toIndentedString(emailAddressVerified) + "\n" +
+            "    firstname: " + toIndentedString(firstname) + "\n" +
+            "    language: " + toIndentedString(language) +  "\n" +
+            "    lastname: " + toIndentedString(lastname) + "\n" +
+            "    mobilePhoneNumber: " +  toIndentedString(mobilePhoneNumber) + "\n" +
+            "    mobilePhoneVerified: " + toIndentedString(mobilePhoneVerified) +  "\n" +
+            "    primaryAccount: " + toIndentedString(primaryAccount) + "\n" +
+            "    scope: " + toIndentedString(scope) + "\n" +
+            "    timeZone: " + toIndentedString(timeZone) + "\n" +
+            "    twoFactorEnabled: " +  toIndentedString(twoFactorEnabled) + "\n" +
+            "    twoFactorType: " + toIndentedString(twoFactorType) + "\n" +
+            "}";
+        }
 
 
 }

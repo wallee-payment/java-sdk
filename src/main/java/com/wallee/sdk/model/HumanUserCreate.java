@@ -83,21 +83,19 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HumanUserCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-        sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
-        sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
-        sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class HumanUserCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    emailAddress: " + toIndentedString(emailAddress) + " \n" +
+            "    firstname: " +  toIndentedString(firstname) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lastname: " + toIndentedString(lastname) + "\n" +
+            "    mobilePhoneNumber: " + toIndentedString(mobilePhoneNumber) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) +  " \n" +
+            "    twoFactorEnabled: " + toIndentedString(twoFactorEnabled) + " \n" +
+            "    primaryAccount: " + toIndentedString(primaryAccount) + "\n" +
+            "}";
+        }
 
 
 }

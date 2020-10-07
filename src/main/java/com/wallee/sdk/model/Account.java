@@ -285,27 +285,25 @@ public class Account extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Account {\n");
 
-        sb.append("    active: ").append(toIndentedString(active)).append("\n");
-        sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
-        sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
-        sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    restrictedActive: ").append(toIndentedString(restrictedActive)).append("\n");
-        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class Account { \n" +
+            "    active: " + toIndentedString(active) +  " \n" +
+            "    activeOrRestrictedActive: " + toIndentedString(activeOrRestrictedActive) + " \n" +
+            "    deletedBy: " + toIndentedString(deletedBy) + " \n" +
+            "    deletedOn: " + toIndentedString(deletedOn) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    lastModifiedDate: " + toIndentedString(lastModifiedDate) +  " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    parentAccount: " + toIndentedString(parentAccount) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    restrictedActive: " + toIndentedString(restrictedActive) + " \n" +
+            "    scope: " + toIndentedString(scope) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subaccountLimit: " + toIndentedString(subaccountLimit) +  " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+      }
 
 }
 

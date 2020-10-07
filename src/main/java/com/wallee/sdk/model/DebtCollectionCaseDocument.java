@@ -215,23 +215,21 @@ public class DebtCollectionCaseDocument extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DebtCollectionCaseDocument {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    debtCollectionCase: ").append(toIndentedString(debtCollectionCase)).append("\n");
-        sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    storageId: ").append(toIndentedString(storageId)).append("\n");
-        sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DebtCollectionCaseDocument {\n" +
+            "    createdOn: " + toIndentedString(createdOn) +  "\n" +
+            "    debtCollectionCase: " + toIndentedString(debtCollectionCase) + "\n" +
+            "    fileName: " + toIndentedString(fileName) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    labels: " + toIndentedString(labels) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    mimeType: " + toIndentedString(mimeType) + "\n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + "\n" +
+            "    storageId: " + toIndentedString(storageId) + "\n" +
+            "    uniqueId: " + toIndentedString(uniqueId) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

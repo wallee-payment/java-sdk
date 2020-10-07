@@ -91,15 +91,13 @@ public class LocalizedString extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LocalizedString {\n");
 
-        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    string: ").append(toIndentedString(string)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LocalizedString { \n" +
+            "    displayName: " + toIndentedString(displayName) +  "\n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    string: " + toIndentedString(string) +  "\n" +
+            "}";
+        }
 
 
 }

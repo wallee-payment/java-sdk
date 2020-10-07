@@ -323,31 +323,29 @@ public class Subscription extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Subscription {\n");
 
-        sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
-        sb.append("    affiliate: ").append(toIndentedString(affiliate)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    initializedOn: ").append(toIndentedString(initializedOn)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    plannedTerminationDate: ").append(toIndentedString(plannedTerminationDate)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
-        sb.append("    terminatedBy: ").append(toIndentedString(terminatedBy)).append("\n");
-        sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");
-        sb.append("    terminatingOn: ").append(toIndentedString(terminatingOn)).append("\n");
-        sb.append("    terminationScheduledOn: ").append(toIndentedString(terminationScheduledOn)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Subscription { \n" +
+            "    activatedOn: " + toIndentedString(activatedOn) +  "\n" +
+            "    affiliate: " + toIndentedString(affiliate) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    initializedOn: " + toIndentedString(initializedOn) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    plannedTerminationDate: " + toIndentedString(plannedTerminationDate) + " \n" +
+            "    reference: " + toIndentedString(reference) +  "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subscriber: " + toIndentedString(subscriber) +  "\n" +
+            "    terminatedBy: " + toIndentedString(terminatedBy) + " \n" +
+            "    terminatedOn: " +  toIndentedString(terminatedOn) + " \n" +
+            "    terminatingOn: " + toIndentedString(terminatingOn) +  "\n" +
+            "    terminationScheduledOn: " + toIndentedString(terminationScheduledOn) + " \n" +
+            "    token: " + toIndentedString(token) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

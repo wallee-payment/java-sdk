@@ -202,18 +202,16 @@ public class SubscriptionLedgerEntryCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionLedgerEntryCreate {\n");
 
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
-        sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionLedgerEntryCreate { \n" +
+            "    amountIncludingTax: " +  toIndentedString(amountIncludingTax) + " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    quantity: " + toIndentedString(quantity) + " \n" +
+            "    subscriptionVersion: " + toIndentedString(subscriptionVersion) + "\n" +
+            "    taxes: " + toIndentedString(taxes) + " \n" +
+            "    title: " + toIndentedString(title) +  " \n" +
+            "}";
+        }
 
 
 }

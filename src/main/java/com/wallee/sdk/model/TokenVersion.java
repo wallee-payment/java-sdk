@@ -388,35 +388,33 @@ public class TokenVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TokenVersion {\n");
 
-        sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    expiresOn: ").append(toIndentedString(expiresOn)).append("\n");
-        sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    obsoletedOn: ").append(toIndentedString(obsoletedOn)).append("\n");
-        sb.append("    paymentConnectorConfiguration: ").append(toIndentedString(paymentConnectorConfiguration)).append("\n");
-        sb.append("    paymentInformationHashes: ").append(toIndentedString(paymentInformationHashes)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    paymentMethodBrand: ").append(toIndentedString(paymentMethodBrand)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processorToken: ").append(toIndentedString(processorToken)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TokenVersion {\n" +
+            "    activatedOn: " + toIndentedString(activatedOn) +  "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    createdOn: " +  toIndentedString(createdOn) + "\n" +
+            "    environment: " + toIndentedString(environment) + "\n" +
+            "    expiresOn: " + toIndentedString(expiresOn) + "\n" +
+            "    iconUrl: " + toIndentedString(iconUrl) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    labels: " + toIndentedString(labels) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    obsoletedOn: " + toIndentedString(obsoletedOn) +  "\n" +
+            "    paymentConnectorConfiguration: " + toIndentedString(paymentConnectorConfiguration) +  "\n" +
+            "    paymentInformationHashes: " + toIndentedString(paymentInformationHashes) +  "\n" +
+            "    paymentMethod: " + toIndentedString(paymentMethod) + "\n" +
+            "    paymentMethodBrand: " + toIndentedString(paymentMethodBrand) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    processorToken: " + toIndentedString(processorToken) + "\n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    token: " + toIndentedString(token) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

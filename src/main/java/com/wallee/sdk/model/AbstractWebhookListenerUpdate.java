@@ -158,15 +158,13 @@ public class AbstractWebhookListenerUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractWebhookListenerUpdate {\n");
 
-        sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractWebhookListenerUpdate { \n" +
+            "    entityStates: " + toIndentedString(entityStates) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    notifyEveryChange: " + toIndentedString(notifyEveryChange) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "}";
     }
 
 }

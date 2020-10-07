@@ -359,32 +359,30 @@ public class SubscriptionProductVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductVersion {\n");
 
-        sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
-        sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
-        sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
-        sb.append("    enabledCurrencies: ").append(toIndentedString(enabledCurrencies)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    incrementNumber: ").append(toIndentedString(incrementNumber)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    minimalNumberOfPeriods: ").append(toIndentedString(minimalNumberOfPeriods)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    numberOfNoticePeriods: ").append(toIndentedString(numberOfNoticePeriods)).append("\n");
-        sb.append("    obsoletedOn: ").append(toIndentedString(obsoletedOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    product: ").append(toIndentedString(product)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    retiringFinishedOn: ").append(toIndentedString(retiringFinishedOn)).append("\n");
-        sb.append("    retiringStartedOn: ").append(toIndentedString(retiringStartedOn)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductVersion { \n" +
+            "    activatedOn: " + toIndentedString(activatedOn) +  "\n" +
+            "    billingCycle: " + toIndentedString(billingCycle) + " \n" +
+            "    comment: " + toIndentedString(comment) + "\n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    defaultCurrency: " +  toIndentedString(defaultCurrency) + " \n" +
+            "    enabledCurrencies: " + toIndentedString(enabledCurrencies) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    incrementNumber: " + toIndentedString(incrementNumber) +  "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    minimalNumberOfPeriods: " + toIndentedString(minimalNumberOfPeriods) + " \n" +
+            "    name: " + toIndentedString(name) +  "\n" +
+            "    numberOfNoticePeriods: " + toIndentedString(numberOfNoticePeriods) + " \n" +
+            "    obsoletedOn: " + toIndentedString(obsoletedOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  "\n" +
+            "    product: " + toIndentedString(product) + " \n" +
+            "    reference: " + toIndentedString(reference) +  "\n" +
+            "    retiringFinishedOn: " + toIndentedString(retiringFinishedOn) + " \n" +
+            "    retiringStartedOn: " + toIndentedString(retiringStartedOn) + " \n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

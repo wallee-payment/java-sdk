@@ -81,17 +81,15 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ChargeFlowLevelPaymentLink {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
-        sb.append("    paymentLink: ").append(toIndentedString(paymentLink)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ChargeFlowLevelPaymentLink { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    chargeFlowLevel: " + toIndentedString(chargeFlowLevel) + " \n" +
+            "    paymentLink: " + toIndentedString(paymentLink) +  "\n" +
+            "}";
+        }
 
 
 }

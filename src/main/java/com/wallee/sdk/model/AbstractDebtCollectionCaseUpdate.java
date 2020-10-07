@@ -259,19 +259,17 @@ public class AbstractDebtCollectionCaseUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractDebtCollectionCaseUpdate {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractDebtCollectionCaseUpdate { \n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + " \n" +
+            "    contractDate: " + toIndentedString(contractDate) + " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    dueDate: " + toIndentedString(dueDate) + " \n" +
+            "    environment: " + toIndentedString(environment) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "}";
     }
 
 }

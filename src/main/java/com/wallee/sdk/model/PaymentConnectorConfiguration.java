@@ -251,25 +251,24 @@ public class PaymentConnectorConfiguration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentConnectorConfiguration {\n");
 
-        sb.append("    applicableForTransactionProcessing: ").append(toIndentedString(applicableForTransactionProcessing)).append("\n");
-        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-        sb.append("    connector: ").append(toIndentedString(connector)).append("\n");
-        sb.append("    enabledSpaceViews: ").append(toIndentedString(enabledSpaceViews)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethodConfiguration: ").append(toIndentedString(paymentMethodConfiguration)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-        sb.append("    processorConfiguration: ").append(toIndentedString(processorConfiguration)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      String sb =
+        "class PaymentConnectorConfiguration { \n" +
+            "    applicableForTransactionProcessing: " +  toIndentedString(applicableForTransactionProcessing) + " \n" +
+            "    conditions: " + toIndentedString(conditions) +  "\n" +
+            "    connector: " + toIndentedString(connector) + " \n" +
+            "    enabledSpaceViews: " +  toIndentedString(enabledSpaceViews) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) +  "\n" +
+            "    paymentMethodConfiguration: " + toIndentedString(paymentMethodConfiguration) +  "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    priority: " +  toIndentedString(priority) + " \n" +
+            "    processorConfiguration: " + toIndentedString(processorConfiguration) +  "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+      }
 
 
 }

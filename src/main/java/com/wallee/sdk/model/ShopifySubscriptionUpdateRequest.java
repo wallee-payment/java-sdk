@@ -174,17 +174,15 @@ public class ShopifySubscriptionUpdateRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionUpdateRequest {\n");
 
-        sb.append("    billingConfiguration: ").append(toIndentedString(billingConfiguration)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
-        sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionUpdateRequest { \n" +
+            "    billingConfiguration: " +  toIndentedString(billingConfiguration) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    items: " +  toIndentedString(items) + " \n" +
+            "    storeOrderConfirmationEmailEnabled: " +  toIndentedString(storeOrderConfirmationEmailEnabled) + " \n" +
+            "    subscriberSuspensionAllowed: " +  toIndentedString(subscriberSuspensionAllowed) + " \n" +
+            "}";
+        }
 
 
 }

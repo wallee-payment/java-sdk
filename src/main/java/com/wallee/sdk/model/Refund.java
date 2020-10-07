@@ -518,44 +518,42 @@ public class Refund extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Refund {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    baseLineItems: ").append(toIndentedString(baseLineItems)).append("\n");
-        sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    processingOn: ").append(toIndentedString(processingOn)).append("\n");
-        sb.append("    processorReference: ").append(toIndentedString(processorReference)).append("\n");
-        sb.append("    reducedLineItems: ").append(toIndentedString(reducedLineItems)).append("\n");
-        sb.append("    reductions: ").append(toIndentedString(reductions)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
-        sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    totalAppliedFees: ").append(toIndentedString(totalAppliedFees)).append("\n");
-        sb.append("    totalSettledAmount: ").append(toIndentedString(totalSettledAmount)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    updatedInvoice: ").append(toIndentedString(updatedInvoice)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Refund { \n" +
+            "    amount: " + toIndentedString(amount) + "\n" +
+            "    baseLineItems: " + toIndentedString(baseLineItems) + " \n" +
+            "    completion: " + toIndentedString(completion) +  " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    environment: " + toIndentedString(environment) + "\n" +
+            "    externalId: " +  toIndentedString(externalId) + "\n" +
+            "    failedOn: " + toIndentedString(failedOn) + "\n" +
+            "    failureReason: " + toIndentedString(failureReason) + " \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    labels: " + toIndentedString(labels) + " \n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + " \n" +
+            "    nextUpdateOn: " + toIndentedString(nextUpdateOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    processingOn: " + toIndentedString(processingOn) + "\n" +
+            "    processorReference: " + toIndentedString(processorReference) + " \n" +
+            "    reducedLineItems: " + toIndentedString(reducedLineItems) + "\n" +
+            "    reductions: " + toIndentedString(reductions) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    succeededOn: " + toIndentedString(succeededOn) + "\n" +
+            "    taxes: " + toIndentedString(taxes) + "\n" +
+            "    timeZone: " + toIndentedString(timeZone) + "\n" +
+            "    timeoutOn: " +  toIndentedString(timeoutOn) + "\n" +
+            "    totalAppliedFees: " + toIndentedString(totalAppliedFees) +  " \n" +
+            "    totalSettledAmount: " + toIndentedString(totalSettledAmount) + " \n" +
+            "    transaction: " + toIndentedString(transaction) + " \n" +
+            "    type: " + toIndentedString(type) +  " \n" +
+            "    updatedInvoice: " + toIndentedString(updatedInvoice) + " \n" +
+            "    version: " +  toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

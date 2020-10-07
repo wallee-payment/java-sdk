@@ -62,26 +62,24 @@ public class SubscriptionSuspensionRunning extends SubscriptionSuspension {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionSuspensionRunning {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    effectiveEndDate: ").append(toIndentedString(effectiveEndDate)).append("\n");
-        sb.append("    endAction: ").append(toIndentedString(endAction)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    note: ").append(toIndentedString(note)).append("\n");
-        sb.append("    periodBill: ").append(toIndentedString(periodBill)).append("\n");
-        sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionSuspensionRunning { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    effectiveEndDate: " +  toIndentedString(effectiveEndDate) + " \n" +
+            "    endAction: " + toIndentedString(endAction) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    note: " + toIndentedString(note) + " \n" +
+            "    periodBill: " + toIndentedString(periodBill) + " \n" +
+            "    plannedEndDate: " + toIndentedString(plannedEndDate) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    reason: " +  toIndentedString(reason) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subscription: " +  toIndentedString(subscription) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

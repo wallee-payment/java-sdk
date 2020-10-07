@@ -146,18 +146,16 @@ public class RestCountry extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RestCountry {\n");
 
-        sb.append("    isOCode2Letter: ").append(toIndentedString(isOCode2Letter)).append("\n");
-        sb.append("    isOCode3Letter: ").append(toIndentedString(isOCode3Letter)).append("\n");
-        sb.append("    addressFormat: ").append(toIndentedString(addressFormat)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    numericCode: ").append(toIndentedString(numericCode)).append("\n");
-        sb.append("    stateCodes: ").append(toIndentedString(stateCodes)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RestCountry { \n" +
+            "    isOCode2Letter: " + toIndentedString(isOCode2Letter) +  "\n" +
+            "    isOCode3Letter: " + toIndentedString(isOCode3Letter) + " \n" +
+            "    addressFormat: " + toIndentedString(addressFormat) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    numericCode: " + toIndentedString(numericCode) + " \n" +
+            "    stateCodes: " + toIndentedString(stateCodes) + " \n" +
+            "}";
+        }
 
 
 }

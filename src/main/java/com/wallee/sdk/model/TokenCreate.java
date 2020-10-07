@@ -103,20 +103,18 @@ public class TokenCreate extends AbstractTokenUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TokenCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-        sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-        sb.append("    enabledForOneClickPayment: ").append(toIndentedString(enabledForOneClickPayment)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class TokenCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    customerEmailAddress: " + toIndentedString(customerEmailAddress) + " \n" +
+            "    customerId: " + toIndentedString(customerId) + " \n" +
+            "    enabledForOneClickPayment: " +  toIndentedString(enabledForOneClickPayment) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "    tokenReference: " + toIndentedString(tokenReference) +  "\n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "}";
+      }
 
 
 }

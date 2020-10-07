@@ -123,14 +123,12 @@ public class AbstractAccountUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractAccountUpdate {\n");
 
-        sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractAccountUpdate { \n" +
+            "    lastModifiedDate: " + toIndentedString(lastModifiedDate) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    subaccountLimit: " + toIndentedString(subaccountLimit) + " \n" +
+            "}";
     }
 
 }

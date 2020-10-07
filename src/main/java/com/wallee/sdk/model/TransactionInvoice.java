@@ -356,35 +356,33 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionInvoice {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    derecognizedBy: ").append(toIndentedString(derecognizedBy)).append("\n");
-        sb.append("    derecognizedOn: ").append(toIndentedString(derecognizedOn)).append("\n");
-        sb.append("    dueOn: ").append(toIndentedString(dueOn)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    outstandingAmount: ").append(toIndentedString(outstandingAmount)).append("\n");
-        sb.append("    paidOn: ").append(toIndentedString(paidOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionInvoice { \n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    amount: " +  toIndentedString(amount) + "\n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    completion: " + toIndentedString(completion) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    derecognizedBy: " + toIndentedString(derecognizedBy) + " \n" +
+            "    derecognizedOn: " + toIndentedString(derecognizedOn) + " \n" +
+            "    dueOn: " + toIndentedString(dueOn) +  " \n" +
+            "    environment: " + toIndentedString(environment) + " \n" +
+            "    externalId: " +  toIndentedString(externalId) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    merchantReference: " + toIndentedString(merchantReference) +  " \n" +
+            "    outstandingAmount: " + toIndentedString(outstandingAmount) + " \n" +
+            "    paidOn: " +  toIndentedString(paidOn) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    taxAmount: " + toIndentedString(taxAmount) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

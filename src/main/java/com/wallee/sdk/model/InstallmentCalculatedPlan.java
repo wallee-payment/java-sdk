@@ -121,17 +121,15 @@ public class InstallmentCalculatedPlan extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class InstallmentCalculatedPlan {\n");
 
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
-        sb.append("    paymentMethodConfigurations: ").append(toIndentedString(paymentMethodConfigurations)).append("\n");
-        sb.append("    slices: ").append(toIndentedString(slices)).append("\n");
-        sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class InstallmentCalculatedPlan { \n" +
+            "    _configuration: " + toIndentedString(_configuration) + "\n" +
+            "    paymentMethodConfigurations: " + toIndentedString(paymentMethodConfigurations) +  "\n" +
+            "    slices: " + toIndentedString(slices) + " \n" +
+            "    totalAmount: " + toIndentedString(totalAmount) + "\n" +
+            "    transaction: " + toIndentedString(transaction) + " \n" +
+            "}";
+        }
 
 
 }

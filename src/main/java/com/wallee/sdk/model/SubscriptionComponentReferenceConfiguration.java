@@ -98,14 +98,12 @@ public class SubscriptionComponentReferenceConfiguration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionComponentReferenceConfiguration {\n");
 
-        sb.append("    productComponentReferenceId: ").append(toIndentedString(productComponentReferenceId)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionComponentReferenceConfiguration {\n" +
+            "    productComponentReferenceId: " + toIndentedString(productComponentReferenceId) + "\n" +
+            "    quantity: " + toIndentedString(quantity) +  "\n" +
+            "}";
+        }
 
 
 }

@@ -187,17 +187,15 @@ public class EntityQueryFilter extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EntityQueryFilter {\n");
 
-        sb.append("    children: ").append(toIndentedString(children)).append("\n");
-        sb.append("    fieldName: ").append(toIndentedString(fieldName)).append("\n");
-        sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class EntityQueryFilter { \n" +
+            "    children: " + toIndentedString(children) +  "\n" +
+            "    fieldName: " + toIndentedString(fieldName) + " \n" +
+            "    operator: " + toIndentedString(operator) +  "\n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    value: " + toIndentedString(value) + " \n" +
+            "}";
+      }
 
 
 }

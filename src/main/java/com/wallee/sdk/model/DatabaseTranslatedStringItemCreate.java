@@ -95,14 +95,12 @@ public class DatabaseTranslatedStringItemCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DatabaseTranslatedStringItemCreate {\n");
 
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    translation: ").append(toIndentedString(translation)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DatabaseTranslatedStringItemCreate { \n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    translation: " + toIndentedString(translation) + "\n" +
+            "}";
+        }
 
 
 }

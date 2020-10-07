@@ -144,21 +144,19 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ConnectorInvocation {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
-        sb.append("    timeTookInMilliseconds: ").append(toIndentedString(timeTookInMilliseconds)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ConnectorInvocation { \n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  " \n" +
+            "    stage: " + toIndentedString(stage) + " \n" +
+            "    timeTookInMilliseconds: " +  toIndentedString(timeTookInMilliseconds) + "\n" +
+            "    transaction: " + toIndentedString(transaction) + "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

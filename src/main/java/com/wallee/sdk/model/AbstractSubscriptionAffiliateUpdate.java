@@ -36,14 +36,11 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
     @JsonProperty("language")
     protected String language;
 
-
     @JsonProperty("metaData")
     protected Map<String, String> metaData;
 
-
     @JsonProperty("name")
     protected String name;
-
 
     @JsonProperty("state")
     protected CreationEntityState state;
@@ -154,15 +151,13 @@ public class AbstractSubscriptionAffiliateUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractSubscriptionAffiliateUpdate {\n");
 
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractSubscriptionAffiliateUpdate { \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    metaData: " + toIndentedString(metaData) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "}";
     }
 
 }

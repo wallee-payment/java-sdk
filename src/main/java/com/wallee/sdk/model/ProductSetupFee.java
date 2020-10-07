@@ -205,22 +205,20 @@ public class ProductSetupFee extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProductSetupFee {\n");
 
-        sb.append("    component: ").append(toIndentedString(component)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    onDowngradeCreditedAmount: ").append(toIndentedString(onDowngradeCreditedAmount)).append("\n");
-        sb.append("    onUpgradeCreditedAmount: ").append(toIndentedString(onUpgradeCreditedAmount)).append("\n");
-        sb.append("    setupFee: ").append(toIndentedString(setupFee)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ProductSetupFee { \n" +
+            "    component: " + toIndentedString(component) +  " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    onDowngradeCreditedAmount: " + toIndentedString(onDowngradeCreditedAmount) +  " \n" +
+            "    onUpgradeCreditedAmount: " + toIndentedString(onUpgradeCreditedAmount) + " \n" +
+            "    setupFee: " + toIndentedString(setupFee) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

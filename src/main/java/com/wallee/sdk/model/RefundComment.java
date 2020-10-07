@@ -200,22 +200,20 @@ public class RefundComment extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundComment {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
-        sb.append("    editedOn: ").append(toIndentedString(editedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    pinned: ").append(toIndentedString(pinned)).append("\n");
-        sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RefundComment { \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    editedBy: " + toIndentedString(editedBy) + " \n" +
+            "    editedOn: " + toIndentedString(editedOn) +  " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    pinned: " + toIndentedString(pinned) + " \n" +
+            "    refund: " + toIndentedString(refund) +  " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

@@ -200,25 +200,23 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ChargeFlowLevel {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    asynchronousCharge: ").append(toIndentedString(asynchronousCharge)).append("\n");
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    synchronousCharge: ").append(toIndentedString(synchronousCharge)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    tokenCharge: ").append(toIndentedString(tokenCharge)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ChargeFlowLevel {\n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + "\n" +
+            "    asynchronousCharge: " + toIndentedString(asynchronousCharge) + "\n" +
+            "    _configuration: " + toIndentedString(_configuration) + "\n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "    synchronousCharge: " + toIndentedString(synchronousCharge) + "\n" +
+            "    timeoutOn: " + toIndentedString(timeoutOn) + "\n" +
+            "    tokenCharge: " + toIndentedString(tokenCharge) +  "\n" +
+            "    transaction: " + toIndentedString(transaction) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

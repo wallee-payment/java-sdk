@@ -323,29 +323,27 @@ public class InstallmentPlanConfiguration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class InstallmentPlanConfiguration {\n");
 
-        sb.append("    baseCurrency: ").append(toIndentedString(baseCurrency)).append("\n");
-        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    installmentFee: ").append(toIndentedString(installmentFee)).append("\n");
-        sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    minimalAmount: ").append(toIndentedString(minimalAmount)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    paymentMethodConfigurations: ").append(toIndentedString(paymentMethodConfigurations)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    spaceReference: ").append(toIndentedString(spaceReference)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    taxClass: ").append(toIndentedString(taxClass)).append("\n");
-        sb.append("    termsAndConditions: ").append(toIndentedString(termsAndConditions)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class InstallmentPlanConfiguration { \n" +
+            "    baseCurrency: " + toIndentedString(baseCurrency) + "\n" +
+            "    conditions: " + toIndentedString(conditions) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    installmentFee: " + toIndentedString(installmentFee) + " \n" +
+            "    interestRate: " +  toIndentedString(interestRate) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    minimalAmount: " + toIndentedString(minimalAmount) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    paymentMethodConfigurations: " + toIndentedString(paymentMethodConfigurations) +  " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    sortOrder: " + toIndentedString(sortOrder) + " \n" +
+            "    spaceReference: " + toIndentedString(spaceReference) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    taxClass: " + toIndentedString(taxClass) +  " \n" +
+            "    termsAndConditions: " + toIndentedString(termsAndConditions) + " \n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

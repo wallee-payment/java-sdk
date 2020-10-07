@@ -72,12 +72,10 @@ public class AbstractRefundCommentActive extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractRefundCommentActive {\n");
 
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractRefundCommentActive { \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "}";
     }
 
 }

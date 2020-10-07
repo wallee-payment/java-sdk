@@ -101,15 +101,13 @@ public class TransactionCommentActive extends AbstractTransactionCommentActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionCommentActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionCommentActive { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

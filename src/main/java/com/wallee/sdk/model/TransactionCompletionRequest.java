@@ -159,16 +159,14 @@ public class TransactionCompletionRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionCompletionRequest {\n");
 
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionCompletionRequest { \n" +
+            "    externalId: " + toIndentedString(externalId) +  "\n" +
+            "    lastCompletion: " + toIndentedString(lastCompletion) + " \n" +
+            "    lineItems: " +  toIndentedString(lineItems) + " \n" +
+            "    transactionId: " + toIndentedString(transactionId) + " \n" +
+            "}";
+        }
 
 
 }

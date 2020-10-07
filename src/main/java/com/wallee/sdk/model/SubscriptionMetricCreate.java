@@ -77,15 +77,13 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionMetricCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionMetricCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "}";
+        }
 
 
 }

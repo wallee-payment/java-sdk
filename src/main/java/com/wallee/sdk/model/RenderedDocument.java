@@ -106,16 +106,14 @@ public class RenderedDocument extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RenderedDocument {\n");
 
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    documentTemplateType: ").append(toIndentedString(documentTemplateType)).append("\n");
-        sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RenderedDocument {\n" +
+            "    data: " + toIndentedString(data) +  "\n" +
+            "    documentTemplateType: " + toIndentedString(documentTemplateType) + "\n" +
+            "    mimeType: " + toIndentedString(mimeType) + "\n" +
+            "    title: " + toIndentedString(title) + "\n" +
+            "}";
+        }
 
 
 }

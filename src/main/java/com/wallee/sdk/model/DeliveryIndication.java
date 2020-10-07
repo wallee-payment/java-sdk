@@ -212,26 +212,24 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DeliveryIndication {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    automaticDecisionReason: ").append(toIndentedString(automaticDecisionReason)).append("\n");
-        sb.append("    automaticallyDecidedOn: ").append(toIndentedString(automaticallyDecidedOn)).append("\n");
-        sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    manualDecisionTimeoutOn: ").append(toIndentedString(manualDecisionTimeoutOn)).append("\n");
-        sb.append("    manuallyDecidedBy: ").append(toIndentedString(manuallyDecidedBy)).append("\n");
-        sb.append("    manuallyDecidedOn: ").append(toIndentedString(manuallyDecidedOn)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DeliveryIndication { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    automaticDecisionReason: " + toIndentedString(automaticDecisionReason) + " \n" +
+            "    automaticallyDecidedOn: " +  toIndentedString(automaticallyDecidedOn) + " \n" +
+            "    completion: " + toIndentedString(completion) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    manualDecisionTimeoutOn: " +  toIndentedString(manualDecisionTimeoutOn) + " \n" +
+            "    manuallyDecidedBy: " + toIndentedString(manuallyDecidedBy) +  " \n" +
+            "    manuallyDecidedOn: " + toIndentedString(manuallyDecidedOn) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "    timeoutOn: " + toIndentedString(timeoutOn) + " \n" +
+            "    transaction: " +  toIndentedString(transaction) + " \n" +
+            "}";
+        }
 
 
 }

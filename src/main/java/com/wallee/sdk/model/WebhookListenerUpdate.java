@@ -104,18 +104,16 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WebhookListenerUpdate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class WebhookListenerUpdate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    entityStates: " + toIndentedString(entityStates) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    notifyEveryChange: " + toIndentedString(notifyEveryChange) + " \n" +
+            "    state: " +  toIndentedString(state) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "}";
+        }
 
 
 }

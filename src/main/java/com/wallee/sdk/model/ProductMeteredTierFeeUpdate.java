@@ -183,17 +183,15 @@ public class ProductMeteredTierFeeUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProductMeteredTierFeeUpdate {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
-        sb.append("    meteredFee: ").append(toIndentedString(meteredFee)).append("\n");
-        sb.append("    startRange: ").append(toIndentedString(startRange)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ProductMeteredTierFeeUpdate { \n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "    fee: " + toIndentedString(fee) +  "\n" +
+            "    meteredFee: " + toIndentedString(meteredFee) + " \n" +
+            "    startRange: " +  toIndentedString(startRange) + " \n" +
+            "}";
+        }
 
 
 }

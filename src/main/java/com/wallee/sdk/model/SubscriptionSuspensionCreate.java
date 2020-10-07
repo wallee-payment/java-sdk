@@ -148,16 +148,14 @@ public class SubscriptionSuspensionCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionSuspensionCreate {\n");
 
-        sb.append("    endAction: ").append(toIndentedString(endAction)).append("\n");
-        sb.append("    note: ").append(toIndentedString(note)).append("\n");
-        sb.append("    plannedEndDate: ").append(toIndentedString(plannedEndDate)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionSuspensionCreate { \n" +
+            "    endAction: " + toIndentedString(endAction) +  " \n" +
+            "    note: " + toIndentedString(note) + " \n" +
+            "    plannedEndDate: " + toIndentedString(plannedEndDate) + "\n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "}";
+        }
 
 
 }

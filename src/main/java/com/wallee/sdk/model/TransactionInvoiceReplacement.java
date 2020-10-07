@@ -201,18 +201,16 @@ public class TransactionInvoiceReplacement extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransactionInvoiceReplacement {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    dueOn: ").append(toIndentedString(dueOn)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
-        sb.append("    sentToCustomer: ").append(toIndentedString(sentToCustomer)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class TransactionInvoiceReplacement { \n" +
+            "    billingAddress: " +  toIndentedString(billingAddress) + " \n" +
+            "    dueOn: " + toIndentedString(dueOn) + " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    lineItems: " + toIndentedString(lineItems) +  " \n" +
+            "    merchantReference: " + toIndentedString(merchantReference) + " \n" +
+            "    sentToCustomer: " + toIndentedString(sentToCustomer) + " \n" +
+            "}";
+        }
 
 
 }

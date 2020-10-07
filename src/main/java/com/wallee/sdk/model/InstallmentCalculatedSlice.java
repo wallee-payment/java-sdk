@@ -94,15 +94,13 @@ public class InstallmentCalculatedSlice extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class InstallmentCalculatedSlice {\n");
 
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
-        sb.append("    dueOn: ").append(toIndentedString(dueOn)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class InstallmentCalculatedSlice { \n" +
+            "    amountIncludingTax: " +  toIndentedString(amountIncludingTax) + " \n" +
+            "    dueOn: " + toIndentedString(dueOn) + " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "}";
+        }
 
 
 }

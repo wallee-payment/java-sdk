@@ -176,20 +176,18 @@ public class Role extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Role {\n");
 
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Role { \n" +
+            "    account: " + toIndentedString(account) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    permissions: " + toIndentedString(permissions) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) +  "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    twoFactorRequired: " +  toIndentedString(twoFactorRequired) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

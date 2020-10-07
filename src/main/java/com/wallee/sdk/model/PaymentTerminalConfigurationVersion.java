@@ -243,25 +243,23 @@ public class PaymentTerminalConfigurationVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentTerminalConfigurationVersion {\n");
 
-        sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
-        sb.append("    connectorConfigurations: ").append(toIndentedString(connectorConfigurations)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    maintenanceWindowDuration: ").append(toIndentedString(maintenanceWindowDuration)).append("\n");
-        sb.append("    maintenanceWindowStart: ").append(toIndentedString(maintenanceWindowStart)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    versionAppliedImmediately: ").append(toIndentedString(versionAppliedImmediately)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentTerminalConfigurationVersion { \n" +
+            "    _configuration: " +  toIndentedString(_configuration) + "\n" +
+            "    connectorConfigurations: " + toIndentedString(connectorConfigurations) +  " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + "\n" +
+            "    maintenanceWindowDuration: " + toIndentedString(maintenanceWindowDuration) +  " \n" +
+            "    maintenanceWindowStart: " + toIndentedString(maintenanceWindowStart) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "    versionAppliedImmediately: " + toIndentedString(versionAppliedImmediately) + " \n" +
+            "}";
+        }
 
 
 }

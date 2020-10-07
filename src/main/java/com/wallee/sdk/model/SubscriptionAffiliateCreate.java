@@ -102,18 +102,16 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionAffiliateCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionAffiliateCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  "\n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    metaData: " + toIndentedString(metaData) +  "\n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    reference: " + toIndentedString(reference) + "\n" +
+            "}";
+        }
 
 
 }

@@ -117,16 +117,14 @@ public class MetricUsage extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MetricUsage {\n");
 
-        sb.append("    consumedUnits: ").append(toIndentedString(consumedUnits)).append("\n");
-        sb.append("    metricDescription: ").append(toIndentedString(metricDescription)).append("\n");
-        sb.append("    metricId: ").append(toIndentedString(metricId)).append("\n");
-        sb.append("    metricName: ").append(toIndentedString(metricName)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class MetricUsage { \n" +
+            "    consumedUnits: " + toIndentedString(consumedUnits) +  " \n" +
+            "    metricDescription: " + toIndentedString(metricDescription) + " \n" +
+            "    metricId: " + toIndentedString(metricId) + " \n" +
+            "    metricName: " + toIndentedString(metricName) + " \n" +
+            "}";
+        }
 
 
 }

@@ -186,17 +186,15 @@ public class EntityQuery extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EntityQuery {\n");
 
-        sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    numberOfEntities: ").append(toIndentedString(numberOfEntities)).append("\n");
-        sb.append("    orderBys: ").append(toIndentedString(orderBys)).append("\n");
-        sb.append("    startingEntity: ").append(toIndentedString(startingEntity)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class EntityQuery {\n" +
+            "    filter: " + toIndentedString(filter) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    numberOfEntities: " + toIndentedString(numberOfEntities) +  "\n" +
+            "    orderBys: " + toIndentedString(orderBys) + "\n" +
+            "    startingEntity: " +  toIndentedString(startingEntity) + "\n" +
+            "}";
+        }
 
 
 }

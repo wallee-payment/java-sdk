@@ -257,19 +257,17 @@ public class AbstractSpaceUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AbstractSpaceUpdate {\n");
 
-        sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-        sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
-        sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    technicalContactAddresses: ").append(toIndentedString(technicalContactAddresses)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("}");
-        return sb.toString();
+        return "class AbstractSpaceUpdate { \n" +
+            "    lastModifiedDate: " + toIndentedString(lastModifiedDate) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    postalAddress: " + toIndentedString(postalAddress) + " \n" +
+            "    primaryCurrency: " + toIndentedString(primaryCurrency) + " \n" +
+            "    requestLimit: " + toIndentedString(requestLimit) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    technicalContactAddresses: " + toIndentedString(technicalContactAddresses) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "}";
     }
 
 }

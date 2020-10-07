@@ -357,25 +357,23 @@ public class ShopifySubscriptionCreationRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionCreationRequest {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    billingConfiguration: ").append(toIndentedString(billingConfiguration)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    shippingMethodName: ").append(toIndentedString(shippingMethodName)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
-        sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
-        sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionCreationRequest { \n" +
+            "    billingAddress: " +  toIndentedString(billingAddress) + "\n" +
+            "    billingConfiguration: " + toIndentedString(billingConfiguration) +  " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    externalId: " + toIndentedString(externalId) + "\n" +
+            "    integration: " + toIndentedString(integration) + "\n" +
+            "    items: " + toIndentedString(items) + "\n" +
+            "    language: " + toIndentedString(language) + "\n" +
+            "    shippingAddress: " +  toIndentedString(shippingAddress) + "\n" +
+            "    shippingMethodName: " + toIndentedString(shippingMethodName) +  " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    storeOrderConfirmationEmailEnabled: " + toIndentedString(storeOrderConfirmationEmailEnabled) + " \n" +
+            "    subscriber: " +  toIndentedString(subscriber) + "\n" +
+            "    subscriberSuspensionAllowed: " + toIndentedString(subscriberSuspensionAllowed) + "\n" +
+            "}";
+        }
 
 
 }

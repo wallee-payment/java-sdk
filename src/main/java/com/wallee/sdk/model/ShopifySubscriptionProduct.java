@@ -487,41 +487,39 @@ public class ShopifySubscriptionProduct extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionProduct {\n");
 
-        sb.append("    absolutePriceAdjustment: ").append(toIndentedString(absolutePriceAdjustment)).append("\n");
-        sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
-        sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
-        sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
-        sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
-        sb.append("    fixedPrice: ").append(toIndentedString(fixedPrice)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
-        sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
-        sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    pricingOption: ").append(toIndentedString(pricingOption)).append("\n");
-        sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
-        sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
-        sb.append("    productPrice: ").append(toIndentedString(productPrice)).append("\n");
-        sb.append("    productSku: ").append(toIndentedString(productSku)).append("\n");
-        sb.append("    productVariantId: ").append(toIndentedString(productVariantId)).append("\n");
-        sb.append("    productVariantName: ").append(toIndentedString(productVariantName)).append("\n");
-        sb.append("    relativePriceAdjustment: ").append(toIndentedString(relativePriceAdjustment)).append("\n");
-        sb.append("    shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    stockCheckRequired: ").append(toIndentedString(stockCheckRequired)).append("\n");
-        sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
-        sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
-        sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionProduct {\n" +
+            "    absolutePriceAdjustment: " +  toIndentedString(absolutePriceAdjustment) + "\n" +
+            "    billingDayOfMonth: " + toIndentedString(billingDayOfMonth) +  "\n" +
+            "    billingIntervalAmount: " + toIndentedString(billingIntervalAmount) +  "\n" +
+            "    billingIntervalUnit: " + toIndentedString(billingIntervalUnit) + "\n" +
+            "    billingWeekday: " + toIndentedString(billingWeekday) + "\n" +
+            "    fixedPrice: " + toIndentedString(fixedPrice) +  "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    maximalBillingCycles: " + toIndentedString(maximalBillingCycles) +  "\n" +
+            "    maximalSuspendableCycles: " + toIndentedString(maximalSuspendableCycles) +  "\n" +
+            "    minimalBillingCycles: " + toIndentedString(minimalBillingCycles) + "\n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    pricingOption: " + toIndentedString(pricingOption) +  "\n" +
+            "    productId: " + toIndentedString(productId) + "\n" +
+            "    productName: " +  toIndentedString(productName) + "\n" +
+            "    productPrice: " + toIndentedString(productPrice) + "\n" +
+            "    productSku: " + toIndentedString(productSku) + "\n" +
+            "    productVariantId: " + toIndentedString(productVariantId) +  "\n" +
+            "    productVariantName: " + toIndentedString(productVariantName) + "\n" +
+            "    relativePriceAdjustment: " + toIndentedString(relativePriceAdjustment) + "\n" +
+            "    shippingRequired: " +  toIndentedString(shippingRequired) + "\n" +
+            "    shop: " + toIndentedString(shop) + "\n" +
+            "    state: " +  toIndentedString(state) + "\n" +
+            "    stockCheckRequired: " + toIndentedString(stockCheckRequired) +  "\n" +
+            "    storeOrderConfirmationEmailEnabled: " + toIndentedString(storeOrderConfirmationEmailEnabled) +  "\n" +
+            "    subscriberSuspensionAllowed: " + toIndentedString(subscriberSuspensionAllowed) +  "\n" +
+            "    terminationBillingCycles: " + toIndentedString(terminationBillingCycles) + "\n" +
+            "    updatedAt: " + toIndentedString(updatedAt) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

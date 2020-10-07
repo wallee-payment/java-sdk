@@ -75,15 +75,13 @@ public class CustomerAddressCreate extends AbstractCustomerAddressActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CustomerAddressCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
-        sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CustomerAddressCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    address: " + toIndentedString(address) + " \n" +
+            "    addressType: " + toIndentedString(addressType) + "\n" +
+            "    customer: " + toIndentedString(customer) + "\n" +
+            "}";
+        }
 
 
 }

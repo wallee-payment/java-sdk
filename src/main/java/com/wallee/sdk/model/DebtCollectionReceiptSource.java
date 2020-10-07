@@ -96,15 +96,13 @@ public class DebtCollectionReceiptSource extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DebtCollectionReceiptSource {\n");
 
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DebtCollectionReceiptSource {\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "}";
+        }
 
 
 }

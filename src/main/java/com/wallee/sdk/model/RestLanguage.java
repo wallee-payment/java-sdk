@@ -145,18 +145,16 @@ public class RestLanguage extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RestLanguage {\n");
 
-        sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-        sb.append("    ietfCode: ").append(toIndentedString(ietfCode)).append("\n");
-        sb.append("    iso2Code: ").append(toIndentedString(iso2Code)).append("\n");
-        sb.append("    iso3Code: ").append(toIndentedString(iso3Code)).append("\n");
-        sb.append("    pluralExpression: ").append(toIndentedString(pluralExpression)).append("\n");
-        sb.append("    primaryOfGroup: ").append(toIndentedString(primaryOfGroup)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RestLanguage {\n" +
+            "    countryCode: " + toIndentedString(countryCode) +  "\n" +
+            "    ietfCode: " + toIndentedString(ietfCode) + "\n" +
+            "    iso2Code: " + toIndentedString(iso2Code) +  "\n" +
+            "    iso3Code: " + toIndentedString(iso3Code) + "\n" +
+            "    pluralExpression: " +  toIndentedString(pluralExpression) + "\n" +
+            "    primaryOfGroup: " + toIndentedString(primaryOfGroup) + "\n" +
+            "}";
+        }
 
 
 }

@@ -123,17 +123,15 @@ public class UserSpaceRole extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserSpaceRole {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    role: ").append(toIndentedString(role)).append("\n");
-        sb.append("    space: ").append(toIndentedString(space)).append("\n");
-        sb.append("    user: ").append(toIndentedString(user)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class UserSpaceRole { \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    role: " + toIndentedString(role) + " \n" +
+            "    space: " + toIndentedString(space) + "\n" +
+            "    user: " + toIndentedString(user) + " \n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

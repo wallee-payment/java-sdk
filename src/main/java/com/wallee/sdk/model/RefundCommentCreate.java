@@ -74,14 +74,12 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RefundCommentCreate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class RefundCommentCreate { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    content: " + toIndentedString(content) + " \n" +
+            "    refund: " + toIndentedString(refund) +  " \n" +
+            "}";
+        }
 
 
 }

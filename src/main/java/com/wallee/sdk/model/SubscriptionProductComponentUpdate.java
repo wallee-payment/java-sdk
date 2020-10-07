@@ -373,25 +373,23 @@ public class SubscriptionProductComponentUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionProductComponentUpdate {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    componentChangeWeight: ").append(toIndentedString(componentChangeWeight)).append("\n");
-        sb.append("    componentGroup: ").append(toIndentedString(componentGroup)).append("\n");
-        sb.append("    defaultComponent: ").append(toIndentedString(defaultComponent)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    maximalQuantity: ").append(toIndentedString(maximalQuantity)).append("\n");
-        sb.append("    minimalQuantity: ").append(toIndentedString(minimalQuantity)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    quantityStep: ").append(toIndentedString(quantityStep)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    taxClass: ").append(toIndentedString(taxClass)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionProductComponentUpdate {\n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "    componentChangeWeight: " +  toIndentedString(componentChangeWeight) + "\n" +
+            "    componentGroup: " + toIndentedString(componentGroup) +  "\n" +
+            "    defaultComponent: " + toIndentedString(defaultComponent) + "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    maximalQuantity: " + toIndentedString(maximalQuantity) +  "\n" +
+            "    minimalQuantity: " + toIndentedString(minimalQuantity) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    quantityStep: " + toIndentedString(quantityStep) + "\n" +
+            "    reference: " +  toIndentedString(reference) + "\n" +
+            "    sortOrder: " + toIndentedString(sortOrder) + "\n" +
+            "    taxClass: " + toIndentedString(taxClass) + "\n" +
+            "}";
+        }
 
 
 }

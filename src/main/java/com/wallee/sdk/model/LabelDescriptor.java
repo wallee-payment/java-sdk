@@ -165,20 +165,18 @@ public class LabelDescriptor extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LabelDescriptor {\n");
 
-        sb.append("    category: ").append(toIndentedString(category)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    features: ").append(toIndentedString(features)).append("\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    weight: ").append(toIndentedString(weight)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LabelDescriptor { \n" +
+            "    category: " + toIndentedString(category) +  "\n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    features: " + toIndentedString(features) + "\n" +
+            "    group: " + toIndentedString(group) + " \n" +
+            "    id: " + toIndentedString(id) +  "\n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    type: " + toIndentedString(type) +  "\n" +
+            "    weight: " + toIndentedString(weight) + " \n" +
+            "}";
+        }
 
 
 }

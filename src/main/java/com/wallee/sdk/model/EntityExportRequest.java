@@ -108,14 +108,12 @@ public class EntityExportRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EntityExportRequest {\n");
 
-        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class EntityExportRequest { \n" +
+            "    properties: " + toIndentedString(properties) +  "\n" +
+            "    query: " + toIndentedString(query) + " \n" +
+            "}";
+        }
 
 
 }

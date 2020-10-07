@@ -220,19 +220,17 @@ public class ProductMeteredFeeUpdate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProductMeteredFeeUpdate {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    component: ").append(toIndentedString(component)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    tierPricing: ").append(toIndentedString(tierPricing)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ProductMeteredFeeUpdate {\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "    component: " + toIndentedString(component) +  "\n" +
+            "    description: " + toIndentedString(description) + "\n" +
+            "    metric: " + toIndentedString(metric) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    tierPricing: " + toIndentedString(tierPricing) + "\n" +
+            "}";
+        }
 
 
 }

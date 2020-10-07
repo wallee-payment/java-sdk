@@ -187,21 +187,19 @@ public class ProductMeteredFee extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProductMeteredFee {\n");
 
-        sb.append("    component: ").append(toIndentedString(component)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    tierPricing: ").append(toIndentedString(tierPricing)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ProductMeteredFee { \n" +
+            "    component: " + toIndentedString(component) +  " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    metric: " + toIndentedString(metric) + "\n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "    tierPricing: " + toIndentedString(tierPricing) + "\n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "}";
+        }
 
 
 }

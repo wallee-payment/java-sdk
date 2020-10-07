@@ -216,23 +216,21 @@ public class DocumentTemplate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DocumentTemplate {\n");
 
-        sb.append("    defaultTemplate: ").append(toIndentedString(defaultTemplate)).append("\n");
-        sb.append("    deliveryEnabled: ").append(toIndentedString(deliveryEnabled)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    templateResource: ").append(toIndentedString(templateResource)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DocumentTemplate { \n" +
+            "    defaultTemplate: " + toIndentedString(defaultTemplate) +  " \n" +
+            "    deliveryEnabled: " + toIndentedString(deliveryEnabled) + " \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " +  toIndentedString(name) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    spaceId: " + toIndentedString(spaceId) + " \n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "    templateResource: " + toIndentedString(templateResource) + " \n" +
+            "    type: " +  toIndentedString(type) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

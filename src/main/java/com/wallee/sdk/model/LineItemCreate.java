@@ -301,22 +301,20 @@ public class LineItemCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LineItemCreate {\n");
 
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");
-        sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
-        sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class LineItemCreate { \n" +
+            "    amountIncludingTax: " + toIndentedString(amountIncludingTax) + "\n" +
+            "    attributes: " + toIndentedString(attributes) + " \n" +
+            "    discountIncludingTax: " + toIndentedString(discountIncludingTax) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    quantity: " + toIndentedString(quantity) + " \n" +
+            "    shippingRequired: " +  toIndentedString(shippingRequired) + " \n" +
+            "    sku: " + toIndentedString(sku) + " \n" +
+            "    taxes: " +  toIndentedString(taxes) + " \n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    uniqueId: " + toIndentedString(uniqueId) + "\n" +
+            "}";
+        }
 
 
 }

@@ -102,16 +102,14 @@ public class CustomerAddressActive extends AbstractCustomerAddressActive {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CustomerAddressActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    address: ").append(toIndentedString(address)).append("\n");
-        sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CustomerAddressActive { \n" +
+            "    " + toIndentedString(super.toString()) +  " \n" +
+            "    address: " + toIndentedString(address) + " \n" +
+            "    addressType: " + toIndentedString(addressType) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

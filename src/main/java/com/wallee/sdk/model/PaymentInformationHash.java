@@ -95,15 +95,13 @@ public class PaymentInformationHash extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentInformationHash {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentInformationHash { \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    type: " + toIndentedString(type) + "\n" +
+            "    value: " + toIndentedString(value) + "\n" +
+            "}";
+        }
 
 
 }

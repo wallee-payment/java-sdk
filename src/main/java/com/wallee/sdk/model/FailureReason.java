@@ -123,17 +123,15 @@ public class FailureReason extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FailureReason {\n");
 
-        sb.append("    category: ").append(toIndentedString(category)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    features: ").append(toIndentedString(features)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class FailureReason { \n" +
+            "    category: " + toIndentedString(category) +  "\n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    features: " + toIndentedString(features) + "\n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    name: " + toIndentedString(name) + " \n" +
+            "}";
+        }
 
 
 }

@@ -98,15 +98,13 @@ public class CompletionLineItem extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CompletionLineItem {\n");
 
-        sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class CompletionLineItem { \n" +
+            "    amount: " + toIndentedString(amount) +  " \n" +
+            "    quantity: " + toIndentedString(quantity) + " \n" +
+            "    uniqueId: " + toIndentedString(uniqueId) +  " \n" +
+            "}";
+        }
 
 
 }

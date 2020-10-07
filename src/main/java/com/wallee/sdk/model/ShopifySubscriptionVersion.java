@@ -436,39 +436,37 @@ public class ShopifySubscriptionVersion extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifySubscriptionVersion {\n");
 
-        sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-        sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
-        sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
-        sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
-        sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    dischargedBy: ").append(toIndentedString(dischargedBy)).append("\n");
-        sb.append("    dischargedOn: ").append(toIndentedString(dischargedOn)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
-        sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
-        sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
-        sb.append("    paymentGateway: ").append(toIndentedString(paymentGateway)).append("\n");
-        sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-        sb.append("    shippingRate: ").append(toIndentedString(shippingRate)).append("\n");
-        sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
-        sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
-        sb.append("    token: ").append(toIndentedString(token)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifySubscriptionVersion { \n" +
+            "    billingAddress: " + toIndentedString(billingAddress) + "\n" +
+            "    billingDayOfMonth: " + toIndentedString(billingDayOfMonth) +  " \n" +
+            "    billingIntervalAmount: " + toIndentedString(billingIntervalAmount) +  " \n" +
+            "    billingIntervalUnit: " + toIndentedString(billingIntervalUnit) + " \n" +
+            "    billingWeekday: " + toIndentedString(billingWeekday) + " \n" +
+            "    createdBy: " + toIndentedString(createdBy) +  " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    currency: " + toIndentedString(currency) + "\n" +
+            "    dischargedBy: " + toIndentedString(dischargedBy) + " \n" +
+            "    dischargedOn: " + toIndentedString(dischargedOn) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    items: " + toIndentedString(items) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  " \n" +
+            "    maximalBillingCycles: " + toIndentedString(maximalBillingCycles) +  " \n" +
+            "    maximalSuspendableCycles: " + toIndentedString(maximalSuspendableCycles) +  " \n" +
+            "    minimalBillingCycles: " + toIndentedString(minimalBillingCycles) + " \n" +
+            "    paymentGateway: " + toIndentedString(paymentGateway) + " \n" +
+            "    shippingAddress: " + toIndentedString(shippingAddress) + "\n" +
+            "    shippingRate: " + toIndentedString(shippingRate) + " \n" +
+            "    shop: " + toIndentedString(shop) + "\n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    storeOrderConfirmationEmailEnabled: " + toIndentedString(storeOrderConfirmationEmailEnabled) + " \n" +
+            "    subscriberSuspensionAllowed: " + toIndentedString(subscriberSuspensionAllowed) + " \n" +
+            "    subscription: " +  toIndentedString(subscription) + " \n" +
+            "    terminationBillingCycles: " + toIndentedString(terminationBillingCycles) +  " \n" +
+            "    token: " + toIndentedString(token) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

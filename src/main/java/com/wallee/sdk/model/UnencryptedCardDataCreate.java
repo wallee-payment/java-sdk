@@ -151,16 +151,14 @@ public class UnencryptedCardDataCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UnencryptedCardDataCreate {\n");
 
-        sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
-        sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
-        sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
-        sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class UnencryptedCardDataCreate { \n" +
+            "    cardHolderName: " + toIndentedString(cardHolderName) + "\n" +
+            "    cardVerificationCode: " + toIndentedString(cardVerificationCode) + " \n" +
+            "    expiryDate: " + toIndentedString(expiryDate) + " \n" +
+            "    primaryAccountNumber: " + toIndentedString(primaryAccountNumber) + "\n" +
+            "}";
+        }
 
 
 }

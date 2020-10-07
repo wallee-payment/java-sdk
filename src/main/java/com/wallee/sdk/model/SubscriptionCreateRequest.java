@@ -186,17 +186,15 @@ public class SubscriptionCreateRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionCreateRequest {\n");
 
-        sb.append("    componentConfigurations: ").append(toIndentedString(componentConfigurations)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    product: ").append(toIndentedString(product)).append("\n");
-        sb.append("    selectedComponents: ").append(toIndentedString(selectedComponents)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionCreateRequest { \n" +
+            "    componentConfigurations: " +  toIndentedString(componentConfigurations) + " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    product: " + toIndentedString(product) + " \n" +
+            "    selectedComponents: " + toIndentedString(selectedComponents) +  "\n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "}";
+        }
 
 
 }

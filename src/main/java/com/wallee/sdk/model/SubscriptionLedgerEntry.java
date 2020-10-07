@@ -291,28 +291,26 @@ public class SubscriptionLedgerEntry extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionLedgerEntry {\n");
 
-        sb.append("    aggregatedTaxRate: ").append(toIndentedString(aggregatedTaxRate)).append("\n");
-        sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
-        sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
-        sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
-        sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionLedgerEntry { \n" +
+            "    aggregatedTaxRate: " +  toIndentedString(aggregatedTaxRate) + " \n" +
+            "    amountExcludingTax: " + toIndentedString(amountExcludingTax) +  " \n" +
+            "    amountIncludingTax: " + toIndentedString(amountIncludingTax) + " \n" +
+            "    createdBy: " + toIndentedString(createdBy) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    id: " + toIndentedString(id) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    quantity: " + toIndentedString(quantity) +  " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    subscriptionVersion: " +  toIndentedString(subscriptionVersion) + " \n" +
+            "    taxAmount: " + toIndentedString(taxAmount) + " \n" +
+            "    taxes: " + toIndentedString(taxes) + " \n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

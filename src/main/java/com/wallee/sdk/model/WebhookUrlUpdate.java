@@ -102,17 +102,15 @@ public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WebhookUrlUpdate {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class WebhookUrlUpdate {\n" +
+            "    " + toIndentedString(super.toString()) + "\n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    state: " + toIndentedString(state) + "\n" +
+            "    url: " + toIndentedString(url) + "\n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    version: " + toIndentedString(version) + "\n" +
+            "}";
+        }
 
 
 }

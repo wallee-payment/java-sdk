@@ -222,19 +222,17 @@ public class SubscriptionChargeCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionChargeCreate {\n");
 
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-        sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");
-        sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
-        sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionChargeCreate { \n" +
+            "    externalId: " + toIndentedString(externalId) +  "\n" +
+            "    failedUrl: " + toIndentedString(failedUrl) + " \n" +
+            "    plannedExecutionDate: " +  toIndentedString(plannedExecutionDate) + " \n" +
+            "    processingType: " + toIndentedString(processingType) +  "\n" +
+            "    reference: " + toIndentedString(reference) + " \n" +
+            "    subscription: " +  toIndentedString(subscription) + " \n" +
+            "    successUrl: " + toIndentedString(successUrl) + " \n" +
+            "}";
+        }
 
 
 }

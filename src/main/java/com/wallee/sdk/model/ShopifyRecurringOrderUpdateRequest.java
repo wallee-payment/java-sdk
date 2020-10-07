@@ -96,14 +96,12 @@ public class ShopifyRecurringOrderUpdateRequest extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ShopifyRecurringOrderUpdateRequest {\n");
 
-        sb.append("    executionDate: ").append(toIndentedString(executionDate)).append("\n");
-        sb.append("    recurringOrderId: ").append(toIndentedString(recurringOrderId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class ShopifyRecurringOrderUpdateRequest { \n" +
+            "    executionDate: " +  toIndentedString(executionDate) + "\n" +
+            "    recurringOrderId: " + toIndentedString(recurringOrderId) + "\n" +
+            "}";
+        }
 
 
 }

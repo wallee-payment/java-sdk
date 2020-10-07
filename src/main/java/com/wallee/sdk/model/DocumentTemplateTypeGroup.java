@@ -80,14 +80,12 @@ public class DocumentTemplateTypeGroup extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DocumentTemplateTypeGroup {\n");
 
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DocumentTemplateTypeGroup { \n" +
+            "    id: " + toIndentedString(id) + "\n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "}";
+        }
 
 
 }

@@ -229,27 +229,25 @@ public class Charge extends TransactionAwareEntity {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class Charge {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-        sb.append("    timeoutOn: ").append(toIndentedString(timeoutOn)).append("\n");
-        sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class Charge { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) +  "\n" +
+            "    linkedTransaction: " + toIndentedString(linkedTransaction) + " \n" +
+            "    createdOn: " + toIndentedString(createdOn) + " \n" +
+            "    failureReason: " + toIndentedString(failureReason) +  "\n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    plannedPurgeDate: " +  toIndentedString(plannedPurgeDate) + " \n" +
+            "    spaceViewId: " + toIndentedString(spaceViewId) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "    timeZone: " + toIndentedString(timeZone) + " \n" +
+            "    timeoutOn: " + toIndentedString(timeoutOn) + " \n" +
+            "    transaction: " + toIndentedString(transaction) +  "\n" +
+            "    type: " + toIndentedString(type) + " \n" +
+            "    userFailureMessage: " +  toIndentedString(userFailureMessage) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 }
 

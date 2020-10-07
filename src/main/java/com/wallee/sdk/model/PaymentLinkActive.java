@@ -89,26 +89,24 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentLinkActive {\n");
-        sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-        sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
-        sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
-        sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-        sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
-        sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-        sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+      return "class PaymentLinkActive { \n" +
+            "    " + toIndentedString(super.toString()) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    version: " + toIndentedString(version) +  " \n" +
+            "    allowedPaymentMethodConfigurations: " + toIndentedString(allowedPaymentMethodConfigurations) +  " \n" +
+            "    appliedSpaceView: " + toIndentedString(appliedSpaceView) + " \n" +
+            "    availableFrom: " + toIndentedString(availableFrom) + " \n" +
+            "    availableUntil: " + toIndentedString(availableUntil) +  " \n" +
+            "    billingAddressRequired: " + toIndentedString(billingAddressRequired) + " \n" +
+            "    currency: " + toIndentedString(currency) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    lineItems: " + toIndentedString(lineItems) + " \n" +
+            "    maximalNumberOfTransactions: " +  toIndentedString(maximalNumberOfTransactions) + " \n" +
+            "    name: " + toIndentedString(name) +  " \n" +
+            "    shippingAddressRequired: " + toIndentedString(shippingAddressRequired) + " \n" +
+            "    state: " + toIndentedString(state) + " \n" +
+            "}";
+      }
 
 
 }

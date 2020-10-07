@@ -177,17 +177,15 @@ public class SubscriptionMetricUsageReportCreate extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionMetricUsageReportCreate {\n");
 
-        sb.append("    consumedUnits: ").append(toIndentedString(consumedUnits)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionMetricUsageReportCreate { \n" +
+            "    consumedUnits: " +  toIndentedString(consumedUnits) + " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    externalId: " + toIndentedString(externalId) + " \n" +
+            "    metric: " + toIndentedString(metric) +  " \n" +
+            "    subscription: " + toIndentedString(subscription) + " \n" +
+            "}";
+        }
 
 
 }

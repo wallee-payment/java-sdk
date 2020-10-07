@@ -92,15 +92,13 @@ public class DatabaseTranslatedString extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DatabaseTranslatedString {\n");
 
-        sb.append("    availableLanguages: ").append(toIndentedString(availableLanguages)).append("\n");
-        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class DatabaseTranslatedString { \n" +
+            "    availableLanguages: " +  toIndentedString(availableLanguages) + "\n" +
+            "    displayName: " + toIndentedString(displayName) + "\n" +
+            "    items: " + toIndentedString(items) + "\n" +
+            "}";
+        }
 
 
 }

@@ -322,29 +322,27 @@ public class PaymentMethodConfiguration extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class PaymentMethodConfiguration {\n");
 
-        sb.append("    dataCollectionType: ").append(toIndentedString(dataCollectionType)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    imageResourcePath: ").append(toIndentedString(imageResourcePath)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    oneClickPaymentMode: ").append(toIndentedString(oneClickPaymentMode)).append("\n");
-        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    resolvedDescription: ").append(toIndentedString(resolvedDescription)).append("\n");
-        sb.append("    resolvedImageUrl: ").append(toIndentedString(resolvedImageUrl)).append("\n");
-        sb.append("    resolvedTitle: ").append(toIndentedString(resolvedTitle)).append("\n");
-        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class PaymentMethodConfiguration { \n" +
+            "    dataCollectionType: " +  toIndentedString(dataCollectionType) + " \n" +
+            "    description: " + toIndentedString(description) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    imageResourcePath: " + toIndentedString(imageResourcePath) +  " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    name: " + toIndentedString(name) + "\n" +
+            "    oneClickPaymentMode: " + toIndentedString(oneClickPaymentMode) + " \n" +
+            "    paymentMethod: " + toIndentedString(paymentMethod) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + "\n" +
+            "    resolvedDescription: " + toIndentedString(resolvedDescription) +  " \n" +
+            "    resolvedImageUrl: " + toIndentedString(resolvedImageUrl) + " \n" +
+            "    resolvedTitle: " + toIndentedString(resolvedTitle) + " \n" +
+            "    sortOrder: " + toIndentedString(sortOrder) +  " \n" +
+            "    spaceId: " + toIndentedString(spaceId) + " \n" +
+            "    state: " + toIndentedString(state) +  " \n" +
+            "    title: " + toIndentedString(title) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }

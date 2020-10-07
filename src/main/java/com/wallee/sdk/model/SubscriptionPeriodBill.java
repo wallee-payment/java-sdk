@@ -212,23 +212,21 @@ public class SubscriptionPeriodBill extends Indentable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SubscriptionPeriodBill {\n");
 
-        sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-        sb.append("    effectivePeriodEndDate: ").append(toIndentedString(effectivePeriodEndDate)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    language: ").append(toIndentedString(language)).append("\n");
-        sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-        sb.append("    periodStartDate: ").append(toIndentedString(periodStartDate)).append("\n");
-        sb.append("    plannedPeriodEndDate: ").append(toIndentedString(plannedPeriodEndDate)).append("\n");
-        sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+        return "class SubscriptionPeriodBill { \n" +
+            "    createdOn: " + toIndentedString(createdOn) +  "\n" +
+            "    effectivePeriodEndDate: " + toIndentedString(effectivePeriodEndDate) + " \n" +
+            "    id: " + toIndentedString(id) + " \n" +
+            "    language: " + toIndentedString(language) + " \n" +
+            "    linkedSpaceId: " + toIndentedString(linkedSpaceId) + " \n" +
+            "    periodStartDate: " + toIndentedString(periodStartDate) +  "\n" +
+            "    plannedPeriodEndDate: " + toIndentedString(plannedPeriodEndDate) + " \n" +
+            "    plannedPurgeDate: " + toIndentedString(plannedPurgeDate) + " \n" +
+            "    state: " + toIndentedString(state) +  "\n" +
+            "    subscriptionVersion: " + toIndentedString(subscriptionVersion) + " \n" +
+            "    version: " + toIndentedString(version) + " \n" +
+            "}";
+        }
 
 
 }
