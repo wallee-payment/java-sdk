@@ -120,7 +120,7 @@ public class TransactionServiceTest {
                 .value(transaction.getId())
                 .operator(CriteriaOperator.EQUALS);
             Long count = this.apiClient.getTransactionService().count(this.spaceId, filter);
-            Assert.assertEquals((long) count, (long) 1);
+            Assert.assertEquals((long) count, 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,7 +151,7 @@ public class TransactionServiceTest {
         try {
             Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             String transactionCredentials = this.apiClient.getTransactionService().createTransactionCredentials(this.spaceId, transaction.getId());
-            Assert.assertTrue(!transactionCredentials.isEmpty());
+            Assert.assertFalse(transactionCredentials.isEmpty());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -307,7 +307,7 @@ public class TransactionServiceTest {
 				};
 				Assert.assertTrue(Arrays.asList(TransactionStates).contains(transaction.getState()));
 	        } else {
-                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+                Assert.assertNotSame(transaction.getState(), TransactionState.AUTHORIZED);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -324,7 +324,7 @@ public class TransactionServiceTest {
         try {
             Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
             Transaction transactionRead = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
-            Assert.assertTrue(transaction.getId().equals(transactionRead.getId()));
+            Assert.assertEquals(transaction.getId(), transactionRead.getId());
         } catch (Exception e) {
             e.printStackTrace();
         }

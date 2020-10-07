@@ -54,10 +54,7 @@ public class ChargeFlowService {
     public Transaction applyFlow(Long spaceId, Long id) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-          return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -79,10 +76,7 @@ public class ChargeFlowService {
     public Transaction applyFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id, params);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-            return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -95,29 +89,16 @@ public class ChargeFlowService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling applyFlow");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -181,10 +162,7 @@ public class ChargeFlowService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -205,10 +183,7 @@ public class ChargeFlowService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -218,19 +193,11 @@ public class ChargeFlowService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -243,19 +210,11 @@ public class ChargeFlowService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -316,10 +275,7 @@ public class ChargeFlowService {
     public ChargeFlow read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "ChargeFlow";
-        if(returnType.equals("String")){
-          return (ChargeFlow) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ChargeFlow>() {};
+      TypeReference typeRef = new TypeReference<ChargeFlow>() {};
         return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -341,10 +297,7 @@ public class ChargeFlowService {
     public ChargeFlow read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "ChargeFlow";
-        if(returnType.equals("String")){
-            return (ChargeFlow) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ChargeFlow>() {};
+      TypeReference typeRef = new TypeReference<ChargeFlow>() {};
         return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -357,33 +310,20 @@ public class ChargeFlowService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -422,7 +362,7 @@ public class ChargeFlowService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -443,10 +383,7 @@ public class ChargeFlowService {
     public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;ChargeFlow&gt;";
-        if(returnType.equals("String")){
-          return (List<ChargeFlow>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
+      TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
         return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -468,10 +405,7 @@ public class ChargeFlowService {
     public List<ChargeFlow> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;ChargeFlow&gt;";
-        if(returnType.equals("String")){
-            return (List<ChargeFlow>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
+      TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
         return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -484,19 +418,11 @@ public class ChargeFlowService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -512,24 +438,14 @@ public class ChargeFlowService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -625,49 +541,26 @@ public class ChargeFlowService {
             throw new IllegalArgumentException("Missing the required parameter 'recipient' when calling updateRecipient");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/updateRecipient");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
-            String key = "transactionId";
-            Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (type != null) {
-            String key = "type";
-            Object value = type;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (recipient != null) {
-            String key = "recipient";
-            Object value = recipient;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      {
+          String key = "transactionId";
+          Object value = transactionId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      {
+          String key = "type";
+          Object value = type;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "recipient";
+      Object value = recipient;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);

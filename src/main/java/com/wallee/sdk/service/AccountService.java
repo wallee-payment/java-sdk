@@ -54,10 +54,7 @@ public class AccountService {
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -77,10 +74,7 @@ public class AccountService {
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -154,10 +148,7 @@ public class AccountService {
     public Account create(AccountCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
         String returnType = "Account";
-        if(returnType.equals("String")){
-          return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -178,10 +169,7 @@ public class AccountService {
     public Account create(AccountCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
         String returnType = "Account";
-        if(returnType.equals("String")){
-            return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -209,9 +197,7 @@ public class AccountService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -305,9 +291,7 @@ public class AccountService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = id == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -360,10 +344,7 @@ public class AccountService {
     public Account read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
         String returnType = "Account";
-        if(returnType.equals("String")){
-          return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -384,10 +365,7 @@ public class AccountService {
     public Account read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
         String returnType = "Account";
-        if(returnType.equals("String")){
-            return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -397,23 +375,15 @@ public class AccountService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/read");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -447,7 +417,7 @@ public class AccountService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -467,10 +437,7 @@ public class AccountService {
     public List<Account> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
         String returnType = "List&lt;Account&gt;";
-        if(returnType.equals("String")){
-          return (List<Account>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<Account>>() {};
+      TypeReference typeRef = new TypeReference<List<Account>>() {};
         return (List<Account>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -491,10 +458,7 @@ public class AccountService {
     public List<Account> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
         String returnType = "List&lt;Account&gt;";
-        if(returnType.equals("String")){
-            return (List<Account>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<Account>>() {};
+      TypeReference typeRef = new TypeReference<List<Account>>() {};
         return (List<Account>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -522,9 +486,7 @@ public class AccountService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -578,10 +540,7 @@ public class AccountService {
     public Account update(AccountUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
         String returnType = "Account";
-        if(returnType.equals("String")){
-          return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -603,10 +562,7 @@ public class AccountService {
     public Account update(AccountUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
         String returnType = "Account";
-        if(returnType.equals("String")){
-            return (Account) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Account>() {};
+      TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -634,9 +590,7 @@ public class AccountService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

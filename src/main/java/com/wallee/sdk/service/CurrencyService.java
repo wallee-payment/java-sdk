@@ -47,9 +47,6 @@ public class CurrencyService {
     public List<RestCurrency> all() throws IOException {
         HttpResponse response = allForHttpResponse();
         String returnType = "List&lt;RestCurrency&gt;";
-        if(returnType.equals("String")){
-          return (List<RestCurrency>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<RestCurrency>>() {};
         return (List<RestCurrency>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -70,9 +67,6 @@ public class CurrencyService {
     public List<RestCurrency> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
         String returnType = "List&lt;RestCurrency&gt;";
-        if(returnType.equals("String")){
-            return (List<RestCurrency>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<RestCurrency>>() {};
         return (List<RestCurrency>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -85,7 +79,7 @@ public class CurrencyService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
@@ -114,7 +108,7 @@ public class CurrencyService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 

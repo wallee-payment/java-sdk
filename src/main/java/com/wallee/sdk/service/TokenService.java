@@ -56,10 +56,7 @@ public class TokenService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -80,10 +77,7 @@ public class TokenService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -93,19 +87,11 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -118,19 +104,11 @@ public class TokenService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -191,10 +169,7 @@ public class TokenService {
     public Token create(Long spaceId, TokenCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
         String returnType = "Token";
-        if(returnType.equals("String")){
-          return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -216,10 +191,7 @@ public class TokenService {
     public Token create(Long spaceId, TokenCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
         String returnType = "Token";
-        if(returnType.equals("String")){
-            return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -232,19 +204,11 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
@@ -260,24 +224,14 @@ public class TokenService {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/create");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -336,10 +290,7 @@ public class TokenService {
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-          return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -361,10 +312,7 @@ public class TokenService {
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId, Map<String, Object> params) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId, params);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-            return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -377,29 +325,16 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling createTransactionForTokenUpdate");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/createTransactionForTokenUpdate");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (tokenId != null) {
-            String key = "tokenId";
-            Object value = tokenId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "tokenId";
+      Object value = tokenId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -490,19 +425,11 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/delete");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
@@ -518,24 +445,14 @@ public class TokenService {
               throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/delete");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = id == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -594,10 +511,7 @@ public class TokenService {
     public Token read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "Token";
-        if(returnType.equals("String")){
-          return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -619,10 +533,7 @@ public class TokenService {
     public Token read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "Token";
-        if(returnType.equals("String")){
-            return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -635,33 +546,20 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -700,7 +598,7 @@ public class TokenService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -721,10 +619,7 @@ public class TokenService {
     public List<Token> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;Token&gt;";
-        if(returnType.equals("String")){
-          return (List<Token>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<Token>>() {};
+      TypeReference typeRef = new TypeReference<List<Token>>() {};
         return (List<Token>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -746,10 +641,7 @@ public class TokenService {
     public List<Token> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;Token&gt;";
-        if(returnType.equals("String")){
-            return (List<Token>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<Token>>() {};
+      TypeReference typeRef = new TypeReference<List<Token>>() {};
         return (List<Token>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -762,19 +654,11 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -790,24 +674,14 @@ public class TokenService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -867,10 +741,7 @@ public class TokenService {
     public Token update(Long spaceId, TokenUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
         String returnType = "Token";
-        if(returnType.equals("String")){
-          return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -893,10 +764,7 @@ public class TokenService {
     public Token update(Long spaceId, TokenUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
         String returnType = "Token";
-        if(returnType.equals("String")){
-            return (Token) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Token>() {};
+      TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -909,19 +777,11 @@ public class TokenService {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
@@ -937,24 +797,14 @@ public class TokenService {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

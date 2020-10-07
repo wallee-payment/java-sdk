@@ -55,10 +55,7 @@ public class ApplicationUserService {
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -78,10 +75,7 @@ public class ApplicationUserService {
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -155,10 +149,7 @@ public class ApplicationUserService {
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
         String returnType = "ApplicationUserCreateWithMacKey";
-        if(returnType.equals("String")){
-          return (ApplicationUserCreateWithMacKey) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
         return (ApplicationUserCreateWithMacKey)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -179,10 +170,7 @@ public class ApplicationUserService {
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
         String returnType = "ApplicationUserCreateWithMacKey";
-        if(returnType.equals("String")){
-            return (ApplicationUserCreateWithMacKey) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUserCreateWithMacKey>() {};
         return (ApplicationUserCreateWithMacKey)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -210,9 +198,7 @@ public class ApplicationUserService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -306,9 +292,7 @@ public class ApplicationUserService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = id == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -361,10 +345,7 @@ public class ApplicationUserService {
     public ApplicationUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
         String returnType = "ApplicationUser";
-        if(returnType.equals("String")){
-          return (ApplicationUser) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
         return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -385,10 +366,7 @@ public class ApplicationUserService {
     public ApplicationUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
         String returnType = "ApplicationUser";
-        if(returnType.equals("String")){
-            return (ApplicationUser) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
         return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -398,23 +376,15 @@ public class ApplicationUserService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/read");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -448,7 +418,7 @@ public class ApplicationUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -468,10 +438,7 @@ public class ApplicationUserService {
     public List<ApplicationUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
         String returnType = "List&lt;ApplicationUser&gt;";
-        if(returnType.equals("String")){
-          return (List<ApplicationUser>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
+      TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
         return (List<ApplicationUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -492,10 +459,7 @@ public class ApplicationUserService {
     public List<ApplicationUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
         String returnType = "List&lt;ApplicationUser&gt;";
-        if(returnType.equals("String")){
-            return (List<ApplicationUser>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
+      TypeReference typeRef = new TypeReference<List<ApplicationUser>>() {};
         return (List<ApplicationUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -523,9 +487,7 @@ public class ApplicationUserService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -579,10 +541,7 @@ public class ApplicationUserService {
     public ApplicationUser update(ApplicationUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
         String returnType = "ApplicationUser";
-        if(returnType.equals("String")){
-          return (ApplicationUser) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
         return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -604,10 +563,7 @@ public class ApplicationUserService {
     public ApplicationUser update(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
         String returnType = "ApplicationUser";
-        if(returnType.equals("String")){
-            return (ApplicationUser) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ApplicationUser>() {};
+      TypeReference typeRef = new TypeReference<ApplicationUser>() {};
         return (ApplicationUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -635,9 +591,7 @@ public class ApplicationUserService {
               String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

@@ -50,9 +50,6 @@ public class UserSpaceRoleService {
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId);
         String returnType = "UserSpaceRole";
-        if(returnType.equals("String")){
-          return (UserSpaceRole) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -76,9 +73,6 @@ public class UserSpaceRoleService {
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId, params);
         String returnType = "UserSpaceRole";
-        if(returnType.equals("String")){
-            return (UserSpaceRole) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -95,37 +89,19 @@ public class UserSpaceRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'roleId' when calling addRole");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole");
-        if (userId != null) {
+        {
             String key = "userId";
             Object value = userId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (spaceId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (roleId != null) {
-            String key = "roleId";
-            Object value = roleId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "roleId";
+        Object value = roleId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -197,9 +173,6 @@ public class UserSpaceRoleService {
     public List<UserSpaceRole> list(Long userId, Long spaceId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId);
         String returnType = "List&lt;UserSpaceRole&gt;";
-        if(returnType.equals("String")){
-          return (List<UserSpaceRole>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -223,9 +196,6 @@ public class UserSpaceRoleService {
     public List<UserSpaceRole> list(Long userId, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId, params);
         String returnType = "List&lt;UserSpaceRole&gt;";
-        if(returnType.equals("String")){
-            return (List<UserSpaceRole>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -239,27 +209,14 @@ public class UserSpaceRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling list");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list");
-        if (userId != null) {
+        {
             String key = "userId";
             Object value = userId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -345,17 +302,9 @@ public class UserSpaceRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling removeRole");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

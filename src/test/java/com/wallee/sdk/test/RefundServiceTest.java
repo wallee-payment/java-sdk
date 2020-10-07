@@ -213,7 +213,7 @@ public class RefundServiceTest {
 					);
 				}
 			} else {
-				Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+              Assert.assertNotSame(transaction.getState(), TransactionState.AUTHORIZED);
 			}
         } catch (Exception e) {
             e.printStackTrace();

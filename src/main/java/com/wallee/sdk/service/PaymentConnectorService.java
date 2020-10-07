@@ -47,10 +47,7 @@ public class PaymentConnectorService {
     public List<PaymentConnector> all() throws IOException {
         HttpResponse response = allForHttpResponse();
         String returnType = "List&lt;PaymentConnector&gt;";
-        if(returnType.equals("String")){
-          return (List<PaymentConnector>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {};
+      TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {};
         return (List<PaymentConnector>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -70,10 +67,7 @@ public class PaymentConnectorService {
     public List<PaymentConnector> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
         String returnType = "List&lt;PaymentConnector&gt;";
-        if(returnType.equals("String")){
-            return (List<PaymentConnector>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {};
+      TypeReference typeRef = new TypeReference<List<PaymentConnector>>() {};
         return (List<PaymentConnector>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -85,7 +79,7 @@ public class PaymentConnectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
@@ -114,7 +108,7 @@ public class PaymentConnectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -134,10 +128,7 @@ public class PaymentConnectorService {
     public PaymentConnector read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
         String returnType = "PaymentConnector";
-        if(returnType.equals("String")){
-          return (PaymentConnector) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<PaymentConnector>() {};
+      TypeReference typeRef = new TypeReference<PaymentConnector>() {};
         return (PaymentConnector)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -158,10 +149,7 @@ public class PaymentConnectorService {
     public PaymentConnector read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
         String returnType = "PaymentConnector";
-        if(returnType.equals("String")){
-            return (PaymentConnector) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<PaymentConnector>() {};
+      TypeReference typeRef = new TypeReference<PaymentConnector>() {};
         return (PaymentConnector)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -171,23 +159,15 @@ public class PaymentConnectorService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/payment-connector/read");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -221,7 +201,7 @@ public class PaymentConnectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 

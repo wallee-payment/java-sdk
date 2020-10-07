@@ -1,6 +1,5 @@
 package com.wallee.sdk;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -47,9 +46,8 @@ public class Auth implements HttpExecuteInterceptor {
      * intercept request
      *
      * @param request
-     * @throws IOException
      */
-    public void intercept(HttpRequest request) throws IOException {
+    public void intercept(HttpRequest request) {
         Map<String, String> headers = this.getAuthHeaders(request.getRequestMethod(), request.getUrl().toString());
         HttpHeaders requestHeaders = new HttpHeaders();
         for (Map.Entry<String, String> entry : headers.entrySet()) {
@@ -74,7 +72,7 @@ public class Auth implements HttpExecuteInterceptor {
         headers.put("x-mac-version", version);
         headers.put("x-mac-userid", Long.toString(this.userId));
         headers.put("x-mac-timestamp", timestamp);
-        headers.put("x-mac-value", this.getSignature(version, method, resourcePath, timestamp));
+        headers.put("x-mac-value", this.getSignature(method, resourcePath, timestamp));
         return headers;
     }
 
@@ -101,21 +99,20 @@ public class Auth implements HttpExecuteInterceptor {
     /**
      * Get signature
      *
-     * @param version
      * @param method
      * @param resourcePath
      * @param timestamp
      * @return
      */
-    private String getSignature(String version, String method, String resourcePath, String timestamp) {
-        final String securedData = version + "|" + this.userId + "|" + timestamp + "|" + method.toUpperCase() + "|" + resourcePath;
+    private String getSignature(String method, String resourcePath, String timestamp) {
+        final String securedData = "1" + "|" + this.userId + "|" + timestamp + "|" + method.toUpperCase() + "|" + resourcePath;
         byte[] decodedSecret = Base64.getDecoder().decode(this.applicationKey);
-        Mac mac = null;
+        Mac mac;
         try {
             mac = Mac.getInstance("HmacSHA512");
             mac.init(new SecretKeySpec(decodedSecret, "HmacSHA512"));
         } catch (InvalidKeyException | NoSuchAlgorithmException e) {
-            throw new RuntimeException("The required HMAC algorithm (HmacSHA512) is not supported.", (Throwable) e);
+            throw new RuntimeException("The required HMAC algorithm (HmacSHA512) is not supported.", e);
         }
         byte[] bytes = mac.doFinal(securedData.getBytes(StandardCharsets.UTF_8));
         return new String(Base64.getEncoder().encode(bytes), StandardCharsets.UTF_8);

@@ -47,10 +47,7 @@ public class LanguageService {
     public List<RestLanguage> all() throws IOException {
         HttpResponse response = allForHttpResponse();
         String returnType = "List&lt;RestLanguage&gt;";
-        if(returnType.equals("String")){
-          return (List<RestLanguage>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<RestLanguage>>() {};
+      TypeReference typeRef = new TypeReference<List<RestLanguage>>() {};
         return (List<RestLanguage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -70,10 +67,7 @@ public class LanguageService {
     public List<RestLanguage> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
         String returnType = "List&lt;RestLanguage&gt;";
-        if(returnType.equals("String")){
-            return (List<RestLanguage>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<RestLanguage>>() {};
+      TypeReference typeRef = new TypeReference<List<RestLanguage>>() {};
         return (List<RestLanguage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -85,7 +79,7 @@ public class LanguageService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
@@ -114,7 +108,7 @@ public class LanguageService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 

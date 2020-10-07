@@ -47,10 +47,7 @@ public class DocumentTemplateTypeService {
     public List<DocumentTemplateType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
         String returnType = "List&lt;DocumentTemplateType&gt;";
-        if(returnType.equals("String")){
-          return (List<DocumentTemplateType>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {};
+      TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {};
         return (List<DocumentTemplateType>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -70,10 +67,7 @@ public class DocumentTemplateTypeService {
     public List<DocumentTemplateType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
         String returnType = "List&lt;DocumentTemplateType&gt;";
-        if(returnType.equals("String")){
-            return (List<DocumentTemplateType>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {};
+      TypeReference typeRef = new TypeReference<List<DocumentTemplateType>>() {};
         return (List<DocumentTemplateType>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -85,7 +79,7 @@ public class DocumentTemplateTypeService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
@@ -114,7 +108,7 @@ public class DocumentTemplateTypeService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -134,10 +128,7 @@ public class DocumentTemplateTypeService {
     public DocumentTemplateType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
         String returnType = "DocumentTemplateType";
-        if(returnType.equals("String")){
-          return (DocumentTemplateType) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DocumentTemplateType>() {};
+      TypeReference typeRef = new TypeReference<DocumentTemplateType>() {};
         return (DocumentTemplateType)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -158,10 +149,7 @@ public class DocumentTemplateTypeService {
     public DocumentTemplateType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
         String returnType = "DocumentTemplateType";
-        if(returnType.equals("String")){
-            return (DocumentTemplateType) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DocumentTemplateType>() {};
+      TypeReference typeRef = new TypeReference<DocumentTemplateType>() {};
         return (DocumentTemplateType)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -171,23 +159,15 @@ public class DocumentTemplateTypeService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/document-template-type/read");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -221,7 +201,7 @@ public class DocumentTemplateTypeService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 

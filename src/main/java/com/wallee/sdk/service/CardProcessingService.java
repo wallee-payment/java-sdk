@@ -54,10 +54,7 @@ public class CardProcessingService {
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-          return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -82,10 +79,7 @@ public class CardProcessingService {
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
         String returnType = "Transaction";
-        if(returnType.equals("String")){
-            return (Transaction) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Transaction>() {};
+      TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -104,39 +98,21 @@ public class CardProcessingService {
             throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling process");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
-            String key = "transactionId";
-            Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (paymentMethodConfigurationId != null) {
-            String key = "paymentMethodConfigurationId";
-            Object value = paymentMethodConfigurationId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      {
+          String key = "transactionId";
+          Object value = transactionId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "paymentMethodConfigurationId";
+      Object value = paymentMethodConfigurationId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
@@ -158,44 +134,24 @@ public class CardProcessingService {
               throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling process");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }              if (transactionId != null) {
-                  String key = "transactionId";
-                  Object value = transactionId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }              if (paymentMethodConfigurationId != null) {
-                  String key = "paymentMethodConfigurationId";
-                  Object value = paymentMethodConfigurationId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        {
+            String key = "spaceId";
+            Object value = spaceId;
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
+            String key = "transactionId";
+            Object value = transactionId;
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        String key = "paymentMethodConfigurationId";
+        Object value = paymentMethodConfigurationId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = cardData == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -267,11 +223,7 @@ public class CardProcessingService {
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
         String returnType = "String";
-        if(returnType.equals("String")){
-          return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+      return response.parseAsString();
     }
 
   /**
@@ -295,11 +247,7 @@ public class CardProcessingService {
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
         String returnType = "String";
-        if(returnType.equals("String")){
-            return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+      return response.parseAsString();
     }
 
     public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
@@ -317,39 +265,21 @@ public class CardProcessingService {
             throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling processWith3DSecure");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
-            String key = "transactionId";
-            Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (paymentMethodConfigurationId != null) {
-            String key = "paymentMethodConfigurationId";
-            Object value = paymentMethodConfigurationId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      {
+          String key = "transactionId";
+          Object value = transactionId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "paymentMethodConfigurationId";
+      Object value = paymentMethodConfigurationId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
@@ -371,44 +301,24 @@ public class CardProcessingService {
               throw new IllegalArgumentException("Missing the required parameter 'cardData' when calling processWith3DSecure");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }              if (transactionId != null) {
-                  String key = "transactionId";
-                  Object value = transactionId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }              if (paymentMethodConfigurationId != null) {
-                  String key = "paymentMethodConfigurationId";
-                  Object value = paymentMethodConfigurationId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        {
+            String key = "spaceId";
+            Object value = spaceId;
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
+            String key = "transactionId";
+            Object value = transactionId;
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        String key = "paymentMethodConfigurationId";
+        Object value = paymentMethodConfigurationId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = cardData == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.ws.rs.core.UriBuilder;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpMethods;
@@ -47,11 +46,7 @@ public class TransactionMobileSdkService {
     public String paymentFormUrl(String credentials) throws IOException {
         HttpResponse response = paymentFormUrlForHttpResponse(credentials);
         String returnType = "String";
-        if(returnType.equals("String")){
-          return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+      return response.parseAsString();
     }
 
   /**
@@ -72,11 +67,7 @@ public class TransactionMobileSdkService {
     public String paymentFormUrl(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = paymentFormUrlForHttpResponse(credentials, params);
         String returnType = "String";
-        if(returnType.equals("String")){
-            return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+      return response.parseAsString();
     }
 
     public HttpResponse paymentFormUrlForHttpResponse(String credentials) throws IOException {
@@ -85,23 +76,15 @@ public class TransactionMobileSdkService {
             throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling paymentFormUrl");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
-        if (credentials != null) {
-            String key = "credentials";
-            Object value = credentials;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "credentials";
+      Object value = credentials;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse paymentFormUrlForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
@@ -135,7 +118,7 @@ public class TransactionMobileSdkService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 

@@ -54,10 +54,7 @@ public class SubscriptionProductVersionRetirementService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -78,10 +75,7 @@ public class SubscriptionProductVersionRetirementService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -91,19 +85,11 @@ public class SubscriptionProductVersionRetirementService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -116,19 +102,11 @@ public class SubscriptionProductVersionRetirementService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -189,10 +167,7 @@ public class SubscriptionProductVersionRetirementService {
     public SubscriptionProductVersionRetirement create(Long spaceId, SubscriptionProductVersionRetirementCreate retirement) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, retirement);
         String returnType = "SubscriptionProductVersionRetirement";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersionRetirement) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -214,10 +189,7 @@ public class SubscriptionProductVersionRetirementService {
     public SubscriptionProductVersionRetirement create(Long spaceId, SubscriptionProductVersionRetirementCreate retirement, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, retirement, params);
         String returnType = "SubscriptionProductVersionRetirement";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersionRetirement) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -230,19 +202,11 @@ public class SubscriptionProductVersionRetirementService {
             throw new IllegalArgumentException("Missing the required parameter 'retirement' when calling create");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(retirement);
@@ -258,24 +222,14 @@ public class SubscriptionProductVersionRetirementService {
               throw new IllegalArgumentException("Missing the required parameter 'retirement' when calling create");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/create");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = retirement == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, retirement);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, retirement);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -334,10 +288,7 @@ public class SubscriptionProductVersionRetirementService {
     public SubscriptionProductVersionRetirement read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "SubscriptionProductVersionRetirement";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersionRetirement) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -359,10 +310,7 @@ public class SubscriptionProductVersionRetirementService {
     public SubscriptionProductVersionRetirement read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "SubscriptionProductVersionRetirement";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersionRetirement) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -375,33 +323,20 @@ public class SubscriptionProductVersionRetirementService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -440,7 +375,7 @@ public class SubscriptionProductVersionRetirementService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -461,10 +396,7 @@ public class SubscriptionProductVersionRetirementService {
     public List<SubscriptionProductVersionRetirement> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;SubscriptionProductVersionRetirement&gt;";
-        if(returnType.equals("String")){
-          return (List<SubscriptionProductVersionRetirement>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
+      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
         return (List<SubscriptionProductVersionRetirement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -486,10 +418,7 @@ public class SubscriptionProductVersionRetirementService {
     public List<SubscriptionProductVersionRetirement> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;SubscriptionProductVersionRetirement&gt;";
-        if(returnType.equals("String")){
-            return (List<SubscriptionProductVersionRetirement>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
+      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
         return (List<SubscriptionProductVersionRetirement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -502,19 +431,11 @@ public class SubscriptionProductVersionRetirementService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -530,24 +451,14 @@ public class SubscriptionProductVersionRetirementService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version-retirement/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

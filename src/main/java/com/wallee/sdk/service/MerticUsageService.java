@@ -51,9 +51,6 @@ public class MerticUsageService {
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end);
         String returnType = "List&lt;MetricUsage&gt;";
-        if(returnType.equals("String")){
-          return (List<MetricUsage>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
         return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -77,9 +74,6 @@ public class MerticUsageService {
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end, params);
         String returnType = "List&lt;MetricUsage&gt;";
-        if(returnType.equals("String")){
-            return (List<MetricUsage>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<MetricUsage>>() {};
         return (List<MetricUsage>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -96,37 +90,19 @@ public class MerticUsageService {
             throw new IllegalArgumentException("Missing the required parameter 'end' when calling calculate");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (start != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "start";
             Object value = start;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (end != null) {
-            String key = "end";
-            Object value = end;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "end";
+        Object value = end;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

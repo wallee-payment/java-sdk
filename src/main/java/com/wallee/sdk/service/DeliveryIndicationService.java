@@ -53,10 +53,7 @@ public class DeliveryIndicationService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -77,10 +74,7 @@ public class DeliveryIndicationService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -90,19 +84,11 @@ public class DeliveryIndicationService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -115,19 +101,11 @@ public class DeliveryIndicationService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -188,10 +166,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-          return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -213,10 +188,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-            return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -229,19 +201,11 @@ public class DeliveryIndicationService {
             throw new IllegalArgumentException("Missing the required parameter 'deliveryIndicationId' when calling markAsNotSuitable");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(deliveryIndicationId);
@@ -257,24 +221,14 @@ public class DeliveryIndicationService {
               throw new IllegalArgumentException("Missing the required parameter 'deliveryIndicationId' when calling markAsNotSuitable");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = deliveryIndicationId == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -333,10 +287,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-          return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -358,10 +309,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-            return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -374,19 +322,11 @@ public class DeliveryIndicationService {
             throw new IllegalArgumentException("Missing the required parameter 'deliveryIndicationId' when calling markAsSuitable");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(deliveryIndicationId);
@@ -402,24 +342,14 @@ public class DeliveryIndicationService {
               throw new IllegalArgumentException("Missing the required parameter 'deliveryIndicationId' when calling markAsSuitable");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = deliveryIndicationId == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -478,10 +408,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-          return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -503,10 +430,7 @@ public class DeliveryIndicationService {
     public DeliveryIndication read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "DeliveryIndication";
-        if(returnType.equals("String")){
-            return (DeliveryIndication) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
+      TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -519,33 +443,20 @@ public class DeliveryIndicationService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -584,7 +495,7 @@ public class DeliveryIndicationService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -605,10 +516,7 @@ public class DeliveryIndicationService {
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;DeliveryIndication&gt;";
-        if(returnType.equals("String")){
-          return (List<DeliveryIndication>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
+      TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
         return (List<DeliveryIndication>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -630,10 +538,7 @@ public class DeliveryIndicationService {
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;DeliveryIndication&gt;";
-        if(returnType.equals("String")){
-            return (List<DeliveryIndication>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
+      TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
         return (List<DeliveryIndication>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -646,19 +551,11 @@ public class DeliveryIndicationService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -674,24 +571,14 @@ public class DeliveryIndicationService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

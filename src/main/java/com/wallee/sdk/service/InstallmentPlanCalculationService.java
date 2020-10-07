@@ -49,9 +49,6 @@ public class InstallmentPlanCalculationService {
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId);
         String returnType = "List&lt;InstallmentCalculatedPlan&gt;";
-        if(returnType.equals("String")){
-          return (List<InstallmentCalculatedPlan>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
         return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -74,9 +71,6 @@ public class InstallmentPlanCalculationService {
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId, params);
         String returnType = "List&lt;InstallmentCalculatedPlan&gt;";
-        if(returnType.equals("String")){
-            return (List<InstallmentCalculatedPlan>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<InstallmentCalculatedPlan>>() {};
         return (List<InstallmentCalculatedPlan>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -90,27 +84,14 @@ public class InstallmentPlanCalculationService {
             throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling calculatePlans");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
-            String key = "transactionId";
-            Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "transactionId";
+        Object value = transactionId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

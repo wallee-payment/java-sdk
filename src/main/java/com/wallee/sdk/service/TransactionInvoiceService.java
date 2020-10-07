@@ -55,9 +55,6 @@ public class TransactionInvoiceService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -79,9 +76,6 @@ public class TransactionInvoiceService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -92,17 +86,9 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -117,19 +103,11 @@ public class TransactionInvoiceService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+          String key = "spaceId";
+          Object value = spaceId;
+          uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+          String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -190,9 +168,6 @@ public class TransactionInvoiceService {
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
         String returnType = "RenderedDocument";
-        if(returnType.equals("String")){
-          return (RenderedDocument) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -215,9 +190,6 @@ public class TransactionInvoiceService {
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
         String returnType = "RenderedDocument";
-        if(returnType.equals("String")){
-            return (RenderedDocument) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -231,33 +203,20 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocument");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -296,7 +255,7 @@ public class TransactionInvoiceService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -318,9 +277,6 @@ public class TransactionInvoiceService {
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
         String returnType = "RenderedDocument";
-        if(returnType.equals("String")){
-          return (RenderedDocument) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -344,9 +300,6 @@ public class TransactionInvoiceService {
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
         String returnType = "RenderedDocument";
-        if(returnType.equals("String")){
-            return (RenderedDocument) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -363,43 +316,25 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'targetMediaTypeId' when calling getInvoiceDocumentWithTargetMediaType");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocumentWithTargetMediaType");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (targetMediaTypeId != null) {
-            String key = "targetMediaTypeId";
-            Object value = targetMediaTypeId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "targetMediaTypeId";
+        Object value = targetMediaTypeId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse getInvoiceDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
@@ -443,7 +378,7 @@ public class TransactionInvoiceService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -464,9 +399,6 @@ public class TransactionInvoiceService {
     public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id);
         String returnType = "Boolean";
-        if(returnType.equals("String")){
-          return (Boolean) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<Boolean>() {};
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -489,9 +421,6 @@ public class TransactionInvoiceService {
     public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id, params);
         String returnType = "Boolean";
-        if(returnType.equals("String")){
-            return (Boolean) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<Boolean>() {};
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -505,33 +434,20 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling isReplacementPossible");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/isReplacementPossible");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse isReplacementPossibleForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -570,7 +486,7 @@ public class TransactionInvoiceService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -591,9 +507,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-          return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -616,9 +529,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id, params);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-            return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -632,27 +542,14 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsDerecognized");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsDerecognized");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -718,9 +615,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-          return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -743,9 +637,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id, params);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-            return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -759,27 +650,14 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsPaid");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsPaid");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -845,9 +723,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-          return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -870,9 +745,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-            return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -886,33 +758,20 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/read");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -951,7 +810,7 @@ public class TransactionInvoiceService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -973,9 +832,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-          return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -999,9 +855,6 @@ public class TransactionInvoiceService {
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement, params);
         String returnType = "TransactionInvoice";
-        if(returnType.equals("String")){
-            return (TransactionInvoice) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1018,27 +871,14 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1059,34 +899,19 @@ public class TransactionInvoiceService {
               throw new IllegalArgumentException("Missing the required parameter 'replacement' when calling replace");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }              if (id != null) {
-                  String key = "id";
-                  Object value = id;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+          {
+              String key = "spaceId";
+              Object value = spaceId;
+              uriBuilder = uriBuilder.queryParam(key, value);
+          }
+          String key = "id";
+          Object value = id;
+          uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+          String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = replacement == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, replacement);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, replacement);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -1150,9 +975,6 @@ public class TransactionInvoiceService {
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;TransactionInvoice&gt;";
-        if(returnType.equals("String")){
-          return (List<TransactionInvoice>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
         return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1175,9 +997,6 @@ public class TransactionInvoiceService {
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;TransactionInvoice&gt;";
-        if(returnType.equals("String")){
-            return (List<TransactionInvoice>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
         return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -1191,17 +1010,9 @@ public class TransactionInvoiceService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1219,24 +1030,14 @@ public class TransactionInvoiceService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+          String key = "spaceId";
+          Object value = spaceId;
+          uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+          String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

@@ -57,10 +57,7 @@ public class ShopifySubscriptionService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -81,10 +78,7 @@ public class ShopifySubscriptionService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -94,19 +88,11 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -119,19 +105,11 @@ public class ShopifySubscriptionService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -192,10 +170,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-          return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -217,10 +192,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion create(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, creationRequest, params);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-            return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -233,19 +205,11 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(creationRequest);
@@ -261,24 +225,14 @@ public class ShopifySubscriptionService {
               throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = creationRequest == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, creationRequest);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, creationRequest);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -337,10 +291,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscription read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "ShopifySubscription";
-        if(returnType.equals("String")){
-          return (ShopifySubscription) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
         return (ShopifySubscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -362,10 +313,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscription read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "ShopifySubscription";
-        if(returnType.equals("String")){
-            return (ShopifySubscription) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscription>() {};
         return (ShopifySubscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -378,33 +326,20 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -443,7 +378,7 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -464,10 +399,7 @@ public class ShopifySubscriptionService {
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;ShopifySubscription&gt;";
-        if(returnType.equals("String")){
-          return (List<ShopifySubscription>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
+      TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
         return (List<ShopifySubscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -489,10 +421,7 @@ public class ShopifySubscriptionService {
     public List<ShopifySubscription> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;ShopifySubscription&gt;";
-        if(returnType.equals("String")){
-            return (List<ShopifySubscription>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
+      TypeReference typeRef = new TypeReference<List<ShopifySubscription>>() {};
         return (List<ShopifySubscription>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -505,19 +434,11 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -533,24 +454,14 @@ public class ShopifySubscriptionService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -639,39 +550,21 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/terminate");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (subscriptionId != null) {
-            String key = "subscriptionId";
-            Object value = subscriptionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (respectTerminationPeriod != null) {
-            String key = "respectTerminationPeriod";
-            Object value = respectTerminationPeriod;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      {
+          String key = "subscriptionId";
+          Object value = subscriptionId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "respectTerminationPeriod";
+      Object value = respectTerminationPeriod;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -740,10 +633,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-          return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -765,10 +655,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion update(Long spaceId, ShopifySubscriptionUpdateRequest subscription, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, subscription, params);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-            return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -781,19 +668,11 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'subscription' when calling update");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(subscription);
@@ -809,24 +688,14 @@ public class ShopifySubscriptionService {
               throw new IllegalArgumentException("Missing the required parameter 'subscription' when calling update");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = subscription == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, subscription);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, subscription);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -885,10 +754,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-          return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -910,10 +776,7 @@ public class ShopifySubscriptionService {
     public ShopifySubscriptionVersion updateAddresses(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = updateAddressesForHttpResponse(spaceId, updateRequest, params);
         String returnType = "ShopifySubscriptionVersion";
-        if(returnType.equals("String")){
-            return (ShopifySubscriptionVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
+      TypeReference typeRef = new TypeReference<ShopifySubscriptionVersion>() {};
         return (ShopifySubscriptionVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -926,19 +789,11 @@ public class ShopifySubscriptionService {
             throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
@@ -954,24 +809,14 @@ public class ShopifySubscriptionService {
               throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = updateRequest == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

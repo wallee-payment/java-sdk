@@ -54,10 +54,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion activate(Long spaceId, Long productVersionId) throws IOException {
         HttpResponse response = activateForHttpResponse(spaceId, productVersionId);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -79,10 +76,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion activate(Long spaceId, Long productVersionId, Map<String, Object> params) throws IOException {
         HttpResponse response = activateForHttpResponse(spaceId, productVersionId, params);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -95,29 +89,16 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'productVersionId' when calling activate");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/activate");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (productVersionId != null) {
-            String key = "productVersionId";
-            Object value = productVersionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "productVersionId";
+      Object value = productVersionId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
@@ -181,10 +162,7 @@ public class SubscriptionProductVersionService {
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
         String returnType = "Long";
-        if(returnType.equals("String")){
-          return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -205,10 +183,7 @@ public class SubscriptionProductVersionService {
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
         String returnType = "Long";
-        if(returnType.equals("String")){
-            return (Long) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<Long>() {};
+      TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -218,19 +193,11 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/count");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
@@ -243,19 +210,11 @@ public class SubscriptionProductVersionService {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
               HttpContent content = filter == null ?
@@ -316,10 +275,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion create(Long spaceId, SubscriptionProductVersionPending entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -341,10 +297,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion create(Long spaceId, SubscriptionProductVersionPending entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -357,19 +310,11 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
@@ -385,24 +330,14 @@ public class SubscriptionProductVersionService {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/create");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -461,10 +396,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -486,10 +418,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -502,33 +431,20 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/read");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      {
+          String key = "spaceId";
+          Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
+      }
+      String key = "id";
+      Object value = id;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -567,7 +483,7 @@ public class SubscriptionProductVersionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -588,10 +504,7 @@ public class SubscriptionProductVersionService {
     public List<SubscriptionProductVersion> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
         String returnType = "List&lt;SubscriptionProductVersion&gt;";
-        if(returnType.equals("String")){
-          return (List<SubscriptionProductVersion>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersion>>() {};
+      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersion>>() {};
         return (List<SubscriptionProductVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -613,10 +526,7 @@ public class SubscriptionProductVersionService {
     public List<SubscriptionProductVersion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
         String returnType = "List&lt;SubscriptionProductVersion&gt;";
-        if(returnType.equals("String")){
-            return (List<SubscriptionProductVersion>) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersion>>() {};
+      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersion>>() {};
         return (List<SubscriptionProductVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -629,19 +539,11 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/search");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
@@ -657,24 +559,14 @@ public class SubscriptionProductVersionService {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 
@@ -734,10 +626,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion update(Long spaceId, SubscriptionProductVersionPending entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-          return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -760,10 +649,7 @@ public class SubscriptionProductVersionService {
     public SubscriptionProductVersion update(Long spaceId, SubscriptionProductVersionPending entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
         String returnType = "SubscriptionProductVersion";
-        if(returnType.equals("String")){
-            return (SubscriptionProductVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
+      TypeReference typeRef = new TypeReference<SubscriptionProductVersion>() {};
         return (SubscriptionProductVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -776,19 +662,11 @@ public class SubscriptionProductVersionService {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/update");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+      String key = "spaceId";
+      Object value = spaceId;
+      uriBuilder = uriBuilder.queryParam(key, value);
 
-        String url = uriBuilder.build().toString();
+      String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
@@ -804,24 +682,14 @@ public class SubscriptionProductVersionService {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/update");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+        String key = "spaceId";
+        Object value = spaceId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
-              String url = uriBuilder.build().toString();
+        String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+              HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
               return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
       }
 

@@ -51,9 +51,6 @@ public class UserAccountRoleService {
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, appliesOnSubaccount);
         String returnType = "UserAccountRole";
-        if(returnType.equals("String")){
-          return (UserAccountRole) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<UserAccountRole>() {};
         return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -77,9 +74,6 @@ public class UserAccountRoleService {
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, params);
         String returnType = "UserAccountRole";
-        if(returnType.equals("String")){
-            return (UserAccountRole) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<UserAccountRole>() {};
         return (UserAccountRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -96,46 +90,25 @@ public class UserAccountRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'roleId' when calling addRole");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
-        if (userId != null) {
+        {
             String key = "userId";
             Object value = userId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (accountId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "accountId";
             Object value = accountId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (roleId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "roleId";
             Object value = roleId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (appliesOnSubaccount != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        if (appliesOnSubaccount != null) {
             String key = "appliesOnSubaccount";
             Object value = appliesOnSubaccount;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
 
         String url = uriBuilder.build().toString();
@@ -207,9 +180,6 @@ public class UserAccountRoleService {
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId);
         String returnType = "List&lt;UserAccountRole&gt;";
-        if(returnType.equals("String")){
-          return (List<UserAccountRole>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
         return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -232,9 +202,6 @@ public class UserAccountRoleService {
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId, params);
         String returnType = "List&lt;UserAccountRole&gt;";
-        if(returnType.equals("String")){
-            return (List<UserAccountRole>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<UserAccountRole>>() {};
         return (List<UserAccountRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -248,27 +215,14 @@ public class UserAccountRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'accountId' when calling list");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
-        if (userId != null) {
+        {
             String key = "userId";
             Object value = userId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (accountId != null) {
-            String key = "accountId";
-            Object value = accountId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "accountId";
+        Object value = accountId;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -354,17 +308,9 @@ public class UserAccountRoleService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling removeRole");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

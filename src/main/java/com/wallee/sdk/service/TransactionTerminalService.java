@@ -50,9 +50,6 @@ public class TransactionTerminalService {
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width);
         String returnType = "RenderedTerminalReceipt";
-        if(returnType.equals("String")){
-          return (RenderedTerminalReceipt) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
         return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -77,9 +74,6 @@ public class TransactionTerminalService {
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width, params);
         String returnType = "RenderedTerminalReceipt";
-        if(returnType.equals("String")){
-            return (RenderedTerminalReceipt) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
         return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -99,53 +93,30 @@ public class TransactionTerminalService {
             throw new IllegalArgumentException("Missing the required parameter 'width' when calling receipt");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "transactionId";
             Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (typeId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "typeId";
             Object value = typeId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (width != null) {
-            String key = "width";
-            Object value = width;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
+        String key = "width";
+        Object value = width;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
@@ -194,7 +165,7 @@ public class TransactionTerminalService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -217,11 +188,7 @@ public class TransactionTerminalService {
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
         HttpResponse response = tillConnectionCredentialsForHttpResponse(spaceId, transactionId, terminalId, language);
         String returnType = "String";
-        if(returnType.equals("String")){
-          return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return response.parseAsString();
     }
 
   /**
@@ -243,11 +210,7 @@ public class TransactionTerminalService {
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, Map<String, Object> params) throws IOException {
         HttpResponse response = tillConnectionCredentialsForHttpResponse(spaceId, transactionId, terminalId, params);
         String returnType = "String";
-        if(returnType.equals("String")){
-            return (String) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<String>() {};
-        return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        return response.parseAsString();
     }
 
     public HttpResponse tillConnectionCredentialsForHttpResponse(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
@@ -262,46 +225,25 @@ public class TransactionTerminalService {
             throw new IllegalArgumentException("Missing the required parameter 'terminalId' when calling tillConnectionCredentials");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials");
-        if (spaceId != null) {
+        {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "transactionId";
             Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (terminalId != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        {
             String key = "terminalId";
             Object value = terminalId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (language != null) {
+            uriBuilder = uriBuilder.queryParam(key, value);
+        }
+        if (language != null) {
             String key = "language";
             Object value = language;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = uriBuilder.queryParam(key, value);
         }
 
         String url = uriBuilder.build().toString();

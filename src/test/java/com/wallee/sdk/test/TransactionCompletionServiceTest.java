@@ -111,7 +111,7 @@ public class TransactionCompletionServiceTest {
 				};
 				Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
 			} else {
-                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+                Assert.assertNotSame(transaction.getState(), TransactionState.AUTHORIZED);
             }
 		} catch (Exception e) {
             e.printStackTrace();
@@ -150,7 +150,7 @@ public class TransactionCompletionServiceTest {
 				};
 				Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
 			} else {
-                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
+                Assert.assertNotSame(transaction.getState(), TransactionState.AUTHORIZED);
             }
         } catch (Exception e) {
             e.printStackTrace();

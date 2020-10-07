@@ -47,9 +47,6 @@ public class DebtCollectorService {
     public List<DebtCollector> all() throws IOException {
         HttpResponse response = allForHttpResponse();
         String returnType = "List&lt;DebtCollector&gt;";
-        if(returnType.equals("String")){
-          return (List<DebtCollector>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<DebtCollector>>() {};
         return (List<DebtCollector>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -70,9 +67,6 @@ public class DebtCollectorService {
     public List<DebtCollector> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
         String returnType = "List&lt;DebtCollector&gt;";
-        if(returnType.equals("String")){
-            return (List<DebtCollector>) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<List<DebtCollector>>() {};
         return (List<DebtCollector>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -85,7 +79,7 @@ public class DebtCollectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse allForHttpResponse(Map<String, Object> params) throws IOException {
@@ -114,7 +108,7 @@ public class DebtCollectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
@@ -134,9 +128,6 @@ public class DebtCollectorService {
     public DebtCollector read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
         String returnType = "DebtCollector";
-        if(returnType.equals("String")){
-          return (DebtCollector) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<DebtCollector>() {};
         return (DebtCollector)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -158,9 +149,6 @@ public class DebtCollectorService {
     public DebtCollector read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
         String returnType = "DebtCollector";
-        if(returnType.equals("String")){
-            return (DebtCollector) (Object) response.parseAsString();
-        }
         TypeReference typeRef = new TypeReference<DebtCollector>() {};
         return (DebtCollector)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -171,23 +159,15 @@ public class DebtCollectorService {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collector/read");
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
+        String key = "id";
+        Object value = id;
+        uriBuilder = uriBuilder.queryParam(key, value);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -221,7 +201,7 @@ public class DebtCollectorService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
 
