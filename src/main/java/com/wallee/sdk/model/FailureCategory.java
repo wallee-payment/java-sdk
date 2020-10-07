@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum FailureCategory {
   
   TEMPORARY_ISSUE("TEMPORARY_ISSUE"),
@@ -37,7 +34,7 @@ public enum FailureCategory {
   
   DEVELOPER("DEVELOPER");
 
-  private String value;
+  private final String value;
 
   FailureCategory(String value) {
     this.value = value;

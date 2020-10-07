@@ -22,9 +22,7 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
+
 public enum TransactionEnvironmentSelectionStrategy {
   
   FORCE_TEST_ENVIRONMENT("FORCE_TEST_ENVIRONMENT"),

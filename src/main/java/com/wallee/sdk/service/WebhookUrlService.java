@@ -55,8 +55,7 @@ public class WebhookUrlService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -76,8 +75,7 @@ public class WebhookUrlService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -166,8 +164,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl create(Long spaceId, WebhookUrlCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -188,8 +185,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl create(Long spaceId, WebhookUrlCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -396,8 +392,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -418,8 +413,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -442,7 +436,6 @@ public class WebhookUrlService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -481,7 +474,6 @@ public class WebhookUrlService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -502,8 +494,7 @@ public class WebhookUrlService {
     **/
     public List<WebhookUrl> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;WebhookUrl&gt;";
-      TypeReference typeRef = new TypeReference<List<WebhookUrl>>() {};
+        TypeReference typeRef = new TypeReference<List<WebhookUrl>>() {};
         return (List<WebhookUrl>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -524,8 +515,7 @@ public class WebhookUrlService {
     **/
     public List<WebhookUrl> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;WebhookUrl&gt;";
-      TypeReference typeRef = new TypeReference<List<WebhookUrl>>() {};
+        TypeReference typeRef = new TypeReference<List<WebhookUrl>>() {};
         return (List<WebhookUrl>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -622,8 +612,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl update(Long spaceId, WebhookUrlUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -645,8 +634,7 @@ public class WebhookUrlService {
     **/
     public WebhookUrl update(Long spaceId, WebhookUrlUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "WebhookUrl";
-      TypeReference typeRef = new TypeReference<WebhookUrl>() {};
+        TypeReference typeRef = new TypeReference<WebhookUrl>() {};
         return (WebhookUrl)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

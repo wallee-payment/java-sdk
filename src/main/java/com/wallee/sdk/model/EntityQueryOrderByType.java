@@ -31,7 +31,7 @@ public enum EntityQueryOrderByType {
   
   ASC("ASC");
 
-  private String value;
+  private final String value;
 
   EntityQueryOrderByType(String value) {
     this.value = value;

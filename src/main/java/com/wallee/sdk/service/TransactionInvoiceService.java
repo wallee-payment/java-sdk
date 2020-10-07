@@ -55,7 +55,6 @@ public class TransactionInvoiceService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -76,7 +75,6 @@ public class TransactionInvoiceService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
         TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -166,7 +164,6 @@ public class TransactionInvoiceService {
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
-        String returnType = "RenderedDocument";
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -188,7 +185,6 @@ public class TransactionInvoiceService {
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
-        String returnType = "RenderedDocument";
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -212,7 +208,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -251,7 +246,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -273,7 +267,6 @@ public class TransactionInvoiceService {
     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
-        String returnType = "RenderedDocument";
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -296,7 +289,6 @@ public class TransactionInvoiceService {
     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
-        String returnType = "RenderedDocument";
         TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -327,7 +319,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -371,7 +362,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -392,7 +382,6 @@ public class TransactionInvoiceService {
     **/
     public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id);
-        String returnType = "Boolean";
         TypeReference typeRef = new TypeReference<Boolean>() {};
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -414,7 +403,6 @@ public class TransactionInvoiceService {
     **/
     public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = isReplacementPossibleForHttpResponse(spaceId, id, params);
-        String returnType = "Boolean";
         TypeReference typeRef = new TypeReference<Boolean>() {};
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -438,7 +426,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -477,7 +464,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -498,7 +484,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -520,7 +505,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsDerecognizedForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -604,7 +588,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -626,7 +609,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPaidForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -710,7 +692,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -732,7 +713,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -756,7 +736,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -795,7 +774,6 @@ public class TransactionInvoiceService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -817,7 +795,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -840,7 +817,6 @@ public class TransactionInvoiceService {
     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
         HttpResponse response = replaceForHttpResponse(spaceId, id, replacement, params);
-        String returnType = "TransactionInvoice";
         TypeReference typeRef = new TypeReference<TransactionInvoice>() {};
         return (TransactionInvoice)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -956,7 +932,6 @@ public class TransactionInvoiceService {
     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;TransactionInvoice&gt;";
         TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
         return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -978,7 +953,6 @@ public class TransactionInvoiceService {
     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;TransactionInvoice&gt;";
         TypeReference typeRef = new TypeReference<List<TransactionInvoice>>() {};
         return (List<TransactionInvoice>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

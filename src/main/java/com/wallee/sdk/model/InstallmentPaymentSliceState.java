@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum InstallmentPaymentSliceState {
   
   CREATE("CREATE"),
@@ -41,7 +38,7 @@ public enum InstallmentPaymentSliceState {
   
   SUCCESSFUL("SUCCESSFUL");
 
-  private String value;
+  private final String value;
 
   InstallmentPaymentSliceState(String value) {
     this.value = value;

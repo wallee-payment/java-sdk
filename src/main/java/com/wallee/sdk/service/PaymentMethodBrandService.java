@@ -46,7 +46,6 @@ public class PaymentMethodBrandService {
     **/
     public List<PaymentMethodBrand> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;PaymentMethodBrand&gt;";
         TypeReference typeRef = new TypeReference<List<PaymentMethodBrand>>() {};
         return (List<PaymentMethodBrand>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -66,7 +65,6 @@ public class PaymentMethodBrandService {
     **/
     public List<PaymentMethodBrand> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;PaymentMethodBrand&gt;";
         TypeReference typeRef = new TypeReference<List<PaymentMethodBrand>>() {};
         return (List<PaymentMethodBrand>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -78,7 +76,6 @@ public class PaymentMethodBrandService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class PaymentMethodBrandService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -127,7 +123,6 @@ public class PaymentMethodBrandService {
     **/
     public PaymentMethodBrand read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "PaymentMethodBrand";
         TypeReference typeRef = new TypeReference<PaymentMethodBrand>() {};
         return (PaymentMethodBrand)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -148,7 +143,6 @@ public class PaymentMethodBrandService {
     **/
     public PaymentMethodBrand read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "PaymentMethodBrand";
         TypeReference typeRef = new TypeReference<PaymentMethodBrand>() {};
         return (PaymentMethodBrand)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -165,7 +159,6 @@ public class PaymentMethodBrandService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -199,7 +192,6 @@ public class PaymentMethodBrandService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

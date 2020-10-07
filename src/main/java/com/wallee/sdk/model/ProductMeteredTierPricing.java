@@ -22,9 +22,7 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
+
 public enum ProductMeteredTierPricing {
   
   CHEAPEST_TIER_PRICING("CHEAPEST_TIER_PRICING"),

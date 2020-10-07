@@ -55,7 +55,6 @@ public class HumanUserService {
     **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -75,7 +74,6 @@ public class HumanUserService {
     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -149,7 +147,6 @@ public class HumanUserService {
     **/
     public HumanUser create(HumanUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -170,7 +167,6 @@ public class HumanUserService {
     **/
     public HumanUser create(HumanUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -345,7 +341,6 @@ public class HumanUserService {
     **/
     public byte[] export(EntityExportRequest request) throws IOException {
         HttpResponse response = exportForHttpResponse(request);
-        String returnType = "byte[]";
       TypeReference typeRef = new TypeReference<byte[]>() {};
         return (byte[])apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -366,7 +361,6 @@ public class HumanUserService {
     **/
     public byte[] export(EntityExportRequest request, Map<String, Object> params) throws IOException {
         HttpResponse response = exportForHttpResponse(request, params);
-        String returnType = "byte[]";
       TypeReference typeRef = new TypeReference<byte[]>() {};
         return (byte[])apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -447,7 +441,6 @@ public class HumanUserService {
     **/
     public HumanUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -468,7 +461,6 @@ public class HumanUserService {
     **/
     public HumanUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -485,7 +477,6 @@ public class HumanUserService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -519,7 +510,6 @@ public class HumanUserService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -539,7 +529,6 @@ public class HumanUserService {
     **/
     public List<HumanUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        String returnType = "List&lt;HumanUser&gt;";
       TypeReference typeRef = new TypeReference<List<HumanUser>>() {};
         return (List<HumanUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -560,7 +549,6 @@ public class HumanUserService {
     **/
     public List<HumanUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        String returnType = "List&lt;HumanUser&gt;";
       TypeReference typeRef = new TypeReference<List<HumanUser>>() {};
         return (List<HumanUser>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -642,7 +630,6 @@ public class HumanUserService {
     **/
     public HumanUser update(HumanUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -664,7 +651,6 @@ public class HumanUserService {
     **/
     public HumanUser update(HumanUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        String returnType = "HumanUser";
       TypeReference typeRef = new TypeReference<HumanUser>() {};
         return (HumanUser)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

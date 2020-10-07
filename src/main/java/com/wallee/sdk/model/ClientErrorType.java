@@ -33,7 +33,7 @@ public enum ClientErrorType {
   
   DEVELOPER_ERROR("DEVELOPER_ERROR");
 
-  private String value;
+  private final String value;
 
   ClientErrorType(String value) {
     this.value = value;

@@ -54,7 +54,6 @@ public class ChargeFlowService {
     **/
     public Transaction applyFlow(Long spaceId, Long id) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id);
-        String returnType = "Transaction";
       TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -76,7 +75,6 @@ public class ChargeFlowService {
     **/
     public Transaction applyFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id, params);
-        String returnType = "Transaction";
       TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -160,7 +158,6 @@ public class ChargeFlowService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -181,7 +178,6 @@ public class ChargeFlowService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -271,7 +267,6 @@ public class ChargeFlowService {
     **/
     public ChargeFlow read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "ChargeFlow";
       TypeReference typeRef = new TypeReference<ChargeFlow>() {};
         return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -293,7 +288,6 @@ public class ChargeFlowService {
     **/
     public ChargeFlow read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "ChargeFlow";
       TypeReference typeRef = new TypeReference<ChargeFlow>() {};
         return (ChargeFlow)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -317,7 +311,6 @@ public class ChargeFlowService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -356,7 +349,6 @@ public class ChargeFlowService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -377,7 +369,6 @@ public class ChargeFlowService {
     **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;ChargeFlow&gt;";
       TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
         return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -399,7 +390,6 @@ public class ChargeFlowService {
     **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;ChargeFlow&gt;";
       TypeReference typeRef = new TypeReference<List<ChargeFlow>>() {};
         return (List<ChargeFlow>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

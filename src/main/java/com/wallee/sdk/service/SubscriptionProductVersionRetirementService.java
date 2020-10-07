@@ -54,8 +54,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -75,8 +74,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -165,8 +163,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public SubscriptionProductVersionRetirement create(Long spaceId, SubscriptionProductVersionRetirementCreate retirement) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, retirement);
-        String returnType = "SubscriptionProductVersionRetirement";
-      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -187,8 +184,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public SubscriptionProductVersionRetirement create(Long spaceId, SubscriptionProductVersionRetirementCreate retirement, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, retirement, params);
-        String returnType = "SubscriptionProductVersionRetirement";
-      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -284,8 +280,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public SubscriptionProductVersionRetirement read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "SubscriptionProductVersionRetirement";
-      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -306,8 +301,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public SubscriptionProductVersionRetirement read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "SubscriptionProductVersionRetirement";
-      TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
+        TypeReference typeRef = new TypeReference<SubscriptionProductVersionRetirement>() {};
         return (SubscriptionProductVersionRetirement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -330,7 +324,6 @@ public class SubscriptionProductVersionRetirementService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -369,7 +362,6 @@ public class SubscriptionProductVersionRetirementService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -390,8 +382,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public List<SubscriptionProductVersionRetirement> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;SubscriptionProductVersionRetirement&gt;";
-      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
+        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
         return (List<SubscriptionProductVersionRetirement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -412,8 +403,7 @@ public class SubscriptionProductVersionRetirementService {
     **/
     public List<SubscriptionProductVersionRetirement> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;SubscriptionProductVersionRetirement&gt;";
-      TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
+        TypeReference typeRef = new TypeReference<List<SubscriptionProductVersionRetirement>>() {};
         return (List<SubscriptionProductVersionRetirement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

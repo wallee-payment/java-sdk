@@ -55,8 +55,7 @@ public class WebhookListenerService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -76,8 +75,7 @@ public class WebhookListenerService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -166,8 +164,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener create(Long spaceId, WebhookListenerCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -188,8 +185,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener create(Long spaceId, WebhookListenerCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -396,8 +392,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -418,8 +413,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -442,7 +436,6 @@ public class WebhookListenerService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -481,7 +474,6 @@ public class WebhookListenerService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -502,8 +494,7 @@ public class WebhookListenerService {
     **/
     public List<WebhookListener> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;WebhookListener&gt;";
-      TypeReference typeRef = new TypeReference<List<WebhookListener>>() {};
+        TypeReference typeRef = new TypeReference<List<WebhookListener>>() {};
         return (List<WebhookListener>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -524,8 +515,7 @@ public class WebhookListenerService {
     **/
     public List<WebhookListener> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;WebhookListener&gt;";
-      TypeReference typeRef = new TypeReference<List<WebhookListener>>() {};
+        TypeReference typeRef = new TypeReference<List<WebhookListener>>() {};
         return (List<WebhookListener>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -622,8 +612,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener update(Long spaceId, WebhookListenerUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -645,8 +634,7 @@ public class WebhookListenerService {
     **/
     public WebhookListener update(Long spaceId, WebhookListenerUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "WebhookListener";
-      TypeReference typeRef = new TypeReference<WebhookListener>() {};
+        TypeReference typeRef = new TypeReference<WebhookListener>() {};
         return (WebhookListener)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

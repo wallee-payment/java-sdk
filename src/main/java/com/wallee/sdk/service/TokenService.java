@@ -56,8 +56,7 @@ public class TokenService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -77,8 +76,7 @@ public class TokenService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -167,8 +165,7 @@ public class TokenService {
     **/
     public Token create(Long spaceId, TokenCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -189,8 +186,7 @@ public class TokenService {
     **/
     public Token create(Long spaceId, TokenCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -286,8 +282,7 @@ public class TokenService {
     **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -308,8 +303,7 @@ public class TokenService {
     **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId, Map<String, Object> params) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -503,8 +497,7 @@ public class TokenService {
     **/
     public Token read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -525,8 +518,7 @@ public class TokenService {
     **/
     public Token read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -549,7 +541,6 @@ public class TokenService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -588,7 +579,6 @@ public class TokenService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -609,8 +599,7 @@ public class TokenService {
     **/
     public List<Token> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;Token&gt;";
-      TypeReference typeRef = new TypeReference<List<Token>>() {};
+        TypeReference typeRef = new TypeReference<List<Token>>() {};
         return (List<Token>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -631,8 +620,7 @@ public class TokenService {
     **/
     public List<Token> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;Token&gt;";
-      TypeReference typeRef = new TypeReference<List<Token>>() {};
+        TypeReference typeRef = new TypeReference<List<Token>>() {};
         return (List<Token>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -729,8 +717,7 @@ public class TokenService {
     **/
     public Token update(Long spaceId, TokenUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -752,8 +739,7 @@ public class TokenService {
     **/
     public Token update(Long spaceId, TokenUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "Token";
-      TypeReference typeRef = new TypeReference<Token>() {};
+        TypeReference typeRef = new TypeReference<Token>() {};
         return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

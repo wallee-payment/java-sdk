@@ -22,9 +22,7 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
+
 public enum DeliveryIndicationState {
   
   PENDING("PENDING"),
@@ -35,7 +33,7 @@ public enum DeliveryIndicationState {
   
   SUITABLE("SUITABLE");
 
-  private String value;
+  private final String value;
 
   DeliveryIndicationState(String value) {
     this.value = value;

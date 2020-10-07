@@ -62,8 +62,7 @@ public class TransactionService {
     **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel) throws IOException {
         HttpResponse response = confirmForHttpResponse(spaceId, transactionModel);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -85,8 +84,7 @@ public class TransactionService {
     **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
         HttpResponse response = confirmForHttpResponse(spaceId, transactionModel, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -182,8 +180,7 @@ public class TransactionService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -203,8 +200,7 @@ public class TransactionService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -293,8 +289,7 @@ public class TransactionService {
     **/
     public Transaction create(Long spaceId, TransactionCreate transaction) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, transaction);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -315,8 +310,7 @@ public class TransactionService {
     **/
     public Transaction create(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, transaction, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -412,8 +406,7 @@ public class TransactionService {
     **/
     public String createTransactionCredentials(Long spaceId, Long id) throws IOException {
         HttpResponse response = createTransactionCredentialsForHttpResponse(spaceId, id);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
   /**
@@ -433,8 +426,7 @@ public class TransactionService {
     **/
     public String createTransactionCredentials(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = createTransactionCredentialsForHttpResponse(spaceId, id, params);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
     public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -730,8 +722,7 @@ public class TransactionService {
     **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials) throws IOException {
         HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials);
-        String returnType = "List&lt;TokenVersion&gt;";
-      TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
         return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -751,8 +742,7 @@ public class TransactionService {
     **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials, params);
-        String returnType = "List&lt;TokenVersion&gt;";
-      TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
+        TypeReference typeRef = new TypeReference<List<TokenVersion>>() {};
         return (List<TokenVersion>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -768,7 +758,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -802,7 +791,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -824,8 +812,7 @@ public class TransactionService {
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode) throws IOException {
         HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode);
-        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
-      TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -847,8 +834,7 @@ public class TransactionService {
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode, params);
-        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
-      TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -878,7 +864,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -922,7 +907,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -943,8 +927,7 @@ public class TransactionService {
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode) throws IOException {
         HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode);
-        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
-      TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -965,8 +948,7 @@ public class TransactionService {
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode, params);
-        String returnType = "List&lt;PaymentMethodConfiguration&gt;";
-      TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
+        TypeReference typeRef = new TypeReference<List<PaymentMethodConfiguration>>() {};
         return (List<PaymentMethodConfiguration>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -989,7 +971,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1028,7 +1009,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1049,8 +1029,7 @@ public class TransactionService {
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
-        String returnType = "RenderedDocument";
-      TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1071,8 +1050,7 @@ public class TransactionService {
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
-        String returnType = "RenderedDocument";
-      TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1095,7 +1073,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1134,7 +1111,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1155,8 +1131,7 @@ public class TransactionService {
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws IOException {
         HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id);
-        String returnType = "TransactionLineItemVersion";
-      TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
         return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1177,8 +1152,7 @@ public class TransactionService {
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionLineItemVersion";
-      TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
         return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1201,7 +1175,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1240,7 +1213,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1261,8 +1233,7 @@ public class TransactionService {
     **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id) throws IOException {
         HttpResponse response = getPackingSlipForHttpResponse(spaceId, id);
-        String returnType = "RenderedDocument";
-      TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1283,8 +1254,7 @@ public class TransactionService {
     **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getPackingSlipForHttpResponse(spaceId, id, params);
-        String returnType = "RenderedDocument";
-      TypeReference typeRef = new TypeReference<RenderedDocument>() {};
+        TypeReference typeRef = new TypeReference<RenderedDocument>() {};
         return (RenderedDocument)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1307,7 +1277,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1346,7 +1315,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1367,8 +1335,7 @@ public class TransactionService {
     **/
     public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId) throws IOException {
         HttpResponse response = processOneClickTokenAndRedirectWithCredentialsForHttpResponse(credentials, tokenId);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
   /**
@@ -1388,8 +1355,7 @@ public class TransactionService {
     **/
     public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
         HttpResponse response = processOneClickTokenAndRedirectWithCredentialsForHttpResponse(credentials, tokenId, params);
-        String returnType = "String";
-      return response.parseAsString();
+        return response.parseAsString();
     }
 
     public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId) throws IOException {
@@ -1471,8 +1437,7 @@ public class TransactionService {
     **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id) throws IOException {
         HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1493,8 +1458,7 @@ public class TransactionService {
     **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1577,8 +1541,7 @@ public class TransactionService {
     **/
     public Transaction read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1599,8 +1562,7 @@ public class TransactionService {
     **/
     public Transaction read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1623,7 +1585,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1662,7 +1623,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1682,8 +1642,7 @@ public class TransactionService {
     **/
     public Transaction readWithCredentials(String credentials) throws IOException {
         HttpResponse response = readWithCredentialsForHttpResponse(credentials);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1703,8 +1662,7 @@ public class TransactionService {
     **/
     public Transaction readWithCredentials(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = readWithCredentialsForHttpResponse(credentials, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1720,7 +1678,6 @@ public class TransactionService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1754,7 +1711,6 @@ public class TransactionService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -1775,8 +1731,7 @@ public class TransactionService {
     **/
     public List<Transaction> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;Transaction&gt;";
-      TypeReference typeRef = new TypeReference<List<Transaction>>() {};
+        TypeReference typeRef = new TypeReference<List<Transaction>>() {};
         return (List<Transaction>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1797,8 +1752,7 @@ public class TransactionService {
     **/
     public List<Transaction> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;Transaction&gt;";
-      TypeReference typeRef = new TypeReference<List<Transaction>>() {};
+        TypeReference typeRef = new TypeReference<List<Transaction>>() {};
         return (List<Transaction>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1895,8 +1849,7 @@ public class TransactionService {
     **/
     public Transaction update(Long spaceId, TransactionPending entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -1918,8 +1871,7 @@ public class TransactionService {
     **/
     public Transaction update(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "Transaction";
-      TypeReference typeRef = new TypeReference<Transaction>() {};
+        TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -2016,8 +1968,7 @@ public class TransactionService {
     **/
     public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
         HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest);
-        String returnType = "TransactionLineItemVersion";
-      TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
         return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -2039,8 +1990,7 @@ public class TransactionService {
     **/
     public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest, params);
-        String returnType = "TransactionLineItemVersion";
-      TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
+        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
         return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

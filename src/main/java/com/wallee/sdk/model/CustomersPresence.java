@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum CustomersPresence {
   
   NOT_PRESENT("NOT_PRESENT"),
@@ -33,7 +30,7 @@ public enum CustomersPresence {
   
   PHYSICAL_PRESENT("PHYSICAL_PRESENT");
 
-  private String value;
+  private final String value;
 
   CustomersPresence(String value) {
     this.value = value;

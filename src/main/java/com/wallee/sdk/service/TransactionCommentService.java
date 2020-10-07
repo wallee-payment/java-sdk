@@ -53,7 +53,6 @@ public class TransactionCommentService {
     **/
     public List<TransactionComment> all(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId);
-        String returnType = "List&lt;TransactionComment&gt;";
         TypeReference typeRef = new TypeReference<List<TransactionComment>>() {};
         return (List<TransactionComment>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -75,7 +74,6 @@ public class TransactionCommentService {
     **/
     public List<TransactionComment> all(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId, params);
-        String returnType = "List&lt;TransactionComment&gt;";
         TypeReference typeRef = new TypeReference<List<TransactionComment>>() {};
         return (List<TransactionComment>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -159,7 +157,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -181,7 +178,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -414,7 +410,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -453,7 +448,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -474,7 +468,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -496,7 +489,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -520,7 +512,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -559,7 +550,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -618,7 +608,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -657,7 +646,6 @@ public class TransactionCommentService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -679,7 +667,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -702,7 +689,6 @@ public class TransactionCommentService {
     **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "TransactionComment";
         TypeReference typeRef = new TypeReference<TransactionComment>() {};
         return (TransactionComment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

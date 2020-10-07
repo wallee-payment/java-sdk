@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum OneClickPaymentMode {
   
   DISABLED("DISABLED"),
@@ -33,7 +30,7 @@ public enum OneClickPaymentMode {
   
   FORCE("FORCE");
 
-  private String value;
+  private final String value;
 
   OneClickPaymentMode(String value) {
     this.value = value;

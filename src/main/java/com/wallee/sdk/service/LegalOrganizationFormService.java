@@ -46,7 +46,6 @@ public class LegalOrganizationFormService {
     **/
     public List<LegalOrganizationForm> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;LegalOrganizationForm&gt;";
       TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {};
         return (List<LegalOrganizationForm>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -66,7 +65,6 @@ public class LegalOrganizationFormService {
     **/
     public List<LegalOrganizationForm> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;LegalOrganizationForm&gt;";
       TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {};
         return (List<LegalOrganizationForm>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -78,7 +76,6 @@ public class LegalOrganizationFormService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class LegalOrganizationFormService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -127,7 +123,6 @@ public class LegalOrganizationFormService {
     **/
     public List<LegalOrganizationForm> country(String code) throws IOException {
         HttpResponse response = countryForHttpResponse(code);
-        String returnType = "List&lt;LegalOrganizationForm&gt;";
       TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {};
         return (List<LegalOrganizationForm>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -148,7 +143,6 @@ public class LegalOrganizationFormService {
     **/
     public List<LegalOrganizationForm> country(String code, Map<String, Object> params) throws IOException {
         HttpResponse response = countryForHttpResponse(code, params);
-        String returnType = "List&lt;LegalOrganizationForm&gt;";
       TypeReference typeRef = new TypeReference<List<LegalOrganizationForm>>() {};
         return (List<LegalOrganizationForm>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -165,7 +159,6 @@ public class LegalOrganizationFormService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -199,7 +192,6 @@ public class LegalOrganizationFormService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -219,7 +211,6 @@ public class LegalOrganizationFormService {
     **/
     public LegalOrganizationForm read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "LegalOrganizationForm";
       TypeReference typeRef = new TypeReference<LegalOrganizationForm>() {};
         return (LegalOrganizationForm)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -240,7 +231,6 @@ public class LegalOrganizationFormService {
     **/
     public LegalOrganizationForm read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "LegalOrganizationForm";
       TypeReference typeRef = new TypeReference<LegalOrganizationForm>() {};
         return (LegalOrganizationForm)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -257,7 +247,6 @@ public class LegalOrganizationFormService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -291,7 +280,6 @@ public class LegalOrganizationFormService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

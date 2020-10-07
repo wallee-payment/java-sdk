@@ -54,7 +54,6 @@ public class CardProcessingService {
     **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        String returnType = "Transaction";
       TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -79,7 +78,6 @@ public class CardProcessingService {
     **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
-        String returnType = "Transaction";
       TypeReference typeRef = new TypeReference<Transaction>() {};
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -217,7 +215,6 @@ public class CardProcessingService {
     **/
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        String returnType = "String";
       return response.parseAsString();
     }
 
@@ -241,7 +238,6 @@ public class CardProcessingService {
     **/
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
-        String returnType = "String";
       return response.parseAsString();
     }
 

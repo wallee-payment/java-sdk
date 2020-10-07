@@ -46,8 +46,7 @@ public class StaticValueService {
     **/
     public List<StaticValue> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        String returnType = "List&lt;StaticValue&gt;";
-      TypeReference typeRef = new TypeReference<List<StaticValue>>() {};
+        TypeReference typeRef = new TypeReference<List<StaticValue>>() {};
         return (List<StaticValue>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -66,8 +65,7 @@ public class StaticValueService {
     **/
     public List<StaticValue> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        String returnType = "List&lt;StaticValue&gt;";
-      TypeReference typeRef = new TypeReference<List<StaticValue>>() {};
+        TypeReference typeRef = new TypeReference<List<StaticValue>>() {};
         return (List<StaticValue>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -78,7 +76,6 @@ public class StaticValueService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -107,7 +104,6 @@ public class StaticValueService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -127,8 +123,7 @@ public class StaticValueService {
     **/
     public StaticValue read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "StaticValue";
-      TypeReference typeRef = new TypeReference<StaticValue>() {};
+        TypeReference typeRef = new TypeReference<StaticValue>() {};
         return (StaticValue)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -148,8 +143,7 @@ public class StaticValueService {
     **/
     public StaticValue read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "StaticValue";
-      TypeReference typeRef = new TypeReference<StaticValue>() {};
+        TypeReference typeRef = new TypeReference<StaticValue>() {};
         return (StaticValue)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -165,7 +159,6 @@ public class StaticValueService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -199,7 +192,6 @@ public class StaticValueService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 

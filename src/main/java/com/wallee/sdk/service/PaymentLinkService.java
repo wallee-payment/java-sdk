@@ -55,7 +55,6 @@ public class PaymentLinkService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -76,7 +75,6 @@ public class PaymentLinkService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -166,7 +164,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink create(Long spaceId, PaymentLinkCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -188,7 +185,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink create(Long spaceId, PaymentLinkCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -396,7 +392,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -418,7 +413,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -442,7 +436,6 @@ public class PaymentLinkService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -481,7 +474,6 @@ public class PaymentLinkService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -502,7 +494,6 @@ public class PaymentLinkService {
     **/
     public List<PaymentLink> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;PaymentLink&gt;";
       TypeReference typeRef = new TypeReference<List<PaymentLink>>() {};
         return (List<PaymentLink>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -524,7 +515,6 @@ public class PaymentLinkService {
     **/
     public List<PaymentLink> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;PaymentLink&gt;";
       TypeReference typeRef = new TypeReference<List<PaymentLink>>() {};
         return (List<PaymentLink>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -622,7 +612,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink update(Long spaceId, PaymentLinkUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -645,7 +634,6 @@ public class PaymentLinkService {
     **/
     public PaymentLink update(Long spaceId, PaymentLinkUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "PaymentLink";
       TypeReference typeRef = new TypeReference<PaymentLink>() {};
         return (PaymentLink)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

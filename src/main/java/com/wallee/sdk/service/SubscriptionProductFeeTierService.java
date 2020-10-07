@@ -54,8 +54,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -75,8 +74,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -165,8 +163,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee create(Long spaceId, ProductMeteredTierFeeUpdate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -187,8 +184,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee create(Long spaceId, ProductMeteredTierFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -395,8 +391,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -417,8 +412,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -441,7 +435,6 @@ public class SubscriptionProductFeeTierService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -480,7 +473,6 @@ public class SubscriptionProductFeeTierService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -501,8 +493,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public List<ProductMeteredTierFee> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;ProductMeteredTierFee&gt;";
-      TypeReference typeRef = new TypeReference<List<ProductMeteredTierFee>>() {};
+        TypeReference typeRef = new TypeReference<List<ProductMeteredTierFee>>() {};
         return (List<ProductMeteredTierFee>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -523,8 +514,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public List<ProductMeteredTierFee> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;ProductMeteredTierFee&gt;";
-      TypeReference typeRef = new TypeReference<List<ProductMeteredTierFee>>() {};
+        TypeReference typeRef = new TypeReference<List<ProductMeteredTierFee>>() {};
         return (List<ProductMeteredTierFee>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -621,8 +611,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee update(Long spaceId, ProductMeteredTierFeeUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -644,8 +633,7 @@ public class SubscriptionProductFeeTierService {
     **/
     public ProductMeteredTierFee update(Long spaceId, ProductMeteredTierFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "ProductMeteredTierFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredTierFee>() {};
         return (ProductMeteredTierFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

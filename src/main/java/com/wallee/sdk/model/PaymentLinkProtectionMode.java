@@ -22,16 +22,13 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum PaymentLinkProtectionMode {
   
   NO_PROTECTION("NO_PROTECTION"),
   
   ACCESS_KEY("ACCESS_KEY");
 
-  private String value;
+  private final String value;
 
   PaymentLinkProtectionMode(String value) {
     this.value = value;

@@ -22,16 +22,13 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum DebtCollectionEnvironment {
   
   PRODUCTION("PRODUCTION"),
   
   TEST("TEST");
 
-  private String value;
+  private final String value;
 
   DebtCollectionEnvironment(String value) {
     this.value = value;

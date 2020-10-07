@@ -54,7 +54,6 @@ public class AccountService {
     **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -74,7 +73,6 @@ public class AccountService {
     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -148,7 +146,6 @@ public class AccountService {
     **/
     public Account create(AccountCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -169,7 +166,6 @@ public class AccountService {
     **/
     public Account create(AccountCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -257,7 +253,7 @@ public class AccountService {
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param id 
+    * @param id
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -344,7 +340,6 @@ public class AccountService {
     **/
     public Account read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -365,7 +360,6 @@ public class AccountService {
     **/
     public Account read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -382,7 +376,6 @@ public class AccountService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -416,7 +409,6 @@ public class AccountService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -436,7 +428,6 @@ public class AccountService {
     **/
     public List<Account> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        String returnType = "List&lt;Account&gt;";
       TypeReference typeRef = new TypeReference<List<Account>>() {};
         return (List<Account>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -457,7 +448,6 @@ public class AccountService {
     **/
     public List<Account> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        String returnType = "List&lt;Account&gt;";
       TypeReference typeRef = new TypeReference<List<Account>>() {};
         return (List<Account>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -539,7 +529,6 @@ public class AccountService {
     **/
     public Account update(AccountUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -561,7 +550,6 @@ public class AccountService {
     **/
     public Account update(AccountUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        String returnType = "Account";
       TypeReference typeRef = new TypeReference<Account>() {};
         return (Account)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }

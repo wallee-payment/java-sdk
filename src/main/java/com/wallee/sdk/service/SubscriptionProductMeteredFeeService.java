@@ -54,8 +54,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -75,8 +74,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
-      TypeReference typeRef = new TypeReference<Long>() {};
+        TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -165,8 +163,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee create(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -187,8 +184,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee create(Long spaceId, ProductMeteredFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -395,8 +391,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -417,8 +412,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -441,7 +435,6 @@ public class SubscriptionProductMeteredFeeService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -480,7 +473,6 @@ public class SubscriptionProductMeteredFeeService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -501,8 +493,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public List<ProductMeteredFee> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;ProductMeteredFee&gt;";
-      TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {};
+        TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {};
         return (List<ProductMeteredFee>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -523,8 +514,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public List<ProductMeteredFee> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;ProductMeteredFee&gt;";
-      TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {};
+        TypeReference typeRef = new TypeReference<List<ProductMeteredFee>>() {};
         return (List<ProductMeteredFee>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -621,8 +611,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee update(Long spaceId, ProductMeteredFeeUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -644,8 +633,7 @@ public class SubscriptionProductMeteredFeeService {
     **/
     public ProductMeteredFee update(Long spaceId, ProductMeteredFeeUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        String returnType = "ProductMeteredFee";
-      TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
+        TypeReference typeRef = new TypeReference<ProductMeteredFee>() {};
         return (ProductMeteredFee)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 

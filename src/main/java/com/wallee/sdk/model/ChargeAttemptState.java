@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum ChargeAttemptState {
   
   PROCESSING("PROCESSING"),
@@ -33,7 +30,7 @@ public enum ChargeAttemptState {
   
   SUCCESSFUL("SUCCESSFUL");
 
-  private String value;
+  private final String value;
 
   ChargeAttemptState(String value) {
     this.value = value;

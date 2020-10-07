@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum ManualTaskState {
   
   OPEN("OPEN"),
@@ -33,7 +30,7 @@ public enum ManualTaskState {
   
   EXPIRED("EXPIRED");
 
-  private String value;
+  private final String value;
 
   ManualTaskState(String value) {
     this.value = value;

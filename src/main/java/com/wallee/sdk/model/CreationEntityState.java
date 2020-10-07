@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum CreationEntityState {
   
   CREATE("CREATE"),
@@ -37,7 +34,7 @@ public enum CreationEntityState {
   
   DELETED("DELETED");
 
-  private String value;
+  private final String value;
 
   CreationEntityState(String value) {
     this.value = value;

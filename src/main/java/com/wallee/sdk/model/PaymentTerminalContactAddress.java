@@ -23,9 +23,7 @@ import java.util.Objects;
 
 import io.swagger.annotations.ApiModel;
 
-/**
- * 
- */
+
 @ApiModel(description = "")
 
 public class PaymentTerminalContactAddress extends PaymentTerminalAddress {

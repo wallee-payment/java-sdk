@@ -33,7 +33,7 @@ public enum PaymentPrimaryRiskTaker {
   
   THIRD_PARTY("THIRD_PARTY");
 
-  private String value;
+  private final String value;
 
   PaymentPrimaryRiskTaker(String value) {
     this.value = value;

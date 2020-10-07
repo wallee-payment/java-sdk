@@ -22,9 +22,6 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
 public enum DebtCollectionCaseState {
   
   CREATE("CREATE"),
@@ -41,7 +38,7 @@ public enum DebtCollectionCaseState {
   
   FAILED("FAILED");
 
-  private String value;
+  private final String value;
 
   DebtCollectionCaseState(String value) {
     this.value = value;

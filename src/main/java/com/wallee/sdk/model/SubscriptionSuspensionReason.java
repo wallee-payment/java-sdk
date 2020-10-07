@@ -22,9 +22,7 @@ package com.wallee.sdk.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * 
- */
+
 public enum SubscriptionSuspensionReason {
   
   FAILED_CHARGE("FAILED_CHARGE"),

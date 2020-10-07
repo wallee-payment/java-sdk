@@ -53,7 +53,6 @@ public class DeliveryIndicationService {
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -74,7 +73,6 @@ public class DeliveryIndicationService {
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, spaceId, params);
-        String returnType = "Long";
       TypeReference typeRef = new TypeReference<Long>() {};
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -164,7 +162,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -186,7 +183,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -283,7 +279,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -305,7 +300,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -402,7 +396,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -424,7 +417,6 @@ public class DeliveryIndicationService {
     **/
     public DeliveryIndication read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        String returnType = "DeliveryIndication";
       TypeReference typeRef = new TypeReference<DeliveryIndication>() {};
         return (DeliveryIndication)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -448,7 +440,6 @@ public class DeliveryIndicationService {
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -487,7 +478,6 @@ public class DeliveryIndicationService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
 
@@ -508,7 +498,6 @@ public class DeliveryIndicationService {
     **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;DeliveryIndication&gt;";
       TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
         return (List<DeliveryIndication>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
@@ -530,7 +519,6 @@ public class DeliveryIndicationService {
     **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;DeliveryIndication&gt;";
       TypeReference typeRef = new TypeReference<List<DeliveryIndication>>() {};
         return (List<DeliveryIndication>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
