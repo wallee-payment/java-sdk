@@ -34,55 +34,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SpaceAddressCreate {
   
   @JsonProperty("city")
-  protected String city = null;
+  protected String city;
 
   
   @JsonProperty("country")
-  protected String country = null;
+  protected String country;
 
   
   @JsonProperty("dependentLocality")
-  protected String dependentLocality = null;
+  protected String dependentLocality;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("familyName")
-  protected String familyName = null;
+  protected String familyName;
 
   
   @JsonProperty("givenName")
-  protected String givenName = null;
+  protected String givenName;
 
   
   @JsonProperty("organizationName")
-  protected String organizationName = null;
+  protected String organizationName;
 
   
   @JsonProperty("postalState")
-  protected String postalState = null;
+  protected String postalState;
 
   
   @JsonProperty("postcode")
-  protected String postcode = null;
+  protected String postcode;
 
   
   @JsonProperty("salesTaxNumber")
-  protected String salesTaxNumber = null;
+  protected String salesTaxNumber;
 
   
   @JsonProperty("salutation")
-  protected String salutation = null;
+  protected String salutation;
 
   
   @JsonProperty("sortingCode")
-  protected String sortingCode = null;
+  protected String sortingCode;
 
   
   @JsonProperty("street")
-  protected String street = null;
+  protected String street;
 
   
   

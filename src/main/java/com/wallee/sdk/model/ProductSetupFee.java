@@ -35,43 +35,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProductSetupFee {
   
   @JsonProperty("component")
-  protected SubscriptionProductComponent component = null;
+  protected SubscriptionProductComponent component;
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected DatabaseTranslatedString description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected DatabaseTranslatedString name;
 
   
   @JsonProperty("onDowngradeCreditedAmount")
-  protected List<PersistableCurrencyAmount> onDowngradeCreditedAmount = null;
+  protected List<PersistableCurrencyAmount> onDowngradeCreditedAmount;
 
   
   @JsonProperty("onUpgradeCreditedAmount")
-  protected List<PersistableCurrencyAmount> onUpgradeCreditedAmount = null;
+  protected List<PersistableCurrencyAmount> onUpgradeCreditedAmount;
 
   
   @JsonProperty("setupFee")
-  protected List<PersistableCurrencyAmount> setupFee = null;
+  protected List<PersistableCurrencyAmount> setupFee;
 
   
   @JsonProperty("type")
-  protected ProductFeeType type = null;
+  protected ProductFeeType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

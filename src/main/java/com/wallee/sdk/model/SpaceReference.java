@@ -35,31 +35,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SpaceReference {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected SpaceReferenceState state = null;
+  protected SpaceReferenceState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

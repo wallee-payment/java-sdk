@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PersistableCurrencyAmount {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   

@@ -34,19 +34,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractSubscriptionAffiliateUpdate {
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   

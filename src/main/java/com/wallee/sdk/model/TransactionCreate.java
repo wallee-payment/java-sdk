@@ -34,35 +34,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionCreate extends AbstractTransactionPending {
   
   @JsonProperty("autoConfirmationEnabled")
-  protected Boolean autoConfirmationEnabled = null;
+  protected Boolean autoConfirmationEnabled;
 
   
   @JsonProperty("chargeRetryEnabled")
-  protected Boolean chargeRetryEnabled = null;
+  protected Boolean chargeRetryEnabled;
 
   
   @JsonProperty("customersPresence")
-  protected CustomersPresence customersPresence = null;
+  protected CustomersPresence customersPresence;
 
   
   @JsonProperty("deviceSessionIdentifier")
-  protected String deviceSessionIdentifier = null;
+  protected String deviceSessionIdentifier;
 
   
   @JsonProperty("emailsDisabled")
-  protected Boolean emailsDisabled = null;
+  protected Boolean emailsDisabled;
 
   
   @JsonProperty("environment")
-  protected Environment environment = null;
+  protected Environment environment;
 
   
   @JsonProperty("environmentSelectionStrategy")
-  protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
+  protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   

@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentConnectorFeature {
   
   @JsonProperty("displayName")
-  protected String displayName = null;
+  protected String displayName;
 
   
   @JsonProperty("feature")
-  protected Feature feature = null;
+  protected Feature feature;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   

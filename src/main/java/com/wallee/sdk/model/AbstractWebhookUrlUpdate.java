@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractWebhookUrlUpdate {
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("url")
-  protected String url = null;
+  protected String url;
 
   
   

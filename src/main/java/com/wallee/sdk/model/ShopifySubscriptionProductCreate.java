@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptionProductActive {
   
   @JsonProperty("productId")
-  protected String productId = null;
+  protected String productId;
 
   
   @JsonProperty("productVariantId")
-  protected String productVariantId = null;
+  protected String productVariantId;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   

@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifyTaxLine {
   
   @JsonProperty("fractionRate")
-  protected BigDecimal fractionRate = null;
+  protected BigDecimal fractionRate;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("rate")
-  protected BigDecimal rate = null;
+  protected BigDecimal rate;
 
   
   @JsonProperty("title")
-  protected String title = null;
+  protected String title;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

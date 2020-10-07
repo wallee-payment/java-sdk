@@ -37,27 +37,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionLedgerEntryCreate {
   
   @JsonProperty("amountIncludingTax")
-  protected BigDecimal amountIncludingTax = null;
+  protected BigDecimal amountIncludingTax;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("subscriptionVersion")
-  protected Long subscriptionVersion = null;
+  protected Long subscriptionVersion;
 
   
   @JsonProperty("taxes")
-  protected List<TaxCreate> taxes = null;
+  protected List<TaxCreate> taxes;
 
   
   @JsonProperty("title")
-  protected String title = null;
+  protected String title;
 
   
   

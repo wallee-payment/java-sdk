@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WebhookListener {
   
   @JsonProperty("entity")
-  protected Long entity = null;
+  protected Long entity;
 
   
   @JsonProperty("entityStates")
-  protected List<String> entityStates = null;
+  protected List<String> entityStates;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("identity")
-  protected WebhookIdentity identity = null;
+  protected WebhookIdentity identity;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("notifyEveryChange")
-  protected Boolean notifyEveryChange = null;
+  protected Boolean notifyEveryChange;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("url")
-  protected WebhookUrl url = null;
+  protected WebhookUrl url;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

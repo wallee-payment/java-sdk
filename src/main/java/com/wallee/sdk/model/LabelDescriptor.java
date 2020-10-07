@@ -36,35 +36,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LabelDescriptor {
   
   @JsonProperty("category")
-  protected LabelDescriptorCategory category = null;
+  protected LabelDescriptorCategory category;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("features")
-  protected List<Long> features = null;
+  protected List<Long> features;
 
   
   @JsonProperty("group")
-  protected Long group = null;
+  protected Long group;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("type")
-  protected Long type = null;
+  protected Long type;
 
   
   @JsonProperty("weight")
-  protected Integer weight = null;
+  protected Integer weight;
 
   
   

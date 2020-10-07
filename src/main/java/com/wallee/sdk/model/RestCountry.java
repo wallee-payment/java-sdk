@@ -35,27 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestCountry {
   
   @JsonProperty("ISOCode2Letter")
-  protected String isOCode2Letter = null;
+  protected String isOCode2Letter;
 
   
   @JsonProperty("ISOCode3Letter")
-  protected String isOCode3Letter = null;
+  protected String isOCode3Letter;
 
   
   @JsonProperty("addressFormat")
-  protected RestAddressFormat addressFormat = null;
+  protected RestAddressFormat addressFormat;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("numericCode")
-  protected String numericCode = null;
+  protected String numericCode;
 
   
   @JsonProperty("stateCodes")
-  protected List<String> stateCodes = null;
+  protected List<String> stateCodes;
 
   
   

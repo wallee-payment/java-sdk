@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("protectionMode")
-  protected PaymentLinkProtectionMode protectionMode = null;
+  protected PaymentLinkProtectionMode protectionMode;
 
   
   

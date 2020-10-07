@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RenderedTerminalReceipt {
   
   @JsonProperty("data")
-  protected List<byte[]> data = null;
+  protected List<byte[]> data;
 
   
   @JsonProperty("mimeType")
-  protected String mimeType = null;
+  protected String mimeType;
 
   
   

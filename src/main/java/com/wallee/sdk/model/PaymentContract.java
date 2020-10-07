@@ -35,63 +35,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentContract {
   
   @JsonProperty("account")
-  protected Account account = null;
+  protected Account account;
 
   
   @JsonProperty("activatedOn")
-  protected OffsetDateTime activatedOn = null;
+  protected OffsetDateTime activatedOn;
 
   
   @JsonProperty("contractIdentifier")
-  protected String contractIdentifier = null;
+  protected String contractIdentifier;
 
   
   @JsonProperty("contractType")
-  protected PaymentContractType contractType = null;
+  protected PaymentContractType contractType;
 
   
   @JsonProperty("createdBy")
-  protected User createdBy = null;
+  protected User createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("rejectedOn")
-  protected OffsetDateTime rejectedOn = null;
+  protected OffsetDateTime rejectedOn;
 
   
   @JsonProperty("rejectionReason")
-  protected FailureReason rejectionReason = null;
+  protected FailureReason rejectionReason;
 
   
   @JsonProperty("startTerminatingOn")
-  protected OffsetDateTime startTerminatingOn = null;
+  protected OffsetDateTime startTerminatingOn;
 
   
   @JsonProperty("state")
-  protected PaymentContractState state = null;
+  protected PaymentContractState state;
 
   
   @JsonProperty("terminatedBy")
-  protected User terminatedBy = null;
+  protected User terminatedBy;
 
   
   @JsonProperty("terminatedOn")
-  protected OffsetDateTime terminatedOn = null;
+  protected OffsetDateTime terminatedOn;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

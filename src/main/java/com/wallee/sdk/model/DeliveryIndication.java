@@ -35,47 +35,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DeliveryIndication extends TransactionAwareEntity {
   
   @JsonProperty("automaticDecisionReason")
-  protected DeliveryIndicationDecisionReason automaticDecisionReason = null;
+  protected DeliveryIndicationDecisionReason automaticDecisionReason;
 
   
   @JsonProperty("automaticallyDecidedOn")
-  protected OffsetDateTime automaticallyDecidedOn = null;
+  protected OffsetDateTime automaticallyDecidedOn;
 
   
   @JsonProperty("completion")
-  protected Long completion = null;
+  protected Long completion;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("manualDecisionTimeoutOn")
-  protected OffsetDateTime manualDecisionTimeoutOn = null;
+  protected OffsetDateTime manualDecisionTimeoutOn;
 
   
   @JsonProperty("manuallyDecidedBy")
-  protected Long manuallyDecidedBy = null;
+  protected Long manuallyDecidedBy;
 
   
   @JsonProperty("manuallyDecidedOn")
-  protected OffsetDateTime manuallyDecidedOn = null;
+  protected OffsetDateTime manuallyDecidedOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected DeliveryIndicationState state = null;
+  protected DeliveryIndicationState state;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   

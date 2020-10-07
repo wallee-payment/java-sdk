@@ -36,119 +36,119 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionProduct {
   
   @JsonProperty("absolutePriceAdjustment")
-  protected BigDecimal absolutePriceAdjustment = null;
+  protected BigDecimal absolutePriceAdjustment;
 
   
   @JsonProperty("billingDayOfMonth")
-  protected Integer billingDayOfMonth = null;
+  protected Integer billingDayOfMonth;
 
   
   @JsonProperty("billingIntervalAmount")
-  protected Integer billingIntervalAmount = null;
+  protected Integer billingIntervalAmount;
 
   
   @JsonProperty("billingIntervalUnit")
-  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
+  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit;
 
   
   @JsonProperty("billingWeekday")
-  protected ShopifySubscriptionWeekday billingWeekday = null;
+  protected ShopifySubscriptionWeekday billingWeekday;
 
   
   @JsonProperty("fixedPrice")
-  protected BigDecimal fixedPrice = null;
+  protected BigDecimal fixedPrice;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("maximalBillingCycles")
-  protected Integer maximalBillingCycles = null;
+  protected Integer maximalBillingCycles;
 
   
   @JsonProperty("maximalSuspendableCycles")
-  protected Integer maximalSuspendableCycles = null;
+  protected Integer maximalSuspendableCycles;
 
   
   @JsonProperty("minimalBillingCycles")
-  protected Integer minimalBillingCycles = null;
+  protected Integer minimalBillingCycles;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("pricingOption")
-  protected ShopifySubscriptionProductPricingOption pricingOption = null;
+  protected ShopifySubscriptionProductPricingOption pricingOption;
 
   
   @JsonProperty("productId")
-  protected String productId = null;
+  protected String productId;
 
   
   @JsonProperty("productName")
-  protected String productName = null;
+  protected String productName;
 
   
   @JsonProperty("productPrice")
-  protected BigDecimal productPrice = null;
+  protected BigDecimal productPrice;
 
   
   @JsonProperty("productSku")
-  protected String productSku = null;
+  protected String productSku;
 
   
   @JsonProperty("productVariantId")
-  protected String productVariantId = null;
+  protected String productVariantId;
 
   
   @JsonProperty("productVariantName")
-  protected String productVariantName = null;
+  protected String productVariantName;
 
   
   @JsonProperty("relativePriceAdjustment")
-  protected BigDecimal relativePriceAdjustment = null;
+  protected BigDecimal relativePriceAdjustment;
 
   
   @JsonProperty("shippingRequired")
-  protected Boolean shippingRequired = null;
+  protected Boolean shippingRequired;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   @JsonProperty("state")
-  protected ShopifySubscriptionProductState state = null;
+  protected ShopifySubscriptionProductState state;
 
   
   @JsonProperty("stockCheckRequired")
-  protected Boolean stockCheckRequired = null;
+  protected Boolean stockCheckRequired;
 
   
   @JsonProperty("storeOrderConfirmationEmailEnabled")
-  protected Boolean storeOrderConfirmationEmailEnabled = null;
+  protected Boolean storeOrderConfirmationEmailEnabled;
 
   
   @JsonProperty("subscriberSuspensionAllowed")
-  protected Boolean subscriberSuspensionAllowed = null;
+  protected Boolean subscriberSuspensionAllowed;
 
   
   @JsonProperty("terminationBillingCycles")
-  protected Integer terminationBillingCycles = null;
+  protected Integer terminationBillingCycles;
 
   
   @JsonProperty("updatedAt")
-  protected OffsetDateTime updatedAt = null;
+  protected OffsetDateTime updatedAt;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

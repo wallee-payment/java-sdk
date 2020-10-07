@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProduct {
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<Long> allowedPaymentMethodConfigurations = null;
+  protected List<Long> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("failedPaymentSuspensionPeriod")
-  protected String failedPaymentSuspensionPeriod = null;
+  protected String failedPaymentSuspensionPeriod;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected SubscriptionProductState state = null;
+  protected SubscriptionProductState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

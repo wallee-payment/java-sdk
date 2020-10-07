@@ -32,15 +32,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractApplicationUserUpdate {
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("requestLimit")
-  protected Long requestLimit = null;
+  protected Long requestLimit;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   

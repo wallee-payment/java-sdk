@@ -35,55 +35,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductComponentUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("componentChangeWeight")
-  protected Integer componentChangeWeight = null;
+  protected Integer componentChangeWeight;
 
   
   @JsonProperty("componentGroup")
-  protected Long componentGroup = null;
+  protected Long componentGroup;
 
   
   @JsonProperty("defaultComponent")
-  protected Boolean defaultComponent = null;
+  protected Boolean defaultComponent;
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected DatabaseTranslatedStringCreate description;
 
   
   @JsonProperty("maximalQuantity")
-  protected BigDecimal maximalQuantity = null;
+  protected BigDecimal maximalQuantity;
 
   
   @JsonProperty("minimalQuantity")
-  protected BigDecimal minimalQuantity = null;
+  protected BigDecimal minimalQuantity;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   @JsonProperty("quantityStep")
-  protected BigDecimal quantityStep = null;
+  protected BigDecimal quantityStep;
 
   
   @JsonProperty("reference")
-  protected Long reference = null;
+  protected Long reference;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("taxClass")
-  protected Long taxClass = null;
+  protected Long taxClass;
 
   
   

@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DatabaseTranslatedStringItem {
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("languageCode")
-  protected String languageCode = null;
+  protected String languageCode;
 
   
   @JsonProperty("translation")
-  protected String translation = null;
+  protected String translation;
 
   
   

@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionCreationRequest {
   
   @JsonProperty("billingAddress")
-  protected ShopifySubscriptionAddressCreate billingAddress = null;
+  protected ShopifySubscriptionAddressCreate billingAddress;
 
   
   @JsonProperty("billingConfiguration")
-  protected ShopifySubscriptionModelBillingConfiguration billingConfiguration = null;
+  protected ShopifySubscriptionModelBillingConfiguration billingConfiguration;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("integration")
-  protected Long integration = null;
+  protected Long integration;
 
   
   @JsonProperty("items")
@@ -60,31 +60,31 @@ public class ShopifySubscriptionCreationRequest {
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("shippingAddress")
-  protected ShopifySubscriptionAddressCreate shippingAddress = null;
+  protected ShopifySubscriptionAddressCreate shippingAddress;
 
   
   @JsonProperty("shippingMethodName")
-  protected String shippingMethodName = null;
+  protected String shippingMethodName;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("storeOrderConfirmationEmailEnabled")
-  protected Boolean storeOrderConfirmationEmailEnabled = null;
+  protected Boolean storeOrderConfirmationEmailEnabled;
 
   
   @JsonProperty("subscriber")
-  protected ShopifySubscriberCreation subscriber = null;
+  protected ShopifySubscriberCreation subscriber;
 
   
   @JsonProperty("subscriberSuspensionAllowed")
-  protected Boolean subscriberSuspensionAllowed = null;
+  protected Boolean subscriberSuspensionAllowed;
 
   
   

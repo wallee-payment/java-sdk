@@ -35,15 +35,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionSuspensionCreate {
   
   @JsonProperty("plannedEndDate")
-  protected OffsetDateTime plannedEndDate = null;
+  protected OffsetDateTime plannedEndDate;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   @JsonProperty("type")
-  protected ShopifySubscriptionSuspensionType type = null;
+  protected ShopifySubscriptionSuspensionType type;
 
   
   

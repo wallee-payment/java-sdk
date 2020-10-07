@@ -35,15 +35,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WebhookListenerEntity {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("technicalName")
-  protected String technicalName = null;
+  protected String technicalName;
 
   
   

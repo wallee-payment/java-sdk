@@ -32,27 +32,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractTokenUpdate {
   
   @JsonProperty("customerEmailAddress")
-  protected String customerEmailAddress = null;
+  protected String customerEmailAddress;
 
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("enabledForOneClickPayment")
-  protected Boolean enabledForOneClickPayment = null;
+  protected Boolean enabledForOneClickPayment;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("tokenReference")
-  protected String tokenReference = null;
+  protected String tokenReference;
 
   
   

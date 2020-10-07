@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductRetirementCreate {
   
   @JsonProperty("product")
-  protected Long product = null;
+  protected Long product;
 
   
   @JsonProperty("respectTerminiationPeriodsEnabled")
-  protected Boolean respectTerminiationPeriodsEnabled = null;
+  protected Boolean respectTerminiationPeriodsEnabled;
 
   
   @JsonProperty("targetProduct")
-  protected Long targetProduct = null;
+  protected Long targetProduct;
 
   
   

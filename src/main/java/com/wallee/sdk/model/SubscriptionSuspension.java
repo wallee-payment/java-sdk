@@ -35,59 +35,59 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionSuspension {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("effectiveEndDate")
-  protected OffsetDateTime effectiveEndDate = null;
+  protected OffsetDateTime effectiveEndDate;
 
   
   @JsonProperty("endAction")
-  protected SubscriptionSuspensionAction endAction = null;
+  protected SubscriptionSuspensionAction endAction;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("note")
-  protected String note = null;
+  protected String note;
 
   
   @JsonProperty("periodBill")
-  protected Long periodBill = null;
+  protected Long periodBill;
 
   
   @JsonProperty("plannedEndDate")
-  protected OffsetDateTime plannedEndDate = null;
+  protected OffsetDateTime plannedEndDate;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("reason")
-  protected SubscriptionSuspensionReason reason = null;
+  protected SubscriptionSuspensionReason reason;
 
   
   @JsonProperty("state")
-  protected SubscriptionSuspensionState state = null;
+  protected SubscriptionSuspensionState state;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

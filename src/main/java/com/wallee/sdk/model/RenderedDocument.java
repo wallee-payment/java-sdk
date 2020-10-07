@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RenderedDocument {
   
   @JsonProperty("data")
-  protected List<byte[]> data = null;
+  protected List<byte[]> data;
 
   
   @JsonProperty("documentTemplateType")
-  protected Long documentTemplateType = null;
+  protected Long documentTemplateType;
 
   
   @JsonProperty("mimeType")
-  protected String mimeType = null;
+  protected String mimeType;
 
   
   @JsonProperty("title")
-  protected String title = null;
+  protected String title;
 
   
   

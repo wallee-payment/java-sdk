@@ -36,27 +36,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionChangeRequest {
   
   @JsonProperty("componentConfigurations")
-  protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations = null;
+  protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("product")
-  protected Long product = null;
+  protected Long product;
 
   
   @JsonProperty("respectTerminationPeriod")
-  protected Boolean respectTerminationPeriod = null;
+  protected Boolean respectTerminationPeriod;
 
   
   @JsonProperty("selectedComponents")
-  protected List<SubscriptionProductComponentReference> selectedComponents = null;
+  protected List<SubscriptionProductComponentReference> selectedComponents;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   

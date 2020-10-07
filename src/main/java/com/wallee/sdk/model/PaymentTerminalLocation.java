@@ -35,39 +35,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentTerminalLocation {
   
   @JsonProperty("contactAddress")
-  protected PaymentTerminalContactAddress contactAddress = null;
+  protected PaymentTerminalContactAddress contactAddress;
 
   
   @JsonProperty("defaultConfiguration")
-  protected PaymentTerminalConfiguration defaultConfiguration = null;
+  protected PaymentTerminalConfiguration defaultConfiguration;
 
   
   @JsonProperty("deliveryAddress")
-  protected PaymentTerminalAddress deliveryAddress = null;
+  protected PaymentTerminalAddress deliveryAddress;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected PaymentTerminalLocationState state = null;
+  protected PaymentTerminalLocationState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

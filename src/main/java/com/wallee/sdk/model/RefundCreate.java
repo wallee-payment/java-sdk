@@ -37,31 +37,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RefundCreate {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("completion")
-  protected Long completion = null;
+  protected Long completion;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("reductions")
-  protected List<LineItemReductionCreate> reductions = null;
+  protected List<LineItemReductionCreate> reductions;
 
   
   @JsonProperty("transaction")
-  protected Long transaction = null;
+  protected Long transaction;
 
   
   @JsonProperty("type")
-  protected RefundType type = null;
+  protected RefundType type;
 
   
   

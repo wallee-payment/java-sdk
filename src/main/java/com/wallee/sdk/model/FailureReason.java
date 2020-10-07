@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FailureReason {
   
   @JsonProperty("category")
-  protected FailureCategory category = null;
+  protected FailureCategory category;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("features")
-  protected List<Long> features = null;
+  protected List<Long> features;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   

@@ -33,63 +33,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractShopifySubscriptionProductActive {
   
   @JsonProperty("absolutePriceAdjustment")
-  protected BigDecimal absolutePriceAdjustment = null;
+  protected BigDecimal absolutePriceAdjustment;
 
   
   @JsonProperty("billingDayOfMonth")
-  protected Integer billingDayOfMonth = null;
+  protected Integer billingDayOfMonth;
 
   
   @JsonProperty("billingIntervalAmount")
-  protected Integer billingIntervalAmount = null;
+  protected Integer billingIntervalAmount;
 
   
   @JsonProperty("billingIntervalUnit")
-  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
+  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit;
 
   
   @JsonProperty("billingWeekday")
-  protected ShopifySubscriptionWeekday billingWeekday = null;
+  protected ShopifySubscriptionWeekday billingWeekday;
 
   
   @JsonProperty("fixedPrice")
-  protected BigDecimal fixedPrice = null;
+  protected BigDecimal fixedPrice;
 
   
   @JsonProperty("maximalBillingCycles")
-  protected Integer maximalBillingCycles = null;
+  protected Integer maximalBillingCycles;
 
   
   @JsonProperty("maximalSuspendableCycles")
-  protected Integer maximalSuspendableCycles = null;
+  protected Integer maximalSuspendableCycles;
 
   
   @JsonProperty("minimalBillingCycles")
-  protected Integer minimalBillingCycles = null;
+  protected Integer minimalBillingCycles;
 
   
   @JsonProperty("pricingOption")
-  protected ShopifySubscriptionProductPricingOption pricingOption = null;
+  protected ShopifySubscriptionProductPricingOption pricingOption;
 
   
   @JsonProperty("relativePriceAdjustment")
-  protected BigDecimal relativePriceAdjustment = null;
+  protected BigDecimal relativePriceAdjustment;
 
   
   @JsonProperty("state")
-  protected ShopifySubscriptionProductState state = null;
+  protected ShopifySubscriptionProductState state;
 
   
   @JsonProperty("storeOrderConfirmationEmailEnabled")
-  protected Boolean storeOrderConfirmationEmailEnabled = null;
+  protected Boolean storeOrderConfirmationEmailEnabled;
 
   
   @JsonProperty("subscriberSuspensionAllowed")
-  protected Boolean subscriberSuspensionAllowed = null;
+  protected Boolean subscriberSuspensionAllowed;
 
   
   @JsonProperty("terminationBillingCycles")
-  protected Integer terminationBillingCycles = null;
+  protected Integer terminationBillingCycles;
 
   
   

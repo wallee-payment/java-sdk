@@ -34,35 +34,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionModelBillingConfiguration {
   
   @JsonProperty("billingDayOfMonth")
-  protected Integer billingDayOfMonth = null;
+  protected Integer billingDayOfMonth;
 
   
   @JsonProperty("billingIntervalAmount")
-  protected Integer billingIntervalAmount = null;
+  protected Integer billingIntervalAmount;
 
   
   @JsonProperty("billingIntervalUnit")
-  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
+  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit;
 
   
   @JsonProperty("billingWeekday")
-  protected ShopifySubscriptionWeekday billingWeekday = null;
+  protected ShopifySubscriptionWeekday billingWeekday;
 
   
   @JsonProperty("maximalBillingCycles")
-  protected Integer maximalBillingCycles = null;
+  protected Integer maximalBillingCycles;
 
   
   @JsonProperty("maximalSuspendableCycles")
-  protected Integer maximalSuspendableCycles = null;
+  protected Integer maximalSuspendableCycles;
 
   
   @JsonProperty("minimalBillingCycles")
-  protected Integer minimalBillingCycles = null;
+  protected Integer minimalBillingCycles;
 
   
   @JsonProperty("terminationBillingCycles")
-  protected Integer terminationBillingCycles = null;
+  protected Integer terminationBillingCycles;
 
   
   

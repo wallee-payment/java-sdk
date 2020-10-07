@@ -34,23 +34,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractSubscriptionProductActive {
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<Long> allowedPaymentMethodConfigurations = null;
+  protected List<Long> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("failedPaymentSuspensionPeriod")
-  protected String failedPaymentSuspensionPeriod = null;
+  protected String failedPaymentSuspensionPeriod;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("state")
-  protected SubscriptionProductState state = null;
+  protected SubscriptionProductState state;
 
   
   

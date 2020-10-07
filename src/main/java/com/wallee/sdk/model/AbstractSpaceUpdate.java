@@ -35,35 +35,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractSpaceUpdate {
   
   @JsonProperty("lastModifiedDate")
-  protected OffsetDateTime lastModifiedDate = null;
+  protected OffsetDateTime lastModifiedDate;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("postalAddress")
-  protected SpaceAddressCreate postalAddress = null;
+  protected SpaceAddressCreate postalAddress;
 
   
   @JsonProperty("primaryCurrency")
-  protected String primaryCurrency = null;
+  protected String primaryCurrency;
 
   
   @JsonProperty("requestLimit")
-  protected Long requestLimit = null;
+  protected Long requestLimit;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("technicalContactAddresses")
-  protected List<String> technicalContactAddresses = null;
+  protected List<String> technicalContactAddresses;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   

@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   
   @JsonProperty("chargeFlowLevel")
-  protected ChargeFlowLevel chargeFlowLevel = null;
+  protected ChargeFlowLevel chargeFlowLevel;
 
   
   @JsonProperty("paymentLink")
-  protected String paymentLink = null;
+  protected String paymentLink;
 
   
   

@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionUpdateAddressesRequest {
   
   @JsonProperty("billingAddress")
-  protected ShopifySubscriptionAddressCreate billingAddress = null;
+  protected ShopifySubscriptionAddressCreate billingAddress;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("shippingAddress")
-  protected ShopifySubscriptionAddressCreate shippingAddress = null;
+  protected ShopifySubscriptionAddressCreate shippingAddress;
 
   
   

@@ -35,55 +35,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Token {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("customerEmailAddress")
-  protected String customerEmailAddress = null;
+  protected String customerEmailAddress;
 
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("enabledForOneClickPayment")
-  protected Boolean enabledForOneClickPayment = null;
+  protected Boolean enabledForOneClickPayment;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("tokenReference")
-  protected String tokenReference = null;
+  protected String tokenReference;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

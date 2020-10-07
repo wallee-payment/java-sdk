@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CustomerAddressCreate extends AbstractCustomerAddressActive {
   
   @JsonProperty("customer")
-  protected Long customer = null;
+  protected Long customer;
 
   
   

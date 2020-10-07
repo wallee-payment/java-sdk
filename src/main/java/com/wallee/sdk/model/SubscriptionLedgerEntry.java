@@ -37,67 +37,67 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionLedgerEntry {
   
   @JsonProperty("aggregatedTaxRate")
-  protected BigDecimal aggregatedTaxRate = null;
+  protected BigDecimal aggregatedTaxRate;
 
   
   @JsonProperty("amountExcludingTax")
-  protected BigDecimal amountExcludingTax = null;
+  protected BigDecimal amountExcludingTax;
 
   
   @JsonProperty("amountIncludingTax")
-  protected BigDecimal amountIncludingTax = null;
+  protected BigDecimal amountIncludingTax;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("state")
-  protected SubscriptionLedgerEntryState state = null;
+  protected SubscriptionLedgerEntryState state;
 
   
   @JsonProperty("subscriptionVersion")
-  protected Long subscriptionVersion = null;
+  protected Long subscriptionVersion;
 
   
   @JsonProperty("taxAmount")
-  protected BigDecimal taxAmount = null;
+  protected BigDecimal taxAmount;
 
   
   @JsonProperty("taxes")
-  protected List<Tax> taxes = null;
+  protected List<Tax> taxes;
 
   
   @JsonProperty("title")
-  protected String title = null;
+  protected String title;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

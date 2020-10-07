@@ -34,19 +34,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UnencryptedCardData {
   
   @JsonProperty("cardHolderName")
-  protected String cardHolderName = null;
+  protected String cardHolderName;
 
   
   @JsonProperty("cardVerificationCode")
-  protected String cardVerificationCode = null;
+  protected String cardVerificationCode;
 
   
   @JsonProperty("expiryDate")
-  protected String expiryDate = null;
+  protected String expiryDate;
 
   
   @JsonProperty("primaryAccountNumber")
-  protected String primaryAccountNumber = null;
+  protected String primaryAccountNumber;
 
   
   

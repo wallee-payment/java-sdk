@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EntityQueryFilter {
   
   @JsonProperty("children")
-  protected List<EntityQueryFilter> children = null;
+  protected List<EntityQueryFilter> children;
 
   
   @JsonProperty("fieldName")
-  protected String fieldName = null;
+  protected String fieldName;
 
   
   @JsonProperty("operator")
-  protected CriteriaOperator operator = null;
+  protected CriteriaOperator operator;
 
   
   @JsonProperty("type")
-  protected EntityQueryFilterType type = null;
+  protected EntityQueryFilterType type;
 
   
   @JsonProperty("value")
-  protected Object value = null;
+  protected Object value;
 
   
   

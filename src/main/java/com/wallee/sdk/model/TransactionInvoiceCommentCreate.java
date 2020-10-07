@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceCommentActive {
   
   @JsonProperty("transactionInvoice")
-  protected Long transactionInvoice = null;
+  protected Long transactionInvoice;
 
   
   

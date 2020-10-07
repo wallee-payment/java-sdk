@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ManualTaskAction {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("label")
-  protected Map<String, String> label = null;
+  protected Map<String, String> label;
 
   
   @JsonProperty("style")
-  protected ManualTaskActionStyle style = null;
+  protected ManualTaskActionStyle style;
 
   
   @JsonProperty("taskType")
-  protected Long taskType = null;
+  protected Long taskType;
 
   
   

@@ -35,31 +35,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ResourcePath {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("path")
-  protected String path = null;
+  protected String path;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected ResourceState state = null;
+  protected ResourceState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

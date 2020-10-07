@@ -37,63 +37,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Subscriber {
   
   @JsonProperty("additionalAllowedPaymentMethodConfigurations")
-  protected List<Long> additionalAllowedPaymentMethodConfigurations = null;
+  protected List<Long> additionalAllowedPaymentMethodConfigurations;
 
   
   @JsonProperty("billingAddress")
-  protected Address billingAddress = null;
+  protected Address billingAddress;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("disallowedPaymentMethodConfigurations")
-  protected List<Long> disallowedPaymentMethodConfigurations = null;
+  protected List<Long> disallowedPaymentMethodConfigurations;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("shippingAddress")
-  protected Address shippingAddress = null;
+  protected Address shippingAddress;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

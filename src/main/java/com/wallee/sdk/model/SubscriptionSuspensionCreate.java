@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionSuspensionCreate {
   
   @JsonProperty("endAction")
-  protected SubscriptionSuspensionAction endAction = null;
+  protected SubscriptionSuspensionAction endAction;
 
   
   @JsonProperty("note")
-  protected String note = null;
+  protected String note;
 
   
   @JsonProperty("plannedEndDate")
-  protected OffsetDateTime plannedEndDate = null;
+  protected OffsetDateTime plannedEndDate;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   

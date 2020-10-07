@@ -34,19 +34,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractWebhookListenerUpdate {
   
   @JsonProperty("entityStates")
-  protected List<String> entityStates = null;
+  protected List<String> entityStates;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("notifyEveryChange")
-  protected Boolean notifyEveryChange = null;
+  protected Boolean notifyEveryChange;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   

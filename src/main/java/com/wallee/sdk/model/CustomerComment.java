@@ -35,43 +35,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CustomerComment {
   
   @JsonProperty("content")
-  protected String content = null;
+  protected String content;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("customer")
-  protected Long customer = null;
+  protected Long customer;
 
   
   @JsonProperty("editedBy")
-  protected Long editedBy = null;
+  protected Long editedBy;
 
   
   @JsonProperty("editedOn")
-  protected OffsetDateTime editedOn = null;
+  protected OffsetDateTime editedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("pinned")
-  protected Boolean pinned = null;
+  protected Boolean pinned;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

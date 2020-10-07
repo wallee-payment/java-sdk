@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Customer {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("familyName")
-  protected String familyName = null;
+  protected String familyName;
 
   
   @JsonProperty("givenName")
-  protected String givenName = null;
+  protected String givenName;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("preferredCurrency")
-  protected String preferredCurrency = null;
+  protected String preferredCurrency;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

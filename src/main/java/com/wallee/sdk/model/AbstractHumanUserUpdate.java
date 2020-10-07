@@ -32,35 +32,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractHumanUserUpdate {
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("firstname")
-  protected String firstname = null;
+  protected String firstname;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lastname")
-  protected String lastname = null;
+  protected String lastname;
 
   
   @JsonProperty("mobilePhoneNumber")
-  protected String mobilePhoneNumber = null;
+  protected String mobilePhoneNumber;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("twoFactorEnabled")
-  protected Boolean twoFactorEnabled = null;
+  protected Boolean twoFactorEnabled;
 
   
   

@@ -35,43 +35,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RefundComment {
   
   @JsonProperty("content")
-  protected String content = null;
+  protected String content;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("editedBy")
-  protected Long editedBy = null;
+  protected Long editedBy;
 
   
   @JsonProperty("editedOn")
-  protected OffsetDateTime editedOn = null;
+  protected OffsetDateTime editedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("pinned")
-  protected Boolean pinned = null;
+  protected Boolean pinned;
 
   
   @JsonProperty("refund")
-  protected Long refund = null;
+  protected Long refund;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

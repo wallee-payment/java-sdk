@@ -32,11 +32,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractCustomerAddressActive {
   
   @JsonProperty("address")
-  protected CustomerPostalAddressCreate address = null;
+  protected CustomerPostalAddressCreate address;
 
   
   @JsonProperty("addressType")
-  protected CustomerAddressType addressType = null;
+  protected CustomerAddressType addressType;
 
   
   

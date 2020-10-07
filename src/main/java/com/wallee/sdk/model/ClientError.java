@@ -34,23 +34,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ClientError {
   
   @JsonProperty("date")
-  protected String date = null;
+  protected String date;
 
   
   @JsonProperty("defaultMessage")
-  protected String defaultMessage = null;
+  protected String defaultMessage;
 
   
   @JsonProperty("id")
-  protected String id = null;
+  protected String id;
 
   
   @JsonProperty("message")
-  protected String message = null;
+  protected String message;
 
   
   @JsonProperty("type")
-  protected ClientErrorType type = null;
+  protected ClientErrorType type;
 
   
   

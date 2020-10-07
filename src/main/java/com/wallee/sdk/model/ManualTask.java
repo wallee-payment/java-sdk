@@ -36,43 +36,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ManualTask {
   
   @JsonProperty("actions")
-  protected List<Long> actions = null;
+  protected List<Long> actions;
 
   
   @JsonProperty("contextEntityId")
-  protected Long contextEntityId = null;
+  protected Long contextEntityId;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("expiresOn")
-  protected OffsetDateTime expiresOn = null;
+  protected OffsetDateTime expiresOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected ManualTaskState state = null;
+  protected ManualTaskState state;
 
   
   @JsonProperty("type")
-  protected Long type = null;
+  protected Long type;
 
   
   

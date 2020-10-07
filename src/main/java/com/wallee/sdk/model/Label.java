@@ -34,23 +34,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Label {
   
   @JsonProperty("content")
-  protected Object content = null;
+  protected Object content;
 
   
   @JsonProperty("contentAsString")
-  protected String contentAsString = null;
+  protected String contentAsString;
 
   
   @JsonProperty("descriptor")
-  protected LabelDescriptor descriptor = null;
+  protected LabelDescriptor descriptor;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

@@ -34,31 +34,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProductMeteredFeeUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("component")
-  protected Long component = null;
+  protected Long component;
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected DatabaseTranslatedStringCreate description;
 
   
   @JsonProperty("metric")
-  protected Long metric = null;
+  protected Long metric;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   @JsonProperty("tierPricing")
-  protected ProductMeteredTierPricing tierPricing = null;
+  protected ProductMeteredTierPricing tierPricing;
 
   
   

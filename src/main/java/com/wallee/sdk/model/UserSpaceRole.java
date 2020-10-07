@@ -34,23 +34,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UserSpaceRole {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("role")
-  protected Long role = null;
+  protected Long role;
 
   
   @JsonProperty("space")
-  protected Long space = null;
+  protected Long space;
 
   
   @JsonProperty("user")
-  protected Long user = null;
+  protected Long user;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

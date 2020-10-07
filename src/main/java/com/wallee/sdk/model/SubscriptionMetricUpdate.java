@@ -34,19 +34,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionMetricUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected DatabaseTranslatedStringCreate description;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   

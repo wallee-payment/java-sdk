@@ -36,79 +36,79 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionVersion {
   
   @JsonProperty("activatedOn")
-  protected OffsetDateTime activatedOn = null;
+  protected OffsetDateTime activatedOn;
 
   
   @JsonProperty("billingCurrency")
-  protected String billingCurrency = null;
+  protected String billingCurrency;
 
   
   @JsonProperty("componentConfigurations")
-  protected List<SubscriptionComponentConfiguration> componentConfigurations = null;
+  protected List<SubscriptionComponentConfiguration> componentConfigurations;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("expectedLastPeriodEnd")
-  protected OffsetDateTime expectedLastPeriodEnd = null;
+  protected OffsetDateTime expectedLastPeriodEnd;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("plannedTerminationDate")
-  protected OffsetDateTime plannedTerminationDate = null;
+  protected OffsetDateTime plannedTerminationDate;
 
   
   @JsonProperty("productVersion")
-  protected SubscriptionProductVersion productVersion = null;
+  protected SubscriptionProductVersion productVersion;
 
   
   @JsonProperty("selectedComponents")
-  protected List<SubscriptionProductComponent> selectedComponents = null;
+  protected List<SubscriptionProductComponent> selectedComponents;
 
   
   @JsonProperty("state")
-  protected SubscriptionVersionState state = null;
+  protected SubscriptionVersionState state;
 
   
   @JsonProperty("subscription")
-  protected Subscription subscription = null;
+  protected Subscription subscription;
 
   
   @JsonProperty("terminatedOn")
-  protected OffsetDateTime terminatedOn = null;
+  protected OffsetDateTime terminatedOn;
 
   
   @JsonProperty("terminatingOn")
-  protected OffsetDateTime terminatingOn = null;
+  protected OffsetDateTime terminatingOn;
 
   
   @JsonProperty("terminationIssuedOn")
-  protected OffsetDateTime terminationIssuedOn = null;
+  protected OffsetDateTime terminationIssuedOn;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

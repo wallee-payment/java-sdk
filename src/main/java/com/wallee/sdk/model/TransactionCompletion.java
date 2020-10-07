@@ -37,107 +37,107 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionCompletion extends TransactionAwareEntity {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("baseLineItems")
-  protected List<LineItem> baseLineItems = null;
+  protected List<LineItem> baseLineItems;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lastCompletion")
-  protected Boolean lastCompletion = null;
+  protected Boolean lastCompletion;
 
   
   @JsonProperty("lineItemVersion")
-  protected TransactionLineItemVersion lineItemVersion = null;
+  protected TransactionLineItemVersion lineItemVersion;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("mode")
-  protected TransactionCompletionMode mode = null;
+  protected TransactionCompletionMode mode;
 
   
   @JsonProperty("nextUpdateOn")
-  protected OffsetDateTime nextUpdateOn = null;
+  protected OffsetDateTime nextUpdateOn;
 
   
   @JsonProperty("paymentInformation")
-  protected String paymentInformation = null;
+  protected String paymentInformation;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processingOn")
-  protected OffsetDateTime processingOn = null;
+  protected OffsetDateTime processingOn;
 
   
   @JsonProperty("processorReference")
-  protected String processorReference = null;
+  protected String processorReference;
 
   
   @JsonProperty("remainingLineItems")
-  protected List<LineItem> remainingLineItems = null;
+  protected List<LineItem> remainingLineItems;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected TransactionCompletionState state = null;
+  protected TransactionCompletionState state;
 
   
   @JsonProperty("succeededOn")
-  protected OffsetDateTime succeededOn = null;
+  protected OffsetDateTime succeededOn;
 
   
   @JsonProperty("taxAmount")
-  protected BigDecimal taxAmount = null;
+  protected BigDecimal taxAmount;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

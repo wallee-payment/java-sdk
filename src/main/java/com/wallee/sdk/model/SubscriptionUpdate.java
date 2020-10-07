@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("affiliate")
-  protected Long affiliate = null;
+  protected Long affiliate;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("plannedTerminationDate")
-  protected OffsetDateTime plannedTerminationDate = null;
+  protected OffsetDateTime plannedTerminationDate;
 
   
   

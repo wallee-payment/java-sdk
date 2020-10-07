@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LegalOrganizationForm {
   
   @JsonProperty("country")
-  protected String country = null;
+  protected String country;
 
   
   @JsonProperty("description")
-  protected List<LocalizedString> description = null;
+  protected List<LocalizedString> description;
 
   
   @JsonProperty("englishDescription")
-  protected String englishDescription = null;
+  protected String englishDescription;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("shortcut")
-  protected List<LocalizedString> shortcut = null;
+  protected List<LocalizedString> shortcut;
 
   
   

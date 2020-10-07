@@ -35,35 +35,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionMetric {
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected DatabaseTranslatedString description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected DatabaseTranslatedString name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("type")
-  protected SubscriptionMetricType type = null;
+  protected SubscriptionMetricType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

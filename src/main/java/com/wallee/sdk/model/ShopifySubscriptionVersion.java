@@ -36,111 +36,111 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionVersion {
   
   @JsonProperty("billingAddress")
-  protected ShopifySubscriptionAddress billingAddress = null;
+  protected ShopifySubscriptionAddress billingAddress;
 
   
   @JsonProperty("billingDayOfMonth")
-  protected Integer billingDayOfMonth = null;
+  protected Integer billingDayOfMonth;
 
   
   @JsonProperty("billingIntervalAmount")
-  protected Integer billingIntervalAmount = null;
+  protected Integer billingIntervalAmount;
 
   
   @JsonProperty("billingIntervalUnit")
-  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
+  protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit;
 
   
   @JsonProperty("billingWeekday")
-  protected ShopifySubscriptionWeekday billingWeekday = null;
+  protected ShopifySubscriptionWeekday billingWeekday;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("dischargedBy")
-  protected Long dischargedBy = null;
+  protected Long dischargedBy;
 
   
   @JsonProperty("dischargedOn")
-  protected OffsetDateTime dischargedOn = null;
+  protected OffsetDateTime dischargedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("items")
-  protected List<ShopifySubscriptionVersionItem> items = null;
+  protected List<ShopifySubscriptionVersionItem> items;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("maximalBillingCycles")
-  protected Integer maximalBillingCycles = null;
+  protected Integer maximalBillingCycles;
 
   
   @JsonProperty("maximalSuspendableCycles")
-  protected Integer maximalSuspendableCycles = null;
+  protected Integer maximalSuspendableCycles;
 
   
   @JsonProperty("minimalBillingCycles")
-  protected Integer minimalBillingCycles = null;
+  protected Integer minimalBillingCycles;
 
   
   @JsonProperty("paymentGateway")
-  protected String paymentGateway = null;
+  protected String paymentGateway;
 
   
   @JsonProperty("shippingAddress")
-  protected ShopifySubscriptionAddress shippingAddress = null;
+  protected ShopifySubscriptionAddress shippingAddress;
 
   
   @JsonProperty("shippingRate")
-  protected String shippingRate = null;
+  protected String shippingRate;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   @JsonProperty("state")
-  protected ShopifySubscriptionVersionState state = null;
+  protected ShopifySubscriptionVersionState state;
 
   
   @JsonProperty("storeOrderConfirmationEmailEnabled")
-  protected Boolean storeOrderConfirmationEmailEnabled = null;
+  protected Boolean storeOrderConfirmationEmailEnabled;
 
   
   @JsonProperty("subscriberSuspensionAllowed")
-  protected Boolean subscriberSuspensionAllowed = null;
+  protected Boolean subscriberSuspensionAllowed;
 
   
   @JsonProperty("subscription")
-  protected ShopifySubscription subscription = null;
+  protected ShopifySubscription subscription;
 
   
   @JsonProperty("terminationBillingCycles")
-  protected Integer terminationBillingCycles = null;
+  protected Integer terminationBillingCycles;
 
   
   @JsonProperty("token")
-  protected Long token = null;
+  protected Long token;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

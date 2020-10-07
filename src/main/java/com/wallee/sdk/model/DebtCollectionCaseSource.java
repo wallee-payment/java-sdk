@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DebtCollectionCaseSource {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("forcedPreparingState")
-  protected Boolean forcedPreparingState = null;
+  protected Boolean forcedPreparingState;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   

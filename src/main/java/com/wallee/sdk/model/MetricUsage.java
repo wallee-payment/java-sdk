@@ -36,19 +36,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class MetricUsage {
   
   @JsonProperty("consumedUnits")
-  protected BigDecimal consumedUnits = null;
+  protected BigDecimal consumedUnits;
 
   
   @JsonProperty("metricDescription")
-  protected Map<String, String> metricDescription = null;
+  protected Map<String, String> metricDescription;
 
   
   @JsonProperty("metricId")
-  protected Long metricId = null;
+  protected Long metricId;
 
   
   @JsonProperty("metricName")
-  protected Map<String, String> metricName = null;
+  protected Map<String, String> metricName;
 
   
   

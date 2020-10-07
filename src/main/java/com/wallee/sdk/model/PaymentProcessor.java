@@ -35,35 +35,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentProcessor {
   
   @JsonProperty("companyName")
-  protected Map<String, String> companyName = null;
+  protected Map<String, String> companyName;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("feature")
-  protected Long feature = null;
+  protected Long feature;
 
   
   @JsonProperty("headquartersLocation")
-  protected Map<String, String> headquartersLocation = null;
+  protected Map<String, String> headquartersLocation;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("logoPath")
-  protected String logoPath = null;
+  protected String logoPath;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("productName")
-  protected Map<String, String> productName = null;
+  protected Map<String, String> productName;
 
   
   

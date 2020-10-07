@@ -35,63 +35,63 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Account {
   
   @JsonProperty("active")
-  protected Boolean active = null;
+  protected Boolean active;
 
   
   @JsonProperty("activeOrRestrictedActive")
-  protected Boolean activeOrRestrictedActive = null;
+  protected Boolean activeOrRestrictedActive;
 
   
   @JsonProperty("deletedBy")
-  protected Long deletedBy = null;
+  protected Long deletedBy;
 
   
   @JsonProperty("deletedOn")
-  protected OffsetDateTime deletedOn = null;
+  protected OffsetDateTime deletedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("lastModifiedDate")
-  protected OffsetDateTime lastModifiedDate = null;
+  protected OffsetDateTime lastModifiedDate;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("parentAccount")
-  protected Account parentAccount = null;
+  protected Account parentAccount;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("restrictedActive")
-  protected Boolean restrictedActive = null;
+  protected Boolean restrictedActive;
 
   
   @JsonProperty("scope")
-  protected Long scope = null;
+  protected Long scope;
 
   
   @JsonProperty("state")
-  protected AccountState state = null;
+  protected AccountState state;
 
   
   @JsonProperty("subaccountLimit")
-  protected Long subaccountLimit = null;
+  protected Long subaccountLimit;
 
   
   @JsonProperty("type")
-  protected AccountType type = null;
+  protected AccountType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

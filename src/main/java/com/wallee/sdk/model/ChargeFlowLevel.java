@@ -35,43 +35,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ChargeFlowLevel extends TransactionAwareEntity {
   
   @JsonProperty("asynchronousCharge")
-  protected Long asynchronousCharge = null;
+  protected Long asynchronousCharge;
 
   
   @JsonProperty("configuration")
-  protected ChargeFlowLevelConfiguration _configuration = null;
+  protected ChargeFlowLevelConfiguration _configuration;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected ChargeFlowLevelState state = null;
+  protected ChargeFlowLevelState state;
 
   
   @JsonProperty("synchronousCharge")
-  protected Long synchronousCharge = null;
+  protected Long synchronousCharge;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("tokenCharge")
-  protected Long tokenCharge = null;
+  protected Long tokenCharge;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

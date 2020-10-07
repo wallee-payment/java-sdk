@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Tax {
   
   @JsonProperty("rate")
-  protected BigDecimal rate = null;
+  protected BigDecimal rate;
 
   
   @JsonProperty("title")
-  protected String title = null;
+  protected String title;
 
   
   

@@ -34,31 +34,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractCustomerActive {
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("familyName")
-  protected String familyName = null;
+  protected String familyName;
 
   
   @JsonProperty("givenName")
-  protected String givenName = null;
+  protected String givenName;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("preferredCurrency")
-  protected String preferredCurrency = null;
+  protected String preferredCurrency;
 
   
   

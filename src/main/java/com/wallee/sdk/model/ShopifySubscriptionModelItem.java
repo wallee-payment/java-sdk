@@ -37,23 +37,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionModelItem {
   
   @JsonProperty("priceIncludingTax")
-  protected BigDecimal priceIncludingTax = null;
+  protected BigDecimal priceIncludingTax;
 
   
   @JsonProperty("productId")
-  protected Long productId = null;
+  protected Long productId;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("recalculatePrice")
-  protected Boolean recalculatePrice = null;
+  protected Boolean recalculatePrice;
 
   
   @JsonProperty("taxLines")
-  protected List<ShopifySubscriptionModelTaxLine> taxLines = null;
+  protected List<ShopifySubscriptionModelTaxLine> taxLines;
 
   
   

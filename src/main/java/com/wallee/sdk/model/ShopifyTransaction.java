@@ -35,39 +35,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifyTransaction extends TransactionAwareEntity {
   
   @JsonProperty("checkoutId")
-  protected String checkoutId = null;
+  protected String checkoutId;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("integration")
-  protected ShopifyIntegration integration = null;
+  protected ShopifyIntegration integration;
 
   
   @JsonProperty("orderId")
-  protected String orderId = null;
+  protected String orderId;
 
   
   @JsonProperty("orderName")
-  protected String orderName = null;
+  protected String orderName;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected ShopifyTransactionState state = null;
+  protected ShopifyTransactionState state;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

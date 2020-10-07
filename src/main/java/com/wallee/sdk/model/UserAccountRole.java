@@ -34,27 +34,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UserAccountRole {
   
   @JsonProperty("account")
-  protected Long account = null;
+  protected Long account;
 
   
   @JsonProperty("appliesOnSubAccount")
-  protected Boolean appliesOnSubAccount = null;
+  protected Boolean appliesOnSubAccount;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("role")
-  protected Long role = null;
+  protected Long role;
 
   
   @JsonProperty("user")
-  protected Long user = null;
+  protected Long user;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

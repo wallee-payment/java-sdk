@@ -36,75 +36,75 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Space {
   
   @JsonProperty("account")
-  protected Account account = null;
+  protected Account account;
 
   
   @JsonProperty("active")
-  protected Boolean active = null;
+  protected Boolean active;
 
   
   @JsonProperty("activeOrRestrictedActive")
-  protected Boolean activeOrRestrictedActive = null;
+  protected Boolean activeOrRestrictedActive;
 
   
   @JsonProperty("database")
-  protected TenantDatabase database = null;
+  protected TenantDatabase database;
 
   
   @JsonProperty("deletedBy")
-  protected Long deletedBy = null;
+  protected Long deletedBy;
 
   
   @JsonProperty("deletedOn")
-  protected OffsetDateTime deletedOn = null;
+  protected OffsetDateTime deletedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("lastModifiedDate")
-  protected OffsetDateTime lastModifiedDate = null;
+  protected OffsetDateTime lastModifiedDate;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("postalAddress")
-  protected SpaceAddress postalAddress = null;
+  protected SpaceAddress postalAddress;
 
   
   @JsonProperty("primaryCurrency")
-  protected String primaryCurrency = null;
+  protected String primaryCurrency;
 
   
   @JsonProperty("requestLimit")
-  protected Long requestLimit = null;
+  protected Long requestLimit;
 
   
   @JsonProperty("restrictedActive")
-  protected Boolean restrictedActive = null;
+  protected Boolean restrictedActive;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("technicalContactAddresses")
-  protected List<String> technicalContactAddresses = null;
+  protected List<String> technicalContactAddresses;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

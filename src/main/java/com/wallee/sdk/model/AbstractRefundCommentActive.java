@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractRefundCommentActive {
   
   @JsonProperty("content")
-  protected String content = null;
+  protected String content;
 
   
   

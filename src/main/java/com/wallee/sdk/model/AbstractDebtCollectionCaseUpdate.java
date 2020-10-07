@@ -35,35 +35,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractDebtCollectionCaseUpdate {
   
   @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress = null;
+  protected AddressCreate billingAddress;
 
   
   @JsonProperty("contractDate")
-  protected OffsetDateTime contractDate = null;
+  protected OffsetDateTime contractDate;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("dueDate")
-  protected OffsetDateTime dueDate = null;
+  protected OffsetDateTime dueDate;
 
   
   @JsonProperty("environment")
-  protected DebtCollectionEnvironment environment = null;
+  protected DebtCollectionEnvironment environment;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItemCreate> lineItems = null;
+  protected List<LineItemCreate> lineItems;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   

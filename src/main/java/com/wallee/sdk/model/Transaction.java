@@ -38,247 +38,247 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Transaction {
   
   @JsonProperty("acceptHeader")
-  protected String acceptHeader = null;
+  protected String acceptHeader;
 
   
   @JsonProperty("acceptLanguageHeader")
-  protected String acceptLanguageHeader = null;
+  protected String acceptLanguageHeader;
 
   
   @JsonProperty("allowedPaymentMethodBrands")
-  protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
+  protected List<PaymentMethodBrand> allowedPaymentMethodBrands;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<Long> allowedPaymentMethodConfigurations = null;
+  protected List<Long> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("authorizationAmount")
-  protected BigDecimal authorizationAmount = null;
+  protected BigDecimal authorizationAmount;
 
   
   @JsonProperty("authorizationEnvironment")
-  protected ChargeAttemptEnvironment authorizationEnvironment = null;
+  protected ChargeAttemptEnvironment authorizationEnvironment;
 
   
   @JsonProperty("authorizationSalesChannel")
-  protected Long authorizationSalesChannel = null;
+  protected Long authorizationSalesChannel;
 
   
   @JsonProperty("authorizationTimeoutOn")
-  protected OffsetDateTime authorizationTimeoutOn = null;
+  protected OffsetDateTime authorizationTimeoutOn;
 
   
   @JsonProperty("authorizedOn")
-  protected OffsetDateTime authorizedOn = null;
+  protected OffsetDateTime authorizedOn;
 
   
   @JsonProperty("autoConfirmationEnabled")
-  protected Boolean autoConfirmationEnabled = null;
+  protected Boolean autoConfirmationEnabled;
 
   
   @JsonProperty("billingAddress")
-  protected Address billingAddress = null;
+  protected Address billingAddress;
 
   
   @JsonProperty("chargeRetryEnabled")
-  protected Boolean chargeRetryEnabled = null;
+  protected Boolean chargeRetryEnabled;
 
   
   @JsonProperty("completedAmount")
-  protected BigDecimal completedAmount = null;
+  protected BigDecimal completedAmount;
 
   
   @JsonProperty("completedOn")
-  protected OffsetDateTime completedOn = null;
+  protected OffsetDateTime completedOn;
 
   
   @JsonProperty("completionTimeoutOn")
-  protected OffsetDateTime completionTimeoutOn = null;
+  protected OffsetDateTime completionTimeoutOn;
 
   
   @JsonProperty("confirmedBy")
-  protected Long confirmedBy = null;
+  protected Long confirmedBy;
 
   
   @JsonProperty("confirmedOn")
-  protected OffsetDateTime confirmedOn = null;
+  protected OffsetDateTime confirmedOn;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("customerEmailAddress")
-  protected String customerEmailAddress = null;
+  protected String customerEmailAddress;
 
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("customersPresence")
-  protected CustomersPresence customersPresence = null;
+  protected CustomersPresence customersPresence;
 
   
   @JsonProperty("deliveryDecisionMadeOn")
-  protected OffsetDateTime deliveryDecisionMadeOn = null;
+  protected OffsetDateTime deliveryDecisionMadeOn;
 
   
   @JsonProperty("deviceSessionIdentifier")
-  protected String deviceSessionIdentifier = null;
+  protected String deviceSessionIdentifier;
 
   
   @JsonProperty("emailsDisabled")
-  protected Boolean emailsDisabled = null;
+  protected Boolean emailsDisabled;
 
   
   @JsonProperty("endOfLife")
-  protected OffsetDateTime endOfLife = null;
+  protected OffsetDateTime endOfLife;
 
   
   @JsonProperty("environment")
-  protected Environment environment = null;
+  protected Environment environment;
 
   
   @JsonProperty("environmentSelectionStrategy")
-  protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
+  protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failedUrl")
-  protected String failedUrl = null;
+  protected String failedUrl;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("group")
-  protected TransactionGroup group = null;
+  protected TransactionGroup group;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("internetProtocolAddress")
-  protected String internetProtocolAddress = null;
+  protected String internetProtocolAddress;
 
   
   @JsonProperty("internetProtocolAddressCountry")
-  protected String internetProtocolAddressCountry = null;
+  protected String internetProtocolAddressCountry;
 
   
   @JsonProperty("invoiceMerchantReference")
-  protected String invoiceMerchantReference = null;
+  protected String invoiceMerchantReference;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("parent")
-  protected Long parent = null;
+  protected Long parent;
 
   
   @JsonProperty("paymentConnectorConfiguration")
-  protected PaymentConnectorConfiguration paymentConnectorConfiguration = null;
+  protected PaymentConnectorConfiguration paymentConnectorConfiguration;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processingOn")
-  protected OffsetDateTime processingOn = null;
+  protected OffsetDateTime processingOn;
 
   
   @JsonProperty("refundedAmount")
-  protected BigDecimal refundedAmount = null;
+  protected BigDecimal refundedAmount;
 
   
   @JsonProperty("shippingAddress")
-  protected Address shippingAddress = null;
+  protected Address shippingAddress;
 
   
   @JsonProperty("shippingMethod")
-  protected String shippingMethod = null;
+  protected String shippingMethod;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected TransactionState state = null;
+  protected TransactionState state;
 
   
   @JsonProperty("successUrl")
-  protected String successUrl = null;
+  protected String successUrl;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("token")
-  protected Token token = null;
+  protected Token token;
 
   
   @JsonProperty("tokenizationMode")
-  protected TokenizationMode tokenizationMode = null;
+  protected TokenizationMode tokenizationMode;
 
   
   @JsonProperty("totalAppliedFees")
-  protected BigDecimal totalAppliedFees = null;
+  protected BigDecimal totalAppliedFees;
 
   
   @JsonProperty("totalSettledAmount")
-  protected BigDecimal totalSettledAmount = null;
+  protected BigDecimal totalSettledAmount;
 
   
   @JsonProperty("userAgentHeader")
-  protected String userAgentHeader = null;
+  protected String userAgentHeader;
 
   
   @JsonProperty("userFailureMessage")
-  protected String userFailureMessage = null;
+  protected String userFailureMessage;
 
   
   @JsonProperty("userInterfaceType")
-  protected TransactionUserInterfaceType userInterfaceType = null;
+  protected TransactionUserInterfaceType userInterfaceType;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

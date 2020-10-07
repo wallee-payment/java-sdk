@@ -33,15 +33,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractAccountUpdate {
   
   @JsonProperty("lastModifiedDate")
-  protected OffsetDateTime lastModifiedDate = null;
+  protected OffsetDateTime lastModifiedDate;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("subaccountLimit")
-  protected Long subaccountLimit = null;
+  protected Long subaccountLimit;
 
   
   

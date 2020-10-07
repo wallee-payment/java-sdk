@@ -35,83 +35,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CustomerPostalAddress {
   
   @JsonProperty("city")
-  protected String city = null;
+  protected String city;
 
   
   @JsonProperty("commercialRegisterNumber")
-  protected String commercialRegisterNumber = null;
+  protected String commercialRegisterNumber;
 
   
   @JsonProperty("country")
-  protected String country = null;
+  protected String country;
 
   
   @JsonProperty("dateOfBirth")
-  protected LocalDate dateOfBirth = null;
+  protected LocalDate dateOfBirth;
 
   
   @JsonProperty("dependentLocality")
-  protected String dependentLocality = null;
+  protected String dependentLocality;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("familyName")
-  protected String familyName = null;
+  protected String familyName;
 
   
   @JsonProperty("gender")
-  protected Gender gender = null;
+  protected Gender gender;
 
   
   @JsonProperty("givenName")
-  protected String givenName = null;
+  protected String givenName;
 
   
   @JsonProperty("legalOrganizationForm")
-  protected LegalOrganizationForm legalOrganizationForm = null;
+  protected LegalOrganizationForm legalOrganizationForm;
 
   
   @JsonProperty("mobilePhoneNumber")
-  protected String mobilePhoneNumber = null;
+  protected String mobilePhoneNumber;
 
   
   @JsonProperty("organizationName")
-  protected String organizationName = null;
+  protected String organizationName;
 
   
   @JsonProperty("phoneNumber")
-  protected String phoneNumber = null;
+  protected String phoneNumber;
 
   
   @JsonProperty("postalState")
-  protected String postalState = null;
+  protected String postalState;
 
   
   @JsonProperty("postcode")
-  protected String postcode = null;
+  protected String postcode;
 
   
   @JsonProperty("salesTaxNumber")
-  protected String salesTaxNumber = null;
+  protected String salesTaxNumber;
 
   
   @JsonProperty("salutation")
-  protected String salutation = null;
+  protected String salutation;
 
   
   @JsonProperty("socialSecurityNumber")
-  protected String socialSecurityNumber = null;
+  protected String socialSecurityNumber;
 
   
   @JsonProperty("sortingCode")
-  protected String sortingCode = null;
+  protected String sortingCode;
 
   
   @JsonProperty("street")
-  protected String street = null;
+  protected String street;
 
   
   

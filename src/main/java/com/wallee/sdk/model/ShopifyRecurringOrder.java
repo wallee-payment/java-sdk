@@ -35,59 +35,59 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifyRecurringOrder extends TransactionAwareEntity {
   
   @JsonProperty("billedOn")
-  protected OffsetDateTime billedOn = null;
+  protected OffsetDateTime billedOn;
 
   
   @JsonProperty("checkoutToken")
-  protected String checkoutToken = null;
+  protected String checkoutToken;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("orderId")
-  protected String orderId = null;
+  protected String orderId;
 
   
   @JsonProperty("orderName")
-  protected String orderName = null;
+  protected String orderName;
 
   
   @JsonProperty("plannedExecutionDate")
-  protected OffsetDateTime plannedExecutionDate = null;
+  protected OffsetDateTime plannedExecutionDate;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("recurrenceNumber")
-  protected Integer recurrenceNumber = null;
+  protected Integer recurrenceNumber;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   @JsonProperty("startedProcessingOn")
-  protected OffsetDateTime startedProcessingOn = null;
+  protected OffsetDateTime startedProcessingOn;
 
   
   @JsonProperty("state")
-  protected ShopifyRecurringOrderState state = null;
+  protected ShopifyRecurringOrderState state;
 
   
   @JsonProperty("subscriptionVersion")
-  protected ShopifySubscriptionVersion subscriptionVersion = null;
+  protected ShopifySubscriptionVersion subscriptionVersion;
 
   
   @JsonProperty("transaction")
-  protected ShopifyTransaction transaction = null;
+  protected ShopifyTransaction transaction;
 
   
   

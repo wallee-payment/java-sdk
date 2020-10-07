@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ChargeFlowLevelConfigurationType {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("label")
-  protected Map<String, String> label = null;
+  protected Map<String, String> label;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   

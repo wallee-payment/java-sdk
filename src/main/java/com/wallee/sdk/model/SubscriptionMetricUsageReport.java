@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionMetricUsageReport {
   
   @JsonProperty("consumedUnits")
-  protected BigDecimal consumedUnits = null;
+  protected BigDecimal consumedUnits;
 
   
   @JsonProperty("createdByUserId")
-  protected Long createdByUserId = null;
+  protected Long createdByUserId;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("metric")
-  protected Long metric = null;
+  protected Long metric;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

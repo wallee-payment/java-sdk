@@ -37,71 +37,71 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InstallmentPlanConfiguration {
   
   @JsonProperty("baseCurrency")
-  protected String baseCurrency = null;
+  protected String baseCurrency;
 
   
   @JsonProperty("conditions")
-  protected List<Long> conditions = null;
+  protected List<Long> conditions;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("installmentFee")
-  protected BigDecimal installmentFee = null;
+  protected BigDecimal installmentFee;
 
   
   @JsonProperty("interestRate")
-  protected BigDecimal interestRate = null;
+  protected BigDecimal interestRate;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("minimalAmount")
-  protected BigDecimal minimalAmount = null;
+  protected BigDecimal minimalAmount;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("paymentMethodConfigurations")
-  protected List<Long> paymentMethodConfigurations = null;
+  protected List<Long> paymentMethodConfigurations;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("spaceReference")
-  protected SpaceReference spaceReference = null;
+  protected SpaceReference spaceReference;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("taxClass")
-  protected TaxClass taxClass = null;
+  protected TaxClass taxClass;
 
   
   @JsonProperty("termsAndConditions")
-  protected ResourcePath termsAndConditions = null;
+  protected ResourcePath termsAndConditions;
 
   
   @JsonProperty("title")
-  protected DatabaseTranslatedString title = null;
+  protected DatabaseTranslatedString title;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

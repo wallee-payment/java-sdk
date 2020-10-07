@@ -36,83 +36,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductVersion {
   
   @JsonProperty("activatedOn")
-  protected OffsetDateTime activatedOn = null;
+  protected OffsetDateTime activatedOn;
 
   
   @JsonProperty("billingCycle")
-  protected String billingCycle = null;
+  protected String billingCycle;
 
   
   @JsonProperty("comment")
-  protected String comment = null;
+  protected String comment;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("defaultCurrency")
-  protected String defaultCurrency = null;
+  protected String defaultCurrency;
 
   
   @JsonProperty("enabledCurrencies")
-  protected List<String> enabledCurrencies = null;
+  protected List<String> enabledCurrencies;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("incrementNumber")
-  protected Integer incrementNumber = null;
+  protected Integer incrementNumber;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("minimalNumberOfPeriods")
-  protected Integer minimalNumberOfPeriods = null;
+  protected Integer minimalNumberOfPeriods;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected DatabaseTranslatedString name;
 
   
   @JsonProperty("numberOfNoticePeriods")
-  protected Integer numberOfNoticePeriods = null;
+  protected Integer numberOfNoticePeriods;
 
   
   @JsonProperty("obsoletedOn")
-  protected OffsetDateTime obsoletedOn = null;
+  protected OffsetDateTime obsoletedOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("product")
-  protected SubscriptionProduct product = null;
+  protected SubscriptionProduct product;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("retiringFinishedOn")
-  protected OffsetDateTime retiringFinishedOn = null;
+  protected OffsetDateTime retiringFinishedOn;
 
   
   @JsonProperty("retiringStartedOn")
-  protected OffsetDateTime retiringStartedOn = null;
+  protected OffsetDateTime retiringStartedOn;
 
   
   @JsonProperty("state")
-  protected SubscriptionProductVersionState state = null;
+  protected SubscriptionProductVersionState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

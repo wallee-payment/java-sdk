@@ -37,131 +37,131 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Refund {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("baseLineItems")
-  protected List<LineItem> baseLineItems = null;
+  protected List<LineItem> baseLineItems;
 
   
   @JsonProperty("completion")
-  protected Long completion = null;
+  protected Long completion;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("environment")
-  protected Environment environment = null;
+  protected Environment environment;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("nextUpdateOn")
-  protected OffsetDateTime nextUpdateOn = null;
+  protected OffsetDateTime nextUpdateOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processingOn")
-  protected OffsetDateTime processingOn = null;
+  protected OffsetDateTime processingOn;
 
   
   @JsonProperty("processorReference")
-  protected String processorReference = null;
+  protected String processorReference;
 
   
   @JsonProperty("reducedLineItems")
-  protected List<LineItem> reducedLineItems = null;
+  protected List<LineItem> reducedLineItems;
 
   
   @JsonProperty("reductions")
-  protected List<LineItemReduction> reductions = null;
+  protected List<LineItemReduction> reductions;
 
   
   @JsonProperty("state")
-  protected RefundState state = null;
+  protected RefundState state;
 
   
   @JsonProperty("succeededOn")
-  protected OffsetDateTime succeededOn = null;
+  protected OffsetDateTime succeededOn;
 
   
   @JsonProperty("taxes")
-  protected List<Tax> taxes = null;
+  protected List<Tax> taxes;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("totalAppliedFees")
-  protected BigDecimal totalAppliedFees = null;
+  protected BigDecimal totalAppliedFees;
 
   
   @JsonProperty("totalSettledAmount")
-  protected BigDecimal totalSettledAmount = null;
+  protected BigDecimal totalSettledAmount;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("type")
-  protected RefundType type = null;
+  protected RefundType type;
 
   
   @JsonProperty("updatedInvoice")
-  protected Long updatedInvoice = null;
+  protected Long updatedInvoice;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

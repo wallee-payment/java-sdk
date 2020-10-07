@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionCreateRequest {
   
   @JsonProperty("componentConfigurations")
-  protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations = null;
+  protected List<SubscriptionComponentReferenceConfiguration> componentConfigurations;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("product")
-  protected Long product = null;
+  protected Long product;
 
   
   @JsonProperty("selectedComponents")
-  protected List<SubscriptionProductComponentReference> selectedComponents = null;
+  protected List<SubscriptionProductComponentReference> selectedComponents;
 
   
   @JsonProperty("subscription")
-  protected SubscriptionPending subscription = null;
+  protected SubscriptionPending subscription;
 
   
   

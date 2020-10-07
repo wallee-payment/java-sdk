@@ -37,15 +37,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InstallmentCalculatedSlice {
   
   @JsonProperty("amountIncludingTax")
-  protected BigDecimal amountIncludingTax = null;
+  protected BigDecimal amountIncludingTax;
 
   
   @JsonProperty("dueOn")
-  protected OffsetDateTime dueOn = null;
+  protected OffsetDateTime dueOn;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   

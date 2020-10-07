@@ -36,67 +36,67 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionVoid extends TransactionAwareEntity {
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("mode")
-  protected TransactionVoidMode mode = null;
+  protected TransactionVoidMode mode;
 
   
   @JsonProperty("nextUpdateOn")
-  protected OffsetDateTime nextUpdateOn = null;
+  protected OffsetDateTime nextUpdateOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processorReference")
-  protected String processorReference = null;
+  protected String processorReference;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected TransactionVoidState state = null;
+  protected TransactionVoidState state;
 
   
   @JsonProperty("succeededOn")
-  protected OffsetDateTime succeededOn = null;
+  protected OffsetDateTime succeededOn;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

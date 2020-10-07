@@ -36,71 +36,71 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentMethodConfiguration {
   
   @JsonProperty("dataCollectionType")
-  protected DataCollectionType dataCollectionType = null;
+  protected DataCollectionType dataCollectionType;
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected DatabaseTranslatedString description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("imageResourcePath")
-  protected ResourcePath imageResourcePath = null;
+  protected ResourcePath imageResourcePath;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("oneClickPaymentMode")
-  protected OneClickPaymentMode oneClickPaymentMode = null;
+  protected OneClickPaymentMode oneClickPaymentMode;
 
   
   @JsonProperty("paymentMethod")
-  protected Long paymentMethod = null;
+  protected Long paymentMethod;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("resolvedDescription")
-  protected Map<String, String> resolvedDescription = null;
+  protected Map<String, String> resolvedDescription;
 
   
   @JsonProperty("resolvedImageUrl")
-  protected String resolvedImageUrl = null;
+  protected String resolvedImageUrl;
 
   
   @JsonProperty("resolvedTitle")
-  protected Map<String, String> resolvedTitle = null;
+  protected Map<String, String> resolvedTitle;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("title")
-  protected DatabaseTranslatedString title = null;
+  protected DatabaseTranslatedString title;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

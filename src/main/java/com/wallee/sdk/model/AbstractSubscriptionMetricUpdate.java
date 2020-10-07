@@ -32,11 +32,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractSubscriptionMetricUpdate {
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected DatabaseTranslatedStringCreate description;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   

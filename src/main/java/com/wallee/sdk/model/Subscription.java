@@ -35,79 +35,79 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Subscription {
   
   @JsonProperty("activatedOn")
-  protected OffsetDateTime activatedOn = null;
+  protected OffsetDateTime activatedOn;
 
   
   @JsonProperty("affiliate")
-  protected SubscriptionAffiliate affiliate = null;
+  protected SubscriptionAffiliate affiliate;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("initializedOn")
-  protected OffsetDateTime initializedOn = null;
+  protected OffsetDateTime initializedOn;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("plannedTerminationDate")
-  protected OffsetDateTime plannedTerminationDate = null;
+  protected OffsetDateTime plannedTerminationDate;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("state")
-  protected SubscriptionState state = null;
+  protected SubscriptionState state;
 
   
   @JsonProperty("subscriber")
-  protected Subscriber subscriber = null;
+  protected Subscriber subscriber;
 
   
   @JsonProperty("terminatedBy")
-  protected Long terminatedBy = null;
+  protected Long terminatedBy;
 
   
   @JsonProperty("terminatedOn")
-  protected OffsetDateTime terminatedOn = null;
+  protected OffsetDateTime terminatedOn;
 
   
   @JsonProperty("terminatingOn")
-  protected OffsetDateTime terminatingOn = null;
+  protected OffsetDateTime terminatingOn;
 
   
   @JsonProperty("terminationScheduledOn")
-  protected OffsetDateTime terminationScheduledOn = null;
+  protected OffsetDateTime terminationScheduledOn;
 
   
   @JsonProperty("token")
-  protected Token token = null;
+  protected Token token;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

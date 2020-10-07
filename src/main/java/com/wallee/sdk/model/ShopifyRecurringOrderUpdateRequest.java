@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifyRecurringOrderUpdateRequest {
   
   @JsonProperty("executionDate")
-  protected OffsetDateTime executionDate = null;
+  protected OffsetDateTime executionDate;
 
   
   @JsonProperty("recurringOrderId")
-  protected Long recurringOrderId = null;
+  protected Long recurringOrderId;
 
   
   

@@ -35,15 +35,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LineItemReduction {
   
   @JsonProperty("lineItemUniqueId")
-  protected String lineItemUniqueId = null;
+  protected String lineItemUniqueId;
 
   
   @JsonProperty("quantityReduction")
-  protected BigDecimal quantityReduction = null;
+  protected BigDecimal quantityReduction;
 
   
   @JsonProperty("unitPriceReduction")
-  protected BigDecimal unitPriceReduction = null;
+  protected BigDecimal unitPriceReduction;
 
   
   

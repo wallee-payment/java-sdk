@@ -34,27 +34,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestLanguage {
   
   @JsonProperty("countryCode")
-  protected String countryCode = null;
+  protected String countryCode;
 
   
   @JsonProperty("ietfCode")
-  protected String ietfCode = null;
+  protected String ietfCode;
 
   
   @JsonProperty("iso2Code")
-  protected String iso2Code = null;
+  protected String iso2Code;
 
   
   @JsonProperty("iso3Code")
-  protected String iso3Code = null;
+  protected String iso3Code;
 
   
   @JsonProperty("pluralExpression")
-  protected String pluralExpression = null;
+  protected String pluralExpression;
 
   
   @JsonProperty("primaryOfGroup")
-  protected Boolean primaryOfGroup = null;
+  protected Boolean primaryOfGroup;
 
   
   

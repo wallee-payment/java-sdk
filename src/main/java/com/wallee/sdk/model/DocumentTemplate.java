@@ -35,47 +35,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DocumentTemplate {
   
   @JsonProperty("defaultTemplate")
-  protected Boolean defaultTemplate = null;
+  protected Boolean defaultTemplate;
 
   
   @JsonProperty("deliveryEnabled")
-  protected Boolean deliveryEnabled = null;
+  protected Boolean deliveryEnabled;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("templateResource")
-  protected ResourcePath templateResource = null;
+  protected ResourcePath templateResource;
 
   
   @JsonProperty("type")
-  protected Long type = null;
+  protected Long type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

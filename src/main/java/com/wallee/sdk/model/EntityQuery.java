@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EntityQuery {
   
   @JsonProperty("filter")
-  protected EntityQueryFilter filter = null;
+  protected EntityQueryFilter filter;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("numberOfEntities")
-  protected Integer numberOfEntities = null;
+  protected Integer numberOfEntities;
 
   
   @JsonProperty("orderBys")
-  protected List<EntityQueryOrderBy> orderBys = null;
+  protected List<EntityQueryOrderBy> orderBys;
 
   
   @JsonProperty("startingEntity")
-  protected Integer startingEntity = null;
+  protected Integer startingEntity;
 
   
   

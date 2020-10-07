@@ -34,51 +34,51 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class HumanUser {
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("emailAddressVerified")
-  protected Boolean emailAddressVerified = null;
+  protected Boolean emailAddressVerified;
 
   
   @JsonProperty("firstname")
-  protected String firstname = null;
+  protected String firstname;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lastname")
-  protected String lastname = null;
+  protected String lastname;
 
   
   @JsonProperty("mobilePhoneNumber")
-  protected String mobilePhoneNumber = null;
+  protected String mobilePhoneNumber;
 
   
   @JsonProperty("mobilePhoneVerified")
-  protected Boolean mobilePhoneVerified = null;
+  protected Boolean mobilePhoneVerified;
 
   
   @JsonProperty("primaryAccount")
-  protected Account primaryAccount = null;
+  protected Account primaryAccount;
 
   
   @JsonProperty("scope")
-  protected Scope scope = null;
+  protected Scope scope;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("twoFactorEnabled")
-  protected Boolean twoFactorEnabled = null;
+  protected Boolean twoFactorEnabled;
 
   
   @JsonProperty("twoFactorType")
-  protected TwoFactorAuthenticationType twoFactorType = null;
+  protected TwoFactorAuthenticationType twoFactorType;
 
   
   

@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LineItemAttribute {
   
   @JsonProperty("label")
-  protected String label = null;
+  protected String label;
 
   
   @JsonProperty("value")
-  protected String value = null;
+  protected String value;
 
   
   

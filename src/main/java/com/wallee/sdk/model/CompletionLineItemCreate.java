@@ -35,15 +35,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CompletionLineItemCreate {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("uniqueId")
-  protected String uniqueId = null;
+  protected String uniqueId;
 
   
   

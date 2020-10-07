@@ -34,19 +34,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestCountryState {
   
   @JsonProperty("code")
-  protected String code = null;
+  protected String code;
 
   
   @JsonProperty("countryCode")
-  protected String countryCode = null;
+  protected String countryCode;
 
   
   @JsonProperty("id")
-  protected String id = null;
+  protected String id;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   

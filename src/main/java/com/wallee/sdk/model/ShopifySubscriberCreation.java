@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriberCreation {
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("phoneNumber")
-  protected String phoneNumber = null;
+  protected String phoneNumber;
 
   
   @JsonProperty("shopifyCustomerId")
-  protected String shopifyCustomerId = null;
+  protected String shopifyCustomerId;
 
   
   

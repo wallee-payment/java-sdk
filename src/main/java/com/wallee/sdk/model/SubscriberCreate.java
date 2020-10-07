@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriberCreate extends AbstractSubscriberUpdate {
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   

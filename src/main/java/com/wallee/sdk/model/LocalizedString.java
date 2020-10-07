@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LocalizedString {
   
   @JsonProperty("displayName")
-  protected String displayName = null;
+  protected String displayName;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("string")
-  protected String string = null;
+  protected String string;
 
   
   

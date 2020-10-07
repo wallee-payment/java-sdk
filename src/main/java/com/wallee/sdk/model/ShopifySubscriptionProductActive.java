@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionProductActive extends AbstractShopifySubscriptionProductActive {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   

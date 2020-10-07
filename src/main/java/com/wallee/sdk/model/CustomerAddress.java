@@ -35,35 +35,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CustomerAddress {
   
   @JsonProperty("address")
-  protected CustomerPostalAddress address = null;
+  protected CustomerPostalAddress address;
 
   
   @JsonProperty("addressType")
-  protected CustomerAddressType addressType = null;
+  protected CustomerAddressType addressType;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("customer")
-  protected Customer customer = null;
+  protected Customer customer;
 
   
   @JsonProperty("defaultAddress")
-  protected Boolean defaultAddress = null;
+  protected Boolean defaultAddress;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

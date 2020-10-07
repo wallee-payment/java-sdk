@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestCurrency {
   
   @JsonProperty("currencyCode")
-  protected String currencyCode = null;
+  protected String currencyCode;
 
   
   @JsonProperty("fractionDigits")
-  protected Integer fractionDigits = null;
+  protected Integer fractionDigits;
 
   
   @JsonProperty("numericCode")
-  protected Integer numericCode = null;
+  protected Integer numericCode;
 
   
   

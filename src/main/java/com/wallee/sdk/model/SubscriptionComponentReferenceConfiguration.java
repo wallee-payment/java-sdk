@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionComponentReferenceConfiguration {
   
   @JsonProperty("productComponentReferenceId")
-  protected Long productComponentReferenceId = null;
+  protected Long productComponentReferenceId;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   

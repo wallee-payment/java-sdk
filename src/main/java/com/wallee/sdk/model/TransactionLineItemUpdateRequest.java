@@ -36,11 +36,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionLineItemUpdateRequest {
   
   @JsonProperty("newLineItems")
-  protected List<LineItemCreate> newLineItems = null;
+  protected List<LineItemCreate> newLineItems;
 
   
   @JsonProperty("transactionId")
-  protected Long transactionId = null;
+  protected Long transactionId;
 
   
   

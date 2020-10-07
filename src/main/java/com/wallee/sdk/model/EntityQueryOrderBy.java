@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EntityQueryOrderBy {
   
   @JsonProperty("fieldName")
-  protected String fieldName = null;
+  protected String fieldName;
 
   
   @JsonProperty("sorting")
-  protected EntityQueryOrderByType sorting = null;
+  protected EntityQueryOrderByType sorting;
 
   
   

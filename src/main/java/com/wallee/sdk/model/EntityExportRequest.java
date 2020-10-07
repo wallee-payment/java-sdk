@@ -40,7 +40,7 @@ public class EntityExportRequest {
 
   
   @JsonProperty("query")
-  protected EntityQuery query = null;
+  protected EntityQuery query;
 
   
   

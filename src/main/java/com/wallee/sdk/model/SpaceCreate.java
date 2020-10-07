@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SpaceCreate extends AbstractSpaceUpdate {
   
   @JsonProperty("account")
-  protected Long account = null;
+  protected Long account;
 
   
   

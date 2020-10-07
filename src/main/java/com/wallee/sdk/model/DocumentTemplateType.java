@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DocumentTemplateType {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("feature")
-  protected Long feature = null;
+  protected Long feature;
 
   
   @JsonProperty("group")
-  protected DocumentTemplateTypeGroup group = null;
+  protected DocumentTemplateTypeGroup group;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("title")
-  protected Map<String, String> title = null;
+  protected Map<String, String> title;
 
   
   

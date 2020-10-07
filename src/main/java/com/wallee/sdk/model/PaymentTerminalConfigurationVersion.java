@@ -36,55 +36,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentTerminalConfigurationVersion {
   
   @JsonProperty("configuration")
-  protected PaymentTerminalConfiguration _configuration = null;
+  protected PaymentTerminalConfiguration _configuration;
 
   
   @JsonProperty("connectorConfigurations")
-  protected List<Long> connectorConfigurations = null;
+  protected List<Long> connectorConfigurations;
 
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("maintenanceWindowDuration")
-  protected String maintenanceWindowDuration = null;
+  protected String maintenanceWindowDuration;
 
   
   @JsonProperty("maintenanceWindowStart")
-  protected String maintenanceWindowStart = null;
+  protected String maintenanceWindowStart;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected PaymentTerminalConfigurationVersionState state = null;
+  protected PaymentTerminalConfigurationVersionState state;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   @JsonProperty("versionAppliedImmediately")
-  protected Boolean versionAppliedImmediately = null;
+  protected Boolean versionAppliedImmediately;
 
   
   

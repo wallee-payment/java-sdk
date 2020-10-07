@@ -36,39 +36,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Feature {
   
   @JsonProperty("beta")
-  protected Boolean beta = null;
+  protected Boolean beta;
 
   
   @JsonProperty("category")
-  protected FeatureCategory category = null;
+  protected FeatureCategory category;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("logoPath")
-  protected String logoPath = null;
+  protected String logoPath;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("requiredFeatures")
-  protected List<Long> requiredFeatures = null;
+  protected List<Long> requiredFeatures;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   @JsonProperty("visible")
-  protected Boolean visible = null;
+  protected Boolean visible;
 
   
   

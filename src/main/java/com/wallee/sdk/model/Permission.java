@@ -36,43 +36,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Permission {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("feature")
-  protected Long feature = null;
+  protected Long feature;
 
   
   @JsonProperty("group")
-  protected Boolean group = null;
+  protected Boolean group;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("leaf")
-  protected Boolean leaf = null;
+  protected Boolean leaf;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("parent")
-  protected Long parent = null;
+  protected Long parent;
 
   
   @JsonProperty("pathToRoot")
-  protected List<Long> pathToRoot = null;
+  protected List<Long> pathToRoot;
 
   
   @JsonProperty("title")
-  protected Map<String, String> title = null;
+  protected Map<String, String> title;
 
   
   @JsonProperty("twoFactorRequired")
-  protected Boolean twoFactorRequired = null;
+  protected Boolean twoFactorRequired;
 
   
   

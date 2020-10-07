@@ -39,43 +39,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LineItemCreate {
   
   @JsonProperty("amountIncludingTax")
-  protected BigDecimal amountIncludingTax = null;
+  protected BigDecimal amountIncludingTax;
 
   
   @JsonProperty("attributes")
-  protected Map<String, LineItemAttributeCreate> attributes = null;
+  protected Map<String, LineItemAttributeCreate> attributes;
 
   
   @JsonProperty("discountIncludingTax")
-  protected BigDecimal discountIncludingTax = null;
+  protected BigDecimal discountIncludingTax;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("shippingRequired")
-  protected Boolean shippingRequired = null;
+  protected Boolean shippingRequired;
 
   
   @JsonProperty("sku")
-  protected String sku = null;
+  protected String sku;
 
   
   @JsonProperty("taxes")
-  protected List<TaxCreate> taxes = null;
+  protected List<TaxCreate> taxes;
 
   
   @JsonProperty("type")
-  protected LineItemType type = null;
+  protected LineItemType type;
 
   
   @JsonProperty("uniqueId")
-  protected String uniqueId = null;
+  protected String uniqueId;
 
   
   

@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TwoFactorAuthenticationType {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("feature")
-  protected Long feature = null;
+  protected Long feature;
 
   
   @JsonProperty("icon")
-  protected String icon = null;
+  protected String icon;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   

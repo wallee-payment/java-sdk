@@ -36,87 +36,87 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionCharge {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("discardedBy")
-  protected Long discardedBy = null;
+  protected Long discardedBy;
 
   
   @JsonProperty("discardedOn")
-  protected OffsetDateTime discardedOn = null;
+  protected OffsetDateTime discardedOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failedUrl")
-  protected String failedUrl = null;
+  protected String failedUrl;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("ledgerEntries")
-  protected List<SubscriptionLedgerEntry> ledgerEntries = null;
+  protected List<SubscriptionLedgerEntry> ledgerEntries;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedExecutionDate")
-  protected OffsetDateTime plannedExecutionDate = null;
+  protected OffsetDateTime plannedExecutionDate;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processingType")
-  protected SubscriptionChargeProcessingType processingType = null;
+  protected SubscriptionChargeProcessingType processingType;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("state")
-  protected SubscriptionChargeState state = null;
+  protected SubscriptionChargeState state;
 
   
   @JsonProperty("subscription")
-  protected Subscription subscription = null;
+  protected Subscription subscription;
 
   
   @JsonProperty("succeedOn")
-  protected OffsetDateTime succeedOn = null;
+  protected OffsetDateTime succeedOn;
 
   
   @JsonProperty("successUrl")
-  protected String successUrl = null;
+  protected String successUrl;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("type")
-  protected SubscriptionChargeType type = null;
+  protected SubscriptionChargeType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

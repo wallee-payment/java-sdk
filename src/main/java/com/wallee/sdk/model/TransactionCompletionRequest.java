@@ -36,19 +36,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionCompletionRequest {
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("lastCompletion")
-  protected Boolean lastCompletion = null;
+  protected Boolean lastCompletion;
 
   
   @JsonProperty("lineItems")
-  protected List<CompletionLineItemCreate> lineItems = null;
+  protected List<CompletionLineItemCreate> lineItems;
 
   
   @JsonProperty("transactionId")
-  protected Long transactionId = null;
+  protected Long transactionId;
 
   
   

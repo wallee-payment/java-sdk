@@ -35,27 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class User {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("scope")
-  protected Scope scope = null;
+  protected Scope scope;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("userType")
-  protected UserType userType = null;
+  protected UserType userType;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

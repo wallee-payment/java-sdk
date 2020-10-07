@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentInformationHash {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("type")
-  protected PaymentInformationHashType type = null;
+  protected PaymentInformationHashType type;
 
   
   @JsonProperty("value")
-  protected String value = null;
+  protected String value;
 
   
   

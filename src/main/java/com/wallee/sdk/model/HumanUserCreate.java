@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class HumanUserCreate extends AbstractHumanUserUpdate {
   
   @JsonProperty("primaryAccount")
-  protected Long primaryAccount = null;
+  protected Long primaryAccount;
 
   
   

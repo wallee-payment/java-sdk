@@ -36,79 +36,79 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentLink {
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
+  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("appliedSpaceView")
-  protected Long appliedSpaceView = null;
+  protected Long appliedSpaceView;
 
   
   @JsonProperty("availableFrom")
-  protected OffsetDateTime availableFrom = null;
+  protected OffsetDateTime availableFrom;
 
   
   @JsonProperty("availableUntil")
-  protected OffsetDateTime availableUntil = null;
+  protected OffsetDateTime availableUntil;
 
   
   @JsonProperty("billingAddressRequired")
-  protected Boolean billingAddressRequired = null;
+  protected Boolean billingAddressRequired;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("maximalNumberOfTransactions")
-  protected Integer maximalNumberOfTransactions = null;
+  protected Integer maximalNumberOfTransactions;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("protectionMode")
-  protected PaymentLinkProtectionMode protectionMode = null;
+  protected PaymentLinkProtectionMode protectionMode;
 
   
   @JsonProperty("shippingAddressRequired")
-  protected Boolean shippingAddressRequired = null;
+  protected Boolean shippingAddressRequired;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("url")
-  protected String url = null;
+  protected String url;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

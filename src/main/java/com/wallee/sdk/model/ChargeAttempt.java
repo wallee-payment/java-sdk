@@ -36,95 +36,95 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("charge")
-  protected Charge charge = null;
+  protected Charge charge;
 
   
   @JsonProperty("connectorConfiguration")
-  protected PaymentConnectorConfiguration connectorConfiguration = null;
+  protected PaymentConnectorConfiguration connectorConfiguration;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("environment")
-  protected ChargeAttemptEnvironment environment = null;
+  protected ChargeAttemptEnvironment environment;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("initializingTokenVersion")
-  protected Boolean initializingTokenVersion = null;
+  protected Boolean initializingTokenVersion;
 
   
   @JsonProperty("invocation")
-  protected ConnectorInvocation invocation = null;
+  protected ConnectorInvocation invocation;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("nextUpdateOn")
-  protected OffsetDateTime nextUpdateOn = null;
+  protected OffsetDateTime nextUpdateOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("redirectionUrl")
-  protected String redirectionUrl = null;
+  protected String redirectionUrl;
 
   
   @JsonProperty("salesChannel")
-  protected Long salesChannel = null;
+  protected Long salesChannel;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected ChargeAttemptState state = null;
+  protected ChargeAttemptState state;
 
   
   @JsonProperty("succeededOn")
-  protected OffsetDateTime succeededOn = null;
+  protected OffsetDateTime succeededOn;
 
   
   @JsonProperty("terminal")
-  protected PaymentTerminal terminal = null;
+  protected PaymentTerminal terminal;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("timeoutOn")
-  protected OffsetDateTime timeoutOn = null;
+  protected OffsetDateTime timeoutOn;
 
   
   @JsonProperty("tokenVersion")
-  protected TokenVersion tokenVersion = null;
+  protected TokenVersion tokenVersion;
 
   
   @JsonProperty("userFailureMessage")
-  protected String userFailureMessage = null;
+  protected String userFailureMessage;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

@@ -37,127 +37,127 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DebtCollectionCase {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("billingAddress")
-  protected Address billingAddress = null;
+  protected Address billingAddress;
 
   
   @JsonProperty("closedOn")
-  protected OffsetDateTime closedOn = null;
+  protected OffsetDateTime closedOn;
 
   
   @JsonProperty("collectorConfiguration")
-  protected DebtCollectorConfiguration collectorConfiguration = null;
+  protected DebtCollectorConfiguration collectorConfiguration;
 
   
   @JsonProperty("contractDate")
-  protected OffsetDateTime contractDate = null;
+  protected OffsetDateTime contractDate;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("creator")
-  protected Long creator = null;
+  protected Long creator;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("dueDate")
-  protected OffsetDateTime dueDate = null;
+  protected OffsetDateTime dueDate;
 
   
   @JsonProperty("environment")
-  protected DebtCollectionEnvironment environment = null;
+  protected DebtCollectionEnvironment environment;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  protected OffsetDateTime failedOn;
 
   
   @JsonProperty("failureReason")
-  protected FailureReason failureReason = null;
+  protected FailureReason failureReason;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("nextAttemptOn")
-  protected OffsetDateTime nextAttemptOn = null;
+  protected OffsetDateTime nextAttemptOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processingStartedOn")
-  protected OffsetDateTime processingStartedOn = null;
+  protected OffsetDateTime processingStartedOn;
 
   
   @JsonProperty("processingTimeoutOn")
-  protected OffsetDateTime processingTimeoutOn = null;
+  protected OffsetDateTime processingTimeoutOn;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("reviewStartedOn")
-  protected OffsetDateTime reviewStartedOn = null;
+  protected OffsetDateTime reviewStartedOn;
 
   
   @JsonProperty("reviewedOn")
-  protected OffsetDateTime reviewedOn = null;
+  protected OffsetDateTime reviewedOn;
 
   
   @JsonProperty("reviewer")
-  protected Long reviewer = null;
+  protected Long reviewer;
 
   
   @JsonProperty("source")
-  protected DebtCollectionCaseSource source = null;
+  protected DebtCollectionCaseSource source;
 
   
   @JsonProperty("sourceEntityId")
-  protected Long sourceEntityId = null;
+  protected Long sourceEntityId;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected DebtCollectionCaseState state = null;
+  protected DebtCollectionCaseState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

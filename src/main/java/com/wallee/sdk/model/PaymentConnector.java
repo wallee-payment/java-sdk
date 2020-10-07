@@ -36,55 +36,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentConnector {
   
   @JsonProperty("dataCollectionType")
-  protected DataCollectionType dataCollectionType = null;
+  protected DataCollectionType dataCollectionType;
 
   
   @JsonProperty("deprecated")
-  protected Boolean deprecated = null;
+  protected Boolean deprecated;
 
   
   @JsonProperty("deprecationReason")
-  protected Map<String, String> deprecationReason = null;
+  protected Map<String, String> deprecationReason;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("feature")
-  protected Feature feature = null;
+  protected Feature feature;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("paymentMethod")
-  protected Long paymentMethod = null;
+  protected Long paymentMethod;
 
   
   @JsonProperty("paymentMethodBrand")
-  protected PaymentMethodBrand paymentMethodBrand = null;
+  protected PaymentMethodBrand paymentMethodBrand;
 
   
   @JsonProperty("primaryRiskTaker")
-  protected PaymentPrimaryRiskTaker primaryRiskTaker = null;
+  protected PaymentPrimaryRiskTaker primaryRiskTaker;
 
   
   @JsonProperty("processor")
-  protected Long processor = null;
+  protected Long processor;
 
   
   @JsonProperty("supportedCustomersPresences")
-  protected List<CustomersPresence> supportedCustomersPresences = null;
+  protected List<CustomersPresence> supportedCustomersPresences;
 
   
   @JsonProperty("supportedFeatures")
-  protected List<Long> supportedFeatures = null;
+  protected List<Long> supportedFeatures;
 
   
   

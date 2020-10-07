@@ -35,55 +35,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscriptionSuspension {
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("endedBy")
-  protected Long endedBy = null;
+  protected Long endedBy;
 
   
   @JsonProperty("endedOn")
-  protected OffsetDateTime endedOn = null;
+  protected OffsetDateTime endedOn;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("initiator")
-  protected ShopifySubscriptionSuspensionInitiator initiator = null;
+  protected ShopifySubscriptionSuspensionInitiator initiator;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("plannedEndDate")
-  protected OffsetDateTime plannedEndDate = null;
+  protected OffsetDateTime plannedEndDate;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   @JsonProperty("state")
-  protected ShopifySubscriptionSuspensionState state = null;
+  protected ShopifySubscriptionSuspensionState state;
 
   
   @JsonProperty("subscription")
-  protected ShopifySubscription subscription = null;
+  protected ShopifySubscription subscription;
 
   
   @JsonProperty("type")
-  protected ShopifySubscriptionSuspensionType type = null;
+  protected ShopifySubscriptionSuspensionType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

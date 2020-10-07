@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
   
   @JsonProperty("type")
-  protected Long type = null;
+  protected Long type;
 
   
   

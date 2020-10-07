@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductCreate extends AbstractSubscriptionProductActive {
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   

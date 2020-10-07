@@ -36,43 +36,43 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InstallmentPlanSliceConfiguration {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("lineItemTitle")
-  protected DatabaseTranslatedString lineItemTitle = null;
+  protected DatabaseTranslatedString lineItemTitle;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("period")
-  protected String period = null;
+  protected String period;
 
   
   @JsonProperty("plan")
-  protected InstallmentPlanConfiguration plan = null;
+  protected InstallmentPlanConfiguration plan;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("priority")
-  protected Integer priority = null;
+  protected Integer priority;
 
   
   @JsonProperty("proportion")
-  protected BigDecimal proportion = null;
+  protected BigDecimal proportion;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

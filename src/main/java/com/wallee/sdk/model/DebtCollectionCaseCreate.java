@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
   
   @JsonProperty("collectorConfiguration")
-  protected Long collectorConfiguration = null;
+  protected Long collectorConfiguration;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   

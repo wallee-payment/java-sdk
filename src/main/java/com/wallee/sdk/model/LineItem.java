@@ -37,87 +37,87 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LineItem {
   
   @JsonProperty("aggregatedTaxRate")
-  protected BigDecimal aggregatedTaxRate = null;
+  protected BigDecimal aggregatedTaxRate;
 
   
   @JsonProperty("amountExcludingTax")
-  protected BigDecimal amountExcludingTax = null;
+  protected BigDecimal amountExcludingTax;
 
   
   @JsonProperty("amountIncludingTax")
-  protected BigDecimal amountIncludingTax = null;
+  protected BigDecimal amountIncludingTax;
 
   
   @JsonProperty("attributes")
-  protected Map<String, LineItemAttribute> attributes = null;
+  protected Map<String, LineItemAttribute> attributes;
 
   
   @JsonProperty("discountExcludingTax")
-  protected BigDecimal discountExcludingTax = null;
+  protected BigDecimal discountExcludingTax;
 
   
   @JsonProperty("discountIncludingTax")
-  protected BigDecimal discountIncludingTax = null;
+  protected BigDecimal discountIncludingTax;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   @JsonProperty("shippingRequired")
-  protected Boolean shippingRequired = null;
+  protected Boolean shippingRequired;
 
   
   @JsonProperty("sku")
-  protected String sku = null;
+  protected String sku;
 
   
   @JsonProperty("taxAmount")
-  protected BigDecimal taxAmount = null;
+  protected BigDecimal taxAmount;
 
   
   @JsonProperty("taxAmountPerUnit")
-  protected BigDecimal taxAmountPerUnit = null;
+  protected BigDecimal taxAmountPerUnit;
 
   
   @JsonProperty("taxes")
-  protected List<Tax> taxes = null;
+  protected List<Tax> taxes;
 
   
   @JsonProperty("type")
-  protected LineItemType type = null;
+  protected LineItemType type;
 
   
   @JsonProperty("undiscountedAmountExcludingTax")
-  protected BigDecimal undiscountedAmountExcludingTax = null;
+  protected BigDecimal undiscountedAmountExcludingTax;
 
   
   @JsonProperty("undiscountedAmountIncludingTax")
-  protected BigDecimal undiscountedAmountIncludingTax = null;
+  protected BigDecimal undiscountedAmountIncludingTax;
 
   
   @JsonProperty("undiscountedUnitPriceExcludingTax")
-  protected BigDecimal undiscountedUnitPriceExcludingTax = null;
+  protected BigDecimal undiscountedUnitPriceExcludingTax;
 
   
   @JsonProperty("undiscountedUnitPriceIncludingTax")
-  protected BigDecimal undiscountedUnitPriceIncludingTax = null;
+  protected BigDecimal undiscountedUnitPriceIncludingTax;
 
   
   @JsonProperty("uniqueId")
-  protected String uniqueId = null;
+  protected String uniqueId;
 
   
   @JsonProperty("unitPriceExcludingTax")
-  protected BigDecimal unitPriceExcludingTax = null;
+  protected BigDecimal unitPriceExcludingTax;
 
   
   @JsonProperty("unitPriceIncludingTax")
-  protected BigDecimal unitPriceIncludingTax = null;
+  protected BigDecimal unitPriceIncludingTax;
 
   
   

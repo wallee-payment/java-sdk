@@ -35,23 +35,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionMetricUsageReportCreate {
   
   @JsonProperty("consumedUnits")
-  protected BigDecimal consumedUnits = null;
+  protected BigDecimal consumedUnits;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("metric")
-  protected Long metric = null;
+  protected Long metric;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   

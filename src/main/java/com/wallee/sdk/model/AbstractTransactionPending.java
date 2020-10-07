@@ -36,75 +36,75 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AbstractTransactionPending {
   
   @JsonProperty("allowedPaymentMethodBrands")
-  protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
+  protected List<PaymentMethodBrand> allowedPaymentMethodBrands;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<Long> allowedPaymentMethodConfigurations = null;
+  protected List<Long> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress = null;
+  protected AddressCreate billingAddress;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("customerEmailAddress")
-  protected String customerEmailAddress = null;
+  protected String customerEmailAddress;
 
   
   @JsonProperty("customerId")
-  protected String customerId = null;
+  protected String customerId;
 
   
   @JsonProperty("failedUrl")
-  protected String failedUrl = null;
+  protected String failedUrl;
 
   
   @JsonProperty("invoiceMerchantReference")
-  protected String invoiceMerchantReference = null;
+  protected String invoiceMerchantReference;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItemCreate> lineItems = null;
+  protected List<LineItemCreate> lineItems;
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("shippingAddress")
-  protected AddressCreate shippingAddress = null;
+  protected AddressCreate shippingAddress;
 
   
   @JsonProperty("shippingMethod")
-  protected String shippingMethod = null;
+  protected String shippingMethod;
 
   
   @JsonProperty("successUrl")
-  protected String successUrl = null;
+  protected String successUrl;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("token")
-  protected Long token = null;
+  protected Long token;
 
   
   @JsonProperty("tokenizationMode")
-  protected TokenizationMode tokenizationMode = null;
+  protected TokenizationMode tokenizationMode;
 
   
   

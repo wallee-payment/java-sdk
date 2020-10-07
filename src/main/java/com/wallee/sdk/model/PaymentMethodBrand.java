@@ -35,27 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentMethodBrand {
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("grayImagePath")
-  protected String grayImagePath = null;
+  protected String grayImagePath;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("imagePath")
-  protected String imagePath = null;
+  protected String imagePath;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("paymentMethod")
-  protected Long paymentMethod = null;
+  protected Long paymentMethod;
 
   
   

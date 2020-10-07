@@ -37,55 +37,55 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentLinkUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
+  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("appliedSpaceView")
-  protected Long appliedSpaceView = null;
+  protected Long appliedSpaceView;
 
   
   @JsonProperty("availableFrom")
-  protected OffsetDateTime availableFrom = null;
+  protected OffsetDateTime availableFrom;
 
   
   @JsonProperty("availableUntil")
-  protected OffsetDateTime availableUntil = null;
+  protected OffsetDateTime availableUntil;
 
   
   @JsonProperty("billingAddressRequired")
-  protected Boolean billingAddressRequired = null;
+  protected Boolean billingAddressRequired;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItemCreate> lineItems = null;
+  protected List<LineItemCreate> lineItems;
 
   
   @JsonProperty("maximalNumberOfTransactions")
-  protected Integer maximalNumberOfTransactions = null;
+  protected Integer maximalNumberOfTransactions;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("shippingAddressRequired")
-  protected Boolean shippingAddressRequired = null;
+  protected Boolean shippingAddressRequired;
 
   
   

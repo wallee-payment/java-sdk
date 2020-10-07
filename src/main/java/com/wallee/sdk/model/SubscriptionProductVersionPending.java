@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductVersionPending {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("billingCycle")
-  protected String billingCycle = null;
+  protected String billingCycle;
 
   
   @JsonProperty("comment")
-  protected String comment = null;
+  protected String comment;
 
   
   @JsonProperty("defaultCurrency")
-  protected String defaultCurrency = null;
+  protected String defaultCurrency;
 
   
   @JsonProperty("enabledCurrencies")
-  protected List<String> enabledCurrencies = null;
+  protected List<String> enabledCurrencies;
 
   
   @JsonProperty("minimalNumberOfPeriods")
-  protected Integer minimalNumberOfPeriods = null;
+  protected Integer minimalNumberOfPeriods;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   @JsonProperty("numberOfNoticePeriods")
-  protected Integer numberOfNoticePeriods = null;
+  protected Integer numberOfNoticePeriods;
 
   
   @JsonProperty("product")
-  protected Long product = null;
+  protected Long product;
 
   
   @JsonProperty("state")
-  protected SubscriptionProductVersionState state = null;
+  protected SubscriptionProductVersionState state;
 
   
   

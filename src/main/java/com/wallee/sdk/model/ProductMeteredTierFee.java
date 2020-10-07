@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ProductMeteredTierFee {
   
   @JsonProperty("fee")
-  protected List<PersistableCurrencyAmount> fee = null;
+  protected List<PersistableCurrencyAmount> fee;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("meteredFee")
-  protected ProductMeteredFee meteredFee = null;
+  protected ProductMeteredFee meteredFee;
 
   
   @JsonProperty("startRange")
-  protected BigDecimal startRange = null;
+  protected BigDecimal startRange;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

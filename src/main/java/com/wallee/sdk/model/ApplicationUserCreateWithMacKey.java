@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ApplicationUserCreateWithMacKey extends ApplicationUser {
   
   @JsonProperty("macKey")
-  protected String macKey = null;
+  protected String macKey;
 
   
   

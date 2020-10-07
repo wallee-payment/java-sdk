@@ -36,47 +36,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DebtCollectionCaseDocument {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("debtCollectionCase")
-  protected Long debtCollectionCase = null;
+  protected Long debtCollectionCase;
 
   
   @JsonProperty("fileName")
-  protected String fileName = null;
+  protected String fileName;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("mimeType")
-  protected String mimeType = null;
+  protected String mimeType;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("storageId")
-  protected String storageId = null;
+  protected String storageId;
 
   
   @JsonProperty("uniqueId")
-  protected String uniqueId = null;
+  protected String uniqueId;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

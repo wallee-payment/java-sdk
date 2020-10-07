@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
   
   @JsonProperty("entity")
-  protected Long entity = null;
+  protected Long entity;
 
   
   @JsonProperty("identity")
-  protected Long identity = null;
+  protected Long identity;
 
   
   @JsonProperty("url")
-  protected Long url = null;
+  protected Long url;
 
   
   

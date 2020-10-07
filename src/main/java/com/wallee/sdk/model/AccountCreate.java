@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AccountCreate extends AbstractAccountUpdate {
   
   @JsonProperty("parentAccount")
-  protected Long parentAccount = null;
+  protected Long parentAccount;
 
   
   @JsonProperty("scope")
-  protected Long scope = null;
+  protected Long scope;
 
   
   

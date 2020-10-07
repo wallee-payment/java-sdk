@@ -35,67 +35,67 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifySubscription {
   
   @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  protected Long createdBy;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("initialPaymentTransaction")
-  protected Long initialPaymentTransaction = null;
+  protected Long initialPaymentTransaction;
 
   
   @JsonProperty("initialShopifyTransaction")
-  protected Long initialShopifyTransaction = null;
+  protected Long initialShopifyTransaction;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("orderRecurrenceNumber")
-  protected Integer orderRecurrenceNumber = null;
+  protected Integer orderRecurrenceNumber;
 
   
   @JsonProperty("shop")
-  protected Long shop = null;
+  protected Long shop;
 
   
   @JsonProperty("state")
-  protected ShopifySubscriptionState state = null;
+  protected ShopifySubscriptionState state;
 
   
   @JsonProperty("subscriber")
-  protected ShopifySubscriber subscriber = null;
+  protected ShopifySubscriber subscriber;
 
   
   @JsonProperty("terminatedBy")
-  protected Long terminatedBy = null;
+  protected Long terminatedBy;
 
   
   @JsonProperty("terminatedOn")
-  protected OffsetDateTime terminatedOn = null;
+  protected OffsetDateTime terminatedOn;
 
   
   @JsonProperty("terminationRequestDate")
-  protected OffsetDateTime terminationRequestDate = null;
+  protected OffsetDateTime terminationRequestDate;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

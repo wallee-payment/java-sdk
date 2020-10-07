@@ -36,23 +36,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InstallmentCalculatedPlan {
   
   @JsonProperty("configuration")
-  protected InstallmentPlanConfiguration _configuration = null;
+  protected InstallmentPlanConfiguration _configuration;
 
   
   @JsonProperty("paymentMethodConfigurations")
-  protected List<PaymentMethodConfiguration> paymentMethodConfigurations = null;
+  protected List<PaymentMethodConfiguration> paymentMethodConfigurations;
 
   
   @JsonProperty("slices")
-  protected List<InstallmentCalculatedSlice> slices = null;
+  protected List<InstallmentCalculatedSlice> slices;
 
   
   @JsonProperty("totalAmount")
-  protected BigDecimal totalAmount = null;
+  protected BigDecimal totalAmount;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   

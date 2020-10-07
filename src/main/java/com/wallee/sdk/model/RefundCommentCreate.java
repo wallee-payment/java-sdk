@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RefundCommentCreate extends AbstractRefundCommentActive {
   
   @JsonProperty("refund")
-  protected Long refund = null;
+  protected Long refund;
 
   
   

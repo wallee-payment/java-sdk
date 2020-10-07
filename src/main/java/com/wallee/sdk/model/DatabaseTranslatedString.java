@@ -35,15 +35,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DatabaseTranslatedString {
   
   @JsonProperty("availableLanguages")
-  protected List<String> availableLanguages = null;
+  protected List<String> availableLanguages;
 
   
   @JsonProperty("displayName")
-  protected String displayName = null;
+  protected String displayName;
 
   
   @JsonProperty("items")
-  protected List<DatabaseTranslatedStringItem> items = null;
+  protected List<DatabaseTranslatedStringItem> items;
 
   
   

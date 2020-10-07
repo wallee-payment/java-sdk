@@ -38,47 +38,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriberUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("additionalAllowedPaymentMethodConfigurations")
-  protected List<Long> additionalAllowedPaymentMethodConfigurations = null;
+  protected List<Long> additionalAllowedPaymentMethodConfigurations;
 
   
   @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress = null;
+  protected AddressCreate billingAddress;
 
   
   @JsonProperty("description")
-  protected String description = null;
+  protected String description;
 
   
   @JsonProperty("disallowedPaymentMethodConfigurations")
-  protected List<Long> disallowedPaymentMethodConfigurations = null;
+  protected List<Long> disallowedPaymentMethodConfigurations;
 
   
   @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  protected String emailAddress;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  protected Map<String, String> metaData;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("shippingAddress")
-  protected AddressCreate shippingAddress = null;
+  protected AddressCreate shippingAddress;
 
   
   

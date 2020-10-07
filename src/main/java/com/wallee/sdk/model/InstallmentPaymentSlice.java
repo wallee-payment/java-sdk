@@ -36,35 +36,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class InstallmentPaymentSlice extends TransactionAwareEntity {
   
   @JsonProperty("chargeOn")
-  protected OffsetDateTime chargeOn = null;
+  protected OffsetDateTime chargeOn;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("installmentPayment")
-  protected InstallmentPayment installmentPayment = null;
+  protected InstallmentPayment installmentPayment;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("state")
-  protected InstallmentPaymentSliceState state = null;
+  protected InstallmentPaymentSliceState state;
 
   
   @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  protected Transaction transaction;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

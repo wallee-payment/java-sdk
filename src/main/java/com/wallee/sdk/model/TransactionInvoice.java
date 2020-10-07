@@ -37,83 +37,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionInvoice extends TransactionAwareEntity {
   
   @JsonProperty("amount")
-  protected BigDecimal amount = null;
+  protected BigDecimal amount;
 
   
   @JsonProperty("billingAddress")
-  protected Address billingAddress = null;
+  protected Address billingAddress;
 
   
   @JsonProperty("completion")
-  protected TransactionCompletion completion = null;
+  protected TransactionCompletion completion;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("derecognizedBy")
-  protected Long derecognizedBy = null;
+  protected Long derecognizedBy;
 
   
   @JsonProperty("derecognizedOn")
-  protected OffsetDateTime derecognizedOn = null;
+  protected OffsetDateTime derecognizedOn;
 
   
   @JsonProperty("dueOn")
-  protected OffsetDateTime dueOn = null;
+  protected OffsetDateTime dueOn;
 
   
   @JsonProperty("environment")
-  protected Environment environment = null;
+  protected Environment environment;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("lineItems")
-  protected List<LineItem> lineItems = null;
+  protected List<LineItem> lineItems;
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("outstandingAmount")
-  protected BigDecimal outstandingAmount = null;
+  protected BigDecimal outstandingAmount;
 
   
   @JsonProperty("paidOn")
-  protected OffsetDateTime paidOn = null;
+  protected OffsetDateTime paidOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected TransactionInvoiceState state = null;
+  protected TransactionInvoiceState state;
 
   
   @JsonProperty("taxAmount")
-  protected BigDecimal taxAmount = null;
+  protected BigDecimal taxAmount;
 
   
   @JsonProperty("timeZone")
-  protected String timeZone = null;
+  protected String timeZone;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

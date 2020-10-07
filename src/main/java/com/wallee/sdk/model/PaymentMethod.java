@@ -36,31 +36,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PaymentMethod {
   
   @JsonProperty("dataCollectionTypes")
-  protected List<DataCollectionType> dataCollectionTypes = null;
+  protected List<DataCollectionType> dataCollectionTypes;
 
   
   @JsonProperty("description")
-  protected Map<String, String> description = null;
+  protected Map<String, String> description;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("imagePath")
-  protected String imagePath = null;
+  protected String imagePath;
 
   
   @JsonProperty("merchantDescription")
-  protected Map<String, String> merchantDescription = null;
+  protected Map<String, String> merchantDescription;
 
   
   @JsonProperty("name")
-  protected Map<String, String> name = null;
+  protected Map<String, String> name;
 
   
   @JsonProperty("supportedCurrencies")
-  protected List<String> supportedCurrencies = null;
+  protected List<String> supportedCurrencies;
 
   
   

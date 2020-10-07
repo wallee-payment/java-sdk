@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionComponentConfiguration {
   
   @JsonProperty("component")
-  protected Long component = null;
+  protected Long component;
 
   
   @JsonProperty("quantity")
-  protected BigDecimal quantity = null;
+  protected BigDecimal quantity;
 
   
   

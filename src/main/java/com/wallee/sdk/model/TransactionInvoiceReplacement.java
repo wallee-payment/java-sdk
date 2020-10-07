@@ -37,15 +37,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransactionInvoiceReplacement {
   
   @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress = null;
+  protected AddressCreate billingAddress;
 
   
   @JsonProperty("dueOn")
-  protected OffsetDateTime dueOn = null;
+  protected OffsetDateTime dueOn;
 
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("lineItems")
@@ -53,11 +53,11 @@ public class TransactionInvoiceReplacement {
 
   
   @JsonProperty("merchantReference")
-  protected String merchantReference = null;
+  protected String merchantReference;
 
   
   @JsonProperty("sentToCustomer")
-  protected Boolean sentToCustomer = null;
+  protected Boolean sentToCustomer;
 
   
   

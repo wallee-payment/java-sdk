@@ -36,83 +36,83 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ShopifyIntegration {
   
   @JsonProperty("allowInvoiceDownload")
-  protected Boolean allowInvoiceDownload = null;
+  protected Boolean allowInvoiceDownload;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
-  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
+  protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations;
 
   
   @JsonProperty("appVersion")
-  protected ShopifyIntegrationAppVersion appVersion = null;
+  protected ShopifyIntegrationAppVersion appVersion;
 
   
   @JsonProperty("currency")
-  protected String currency = null;
+  protected String currency;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("installed")
-  protected Boolean installed = null;
+  protected Boolean installed;
 
   
   @JsonProperty("integratedPaymentFormEnabled")
-  protected Boolean integratedPaymentFormEnabled = null;
+  protected Boolean integratedPaymentFormEnabled;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("loginName")
-  protected String loginName = null;
+  protected String loginName;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("proxyPath")
-  protected String proxyPath = null;
+  protected String proxyPath;
 
   
   @JsonProperty("replacePaymentMethodImage")
-  protected Boolean replacePaymentMethodImage = null;
+  protected Boolean replacePaymentMethodImage;
 
   
   @JsonProperty("shopName")
-  protected String shopName = null;
+  protected String shopName;
 
   
   @JsonProperty("showPaymentInformation")
-  protected Boolean showPaymentInformation = null;
+  protected Boolean showPaymentInformation;
 
   
   @JsonProperty("showSubscriptionInformation")
-  protected Boolean showSubscriptionInformation = null;
+  protected Boolean showSubscriptionInformation;
 
   
   @JsonProperty("spaceId")
-  protected Long spaceId = null;
+  protected Long spaceId;
 
   
   @JsonProperty("spaceViewId")
-  protected Long spaceViewId = null;
+  protected Long spaceViewId;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

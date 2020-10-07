@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ApplicationUser extends User {
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("primaryAccount")
-  protected Account primaryAccount = null;
+  protected Account primaryAccount;
 
   
   @JsonProperty("requestLimit")
-  protected Long requestLimit = null;
+  protected Long requestLimit;
 
   
   

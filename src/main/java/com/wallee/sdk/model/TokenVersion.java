@@ -36,95 +36,95 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TokenVersion {
   
   @JsonProperty("activatedOn")
-  protected OffsetDateTime activatedOn = null;
+  protected OffsetDateTime activatedOn;
 
   
   @JsonProperty("billingAddress")
-  protected Address billingAddress = null;
+  protected Address billingAddress;
 
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("environment")
-  protected ChargeAttemptEnvironment environment = null;
+  protected ChargeAttemptEnvironment environment;
 
   
   @JsonProperty("expiresOn")
-  protected OffsetDateTime expiresOn = null;
+  protected OffsetDateTime expiresOn;
 
   
   @JsonProperty("iconUrl")
-  protected String iconUrl = null;
+  protected String iconUrl;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("labels")
-  protected List<Label> labels = null;
+  protected List<Label> labels;
 
   
   @JsonProperty("language")
-  protected String language = null;
+  protected String language;
 
   
   @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  protected Long linkedSpaceId;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("obsoletedOn")
-  protected OffsetDateTime obsoletedOn = null;
+  protected OffsetDateTime obsoletedOn;
 
   
   @JsonProperty("paymentConnectorConfiguration")
-  protected PaymentConnectorConfiguration paymentConnectorConfiguration = null;
+  protected PaymentConnectorConfiguration paymentConnectorConfiguration;
 
   
   @JsonProperty("paymentInformationHashes")
-  protected List<PaymentInformationHash> paymentInformationHashes = null;
+  protected List<PaymentInformationHash> paymentInformationHashes;
 
   
   @JsonProperty("paymentMethod")
-  protected Long paymentMethod = null;
+  protected Long paymentMethod;
 
   
   @JsonProperty("paymentMethodBrand")
-  protected Long paymentMethodBrand = null;
+  protected Long paymentMethodBrand;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("processorToken")
-  protected String processorToken = null;
+  protected String processorToken;
 
   
   @JsonProperty("shippingAddress")
-  protected Address shippingAddress = null;
+  protected Address shippingAddress;
 
   
   @JsonProperty("state")
-  protected TokenVersionState state = null;
+  protected TokenVersionState state;
 
   
   @JsonProperty("token")
-  protected Token token = null;
+  protected Token token;
 
   
   @JsonProperty("type")
-  protected TokenVersionType type = null;
+  protected TokenVersionType type;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

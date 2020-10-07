@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ServerError {
   
   @JsonProperty("date")
-  protected String date = null;
+  protected String date;
 
   
   @JsonProperty("id")
-  protected String id = null;
+  protected String id;
 
   
   @JsonProperty("message")
-  protected String message = null;
+  protected String message;
 
   
   

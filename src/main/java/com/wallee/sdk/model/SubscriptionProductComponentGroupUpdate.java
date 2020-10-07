@@ -34,27 +34,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionProductComponentGroupUpdate {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("version")
-  protected Long version = null;
+  protected Long version;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected DatabaseTranslatedStringCreate name;
 
   
   @JsonProperty("optional")
-  protected Boolean optional = null;
+  protected Boolean optional;
 
   
   @JsonProperty("productVersion")
-  protected Long productVersion = null;
+  protected Long productVersion;
 
   
   @JsonProperty("sortOrder")
-  protected Integer sortOrder = null;
+  protected Integer sortOrder;
 
   
   

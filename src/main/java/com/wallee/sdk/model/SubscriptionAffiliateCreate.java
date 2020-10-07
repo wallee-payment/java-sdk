@@ -34,11 +34,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUpdate {
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   

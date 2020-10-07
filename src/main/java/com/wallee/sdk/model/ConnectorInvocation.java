@@ -35,27 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ConnectorInvocation extends TransactionAwareEntity {
   
   @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  protected OffsetDateTime createdOn;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("stage")
-  protected ConnectorInvocationStage stage = null;
+  protected ConnectorInvocationStage stage;
 
   
   @JsonProperty("timeTookInMilliseconds")
-  protected Long timeTookInMilliseconds = null;
+  protected Long timeTookInMilliseconds;
 
   
   @JsonProperty("transaction")
-  protected Long transaction = null;
+  protected Long transaction;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

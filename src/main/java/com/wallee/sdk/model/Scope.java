@@ -36,51 +36,51 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Scope {
   
   @JsonProperty("domainName")
-  protected String domainName = null;
+  protected String domainName;
 
   
   @JsonProperty("features")
-  protected List<Feature> features = null;
+  protected List<Feature> features;
 
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected Long id;
 
   
   @JsonProperty("machineName")
-  protected String machineName = null;
+  protected String machineName;
 
   
   @JsonProperty("name")
-  protected String name = null;
+  protected String name;
 
   
   @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  protected OffsetDateTime plannedPurgeDate;
 
   
   @JsonProperty("port")
-  protected Integer port = null;
+  protected Integer port;
 
   
   @JsonProperty("sslActive")
-  protected Boolean sslActive = null;
+  protected Boolean sslActive;
 
   
   @JsonProperty("state")
-  protected CreationEntityState state = null;
+  protected CreationEntityState state;
 
   
   @JsonProperty("themes")
-  protected List<String> themes = null;
+  protected List<String> themes;
 
   
   @JsonProperty("url")
-  protected String url = null;
+  protected String url;
 
   
   @JsonProperty("version")
-  protected Integer version = null;
+  protected Integer version;
 
   
   

@@ -35,31 +35,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionChargeCreate {
   
   @JsonProperty("externalId")
-  protected String externalId = null;
+  protected String externalId;
 
   
   @JsonProperty("failedUrl")
-  protected String failedUrl = null;
+  protected String failedUrl;
 
   
   @JsonProperty("plannedExecutionDate")
-  protected OffsetDateTime plannedExecutionDate = null;
+  protected OffsetDateTime plannedExecutionDate;
 
   
   @JsonProperty("processingType")
-  protected SubscriptionChargeProcessingType processingType = null;
+  protected SubscriptionChargeProcessingType processingType;
 
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("subscription")
-  protected Long subscription = null;
+  protected Long subscription;
 
   
   @JsonProperty("successUrl")
-  protected String successUrl = null;
+  protected String successUrl;
 
   
   

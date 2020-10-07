@@ -35,19 +35,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class RestAddressFormat {
   
   @JsonProperty("postCodeExamples")
-  protected List<String> postCodeExamples = null;
+  protected List<String> postCodeExamples;
 
   
   @JsonProperty("postCodeRegex")
-  protected String postCodeRegex = null;
+  protected String postCodeRegex;
 
   
   @JsonProperty("requiredFields")
-  protected List<RestAddressFormatField> requiredFields = null;
+  protected List<RestAddressFormatField> requiredFields;
 
   
   @JsonProperty("usedFields")
-  protected List<RestAddressFormatField> usedFields = null;
+  protected List<RestAddressFormatField> usedFields;
 
   
   

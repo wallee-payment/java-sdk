@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DatabaseTranslatedStringCreate {
   
   @JsonProperty("items")
-  protected List<DatabaseTranslatedStringItemCreate> items = null;
+  protected List<DatabaseTranslatedStringItemCreate> items;
 
   
   

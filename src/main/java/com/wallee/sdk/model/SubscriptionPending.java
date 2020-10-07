@@ -34,15 +34,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SubscriptionPending extends SubscriptionUpdate {
   
   @JsonProperty("reference")
-  protected String reference = null;
+  protected String reference;
 
   
   @JsonProperty("subscriber")
-  protected Long subscriber = null;
+  protected Long subscriber;
 
   
   @JsonProperty("token")
-  protected Long token = null;
+  protected Long token;
 
   
   
