@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionSuspensionReason {
 
-    FAILED_CHARGE("FAILED_CHARGE"),
-
-    SUBSCRIBER_INITIATED_REFUND("SUBSCRIBER_INITIATED_REFUND"),
-
-    MANUAL("MANUAL");
-
-    private String value;
-
-    SubscriptionSuspensionReason(String value) {
-        this.value = value;
-    }
+    FAILED_CHARGE,
+    SUBSCRIBER_INITIATED_REFUND,
+    MANUAL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionSuspensionReason fromValue(String text) {

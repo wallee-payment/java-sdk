@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionSuspensionAction {
 
-    TERMINATE("TERMINATE"),
-
-    REACTIVATE("REACTIVATE");
-
-    private String value;
-
-    SubscriptionSuspensionAction(String value) {
-        this.value = value;
-    }
+    TERMINATE,
+    REACTIVATE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionSuspensionAction fromValue(String text) {

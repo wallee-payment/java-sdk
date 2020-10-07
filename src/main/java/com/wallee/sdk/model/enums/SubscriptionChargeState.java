@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionChargeState {
 
-    SCHEDULED("SCHEDULED"),
-
-    DISCARDED("DISCARDED"),
-
-    PROCESSING("PROCESSING"),
-
-    SUCCESSFUL("SUCCESSFUL"),
-
-    FAILED("FAILED");
-
-    private String value;
-
-    SubscriptionChargeState(String value) {
-        this.value = value;
-    }
+    SCHEDULED,
+    DISCARDED,
+    PROCESSING,
+    SUCCESSFUL,
+    FAILED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionChargeState fromValue(String text) {

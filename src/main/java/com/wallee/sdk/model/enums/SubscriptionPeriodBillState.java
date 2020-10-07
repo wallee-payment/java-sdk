@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionPeriodBillState {
 
-    PENDING("PENDING"),
-
-    BILLED("BILLED");
-
-    private String value;
-
-    SubscriptionPeriodBillState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    BILLED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionPeriodBillState fromValue(String text) {

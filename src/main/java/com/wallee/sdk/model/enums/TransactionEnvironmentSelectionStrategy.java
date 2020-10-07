@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionEnvironmentSelectionStrategy {
 
-    FORCE_TEST_ENVIRONMENT("FORCE_TEST_ENVIRONMENT"),
-
-    FORCE_PRODUCTION_ENVIRONMENT("FORCE_PRODUCTION_ENVIRONMENT"),
-
-    USE_CONFIGURATION("USE_CONFIGURATION");
-
-    private String value;
-
-    TransactionEnvironmentSelectionStrategy(String value) {
-        this.value = value;
-    }
+    FORCE_TEST_ENVIRONMENT,
+    FORCE_PRODUCTION_ENVIRONMENT,
+    USE_CONFIGURATION;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionEnvironmentSelectionStrategy fromValue(String text) {

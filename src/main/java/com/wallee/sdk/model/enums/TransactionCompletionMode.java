@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionCompletionMode {
 
-    DIRECT("DIRECT"),
-
-    ONLINE("ONLINE"),
-
-    OFFLINE("OFFLINE");
-
-    private String value;
-
-    TransactionCompletionMode(String value) {
-        this.value = value;
-    }
+    DIRECT,
+    ONLINE,
+    OFFLINE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionCompletionMode fromValue(String text) {

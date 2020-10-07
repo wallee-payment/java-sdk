@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionLedgerEntryState {
 
-    OPEN("OPEN"),
-
-    SCHEDULED("SCHEDULED"),
-
-    PAID("PAID");
-
-    private String value;
-
-    SubscriptionLedgerEntryState(String value) {
-        this.value = value;
-    }
+    OPEN,
+    SCHEDULED,
+    PAID;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionLedgerEntryState fromValue(String text) {

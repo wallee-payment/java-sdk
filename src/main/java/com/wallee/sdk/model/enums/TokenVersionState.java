@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TokenVersionState {
 
-    UNINITIALIZED("UNINITIALIZED"),
-
-    ACTIVE("ACTIVE"),
-
-    OBSOLETE("OBSOLETE");
-
-    private String value;
-
-    TokenVersionState(String value) {
-        this.value = value;
-    }
+    UNINITIALIZED,
+    ACTIVE,
+    OBSOLETE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TokenVersionState fromValue(String text) {

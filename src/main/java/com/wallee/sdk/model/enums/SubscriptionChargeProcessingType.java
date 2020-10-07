@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionChargeProcessingType {
 
-    SYNCHRONOUS("SYNCHRONOUS"),
-
-    CHARGE_FLOW("CHARGE_FLOW");
-
-    private String value;
-
-    SubscriptionChargeProcessingType(String value) {
-        this.value = value;
-    }
+    SYNCHRONOUS,
+    CHARGE_FLOW;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionChargeProcessingType fromValue(String text) {

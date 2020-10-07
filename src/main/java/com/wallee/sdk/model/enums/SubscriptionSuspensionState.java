@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionSuspensionState {
 
-    RUNNING("RUNNING"),
-
-    ENDED("ENDED");
-
-    private String value;
-
-    SubscriptionSuspensionState(String value) {
-        this.value = value;
-    }
+    RUNNING,
+    ENDED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionSuspensionState fromValue(String text) {

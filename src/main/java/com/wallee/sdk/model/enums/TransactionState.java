@@ -25,38 +25,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionState {
 
-    CREATE("CREATE"),
-
-    PENDING("PENDING"),
-
-    CONFIRMED("CONFIRMED"),
-
-    PROCESSING("PROCESSING"),
-
-    FAILED("FAILED"),
-
-    AUTHORIZED("AUTHORIZED"),
-
-    VOIDED("VOIDED"),
-
-    COMPLETED("COMPLETED"),
-
-    FULFILL("FULFILL"),
-
-    DECLINE("DECLINE");
-
-    private String value;
-
-    TransactionState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    PENDING,
+    CONFIRMED,
+    PROCESSING,
+    FAILED,
+    AUTHORIZED,
+    VOIDED,
+    COMPLETED,
+    FULFILL,
+    DECLINE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionState fromValue(String text) {

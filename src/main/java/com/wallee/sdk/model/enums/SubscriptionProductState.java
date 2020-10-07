@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionProductState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    RETIRING("RETIRING"),
-
-    RETIRED("RETIRED");
-
-    private String value;
-
-    SubscriptionProductState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    ACTIVE,
+    INACTIVE,
+    RETIRING,
+    RETIRED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionProductState fromValue(String text) {

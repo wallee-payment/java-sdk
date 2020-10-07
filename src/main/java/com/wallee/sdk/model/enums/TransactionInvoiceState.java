@@ -25,32 +25,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionInvoiceState {
 
-    CREATE("CREATE"),
-
-    OPEN("OPEN"),
-
-    OVERDUE("OVERDUE"),
-
-    CANCELED("CANCELED"),
-
-    PAID("PAID"),
-
-    DERECOGNIZED("DERECOGNIZED"),
-
-    NOT_APPLICABLE("NOT_APPLICABLE");
-
-    private String value;
-
-    TransactionInvoiceState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    OPEN,
+    OVERDUE,
+    CANCELED,
+    PAID,
+    DERECOGNIZED,
+    NOT_APPLICABLE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionInvoiceState fromValue(String text) {

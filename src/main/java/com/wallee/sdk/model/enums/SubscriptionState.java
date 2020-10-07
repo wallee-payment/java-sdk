@@ -25,34 +25,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionState {
 
-    PENDING("PENDING"),
-
-    INITIALIZING("INITIALIZING"),
-
-    FAILED("FAILED"),
-
-    ACTIVE("ACTIVE"),
-
-    SUSPENDED("SUSPENDED"),
-
-    TERMINATION_SCHEDULED("TERMINATION_SCHEDULED"),
-
-    TERMINATING("TERMINATING"),
-
-    TERMINATED("TERMINATED");
-
-    private String value;
-
-    SubscriptionState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    INITIALIZING,
+    FAILED,
+    ACTIVE,
+    SUSPENDED,
+    TERMINATION_SCHEDULED,
+    TERMINATING,
+    TERMINATED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionState fromValue(String text) {

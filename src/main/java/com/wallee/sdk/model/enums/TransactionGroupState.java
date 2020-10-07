@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionGroupState {
 
-    PENDING("PENDING"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
-
-    private String value;
-
-    TransactionGroupState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    FAILED,
+    SUCCESSFUL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionGroupState fromValue(String text) {

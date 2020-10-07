@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionProductVersionState {
 
-    PENDING("PENDING"),
-
-    ACTIVE("ACTIVE"),
-
-    OBSOLETE("OBSOLETE"),
-
-    RETIRING("RETIRING"),
-
-    RETIRED("RETIRED");
-
-    private String value;
-
-    SubscriptionProductVersionState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    ACTIVE,
+    OBSOLETE,
+    RETIRING,
+    RETIRED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionProductVersionState fromValue(String text) {

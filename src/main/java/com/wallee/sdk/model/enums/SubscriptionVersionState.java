@@ -25,30 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionVersionState {
 
-    PENDING("PENDING"),
-
-    INITIALIZING("INITIALIZING"),
-
-    FAILED("FAILED"),
-
-    ACTIVE("ACTIVE"),
-
-    TERMINATING("TERMINATING"),
-
-    TERMINATED("TERMINATED");
-
-    private String value;
-
-    SubscriptionVersionState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    INITIALIZING,
+    FAILED,
+    ACTIVE,
+    TERMINATING,
+    TERMINATED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionVersionState fromValue(String text) {

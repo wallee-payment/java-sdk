@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionVoidMode {
 
-    ONLINE("ONLINE"),
-
-    OFFLINE("OFFLINE");
-
-    private String value;
-
-    TransactionVoidMode(String value) {
-        this.value = value;
-    }
+    ONLINE,
+    OFFLINE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionVoidMode fromValue(String text) {

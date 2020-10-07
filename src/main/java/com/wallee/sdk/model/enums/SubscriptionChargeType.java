@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionChargeType {
 
-    MANUAL("MANUAL"),
-
-    AUTOMATIC("AUTOMATIC");
-
-    private String value;
-
-    SubscriptionChargeType(String value) {
-        this.value = value;
-    }
+    MANUAL,
+    AUTOMATIC;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionChargeType fromValue(String text) {

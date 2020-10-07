@@ -25,26 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SubscriptionProductComponentReferenceState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
-
-    private String value;
-
-    SubscriptionProductComponentReferenceState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    ACTIVE,
+    DELETING,
+    DELETED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SubscriptionProductComponentReferenceState fromValue(String text) {

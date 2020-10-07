@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionUserInterfaceType {
 
-    IFRAME("IFRAME"),
-
-    LIGHTBOX("LIGHTBOX"),
-
-    PAYMENT_PAGE("PAYMENT_PAGE"),
-
-    MOBILE_SDK("MOBILE_SDK"),
-
-    TERMINAL("TERMINAL");
-
-    private String value;
-
-    TransactionUserInterfaceType(String value) {
-        this.value = value;
-    }
+    IFRAME,
+    LIGHTBOX,
+    PAYMENT_PAGE,
+    MOBILE_SDK,
+    TERMINAL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionUserInterfaceType fromValue(String text) {

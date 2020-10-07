@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum SpaceReferenceState {
 
-    RESTRICTED_ACTIVE("RESTRICTED_ACTIVE"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
-
-    private String value;
-
-    SpaceReferenceState(String value) {
-        this.value = value;
-    }
+    RESTRICTED_ACTIVE,
+    ACTIVE,
+    INACTIVE,
+    DELETING,
+    DELETED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static SpaceReferenceState fromValue(String text) {

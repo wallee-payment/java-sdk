@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionCompletionState {
 
-    CREATE("CREATE"),
-
-    SCHEDULED("SCHEDULED"),
-
-    PENDING("PENDING"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
-
-    private String value;
-
-    TransactionCompletionState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    SCHEDULED,
+    PENDING,
+    FAILED,
+    SUCCESSFUL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static TransactionCompletionState fromValue(String text) {
