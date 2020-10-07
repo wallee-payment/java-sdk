@@ -44,13 +44,13 @@ public enum ProductFeeType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ProductFeeType fromValue(String text) {
     for (ProductFeeType b : ProductFeeType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

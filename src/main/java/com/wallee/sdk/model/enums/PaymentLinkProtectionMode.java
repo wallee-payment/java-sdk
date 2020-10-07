@@ -41,13 +41,13 @@ public enum PaymentLinkProtectionMode {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static PaymentLinkProtectionMode fromValue(String text) {
     for (PaymentLinkProtectionMode b : PaymentLinkProtectionMode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

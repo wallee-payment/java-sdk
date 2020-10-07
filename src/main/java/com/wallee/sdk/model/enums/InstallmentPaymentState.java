@@ -53,13 +53,13 @@ public enum InstallmentPaymentState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static InstallmentPaymentState fromValue(String text) {
     for (InstallmentPaymentState b : InstallmentPaymentState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

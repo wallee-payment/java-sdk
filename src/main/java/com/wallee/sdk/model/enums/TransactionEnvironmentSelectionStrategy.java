@@ -44,13 +44,13 @@ public enum TransactionEnvironmentSelectionStrategy {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static TransactionEnvironmentSelectionStrategy fromValue(String text) {
     for (TransactionEnvironmentSelectionStrategy b : TransactionEnvironmentSelectionStrategy.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -58,13 +58,13 @@ public enum RestAddressFormatField {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static RestAddressFormatField fromValue(String text) {
     for (RestAddressFormatField b : RestAddressFormatField.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -41,13 +41,13 @@ public enum DebtCollectionEnvironment {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static DebtCollectionEnvironment fromValue(String text) {
     for (DebtCollectionEnvironment b : DebtCollectionEnvironment.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -41,13 +41,13 @@ public enum Gender {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static Gender fromValue(String text) {
     for (Gender b : Gender.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

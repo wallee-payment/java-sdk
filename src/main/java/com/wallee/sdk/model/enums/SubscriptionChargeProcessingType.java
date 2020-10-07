@@ -42,13 +42,13 @@ public enum SubscriptionChargeProcessingType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SubscriptionChargeProcessingType fromValue(String text) {
     for (SubscriptionChargeProcessingType b : SubscriptionChargeProcessingType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

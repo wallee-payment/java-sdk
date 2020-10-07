@@ -48,13 +48,13 @@ public enum SubscriptionProductVersionState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SubscriptionProductVersionState fromValue(String text) {
     for (SubscriptionProductVersionState b : SubscriptionProductVersionState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -50,13 +50,13 @@ public enum ShopifySubscriptionBillingIntervalUnit {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriptionBillingIntervalUnit fromValue(String text) {
     for (ShopifySubscriptionBillingIntervalUnit b : ShopifySubscriptionBillingIntervalUnit.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

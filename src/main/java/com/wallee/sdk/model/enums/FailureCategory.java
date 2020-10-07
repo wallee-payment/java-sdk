@@ -47,13 +47,13 @@ public enum FailureCategory {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static FailureCategory fromValue(String text) {
     for (FailureCategory b : FailureCategory.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

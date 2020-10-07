@@ -46,13 +46,13 @@ public enum SubscriptionProductComponentReferenceState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SubscriptionProductComponentReferenceState fromValue(String text) {
     for (SubscriptionProductComponentReferenceState b : SubscriptionProductComponentReferenceState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

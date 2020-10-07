@@ -51,13 +51,13 @@ public enum InstallmentPaymentSliceState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static InstallmentPaymentSliceState fromValue(String text) {
     for (InstallmentPaymentSliceState b : InstallmentPaymentSliceState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

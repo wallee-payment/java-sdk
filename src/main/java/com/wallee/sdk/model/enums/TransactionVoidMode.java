@@ -42,13 +42,13 @@ public enum TransactionVoidMode {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static TransactionVoidMode fromValue(String text) {
     for (TransactionVoidMode b : TransactionVoidMode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

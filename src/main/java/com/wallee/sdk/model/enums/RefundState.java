@@ -50,13 +50,13 @@ public enum RefundState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static RefundState fromValue(String text) {
     for (RefundState b : RefundState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -44,13 +44,13 @@ public enum ShopifyIntegrationAppVersion {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifyIntegrationAppVersion fromValue(String text) {
     for (ShopifyIntegrationAppVersion b : ShopifyIntegrationAppVersion.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

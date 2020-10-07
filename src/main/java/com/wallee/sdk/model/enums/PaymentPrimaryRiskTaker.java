@@ -46,13 +46,13 @@ public enum PaymentPrimaryRiskTaker {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static PaymentPrimaryRiskTaker fromValue(String text) {
     for (PaymentPrimaryRiskTaker b : PaymentPrimaryRiskTaker.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

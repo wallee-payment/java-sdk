@@ -43,13 +43,13 @@ public enum CustomersPresence {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static CustomersPresence fromValue(String text) {
     for (CustomersPresence b : CustomersPresence.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

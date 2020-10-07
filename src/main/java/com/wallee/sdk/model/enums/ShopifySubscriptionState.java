@@ -50,13 +50,13 @@ public enum ShopifySubscriptionState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriptionState fromValue(String text) {
     for (ShopifySubscriptionState b : ShopifySubscriptionState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

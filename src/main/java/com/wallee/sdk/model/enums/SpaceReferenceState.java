@@ -48,13 +48,13 @@ public enum SpaceReferenceState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SpaceReferenceState fromValue(String text) {
     for (SpaceReferenceState b : SpaceReferenceState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

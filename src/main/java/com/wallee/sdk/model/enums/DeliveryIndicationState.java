@@ -46,13 +46,13 @@ public enum DeliveryIndicationState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static DeliveryIndicationState fromValue(String text) {
     for (DeliveryIndicationState b : DeliveryIndicationState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -43,13 +43,13 @@ public enum ChargeAttemptState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ChargeAttemptState fromValue(String text) {
     for (ChargeAttemptState b : ChargeAttemptState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

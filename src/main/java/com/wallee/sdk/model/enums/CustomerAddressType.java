@@ -43,13 +43,13 @@ public enum CustomerAddressType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static CustomerAddressType fromValue(String text) {
     for (CustomerAddressType b : CustomerAddressType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

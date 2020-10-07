@@ -42,13 +42,13 @@ public enum ShopifySubscriptionSuspensionType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriptionSuspensionType fromValue(String text) {
     for (ShopifySubscriptionSuspensionType b : ShopifySubscriptionSuspensionType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

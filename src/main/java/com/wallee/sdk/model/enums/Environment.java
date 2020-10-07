@@ -41,13 +41,13 @@ public enum Environment {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static Environment fromValue(String text) {
     for (Environment b : Environment.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

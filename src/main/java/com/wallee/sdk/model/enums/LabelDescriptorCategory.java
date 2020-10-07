@@ -41,13 +41,13 @@ public enum LabelDescriptorCategory {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static LabelDescriptorCategory fromValue(String text) {
     for (LabelDescriptorCategory b : LabelDescriptorCategory.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -44,13 +44,13 @@ public enum EntityQueryOrderByType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    if (b.name().equals(text)) {
   }
 
   @JsonCreator
   public static EntityQueryOrderByType fromValue(String text) {
     for (EntityQueryOrderByType b : EntityQueryOrderByType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

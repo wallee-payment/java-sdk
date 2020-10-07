@@ -49,13 +49,13 @@ public enum AccountState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static AccountState fromValue(String text) {
     for (AccountState b : AccountState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

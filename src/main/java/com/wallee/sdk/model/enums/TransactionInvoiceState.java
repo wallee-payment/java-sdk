@@ -52,13 +52,13 @@ public enum TransactionInvoiceState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static TransactionInvoiceState fromValue(String text) {
     for (TransactionInvoiceState b : TransactionInvoiceState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

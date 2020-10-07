@@ -43,13 +43,13 @@ public enum OneClickPaymentMode {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static OneClickPaymentMode fromValue(String text) {
     for (OneClickPaymentMode b : OneClickPaymentMode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

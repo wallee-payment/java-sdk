@@ -42,13 +42,13 @@ public enum SubscriptionSuspensionAction {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SubscriptionSuspensionAction fromValue(String text) {
     for (SubscriptionSuspensionAction b : SubscriptionSuspensionAction.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

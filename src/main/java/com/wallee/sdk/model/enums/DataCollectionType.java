@@ -41,13 +41,13 @@ public enum DataCollectionType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static DataCollectionType fromValue(String text) {
     for (DataCollectionType b : DataCollectionType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

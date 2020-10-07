@@ -48,13 +48,13 @@ public enum ShopifySubscriptionProductPricingOption {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriptionProductPricingOption fromValue(String text) {
     for (ShopifySubscriptionProductPricingOption b : ShopifySubscriptionProductPricingOption.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

@@ -50,13 +50,13 @@ public enum ShopifyRecurringOrderState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifyRecurringOrderState fromValue(String text) {
     for (ShopifyRecurringOrderState b : ShopifyRecurringOrderState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

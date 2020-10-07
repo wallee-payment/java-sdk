@@ -48,13 +48,13 @@ public enum SubscriptionChargeState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static SubscriptionChargeState fromValue(String text) {
     for (SubscriptionChargeState b : SubscriptionChargeState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

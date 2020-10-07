@@ -44,13 +44,13 @@ public enum ShopifySubscriberState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriberState fromValue(String text) {
     for (ShopifySubscriberState b : ShopifySubscriberState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

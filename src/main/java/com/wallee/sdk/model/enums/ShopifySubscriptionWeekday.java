@@ -52,13 +52,13 @@ public enum ShopifySubscriptionWeekday {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ShopifySubscriptionWeekday fromValue(String text) {
     for (ShopifySubscriptionWeekday b : ShopifySubscriptionWeekday.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

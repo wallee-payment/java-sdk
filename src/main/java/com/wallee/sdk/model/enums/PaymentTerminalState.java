@@ -48,13 +48,13 @@ public enum PaymentTerminalState {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static PaymentTerminalState fromValue(String text) {
     for (PaymentTerminalState b : PaymentTerminalState.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

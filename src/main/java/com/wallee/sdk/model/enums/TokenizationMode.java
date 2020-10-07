@@ -48,13 +48,13 @@ public enum TokenizationMode {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static TokenizationMode fromValue(String text) {
     for (TokenizationMode b : TokenizationMode.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }

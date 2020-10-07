@@ -45,13 +45,13 @@ public enum ChargeType {
 
   @Override
   public String toString() {
-    return String.valueOf(value);
+    return value;
   }
 
   @JsonCreator
   public static ChargeType fromValue(String text) {
     for (ChargeType b : ChargeType.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.name().equals(text)) {
         return b;
       }
     }
