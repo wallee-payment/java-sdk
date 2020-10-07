@@ -1,6 +1,7 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +98,7 @@ public class SubscriptionAffiliateService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+      public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
@@ -214,7 +215,7 @@ public class SubscriptionAffiliateService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
+      public HttpResponse createForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
@@ -327,7 +328,7 @@ public class SubscriptionAffiliateService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse deleteForHttpResponse(Long spaceId, java.io.InputStream id, String mediaType) throws IOException {
+      public HttpResponse deleteForHttpResponse(Long spaceId, InputStream id, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
@@ -556,7 +557,7 @@ public class SubscriptionAffiliateService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+      public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
@@ -679,7 +680,7 @@ public class SubscriptionAffiliateService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
+      public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");

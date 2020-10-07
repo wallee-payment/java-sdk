@@ -1,6 +1,7 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,7 +120,7 @@ public class CardProcessingService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, java.io.InputStream cardData, String mediaType) throws IOException {
+      public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, InputStream cardData, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
@@ -286,7 +287,7 @@ public class CardProcessingService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, java.io.InputStream cardData, String mediaType) throws IOException {
+      public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, InputStream cardData, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");

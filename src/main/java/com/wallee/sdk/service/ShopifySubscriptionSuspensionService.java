@@ -1,6 +1,7 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -96,7 +97,7 @@ public class ShopifySubscriptionSuspensionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+      public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
@@ -419,7 +420,7 @@ public class ShopifySubscriptionSuspensionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+      public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
@@ -540,7 +541,7 @@ public class ShopifySubscriptionSuspensionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse suspendForHttpResponse(Long spaceId, java.io.InputStream suspension, String mediaType) throws IOException {
+      public HttpResponse suspendForHttpResponse(Long spaceId, InputStream suspension, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling suspend");

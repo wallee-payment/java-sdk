@@ -1,6 +1,7 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -89,7 +90,7 @@ public class SpaceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(java.io.InputStream filter, String mediaType) throws IOException {
+      public HttpResponse countForHttpResponse(InputStream filter, String mediaType) throws IOException {
           
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/count");
 
@@ -187,7 +188,7 @@ public class SpaceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse createForHttpResponse(java.io.InputStream entity, String mediaType) throws IOException {
+      public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
           // verify the required parameter 'entity' is set
               if (entity == null) {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
@@ -281,7 +282,7 @@ public class SpaceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse deleteForHttpResponse(java.io.InputStream id, String mediaType) throws IOException {
+      public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
           // verify the required parameter 'id' is set
               if (id == null) {
               throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
@@ -476,7 +477,7 @@ public class SpaceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(java.io.InputStream query, String mediaType) throws IOException {
+      public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
           // verify the required parameter 'query' is set
               if (query == null) {
               throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
@@ -580,7 +581,7 @@ public class SpaceService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse updateForHttpResponse(java.io.InputStream entity, String mediaType) throws IOException {
+      public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
           // verify the required parameter 'entity' is set
               if (entity == null) {
               throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");

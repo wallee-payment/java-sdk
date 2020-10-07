@@ -1,6 +1,7 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -106,7 +107,7 @@ public class SubscriptionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse applyChangesForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
+      public HttpResponse applyChangesForHttpResponse(Long spaceId, InputStream request, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
@@ -223,7 +224,7 @@ public class SubscriptionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+      public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
@@ -340,7 +341,7 @@ public class SubscriptionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream createRequest, String mediaType) throws IOException {
+      public HttpResponse createForHttpResponse(Long spaceId, InputStream createRequest, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
@@ -800,7 +801,7 @@ public class SubscriptionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+      public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
@@ -931,7 +932,7 @@ public class SubscriptionService {
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
     }
 
-      public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, java.io.InputStream query, String mediaType) throws IOException {
+      public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, InputStream query, String mediaType) throws IOException {
           // verify the required parameter 'spaceId' is set
               if (spaceId == null) {
               throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
