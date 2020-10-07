@@ -85,7 +85,7 @@ package com.wallee.sdk.test;
 
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.*;
-import com.wallee.sdk.service.*;
+import com.wallee.sdk.model.enums.LineItemType;
 
 import org.junit.Assert;
 import org.junit.Before;

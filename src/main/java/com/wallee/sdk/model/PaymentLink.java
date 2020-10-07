@@ -27,6 +27,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.CreationEntityState;
+import com.wallee.sdk.model.enums.PaymentLinkProtectionMode;
 
 /**
  * The payment link defines an URL to automatically create transactions.

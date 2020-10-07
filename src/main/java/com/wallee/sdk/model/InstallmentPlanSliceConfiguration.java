@@ -27,6 +27,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.CreationEntityState;
 
 /**
  * The installment plan slice defines a single slice of an installment plan.

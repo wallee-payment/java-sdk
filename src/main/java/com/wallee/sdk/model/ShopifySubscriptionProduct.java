@@ -27,7 +27,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
+import com.wallee.sdk.model.enums.ShopifySubscriptionBillingIntervalUnit;
+import com.wallee.sdk.model.enums.ShopifySubscriptionProductPricingOption;
+import com.wallee.sdk.model.enums.ShopifySubscriptionProductState;
+import com.wallee.sdk.model.enums.ShopifySubscriptionWeekday;
 
 @ApiModel(description = "")
 

@@ -11,17 +11,17 @@ import org.junit.Test;
 
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.AddressCreate;
-import com.wallee.sdk.model.CriteriaOperator;
+import com.wallee.sdk.model.enums.CriteriaOperator;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
-import com.wallee.sdk.model.EntityQueryFilterType;
+import com.wallee.sdk.model.enums.EntityQueryFilterType;
 import com.wallee.sdk.model.LineItemCreate;
-import com.wallee.sdk.model.LineItemType;
+import com.wallee.sdk.model.enums.LineItemType;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionCreate;
 import com.wallee.sdk.model.TransactionPending;
-import com.wallee.sdk.model.TransactionState;
+import com.wallee.sdk.model.enums.TransactionState;
 
 /**
  * API tests for TransactionService

@@ -28,6 +28,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.Environment;
+import com.wallee.sdk.model.enums.TransactionInvoiceState;
 
 /**
  * The transaction invoice represents the invoice document for a particular transaction.

@@ -28,6 +28,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.DebtCollectionCaseState;
+import com.wallee.sdk.model.enums.DebtCollectionEnvironment;
 
 /**
  * The debt collection case represents a try to collect the money from the debtor.
