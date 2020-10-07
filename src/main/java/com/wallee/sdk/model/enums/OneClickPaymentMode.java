@@ -30,13 +30,7 @@ public enum OneClickPaymentMode {
 
     FORCE("FORCE");
 
-    private final String value;
-
-    OneClickPaymentMode(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

@@ -28,13 +28,7 @@ public enum LabelDescriptorCategory {
 
     APPLICATION("APPLICATION");
 
-    private final String value;
-
-    LabelDescriptorCategory(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

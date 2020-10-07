@@ -28,13 +28,7 @@ public enum ChargeAttemptEnvironment {
 
     TEST("TEST");
 
-    private final String value;
-
-    ChargeAttemptEnvironment(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

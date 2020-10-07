@@ -30,13 +30,7 @@ public enum ChargeFlowLevelState {
 
     SUCCESSFUL("SUCCESSFUL");
 
-    private final String value;
-
-    ChargeFlowLevelState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

@@ -32,13 +32,7 @@ public enum ChargeType {
 
     TERMINAL("TERMINAL");
 
-    private final String value;
-
-    ChargeType(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

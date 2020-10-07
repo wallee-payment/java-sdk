@@ -32,13 +32,7 @@ public enum ConnectorInvocationStage {
 
     AUTHORIZATION("AUTHORIZATION");
 
-    private final String value;
-
-    ConnectorInvocationStage(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

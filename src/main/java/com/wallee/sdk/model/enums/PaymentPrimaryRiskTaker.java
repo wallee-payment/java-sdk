@@ -33,13 +33,7 @@ public enum PaymentPrimaryRiskTaker {
 
     THIRD_PARTY("THIRD_PARTY");
 
-    private final String value;
-
-    PaymentPrimaryRiskTaker(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

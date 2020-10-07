@@ -30,13 +30,7 @@ public enum ChargeState {
 
     SUCCESSFUL("SUCCESSFUL");
 
-    private final String value;
-
-    ChargeState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

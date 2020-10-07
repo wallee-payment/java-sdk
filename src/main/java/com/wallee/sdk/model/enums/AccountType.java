@@ -30,13 +30,7 @@ public enum AccountType {
 
     SUBACCOUNT("SUBACCOUNT");
 
-    private final String value;
-
-    AccountType(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

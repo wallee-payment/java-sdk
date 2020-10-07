@@ -31,13 +31,7 @@ public enum EntityQueryOrderByType {
 
     ASC("ASC");
 
-    private final String value;
-
-    EntityQueryOrderByType(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

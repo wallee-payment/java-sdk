@@ -33,13 +33,7 @@ public enum ClientErrorType {
 
     DEVELOPER_ERROR("DEVELOPER_ERROR");
 
-    private final String value;
-
-    ClientErrorType(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

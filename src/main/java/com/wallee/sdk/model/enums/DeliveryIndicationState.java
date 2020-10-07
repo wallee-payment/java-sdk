@@ -33,13 +33,7 @@ public enum DeliveryIndicationState {
 
     SUITABLE("SUITABLE");
 
-    private final String value;
-
-    DeliveryIndicationState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

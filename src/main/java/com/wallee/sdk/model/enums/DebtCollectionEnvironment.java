@@ -28,13 +28,7 @@ public enum DebtCollectionEnvironment {
 
     TEST("TEST");
 
-    private final String value;
-
-    DebtCollectionEnvironment(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

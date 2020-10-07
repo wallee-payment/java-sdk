@@ -30,13 +30,7 @@ public enum CustomersPresence {
 
     PHYSICAL_PRESENT("PHYSICAL_PRESENT");
 
-    private final String value;
-
-    CustomersPresence(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

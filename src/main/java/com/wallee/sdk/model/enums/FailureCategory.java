@@ -34,13 +34,7 @@ public enum FailureCategory {
 
     DEVELOPER("DEVELOPER");
 
-    private final String value;
-
-    FailureCategory(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

@@ -28,13 +28,7 @@ public enum Environment {
 
     PREVIEW("PREVIEW");
 
-    private final String value;
-
-    Environment(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

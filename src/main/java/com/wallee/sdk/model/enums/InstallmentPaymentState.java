@@ -40,13 +40,7 @@ public enum InstallmentPaymentState {
 
     DEFAULTED("DEFAULTED");
 
-    private final String value;
-
-    InstallmentPaymentState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

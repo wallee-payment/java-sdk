@@ -38,13 +38,7 @@ public enum DebtCollectionCaseState {
 
     FAILED("FAILED");
 
-    private final String value;
-
-    DebtCollectionCaseState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

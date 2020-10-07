@@ -30,13 +30,7 @@ public enum ManualTaskState {
 
     EXPIRED("EXPIRED");
 
-    private final String value;
-
-    ManualTaskState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

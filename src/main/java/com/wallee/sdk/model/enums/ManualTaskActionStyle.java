@@ -30,13 +30,7 @@ public enum ManualTaskActionStyle {
 
     DANGER("DANGER");
 
-    private final String value;
-
-    ManualTaskActionStyle(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

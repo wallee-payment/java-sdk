@@ -28,13 +28,7 @@ public enum PaymentLinkProtectionMode {
 
     ACCESS_KEY("ACCESS_KEY");
 
-    private final String value;
-
-    PaymentLinkProtectionMode(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

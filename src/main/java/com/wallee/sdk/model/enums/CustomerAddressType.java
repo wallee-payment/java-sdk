@@ -30,13 +30,7 @@ public enum CustomerAddressType {
 
     BOTH("BOTH");
 
-    private final String value;
-
-    CustomerAddressType(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

@@ -34,13 +34,7 @@ public enum PaymentContractState {
 
     REJECTED("REJECTED");
 
-    private final String value;
-
-    PaymentContractState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }

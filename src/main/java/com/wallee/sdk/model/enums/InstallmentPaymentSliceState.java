@@ -38,13 +38,7 @@ public enum InstallmentPaymentSliceState {
 
     SUCCESSFUL("SUCCESSFUL");
 
-    private final String value;
-
-    InstallmentPaymentSliceState(String value) {
-        this.value = value;
-    }
-
-    @JsonValue
+   @JsonValue
     public String getValue() {
         return name();
     }
