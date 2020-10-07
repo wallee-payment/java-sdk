@@ -95,22 +95,18 @@ public class TransactionTerminalService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "transactionId";
-            Object value = transactionId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, transactionId);
         }
         {
             String key = "typeId";
-            Object value = typeId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, typeId);
         }
         String key = "width";
-        Object value = width;
-        uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, width);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -227,23 +223,19 @@ public class TransactionTerminalService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "transactionId";
-            Object value = transactionId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, transactionId);
         }
         {
             String key = "terminalId";
-            Object value = terminalId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, terminalId);
         }
         if (language != null) {
             String key = "language";
-            Object value = language;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, language);
         }
 
         String url = uriBuilder.build().toString();

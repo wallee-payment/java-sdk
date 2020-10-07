@@ -92,12 +92,10 @@ public class SubscriptionProductVersionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/activate");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "productVersionId";
-      Object value = productVersionId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, productVersionId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -195,8 +193,7 @@ public class SubscriptionProductVersionService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/count");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -212,8 +209,7 @@ public class SubscriptionProductVersionService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -312,8 +308,7 @@ public class SubscriptionProductVersionService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/create");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -332,8 +327,7 @@ public class SubscriptionProductVersionService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/create");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -434,12 +428,10 @@ public class SubscriptionProductVersionService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/read");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "id";
-      Object value = id;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, id);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -541,8 +533,7 @@ public class SubscriptionProductVersionService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/search");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -561,8 +552,7 @@ public class SubscriptionProductVersionService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -664,8 +654,7 @@ public class SubscriptionProductVersionService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/update");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -684,8 +673,7 @@ public class SubscriptionProductVersionService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-version/update");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

@@ -90,8 +90,7 @@ public class InstallmentPaymentService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/count");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -110,8 +109,7 @@ public class InstallmentPaymentService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -217,17 +215,14 @@ public class InstallmentPaymentService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/createInstallmentPayment");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       {
           String key = "transactionId";
-          Object value = transactionId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, transactionId);
       }
       String key = "installmentPlanConfiguration";
-      Object value = installmentPlanConfiguration;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, installmentPlanConfiguration);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -335,12 +330,10 @@ public class InstallmentPaymentService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/read");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "id";
-      Object value = id;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, id);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -442,8 +435,7 @@ public class InstallmentPaymentService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -462,8 +454,7 @@ public class InstallmentPaymentService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

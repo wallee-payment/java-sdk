@@ -87,8 +87,7 @@ public class ShopifyRecurringOrderService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/count");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -104,8 +103,7 @@ public class ShopifyRecurringOrderService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -205,12 +203,10 @@ public class ShopifyRecurringOrderService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/read");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "id";
-      Object value = id;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, id);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -312,8 +308,7 @@ public class ShopifyRecurringOrderService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/search");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -332,8 +327,7 @@ public class ShopifyRecurringOrderService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -423,8 +417,7 @@ public class ShopifyRecurringOrderService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/update");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -443,8 +436,7 @@ public class ShopifyRecurringOrderService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-recurring-order/update");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

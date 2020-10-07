@@ -87,8 +87,7 @@ public class SubscriptionChargeService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/count");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -104,8 +103,7 @@ public class SubscriptionChargeService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -204,8 +202,7 @@ public class SubscriptionChargeService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/create");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -224,8 +221,7 @@ public class SubscriptionChargeService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/create");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -326,12 +322,10 @@ public class SubscriptionChargeService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/discard");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "chargeId";
-      Object value = chargeId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, chargeId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -434,12 +428,10 @@ public class SubscriptionChargeService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/read");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       String key = "id";
-      Object value = id;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, id);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -541,8 +533,7 @@ public class SubscriptionChargeService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/search");
       String key = "spaceId";
-      Object value = spaceId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, spaceId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -561,8 +552,7 @@ public class SubscriptionChargeService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

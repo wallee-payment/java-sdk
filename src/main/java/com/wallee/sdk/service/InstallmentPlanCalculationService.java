@@ -86,12 +86,10 @@ public class InstallmentPlanCalculationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "transactionId";
-        Object value = transactionId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, transactionId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

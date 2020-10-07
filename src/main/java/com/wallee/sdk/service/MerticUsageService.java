@@ -92,17 +92,14 @@ public class MerticUsageService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "start";
-            Object value = start;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, start);
         }
         String key = "end";
-        Object value = end;
-        uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, end);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

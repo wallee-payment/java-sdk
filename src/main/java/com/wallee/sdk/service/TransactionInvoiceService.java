@@ -88,8 +88,7 @@ public class TransactionInvoiceService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -105,8 +104,7 @@ public class TransactionInvoiceService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/count");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -206,12 +204,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocument");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -319,17 +315,14 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/getInvoiceDocumentWithTargetMediaType");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "id";
-            Object value = id;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, id);
         }
         String key = "targetMediaTypeId";
-        Object value = targetMediaTypeId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, targetMediaTypeId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -437,12 +430,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/isReplacementPossible");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -545,12 +536,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsDerecognized");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -653,12 +642,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/markAsPaid");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -761,12 +748,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/read");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -874,12 +859,10 @@ public class TransactionInvoiceService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -902,12 +885,10 @@ public class TransactionInvoiceService {
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/replace");
           {
               String key = "spaceId";
-              Object value = spaceId;
-              uriBuilder = uriBuilder.queryParam(key, value);
+              uriBuilder = uriBuilder.queryParam(key, spaceId);
           }
           String key = "id";
-          Object value = id;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, id);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -1012,8 +993,7 @@ public class TransactionInvoiceService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1032,8 +1012,7 @@ public class TransactionInvoiceService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-invoice/search");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

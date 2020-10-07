@@ -92,23 +92,19 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
         {
             String key = "userId";
-            Object value = userId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, userId);
         }
         {
             String key = "accountId";
-            Object value = accountId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, accountId);
         }
         {
             String key = "roleId";
-            Object value = roleId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, roleId);
         }
         if (appliesOnSubaccount != null) {
             String key = "appliesOnSubaccount";
-            Object value = appliesOnSubaccount;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, appliesOnSubaccount);
         }
 
         String url = uriBuilder.build().toString();
@@ -217,12 +213,10 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
         {
             String key = "userId";
-            Object value = userId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, userId);
         }
         String key = "accountId";
-        Object value = accountId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, accountId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -309,8 +303,7 @@ public class UserAccountRoleService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

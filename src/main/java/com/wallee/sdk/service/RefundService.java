@@ -88,8 +88,7 @@ public class RefundService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -105,8 +104,7 @@ public class RefundService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -206,12 +204,10 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "refundId";
-        Object value = refundId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, refundId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -314,12 +310,10 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -427,17 +421,14 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "id";
-            Object value = id;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, id);
         }
         String key = "targetMediaTypeId";
-        Object value = targetMediaTypeId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, targetMediaTypeId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -545,12 +536,10 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/read");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -652,8 +641,7 @@ public class RefundService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -672,8 +660,7 @@ public class RefundService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -773,8 +760,7 @@ public class RefundService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -793,8 +779,7 @@ public class RefundService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -895,12 +880,10 @@ public class RefundService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "refundId";
-        Object value = refundId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, refundId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);

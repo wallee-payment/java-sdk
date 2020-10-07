@@ -101,17 +101,14 @@ public class CardProcessingService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       {
           String key = "transactionId";
-          Object value = transactionId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, transactionId);
       }
       String key = "paymentMethodConfigurationId";
-      Object value = paymentMethodConfigurationId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -137,17 +134,14 @@ public class CardProcessingService {
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
         {
             String key = "spaceId";
-            Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "transactionId";
-            Object value = transactionId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, transactionId);
         }
         String key = "paymentMethodConfigurationId";
-        Object value = paymentMethodConfigurationId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -268,17 +262,14 @@ public class CardProcessingService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
       {
           String key = "spaceId";
-          Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
       }
       {
           String key = "transactionId";
-          Object value = transactionId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, transactionId);
       }
       String key = "paymentMethodConfigurationId";
-      Object value = paymentMethodConfigurationId;
-      uriBuilder = uriBuilder.queryParam(key, value);
+      uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
 
       String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -304,17 +295,14 @@ public class CardProcessingService {
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
         {
             String key = "spaceId";
-            Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "transactionId";
-            Object value = transactionId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, transactionId);
         }
         String key = "paymentMethodConfigurationId";
-        Object value = paymentMethodConfigurationId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
 
         String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);

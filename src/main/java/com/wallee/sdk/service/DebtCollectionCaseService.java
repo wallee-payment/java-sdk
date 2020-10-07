@@ -108,26 +108,22 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "id";
-            Object value = id;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, id);
         }
         {
             String key = "collectedAmount";
-            Object value = collectedAmount;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            if (collectedAmount instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) collectedAmount).toArray());
             } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
+                uriBuilder = uriBuilder.queryParam(key, collectedAmount);
             }
         }
         String key = "externalId";
-        Object value = externalId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, externalId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -252,22 +248,18 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         {
             String key = "id";
-            Object value = id;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, id);
         }
         {
             String key = "fileName";
-            Object value = fileName;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, fileName);
         }
         String key = "contentBase64";
-        Object value = contentBase64;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, contentBase64);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -382,12 +374,10 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -485,8 +475,7 @@ public class DebtCollectionCaseService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/count");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -502,8 +491,7 @@ public class DebtCollectionCaseService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/count");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -602,8 +590,7 @@ public class DebtCollectionCaseService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/create");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -622,8 +609,7 @@ public class DebtCollectionCaseService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/create");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -715,8 +701,7 @@ public class DebtCollectionCaseService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/delete");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -735,8 +720,7 @@ public class DebtCollectionCaseService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/delete");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -839,12 +823,10 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -949,12 +931,10 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1059,12 +1039,10 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1167,12 +1145,10 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/read");
         {
             String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = uriBuilder.queryParam(key, value);
+            uriBuilder = uriBuilder.queryParam(key, spaceId);
         }
         String key = "id";
-        Object value = id;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, id);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1274,8 +1250,7 @@ public class DebtCollectionCaseService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1294,8 +1269,7 @@ public class DebtCollectionCaseService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
@@ -1397,8 +1371,7 @@ public class DebtCollectionCaseService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
         String key = "spaceId";
-        Object value = spaceId;
-        uriBuilder = uriBuilder.queryParam(key, value);
+        uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
@@ -1417,8 +1390,7 @@ public class DebtCollectionCaseService {
               }
               UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
           String key = "spaceId";
-          Object value = spaceId;
-          uriBuilder = uriBuilder.queryParam(key, value);
+          uriBuilder = uriBuilder.queryParam(key, spaceId);
 
           String url = uriBuilder.build().toString();
               GenericUrl genericUrl = new GenericUrl(url);
