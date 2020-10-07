@@ -25,42 +25,23 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CriteriaOperator {
 
-    CONTAINS("CONTAINS"),
-
-    EQUALS("EQUALS"),
-
-    EQUALS_IGNORE_CASE("EQUALS_IGNORE_CASE"),
-
-    GREATER_THAN("GREATER_THAN"),
-
-    GREATER_THAN_OR_EQUAL("GREATER_THAN_OR_EQUAL"),
-
-    LESS_THAN("LESS_THAN"),
-
-    LESS_THAN_OR_EQUAL("LESS_THAN_OR_EQUAL"),
-
-    NOT_EQUALS("NOT_EQUALS"),
-
-    NOT_EQUALS_IGNORE_CASE("NOT_EQUALS_IGNORE_CASE"),
-
-    NOT_CONTAINS("NOT_CONTAINS"),
-
-    IS_NULL("IS_NULL"),
-
-    IS_NOT_NULL("IS_NOT_NULL");
-
-    private String value;
-
-    CriteriaOperator(String value) {
-        this.value = value;
-    }
+    CONTAINS,
+    EQUALS,
+    EQUALS_IGNORE_CASE,
+    GREATER_THAN,
+    GREATER_THAN_OR_EQUAL,
+    LESS_THAN,
+    LESS_THAN_OR_EQUAL,
+    NOT_EQUALS,
+    NOT_EQUALS_IGNORE_CASE,
+    NOT_CONTAINS,
+    IS_NULL,
+    IS_NOT_NULL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static CriteriaOperator fromValue(String text) {

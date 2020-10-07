@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifyTransactionState {
 
-    PENDING("PENDING"),
-
-    AUTHORIZED("AUTHORIZED"),
-
-    COMPLETED("COMPLETED"),
-
-    FAILED("FAILED"),
-
-    CONFLICTING("CONFLICTING");
-
-    private String value;
-
-    ShopifyTransactionState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    AUTHORIZED,
+    COMPLETED,
+    FAILED,
+    CONFLICTING;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifyTransactionState fromValue(String text) {

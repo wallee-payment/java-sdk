@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CustomersPresence {
 
-    NOT_PRESENT("NOT_PRESENT"),
-
-    VIRTUAL_PRESENT("VIRTUAL_PRESENT"),
-
-    PHYSICAL_PRESENT("PHYSICAL_PRESENT");
+    NOT_PRESENT,
+    VIRTUAL_PRESENT,
+    PHYSICAL_PRESENT;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static CustomersPresence fromValue(String text) {

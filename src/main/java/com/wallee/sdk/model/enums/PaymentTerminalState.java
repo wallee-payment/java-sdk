@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PaymentTerminalState {
 
-    PREPARING("PREPARING"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    DECOMMISSIONING("DECOMMISSIONING"),
-
-    DECOMMISSIONED("DECOMMISSIONED");
-
-    private String value;
-
-    PaymentTerminalState(String value) {
-        this.value = value;
-    }
+    PREPARING,
+    ACTIVE,
+    INACTIVE,
+    DECOMMISSIONING,
+    DECOMMISSIONED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentTerminalState fromValue(String text) {

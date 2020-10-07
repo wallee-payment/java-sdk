@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CustomerAddressType {
 
-    BILLING("BILLING"),
-
-    SHIPPING("SHIPPING"),
-
-    BOTH("BOTH");
+    BILLING,
+    SHIPPING,
+    BOTH;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static CustomerAddressType fromValue(String text) {

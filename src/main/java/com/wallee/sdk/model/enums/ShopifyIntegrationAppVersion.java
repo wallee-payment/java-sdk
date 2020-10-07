@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifyIntegrationAppVersion {
 
-    BASIC("BASIC"),
-
-    SUBSCRIPTION("SUBSCRIPTION"),
-
-    API_2019_07("API_2019_07");
-
-    private String value;
-
-    ShopifyIntegrationAppVersion(String value) {
-        this.value = value;
-    }
+    BASIC,
+    SUBSCRIPTION,
+    API_2019_07;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifyIntegrationAppVersion fromValue(String text) {

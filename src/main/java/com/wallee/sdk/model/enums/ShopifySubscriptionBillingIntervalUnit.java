@@ -25,30 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionBillingIntervalUnit {
 
-    MINUTES("MINUTES"),
-
-    HOURS("HOURS"),
-
-    DAYS("DAYS"),
-
-    WEEKS("WEEKS"),
-
-    MONTHS("MONTHS"),
-
-    YEARS("YEARS");
-
-    private String value;
-
-    ShopifySubscriptionBillingIntervalUnit(String value) {
-        this.value = value;
-    }
+    MINUTES,
+    HOURS,
+    DAYS,
+    WEEKS,
+    MONTHS,
+    YEARS;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionBillingIntervalUnit fromValue(String text) {

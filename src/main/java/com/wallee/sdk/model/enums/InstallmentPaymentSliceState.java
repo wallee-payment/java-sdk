@@ -24,26 +24,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum InstallmentPaymentSliceState {
 
-    CREATE("CREATE"),
-
-    SCHEDULED("SCHEDULED"),
-
-    CANCELED("CANCELED"),
-
-    PREPARE_PROCESSING("PREPARE_PROCESSING"),
-
-    PROCESSING("PROCESSING"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
+    CREATE,
+    SCHEDULED,
+    CANCELED,
+    PREPARE_PROCESSING,
+    PROCESSING,
+    FAILED,
+    SUCCESSFUL;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static InstallmentPaymentSliceState fromValue(String text) {

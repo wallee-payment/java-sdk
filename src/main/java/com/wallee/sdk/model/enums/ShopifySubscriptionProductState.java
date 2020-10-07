@@ -25,30 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionProductState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    OBSOLETE("OBSOLETE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
-
-    private String value;
-
-    ShopifySubscriptionProductState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    ACTIVE,
+    INACTIVE,
+    OBSOLETE,
+    DELETING,
+    DELETED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionProductState fromValue(String text) {

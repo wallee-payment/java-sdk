@@ -24,28 +24,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum InstallmentPaymentState {
 
-    CREATE("CREATE"),
-
-    CONFIRMED("CONFIRMED"),
-
-    AUTHORIZED("AUTHORIZED"),
-
-    REJECTED("REJECTED"),
-
-    COMPLETED("COMPLETED"),
-
-    RUNNING("RUNNING"),
-
-    DONE("DONE"),
-
-    DEFAULTED("DEFAULTED");
+    CREATE,
+    CONFIRMED,
+    AUTHORIZED,
+    REJECTED,
+    COMPLETED,
+    RUNNING,
+    DONE,
+    DEFAULTED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static InstallmentPaymentState fromValue(String text) {

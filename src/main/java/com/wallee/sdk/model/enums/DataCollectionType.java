@@ -24,16 +24,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum DataCollectionType {
 
-    ONSITE("ONSITE"),
-
-    OFFSITE("OFFSITE");
+    ONSITE,
+    OFFSITE;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static DataCollectionType fromValue(String text) {

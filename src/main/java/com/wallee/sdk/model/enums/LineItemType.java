@@ -25,26 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum LineItemType {
 
-    SHIPPING("SHIPPING"),
-
-    DISCOUNT("DISCOUNT"),
-
-    FEE("FEE"),
-
-    PRODUCT("PRODUCT");
-
-    private String value;
-
-    LineItemType(String value) {
-        this.value = value;
-    }
+    SHIPPING,
+    DISCOUNT,
+    FEE,
+    PRODUCT;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static LineItemType fromValue(String text) {

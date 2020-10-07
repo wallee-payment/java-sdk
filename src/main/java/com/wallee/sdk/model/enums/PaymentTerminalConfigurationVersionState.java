@@ -25,22 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PaymentTerminalConfigurationVersionState {
 
-    PENDING("PENDING"),
-
-    SCHEDULING("SCHEDULING"),
-
-    ACTIVE("ACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
+    PENDING,
+    SCHEDULING,
+    ACTIVE,
+    DELETING,
+    DELETED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentTerminalConfigurationVersionState fromValue(String text) {

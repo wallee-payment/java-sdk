@@ -24,22 +24,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum FailureCategory {
 
-    TEMPORARY_ISSUE("TEMPORARY_ISSUE"),
-
-    INTERNAL("INTERNAL"),
-
-    END_USER("END_USER"),
-
-    CONFIGURATION("CONFIGURATION"),
-
-    DEVELOPER("DEVELOPER");
+    TEMPORARY_ISSUE,
+    INTERNAL,
+    END_USER,
+    CONFIGURATION,
+    DEVELOPER;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static FailureCategory fromValue(String text) {

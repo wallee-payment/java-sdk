@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionSuspensionState {
 
-    ACTIVE("ACTIVE"),
-
-    ENDED("ENDED");
-
-    private String value;
-
-    ShopifySubscriptionSuspensionState(String value) {
-        this.value = value;
-    }
+    ACTIVE,
+    ENDED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionSuspensionState fromValue(String text) {

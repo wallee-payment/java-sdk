@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionVersionState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    DISCHARGED("DISCHARGED");
-
-    private String value;
-
-    ShopifySubscriptionVersionState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    ACTIVE,
+    DISCHARGED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionVersionState fromValue(String text) {

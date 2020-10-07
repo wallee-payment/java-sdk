@@ -25,30 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifyRecurringOrderState {
 
-    PENDING("PENDING"),
-
-    ONHOLD("ONHOLD"),
-
-    PROCESSING("PROCESSING"),
-
-    CANCELED("CANCELED"),
-
-    BILLED("BILLED"),
-
-    FAILED("FAILED");
-
-    private String value;
-
-    ShopifyRecurringOrderState(String value) {
-        this.value = value;
-    }
+    PENDING,
+    ONHOLD,
+    PROCESSING,
+    CANCELED,
+    BILLED,
+    FAILED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifyRecurringOrderState fromValue(String text) {

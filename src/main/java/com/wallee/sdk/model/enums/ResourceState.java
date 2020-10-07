@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ResourceState {
 
-    ACTIVE("ACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
-
-    private String value;
-
-    ResourceState(String value) {
-        this.value = value;
-    }
+    ACTIVE,
+    DELETING,
+    DELETED;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ResourceState fromValue(String text) {

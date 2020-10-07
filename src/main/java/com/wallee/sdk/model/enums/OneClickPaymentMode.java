@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum OneClickPaymentMode {
 
-    DISABLED("DISABLED"),
-
-    ALLOW("ALLOW"),
-
-    FORCE("FORCE");
+    DISABLED,
+    ALLOW,
+    FORCE;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static OneClickPaymentMode fromValue(String text) {

@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum AccountType {
 
-    MASTER("MASTER"),
-
-    REGULAR("REGULAR"),
-
-    SUBACCOUNT("SUBACCOUNT");
+    MASTER,
+    REGULAR,
+    SUBACCOUNT;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static AccountType fromValue(String text) {

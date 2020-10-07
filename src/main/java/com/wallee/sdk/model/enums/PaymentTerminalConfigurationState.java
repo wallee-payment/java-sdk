@@ -25,20 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PaymentTerminalConfigurationState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
+    CREATE,
+    ACTIVE,
+    DELETING,
+    DELETED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentTerminalConfigurationState fromValue(String text) {

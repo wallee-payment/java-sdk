@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ProductMeteredTierPricing {
 
-    CHEAPEST_TIER_PRICING("CHEAPEST_TIER_PRICING"),
-
-    INCREMENTAL_DISCOUNT_PRICING("INCREMENTAL_DISCOUNT_PRICING");
-
-    private String value;
-
-    ProductMeteredTierPricing(String value) {
-        this.value = value;
-    }
+    CHEAPEST_TIER_PRICING,
+    INCREMENTAL_DISCOUNT_PRICING;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ProductMeteredTierPricing fromValue(String text) {

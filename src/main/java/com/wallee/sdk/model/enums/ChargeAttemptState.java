@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ChargeAttemptState {
 
-    PROCESSING("PROCESSING"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
+    PROCESSING,
+    FAILED,
+    SUCCESSFUL;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ChargeAttemptState fromValue(String text) {

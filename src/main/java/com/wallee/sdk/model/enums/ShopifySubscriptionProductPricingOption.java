@@ -25,28 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionProductPricingOption {
 
-    CURRENT_PRICE("CURRENT_PRICE"),
-
-    ORIGINAL_PRICE("ORIGINAL_PRICE"),
-
-    FIXED_PRICE("FIXED_PRICE"),
-
-    RELATIVE_ADJUSTMENT("RELATIVE_ADJUSTMENT"),
-
-    ABSOLUTE_ADJUSTMENT("ABSOLUTE_ADJUSTMENT");
-
-    private String value;
-
-    ShopifySubscriptionProductPricingOption(String value) {
-        this.value = value;
-    }
+    CURRENT_PRICE,
+    ORIGINAL_PRICE,
+    FIXED_PRICE,
+    RELATIVE_ADJUSTMENT,
+    ABSOLUTE_ADJUSTMENT;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionProductPricingOption fromValue(String text) {

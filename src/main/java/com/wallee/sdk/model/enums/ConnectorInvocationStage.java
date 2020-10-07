@@ -24,20 +24,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ConnectorInvocationStage {
 
-    PAYMENT_METHOD_LIST("PAYMENT_METHOD_LIST"),
-
-    FORM_GENERATION("FORM_GENERATION"),
-
-    VALIDATION("VALIDATION"),
-
-    AUTHORIZATION("AUTHORIZATION");
+    PAYMENT_METHOD_LIST,
+    FORM_GENERATION,
+    VALIDATION,
+    AUTHORIZATION;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ConnectorInvocationStage fromValue(String text) {

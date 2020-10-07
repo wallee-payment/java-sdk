@@ -25,30 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum RefundState {
 
-    CREATE("CREATE"),
-
-    SCHEDULED("SCHEDULED"),
-
-    PENDING("PENDING"),
-
-    MANUAL_CHECK("MANUAL_CHECK"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
-
-    private String value;
-
-    RefundState(String value) {
-        this.value = value;
-    }
+    CREATE,
+    SCHEDULED,
+    PENDING,
+    MANUAL_CHECK,
+    FAILED,
+    SUCCESSFUL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static RefundState fromValue(String text) {

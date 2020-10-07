@@ -24,16 +24,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PaymentLinkProtectionMode {
 
-    NO_PROTECTION("NO_PROTECTION"),
-
-    ACCESS_KEY("ACCESS_KEY");
+    NO_PROTECTION,
+    ACCESS_KEY;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentLinkProtectionMode fromValue(String text) {

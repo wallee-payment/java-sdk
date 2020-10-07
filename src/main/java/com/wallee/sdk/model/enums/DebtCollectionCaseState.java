@@ -24,26 +24,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum DebtCollectionCaseState {
 
-    CREATE("CREATE"),
-
-    PREPARING("PREPARING"),
-
-    REVIEWING("REVIEWING"),
-
-    PENDING("PENDING"),
-
-    PROCESSING("PROCESSING"),
-
-    CLOSED("CLOSED"),
-
-    FAILED("FAILED");
+    CREATE,
+    PREPARING,
+    REVIEWING,
+    PENDING,
+    PROCESSING,
+    CLOSED,
+    FAILED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static DebtCollectionCaseState fromValue(String text) {

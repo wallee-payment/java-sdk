@@ -27,24 +27,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum EntityQueryFilterType {
 
-    LEAF("LEAF"),
-
-    OR("OR"),
-
-    AND("AND");
-
-    private String value;
-
-    EntityQueryFilterType(String value) {
-        this.value = value;
-    }
+    LEAF,
+    OR,
+    AND;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static EntityQueryFilterType fromValue(String text) {

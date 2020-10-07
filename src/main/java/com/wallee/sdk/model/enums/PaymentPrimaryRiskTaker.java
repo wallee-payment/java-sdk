@@ -27,18 +27,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum PaymentPrimaryRiskTaker {
 
-    CUSTOMER("CUSTOMER"),
-
-    MERCHANT("MERCHANT"),
-
-    THIRD_PARTY("THIRD_PARTY");
+    CUSTOMER,
+    MERCHANT,
+    THIRD_PARTY;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentPrimaryRiskTaker fromValue(String text) {

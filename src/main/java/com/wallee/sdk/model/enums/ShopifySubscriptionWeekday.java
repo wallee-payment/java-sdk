@@ -22,35 +22,20 @@ package com.wallee.sdk.model.enums;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-
 public enum ShopifySubscriptionWeekday {
 
-    MONDAY("MONDAY"),
-
-    TUESDAY("TUESDAY"),
-
-    WEDNESDAY("WEDNESDAY"),
-
-    THURSDAY("THURSDAY"),
-
-    FRIDAY("FRIDAY"),
-
-    SATURDAY("SATURDAY"),
-
-    SUNDAY("SUNDAY");
-
-    private String value;
-
-    ShopifySubscriptionWeekday(String value) {
-        this.value = value;
-    }
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    SUNDAY;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionWeekday fromValue(String text) {

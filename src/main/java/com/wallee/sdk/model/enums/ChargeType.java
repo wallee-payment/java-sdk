@@ -24,20 +24,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ChargeType {
 
-    ASYNCHRONOUS("ASYNCHRONOUS"),
-
-    SYNCHRONOUS("SYNCHRONOUS"),
-
-    TOKEN("TOKEN"),
-
-    TERMINAL("TERMINAL");
+    ASYNCHRONOUS,
+    SYNCHRONOUS,
+    TOKEN,
+    TERMINAL;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ChargeType fromValue(String text) {

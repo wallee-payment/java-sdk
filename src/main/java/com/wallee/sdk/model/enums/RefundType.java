@@ -25,26 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum RefundType {
 
-    MERCHANT_INITIATED_ONLINE("MERCHANT_INITIATED_ONLINE"),
-
-    MERCHANT_INITIATED_OFFLINE("MERCHANT_INITIATED_OFFLINE"),
-
-    CUSTOMER_INITIATED_AUTOMATIC("CUSTOMER_INITIATED_AUTOMATIC"),
-
-    CUSTOMER_INITIATED_MANUAL("CUSTOMER_INITIATED_MANUAL");
-
-    private String value;
-
-    RefundType(String value) {
-        this.value = value;
-    }
+    MERCHANT_INITIATED_ONLINE,
+    MERCHANT_INITIATED_OFFLINE,
+    CUSTOMER_INITIATED_AUTOMATIC,
+    CUSTOMER_INITIATED_MANUAL;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static RefundType fromValue(String text) {

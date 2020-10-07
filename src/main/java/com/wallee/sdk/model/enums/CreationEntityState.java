@@ -24,22 +24,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum CreationEntityState {
 
-    CREATE("CREATE"),
-
-    ACTIVE("ACTIVE"),
-
-    INACTIVE("INACTIVE"),
-
-    DELETING("DELETING"),
-
-    DELETED("DELETED");
+    CREATE,
+    ACTIVE,
+    INACTIVE,
+    DELETING,
+    DELETED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static CreationEntityState fromValue(String text) {

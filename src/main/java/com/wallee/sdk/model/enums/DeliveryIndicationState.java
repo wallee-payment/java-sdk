@@ -25,20 +25,15 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum DeliveryIndicationState {
 
-    PENDING("PENDING"),
-
-    NOT_SUITABLE("NOT_SUITABLE"),
-
-    MANUAL_CHECK_REQUIRED("MANUAL_CHECK_REQUIRED"),
-
-    SUITABLE("SUITABLE");
+    PENDING,
+    NOT_SUITABLE,
+    MANUAL_CHECK_REQUIRED,
+    SUITABLE;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static DeliveryIndicationState fromValue(String text) {

@@ -24,16 +24,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Gender {
 
-    MALE("MALE"),
-
-    FEMALE("FEMALE");
+    MALE,
+    FEMALE;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static Gender fromValue(String text) {

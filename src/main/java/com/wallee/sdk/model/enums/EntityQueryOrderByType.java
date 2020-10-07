@@ -27,28 +27,22 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum EntityQueryOrderByType {
 
-    DESC("DESC"),
+    DESC,
+    ASC;
 
-    ASC("ASC");
-
-   @JsonValue
+    @JsonValue
     public String getValue() {
-        return name();
+      return name();
     }
 
-    @Override
-    public String toString() {
+    @JsonCreator
+    public static EntityQueryFilterType fromValue(String text) {
+      for (EntityQueryFilterType b : EntityQueryFilterType.values()) {
         if (b.name().equals(text)) {
+          return b;
         }
-
-        @JsonCreator
-        public static EntityQueryOrderByType fromValue (String text){
-            for (EntityQueryOrderByType b : EntityQueryOrderByType.values()) {
-                if (b.name().equals(text)) {
-                    return b;
-                }
-            }
-            return null;
-        }
+      }
+      return null;
     }
+}
 

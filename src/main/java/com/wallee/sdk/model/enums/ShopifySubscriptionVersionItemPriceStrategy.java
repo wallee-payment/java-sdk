@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionVersionItemPriceStrategy {
 
-    INITIALLY_CALCULATED("INITIALLY_CALCULATED"),
-
-    RECALCULATE("RECALCULATE");
-
-    private String value;
-
-    ShopifySubscriptionVersionItemPriceStrategy(String value) {
-        this.value = value;
-    }
+    INITIALLY_CALCULATED,
+    RECALCULATE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionVersionItemPriceStrategy fromValue(String text) {

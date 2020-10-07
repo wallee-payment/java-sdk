@@ -24,16 +24,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum DebtCollectionEnvironment {
 
-    PRODUCTION("PRODUCTION"),
-
-    TEST("TEST");
+    PRODUCTION,
+    TEST;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static DebtCollectionEnvironment fromValue(String text) {

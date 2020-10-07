@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ManualTaskState {
 
-    OPEN("OPEN"),
-
-    DONE("DONE"),
-
-    EXPIRED("EXPIRED");
+    OPEN,
+    DONE,
+    EXPIRED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ManualTaskState fromValue(String text) {

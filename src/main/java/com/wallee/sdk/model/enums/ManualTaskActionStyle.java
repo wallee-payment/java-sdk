@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ManualTaskActionStyle {
 
-    DEFAULT("DEFAULT"),
-
-    PRIMARY("PRIMARY"),
-
-    DANGER("DANGER");
+    DEFAULT,
+    PRIMARY,
+    DANGER;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ManualTaskActionStyle fromValue(String text) {

@@ -25,22 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ShopifySubscriptionSuspensionInitiator {
 
-    MERCHANT("MERCHANT"),
-
-    CUSTOMER("CUSTOMER");
-
-    private String value;
-
-    ShopifySubscriptionSuspensionInitiator(String value) {
-        this.value = value;
-    }
+    MERCHANT,
+    CUSTOMER;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ShopifySubscriptionSuspensionInitiator fromValue(String text) {

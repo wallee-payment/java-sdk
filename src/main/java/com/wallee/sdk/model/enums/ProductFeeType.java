@@ -25,24 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ProductFeeType {
 
-    METERED_FEE("METERED_FEE"),
-
-    SETUP_FEE("SETUP_FEE"),
-
-    PERIOD_FEE("PERIOD_FEE");
-
-    private String value;
-
-    ProductFeeType(String value) {
-        this.value = value;
-    }
+    METERED_FEE,
+    SETUP_FEE,
+    PERIOD_FEE;
 
     @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ProductFeeType fromValue(String text) {

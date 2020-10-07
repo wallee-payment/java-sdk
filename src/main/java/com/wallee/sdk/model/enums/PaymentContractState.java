@@ -24,22 +24,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum PaymentContractState {
 
-    PENDING("PENDING"),
-
-    ACTIVE("ACTIVE"),
-
-    TERMINATING("TERMINATING"),
-
-    TERMINATED("TERMINATED"),
-
-    REJECTED("REJECTED");
+    PENDING,
+    ACTIVE,
+    TERMINATING,
+    TERMINATED,
+    REJECTED;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static PaymentContractState fromValue(String text) {

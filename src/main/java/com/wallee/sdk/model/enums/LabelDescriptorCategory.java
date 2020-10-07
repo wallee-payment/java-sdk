@@ -24,16 +24,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum LabelDescriptorCategory {
 
-    HUMAN("HUMAN"),
-
-    APPLICATION("APPLICATION");
+    HUMAN,
+    APPLICATION;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static LabelDescriptorCategory fromValue(String text) {

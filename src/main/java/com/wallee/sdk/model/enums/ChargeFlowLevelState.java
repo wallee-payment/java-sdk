@@ -24,18 +24,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum ChargeFlowLevelState {
 
-    PENDING("PENDING"),
-
-    FAILED("FAILED"),
-
-    SUCCESSFUL("SUCCESSFUL");
+    PENDING,
+    FAILED,
+    SUCCESSFUL;
 
    @JsonValue
     public String getValue() {
         return name();
     }
-
-
 
     @JsonCreator
     public static ChargeFlowLevelState fromValue(String text) {
