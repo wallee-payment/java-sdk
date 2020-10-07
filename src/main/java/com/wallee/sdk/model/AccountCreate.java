@@ -100,7 +100,6 @@ public class AccountCreate extends AbstractAccountUpdate {
         return Objects.hash(lastModifiedDate, name, subaccountLimit, parentAccount, scope, super.hashCode());
     }
 
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

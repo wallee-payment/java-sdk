@@ -24,8 +24,8 @@ import com.wallee.sdk.model.enums.TransactionState;
 public class TransactionCompletionServiceTest {
 
     // Credentials
-    private Long spaceId = (long) 405;
-    private Long applicationUserId = (long) 512;
+    private Long spaceId = 405L;
+    private Long applicationUserId = 512L;
     private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
 
     // Services

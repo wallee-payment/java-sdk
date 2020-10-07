@@ -20,19 +20,27 @@ package com.wallee.sdk;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import com.fasterxml.jackson.databind.util.ISO8601Utils;
+import com.fasterxml.jackson.databind.util.StdDateFormat;
 
+import java.text.DateFormat;
 import java.text.FieldPosition;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
+public class RFC3339DateFormat extends DateFormat {
 
-public class RFC3339DateFormat extends ISO8601DateFormat {
-
-    // Same as ISO8601DateFormat but serializing milliseconds.
     @Override
-    public StringBuffer format(Date date, StringBuffer toAppendTo, FieldPosition fieldPosition) {
-        String value = ISO8601Utils.format(date, true);
-        toAppendTo.append(value);
-        return toAppendTo;
+    public StringBuffer format(Date date, StringBuffer stringBuffer, FieldPosition fieldPosition) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return formatter.format(date, stringBuffer, fieldPosition);
     }
 
+    @Override
+    public Date parse(String s, ParsePosition parsePosition) {
+        return StdDateFormat.getInstance().parse(s, parsePosition);
+    }
 }
+
