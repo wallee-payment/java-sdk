@@ -69,4 +69,18 @@ public class ServiceUtils {
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
   }
 
+  public static HttpResponse readForHttpResponse(Long id, ApiClient apiClient, String url) throws IOException {
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
+    }
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
+    String key = "id";
+    uriBuilder = uriBuilder.queryParam(key, id);
+
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
+  }
+
 }
