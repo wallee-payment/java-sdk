@@ -19,12 +19,13 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Map;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * The debt collection case source represents the origin of the case. It allows to understand from where the amount receivable is coming from.

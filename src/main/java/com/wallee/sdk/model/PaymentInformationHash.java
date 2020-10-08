@@ -19,11 +19,12 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.

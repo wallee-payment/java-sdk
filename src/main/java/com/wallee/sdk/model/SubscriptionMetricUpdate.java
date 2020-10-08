@@ -19,11 +19,12 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * A metric represents the usage of a resource that can be measured.

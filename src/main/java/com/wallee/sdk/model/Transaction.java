@@ -19,6 +19,15 @@
 
 package com.wallee.sdk.model;
 
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.enums.CustomersPresence;
@@ -27,14 +36,6 @@ import com.wallee.sdk.model.enums.TokenizationMode;
 import com.wallee.sdk.model.enums.TransactionEnvironmentSelectionStrategy;
 import com.wallee.sdk.model.enums.TransactionState;
 import com.wallee.sdk.model.enums.TransactionUserInterfaceType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 @ApiModel(description = "")
 

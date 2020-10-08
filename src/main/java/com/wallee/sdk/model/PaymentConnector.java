@@ -19,16 +19,17 @@
 
 package com.wallee.sdk.model;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.CustomersPresence;
 import com.wallee.sdk.model.enums.DataCollectionType;
 import com.wallee.sdk.model.enums.PaymentPrimaryRiskTaker;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 @ApiModel(description = "")
 

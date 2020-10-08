@@ -19,17 +19,18 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.Environment;
-import com.wallee.sdk.model.enums.RefundState;
-import com.wallee.sdk.model.enums.RefundType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.Environment;
+import com.wallee.sdk.model.enums.RefundState;
+import com.wallee.sdk.model.enums.RefundType;
 
 /**
  * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).

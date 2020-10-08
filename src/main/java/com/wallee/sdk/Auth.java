@@ -1,11 +1,5 @@
 package com.wallee.sdk;
 
-import com.google.api.client.http.HttpExecuteInterceptor;
-import com.google.api.client.http.HttpHeaders;
-import com.google.api.client.http.HttpRequest;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -14,6 +8,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import com.google.api.client.http.HttpExecuteInterceptor;
+import com.google.api.client.http.HttpHeaders;
+import com.google.api.client.http.HttpRequest;
 
 /**
  * Auth

@@ -19,14 +19,15 @@
 
 package com.wallee.sdk.model;
 
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.CustomersPresence;
 import com.wallee.sdk.model.enums.Environment;
 import com.wallee.sdk.model.enums.TransactionEnvironmentSelectionStrategy;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.util.Objects;
 
 @ApiModel(description = "")
 

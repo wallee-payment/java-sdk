@@ -1,15 +1,16 @@
 package com.wallee.sdk.service;
 
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
-import com.wallee.sdk.ApiClient;
-
-import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.ws.rs.core.UriBuilder;
+
+import com.google.api.client.http.GenericUrl;
+import com.google.api.client.http.HttpMethods;
+import com.google.api.client.http.HttpResponse;
+import com.wallee.sdk.ApiClient;
 
 
 public class TransactionMobileSdkService {

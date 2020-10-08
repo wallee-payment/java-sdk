@@ -19,16 +19,17 @@
 
 package com.wallee.sdk.model;
 
+import java.time.OffsetDateTime;
+import java.util.Map;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.CreationEntityState;
 import com.wallee.sdk.model.enums.DataCollectionType;
 import com.wallee.sdk.model.enums.OneClickPaymentMode;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.time.OffsetDateTime;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * The payment method configuration builds the base to connect with different payment method connectors.

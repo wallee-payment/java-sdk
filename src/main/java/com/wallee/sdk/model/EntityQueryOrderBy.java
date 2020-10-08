@@ -19,12 +19,13 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.EntityQueryOrderByType;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.EntityQueryOrderByType;
 
 /**
  * The &#39;order by&#39; allows to order the returned entities.

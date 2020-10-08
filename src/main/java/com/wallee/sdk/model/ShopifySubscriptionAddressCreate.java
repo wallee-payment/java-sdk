@@ -19,13 +19,14 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.Gender;
+import java.time.LocalDate;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.time.LocalDate;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.Gender;
 
 @ApiModel(description = "")
 

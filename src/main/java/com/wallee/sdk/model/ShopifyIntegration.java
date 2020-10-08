@@ -19,15 +19,16 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.CreationEntityState;
-import com.wallee.sdk.model.enums.ShopifyIntegrationAppVersion;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.CreationEntityState;
+import com.wallee.sdk.model.enums.ShopifyIntegrationAppVersion;
 
 /**
  * A Shopify Integration allows to connect a Shopify shop.

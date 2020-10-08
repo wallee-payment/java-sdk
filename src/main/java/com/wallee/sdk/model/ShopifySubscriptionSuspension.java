@@ -19,15 +19,16 @@
 
 package com.wallee.sdk.model;
 
+import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wallee.sdk.model.enums.ShopifySubscriptionSuspensionInitiator;
 import com.wallee.sdk.model.enums.ShopifySubscriptionSuspensionState;
 import com.wallee.sdk.model.enums.ShopifySubscriptionSuspensionType;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
-import java.time.OffsetDateTime;
-import java.util.Objects;
 
 @ApiModel(description = "")
 

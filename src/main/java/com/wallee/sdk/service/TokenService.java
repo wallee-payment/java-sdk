@@ -1,5 +1,14 @@
 package com.wallee.sdk.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.ws.rs.core.UriBuilder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -14,14 +23,6 @@ import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TokenCreate;
 import com.wallee.sdk.model.TokenUpdate;
 import com.wallee.sdk.model.Transaction;
-
-import javax.ws.rs.core.UriBuilder;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class TokenService {

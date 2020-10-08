@@ -1,5 +1,13 @@
 package com.wallee.sdk.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.ws.rs.core.UriBuilder;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
@@ -10,13 +18,6 @@ import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.UnencryptedCardDataCreate;
-
-import javax.ws.rs.core.UriBuilder;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class CardProcessingService {

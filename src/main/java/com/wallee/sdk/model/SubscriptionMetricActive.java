@@ -19,9 +19,9 @@
 
 package com.wallee.sdk.model;
 
-import io.swagger.annotations.ApiModel;
-
 import java.util.Objects;
+
+import io.swagger.annotations.ApiModel;
 
 /**
  * A metric represents the usage of a resource that can be measured.

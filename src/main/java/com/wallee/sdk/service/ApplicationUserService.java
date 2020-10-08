@@ -1,6 +1,13 @@
 package com.wallee.sdk.service;
 
-import static com.wallee.sdk.service.ServiceUtils.getHttpResponse;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.ws.rs.core.UriBuilder;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.GenericUrl;
@@ -16,14 +23,6 @@ import com.wallee.sdk.model.ApplicationUserCreateWithMacKey;
 import com.wallee.sdk.model.ApplicationUserUpdate;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
-
-import javax.ws.rs.core.UriBuilder;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 public class ApplicationUserService {

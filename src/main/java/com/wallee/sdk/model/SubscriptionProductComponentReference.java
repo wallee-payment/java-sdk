@@ -19,13 +19,14 @@
 
 package com.wallee.sdk.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wallee.sdk.model.enums.SubscriptionProductComponentReferenceState;
+import java.time.OffsetDateTime;
+import java.util.Objects;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wallee.sdk.model.enums.SubscriptionProductComponentReferenceState;
 
 /**
  * The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.
