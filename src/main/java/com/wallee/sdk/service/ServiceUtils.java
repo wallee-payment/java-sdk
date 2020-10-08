@@ -83,4 +83,31 @@ public class ServiceUtils {
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
   }
 
+  public static HttpResponse allForHttpResponse(Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
+
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
+
+    // Copy the params argument if present, to allow passing in immutable maps
+    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+
+    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
+      String key = entryMap.getKey();
+      Object value = entryMap.getValue();
+
+      if (key != null && value != null) {
+        if (value instanceof Collection) {
+          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+        } else if (value instanceof Object[]) {
+          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+        } else {
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+      }
+    }
+
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
+  }
+
 }
