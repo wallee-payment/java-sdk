@@ -243,16 +243,16 @@ public class CardProcessingService {
     public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'spaceId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'spaceId'", "processWith3DSecure"));
         }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'transactionId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'transactionId'", "processWith3DSecure"));
         }// verify the required parameter 'paymentMethodConfigurationId' is set
         if (paymentMethodConfigurationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'paymentMethodConfigurationId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'paymentMethodConfigurationId'", "processWith3DSecure"));
         }// verify the required parameter 'cardData' is set
         if (cardData == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'cardData'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'cardData'", "processWith3DSecure"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
         {
@@ -276,16 +276,16 @@ public class CardProcessingService {
     public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, InputStream cardData, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'spaceId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'spaceId'", "processWith3DSecure"));
         }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'transactionId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'transactionId'", "processWith3DSecure"));
         }// verify the required parameter 'paymentMethodConfigurationId' is set
         if (paymentMethodConfigurationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'paymentMethodConfigurationId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'paymentMethodConfigurationId'", "processWith3DSecure"));
         }// verify the required parameter 'cardData' is set
         if (cardData == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'cardData'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'cardData'", "processWith3DSecure"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
         {
@@ -309,16 +309,16 @@ public class CardProcessingService {
     public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'spaceId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'spaceId'", "processWith3DSecure"));
         }// verify the required parameter 'transactionId' is set
         if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'transactionId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'transactionId'", "processWith3DSecure"));
         }// verify the required parameter 'paymentMethodConfigurationId' is set
         if (paymentMethodConfigurationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'paymentMethodConfigurationId'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'paymentMethodConfigurationId'", "processWith3DSecure"));
         }// verify the required parameter 'cardData' is set
         if (cardData == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'cardData'", "processWith3DSecure"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'cardData'", "processWith3DSecure"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
 

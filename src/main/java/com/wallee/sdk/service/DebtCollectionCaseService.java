@@ -238,7 +238,7 @@ public class DebtCollectionCaseService {
             throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "fileName", "attachDocument"));
         }// verify the required parameter 'contentBase64' is set
         if (contentBase64 == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'contentBase64'", "attachDocument"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'contentBase64'", "attachDocument"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
         {
@@ -275,7 +275,7 @@ public class DebtCollectionCaseService {
             throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "fileName", "attachDocument"));
         }// verify the required parameter 'contentBase64' is set
         if (contentBase64 == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM, "'contentBase64'", "attachDocument"));
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'contentBase64'", "attachDocument"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
 
@@ -485,12 +485,7 @@ public class DebtCollectionCaseService {
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
         String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = filter == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(filter, mediaType, url, apiClient);
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
