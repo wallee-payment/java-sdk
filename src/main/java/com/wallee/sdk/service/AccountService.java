@@ -24,13 +24,9 @@ import java.util.Map;
 
 
 public class AccountService {
-    public static final String MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE = "Missing the required parameter 'entity' when calling create";
     public static final String ACCOUNT_CREATE = "/account/create";
-    public static final String MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE = "Missing the required parameter 'id' when calling delete";
     public static final String ACCOUNT_DELETE = "/account/delete";
     public static final String ACCOUNT_READ = "/account/read";
-    public static final String MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ = "Missing the required parameter 'id' when calling read";
-    public static final String MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH = "Missing the required parameter 'query' when calling search";
     public static final String ACCOUNT_SEARCH = "/account/search";
     private ApiClient apiClient;
 
@@ -180,7 +176,7 @@ public class AccountService {
     public HttpResponse createForHttpResponse(AccountCreate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
@@ -194,7 +190,7 @@ public class AccountService {
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
@@ -208,7 +204,7 @@ public class AccountService {
     public HttpResponse createForHttpResponse(AccountCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ENTITY_WHEN_CALLING_CREATE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
@@ -274,7 +270,7 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
@@ -288,7 +284,7 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
@@ -302,7 +298,7 @@ public class AccountService {
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_DELETE);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_DELETE);
 
@@ -374,7 +370,7 @@ public class AccountService {
     public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_READ);
         String key = "id";
@@ -389,7 +385,7 @@ public class AccountService {
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_ID_WHEN_CALLING_READ);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_READ);
 
@@ -462,7 +458,7 @@ public class AccountService {
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
@@ -476,7 +472,7 @@ public class AccountService {
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
@@ -490,7 +486,7 @@ public class AccountService {
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException(MISSING_THE_REQUIRED_PARAMETER_QUERY_WHEN_CALLING_SEARCH);
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
@@ -564,7 +560,7 @@ public class AccountService {
     public HttpResponse updateForHttpResponse(AccountUpdate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
@@ -578,7 +574,7 @@ public class AccountService {
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
@@ -592,7 +588,7 @@ public class AccountService {
     public HttpResponse updateForHttpResponse(AccountUpdate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 

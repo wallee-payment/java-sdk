@@ -80,7 +80,7 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/count");
         String key = "spaceId";
@@ -96,7 +96,7 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/count");
         String key = "spaceId";
@@ -114,7 +114,7 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/count");
 
@@ -190,10 +190,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionLedgerEntryCreate entry) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'entry' is set
         if (entry == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entry' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entry", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create");
         String key = "spaceId";
@@ -209,10 +209,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse createForHttpResponse(Long spaceId, InputStream entry, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'entry' is set
         if (entry == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entry' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entry", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create");
         String key = "spaceId";
@@ -228,10 +228,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionLedgerEntryCreate entry, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'entry' is set
         if (entry == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entry' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entry", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create");
 
@@ -307,10 +307,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/read");
         {
@@ -329,10 +329,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/read");
 
@@ -409,10 +409,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search");
         String key = "spaceId";
@@ -428,10 +428,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search");
         String key = "spaceId";
@@ -447,10 +447,10 @@ public class SubscriptionLedgerEntryService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search");
 

@@ -83,7 +83,7 @@ public class ShopifySubscriptionService {
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/count");
         String key = "spaceId";
@@ -99,7 +99,7 @@ public class ShopifySubscriptionService {
     public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/count");
         String key = "spaceId";
@@ -117,7 +117,7 @@ public class ShopifySubscriptionService {
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/count");
 
@@ -193,10 +193,10 @@ public class ShopifySubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'creationRequest' is set
         if (creationRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "creationRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
         String key = "spaceId";
@@ -212,10 +212,10 @@ public class ShopifySubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, InputStream creationRequest, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'creationRequest' is set
         if (creationRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "creationRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
         String key = "spaceId";
@@ -231,10 +231,10 @@ public class ShopifySubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'creationRequest' is set
         if (creationRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'creationRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "creationRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/create");
 
@@ -310,10 +310,10 @@ public class ShopifySubscriptionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/read");
         {
@@ -332,10 +332,10 @@ public class ShopifySubscriptionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/read");
 
@@ -412,10 +412,10 @@ public class ShopifySubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/search");
         String key = "spaceId";
@@ -431,10 +431,10 @@ public class ShopifySubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/search");
         String key = "spaceId";
@@ -450,10 +450,10 @@ public class ShopifySubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/search");
 
@@ -523,13 +523,13 @@ public class ShopifySubscriptionService {
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "terminate"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "terminate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/terminate");
         {
@@ -553,13 +553,13 @@ public class ShopifySubscriptionService {
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "terminate"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "terminate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/terminate");
 
@@ -639,10 +639,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateForHttpResponse(Long spaceId, ShopifySubscriptionUpdateRequest subscription) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'subscription' is set
         if (subscription == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscription' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscription", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update");
         String key = "spaceId";
@@ -658,10 +658,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream subscription, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'subscription' is set
         if (subscription == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscription' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscription", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update");
         String key = "spaceId";
@@ -677,10 +677,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateForHttpResponse(Long spaceId, ShopifySubscriptionUpdateRequest subscription, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'subscription' is set
         if (subscription == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscription' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscription", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update");
 
@@ -756,10 +756,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateAddresses"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateAddresses"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
         String key = "spaceId";
@@ -775,10 +775,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateAddressesForHttpResponse(Long spaceId, InputStream updateRequest, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateAddresses"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateAddresses"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
         String key = "spaceId";
@@ -794,10 +794,10 @@ public class ShopifySubscriptionService {
     public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateAddresses"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateAddresses");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateAddresses"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription/update-addresses");
 

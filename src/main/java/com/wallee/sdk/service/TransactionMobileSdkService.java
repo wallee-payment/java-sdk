@@ -69,7 +69,7 @@ public class TransactionMobileSdkService {
     public HttpResponse paymentFormUrlForHttpResponse(String credentials) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling paymentFormUrl");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "paymentFormUrl"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
         String key = "credentials";
@@ -84,7 +84,7 @@ public class TransactionMobileSdkService {
     public HttpResponse paymentFormUrlForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling paymentFormUrl");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "paymentFormUrl"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
 

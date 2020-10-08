@@ -78,13 +78,13 @@ public class UserAccountRoleService {
     public HttpResponse addRoleForHttpResponse(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'userId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "addRole"));
         }// verify the required parameter 'accountId' is set
         if (accountId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'accountId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "accountId", "addRole"));
         }// verify the required parameter 'roleId' is set
         if (roleId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'roleId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "roleId", "addRole"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
         {
@@ -114,13 +114,13 @@ public class UserAccountRoleService {
     public HttpResponse addRoleForHttpResponse(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'userId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "addRole"));
         }// verify the required parameter 'accountId' is set
         if (accountId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'accountId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "accountId", "addRole"));
         }// verify the required parameter 'roleId' is set
         if (roleId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'roleId' when calling addRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "roleId", "addRole"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
 
@@ -200,10 +200,10 @@ public class UserAccountRoleService {
     public HttpResponse listForHttpResponse(Long userId, Long accountId) throws IOException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'userId' when calling list");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "list"));
         }// verify the required parameter 'accountId' is set
         if (accountId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'accountId' when calling list");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "accountId", "list"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
         {
@@ -223,10 +223,10 @@ public class UserAccountRoleService {
     public HttpResponse listForHttpResponse(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'userId' when calling list");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "list"));
         }// verify the required parameter 'accountId' is set
         if (accountId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'accountId' when calling list");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "accountId", "list"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
 
@@ -294,7 +294,7 @@ public class UserAccountRoleService {
     public HttpResponse removeRoleForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling removeRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "removeRole"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
         String key = "id";
@@ -310,7 +310,7 @@ public class UserAccountRoleService {
     public HttpResponse removeRoleForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling removeRole");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "removeRole"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
 

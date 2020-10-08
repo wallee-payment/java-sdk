@@ -87,10 +87,10 @@ public class SubscriptionService {
     public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "applyChanges"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "applyChanges"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
         String key = "spaceId";
@@ -106,10 +106,10 @@ public class SubscriptionService {
     public HttpResponse applyChangesForHttpResponse(Long spaceId, InputStream request, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "applyChanges"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "applyChanges"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
         String key = "spaceId";
@@ -125,10 +125,10 @@ public class SubscriptionService {
     public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "applyChanges"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling applyChanges");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "applyChanges"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/applyChanges");
 
@@ -203,7 +203,7 @@ public class SubscriptionService {
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
         String key = "spaceId";
@@ -219,7 +219,7 @@ public class SubscriptionService {
     public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
         String key = "spaceId";
@@ -237,7 +237,7 @@ public class SubscriptionService {
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/count");
 
@@ -313,10 +313,10 @@ public class SubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'createRequest' is set
         if (createRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "createRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
         String key = "spaceId";
@@ -332,10 +332,10 @@ public class SubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, InputStream createRequest, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'createRequest' is set
         if (createRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "createRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
         String key = "spaceId";
@@ -351,10 +351,10 @@ public class SubscriptionService {
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'createRequest' is set
         if (createRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'createRequest' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "createRequest", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/create");
 
@@ -430,10 +430,10 @@ public class SubscriptionService {
     public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initialize");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "initialize"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initialize");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "initialize"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
         {
@@ -453,10 +453,10 @@ public class SubscriptionService {
     public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initialize");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "initialize"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initialize");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "initialize"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initialize");
 
@@ -538,10 +538,10 @@ public class SubscriptionService {
     public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, String successUrl, String failedUrl) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initializeSubscriberPresent");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "initializeSubscriberPresent"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "initializeSubscriberPresent"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
         {
@@ -571,10 +571,10 @@ public class SubscriptionService {
     public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling initializeSubscriberPresent");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "initializeSubscriberPresent"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling initializeSubscriberPresent");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "initializeSubscriberPresent"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/initializeSubscriberPresent");
 
@@ -652,10 +652,10 @@ public class SubscriptionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
         {
@@ -674,10 +674,10 @@ public class SubscriptionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/read");
 
@@ -754,10 +754,10 @@ public class SubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
         String key = "spaceId";
@@ -773,10 +773,10 @@ public class SubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
         String key = "spaceId";
@@ -792,10 +792,10 @@ public class SubscriptionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/search");
 
@@ -873,13 +873,13 @@ public class SubscriptionService {
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "searchSubscriptionInvoices"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
         {
@@ -899,13 +899,13 @@ public class SubscriptionService {
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "searchSubscriptionInvoices"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
         {
@@ -925,13 +925,13 @@ public class SubscriptionService {
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "searchSubscriptionInvoices"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling searchSubscriptionInvoices");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "searchSubscriptionInvoices"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/searchSubscriptionInvoices");
 
@@ -1003,13 +1003,13 @@ public class SubscriptionService {
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "terminate"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "terminate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
         {
@@ -1033,13 +1033,13 @@ public class SubscriptionService {
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "terminate"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling terminate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "terminate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/terminate");
 
@@ -1123,13 +1123,13 @@ public class SubscriptionService {
     public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateProductVersion"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "updateProductVersion"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "updateProductVersion"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
         {
@@ -1153,13 +1153,13 @@ public class SubscriptionService {
     public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateProductVersion"));
         }// verify the required parameter 'subscriptionId' is set
         if (subscriptionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "updateProductVersion"));
         }// verify the required parameter 'respectTerminationPeriod' is set
         if (respectTerminationPeriod == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'respectTerminationPeriod' when calling updateProductVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "respectTerminationPeriod", "updateProductVersion"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/updateProductVersion");
 

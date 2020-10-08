@@ -148,7 +148,7 @@ public class LegalOrganizationFormService {
     public HttpResponse countryForHttpResponse(String code) throws IOException {
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'code' when calling country");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/country");
         String key = "code";
@@ -163,7 +163,7 @@ public class LegalOrganizationFormService {
     public HttpResponse countryForHttpResponse(String code, Map<String, Object> params) throws IOException {
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'code' when calling country");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/country");
 
@@ -236,7 +236,7 @@ public class LegalOrganizationFormService {
     public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/read");
         String key = "id";
@@ -251,7 +251,7 @@ public class LegalOrganizationFormService {
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/read");
 

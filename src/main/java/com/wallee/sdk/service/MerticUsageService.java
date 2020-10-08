@@ -78,13 +78,13 @@ public class MerticUsageService {
     public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "calculate"));
         }// verify the required parameter 'start' is set
         if (start == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'start' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "start", "calculate"));
         }// verify the required parameter 'end' is set
         if (end == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'end' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "end", "calculate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
         {
@@ -108,13 +108,13 @@ public class MerticUsageService {
     public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "calculate"));
         }// verify the required parameter 'start' is set
         if (start == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'start' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "start", "calculate"));
         }// verify the required parameter 'end' is set
         if (end == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'end' when calling calculate");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "end", "calculate"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
 

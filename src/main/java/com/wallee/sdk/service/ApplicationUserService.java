@@ -173,7 +173,7 @@ public class ApplicationUserService {
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
@@ -187,7 +187,7 @@ public class ApplicationUserService {
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
@@ -201,7 +201,7 @@ public class ApplicationUserService {
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
@@ -267,7 +267,7 @@ public class ApplicationUserService {
     public HttpResponse deleteForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/delete");
 
@@ -281,7 +281,7 @@ public class ApplicationUserService {
     public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/delete");
 
@@ -295,7 +295,7 @@ public class ApplicationUserService {
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/delete");
 
@@ -367,7 +367,7 @@ public class ApplicationUserService {
     public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/read");
         String key = "id";
@@ -382,7 +382,7 @@ public class ApplicationUserService {
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/read");
 
@@ -455,7 +455,7 @@ public class ApplicationUserService {
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
@@ -469,7 +469,7 @@ public class ApplicationUserService {
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
@@ -483,7 +483,7 @@ public class ApplicationUserService {
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
@@ -557,7 +557,7 @@ public class ApplicationUserService {
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
@@ -571,7 +571,7 @@ public class ApplicationUserService {
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
@@ -585,7 +585,7 @@ public class ApplicationUserService {
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 

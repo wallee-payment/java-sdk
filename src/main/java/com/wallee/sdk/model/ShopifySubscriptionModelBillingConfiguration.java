@@ -249,8 +249,7 @@ public class ShopifySubscriptionModelBillingConfiguration extends Indentable {
     @Override
     public String toString() {
 
-        String sb =
-          "class ShopifySubscriptionModelBillingConfiguration {\n" +
+        return "class ShopifySubscriptionModelBillingConfiguration {\n" +
             "    billingDayOfMonth: " +  toIndentedString(billingDayOfMonth) + "\n" +
             "    billingIntervalAmount: " + toIndentedString(billingIntervalAmount) +  " \n" +
             "    billingIntervalUnit: " + toIndentedString(billingIntervalUnit) + " \n" +

@@ -172,7 +172,7 @@ public class SpaceService {
     public HttpResponse createForHttpResponse(SpaceCreate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
@@ -186,7 +186,7 @@ public class SpaceService {
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
@@ -200,7 +200,7 @@ public class SpaceService {
     public HttpResponse createForHttpResponse(SpaceCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
@@ -266,7 +266,7 @@ public class SpaceService {
     public HttpResponse deleteForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/delete");
 
@@ -280,7 +280,7 @@ public class SpaceService {
     public HttpResponse deleteForHttpResponse(InputStream id, String mediaType) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/delete");
 
@@ -294,7 +294,7 @@ public class SpaceService {
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/delete");
 
@@ -366,7 +366,7 @@ public class SpaceService {
     public HttpResponse readForHttpResponse(Long id) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/read");
         String key = "id";
@@ -381,7 +381,7 @@ public class SpaceService {
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/read");
 
@@ -454,7 +454,7 @@ public class SpaceService {
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
@@ -468,7 +468,7 @@ public class SpaceService {
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
@@ -482,7 +482,7 @@ public class SpaceService {
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
@@ -556,7 +556,7 @@ public class SpaceService {
     public HttpResponse updateForHttpResponse(SpaceUpdate entity) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
@@ -570,7 +570,7 @@ public class SpaceService {
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
@@ -584,7 +584,7 @@ public class SpaceService {
     public HttpResponse updateForHttpResponse(SpaceUpdate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 

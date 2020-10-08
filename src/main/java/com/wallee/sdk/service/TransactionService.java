@@ -90,10 +90,10 @@ public class TransactionService {
     public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "confirm"));
         }// verify the required parameter 'transactionModel' is set
         if (transactionModel == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionModel", "confirm"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
         String key = "spaceId";
@@ -109,10 +109,10 @@ public class TransactionService {
     public HttpResponse confirmForHttpResponse(Long spaceId, InputStream transactionModel, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "confirm"));
         }// verify the required parameter 'transactionModel' is set
         if (transactionModel == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionModel", "confirm"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
         String key = "spaceId";
@@ -128,10 +128,10 @@ public class TransactionService {
     public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "confirm"));
         }// verify the required parameter 'transactionModel' is set
         if (transactionModel == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transactionModel' when calling confirm");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionModel", "confirm"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
 
@@ -206,7 +206,7 @@ public class TransactionService {
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
         String key = "spaceId";
@@ -222,7 +222,7 @@ public class TransactionService {
     public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
         String key = "spaceId";
@@ -240,7 +240,7 @@ public class TransactionService {
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/count");
 
@@ -316,10 +316,10 @@ public class TransactionService {
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'transaction' is set
         if (transaction == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transaction", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
         String key = "spaceId";
@@ -335,10 +335,10 @@ public class TransactionService {
     public HttpResponse createForHttpResponse(Long spaceId, InputStream transaction, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'transaction' is set
         if (transaction == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transaction", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
         String key = "spaceId";
@@ -354,10 +354,10 @@ public class TransactionService {
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
         }// verify the required parameter 'transaction' is set
         if (transaction == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transaction' when calling create");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transaction", "create"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
 
@@ -431,10 +431,10 @@ public class TransactionService {
     public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createTransactionCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "createTransactionCredentials"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling createTransactionCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "createTransactionCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials");
         {
@@ -454,10 +454,10 @@ public class TransactionService {
     public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createTransactionCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "createTransactionCredentials"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling createTransactionCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "createTransactionCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials");
 
@@ -527,10 +527,10 @@ public class TransactionService {
     public HttpResponse deleteOneClickTokenWithCredentialsForHttpResponse(String credentials, Long tokenId) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling deleteOneClickTokenWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "deleteOneClickTokenWithCredentials"));
         }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling deleteOneClickTokenWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "tokenId", "deleteOneClickTokenWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials");
         {
@@ -550,10 +550,10 @@ public class TransactionService {
     public HttpResponse deleteOneClickTokenWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling deleteOneClickTokenWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "deleteOneClickTokenWithCredentials"));
         }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling deleteOneClickTokenWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "tokenId", "deleteOneClickTokenWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials");
 
@@ -631,10 +631,10 @@ public class TransactionService {
     public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "export"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "export"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
         String key = "spaceId";
@@ -650,10 +650,10 @@ public class TransactionService {
     public HttpResponse exportForHttpResponse(Long spaceId, InputStream request, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "export"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "export"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
         String key = "spaceId";
@@ -669,10 +669,10 @@ public class TransactionService {
     public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "export"));
         }// verify the required parameter 'request' is set
         if (request == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'request' when calling export");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "request", "export"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
 
@@ -746,7 +746,7 @@ public class TransactionService {
     public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchOneClickTokensWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "fetchOneClickTokensWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials");
         String key = "credentials";
@@ -761,7 +761,7 @@ public class TransactionService {
     public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchOneClickTokensWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "fetchOneClickTokensWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials");
 
@@ -838,13 +838,13 @@ public class TransactionService {
     public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "fetchPaymentMethods"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "fetchPaymentMethods"));
         }// verify the required parameter 'integrationMode' is set
         if (integrationMode == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "integrationMode", "fetchPaymentMethods"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods");
         {
@@ -867,13 +867,13 @@ public class TransactionService {
     public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "fetchPaymentMethods"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "fetchPaymentMethods"));
         }// verify the required parameter 'integrationMode' is set
         if (integrationMode == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethods");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "integrationMode", "fetchPaymentMethods"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods");
 
@@ -952,10 +952,10 @@ public class TransactionService {
     public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPaymentMethodsWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "fetchPaymentMethodsWithCredentials"));
         }// verify the required parameter 'integrationMode' is set
         if (integrationMode == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethodsWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "integrationMode", "fetchPaymentMethodsWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials");
         {
@@ -974,10 +974,10 @@ public class TransactionService {
     public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling fetchPaymentMethodsWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "fetchPaymentMethodsWithCredentials"));
         }// verify the required parameter 'integrationMode' is set
         if (integrationMode == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'integrationMode' when calling fetchPaymentMethodsWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "integrationMode", "fetchPaymentMethodsWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials");
 
@@ -1054,10 +1054,10 @@ public class TransactionService {
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getInvoiceDocument"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getInvoiceDocument"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument");
         {
@@ -1076,10 +1076,10 @@ public class TransactionService {
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getInvoiceDocument");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getInvoiceDocument"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getInvoiceDocument");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getInvoiceDocument"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument");
 
@@ -1156,10 +1156,10 @@ public class TransactionService {
     public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getLatestTransactionLineItemVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getLatestTransactionLineItemVersion"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getLatestTransactionLineItemVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getLatestTransactionLineItemVersion"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion");
         {
@@ -1178,10 +1178,10 @@ public class TransactionService {
     public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getLatestTransactionLineItemVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getLatestTransactionLineItemVersion"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getLatestTransactionLineItemVersion");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getLatestTransactionLineItemVersion"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion");
 
@@ -1258,10 +1258,10 @@ public class TransactionService {
     public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getPackingSlip");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getPackingSlip"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getPackingSlip");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getPackingSlip"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip");
         {
@@ -1280,10 +1280,10 @@ public class TransactionService {
     public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getPackingSlip");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getPackingSlip"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling getPackingSlip");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getPackingSlip"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip");
 
@@ -1358,10 +1358,10 @@ public class TransactionService {
     public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling processOneClickTokenAndRedirectWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "processOneClickTokenAndRedirectWithCredentials"));
         }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling processOneClickTokenAndRedirectWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "tokenId", "processOneClickTokenAndRedirectWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials");
         {
@@ -1381,10 +1381,10 @@ public class TransactionService {
     public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling processOneClickTokenAndRedirectWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "processOneClickTokenAndRedirectWithCredentials"));
         }// verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'tokenId' when calling processOneClickTokenAndRedirectWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "tokenId", "processOneClickTokenAndRedirectWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials");
 
@@ -1462,10 +1462,10 @@ public class TransactionService {
     public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWithoutUserInteraction");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "processWithoutUserInteraction"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling processWithoutUserInteraction");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "processWithoutUserInteraction"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction");
         {
@@ -1485,10 +1485,10 @@ public class TransactionService {
     public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWithoutUserInteraction");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "processWithoutUserInteraction"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling processWithoutUserInteraction");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "processWithoutUserInteraction"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction");
 
@@ -1566,10 +1566,10 @@ public class TransactionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/read");
         {
@@ -1588,10 +1588,10 @@ public class TransactionService {
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
         }// verify the required parameter 'id' is set
         if (id == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/read");
 
@@ -1666,7 +1666,7 @@ public class TransactionService {
     public HttpResponse readWithCredentialsForHttpResponse(String credentials) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling readWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "readWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials");
         String key = "credentials";
@@ -1681,7 +1681,7 @@ public class TransactionService {
     public HttpResponse readWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
         // verify the required parameter 'credentials' is set
         if (credentials == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'credentials' when calling readWithCredentials");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "readWithCredentials"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials");
 
@@ -1756,10 +1756,10 @@ public class TransactionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
         String key = "spaceId";
@@ -1775,10 +1775,10 @@ public class TransactionService {
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
         String key = "spaceId";
@@ -1794,10 +1794,10 @@ public class TransactionService {
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
         }// verify the required parameter 'query' is set
         if (query == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
 
@@ -1875,10 +1875,10 @@ public class TransactionService {
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
         String key = "spaceId";
@@ -1894,10 +1894,10 @@ public class TransactionService {
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
         String key = "spaceId";
@@ -1913,10 +1913,10 @@ public class TransactionService {
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
         }// verify the required parameter 'entity' is set
         if (entity == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
 
@@ -1994,10 +1994,10 @@ public class TransactionService {
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateTransactionLineItems"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateTransactionLineItems"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
         String key = "spaceId";
@@ -2013,10 +2013,10 @@ public class TransactionService {
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, InputStream updateRequest, String mediaType) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateTransactionLineItems"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateTransactionLineItems"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
         String key = "spaceId";
@@ -2032,10 +2032,10 @@ public class TransactionService {
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateTransactionLineItems"));
         }// verify the required parameter 'updateRequest' is set
         if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "updateRequest", "updateTransactionLineItems"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
 

@@ -148,7 +148,7 @@ public class CountryStateService {
     public HttpResponse countryForHttpResponse(String code) throws IOException {
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'code' when calling country");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/country-state/country");
         String key = "code";
@@ -163,7 +163,7 @@ public class CountryStateService {
     public HttpResponse countryForHttpResponse(String code, Map<String, Object> params) throws IOException {
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'code' when calling country");
+            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/country-state/country");
 

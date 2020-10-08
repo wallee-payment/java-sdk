@@ -252,8 +252,7 @@ public class PaymentConnectorConfiguration extends Indentable {
     @Override
     public String toString() {
 
-      String sb =
-        "class PaymentConnectorConfiguration { \n" +
+      return "class PaymentConnectorConfiguration { \n" +
             "    applicableForTransactionProcessing: " +  toIndentedString(applicableForTransactionProcessing) + " \n" +
             "    conditions: " + toIndentedString(conditions) +  "\n" +
             "    connector: " + toIndentedString(connector) + " \n" +
