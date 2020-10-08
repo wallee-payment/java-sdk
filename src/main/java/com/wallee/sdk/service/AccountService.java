@@ -58,8 +58,7 @@ public class AccountService {
      **/
     public Long count(EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(filter);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>(){});
     }
 
     /**
@@ -77,8 +76,7 @@ public class AccountService {
      **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(filter, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>(){});
     }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter) throws IOException {

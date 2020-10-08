@@ -53,8 +53,7 @@ public class InstallmentPaymentService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>(){});
     }
 
     /**
@@ -74,46 +73,15 @@ public class InstallmentPaymentService {
      **/
     public Long count(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
         HttpResponse response = countForHttpResponse(spaceId, filter, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Long>(){});
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
-        }// verify the required parameter 'filter' is set
-        if (filter == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "filter", "count"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/count");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.countForHttpResponse(spaceId, filter, true, apiClient, "/installment-payment/count");
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
-        }// verify the required parameter 'filter' is set
-        if (filter == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "filter", "count"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/count");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.countForHttpResponse(spaceId, filter, mediaType, true, apiClient, "/installment-payment/count");
     }
 
     public HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
