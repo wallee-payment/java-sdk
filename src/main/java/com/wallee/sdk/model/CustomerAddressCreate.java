@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class CustomerAddressCreate extends AbstractCustomerAddressActive {
+public class CustomerAddressCreate extends AbstractCustomerAddressActive implements CreateableEntity {
 
     @JsonProperty("customer")
     protected Long customer;

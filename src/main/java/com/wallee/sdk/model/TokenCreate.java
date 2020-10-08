@@ -29,7 +29,7 @@ import com.wallee.sdk.model.enums.CreationEntityState;
 
 @ApiModel(description = "")
 
-public class TokenCreate extends AbstractTokenUpdate {
+public class TokenCreate extends AbstractTokenUpdate implements CreateableEntity {
 
     @JsonProperty("externalId")
     protected String externalId;

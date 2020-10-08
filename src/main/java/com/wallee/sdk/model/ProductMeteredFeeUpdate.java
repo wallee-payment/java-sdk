@@ -29,7 +29,7 @@ import com.wallee.sdk.model.enums.ProductMeteredTierPricing;
 
 @ApiModel(description = "")
 
-public class ProductMeteredFeeUpdate extends Indentable {
+public class ProductMeteredFeeUpdate extends Indentable implements CreateableEntity {
 
     @JsonProperty("id")
     protected Long id;

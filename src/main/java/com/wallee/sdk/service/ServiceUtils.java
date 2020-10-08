@@ -8,8 +8,6 @@ import java.util.Map;
 
 import javax.ws.rs.core.UriBuilder;
 
-import io.swagger.annotations.Api;
-
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpMethods;
@@ -17,6 +15,7 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.InputStreamContent;
 import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.model.CreateableEntity;
 
 public class ServiceUtils {
 
@@ -235,9 +234,80 @@ public class ServiceUtils {
       }
     }
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString(););
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
     HttpContent content = apiClient.new JacksonJsonHttpContent(id);
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+  }
+
+  public static HttpResponse createForHttpResponse(Long spaceId, InputStream entity, String mediaType, ApiClient apiClient, String url) throws IOException {
+    // verify the required parameter 'spaceId' is set
+    if (spaceId == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
+    }// verify the required parameter 'entity' is set
+    if (entity == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
+    }
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
+                                      .queryParam("spaceId", spaceId);
+
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+
+    HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+  }
+
+  public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
+    // verify the required parameter 'spaceId' is set
+    if (spaceId == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
+    }// verify the required parameter 'entity' is set
+    if (entity == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
+    }
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
+
+    // Copy the params argument if present, to allow passing in immutable maps
+    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    // Add the required query param 'spaceId' to the map of query params
+    allParams.put("spaceId", spaceId);
+
+    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
+      String key = entryMap.getKey();
+      Object value = entryMap.getValue();
+
+      if (key != null && value != null) {
+        if (value instanceof Collection) {
+          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+        } else if (value instanceof Object[]) {
+          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+        } else {
+          uriBuilder = uriBuilder.queryParam(key, value);
+        }
+      }
+    }
+
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+
+    HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+  }
+
+  public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, ApiClient apiClient, String url) throws IOException {
+    // verify the required parameter 'spaceId' is set
+    if (spaceId == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
+    }// verify the required parameter 'entity' is set
+    if (entity == null) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
+    }
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
+    String key = "spaceId";
+    uriBuilder = uriBuilder.queryParam(key, spaceId);
+
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+
+    HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
   }
 

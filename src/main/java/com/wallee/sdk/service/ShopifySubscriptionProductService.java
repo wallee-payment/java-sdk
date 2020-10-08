@@ -185,78 +185,15 @@ public class ShopifySubscriptionProductService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionProductCreate entity) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-product/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.createForHttpResponse(spaceId, entity, apiClient, "/shopify-subscription-product/create");
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-product/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.createForHttpResponse(spaceId, entity, mediaType, apiClient, "/shopify-subscription-product/create");
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionProductCreate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-product/create");
-
-        // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
-        // Add the required query param 'spaceId' to the map of query params
-        allParams.put("spaceId", spaceId);
-
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
-
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.createForHttpResponse(spaceId, entity, params, apiClient, "/shopify-subscription-product/create");
     }
 
 

@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 
-public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
+public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate implements CreateableEntity {
 
     @JsonProperty("type")
     protected Long type;

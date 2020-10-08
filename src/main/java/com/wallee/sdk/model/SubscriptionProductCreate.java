@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A subscription product represents a product to which a subscriber can subscribe to. A product defines how much the subscription costs and in what cycles the subscribe is charged.")
 
-public class SubscriptionProductCreate extends AbstractSubscriptionProductActive {
+public class SubscriptionProductCreate extends AbstractSubscriptionProductActive implements CreateableEntity {
 
     @JsonProperty("reference")
     protected String reference;

@@ -33,7 +33,7 @@ import com.wallee.sdk.model.enums.PaymentLinkProtectionMode;
  */
 @ApiModel(description = "The payment link defines an URL to automatically create transactions.")
 
-public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
+public class PaymentLinkCreate extends AbstractPaymentLinkUpdate implements CreateableEntity {
 
     @JsonProperty("state")
     protected CreationEntityState state;

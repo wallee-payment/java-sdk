@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class ProductPeriodFeeUpdate extends Indentable {
+public class ProductPeriodFeeUpdate extends Indentable implements CreateableEntity {
 
     @JsonProperty("id")
     protected Long id;

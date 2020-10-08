@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUpdate {
+public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUpdate implements CreateableEntity {
 
     @JsonProperty("externalId")
     protected String externalId;
