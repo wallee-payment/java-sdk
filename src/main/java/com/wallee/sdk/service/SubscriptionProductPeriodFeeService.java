@@ -295,78 +295,15 @@ public class SubscriptionProductPeriodFeeService {
     }
 
     public HttpResponse deleteForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-period-fee/delete");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(id);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.deleteForHttpResponse(spaceId, id, apiClient, "/subscription-product-period-fee/delete");
     }
 
     public HttpResponse deleteForHttpResponse(Long spaceId, InputStream id, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-period-fee/delete");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.deleteForHttpResponse(spaceId, id, mediaType, apiClient, "/subscription-product-period-fee/delete");
     }
 
     public HttpResponse deleteForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-period-fee/delete");
-
-        // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
-        // Add the required query param 'spaceId' to the map of query params
-        allParams.put("spaceId", spaceId);
-
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
-
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(id);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.deleteForHttpResponse(spaceId, id, params, apiClient, "/subscription-product-period-fee/delete");
     }
 
 
