@@ -72,8 +72,7 @@ public class LabelDescriptionService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/label-description-service/all");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }

@@ -72,8 +72,7 @@ public class CountryStateService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/country-state/all");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -131,8 +130,7 @@ public class CountryStateService {
         String key = "code";
         uriBuilder = uriBuilder.queryParam(key, code);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -149,23 +147,9 @@ public class CountryStateService {
         // Add the required query param 'code' to the map of query params
         allParams.put("code", code);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }

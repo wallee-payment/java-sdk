@@ -106,8 +106,7 @@ public class TransactionTerminalService {
         String key = "width";
         uriBuilder = uriBuilder.queryParam(key, width);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -139,23 +138,9 @@ public class TransactionTerminalService {
         // Add the required query param 'width' to the map of query params
         allParams.put("width", width);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -232,8 +217,7 @@ public class TransactionTerminalService {
             uriBuilder = uriBuilder.queryParam(key, language);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -261,23 +245,9 @@ public class TransactionTerminalService {
         // Add the required query param 'terminalId' to the map of query params
         allParams.put("terminalId", terminalId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();

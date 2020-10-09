@@ -430,4 +430,21 @@ public class ServiceUtils {
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
   }
 
+  static UriBuilder addParamToUriBuilder(Map<String, Object> allParams, UriBuilder uriBuilder) {
+      for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
+          String key = entryMap.getKey();
+          Object value = entryMap.getValue();
+
+          if (key != null && value != null) {
+              if (value instanceof Collection) {
+                  uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+              } else if (value instanceof Object[]) {
+                  uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+              } else {
+                  uriBuilder = uriBuilder.queryParam(key, value);
+              }
+          }
+      }
+      return uriBuilder;
+  }
 }

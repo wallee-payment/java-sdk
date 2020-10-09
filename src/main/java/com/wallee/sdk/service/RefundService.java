@@ -147,8 +147,7 @@ public class RefundService {
         String key = "refundId";
         uriBuilder = uriBuilder.queryParam(key, refundId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -171,23 +170,9 @@ public class RefundService {
         // Add the required query param 'refundId' to the map of query params
         allParams.put("refundId", refundId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -251,8 +236,7 @@ public class RefundService {
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -274,23 +258,9 @@ public class RefundService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -362,8 +332,7 @@ public class RefundService {
         String key = "targetMediaTypeId";
         uriBuilder = uriBuilder.queryParam(key, targetMediaTypeId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -390,23 +359,9 @@ public class RefundService {
         // Add the required query param 'targetMediaTypeId' to the map of query params
         allParams.put("targetMediaTypeId", targetMediaTypeId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }
@@ -515,8 +470,7 @@ public class RefundService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(refund);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -534,8 +488,7 @@ public class RefundService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, refund);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -556,23 +509,9 @@ public class RefundService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(refund);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -632,8 +571,7 @@ public class RefundService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -651,8 +589,7 @@ public class RefundService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -673,23 +610,9 @@ public class RefundService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -753,8 +676,7 @@ public class RefundService {
         String key = "refundId";
         uriBuilder = uriBuilder.queryParam(key, refundId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -777,23 +699,9 @@ public class RefundService {
         // Add the required query param 'refundId' to the map of query params
         allParams.put("refundId", refundId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();

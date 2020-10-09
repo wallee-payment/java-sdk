@@ -123,8 +123,7 @@ public class DebtCollectionCaseService {
         String key = "externalId";
         uriBuilder = uriBuilder.queryParam(key, externalId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -157,23 +156,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'externalId' to the map of query params
         allParams.put("externalId", externalId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -257,8 +242,7 @@ public class DebtCollectionCaseService {
         String key = "contentBase64";
         uriBuilder = uriBuilder.queryParam(key, contentBase64);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -291,23 +275,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'contentBase64' to the map of query params
         allParams.put("contentBase64", contentBase64);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -373,8 +343,7 @@ public class DebtCollectionCaseService {
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -397,23 +366,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -632,8 +587,7 @@ public class DebtCollectionCaseService {
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -656,23 +610,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -738,8 +678,7 @@ public class DebtCollectionCaseService {
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -762,23 +701,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -844,8 +769,7 @@ public class DebtCollectionCaseService {
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -868,23 +792,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -994,8 +904,7 @@ public class DebtCollectionCaseService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -1013,8 +922,7 @@ public class DebtCollectionCaseService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -1035,23 +943,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -1113,8 +1007,7 @@ public class DebtCollectionCaseService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -1132,8 +1025,7 @@ public class DebtCollectionCaseService {
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -1154,23 +1046,9 @@ public class DebtCollectionCaseService {
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();

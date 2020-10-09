@@ -72,8 +72,7 @@ public class ConditionTypeService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/condition-type/all");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, null).execute();
     }

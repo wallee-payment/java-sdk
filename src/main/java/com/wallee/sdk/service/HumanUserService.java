@@ -80,8 +80,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/count");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -102,23 +101,9 @@ public class HumanUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -171,8 +156,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/create");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -185,8 +169,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/create");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -202,23 +185,9 @@ public class HumanUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -317,8 +286,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/export");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -331,8 +299,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/export");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -348,23 +315,9 @@ public class HumanUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -465,8 +418,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/search");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -479,8 +431,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/search");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -496,23 +447,9 @@ public class HumanUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -567,8 +504,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/update");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -581,8 +517,7 @@ public class HumanUserService {
         }
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/update");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
@@ -598,23 +533,9 @@ public class HumanUserService {
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-        for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
+        uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
