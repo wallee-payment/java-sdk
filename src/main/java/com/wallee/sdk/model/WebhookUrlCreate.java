@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModel;
 
 @ApiModel(description = "")
 
-public class WebhookUrlCreate extends AbstractWebhookUrlUpdate implements CreateableEntity {
+public class WebhookUrlCreate extends AbstractWebhookUrlUpdate implements UpsertableEntity {
 
 
     @Override

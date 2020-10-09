@@ -43,8 +43,7 @@ public class CountryService {
      **/
     public List<RestCountry> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountry>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountry>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class CountryService {
      **/
     public List<RestCountry> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountry>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountry>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {

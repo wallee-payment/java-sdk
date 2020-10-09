@@ -48,8 +48,7 @@ public class UserSpaceRoleService {
      **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserSpaceRole>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserSpaceRole>(){});
     }
 
     /**
@@ -70,8 +69,7 @@ public class UserSpaceRoleService {
      **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, spaceId, roleId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserSpaceRole>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserSpaceRole>(){});
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long spaceId, Long roleId) throws IOException {
@@ -79,17 +77,10 @@ public class UserSpaceRoleService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "addRole");
         ServiceUtils.checkParam(roleId == null, "roleId", "addRole");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole");
-        {
-            String key = "userId";
-            uriBuilder = uriBuilder.queryParam(key, userId);
-        }
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "roleId";
-        uriBuilder = uriBuilder.queryParam(key, roleId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole")
+                .queryParam("userId", userId)
+                .queryParam("spaceId", spaceId)
+                .queryParam("roleId", roleId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -139,8 +130,7 @@ public class UserSpaceRoleService {
      **/
     public List<UserSpaceRole> list(Long userId, Long spaceId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserSpaceRole>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserSpaceRole>>(){});
     }
 
     /**
@@ -161,21 +151,16 @@ public class UserSpaceRoleService {
      **/
     public List<UserSpaceRole> list(Long userId, Long spaceId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, spaceId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserSpaceRole>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserSpaceRole>>(){});
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long spaceId) throws IOException {
         ServiceUtils.checkParam(userId == null, "userId", "list");
         ServiceUtils.checkParam(spaceId == null, "spaceId", "list");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list");
-        {
-            String key = "userId";
-            uriBuilder = uriBuilder.queryParam(key, userId);
-        }
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list")
+                .queryParam("userId", userId)
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -239,9 +224,8 @@ public class UserSpaceRoleService {
     public HttpResponse removeRoleForHttpResponse(Long id) throws IOException {
         ServiceUtils.checkParam(id == null, "id", "removeRole");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole");
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole")
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

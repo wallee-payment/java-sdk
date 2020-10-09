@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The payment link defines an URL to automatically create transactions.")
 
-public class PaymentLinkUpdate extends Indentable {
+public class PaymentLinkUpdate extends Indentable implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

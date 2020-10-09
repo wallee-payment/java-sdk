@@ -43,8 +43,7 @@ public class PermissionService {
      **/
     public List<Permission> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class PermissionService {
      **/
     public List<Permission> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Permission>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class PermissionService {
      **/
     public Permission read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class PermissionService {
      **/
     public Permission read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Permission>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

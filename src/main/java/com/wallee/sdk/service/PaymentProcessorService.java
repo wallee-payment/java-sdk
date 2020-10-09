@@ -43,8 +43,7 @@ public class PaymentProcessorService {
      **/
     public List<PaymentProcessor> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentProcessor>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentProcessor>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class PaymentProcessorService {
      **/
     public List<PaymentProcessor> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentProcessor>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentProcessor>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class PaymentProcessorService {
      **/
     public PaymentProcessor read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentProcessor>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentProcessor>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class PaymentProcessorService {
      **/
     public PaymentProcessor read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentProcessor>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentProcessor>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

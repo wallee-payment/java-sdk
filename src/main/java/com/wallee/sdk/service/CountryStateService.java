@@ -44,8 +44,7 @@ public class CountryStateService {
      **/
     public List<RestCountryState> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>(){});
     }
 
     /**
@@ -63,8 +62,7 @@ public class CountryStateService {
      **/
     public List<RestCountryState> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -96,8 +94,7 @@ public class CountryStateService {
      **/
     public List<RestCountryState> country(String code) throws IOException {
         HttpResponse response = countryForHttpResponse(code);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>(){});
     }
 
     /**
@@ -116,16 +113,14 @@ public class CountryStateService {
      **/
     public List<RestCountryState> country(String code, Map<String, Object> params) throws IOException {
         HttpResponse response = countryForHttpResponse(code, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RestCountryState>>(){});
     }
 
     public HttpResponse countryForHttpResponse(String code) throws IOException {
         ServiceUtils.checkParam(code == null, "code", "country");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/country-state/country");
-        String key = "code";
-        uriBuilder = uriBuilder.queryParam(key, code);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/country-state/country")
+                .queryParam("code", code);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

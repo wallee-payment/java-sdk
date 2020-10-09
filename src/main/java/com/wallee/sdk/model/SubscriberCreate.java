@@ -32,7 +32,7 @@ import com.wallee.sdk.model.enums.CreationEntityState;
  */
 @ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 
-public class SubscriberCreate extends AbstractSubscriberUpdate implements CreateableEntity {
+public class SubscriberCreate extends AbstractSubscriberUpdate implements UpsertableEntity {
 
     @JsonProperty("state")
     protected CreationEntityState state;

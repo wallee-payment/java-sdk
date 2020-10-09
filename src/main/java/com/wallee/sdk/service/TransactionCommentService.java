@@ -52,8 +52,7 @@ public class TransactionCommentService {
      **/
     public List<TransactionComment> all(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>(){});
     }
 
     /**
@@ -73,21 +72,16 @@ public class TransactionCommentService {
      **/
     public List<TransactionComment> all(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, transactionId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionComment>>(){});
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long transactionId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
         ServiceUtils.checkParam(transactionId == null, "transactionId", "all");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/all");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "transactionId";
-        uriBuilder = uriBuilder.queryParam(key, transactionId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/all")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -133,8 +127,7 @@ public class TransactionCommentService {
      **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     /**
@@ -154,8 +147,7 @@ public class TransactionCommentService {
      **/
     public TransactionComment create(Long spaceId, TransactionCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCommentCreate entity) throws IOException {
@@ -254,13 +246,9 @@ public class TransactionCommentService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
         ServiceUtils.checkParam(id == null, "id", "pin");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/pin");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/pin")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -304,8 +292,7 @@ public class TransactionCommentService {
      **/
     public TransactionComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     /**
@@ -325,8 +312,7 @@ public class TransactionCommentService {
      **/
     public TransactionComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -377,13 +363,9 @@ public class TransactionCommentService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
         ServiceUtils.checkParam(id == null, "id", "unpin");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/unpin");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/unpin")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -428,8 +410,7 @@ public class TransactionCommentService {
      **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     /**
@@ -450,36 +431,27 @@ public class TransactionCommentService {
      **/
     public TransactionComment update(Long spaceId, TransactionCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionComment>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionCommentActive entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionCommentActive entity, Map<String, Object> params) throws IOException {
@@ -495,10 +467,7 @@ public class TransactionCommentService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

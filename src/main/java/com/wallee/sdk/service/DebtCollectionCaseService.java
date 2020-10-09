@@ -61,8 +61,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId) throws IOException {
         HttpResponse response = addCollectedAmountForHttpResponse(spaceId, id, collectedAmount, externalId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionReceipt>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionReceipt>(){});
     }
 
     /**
@@ -85,8 +84,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId, Map<String, Object> params) throws IOException {
         HttpResponse response = addCollectedAmountForHttpResponse(spaceId, id, collectedAmount, externalId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionReceipt>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionReceipt>(){});
     }
 
     public HttpResponse addCollectedAmountForHttpResponse(Long spaceId, Long id, BigDecimal collectedAmount, String externalId) throws IOException {
@@ -95,15 +93,9 @@ public class DebtCollectionCaseService {
         ServiceUtils.checkParam(collectedAmount == null, "collectedAmount", "addCollectedAmount");
         ServiceUtils.checkParam(externalId == null, "externalId", "addCollectedAmount");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "id";
-            uriBuilder = uriBuilder.queryParam(key, id);
-        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
         {
             String key = "collectedAmount";
             if (collectedAmount instanceof Collection) {
@@ -112,8 +104,7 @@ public class DebtCollectionCaseService {
                 uriBuilder = uriBuilder.queryParam(key, collectedAmount);
             }
         }
-        String key = "externalId";
-        uriBuilder = uriBuilder.queryParam(key, externalId);
+        uriBuilder = uriBuilder.queryParam("externalId", externalId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -168,8 +159,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64) throws IOException {
         HttpResponse response = attachDocumentForHttpResponse(spaceId, id, fileName, contentBase64);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCaseDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCaseDocument>(){});
     }
 
     /**
@@ -192,8 +182,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64, Map<String, Object> params) throws IOException {
         HttpResponse response = attachDocumentForHttpResponse(spaceId, id, fileName, contentBase64, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCaseDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCaseDocument>(){});
     }
 
     public HttpResponse attachDocumentForHttpResponse(Long spaceId, Long id, String fileName, String contentBase64) throws IOException {
@@ -202,19 +191,10 @@ public class DebtCollectionCaseService {
         ServiceUtils.checkParam(fileName == null, "fileName", "attachDocument");
         ServiceUtils.checkParam(contentBase64 == null, "contentBase64", "attachDocument");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "id";
-            uriBuilder = uriBuilder.queryParam(key, id);
-        }
-        {
-            String key = "fileName";
-            uriBuilder = uriBuilder.queryParam(key, fileName);
-        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id)
+                .queryParam("fileName", fileName);
         String key = "contentBase64";
         uriBuilder = uriBuilder.queryParam(key, contentBase64);
 
@@ -269,8 +249,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase close(Long spaceId, Long id) throws IOException {
         HttpResponse response = closeForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -291,21 +270,16 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase close(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = closeForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse closeForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "close");
         ServiceUtils.checkParam(id == null, "id", "close");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -402,8 +376,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -423,8 +396,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, DebtCollectionCaseCreate entity) throws IOException {
@@ -505,8 +477,7 @@ public class DebtCollectionCaseService {
      **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id) throws IOException {
         HttpResponse response = documentsForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCaseDocument>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCaseDocument>>(){});
     }
 
     /**
@@ -527,21 +498,16 @@ public class DebtCollectionCaseService {
      **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = documentsForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCaseDocument>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCaseDocument>>(){});
     }
 
     public HttpResponse documentsForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "documents");
         ServiceUtils.checkParam(id == null, "id", "documents");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -588,8 +554,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsPreparedForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -610,21 +575,16 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsPreparedForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse markAsPreparedForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsPrepared");
         ServiceUtils.checkParam(id == null, "id", "markAsPrepared");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -671,8 +631,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id) throws IOException {
         HttpResponse response = markAsReviewedForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -693,21 +652,16 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsReviewedForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse markAsReviewedForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsReviewed");
         ServiceUtils.checkParam(id == null, "id", "markAsReviewed");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -753,8 +707,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -774,8 +727,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -803,8 +755,7 @@ public class DebtCollectionCaseService {
      **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCase>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCase>>(){});
     }
 
     /**
@@ -824,36 +775,27 @@ public class DebtCollectionCaseService {
      **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCase>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollectionCase>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -869,10 +811,7 @@ public class DebtCollectionCaseService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -893,8 +832,7 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     /**
@@ -915,36 +853,27 @@ public class DebtCollectionCaseService {
      **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollectionCase>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, DebtCollectionCaseUpdate entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {
@@ -960,10 +889,7 @@ public class DebtCollectionCaseService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

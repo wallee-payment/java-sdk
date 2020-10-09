@@ -49,8 +49,7 @@ public class UserAccountRoleService {
      **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, appliesOnSubaccount);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>(){});
     }
 
     /**
@@ -71,8 +70,7 @@ public class UserAccountRoleService {
      **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
         HttpResponse response = addRoleForHttpResponse(userId, accountId, roleId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<UserAccountRole>(){});
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
@@ -80,23 +78,11 @@ public class UserAccountRoleService {
         ServiceUtils.checkParam(accountId == null, "accountId", "addRole");
         ServiceUtils.checkParam(roleId == null, "roleId", "addRole");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
-        {
-            String key = "userId";
-            uriBuilder = uriBuilder.queryParam(key, userId);
-        }
-        {
-            String key = "accountId";
-            uriBuilder = uriBuilder.queryParam(key, accountId);
-        }
-        {
-            String key = "roleId";
-            uriBuilder = uriBuilder.queryParam(key, roleId);
-        }
-        if (appliesOnSubaccount != null) {
-            String key = "appliesOnSubaccount";
-            uriBuilder = uriBuilder.queryParam(key, appliesOnSubaccount);
-        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole")
+                .queryParam("userId", userId)
+                .queryParam("accountId", accountId)
+                .queryParam("roleId", roleId);
+        if (appliesOnSubaccount != null) uriBuilder = uriBuilder.queryParam("appliesOnSubaccount", appliesOnSubaccount);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -145,8 +131,7 @@ public class UserAccountRoleService {
      **/
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>(){});
     }
 
     /**
@@ -166,21 +151,16 @@ public class UserAccountRoleService {
      **/
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
         HttpResponse response = listForHttpResponse(userId, accountId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<UserAccountRole>>(){});
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long accountId) throws IOException {
         ServiceUtils.checkParam(userId == null, "userId", "list");
         ServiceUtils.checkParam(accountId == null, "accountId", "list");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
-        {
-            String key = "userId";
-            uriBuilder = uriBuilder.queryParam(key, userId);
-        }
-        String key = "accountId";
-        uriBuilder = uriBuilder.queryParam(key, accountId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list")
+                .queryParam("userId", userId)
+                .queryParam("accountId", accountId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -244,9 +224,8 @@ public class UserAccountRoleService {
     public HttpResponse removeRoleForHttpResponse(Long id) throws IOException {
         ServiceUtils.checkParam(id == null, "id", "removeRole");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole")
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

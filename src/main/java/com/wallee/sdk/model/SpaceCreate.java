@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class SpaceCreate extends AbstractSpaceUpdate {
+public class SpaceCreate extends AbstractSpaceUpdate implements UpsertableEntity {
 
     @JsonProperty("account")
     protected Long account;

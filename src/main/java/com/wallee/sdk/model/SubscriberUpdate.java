@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "A subscriber represents everyone who is subscribed to a product.")
 
-public class SubscriberUpdate extends Indentable {
+public class SubscriberUpdate extends Indentable implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

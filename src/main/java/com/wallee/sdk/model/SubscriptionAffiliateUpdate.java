@@ -31,7 +31,7 @@ import com.wallee.sdk.model.enums.CreationEntityState;
 
 @ApiModel(description = "")
 
-public class SubscriptionAffiliateUpdate extends Indentable {
+public class SubscriptionAffiliateUpdate extends Indentable implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

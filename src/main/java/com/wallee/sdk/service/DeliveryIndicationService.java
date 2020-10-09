@@ -103,8 +103,7 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     /**
@@ -124,17 +123,15 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsNotSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     public HttpResponse markAsNotSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsNotSuitable");
         ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsNotSuitable");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -146,14 +143,10 @@ public class DeliveryIndicationService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsNotSuitable");
         ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsNotSuitable");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(deliveryIndicationId, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse markAsNotSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
@@ -192,8 +185,7 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     /**
@@ -213,17 +205,15 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
         HttpResponse response = markAsSuitableForHttpResponse(spaceId, deliveryIndicationId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     public HttpResponse markAsSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsSuitable");
         ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsSuitable");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -235,14 +225,10 @@ public class DeliveryIndicationService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsSuitable");
         ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsSuitable");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, deliveryIndicationId);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(deliveryIndicationId, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse markAsSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
@@ -281,8 +267,7 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     /**
@@ -302,8 +287,7 @@ public class DeliveryIndicationService {
      **/
     public DeliveryIndication read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DeliveryIndication>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -331,8 +315,7 @@ public class DeliveryIndicationService {
      **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DeliveryIndication>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DeliveryIndication>>(){});
     }
 
     /**
@@ -352,36 +335,27 @@ public class DeliveryIndicationService {
      **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DeliveryIndication>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DeliveryIndication>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -397,10 +371,7 @@ public class DeliveryIndicationService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 

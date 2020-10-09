@@ -53,8 +53,7 @@ public class ChargeFlowService {
      **/
     public Transaction applyFlow(Long spaceId, Long id) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -74,21 +73,16 @@ public class ChargeFlowService {
      **/
     public Transaction applyFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = applyFlowForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse applyFlowForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "applyFlow");
         ServiceUtils.checkParam(id == null, "id", "applyFlow");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -185,8 +179,7 @@ public class ChargeFlowService {
      **/
     public ChargeFlow read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ChargeFlow>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ChargeFlow>(){});
     }
 
     /**
@@ -206,8 +199,7 @@ public class ChargeFlowService {
      **/
     public ChargeFlow read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ChargeFlow>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ChargeFlow>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -235,8 +227,7 @@ public class ChargeFlowService {
      **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ChargeFlow>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ChargeFlow>>(){});
     }
 
     /**
@@ -256,36 +247,27 @@ public class ChargeFlowService {
      **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ChargeFlow>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ChargeFlow>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -301,10 +283,7 @@ public class ChargeFlowService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 

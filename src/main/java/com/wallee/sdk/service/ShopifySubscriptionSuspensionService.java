@@ -125,13 +125,9 @@ public class ShopifySubscriptionSuspensionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "reactivate");
         ServiceUtils.checkParam(subscriptionId == null, "subscriptionId", "reactivate");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/reactivate");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "subscriptionId";
-        uriBuilder = uriBuilder.queryParam(key, subscriptionId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/reactivate")
+                .queryParam("spaceId", spaceId)
+                .queryParam("subscriptionId", subscriptionId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -177,8 +173,7 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>(){});
     }
 
     /**
@@ -198,8 +193,7 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -227,8 +221,7 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>(){});
     }
 
     /**
@@ -248,36 +241,27 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ShopifySubscriptionSuspension>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -293,10 +277,7 @@ public class ShopifySubscriptionSuspensionService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -316,8 +297,7 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {
         HttpResponse response = suspendForHttpResponse(spaceId, suspension);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>(){});
     }
 
     /**
@@ -337,17 +317,15 @@ public class ShopifySubscriptionSuspensionService {
      **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
         HttpResponse response = suspendForHttpResponse(spaceId, suspension, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ShopifySubscriptionSuspension>(){});
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "suspend");
         ServiceUtils.checkParam(suspension == null, "suspension", "suspend");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -359,14 +337,10 @@ public class ShopifySubscriptionSuspensionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "suspend");
         ServiceUtils.checkParam(suspension == null, "suspension", "suspend");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, suspension);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(suspension, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, ShopifySubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {

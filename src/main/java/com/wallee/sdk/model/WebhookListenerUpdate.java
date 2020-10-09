@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
+public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

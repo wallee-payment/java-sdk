@@ -69,9 +69,8 @@ public class TransactionMobileSdkService {
     public HttpResponse paymentFormUrlForHttpResponse(String credentials) throws IOException {
         ServiceUtils.checkParam(credentials == null, "credentials", "paymentFormUrl");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
-        String key = "credentials";
-        uriBuilder = uriBuilder.queryParam(key, credentials);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url")
+                .queryParam("credentials", credentials);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

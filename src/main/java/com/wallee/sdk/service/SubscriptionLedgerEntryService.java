@@ -104,8 +104,7 @@ public class SubscriptionLedgerEntryService {
      **/
     public SubscriptionLedgerEntry create(Long spaceId, SubscriptionLedgerEntryCreate entry) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entry);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>(){});
     }
 
     /**
@@ -125,17 +124,15 @@ public class SubscriptionLedgerEntryService {
      **/
     public SubscriptionLedgerEntry create(Long spaceId, SubscriptionLedgerEntryCreate entry, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entry, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionLedgerEntryCreate entry) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(entry == null, "entry", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -147,14 +144,10 @@ public class SubscriptionLedgerEntryService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(entry == null, "entry", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/create")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entry);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entry, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionLedgerEntryCreate entry, Map<String, Object> params) throws IOException {
@@ -193,8 +186,7 @@ public class SubscriptionLedgerEntryService {
      **/
     public SubscriptionLedgerEntry read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>(){});
     }
 
     /**
@@ -214,8 +206,7 @@ public class SubscriptionLedgerEntryService {
      **/
     public SubscriptionLedgerEntry read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionLedgerEntry>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -243,8 +234,7 @@ public class SubscriptionLedgerEntryService {
      **/
     public List<SubscriptionLedgerEntry> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionLedgerEntry>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionLedgerEntry>>(){});
     }
 
     /**
@@ -264,36 +254,27 @@ public class SubscriptionLedgerEntryService {
      **/
     public List<SubscriptionLedgerEntry> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionLedgerEntry>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionLedgerEntry>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-ledger-entry/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -309,10 +290,7 @@ public class SubscriptionLedgerEntryService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 

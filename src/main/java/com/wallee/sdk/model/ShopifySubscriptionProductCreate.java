@@ -29,7 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptionProductActive implements CreateableEntity {
+public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptionProductActive implements
+  UpsertableEntity {
 
     @JsonProperty("productId")
     protected String productId;

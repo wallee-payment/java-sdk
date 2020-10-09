@@ -124,8 +124,7 @@ public class HumanUserService {
      **/
     public HumanUser create(HumanUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     /**
@@ -144,8 +143,7 @@ public class HumanUserService {
      **/
     public HumanUser create(HumanUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     public HttpResponse createForHttpResponse(HumanUserCreate entity) throws IOException {
@@ -153,10 +151,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -164,10 +159,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(HumanUserCreate entity, Map<String, Object> params) throws IOException {
@@ -180,10 +172,7 @@ public class HumanUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 
@@ -288,10 +277,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/export");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(request, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse exportForHttpResponse(EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -326,8 +312,7 @@ public class HumanUserService {
      **/
     public HumanUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     /**
@@ -346,8 +331,7 @@ public class HumanUserService {
      **/
     public HumanUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -374,8 +358,7 @@ public class HumanUserService {
      **/
     public List<HumanUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<HumanUser>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<HumanUser>>(){});
     }
 
     /**
@@ -394,8 +377,7 @@ public class HumanUserService {
      **/
     public List<HumanUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<HumanUser>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<HumanUser>>(){});
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -403,10 +385,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
@@ -414,10 +393,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -430,10 +406,7 @@ public class HumanUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -453,8 +426,7 @@ public class HumanUserService {
      **/
     public HumanUser update(HumanUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     /**
@@ -474,8 +446,7 @@ public class HumanUserService {
      **/
     public HumanUser update(HumanUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<HumanUser>(){});
     }
 
     public HttpResponse updateForHttpResponse(HumanUserUpdate entity) throws IOException {
@@ -483,10 +454,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -494,10 +462,7 @@ public class HumanUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/human-user/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(HumanUserUpdate entity, Map<String, Object> params) throws IOException {
@@ -510,10 +475,7 @@ public class HumanUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

@@ -43,8 +43,7 @@ public class DocumentTemplateTypeService {
      **/
     public List<DocumentTemplateType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class DocumentTemplateTypeService {
      **/
     public List<DocumentTemplateType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DocumentTemplateType>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class DocumentTemplateTypeService {
      **/
     public DocumentTemplateType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class DocumentTemplateTypeService {
      **/
     public DocumentTemplateType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DocumentTemplateType>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

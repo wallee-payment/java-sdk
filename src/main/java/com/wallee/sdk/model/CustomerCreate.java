@@ -26,7 +26,7 @@ import io.swagger.annotations.ApiModel;
 
 @ApiModel(description = "")
 
-public class CustomerCreate extends AbstractCustomerActive implements CreateableEntity {
+public class CustomerCreate extends AbstractCustomerActive implements UpsertableEntity {
 
 
     @Override

@@ -120,8 +120,7 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration) throws IOException {
         HttpResponse response = createInstallmentPaymentForHttpResponse(spaceId, transactionId, installmentPlanConfiguration);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>(){});
     }
 
     /**
@@ -142,8 +141,7 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration, Map<String, Object> params) throws IOException {
         HttpResponse response = createInstallmentPaymentForHttpResponse(spaceId, transactionId, installmentPlanConfiguration, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>(){});
     }
 
     public HttpResponse createInstallmentPaymentForHttpResponse(Long spaceId, Long transactionId, Long installmentPlanConfiguration) throws IOException {
@@ -151,17 +149,10 @@ public class InstallmentPaymentService {
         ServiceUtils.checkParam(transactionId == null, "transactionId", "createInstallmentPayment");
         ServiceUtils.checkParam(installmentPlanConfiguration == null, "installmentPlanConfiguration", "createInstallmentPayment");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/createInstallmentPayment");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        String key = "installmentPlanConfiguration";
-        uriBuilder = uriBuilder.queryParam(key, installmentPlanConfiguration);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/createInstallmentPayment")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("installmentPlanConfiguration", installmentPlanConfiguration);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -210,8 +201,7 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>(){});
     }
 
     /**
@@ -231,8 +221,7 @@ public class InstallmentPaymentService {
      **/
     public InstallmentPayment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<InstallmentPayment>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -260,8 +249,7 @@ public class InstallmentPaymentService {
      **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>(){});
     }
 
     /**
@@ -281,36 +269,27 @@ public class InstallmentPaymentService {
      **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentPayment>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-payment/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -326,10 +305,7 @@ public class InstallmentPaymentService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 

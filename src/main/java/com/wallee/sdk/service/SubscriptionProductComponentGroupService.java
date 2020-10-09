@@ -104,8 +104,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup create(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     /**
@@ -125,8 +124,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup create(Long spaceId, SubscriptionProductComponentGroupUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
@@ -206,8 +204,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     /**
@@ -227,8 +224,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -256,8 +252,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public List<SubscriptionProductComponentGroup> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>(){});
     }
 
     /**
@@ -277,36 +272,27 @@ public class SubscriptionProductComponentGroupService {
      **/
     public List<SubscriptionProductComponentGroup> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionProductComponentGroup>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -322,10 +308,7 @@ public class SubscriptionProductComponentGroupService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -346,8 +329,7 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup update(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     /**
@@ -368,36 +350,27 @@ public class SubscriptionProductComponentGroupService {
      **/
     public SubscriptionProductComponentGroup update(Long spaceId, SubscriptionProductComponentGroupUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionProductComponentGroup>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, SubscriptionProductComponentGroupUpdate entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-component-group/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, SubscriptionProductComponentGroupUpdate entity, Map<String, Object> params) throws IOException {
@@ -413,10 +386,7 @@ public class SubscriptionProductComponentGroupService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

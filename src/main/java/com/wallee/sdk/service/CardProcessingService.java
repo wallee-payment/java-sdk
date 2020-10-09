@@ -53,8 +53,7 @@ public class CardProcessingService {
      **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -77,8 +76,7 @@ public class CardProcessingService {
      **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
@@ -87,17 +85,10 @@ public class CardProcessingService {
         ServiceUtils.checkParam(paymentMethodConfigurationId == null, "paymentMethodConfigurationId", "process");
         ServiceUtils.checkParam(cardData == null, "cardData", "process");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        String key = "paymentMethodConfigurationId";
-        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("paymentMethodConfigurationId", paymentMethodConfigurationId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -111,22 +102,12 @@ public class CardProcessingService {
         ServiceUtils.checkParam(paymentMethodConfigurationId == null, "paymentMethodConfigurationId", "process");
         ServiceUtils.checkParam(cardData == null, "cardData", "process");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        String key = "paymentMethodConfigurationId";
-        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/process")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("paymentMethodConfigurationId", paymentMethodConfigurationId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(cardData, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
@@ -206,17 +187,10 @@ public class CardProcessingService {
         ServiceUtils.checkParam(paymentMethodConfigurationId == null, "paymentMethodConfigurationId", "processWith3DSecure");
         ServiceUtils.checkParam(cardData == null, "cardData", "processWith3DSecure");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        String key = "paymentMethodConfigurationId";
-        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("paymentMethodConfigurationId", paymentMethodConfigurationId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -230,22 +204,12 @@ public class CardProcessingService {
         ServiceUtils.checkParam(paymentMethodConfigurationId == null, "paymentMethodConfigurationId", "processWith3DSecure");
         ServiceUtils.checkParam(cardData == null, "cardData", "processWith3DSecure");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        String key = "paymentMethodConfigurationId";
-        uriBuilder = uriBuilder.queryParam(key, paymentMethodConfigurationId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/card-processing/processWith3DSecure")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("paymentMethodConfigurationId", paymentMethodConfigurationId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, cardData);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(cardData, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {

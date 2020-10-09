@@ -124,8 +124,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>(){});
     }
 
     /**
@@ -144,8 +143,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUserCreateWithMacKey>(){});
     }
 
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity) throws IOException {
@@ -153,10 +151,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -164,10 +159,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
@@ -180,10 +172,7 @@ public class ApplicationUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 
@@ -248,8 +237,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUser read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>(){});
     }
 
     /**
@@ -268,8 +256,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUser read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -296,8 +283,7 @@ public class ApplicationUserService {
      **/
     public List<ApplicationUser> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>(){});
     }
 
     /**
@@ -316,8 +302,7 @@ public class ApplicationUserService {
      **/
     public List<ApplicationUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ApplicationUser>>(){});
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -325,10 +310,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
@@ -336,10 +318,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -352,10 +331,7 @@ public class ApplicationUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -375,8 +351,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUser update(ApplicationUserUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>(){});
     }
 
     /**
@@ -396,8 +371,7 @@ public class ApplicationUserService {
      **/
     public ApplicationUser update(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ApplicationUser>(){});
     }
 
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity) throws IOException {
@@ -405,10 +379,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -416,10 +387,7 @@ public class ApplicationUserService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {
@@ -432,10 +400,7 @@ public class ApplicationUserService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

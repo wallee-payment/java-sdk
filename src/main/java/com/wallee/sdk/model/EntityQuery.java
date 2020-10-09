@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The entity query allows to search for specific entities by providing filters. This is similar to a SQL query.")
 
-public class EntityQuery extends Indentable {
+public class EntityQuery extends Indentable implements UpsertableEntity {
 
     @JsonProperty("filter")
     protected EntityQueryFilter filter;

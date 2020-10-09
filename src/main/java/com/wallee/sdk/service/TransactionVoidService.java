@@ -103,8 +103,7 @@ public class TransactionVoidService {
      **/
     public TransactionVoid read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     /**
@@ -124,8 +123,7 @@ public class TransactionVoidService {
      **/
     public TransactionVoid read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -153,8 +151,7 @@ public class TransactionVoidService {
      **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionVoid>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionVoid>>(){});
     }
 
     /**
@@ -174,36 +171,27 @@ public class TransactionVoidService {
      **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionVoid>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionVoid>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -219,10 +207,7 @@ public class TransactionVoidService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -242,8 +227,7 @@ public class TransactionVoidService {
      **/
     public TransactionVoid voidOffline(Long spaceId, Long id) throws IOException {
         HttpResponse response = voidOfflineForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     /**
@@ -263,21 +247,16 @@ public class TransactionVoidService {
      **/
     public TransactionVoid voidOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = voidOfflineForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     public HttpResponse voidOfflineForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "voidOffline");
         ServiceUtils.checkParam(id == null, "id", "voidOffline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/voidOffline");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/voidOffline")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -323,8 +302,7 @@ public class TransactionVoidService {
      **/
     public TransactionVoid voidOnline(Long spaceId, Long id) throws IOException {
         HttpResponse response = voidOnlineForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     /**
@@ -344,21 +322,16 @@ public class TransactionVoidService {
      **/
     public TransactionVoid voidOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = voidOnlineForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionVoid>(){});
     }
 
     public HttpResponse voidOnlineForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "voidOnline");
         ServiceUtils.checkParam(id == null, "id", "voidOnline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/voidOnline");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-void/voidOnline")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

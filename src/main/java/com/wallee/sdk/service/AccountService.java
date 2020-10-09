@@ -13,8 +13,6 @@ import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.AccountCreate;
@@ -126,8 +124,7 @@ public class AccountService {
      **/
     public Account create(AccountCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     /**
@@ -146,8 +143,7 @@ public class AccountService {
      **/
     public Account create(AccountCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     public HttpResponse createForHttpResponse(AccountCreate entity) throws IOException {
@@ -155,10 +151,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -166,10 +159,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(AccountCreate entity, Map<String, Object> params) throws IOException {
@@ -182,10 +172,7 @@ public class AccountService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 
@@ -250,8 +237,7 @@ public class AccountService {
      **/
     public Account read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     /**
@@ -270,8 +256,7 @@ public class AccountService {
      **/
     public Account read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -298,8 +283,7 @@ public class AccountService {
      **/
     public List<Account> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>(){});
     }
 
     /**
@@ -318,8 +302,7 @@ public class AccountService {
      **/
     public List<Account> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Account>>(){});
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -327,10 +310,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
@@ -338,10 +318,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -354,10 +331,7 @@ public class AccountService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -377,8 +351,7 @@ public class AccountService {
      **/
     public Account update(AccountUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     /**
@@ -398,8 +371,7 @@ public class AccountService {
      **/
     public Account update(AccountUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Account>(){});
     }
 
     public HttpResponse updateForHttpResponse(AccountUpdate entity) throws IOException {
@@ -407,10 +379,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -418,10 +387,7 @@ public class AccountService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(AccountUpdate entity, Map<String, Object> params) throws IOException {
@@ -434,10 +400,7 @@ public class AccountService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

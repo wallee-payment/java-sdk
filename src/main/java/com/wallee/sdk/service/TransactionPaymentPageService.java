@@ -72,13 +72,9 @@ public class TransactionPaymentPageService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "paymentPageUrl");
         ServiceUtils.checkParam(id == null, "id", "paymentPageUrl");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-payment-page/payment-page-url");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-payment-page/payment-page-url")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

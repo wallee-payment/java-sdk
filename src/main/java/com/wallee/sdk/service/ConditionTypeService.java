@@ -43,8 +43,7 @@ public class ConditionTypeService {
      **/
     public List<ConditionType> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class ConditionTypeService {
      **/
     public List<ConditionType> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<ConditionType>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class ConditionTypeService {
      **/
     public ConditionType read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class ConditionTypeService {
      **/
     public ConditionType read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<ConditionType>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

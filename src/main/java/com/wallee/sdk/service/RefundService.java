@@ -105,8 +105,7 @@ public class RefundService {
      **/
     public Refund fail(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = failForHttpResponse(spaceId, refundId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     /**
@@ -126,21 +125,16 @@ public class RefundService {
      **/
     public Refund fail(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = failForHttpResponse(spaceId, refundId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     public HttpResponse failForHttpResponse(Long spaceId, Long refundId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "fail");
         ServiceUtils.checkParam(refundId == null, "refundId", "fail");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "refundId";
-        uriBuilder = uriBuilder.queryParam(key, refundId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail")
+                .queryParam("spaceId", spaceId)
+                .queryParam("refundId", refundId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -186,8 +180,7 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getRefundDocumentForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     /**
@@ -207,21 +200,16 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getRefundDocumentForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     public HttpResponse getRefundDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "getRefundDocument");
         ServiceUtils.checkParam(id == null, "id", "getRefundDocument");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -266,8 +254,7 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
         HttpResponse response = getRefundDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     /**
@@ -288,8 +275,7 @@ public class RefundService {
      **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
         HttpResponse response = getRefundDocumentWithTargetMediaTypeForHttpResponse(spaceId, id, targetMediaTypeId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     public HttpResponse getRefundDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -297,17 +283,10 @@ public class RefundService {
         ServiceUtils.checkParam(id == null, "id", "getRefundDocumentWithTargetMediaType");
         ServiceUtils.checkParam(targetMediaTypeId == null, "targetMediaTypeId", "getRefundDocumentWithTargetMediaType");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "id";
-            uriBuilder = uriBuilder.queryParam(key, id);
-        }
-        String key = "targetMediaTypeId";
-        uriBuilder = uriBuilder.queryParam(key, targetMediaTypeId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id)
+                .queryParam("targetMediaTypeId", targetMediaTypeId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -354,8 +333,7 @@ public class RefundService {
      **/
     public Refund read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     /**
@@ -375,8 +353,7 @@ public class RefundService {
      **/
     public Refund read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -404,8 +381,7 @@ public class RefundService {
      **/
     public Refund refund(Long spaceId, RefundCreate refund) throws IOException {
         HttpResponse response = refundForHttpResponse(spaceId, refund);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     /**
@@ -425,17 +401,15 @@ public class RefundService {
      **/
     public Refund refund(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
         HttpResponse response = refundForHttpResponse(spaceId, refund, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "refund");
         ServiceUtils.checkParam(refund == null, "refund", "refund");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -447,14 +421,10 @@ public class RefundService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "refund");
         ServiceUtils.checkParam(refund == null, "refund", "refund");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, refund);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(refund, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
@@ -493,8 +463,7 @@ public class RefundService {
      **/
     public List<Refund> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>(){});
     }
 
     /**
@@ -514,36 +483,27 @@ public class RefundService {
      **/
     public List<Refund> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Refund>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -559,10 +519,7 @@ public class RefundService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -582,8 +539,7 @@ public class RefundService {
      **/
     public Refund succeed(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = succeedForHttpResponse(spaceId, refundId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     /**
@@ -603,21 +559,16 @@ public class RefundService {
      **/
     public Refund succeed(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = succeedForHttpResponse(spaceId, refundId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Refund>(){});
     }
 
     public HttpResponse succeedForHttpResponse(Long spaceId, Long refundId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "succeed");
         ServiceUtils.checkParam(refundId == null, "refundId", "succeed");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "refundId";
-        uriBuilder = uriBuilder.queryParam(key, refundId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed")
+                .queryParam("spaceId", spaceId)
+                .queryParam("refundId", refundId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

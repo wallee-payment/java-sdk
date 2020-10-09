@@ -47,8 +47,7 @@ public class InstallmentPlanCalculationService {
      **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentCalculatedPlan>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentCalculatedPlan>>(){});
     }
 
     /**
@@ -68,21 +67,16 @@ public class InstallmentPlanCalculationService {
      **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
         HttpResponse response = calculatePlansForHttpResponse(spaceId, transactionId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentCalculatedPlan>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<InstallmentCalculatedPlan>>(){});
     }
 
     public HttpResponse calculatePlansForHttpResponse(Long spaceId, Long transactionId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "calculatePlans");
         ServiceUtils.checkParam(transactionId == null, "transactionId", "calculatePlans");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "transactionId";
-        uriBuilder = uriBuilder.queryParam(key, transactionId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

@@ -49,8 +49,7 @@ public class MerticUsageService {
      **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<MetricUsage>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<MetricUsage>>(){});
     }
 
     /**
@@ -71,8 +70,7 @@ public class MerticUsageService {
      **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {
         HttpResponse response = calculateForHttpResponse(spaceId, start, end, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<MetricUsage>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<MetricUsage>>(){});
     }
 
     public HttpResponse calculateForHttpResponse(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
@@ -80,17 +78,10 @@ public class MerticUsageService {
         ServiceUtils.checkParam(start == null, "start", "calculate");
         ServiceUtils.checkParam(end == null, "end", "calculate");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "start";
-            uriBuilder = uriBuilder.queryParam(key, start);
-        }
-        String key = "end";
-        uriBuilder = uriBuilder.queryParam(key, end);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/mertic-usage/calculate")
+                .queryParam("spaceId", spaceId)
+                .queryParam("start", start)
+                .queryParam("end", end);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

@@ -28,7 +28,7 @@ import io.swagger.annotations.ApiModel;
  */
 @ApiModel(description = "A metric represents the usage of a resource that can be measured.")
 
-public class SubscriptionMetricActive extends SubscriptionMetricUpdate {
+public class SubscriptionMetricActive extends SubscriptionMetricUpdate implements UpsertableEntity {
 
 
     @Override

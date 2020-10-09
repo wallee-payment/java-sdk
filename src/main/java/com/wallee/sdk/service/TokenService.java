@@ -106,8 +106,7 @@ public class TokenService {
      **/
     public Token create(Long spaceId, TokenCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     /**
@@ -127,8 +126,7 @@ public class TokenService {
      **/
     public Token create(Long spaceId, TokenCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, TokenCreate entity) throws IOException {
@@ -160,8 +158,7 @@ public class TokenService {
      **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -181,21 +178,16 @@ public class TokenService {
      **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId, Map<String, Object> params) throws IOException {
         HttpResponse response = createTransactionForTokenUpdateForHttpResponse(spaceId, tokenId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse createTransactionForTokenUpdateForHttpResponse(Long spaceId, Long tokenId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "createTransactionForTokenUpdate");
         ServiceUtils.checkParam(tokenId == null, "tokenId", "createTransactionForTokenUpdate");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/createTransactionForTokenUpdate");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "tokenId";
-        uriBuilder = uriBuilder.queryParam(key, tokenId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/createTransactionForTokenUpdate")
+                .queryParam("spaceId", spaceId)
+                .queryParam("tokenId", tokenId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -289,8 +281,7 @@ public class TokenService {
      **/
     public Token read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     /**
@@ -310,8 +301,7 @@ public class TokenService {
      **/
     public Token read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -339,8 +329,7 @@ public class TokenService {
      **/
     public List<Token> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Token>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Token>>(){});
     }
 
     /**
@@ -360,36 +349,27 @@ public class TokenService {
      **/
     public List<Token> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Token>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Token>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -405,10 +385,7 @@ public class TokenService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -429,8 +406,7 @@ public class TokenService {
      **/
     public Token update(Long spaceId, TokenUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     /**
@@ -451,36 +427,27 @@ public class TokenService {
      **/
     public Token update(Long spaceId, TokenUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Token>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TokenUpdate entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TokenUpdate entity, Map<String, Object> params) throws IOException {
@@ -496,10 +463,7 @@ public class TokenService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class TransactionCommentCreate extends AbstractTransactionCommentActive implements CreateableEntity {
+public class TransactionCommentCreate extends AbstractTransactionCommentActive implements UpsertableEntity {
 
     @JsonProperty("transaction")
     protected Long transaction;

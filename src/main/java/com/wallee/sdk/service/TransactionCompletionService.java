@@ -53,8 +53,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completeOffline(Long spaceId, Long id) throws IOException {
         HttpResponse response = completeOfflineForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     /**
@@ -74,21 +73,16 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completeOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = completeOfflineForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     public HttpResponse completeOfflineForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOffline");
         ServiceUtils.checkParam(id == null, "id", "completeOffline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOffline");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOffline")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -134,8 +128,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completeOnline(Long spaceId, Long id) throws IOException {
         HttpResponse response = completeOnlineForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     /**
@@ -155,21 +148,16 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completeOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = completeOnlineForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     public HttpResponse completeOnlineForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOnline");
         ServiceUtils.checkParam(id == null, "id", "completeOnline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOnline");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOnline")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -215,8 +203,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         HttpResponse response = completePartiallyOfflineForHttpResponse(spaceId, completion);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     /**
@@ -236,17 +223,15 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
         HttpResponse response = completePartiallyOfflineForHttpResponse(spaceId, completion, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     public HttpResponse completePartiallyOfflineForHttpResponse(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOffline");
         ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOffline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -258,14 +243,10 @@ public class TransactionCompletionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOffline");
         ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOffline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, completion);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(completion, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse completePartiallyOfflineForHttpResponse(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
@@ -304,8 +285,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         HttpResponse response = completePartiallyOnlineForHttpResponse(spaceId, completion);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     /**
@@ -325,17 +305,15 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
         HttpResponse response = completePartiallyOnlineForHttpResponse(spaceId, completion, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     public HttpResponse completePartiallyOnlineForHttpResponse(Long spaceId, TransactionCompletionRequest completion) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOnline");
         ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOnline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -347,14 +325,10 @@ public class TransactionCompletionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOnline");
         ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOnline");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, completion);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(completion, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse completePartiallyOnlineForHttpResponse(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
@@ -444,8 +418,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     /**
@@ -465,8 +438,7 @@ public class TransactionCompletionService {
      **/
     public TransactionCompletion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionCompletion>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -494,8 +466,7 @@ public class TransactionCompletionService {
      **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionCompletion>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionCompletion>>(){});
     }
 
     /**
@@ -515,36 +486,27 @@ public class TransactionCompletionService {
      **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionCompletion>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TransactionCompletion>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -560,10 +522,7 @@ public class TransactionCompletionService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 

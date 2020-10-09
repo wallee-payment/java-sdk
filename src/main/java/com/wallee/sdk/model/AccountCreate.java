@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class AccountCreate extends AbstractAccountUpdate {
+public class AccountCreate extends AbstractAccountUpdate implements UpsertableEntity {
 
     @JsonProperty("parentAccount")
     protected Long parentAccount;

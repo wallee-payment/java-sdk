@@ -43,8 +43,7 @@ public class DebtCollectorService {
      **/
     public List<DebtCollector> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollector>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollector>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class DebtCollectorService {
      **/
     public List<DebtCollector> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollector>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<DebtCollector>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class DebtCollectorService {
      **/
     public DebtCollector read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollector>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollector>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class DebtCollectorService {
      **/
     public DebtCollector read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollector>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<DebtCollector>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

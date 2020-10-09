@@ -43,8 +43,7 @@ public class StaticValueService {
      **/
     public List<StaticValue> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class StaticValueService {
      **/
     public List<StaticValue> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<StaticValue>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class StaticValueService {
      **/
     public StaticValue read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class StaticValueService {
      **/
     public StaticValue read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<StaticValue>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

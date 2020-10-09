@@ -15,7 +15,8 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.InputStreamContent;
 import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.CreateableEntity;
+import com.wallee.sdk.model.UpsertableEntity;
+import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 
 public class ServiceUtils {
@@ -129,10 +130,7 @@ public class ServiceUtils {
     checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-    HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    return ServiceUtils.getHttpResponse(id, mediaType, uriBuilder, apiClient);
   }
 
   public static HttpResponse deleteForHttpResponse(Long spaceId, InputStream id, String mediaType, ApiClient apiClient, String url) throws IOException {
@@ -142,10 +140,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-    HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    return ServiceUtils.getHttpResponse(id, mediaType, uriBuilder, apiClient);
   }
 
   public static void checkParam(boolean test, String id2, String delete) {
@@ -180,13 +175,10 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-    HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
   }
 
-  public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
+  public static HttpResponse createForHttpResponse(Long spaceId, UpsertableEntity entity, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
     checkParam(spaceId == null, "spaceId", "create");
     checkParam(entity == null, "entity", "create");
@@ -199,32 +191,25 @@ public class ServiceUtils {
 
     uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-    HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
   }
 
-  public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, ApiClient apiClient, String url) throws IOException {
+  public static HttpResponse createForHttpResponse(Long spaceId, UpsertableEntity entity, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
     checkParam(spaceId == null, "spaceId", "create");
     checkParam(entity == null, "entity", "create");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
-    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-    HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+    return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
   }
 
   public static HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter, boolean isFilterMandatory, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
     checkParam(spaceId == null, "spaceId", "count");
     checkParam(isFilterMandatory && filter == null, "filter", "count");
-    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
-    String key = "spaceId";
-    uriBuilder = uriBuilder.queryParam(key, spaceId);
+    UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
+                                      .queryParam("spaceId", spaceId);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -309,5 +294,17 @@ public class ServiceUtils {
           }
       }
       return uriBuilder;
+  }
+
+  static HttpResponse getHttpResponse(InputStream entity, String mediaType, UriBuilder uriBuilder, ApiClient apiClient) throws IOException {
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+    HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+  }
+
+  static HttpResponse getHttpResponse(UpsertableEntity entity, UriBuilder uriBuilder, ApiClient apiClient) throws IOException {
+    GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
+    HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
+    return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
   }
 }

@@ -61,8 +61,7 @@ public class TransactionService {
      **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel) throws IOException {
         HttpResponse response = confirmForHttpResponse(spaceId, transactionModel);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -83,17 +82,15 @@ public class TransactionService {
      **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
         HttpResponse response = confirmForHttpResponse(spaceId, transactionModel, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "confirm");
         ServiceUtils.checkParam(transactionModel == null, "transactionModel", "confirm");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -105,14 +102,10 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "confirm");
         ServiceUtils.checkParam(transactionModel == null, "transactionModel", "confirm");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/confirm")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transactionModel);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(transactionModel, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
@@ -202,8 +195,7 @@ public class TransactionService {
      **/
     public Transaction create(Long spaceId, TransactionCreate transaction) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, transaction);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -223,17 +215,15 @@ public class TransactionService {
      **/
     public Transaction create(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, transaction, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(transaction == null, "transaction", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -245,14 +235,10 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(transaction == null, "transaction", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/create")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transaction);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(transaction, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
@@ -318,13 +304,9 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "createTransactionCredentials");
         ServiceUtils.checkParam(id == null, "id", "createTransactionCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/createTransactionCredentials")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -391,13 +373,9 @@ public class TransactionService {
         ServiceUtils.checkParam(credentials == null, "credentials", "deleteOneClickTokenWithCredentials");
         ServiceUtils.checkParam(tokenId == null, "tokenId", "deleteOneClickTokenWithCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials");
-        {
-            String key = "credentials";
-            uriBuilder = uriBuilder.queryParam(key, credentials);
-        }
-        String key = "tokenId";
-        uriBuilder = uriBuilder.queryParam(key, tokenId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/deleteOneClickTokenWithCredentials")
+                .queryParam("credentials", credentials)
+                .queryParam("tokenId", tokenId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -472,9 +450,8 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "export");
         ServiceUtils.checkParam(request == null, "request", "export");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -486,14 +463,10 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "export");
         ServiceUtils.checkParam(request == null, "request", "export");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/export")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(request, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -531,8 +504,7 @@ public class TransactionService {
      **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials) throws IOException {
         HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TokenVersion>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TokenVersion>>(){});
     }
 
     /**
@@ -551,16 +523,14 @@ public class TransactionService {
      **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchOneClickTokensWithCredentialsForHttpResponse(credentials, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TokenVersion>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<TokenVersion>>(){});
     }
 
     public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials) throws IOException {
         ServiceUtils.checkParam(credentials == null, "credentials", "fetchOneClickTokensWithCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials");
-        String key = "credentials";
-        uriBuilder = uriBuilder.queryParam(key, credentials);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetchOneClickTokensWithCredentials")
+                .queryParam("credentials", credentials);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -602,8 +572,7 @@ public class TransactionService {
      **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode) throws IOException {
         HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>(){});
     }
 
     /**
@@ -624,8 +593,7 @@ public class TransactionService {
      **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchPaymentMethodsForHttpResponse(spaceId, id, integrationMode, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>(){});
     }
 
     public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode) throws IOException {
@@ -633,17 +601,10 @@ public class TransactionService {
         ServiceUtils.checkParam(id == null, "id", "fetchPaymentMethods");
         ServiceUtils.checkParam(integrationMode == null, "integrationMode", "fetchPaymentMethods");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "id";
-            uriBuilder = uriBuilder.queryParam(key, id);
-        }
-        String key = "integrationMode";
-        uriBuilder = uriBuilder.queryParam(key, integrationMode);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id)
+                .queryParam("integrationMode", integrationMode);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -690,8 +651,7 @@ public class TransactionService {
      **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode) throws IOException {
         HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>(){});
     }
 
     /**
@@ -711,21 +671,16 @@ public class TransactionService {
      **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
         HttpResponse response = fetchPaymentMethodsWithCredentialsForHttpResponse(credentials, integrationMode, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodConfiguration>>(){});
     }
 
     public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode) throws IOException {
         ServiceUtils.checkParam(credentials == null, "credentials", "fetchPaymentMethodsWithCredentials");
         ServiceUtils.checkParam(integrationMode == null, "integrationMode", "fetchPaymentMethodsWithCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials");
-        {
-            String key = "credentials";
-            uriBuilder = uriBuilder.queryParam(key, credentials);
-        }
-        String key = "integrationMode";
-        uriBuilder = uriBuilder.queryParam(key, integrationMode);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/fetch-payment-methods-with-credentials")
+                .queryParam("credentials", credentials)
+                .queryParam("integrationMode", integrationMode);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -769,8 +724,7 @@ public class TransactionService {
      **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     /**
@@ -790,21 +744,16 @@ public class TransactionService {
      **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getInvoiceDocumentForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "getInvoiceDocument");
         ServiceUtils.checkParam(id == null, "id", "getInvoiceDocument");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getInvoiceDocument")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -848,8 +797,7 @@ public class TransactionService {
      **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws IOException {
         HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>(){});
     }
 
     /**
@@ -869,21 +817,16 @@ public class TransactionService {
      **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getLatestTransactionLineItemVersionForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>(){});
     }
 
     public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "getLatestTransactionLineItemVersion");
         ServiceUtils.checkParam(id == null, "id", "getLatestTransactionLineItemVersion");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getLatestTransactionLineItemVersion")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -927,8 +870,7 @@ public class TransactionService {
      **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id) throws IOException {
         HttpResponse response = getPackingSlipForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     /**
@@ -948,21 +890,16 @@ public class TransactionService {
      **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = getPackingSlipForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedDocument>(){});
     }
 
     public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "getPackingSlip");
         ServiceUtils.checkParam(id == null, "id", "getPackingSlip");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/getPackingSlip")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -1033,13 +970,9 @@ public class TransactionService {
         ServiceUtils.checkParam(credentials == null, "credentials", "processOneClickTokenAndRedirectWithCredentials");
         ServiceUtils.checkParam(tokenId == null, "tokenId", "processOneClickTokenAndRedirectWithCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials");
-        {
-            String key = "credentials";
-            uriBuilder = uriBuilder.queryParam(key, credentials);
-        }
-        String key = "tokenId";
-        uriBuilder = uriBuilder.queryParam(key, tokenId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processOneClickTokenAndRedirectWithCredentials")
+                .queryParam("credentials", credentials)
+                .queryParam("tokenId", tokenId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -1085,8 +1018,7 @@ public class TransactionService {
      **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id) throws IOException {
         HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -1106,21 +1038,16 @@ public class TransactionService {
      **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = processWithoutUserInteractionForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "processWithoutUserInteraction");
         ServiceUtils.checkParam(id == null, "id", "processWithoutUserInteraction");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/processWithoutUserInteraction")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -1166,8 +1093,7 @@ public class TransactionService {
      **/
     public Transaction read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -1187,8 +1113,7 @@ public class TransactionService {
      **/
     public Transaction read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -1215,8 +1140,7 @@ public class TransactionService {
      **/
     public Transaction readWithCredentials(String credentials) throws IOException {
         HttpResponse response = readWithCredentialsForHttpResponse(credentials);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -1235,16 +1159,14 @@ public class TransactionService {
      **/
     public Transaction readWithCredentials(String credentials, Map<String, Object> params) throws IOException {
         HttpResponse response = readWithCredentialsForHttpResponse(credentials, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse readWithCredentialsForHttpResponse(String credentials) throws IOException {
         ServiceUtils.checkParam(credentials == null, "credentials", "readWithCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials");
-        String key = "credentials";
-        uriBuilder = uriBuilder.queryParam(key, credentials);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/readWithCredentials")
+                .queryParam("credentials", credentials);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -1285,8 +1207,7 @@ public class TransactionService {
      **/
     public List<Transaction> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Transaction>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Transaction>>(){});
     }
 
     /**
@@ -1306,36 +1227,27 @@ public class TransactionService {
      **/
     public List<Transaction> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Transaction>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Transaction>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1351,10 +1263,7 @@ public class TransactionService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -1375,8 +1284,7 @@ public class TransactionService {
      **/
     public Transaction update(Long spaceId, TransactionPending entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     /**
@@ -1397,36 +1305,27 @@ public class TransactionService {
      **/
     public Transaction update(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Transaction>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
@@ -1442,10 +1341,7 @@ public class TransactionService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 
@@ -1466,8 +1362,7 @@ public class TransactionService {
      **/
     public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
         HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>(){});
     }
 
     /**
@@ -1488,17 +1383,15 @@ public class TransactionService {
      **/
     public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
         HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<TransactionLineItemVersion>(){});
     }
 
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "updateTransactionLineItems");
         ServiceUtils.checkParam(updateRequest == null, "updateRequest", "updateTransactionLineItems");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -1510,14 +1403,10 @@ public class TransactionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "updateTransactionLineItems");
         ServiceUtils.checkParam(updateRequest == null, "updateRequest", "updateTransactionLineItems");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(updateRequest, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {

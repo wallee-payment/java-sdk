@@ -52,8 +52,7 @@ public class RefundCommentService {
      **/
     public List<RefundComment> all(Long spaceId, Long refundId) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, refundId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>(){});
     }
 
     /**
@@ -73,21 +72,16 @@ public class RefundCommentService {
      **/
     public List<RefundComment> all(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(spaceId, refundId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<RefundComment>>(){});
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long refundId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
         ServiceUtils.checkParam(refundId == null, "refundId", "all");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/all");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "refundId";
-        uriBuilder = uriBuilder.queryParam(key, refundId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/all")
+                .queryParam("spaceId", spaceId)
+                .queryParam("refundId", refundId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -133,8 +127,7 @@ public class RefundCommentService {
      **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     /**
@@ -154,8 +147,7 @@ public class RefundCommentService {
      **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, RefundCommentCreate entity) throws IOException {
@@ -254,13 +246,9 @@ public class RefundCommentService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
         ServiceUtils.checkParam(id == null, "id", "pin");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/pin");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/pin")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -304,8 +292,7 @@ public class RefundCommentService {
      **/
     public RefundComment read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     /**
@@ -325,8 +312,7 @@ public class RefundCommentService {
      **/
     public RefundComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -377,13 +363,9 @@ public class RefundCommentService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
         ServiceUtils.checkParam(id == null, "id", "unpin");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/unpin");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/unpin")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -428,8 +410,7 @@ public class RefundCommentService {
      **/
     public RefundComment update(Long spaceId, RefundCommentActive entity) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     /**
@@ -450,36 +431,27 @@ public class RefundCommentService {
      **/
     public RefundComment update(Long spaceId, RefundCommentActive entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(spaceId, entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RefundComment>(){});
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, RefundCommentActive entity) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
         ServiceUtils.checkParam(entity == null, "entity", "update");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, RefundCommentActive entity, Map<String, Object> params) throws IOException {
@@ -495,10 +467,7 @@ public class RefundCommentService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

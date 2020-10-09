@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
 
-public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
+public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

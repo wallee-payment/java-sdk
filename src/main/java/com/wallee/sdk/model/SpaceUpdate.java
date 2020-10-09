@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class SpaceUpdate extends AbstractSpaceUpdate {
+public class SpaceUpdate extends AbstractSpaceUpdate implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

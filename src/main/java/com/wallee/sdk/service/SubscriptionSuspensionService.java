@@ -104,8 +104,7 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, suspension);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     /**
@@ -125,17 +124,15 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(spaceId, suspension, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(suspension == null, "suspension", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create")
+                .queryParam("spaceId", spaceId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -147,14 +144,10 @@ public class SubscriptionSuspensionService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
         ServiceUtils.checkParam(suspension == null, "suspension", "create");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, suspension);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(suspension, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
@@ -193,8 +186,7 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension read(Long spaceId, Long id) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     /**
@@ -214,8 +206,7 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(spaceId, id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id) throws IOException {
@@ -243,8 +234,7 @@ public class SubscriptionSuspensionService {
      **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>(){});
     }
 
     /**
@@ -264,36 +254,27 @@ public class SubscriptionSuspensionService {
      **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<SubscriptionSuspension>>(){});
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
         ServiceUtils.checkParam(query == null, "query", "search");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
-        String key = "spaceId";
-        uriBuilder = uriBuilder.queryParam(key, spaceId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search")
+                .queryParam("spaceId", spaceId);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -309,10 +290,7 @@ public class SubscriptionSuspensionService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -332,8 +310,7 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension terminate(Long spaceId, Long suspensionId) throws IOException {
         HttpResponse response = terminateForHttpResponse(spaceId, suspensionId);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     /**
@@ -353,21 +330,16 @@ public class SubscriptionSuspensionService {
      **/
     public SubscriptionSuspension terminate(Long spaceId, Long suspensionId, Map<String, Object> params) throws IOException {
         HttpResponse response = terminateForHttpResponse(spaceId, suspensionId, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<SubscriptionSuspension>(){});
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId) throws IOException {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "terminate");
         ServiceUtils.checkParam(suspensionId == null, "suspensionId", "terminate");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/terminate");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "suspensionId";
-        uriBuilder = uriBuilder.queryParam(key, suspensionId);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/terminate")
+                .queryParam("spaceId", spaceId)
+                .queryParam("suspensionId", suspensionId);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

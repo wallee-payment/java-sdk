@@ -43,8 +43,7 @@ public class PaymentMethodBrandService {
      **/
     public List<PaymentMethodBrand> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodBrand>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodBrand>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class PaymentMethodBrandService {
      **/
     public List<PaymentMethodBrand> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodBrand>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<PaymentMethodBrand>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class PaymentMethodBrandService {
      **/
     public PaymentMethodBrand read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentMethodBrand>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentMethodBrand>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class PaymentMethodBrandService {
      **/
     public PaymentMethodBrand read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentMethodBrand>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<PaymentMethodBrand>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

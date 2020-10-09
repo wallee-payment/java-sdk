@@ -48,8 +48,7 @@ public class TransactionTerminalService {
      **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>(){});
     }
 
     /**
@@ -71,8 +70,7 @@ public class TransactionTerminalService {
      **/
     public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
         HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<RenderedTerminalReceipt>(){});
     }
 
     public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
@@ -81,21 +79,11 @@ public class TransactionTerminalService {
         ServiceUtils.checkParam(typeId == null, "typeId", "receipt");
         ServiceUtils.checkParam(width == null, "width", "receipt");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        {
-            String key = "typeId";
-            uriBuilder = uriBuilder.queryParam(key, typeId);
-        }
-        String key = "width";
-        uriBuilder = uriBuilder.queryParam(key, width);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("typeId", typeId)
+                .queryParam("width", width);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -176,23 +164,11 @@ public class TransactionTerminalService {
         ServiceUtils.checkParam(transactionId == null, "transactionId", "tillConnectionCredentials");
         ServiceUtils.checkParam(terminalId == null, "terminalId", "tillConnectionCredentials");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        {
-            String key = "transactionId";
-            uriBuilder = uriBuilder.queryParam(key, transactionId);
-        }
-        {
-            String key = "terminalId";
-            uriBuilder = uriBuilder.queryParam(key, terminalId);
-        }
-        if (language != null) {
-            String key = "language";
-            uriBuilder = uriBuilder.queryParam(key, language);
-        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials")
+                .queryParam("spaceId", spaceId)
+                .queryParam("transactionId", transactionId)
+                .queryParam("terminalId", terminalId);
+        if (language != null) uriBuilder = uriBuilder.queryParam("language", language);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

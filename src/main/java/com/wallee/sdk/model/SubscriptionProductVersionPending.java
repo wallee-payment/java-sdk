@@ -31,7 +31,7 @@ import com.wallee.sdk.model.enums.SubscriptionProductVersionState;
 
 @ApiModel(description = "")
 
-public class SubscriptionProductVersionPending extends Indentable implements CreateableEntity {
+public class SubscriptionProductVersionPending extends Indentable implements UpsertableEntity {
 
     @JsonProperty("id")
     protected Long id;

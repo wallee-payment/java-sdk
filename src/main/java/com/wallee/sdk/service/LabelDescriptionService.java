@@ -43,8 +43,7 @@ public class LabelDescriptionService {
      **/
     public List<LabelDescriptor> all() throws IOException {
         HttpResponse response = allForHttpResponse();
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptor>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptor>>(){});
     }
 
     /**
@@ -62,8 +61,7 @@ public class LabelDescriptionService {
      **/
     public List<LabelDescriptor> all(Map<String, Object> params) throws IOException {
         HttpResponse response = allForHttpResponse(params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptor>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<LabelDescriptor>>(){});
     }
 
     public HttpResponse allForHttpResponse() throws IOException {
@@ -95,8 +93,7 @@ public class LabelDescriptionService {
      **/
     public LabelDescriptor read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptor>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptor>(){});
     }
 
     /**
@@ -115,8 +112,7 @@ public class LabelDescriptionService {
      **/
     public LabelDescriptor read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptor>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<LabelDescriptor>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {

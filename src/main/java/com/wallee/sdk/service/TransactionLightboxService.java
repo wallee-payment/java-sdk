@@ -72,13 +72,9 @@ public class TransactionLightboxService {
         ServiceUtils.checkParam(spaceId == null, "spaceId", "javascriptUrl");
         ServiceUtils.checkParam(id == null, "id", "javascriptUrl");
 
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-lightbox/javascript-url");
-        {
-            String key = "spaceId";
-            uriBuilder = uriBuilder.queryParam(key, spaceId);
-        }
-        String key = "id";
-        uriBuilder = uriBuilder.queryParam(key, id);
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-lightbox/javascript-url")
+                .queryParam("spaceId", spaceId)
+                .queryParam("id", id);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

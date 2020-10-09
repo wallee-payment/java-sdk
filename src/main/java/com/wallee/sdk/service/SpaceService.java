@@ -123,8 +123,7 @@ public class SpaceService {
      **/
     public Space create(SpaceCreate entity) throws IOException {
         HttpResponse response = createForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     /**
@@ -143,8 +142,7 @@ public class SpaceService {
      **/
     public Space create(SpaceCreate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = createForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     public HttpResponse createForHttpResponse(SpaceCreate entity) throws IOException {
@@ -152,10 +150,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -163,10 +158,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse createForHttpResponse(SpaceCreate entity, Map<String, Object> params) throws IOException {
@@ -179,10 +171,7 @@ public class SpaceService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 
@@ -247,8 +236,7 @@ public class SpaceService {
      **/
     public Space read(Long id) throws IOException {
         HttpResponse response = readForHttpResponse(id);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     /**
@@ -267,8 +255,7 @@ public class SpaceService {
      **/
     public Space read(Long id, Map<String, Object> params) throws IOException {
         HttpResponse response = readForHttpResponse(id, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     public HttpResponse readForHttpResponse(Long id) throws IOException {
@@ -295,8 +282,7 @@ public class SpaceService {
      **/
     public List<Space> search(EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(query);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>(){});
     }
 
     /**
@@ -315,8 +301,7 @@ public class SpaceService {
      **/
     public List<Space> search(EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(query, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<List<Space>>(){});
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
@@ -324,10 +309,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
@@ -335,10 +317,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -351,10 +330,7 @@ public class SpaceService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(query, uriBuilder, apiClient);
     }
 
 
@@ -374,8 +350,7 @@ public class SpaceService {
      **/
     public Space update(SpaceUpdate entity) throws IOException {
         HttpResponse response = updateForHttpResponse(entity);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     /**
@@ -395,8 +370,7 @@ public class SpaceService {
      **/
     public Space update(SpaceUpdate entity, Map<String, Object> params) throws IOException {
         HttpResponse response = updateForHttpResponse(entity, params);
-        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>() {
-        });
+        return apiClient.getObjectMapper().readValue(response.getContent(), new TypeReference<Space>(){});
     }
 
     public HttpResponse updateForHttpResponse(SpaceUpdate entity) throws IOException {
@@ -404,10 +378,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
@@ -415,10 +386,7 @@ public class SpaceService {
 
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, mediaType, uriBuilder, apiClient);
     }
 
     public HttpResponse updateForHttpResponse(SpaceUpdate entity, Map<String, Object> params) throws IOException {
@@ -431,10 +399,7 @@ public class SpaceService {
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
-        GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        return ServiceUtils.getHttpResponse(entity, uriBuilder, apiClient);
     }
 
 

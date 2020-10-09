@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @ApiModel(description = "")
 
-public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
+public class ApplicationUserCreate extends AbstractApplicationUserUpdate implements UpsertableEntity {
 
     @JsonProperty("primaryAccount")
     protected Long primaryAccount;
