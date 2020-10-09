@@ -79,13 +79,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long transactionId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "all"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "all"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "all");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/all");
         {
             String key = "spaceId";
@@ -101,13 +97,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "all"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "all"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "all");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/all");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -260,13 +252,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse pinForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "pin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "pin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
+        ServiceUtils.checkParam(id == null, "id", "pin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/pin");
         {
             String key = "spaceId";
@@ -281,13 +269,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse pinForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "pin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "pin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
+        ServiceUtils.checkParam(id == null, "id", "pin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/pin");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -391,13 +375,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse unpinForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "unpin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "unpin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
+        ServiceUtils.checkParam(id == null, "id", "unpin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/unpin");
         {
             String key = "spaceId";
@@ -412,13 +392,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse unpinForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "unpin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "unpin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
+        ServiceUtils.checkParam(id == null, "id", "unpin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/unpin");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -480,13 +456,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionCommentActive entity) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -498,13 +470,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -516,13 +484,9 @@ public class TransactionCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionCommentActive entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-comment/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

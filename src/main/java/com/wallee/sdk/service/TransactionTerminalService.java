@@ -77,19 +77,11 @@ public class TransactionTerminalService {
     }
 
     public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "receipt"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "receipt"));
-        }// verify the required parameter 'typeId' is set
-        if (typeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "typeId", "receipt"));
-        }// verify the required parameter 'width' is set
-        if (width == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "width", "receipt"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "receipt");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "receipt");
+        ServiceUtils.checkParam(typeId == null, "typeId", "receipt");
+        ServiceUtils.checkParam(width == null, "width", "receipt");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
         {
             String key = "spaceId";
@@ -112,19 +104,11 @@ public class TransactionTerminalService {
     }
 
     public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "receipt"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "receipt"));
-        }// verify the required parameter 'typeId' is set
-        if (typeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "typeId", "receipt"));
-        }// verify the required parameter 'width' is set
-        if (width == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "width", "receipt"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "receipt");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "receipt");
+        ServiceUtils.checkParam(typeId == null, "typeId", "receipt");
+        ServiceUtils.checkParam(width == null, "width", "receipt");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -189,16 +173,10 @@ public class TransactionTerminalService {
     }
 
     public HttpResponse tillConnectionCredentialsForHttpResponse(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "tillConnectionCredentials"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "tillConnectionCredentials"));
-        }// verify the required parameter 'terminalId' is set
-        if (terminalId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "terminalId", "tillConnectionCredentials"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "tillConnectionCredentials");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "tillConnectionCredentials");
+        ServiceUtils.checkParam(terminalId == null, "terminalId", "tillConnectionCredentials");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials");
         {
             String key = "spaceId";
@@ -224,16 +202,10 @@ public class TransactionTerminalService {
     }
 
     public HttpResponse tillConnectionCredentialsForHttpResponse(Long spaceId, Long transactionId, Long terminalId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "tillConnectionCredentials"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "tillConnectionCredentials"));
-        }// verify the required parameter 'terminalId' is set
-        if (terminalId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "terminalId", "tillConnectionCredentials"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "tillConnectionCredentials");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "tillConnectionCredentials");
+        ServiceUtils.checkParam(terminalId == null, "terminalId", "tillConnectionCredentials");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/till-connection-credentials");
 
         // Copy the params argument if present, to allow passing in immutable maps

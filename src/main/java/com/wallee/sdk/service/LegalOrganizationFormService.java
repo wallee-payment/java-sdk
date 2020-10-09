@@ -122,10 +122,8 @@ public class LegalOrganizationFormService {
     }
 
     public HttpResponse countryForHttpResponse(String code) throws IOException {
-        // verify the required parameter 'code' is set
-        if (code == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
-        }
+        ServiceUtils.checkParam(code == null, "code", "country");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/country");
         String key = "code";
         uriBuilder = uriBuilder.queryParam(key, code);
@@ -136,10 +134,8 @@ public class LegalOrganizationFormService {
     }
 
     public HttpResponse countryForHttpResponse(String code, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'code' is set
-        if (code == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "code", "country"));
-        }
+        ServiceUtils.checkParam(code == null, "code", "country");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/country");
 
         // Copy the params argument if present, to allow passing in immutable maps

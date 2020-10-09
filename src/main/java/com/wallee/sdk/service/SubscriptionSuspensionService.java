@@ -131,13 +131,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(suspension == null, "suspension", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -149,13 +145,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, InputStream suspension, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(suspension == null, "suspension", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -167,13 +159,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(suspension == null, "suspension", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -282,13 +270,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -300,13 +284,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -318,13 +298,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -383,13 +359,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
-        }// verify the required parameter 'suspensionId' is set
-        if (suspensionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspensionId", "terminate"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "terminate");
+        ServiceUtils.checkParam(suspensionId == null, "suspensionId", "terminate");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/terminate");
         {
             String key = "spaceId";
@@ -405,13 +377,9 @@ public class SubscriptionSuspensionService {
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "terminate"));
-        }// verify the required parameter 'suspensionId' is set
-        if (suspensionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspensionId", "terminate"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "terminate");
+        ServiceUtils.checkParam(suspensionId == null, "suspensionId", "terminate");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-suspension/terminate");
 
         // Copy the params argument if present, to allow passing in immutable maps

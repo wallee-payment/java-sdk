@@ -90,19 +90,11 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse addCollectedAmountForHttpResponse(Long spaceId, Long id, BigDecimal collectedAmount, String externalId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "addCollectedAmount"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "addCollectedAmount"));
-        }// verify the required parameter 'collectedAmount' is set
-        if (collectedAmount == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "collectedAmount", "addCollectedAmount"));
-        }// verify the required parameter 'externalId' is set
-        if (externalId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "externalId", "addCollectedAmount"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "addCollectedAmount");
+        ServiceUtils.checkParam(id == null, "id", "addCollectedAmount");
+        ServiceUtils.checkParam(collectedAmount == null, "collectedAmount", "addCollectedAmount");
+        ServiceUtils.checkParam(externalId == null, "externalId", "addCollectedAmount");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
         {
             String key = "spaceId";
@@ -130,19 +122,11 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse addCollectedAmountForHttpResponse(Long spaceId, Long id, BigDecimal collectedAmount, String externalId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "addCollectedAmount"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "addCollectedAmount"));
-        }// verify the required parameter 'collectedAmount' is set
-        if (collectedAmount == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "collectedAmount", "addCollectedAmount"));
-        }// verify the required parameter 'externalId' is set
-        if (externalId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "externalId", "addCollectedAmount"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "addCollectedAmount");
+        ServiceUtils.checkParam(id == null, "id", "addCollectedAmount");
+        ServiceUtils.checkParam(collectedAmount == null, "collectedAmount", "addCollectedAmount");
+        ServiceUtils.checkParam(externalId == null, "externalId", "addCollectedAmount");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -213,19 +197,11 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse attachDocumentForHttpResponse(Long spaceId, Long id, String fileName, String contentBase64) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "attachDocument"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "attachDocument"));
-        }// verify the required parameter 'fileName' is set
-        if (fileName == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "fileName", "attachDocument"));
-        }// verify the required parameter 'contentBase64' is set
-        if (contentBase64 == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'contentBase64'", "attachDocument"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "attachDocument");
+        ServiceUtils.checkParam(id == null, "id", "attachDocument");
+        ServiceUtils.checkParam(fileName == null, "fileName", "attachDocument");
+        ServiceUtils.checkParam(contentBase64 == null, "contentBase64", "attachDocument");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
         {
             String key = "spaceId";
@@ -249,19 +225,11 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse attachDocumentForHttpResponse(Long spaceId, Long id, String fileName, String contentBase64, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "attachDocument"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "attachDocument"));
-        }// verify the required parameter 'fileName' is set
-        if (fileName == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "fileName", "attachDocument"));
-        }// verify the required parameter 'contentBase64' is set
-        if (contentBase64 == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "'contentBase64'", "attachDocument"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "attachDocument");
+        ServiceUtils.checkParam(id == null, "id", "attachDocument");
+        ServiceUtils.checkParam(fileName == null, "fileName", "attachDocument");
+        ServiceUtils.checkParam(contentBase64 == null, "contentBase64", "attachDocument");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -328,13 +296,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse closeForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "close"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "close"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "close");
+        ServiceUtils.checkParam(id == null, "id", "close");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
         {
             String key = "spaceId";
@@ -350,13 +314,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse closeForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "close"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "close"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "close");
+        ServiceUtils.checkParam(id == null, "id", "close");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -572,13 +532,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse documentsForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "documents"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "documents"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "documents");
+        ServiceUtils.checkParam(id == null, "id", "documents");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
         {
             String key = "spaceId";
@@ -594,13 +550,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse documentsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "documents"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "documents"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "documents");
+        ServiceUtils.checkParam(id == null, "id", "documents");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -663,13 +615,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse markAsPreparedForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsPrepared"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "markAsPrepared"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsPrepared");
+        ServiceUtils.checkParam(id == null, "id", "markAsPrepared");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
         {
             String key = "spaceId";
@@ -685,13 +633,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse markAsPreparedForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsPrepared"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "markAsPrepared"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsPrepared");
+        ServiceUtils.checkParam(id == null, "id", "markAsPrepared");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -754,13 +698,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse markAsReviewedForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsReviewed"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "markAsReviewed"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsReviewed");
+        ServiceUtils.checkParam(id == null, "id", "markAsReviewed");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
         {
             String key = "spaceId";
@@ -776,13 +716,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse markAsReviewedForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsReviewed"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "markAsReviewed"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsReviewed");
+        ServiceUtils.checkParam(id == null, "id", "markAsReviewed");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -893,13 +829,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -911,13 +843,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -929,13 +857,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -996,13 +920,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, DebtCollectionCaseUpdate entity) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -1014,13 +934,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -1032,13 +948,9 @@ public class DebtCollectionCaseService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

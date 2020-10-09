@@ -283,13 +283,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -301,13 +297,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -319,13 +311,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -386,13 +374,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, ProductSetupFeeUpdate entity) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -404,13 +388,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -422,13 +402,9 @@ public class SubscriptionProductSetupFeeService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, ProductSetupFeeUpdate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-product-setup-fee/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

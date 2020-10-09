@@ -43,9 +43,7 @@ public class ServiceUtils {
 
   public static HttpResponse readForHttpResponse(Long id, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
-    }
+    checkParam(id == null, "id", "read");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
@@ -53,20 +51,7 @@ public class ServiceUtils {
     // Add the required query param 'id' to the map of query params
     allParams.put("id", id);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -75,9 +60,7 @@ public class ServiceUtils {
 
   public static HttpResponse readForHttpResponse(Long id, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
-    }
+    checkParam(id == null, "id", "read");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("id", id);
 
@@ -93,20 +76,7 @@ public class ServiceUtils {
     // Copy the params argument if present, to allow passing in immutable maps
     Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -115,28 +85,13 @@ public class ServiceUtils {
 
   public static HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
     Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -146,12 +101,8 @@ public class ServiceUtils {
 
   public static HttpResponse deleteForHttpResponse(Long spaceId, Long id, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-    }// verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(spaceId == null, "spaceId", "delete");
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId)
                                       .queryParam("id", id);
@@ -164,9 +115,7 @@ public class ServiceUtils {
 
   public static HttpResponse deleteForHttpResponse(Long id, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -177,9 +126,7 @@ public class ServiceUtils {
 
   public static HttpResponse deleteForHttpResponse(InputStream id, String mediaType, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -190,12 +137,8 @@ public class ServiceUtils {
 
   public static HttpResponse deleteForHttpResponse(Long spaceId, InputStream id, String mediaType, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-    }// verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(spaceId == null, "spaceId", "delete");
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
@@ -205,14 +148,16 @@ public class ServiceUtils {
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
   }
 
+  public static void checkParam(boolean test, String id2, String delete) {
+    if (test) {
+      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, id2, delete));
+    }
+  }
+
   public static HttpResponse deleteForHttpResponse(Long spaceId, Long id, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "delete"));
-    }// verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "delete"));
-    }
+    checkParam(spaceId == null, "spaceId", "delete");
+    checkParam(id == null, "id", "delete");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
@@ -220,20 +165,7 @@ public class ServiceUtils {
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -243,12 +175,8 @@ public class ServiceUtils {
 
   public static HttpResponse createForHttpResponse(Long spaceId, InputStream entity, String mediaType, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-    }// verify the required parameter 'entity' is set
-    if (entity == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-    }
+    checkParam(spaceId == null, "spaceId", "create");
+    checkParam(entity == null, "entity", "create");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
@@ -260,12 +188,8 @@ public class ServiceUtils {
 
   public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-    }// verify the required parameter 'entity' is set
-    if (entity == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-    }
+    checkParam(spaceId == null, "spaceId", "create");
+    checkParam(entity == null, "entity", "create");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
@@ -273,20 +197,7 @@ public class ServiceUtils {
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -296,12 +207,8 @@ public class ServiceUtils {
 
   public static HttpResponse createForHttpResponse(Long spaceId, CreateableEntity entity, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-    }// verify the required parameter 'entity' is set
-    if (entity == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-    }
+    checkParam(spaceId == null, "spaceId", "create");
+    checkParam(entity == null, "entity", "create");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId);
 
@@ -313,12 +220,8 @@ public class ServiceUtils {
 
   public static HttpResponse countForHttpResponse(Long spaceId, EntityQueryFilter filter, boolean isFilterMandatory, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
-    }
-    if (isFilterMandatory && filter == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "filter", "count"));
-    }
+    checkParam(spaceId == null, "spaceId", "count");
+    checkParam(isFilterMandatory && filter == null, "filter", "count");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
     String key = "spaceId";
     uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -331,12 +234,8 @@ public class ServiceUtils {
 
   public static HttpResponse countForHttpResponse(Long spaceId, InputStream filter, String mediaType, boolean isFilterMandatory, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
-    }
-    if (isFilterMandatory && filter == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "filter", "count"));
-    }
+    checkParam(spaceId == null, "spaceId", "count");
+    checkParam(isFilterMandatory && filter == null, "filter", "count");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-attempt/count")
                                       .queryParam("spaceId", spaceId);
 
@@ -345,9 +244,7 @@ public class ServiceUtils {
 
   public static HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "count"));
-    }
+    checkParam(spaceId == null, "spaceId", "count");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
@@ -355,20 +252,7 @@ public class ServiceUtils {
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 
@@ -378,12 +262,8 @@ public class ServiceUtils {
 
   public static HttpResponse readForHttpResponse(Long spaceId, Long id, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
-    }// verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
-    }
+    checkParam(spaceId == null, "spaceId", "read");
+    checkParam(id == null, "id", "read");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url)
                                       .queryParam("spaceId", spaceId)
                                       .queryParam("id", id);
@@ -395,12 +275,8 @@ public class ServiceUtils {
 
   public static HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params, ApiClient apiClient, String url) throws IOException {
     // verify the required parameter 'spaceId' is set
-    if (spaceId == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "read"));
-    }// verify the required parameter 'id' is set
-    if (id == null) {
-      throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "read"));
-    }
+    checkParam(spaceId == null, "spaceId", "read");
+    checkParam(id == null, "id", "read");
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
@@ -410,20 +286,7 @@ public class ServiceUtils {
     // Add the required query param 'id' to the map of query params
     allParams.put("id", id);
 
-    for (Map.Entry<String, Object> entryMap : allParams.entrySet()) {
-      String key = entryMap.getKey();
-      Object value = entryMap.getValue();
-
-      if (key != null && value != null) {
-        if (value instanceof Collection) {
-          uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-        } else if (value instanceof Object[]) {
-          uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-        } else {
-          uriBuilder = uriBuilder.queryParam(key, value);
-        }
-      }
-    }
+    uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
 

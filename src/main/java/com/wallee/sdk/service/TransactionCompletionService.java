@@ -80,13 +80,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completeOfflineForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completeOffline"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "completeOffline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOffline");
+        ServiceUtils.checkParam(id == null, "id", "completeOffline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOffline");
         {
             String key = "spaceId";
@@ -102,13 +98,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completeOfflineForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completeOffline"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "completeOffline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOffline");
+        ServiceUtils.checkParam(id == null, "id", "completeOffline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOffline");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -169,13 +161,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completeOnlineForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completeOnline"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "completeOnline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOnline");
+        ServiceUtils.checkParam(id == null, "id", "completeOnline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOnline");
         {
             String key = "spaceId";
@@ -191,13 +179,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completeOnlineForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completeOnline"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "completeOnline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completeOnline");
+        ServiceUtils.checkParam(id == null, "id", "completeOnline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completeOnline");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -258,13 +242,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOfflineForHttpResponse(Long spaceId, TransactionCompletionRequest completion) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOffline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOffline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOffline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOffline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -276,13 +256,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOfflineForHttpResponse(Long spaceId, InputStream completion, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOffline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOffline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOffline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOffline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -294,13 +270,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOfflineForHttpResponse(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOffline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOffline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOffline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOffline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOffline");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -359,13 +331,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOnlineForHttpResponse(Long spaceId, TransactionCompletionRequest completion) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOnline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOnline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOnline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOnline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -377,13 +345,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOnlineForHttpResponse(Long spaceId, InputStream completion, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOnline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOnline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOnline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOnline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -395,13 +359,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse completePartiallyOnlineForHttpResponse(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "completePartiallyOnline"));
-        }// verify the required parameter 'completion' is set
-        if (completion == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "completion", "completePartiallyOnline"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "completePartiallyOnline");
+        ServiceUtils.checkParam(completion == null, "completion", "completePartiallyOnline");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/completePartiallyOnline");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -561,13 +521,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -579,13 +535,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -597,13 +549,9 @@ public class TransactionCompletionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-completion/search");
 
         // Copy the params argument if present, to allow passing in immutable maps

@@ -68,10 +68,8 @@ public class TransactionMobileSdkService {
     }
 
     public HttpResponse paymentFormUrlForHttpResponse(String credentials) throws IOException {
-        // verify the required parameter 'credentials' is set
-        if (credentials == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "paymentFormUrl"));
-        }
+        ServiceUtils.checkParam(credentials == null, "credentials", "paymentFormUrl");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
         String key = "credentials";
         uriBuilder = uriBuilder.queryParam(key, credentials);
@@ -82,10 +80,8 @@ public class TransactionMobileSdkService {
     }
 
     public HttpResponse paymentFormUrlForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'credentials' is set
-        if (credentials == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "credentials", "paymentFormUrl"));
-        }
+        ServiceUtils.checkParam(credentials == null, "credentials", "paymentFormUrl");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-mobile-sdk/payment-form-url");
 
         // Copy the params argument if present, to allow passing in immutable maps

@@ -80,13 +80,9 @@ public class ChargeFlowService {
     }
 
     public HttpResponse applyFlowForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "applyFlow"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "applyFlow"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "applyFlow");
+        ServiceUtils.checkParam(id == null, "id", "applyFlow");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
         {
             String key = "spaceId";
@@ -102,13 +98,9 @@ public class ChargeFlowService {
     }
 
     public HttpResponse applyFlowForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "applyFlow"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "applyFlow"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "applyFlow");
+        ServiceUtils.checkParam(id == null, "id", "applyFlow");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/applyFlow");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -270,13 +262,9 @@ public class ChargeFlowService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -288,13 +276,9 @@ public class ChargeFlowService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -306,13 +290,9 @@ public class ChargeFlowService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -369,19 +349,11 @@ public class ChargeFlowService {
     }
 
     public HttpResponse updateRecipientForHttpResponse(Long spaceId, Long transactionId, Long type, String recipient) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateRecipient"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "updateRecipient"));
-        }// verify the required parameter 'type' is set
-        if (type == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "type", "updateRecipient"));
-        }// verify the required parameter 'recipient' is set
-        if (recipient == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "recipient", "updateRecipient"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "updateRecipient");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "updateRecipient");
+        ServiceUtils.checkParam(type == null, "type", "updateRecipient");
+        ServiceUtils.checkParam(recipient == null, "recipient", "updateRecipient");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/updateRecipient")
                                           .queryParam("spaceId", spaceId)
                                           .queryParam("transactionId", transactionId)
@@ -395,19 +367,11 @@ public class ChargeFlowService {
     }
 
     public HttpResponse updateRecipientForHttpResponse(Long spaceId, Long transactionId, Long type, String recipient, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "updateRecipient"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "updateRecipient"));
-        }// verify the required parameter 'type' is set
-        if (type == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "type", "updateRecipient"));
-        }// verify the required parameter 'recipient' is set
-        if (recipient == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "recipient", "updateRecipient"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "updateRecipient");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "updateRecipient");
+        ServiceUtils.checkParam(type == null, "type", "updateRecipient");
+        ServiceUtils.checkParam(recipient == null, "recipient", "updateRecipient");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/charge-flow/updateRecipient");
 
         // Copy the params argument if present, to allow passing in immutable maps

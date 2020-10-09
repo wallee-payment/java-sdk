@@ -130,13 +130,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsNotSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsNotSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsNotSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsNotSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsNotSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -148,13 +144,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsNotSuitableForHttpResponse(Long spaceId, InputStream deliveryIndicationId, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsNotSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsNotSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsNotSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsNotSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -166,13 +158,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsNotSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsNotSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsNotSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsNotSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsNotSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsNotSuitable");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -231,13 +219,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -249,13 +233,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsSuitableForHttpResponse(Long spaceId, InputStream deliveryIndicationId, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -267,13 +247,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse markAsSuitableForHttpResponse(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "markAsSuitable"));
-        }// verify the required parameter 'deliveryIndicationId' is set
-        if (deliveryIndicationId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "deliveryIndicationId", "markAsSuitable"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "markAsSuitable");
+        ServiceUtils.checkParam(deliveryIndicationId == null, "deliveryIndicationId", "markAsSuitable");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/markAsSuitable");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -382,13 +358,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -400,13 +372,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -418,13 +386,9 @@ public class DeliveryIndicationService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/delivery-indication/search");
 
         // Copy the params argument if present, to allow passing in immutable maps

@@ -151,10 +151,8 @@ public class AccountService {
     }
 
     public HttpResponse createForHttpResponse(AccountCreate entity) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -164,10 +162,8 @@ public class AccountService {
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -177,10 +173,8 @@ public class AccountService {
     }
 
     public HttpResponse createForHttpResponse(AccountCreate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -329,10 +323,8 @@ public class AccountService {
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -342,10 +334,8 @@ public class AccountService {
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -355,10 +345,8 @@ public class AccountService {
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -415,10 +403,8 @@ public class AccountService {
     }
 
     public HttpResponse updateForHttpResponse(AccountUpdate entity) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -428,10 +414,8 @@ public class AccountService {
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -441,10 +425,8 @@ public class AccountService {
     }
 
     public HttpResponse updateForHttpResponse(AccountUpdate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

@@ -123,13 +123,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse reactivateForHttpResponse(Long spaceId, Long subscriptionId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "reactivate"));
-        }// verify the required parameter 'subscriptionId' is set
-        if (subscriptionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "reactivate"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "reactivate");
+        ServiceUtils.checkParam(subscriptionId == null, "subscriptionId", "reactivate");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/reactivate");
         {
             String key = "spaceId";
@@ -145,13 +141,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse reactivateForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "reactivate"));
-        }// verify the required parameter 'subscriptionId' is set
-        if (subscriptionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "subscriptionId", "reactivate"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "reactivate");
+        ServiceUtils.checkParam(subscriptionId == null, "subscriptionId", "reactivate");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/reactivate");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -262,13 +254,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -280,13 +268,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -298,13 +282,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -363,13 +343,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "suspend"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "suspend"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "suspend");
+        ServiceUtils.checkParam(suspension == null, "suspension", "suspend");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -381,13 +357,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, InputStream suspension, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "suspend"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "suspend"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "suspend");
+        ServiceUtils.checkParam(suspension == null, "suspension", "suspend");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -399,13 +371,9 @@ public class ShopifySubscriptionSuspensionService {
     }
 
     public HttpResponse suspendForHttpResponse(Long spaceId, ShopifySubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "suspend"));
-        }// verify the required parameter 'suspension' is set
-        if (suspension == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "suspension", "suspend"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "suspend");
+        ServiceUtils.checkParam(suspension == null, "suspension", "suspend");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/shopify-subscription-suspension/suspend");
 
         // Copy the params argument if present, to allow passing in immutable maps

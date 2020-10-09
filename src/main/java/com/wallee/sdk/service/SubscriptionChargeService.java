@@ -131,13 +131,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionChargeCreate charge) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'charge' is set
-        if (charge == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "charge", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(charge == null, "charge", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/create");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -149,13 +145,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, InputStream charge, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'charge' is set
-        if (charge == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "charge", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(charge == null, "charge", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/create");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -167,13 +159,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionChargeCreate charge, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "create"));
-        }// verify the required parameter 'charge' is set
-        if (charge == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "charge", "create"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "create");
+        ServiceUtils.checkParam(charge == null, "charge", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -232,13 +220,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse discardForHttpResponse(Long spaceId, Long chargeId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "discard"));
-        }// verify the required parameter 'chargeId' is set
-        if (chargeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "chargeId", "discard"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "discard");
+        ServiceUtils.checkParam(chargeId == null, "chargeId", "discard");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/discard");
         {
             String key = "spaceId";
@@ -254,13 +238,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse discardForHttpResponse(Long spaceId, Long chargeId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "discard"));
-        }// verify the required parameter 'chargeId' is set
-        if (chargeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "chargeId", "discard"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "discard");
+        ServiceUtils.checkParam(chargeId == null, "chargeId", "discard");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/discard");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -371,13 +351,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -389,13 +365,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -407,13 +379,9 @@ public class SubscriptionChargeService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription-charge/search");
 
         // Copy the params argument if present, to allow passing in immutable maps

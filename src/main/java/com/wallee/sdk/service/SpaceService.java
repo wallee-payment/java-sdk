@@ -149,10 +149,8 @@ public class SpaceService {
     }
 
     public HttpResponse createForHttpResponse(SpaceCreate entity) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -162,10 +160,8 @@ public class SpaceService {
     }
 
     public HttpResponse createForHttpResponse(InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -175,10 +171,8 @@ public class SpaceService {
     }
 
     public HttpResponse createForHttpResponse(SpaceCreate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "create"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "create");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -327,10 +321,8 @@ public class SpaceService {
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -340,10 +332,8 @@ public class SpaceService {
     }
 
     public HttpResponse searchForHttpResponse(InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -353,10 +343,8 @@ public class SpaceService {
     }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -413,10 +401,8 @@ public class SpaceService {
     }
 
     public HttpResponse updateForHttpResponse(SpaceUpdate entity) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -426,10 +412,8 @@ public class SpaceService {
     }
 
     public HttpResponse updateForHttpResponse(InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
         GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
@@ -439,10 +423,8 @@ public class SpaceService {
     }
 
     public HttpResponse updateForHttpResponse(SpaceUpdate entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/space/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

@@ -132,13 +132,9 @@ public class RefundService {
     }
 
     public HttpResponse failForHttpResponse(Long spaceId, Long refundId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "fail"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "fail"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "fail");
+        ServiceUtils.checkParam(refundId == null, "refundId", "fail");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
         {
             String key = "spaceId";
@@ -154,13 +150,9 @@ public class RefundService {
     }
 
     public HttpResponse failForHttpResponse(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "fail"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "fail"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "fail");
+        ServiceUtils.checkParam(refundId == null, "refundId", "fail");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -221,13 +213,9 @@ public class RefundService {
     }
 
     public HttpResponse getRefundDocumentForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getRefundDocument"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getRefundDocument"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "getRefundDocument");
+        ServiceUtils.checkParam(id == null, "id", "getRefundDocument");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
         {
             String key = "spaceId";
@@ -242,13 +230,9 @@ public class RefundService {
     }
 
     public HttpResponse getRefundDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getRefundDocument"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getRefundDocument"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "getRefundDocument");
+        ServiceUtils.checkParam(id == null, "id", "getRefundDocument");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -310,16 +294,10 @@ public class RefundService {
     }
 
     public HttpResponse getRefundDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getRefundDocumentWithTargetMediaType"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getRefundDocumentWithTargetMediaType"));
-        }// verify the required parameter 'targetMediaTypeId' is set
-        if (targetMediaTypeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "targetMediaTypeId", "getRefundDocumentWithTargetMediaType"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "getRefundDocumentWithTargetMediaType");
+        ServiceUtils.checkParam(id == null, "id", "getRefundDocumentWithTargetMediaType");
+        ServiceUtils.checkParam(targetMediaTypeId == null, "targetMediaTypeId", "getRefundDocumentWithTargetMediaType");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
         {
             String key = "spaceId";
@@ -338,16 +316,10 @@ public class RefundService {
     }
 
     public HttpResponse getRefundDocumentWithTargetMediaTypeForHttpResponse(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "getRefundDocumentWithTargetMediaType"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "getRefundDocumentWithTargetMediaType"));
-        }// verify the required parameter 'targetMediaTypeId' is set
-        if (targetMediaTypeId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "targetMediaTypeId", "getRefundDocumentWithTargetMediaType"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "getRefundDocumentWithTargetMediaType");
+        ServiceUtils.checkParam(id == null, "id", "getRefundDocumentWithTargetMediaType");
+        ServiceUtils.checkParam(targetMediaTypeId == null, "targetMediaTypeId", "getRefundDocumentWithTargetMediaType");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -459,13 +431,9 @@ public class RefundService {
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "refund"));
-        }// verify the required parameter 'refund' is set
-        if (refund == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refund", "refund"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "refund");
+        ServiceUtils.checkParam(refund == null, "refund", "refund");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -477,13 +445,9 @@ public class RefundService {
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, InputStream refund, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "refund"));
-        }// verify the required parameter 'refund' is set
-        if (refund == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refund", "refund"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "refund");
+        ServiceUtils.checkParam(refund == null, "refund", "refund");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -495,13 +459,9 @@ public class RefundService {
     }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "refund"));
-        }// verify the required parameter 'refund' is set
-        if (refund == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refund", "refund"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "refund");
+        ServiceUtils.checkParam(refund == null, "refund", "refund");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -560,13 +520,9 @@ public class RefundService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -578,13 +534,9 @@ public class RefundService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, InputStream query, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -596,13 +548,9 @@ public class RefundService {
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "search"));
-        }// verify the required parameter 'query' is set
-        if (query == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "query", "search"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "search");
+        ServiceUtils.checkParam(query == null, "query", "search");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -661,13 +609,9 @@ public class RefundService {
     }
 
     public HttpResponse succeedForHttpResponse(Long spaceId, Long refundId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "succeed"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "succeed"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "succeed");
+        ServiceUtils.checkParam(refundId == null, "refundId", "succeed");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
         {
             String key = "spaceId";
@@ -683,13 +627,9 @@ public class RefundService {
     }
 
     public HttpResponse succeedForHttpResponse(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "succeed"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "succeed"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "succeed");
+        ServiceUtils.checkParam(refundId == null, "refundId", "succeed");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
 
         // Copy the params argument if present, to allow passing in immutable maps

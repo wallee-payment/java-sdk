@@ -76,16 +76,10 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long spaceId, Long roleId) throws IOException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "addRole"));
-        }// verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "addRole"));
-        }// verify the required parameter 'roleId' is set
-        if (roleId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "roleId", "addRole"));
-        }
+        ServiceUtils.checkParam(userId == null, "userId", "addRole");
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "addRole");
+        ServiceUtils.checkParam(roleId == null, "roleId", "addRole");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole");
         {
             String key = "userId";
@@ -105,16 +99,10 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse addRoleForHttpResponse(Long userId, Long spaceId, Long roleId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "addRole"));
-        }// verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "addRole"));
-        }// verify the required parameter 'roleId' is set
-        if (roleId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "roleId", "addRole"));
-        }
+        ServiceUtils.checkParam(userId == null, "userId", "addRole");
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "addRole");
+        ServiceUtils.checkParam(roleId == null, "roleId", "addRole");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/addRole");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -179,13 +167,9 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long spaceId) throws IOException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "list"));
-        }// verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "list"));
-        }
+        ServiceUtils.checkParam(userId == null, "userId", "list");
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "list");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list");
         {
             String key = "userId";
@@ -201,13 +185,9 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse listForHttpResponse(Long userId, Long spaceId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "userId", "list"));
-        }// verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "list"));
-        }
+        ServiceUtils.checkParam(userId == null, "userId", "list");
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "list");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/list");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -258,10 +238,8 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse removeRoleForHttpResponse(Long id) throws IOException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "removeRole"));
-        }
+        ServiceUtils.checkParam(id == null, "id", "removeRole");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole");
         String key = "id";
         uriBuilder = uriBuilder.queryParam(key, id);
@@ -273,10 +251,8 @@ public class UserSpaceRoleService {
     }
 
     public HttpResponse removeRoleForHttpResponse(Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "removeRole"));
-        }
+        ServiceUtils.checkParam(id == null, "id", "removeRole");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-space-role/removeRole");
 
         // Copy the params argument if present, to allow passing in immutable maps

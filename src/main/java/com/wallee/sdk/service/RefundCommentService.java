@@ -79,13 +79,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long refundId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "all"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "all"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
+        ServiceUtils.checkParam(refundId == null, "refundId", "all");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/all");
         {
             String key = "spaceId";
@@ -101,13 +97,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse allForHttpResponse(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "all"));
-        }// verify the required parameter 'refundId' is set
-        if (refundId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "refundId", "all"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "all");
+        ServiceUtils.checkParam(refundId == null, "refundId", "all");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/all");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -260,13 +252,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse pinForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "pin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "pin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
+        ServiceUtils.checkParam(id == null, "id", "pin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/pin");
         {
             String key = "spaceId";
@@ -281,13 +269,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse pinForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "pin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "pin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "pin");
+        ServiceUtils.checkParam(id == null, "id", "pin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/pin");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -391,13 +375,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse unpinForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "unpin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "unpin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
+        ServiceUtils.checkParam(id == null, "id", "unpin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/unpin");
         {
             String key = "spaceId";
@@ -412,13 +392,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse unpinForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "unpin"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "unpin"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "unpin");
+        ServiceUtils.checkParam(id == null, "id", "unpin");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/unpin");
 
         // Copy the params argument if present, to allow passing in immutable maps
@@ -480,13 +456,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, RefundCommentActive entity) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -498,13 +470,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, InputStream entity, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update");
         String key = "spaceId";
         uriBuilder = uriBuilder.queryParam(key, spaceId);
@@ -516,13 +484,9 @@ public class RefundCommentService {
     }
 
     public HttpResponse updateForHttpResponse(Long spaceId, RefundCommentActive entity, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "update"));
-        }// verify the required parameter 'entity' is set
-        if (entity == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "entity", "update"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "update");
+        ServiceUtils.checkParam(entity == null, "entity", "update");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund-comment/update");
 
         // Copy the params argument if present, to allow passing in immutable maps

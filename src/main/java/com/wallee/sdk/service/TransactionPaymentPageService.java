@@ -70,13 +70,9 @@ public class TransactionPaymentPageService {
     }
 
     public HttpResponse paymentPageUrlForHttpResponse(Long spaceId, Long id) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "paymentPageUrl"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "paymentPageUrl"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "paymentPageUrl");
+        ServiceUtils.checkParam(id == null, "id", "paymentPageUrl");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-payment-page/payment-page-url");
         {
             String key = "spaceId";
@@ -91,13 +87,9 @@ public class TransactionPaymentPageService {
     }
 
     public HttpResponse paymentPageUrlForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "paymentPageUrl"));
-        }// verify the required parameter 'id' is set
-        if (id == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "id", "paymentPageUrl"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "paymentPageUrl");
+        ServiceUtils.checkParam(id == null, "id", "paymentPageUrl");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-payment-page/payment-page-url");
 
         // Copy the params argument if present, to allow passing in immutable maps

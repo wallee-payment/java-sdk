@@ -74,13 +74,9 @@ public class InstallmentPlanCalculationService {
     }
 
     public HttpResponse calculatePlansForHttpResponse(Long spaceId, Long transactionId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "calculatePlans"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "calculatePlans"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "calculatePlans");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "calculatePlans");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
         {
             String key = "spaceId";
@@ -96,13 +92,9 @@ public class InstallmentPlanCalculationService {
     }
 
     public HttpResponse calculatePlansForHttpResponse(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "spaceId", "calculatePlans"));
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException(String.format(ServiceUtils.MISSING_PARAM_1_WHEN_CALLING_2, "transactionId", "calculatePlans"));
-        }
+        ServiceUtils.checkParam(spaceId == null, "spaceId", "calculatePlans");
+        ServiceUtils.checkParam(transactionId == null, "transactionId", "calculatePlans");
+
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
 
         // Copy the params argument if present, to allow passing in immutable maps
