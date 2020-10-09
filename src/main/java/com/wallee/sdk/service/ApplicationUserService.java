@@ -2,7 +2,6 @@ package com.wallee.sdk.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,8 +12,6 @@ import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.ApplicationUser;
 import com.wallee.sdk.model.ApplicationUserCreate;
@@ -98,7 +95,7 @@ public class ApplicationUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -168,7 +165,7 @@ public class ApplicationUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -327,7 +324,7 @@ public class ApplicationUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -396,7 +393,7 @@ public class ApplicationUserService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/application-user/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 

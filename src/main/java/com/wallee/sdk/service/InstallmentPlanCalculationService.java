@@ -1,7 +1,6 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -91,7 +90,7 @@ public class InstallmentPlanCalculationService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/installment-plan-calculation/calculatePlans");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'transactionId' to the map of query params

@@ -1,7 +1,6 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -98,7 +97,7 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/addRole");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'userId' to the map of query params
         allParams.put("userId", userId);
         // Add the required query param 'accountId' to the map of query params
@@ -175,7 +174,7 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/list");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'userId' to the map of query params
         allParams.put("userId", userId);
         // Add the required query param 'accountId' to the map of query params
@@ -239,7 +238,7 @@ public class UserAccountRoleService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/user-account-role/removeRole");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'id' to the map of query params
         allParams.put("id", id);
 

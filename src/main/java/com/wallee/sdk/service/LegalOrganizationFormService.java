@@ -1,7 +1,6 @@
 package com.wallee.sdk.service;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -133,7 +132,7 @@ public class LegalOrganizationFormService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/legal-organization-form/country");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'code' to the map of query params
         allParams.put("code", code);
 

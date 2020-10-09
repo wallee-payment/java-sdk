@@ -2,7 +2,6 @@ package com.wallee.sdk.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -99,7 +98,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -168,7 +167,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_CREATE);
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -327,7 +326,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + ACCOUNT_SEARCH);
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 
@@ -396,7 +395,7 @@ public class AccountService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/account/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
         uriBuilder = ServiceUtils.addParamToUriBuilder(allParams, uriBuilder);
 

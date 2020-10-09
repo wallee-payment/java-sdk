@@ -15,9 +15,8 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.InputStreamContent;
 import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
-import com.wallee.sdk.model.UpsertableEntity;
-import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
+import com.wallee.sdk.model.UpsertableEntity;
 
 public class ServiceUtils {
 
@@ -48,7 +47,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
     // Add the required query param 'id' to the map of query params
     allParams.put("id", id);
 
@@ -75,7 +74,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
     uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
@@ -90,7 +89,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
 
     uriBuilder = addParamToUriBuilder(allParams, uriBuilder);
 
@@ -156,7 +155,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
@@ -185,7 +184,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
@@ -233,7 +232,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
 
@@ -265,7 +264,7 @@ public class ServiceUtils {
     UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + url);
 
     // Copy the params argument if present, to allow passing in immutable maps
-    Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+    Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
     // Add the required query param 'spaceId' to the map of query params
     allParams.put("spaceId", spaceId);
     // Add the required query param 'id' to the map of query params
@@ -306,5 +305,9 @@ public class ServiceUtils {
     GenericUrl genericUrl = new GenericUrl(uriBuilder.build().toString());
     HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
     return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+  }
+
+  static Map<String, Object> getMapCopy(Map<String, Object> params) {
+      return params == null ? new HashMap<>() : new HashMap<>(params);
   }
 }

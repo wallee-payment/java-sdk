@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +14,6 @@ import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpContent;
 import com.google.api.client.http.HttpMethods;
 import com.google.api.client.http.HttpResponse;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.json.Json;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.DebtCollectionCase;
 import com.wallee.sdk.model.DebtCollectionCaseCreate;
@@ -121,7 +118,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -213,7 +210,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -294,7 +291,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -522,7 +519,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -599,7 +596,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -676,7 +673,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
         // Add the required query param 'id' to the map of query params
@@ -805,7 +802,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
@@ -883,7 +880,7 @@ public class DebtCollectionCaseService {
         UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<>() : new HashMap<>(params);
+        Map<String, Object> allParams = ServiceUtils.getMapCopy(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
 
