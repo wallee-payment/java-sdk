@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractHumanUserUpdate;
+import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -94,22 +95,14 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
       return false;
     }
     HumanUserUpdate humanUserUpdate = (HumanUserUpdate) o;
-    return Objects.equals(this.emailAddress, humanUserUpdate.emailAddress) &&
-        Objects.equals(this.firstname, humanUserUpdate.firstname) &&
-        Objects.equals(this.language, humanUserUpdate.language) &&
-        Objects.equals(this.lastname, humanUserUpdate.lastname) &&
-        Objects.equals(this.mobilePhoneNumber, humanUserUpdate.mobilePhoneNumber) &&
-        Objects.equals(this.state, humanUserUpdate.state) &&
-        Objects.equals(this.timeZone, humanUserUpdate.timeZone) &&
-        Objects.equals(this.twoFactorEnabled, humanUserUpdate.twoFactorEnabled) &&
-        Objects.equals(this.id, humanUserUpdate.id) &&
+    return Objects.equals(this.id, humanUserUpdate.id) &&
         Objects.equals(this.version, humanUserUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailAddress, firstname, language, lastname, mobilePhoneNumber, state, timeZone, twoFactorEnabled, id, version, super.hashCode());
+    return Objects.hash(id, version, super.hashCode());
   }
 
 
@@ -118,14 +111,6 @@ public class HumanUserUpdate extends AbstractHumanUserUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class HumanUserUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
-    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-    sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

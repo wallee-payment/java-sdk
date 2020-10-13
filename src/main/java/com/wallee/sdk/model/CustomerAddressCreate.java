@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractCustomerAddressActive;
+import com.wallee.sdk.model.CustomerAddressType;
+import com.wallee.sdk.model.CustomerPostalAddressCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -71,15 +73,13 @@ public class CustomerAddressCreate extends AbstractCustomerAddressActive {
       return false;
     }
     CustomerAddressCreate customerAddressCreate = (CustomerAddressCreate) o;
-    return Objects.equals(this.address, customerAddressCreate.address) &&
-        Objects.equals(this.addressType, customerAddressCreate.addressType) &&
-        Objects.equals(this.customer, customerAddressCreate.customer) &&
+    return Objects.equals(this.customer, customerAddressCreate.customer) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, addressType, customer, super.hashCode());
+    return Objects.hash(customer, super.hashCode());
   }
 
 
@@ -88,8 +88,6 @@ public class CustomerAddressCreate extends AbstractCustomerAddressActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerAddressCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    addressType: ").append(toIndentedString(addressType)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("}");
     return sb.toString();

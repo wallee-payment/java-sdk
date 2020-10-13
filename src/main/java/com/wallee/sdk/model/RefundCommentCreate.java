@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -71,14 +71,13 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
       return false;
     }
     RefundCommentCreate refundCommentCreate = (RefundCommentCreate) o;
-    return Objects.equals(this.content, refundCommentCreate.content) &&
-        Objects.equals(this.refund, refundCommentCreate.refund) &&
+    return Objects.equals(this.refund, refundCommentCreate.refund) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, refund, super.hashCode());
+    return Objects.hash(refund, super.hashCode());
   }
 
 
@@ -87,7 +86,6 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundCommentCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
     sb.append("}");
     return sb.toString();

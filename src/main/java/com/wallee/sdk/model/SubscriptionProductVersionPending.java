@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
+import com.wallee.sdk.model.TaxCalculation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -82,6 +83,10 @@ public class SubscriptionProductVersionPending {
   
   @JsonProperty("state")
   protected SubscriptionProductVersionState state = null;
+
+  
+  @JsonProperty("taxCalculation")
+  protected TaxCalculation taxCalculation = null;
 
   
   
@@ -302,6 +307,25 @@ public class SubscriptionProductVersionPending {
   }
 
   
+  public SubscriptionProductVersionPending taxCalculation(TaxCalculation taxCalculation) {
+    this.taxCalculation = taxCalculation;
+    return this;
+  }
+
+   /**
+   * Strategy that is used for tax calculation in fees.
+   * @return taxCalculation
+  **/
+  @ApiModelProperty(value = "Strategy that is used for tax calculation in fees.")
+  public TaxCalculation getTaxCalculation() {
+    return taxCalculation;
+  }
+
+  public void setTaxCalculation(TaxCalculation taxCalculation) {
+    this.taxCalculation = taxCalculation;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -322,12 +346,13 @@ public class SubscriptionProductVersionPending {
         Objects.equals(this.name, subscriptionProductVersionPending.name) &&
         Objects.equals(this.numberOfNoticePeriods, subscriptionProductVersionPending.numberOfNoticePeriods) &&
         Objects.equals(this.product, subscriptionProductVersionPending.product) &&
-        Objects.equals(this.state, subscriptionProductVersionPending.state);
+        Objects.equals(this.state, subscriptionProductVersionPending.state) &&
+        Objects.equals(this.taxCalculation, subscriptionProductVersionPending.taxCalculation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, billingCycle, comment, defaultCurrency, enabledCurrencies, minimalNumberOfPeriods, name, numberOfNoticePeriods, product, state);
+    return Objects.hash(id, version, billingCycle, comment, defaultCurrency, enabledCurrencies, minimalNumberOfPeriods, name, numberOfNoticePeriods, product, state, taxCalculation);
   }
 
 
@@ -347,6 +372,7 @@ public class SubscriptionProductVersionPending {
     sb.append("    numberOfNoticePeriods: ").append(toIndentedString(numberOfNoticePeriods)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    taxCalculation: ").append(toIndentedString(taxCalculation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

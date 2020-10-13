@@ -13,11 +13,7 @@ import com.wallee.sdk.model.ShopifySubscriptionUpdateRequest;
 import com.wallee.sdk.model.ShopifySubscriptionVersion;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
 import javax.ws.rs.core.UriBuilder;
@@ -114,7 +110,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
@@ -141,7 +140,10 @@ public class ShopifySubscriptionService {
               HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -175,9 +177,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Create
@@ -253,7 +257,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(creationRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream creationRequest, String mediaType) throws IOException {
@@ -283,7 +290,10 @@ public class ShopifySubscriptionService {
               HttpContent content = creationRequest == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, creationRequest);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse createForHttpResponse(Long spaceId, ShopifySubscriptionCreationRequest creationRequest, Map<String, Object> params) throws IOException {
@@ -320,9 +330,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(creationRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Read
@@ -408,7 +420,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -447,9 +462,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Search
@@ -525,7 +542,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
@@ -555,7 +575,10 @@ public class ShopifySubscriptionService {
               HttpContent content = query == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -592,9 +615,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Terminate
@@ -679,7 +704,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
@@ -723,9 +751,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Update
@@ -801,7 +831,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(subscription);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream subscription, String mediaType) throws IOException {
@@ -831,7 +864,10 @@ public class ShopifySubscriptionService {
               HttpContent content = subscription == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, subscription);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse updateForHttpResponse(Long spaceId, ShopifySubscriptionUpdateRequest subscription, Map<String, Object> params) throws IOException {
@@ -868,9 +904,11 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(subscription);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Update Addresses
@@ -946,7 +984,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse updateAddressesForHttpResponse(Long spaceId, java.io.InputStream updateRequest, String mediaType) throws IOException {
@@ -976,7 +1017,10 @@ public class ShopifySubscriptionService {
               HttpContent content = updateRequest == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse updateAddressesForHttpResponse(Long spaceId, ShopifySubscriptionUpdateAddressesRequest updateRequest, Map<String, Object> params) throws IOException {
@@ -1013,8 +1057,10 @@ public class ShopifySubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
 }

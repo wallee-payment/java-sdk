@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -28,6 +28,7 @@ import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.TokenizationMode;
+import com.wallee.sdk.model.TransactionCompletionBehavior;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -53,6 +54,10 @@ public class AbstractTransactionPending {
   
   @JsonProperty("billingAddress")
   protected AddressCreate billingAddress = null;
+
+  
+  @JsonProperty("completionBehavior")
+  protected TransactionCompletionBehavior completionBehavior = null;
 
   
   @JsonProperty("currency")
@@ -186,6 +191,25 @@ public class AbstractTransactionPending {
 
   public void setBillingAddress(AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
+  }
+
+  
+  public AbstractTransactionPending completionBehavior(TransactionCompletionBehavior completionBehavior) {
+    this.completionBehavior = completionBehavior;
+    return this;
+  }
+
+   /**
+   * The completion behavior controls when the transaction is completed.
+   * @return completionBehavior
+  **/
+  @ApiModelProperty(value = "The completion behavior controls when the transaction is completed.")
+  public TransactionCompletionBehavior getCompletionBehavior() {
+    return completionBehavior;
+  }
+
+  public void setCompletionBehavior(TransactionCompletionBehavior completionBehavior) {
+    this.completionBehavior = completionBehavior;
   }
 
   
@@ -503,6 +527,7 @@ public class AbstractTransactionPending {
     return Objects.equals(this.allowedPaymentMethodBrands, abstractTransactionPending.allowedPaymentMethodBrands) &&
         Objects.equals(this.allowedPaymentMethodConfigurations, abstractTransactionPending.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.billingAddress, abstractTransactionPending.billingAddress) &&
+        Objects.equals(this.completionBehavior, abstractTransactionPending.completionBehavior) &&
         Objects.equals(this.currency, abstractTransactionPending.currency) &&
         Objects.equals(this.customerEmailAddress, abstractTransactionPending.customerEmailAddress) &&
         Objects.equals(this.customerId, abstractTransactionPending.customerId) &&
@@ -522,7 +547,7 @@ public class AbstractTransactionPending {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode);
+    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, completionBehavior, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode);
   }
 
 
@@ -534,6 +559,7 @@ public class AbstractTransactionPending {
     sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");

@@ -17,11 +17,7 @@ import com.wallee.sdk.model.TransactionLineItemVersion;
 import com.wallee.sdk.model.TransactionPending;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
 import javax.ws.rs.core.UriBuilder;
@@ -124,7 +120,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(transactionModel);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse confirmForHttpResponse(Long spaceId, java.io.InputStream transactionModel, String mediaType) throws IOException {
@@ -154,7 +153,10 @@ public class TransactionService {
               HttpContent content = transactionModel == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transactionModel);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse confirmForHttpResponse(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
@@ -191,9 +193,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(transactionModel);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Count
@@ -265,7 +269,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
@@ -292,7 +299,10 @@ public class TransactionService {
               HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -326,9 +336,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Create
@@ -404,7 +416,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(transaction);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream transaction, String mediaType) throws IOException {
@@ -434,7 +449,10 @@ public class TransactionService {
               HttpContent content = transaction == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, transaction);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse createForHttpResponse(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
@@ -471,9 +489,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(transaction);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Create Transaction Credentials
@@ -559,7 +579,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse createTransactionCredentialsForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -598,9 +621,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Delete One-Click Token with Credentials
@@ -670,7 +695,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse deleteOneClickTokenWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
@@ -709,9 +737,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Export
@@ -787,7 +817,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse exportForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
@@ -817,7 +850,10 @@ public class TransactionService {
               HttpContent content = request == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse exportForHttpResponse(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -854,9 +890,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Fetch One Click Tokens with Credentials
@@ -927,7 +965,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse fetchOneClickTokensWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
@@ -961,9 +1002,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Fetch Possible Payment Methods
@@ -1064,7 +1107,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse fetchPaymentMethodsForHttpResponse(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
@@ -1108,9 +1154,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Fetch Possible Payment Methods with Credentials
@@ -1196,7 +1244,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse fetchPaymentMethodsWithCredentialsForHttpResponse(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
@@ -1235,9 +1286,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * getInvoiceDocument
@@ -1323,7 +1376,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse getInvoiceDocumentForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1362,9 +1418,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * getLatestTransactionLineItemVersion
@@ -1450,7 +1508,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse getLatestTransactionLineItemVersionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1489,9 +1550,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * getPackingSlip
@@ -1577,7 +1640,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse getPackingSlipForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1616,9 +1682,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Process One-Click Token with Credentials
@@ -1704,7 +1772,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse processOneClickTokenAndRedirectWithCredentialsForHttpResponse(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
@@ -1743,9 +1814,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Process Without User Interaction
@@ -1831,7 +1904,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse processWithoutUserInteractionForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1870,9 +1946,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Read
@@ -1958,7 +2036,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1997,9 +2078,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Read With Credentials
@@ -2070,7 +2153,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse readWithCredentialsForHttpResponse(String credentials, Map<String, Object> params) throws IOException {
@@ -2104,9 +2190,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Search
@@ -2182,7 +2270,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
@@ -2212,7 +2303,10 @@ public class TransactionService {
               HttpContent content = query == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -2249,9 +2343,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Update
@@ -2329,7 +2425,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
@@ -2359,7 +2458,10 @@ public class TransactionService {
               HttpContent content = entity == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse updateForHttpResponse(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {
@@ -2396,9 +2498,11 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * updateTransactionLineItems
@@ -2476,7 +2580,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, java.io.InputStream updateRequest, String mediaType) throws IOException {
@@ -2506,7 +2613,10 @@ public class TransactionService {
               HttpContent content = updateRequest == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
@@ -2543,8 +2653,10 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
 }

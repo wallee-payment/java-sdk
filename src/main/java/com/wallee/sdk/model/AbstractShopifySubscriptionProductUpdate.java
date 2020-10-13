@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ShopifySubscriptionBillingIntervalUnit;
 import com.wallee.sdk.model.ShopifySubscriptionProductPricingOption;
-import com.wallee.sdk.model.ShopifySubscriptionProductState;
 import com.wallee.sdk.model.ShopifySubscriptionWeekday;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -35,10 +34,10 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * AbstractShopifySubscriptionProductActive
+ * AbstractShopifySubscriptionProductUpdate
  */
 
-public class AbstractShopifySubscriptionProductActive {
+public class AbstractShopifySubscriptionProductUpdate {
   
   @JsonProperty("absolutePriceAdjustment")
   protected BigDecimal absolutePriceAdjustment = null;
@@ -84,10 +83,6 @@ public class AbstractShopifySubscriptionProductActive {
   protected BigDecimal relativePriceAdjustment = null;
 
   
-  @JsonProperty("state")
-  protected ShopifySubscriptionProductState state = null;
-
-  
   @JsonProperty("storeOrderConfirmationEmailEnabled")
   protected Boolean storeOrderConfirmationEmailEnabled = null;
 
@@ -101,7 +96,7 @@ public class AbstractShopifySubscriptionProductActive {
 
   
   
-  public AbstractShopifySubscriptionProductActive absolutePriceAdjustment(BigDecimal absolutePriceAdjustment) {
+  public AbstractShopifySubscriptionProductUpdate absolutePriceAdjustment(BigDecimal absolutePriceAdjustment) {
     this.absolutePriceAdjustment = absolutePriceAdjustment;
     return this;
   }
@@ -120,7 +115,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive billingDayOfMonth(Integer billingDayOfMonth) {
+  public AbstractShopifySubscriptionProductUpdate billingDayOfMonth(Integer billingDayOfMonth) {
     this.billingDayOfMonth = billingDayOfMonth;
     return this;
   }
@@ -139,7 +134,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive billingIntervalAmount(Integer billingIntervalAmount) {
+  public AbstractShopifySubscriptionProductUpdate billingIntervalAmount(Integer billingIntervalAmount) {
     this.billingIntervalAmount = billingIntervalAmount;
     return this;
   }
@@ -158,7 +153,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive billingIntervalUnit(ShopifySubscriptionBillingIntervalUnit billingIntervalUnit) {
+  public AbstractShopifySubscriptionProductUpdate billingIntervalUnit(ShopifySubscriptionBillingIntervalUnit billingIntervalUnit) {
     this.billingIntervalUnit = billingIntervalUnit;
     return this;
   }
@@ -177,7 +172,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive billingWeekday(ShopifySubscriptionWeekday billingWeekday) {
+  public AbstractShopifySubscriptionProductUpdate billingWeekday(ShopifySubscriptionWeekday billingWeekday) {
     this.billingWeekday = billingWeekday;
     return this;
   }
@@ -196,7 +191,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive fixedPrice(BigDecimal fixedPrice) {
+  public AbstractShopifySubscriptionProductUpdate fixedPrice(BigDecimal fixedPrice) {
     this.fixedPrice = fixedPrice;
     return this;
   }
@@ -215,7 +210,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive maximalBillingCycles(Integer maximalBillingCycles) {
+  public AbstractShopifySubscriptionProductUpdate maximalBillingCycles(Integer maximalBillingCycles) {
     this.maximalBillingCycles = maximalBillingCycles;
     return this;
   }
@@ -234,7 +229,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive maximalSuspendableCycles(Integer maximalSuspendableCycles) {
+  public AbstractShopifySubscriptionProductUpdate maximalSuspendableCycles(Integer maximalSuspendableCycles) {
     this.maximalSuspendableCycles = maximalSuspendableCycles;
     return this;
   }
@@ -253,7 +248,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive minimalBillingCycles(Integer minimalBillingCycles) {
+  public AbstractShopifySubscriptionProductUpdate minimalBillingCycles(Integer minimalBillingCycles) {
     this.minimalBillingCycles = minimalBillingCycles;
     return this;
   }
@@ -272,7 +267,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive pricingOption(ShopifySubscriptionProductPricingOption pricingOption) {
+  public AbstractShopifySubscriptionProductUpdate pricingOption(ShopifySubscriptionProductPricingOption pricingOption) {
     this.pricingOption = pricingOption;
     return this;
   }
@@ -291,7 +286,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive relativePriceAdjustment(BigDecimal relativePriceAdjustment) {
+  public AbstractShopifySubscriptionProductUpdate relativePriceAdjustment(BigDecimal relativePriceAdjustment) {
     this.relativePriceAdjustment = relativePriceAdjustment;
     return this;
   }
@@ -310,26 +305,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive state(ShopifySubscriptionProductState state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * 
-   * @return state
-  **/
-  @ApiModelProperty(value = "")
-  public ShopifySubscriptionProductState getState() {
-    return state;
-  }
-
-  public void setState(ShopifySubscriptionProductState state) {
-    this.state = state;
-  }
-
-  
-  public AbstractShopifySubscriptionProductActive storeOrderConfirmationEmailEnabled(Boolean storeOrderConfirmationEmailEnabled) {
+  public AbstractShopifySubscriptionProductUpdate storeOrderConfirmationEmailEnabled(Boolean storeOrderConfirmationEmailEnabled) {
     this.storeOrderConfirmationEmailEnabled = storeOrderConfirmationEmailEnabled;
     return this;
   }
@@ -348,7 +324,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive subscriberSuspensionAllowed(Boolean subscriberSuspensionAllowed) {
+  public AbstractShopifySubscriptionProductUpdate subscriberSuspensionAllowed(Boolean subscriberSuspensionAllowed) {
     this.subscriberSuspensionAllowed = subscriberSuspensionAllowed;
     return this;
   }
@@ -367,7 +343,7 @@ public class AbstractShopifySubscriptionProductActive {
   }
 
   
-  public AbstractShopifySubscriptionProductActive terminationBillingCycles(Integer terminationBillingCycles) {
+  public AbstractShopifySubscriptionProductUpdate terminationBillingCycles(Integer terminationBillingCycles) {
     this.terminationBillingCycles = terminationBillingCycles;
     return this;
   }
@@ -395,34 +371,33 @@ public class AbstractShopifySubscriptionProductActive {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AbstractShopifySubscriptionProductActive abstractShopifySubscriptionProductActive = (AbstractShopifySubscriptionProductActive) o;
-    return Objects.equals(this.absolutePriceAdjustment, abstractShopifySubscriptionProductActive.absolutePriceAdjustment) &&
-        Objects.equals(this.billingDayOfMonth, abstractShopifySubscriptionProductActive.billingDayOfMonth) &&
-        Objects.equals(this.billingIntervalAmount, abstractShopifySubscriptionProductActive.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, abstractShopifySubscriptionProductActive.billingIntervalUnit) &&
-        Objects.equals(this.billingWeekday, abstractShopifySubscriptionProductActive.billingWeekday) &&
-        Objects.equals(this.fixedPrice, abstractShopifySubscriptionProductActive.fixedPrice) &&
-        Objects.equals(this.maximalBillingCycles, abstractShopifySubscriptionProductActive.maximalBillingCycles) &&
-        Objects.equals(this.maximalSuspendableCycles, abstractShopifySubscriptionProductActive.maximalSuspendableCycles) &&
-        Objects.equals(this.minimalBillingCycles, abstractShopifySubscriptionProductActive.minimalBillingCycles) &&
-        Objects.equals(this.pricingOption, abstractShopifySubscriptionProductActive.pricingOption) &&
-        Objects.equals(this.relativePriceAdjustment, abstractShopifySubscriptionProductActive.relativePriceAdjustment) &&
-        Objects.equals(this.state, abstractShopifySubscriptionProductActive.state) &&
-        Objects.equals(this.storeOrderConfirmationEmailEnabled, abstractShopifySubscriptionProductActive.storeOrderConfirmationEmailEnabled) &&
-        Objects.equals(this.subscriberSuspensionAllowed, abstractShopifySubscriptionProductActive.subscriberSuspensionAllowed) &&
-        Objects.equals(this.terminationBillingCycles, abstractShopifySubscriptionProductActive.terminationBillingCycles);
+    AbstractShopifySubscriptionProductUpdate abstractShopifySubscriptionProductUpdate = (AbstractShopifySubscriptionProductUpdate) o;
+    return Objects.equals(this.absolutePriceAdjustment, abstractShopifySubscriptionProductUpdate.absolutePriceAdjustment) &&
+        Objects.equals(this.billingDayOfMonth, abstractShopifySubscriptionProductUpdate.billingDayOfMonth) &&
+        Objects.equals(this.billingIntervalAmount, abstractShopifySubscriptionProductUpdate.billingIntervalAmount) &&
+        Objects.equals(this.billingIntervalUnit, abstractShopifySubscriptionProductUpdate.billingIntervalUnit) &&
+        Objects.equals(this.billingWeekday, abstractShopifySubscriptionProductUpdate.billingWeekday) &&
+        Objects.equals(this.fixedPrice, abstractShopifySubscriptionProductUpdate.fixedPrice) &&
+        Objects.equals(this.maximalBillingCycles, abstractShopifySubscriptionProductUpdate.maximalBillingCycles) &&
+        Objects.equals(this.maximalSuspendableCycles, abstractShopifySubscriptionProductUpdate.maximalSuspendableCycles) &&
+        Objects.equals(this.minimalBillingCycles, abstractShopifySubscriptionProductUpdate.minimalBillingCycles) &&
+        Objects.equals(this.pricingOption, abstractShopifySubscriptionProductUpdate.pricingOption) &&
+        Objects.equals(this.relativePriceAdjustment, abstractShopifySubscriptionProductUpdate.relativePriceAdjustment) &&
+        Objects.equals(this.storeOrderConfirmationEmailEnabled, abstractShopifySubscriptionProductUpdate.storeOrderConfirmationEmailEnabled) &&
+        Objects.equals(this.subscriberSuspensionAllowed, abstractShopifySubscriptionProductUpdate.subscriberSuspensionAllowed) &&
+        Objects.equals(this.terminationBillingCycles, abstractShopifySubscriptionProductUpdate.terminationBillingCycles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, pricingOption, relativePriceAdjustment, state, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles);
+    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, pricingOption, relativePriceAdjustment, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AbstractShopifySubscriptionProductActive {\n");
+    sb.append("class AbstractShopifySubscriptionProductUpdate {\n");
     
     sb.append("    absolutePriceAdjustment: ").append(toIndentedString(absolutePriceAdjustment)).append("\n");
     sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
@@ -435,7 +410,6 @@ public class AbstractShopifySubscriptionProductActive {
     sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
     sb.append("    pricingOption: ").append(toIndentedString(pricingOption)).append("\n");
     sb.append("    relativePriceAdjustment: ").append(toIndentedString(relativePriceAdjustment)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
     sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
     sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");

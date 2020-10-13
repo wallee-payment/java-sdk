@@ -12,11 +12,7 @@ import com.wallee.sdk.model.HumanUserUpdate;
 import com.wallee.sdk.model.ServerError;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
 import javax.ws.rs.core.UriBuilder;
@@ -97,7 +93,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse countForHttpResponse(java.io.InputStream filter, String mediaType) throws IOException {
@@ -110,7 +109,10 @@ public class HumanUserService {
               HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -139,9 +141,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Create
@@ -201,7 +205,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse createForHttpResponse(java.io.InputStream entity, String mediaType) throws IOException {
@@ -217,7 +224,10 @@ public class HumanUserService {
               HttpContent content = entity == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse createForHttpResponse(HumanUserCreate entity, Map<String, Object> params) throws IOException {
@@ -249,9 +259,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Delete
@@ -297,7 +309,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse deleteForHttpResponse(java.io.InputStream id, String mediaType) throws IOException {
@@ -313,7 +328,10 @@ public class HumanUserService {
               HttpContent content = id == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse deleteForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -345,9 +363,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Export
@@ -407,7 +427,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse exportForHttpResponse(java.io.InputStream request, String mediaType) throws IOException {
@@ -423,7 +446,10 @@ public class HumanUserService {
               HttpContent content = request == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse exportForHttpResponse(EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -455,9 +481,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Read
@@ -528,7 +556,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse readForHttpResponse(Long id, Map<String, Object> params) throws IOException {
@@ -562,9 +593,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Search
@@ -624,7 +657,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse searchForHttpResponse(java.io.InputStream query, String mediaType) throws IOException {
@@ -640,7 +676,10 @@ public class HumanUserService {
               HttpContent content = query == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -672,9 +711,11 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Update
@@ -736,7 +777,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse updateForHttpResponse(java.io.InputStream entity, String mediaType) throws IOException {
@@ -752,7 +796,10 @@ public class HumanUserService {
               HttpContent content = entity == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse updateForHttpResponse(HumanUserUpdate entity, Map<String, Object> params) throws IOException {
@@ -784,8 +831,10 @@ public class HumanUserService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
 }

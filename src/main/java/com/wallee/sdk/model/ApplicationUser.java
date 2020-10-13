@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -25,9 +25,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Account;
+import com.wallee.sdk.model.CreationEntityState;
+import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.User;
+import com.wallee.sdk.model.UserType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -48,6 +52,10 @@ public class ApplicationUser extends User {
   
   @JsonProperty("requestLimit")
   protected Long requestLimit = null;
+
+  
+  @JsonProperty("scope")
+  protected Scope scope = null;
 
   
   
@@ -81,6 +89,16 @@ public class ApplicationUser extends User {
   }
 
   
+   /**
+   * The scope to which the user belongs to.
+   * @return scope
+  **/
+  @ApiModelProperty(value = "The scope to which the user belongs to.")
+  public Scope getScope() {
+    return scope;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,21 +109,16 @@ public class ApplicationUser extends User {
       return false;
     }
     ApplicationUser applicationUser = (ApplicationUser) o;
-    return Objects.equals(this.id, applicationUser.id) &&
-        Objects.equals(this.plannedPurgeDate, applicationUser.plannedPurgeDate) &&
-        Objects.equals(this.scope, applicationUser.scope) &&
-        Objects.equals(this.state, applicationUser.state) &&
-        Objects.equals(this.userType, applicationUser.userType) &&
-        Objects.equals(this.version, applicationUser.version) &&
-        Objects.equals(this.name, applicationUser.name) &&
+    return Objects.equals(this.name, applicationUser.name) &&
         Objects.equals(this.primaryAccount, applicationUser.primaryAccount) &&
         Objects.equals(this.requestLimit, applicationUser.requestLimit) &&
+        Objects.equals(this.scope, applicationUser.scope) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, plannedPurgeDate, scope, state, userType, version, name, primaryAccount, requestLimit, super.hashCode());
+    return Objects.hash(name, primaryAccount, requestLimit, scope, super.hashCode());
   }
 
 
@@ -114,15 +127,10 @@ public class ApplicationUser extends User {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationUser {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
     sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("}");
     return sb.toString();
   }

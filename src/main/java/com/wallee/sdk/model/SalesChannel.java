@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.SalesChannel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -43,12 +44,24 @@ public class SalesChannel {
   protected Map<String, String> description = null;
 
   
+  @JsonProperty("icon")
+  protected String icon = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
   
   @JsonProperty("name")
   protected Map<String, String> name = null;
+
+  
+  @JsonProperty("parent")
+  protected SalesChannel parent = null;
+
+  
+  @JsonProperty("sortOrder")
+  protected Integer sortOrder = null;
 
   
   
@@ -59,6 +72,16 @@ public class SalesChannel {
   @ApiModelProperty(value = "")
   public Map<String, String> getDescription() {
     return description;
+  }
+
+  
+   /**
+   * 
+   * @return icon
+  **/
+  @ApiModelProperty(value = "")
+  public String getIcon() {
+    return icon;
   }
 
   
@@ -82,6 +105,26 @@ public class SalesChannel {
   }
 
   
+   /**
+   * 
+   * @return parent
+  **/
+  @ApiModelProperty(value = "")
+  public SalesChannel getParent() {
+    return parent;
+  }
+
+  
+   /**
+   * 
+   * @return sortOrder
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getSortOrder() {
+    return sortOrder;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,13 +136,16 @@ public class SalesChannel {
     }
     SalesChannel salesChannel = (SalesChannel) o;
     return Objects.equals(this.description, salesChannel.description) &&
+        Objects.equals(this.icon, salesChannel.icon) &&
         Objects.equals(this.id, salesChannel.id) &&
-        Objects.equals(this.name, salesChannel.name);
+        Objects.equals(this.name, salesChannel.name) &&
+        Objects.equals(this.parent, salesChannel.parent) &&
+        Objects.equals(this.sortOrder, salesChannel.sortOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name);
+    return Objects.hash(description, icon, id, name, parent, sortOrder);
   }
 
 
@@ -109,8 +155,11 @@ public class SalesChannel {
     sb.append("class SalesChannel {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("}");
     return sb.toString();
   }

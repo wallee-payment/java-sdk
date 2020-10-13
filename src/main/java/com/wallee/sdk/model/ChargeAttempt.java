@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.TransactionAwareEntity;
+import com.wallee.sdk.model.TransactionCompletionBehavior;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -51,6 +52,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("charge")
   protected Charge charge = null;
+
+  
+  @JsonProperty("completionBehavior")
+  protected TransactionCompletionBehavior completionBehavior = null;
 
   
   @JsonProperty("connectorConfiguration")
@@ -87,6 +92,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("nextUpdateOn")
@@ -149,6 +158,16 @@ public class ChargeAttempt extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public Charge getCharge() {
     return charge;
+  }
+
+  
+   /**
+   * 
+   * @return completionBehavior
+  **/
+  @ApiModelProperty(value = "")
+  public TransactionCompletionBehavior getCompletionBehavior() {
+    return completionBehavior;
   }
 
   
@@ -239,6 +258,16 @@ public class ChargeAttempt extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public String getLanguage() {
     return language;
+  }
+
+  
+   /**
+   * The linked space id holds the ID of the space to which the entity belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
   }
 
   
@@ -382,10 +411,8 @@ public class ChargeAttempt extends TransactionAwareEntity {
       return false;
     }
     ChargeAttempt chargeAttempt = (ChargeAttempt) o;
-    return Objects.equals(this.id, chargeAttempt.id) &&
-        Objects.equals(this.linkedSpaceId, chargeAttempt.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, chargeAttempt.linkedTransaction) &&
-        Objects.equals(this.charge, chargeAttempt.charge) &&
+    return Objects.equals(this.charge, chargeAttempt.charge) &&
+        Objects.equals(this.completionBehavior, chargeAttempt.completionBehavior) &&
         Objects.equals(this.connectorConfiguration, chargeAttempt.connectorConfiguration) &&
         Objects.equals(this.createdOn, chargeAttempt.createdOn) &&
         Objects.equals(this.environment, chargeAttempt.environment) &&
@@ -395,6 +422,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.invocation, chargeAttempt.invocation) &&
         Objects.equals(this.labels, chargeAttempt.labels) &&
         Objects.equals(this.language, chargeAttempt.language) &&
+        Objects.equals(this.linkedSpaceId, chargeAttempt.linkedSpaceId) &&
         Objects.equals(this.nextUpdateOn, chargeAttempt.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, chargeAttempt.plannedPurgeDate) &&
         Objects.equals(this.redirectionUrl, chargeAttempt.redirectionUrl) &&
@@ -413,7 +441,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
+    return Objects.hash(charge, completionBehavior, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, linkedSpaceId, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
   }
 
 
@@ -422,10 +450,8 @@ public class ChargeAttempt extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeAttempt {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    charge: ").append(toIndentedString(charge)).append("\n");
+    sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
     sb.append("    connectorConfiguration: ").append(toIndentedString(connectorConfiguration)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
@@ -435,6 +461,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    invocation: ").append(toIndentedString(invocation)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    redirectionUrl: ").append(toIndentedString(redirectionUrl)).append("\n");

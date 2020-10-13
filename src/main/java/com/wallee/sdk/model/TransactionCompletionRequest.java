@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -43,6 +43,10 @@ public class TransactionCompletionRequest {
   protected String externalId = null;
 
   
+  @JsonProperty("invoiceMerchantReference")
+  protected String invoiceMerchantReference = null;
+
+  
   @JsonProperty("lastCompletion")
   protected Boolean lastCompletion = null;
 
@@ -72,6 +76,25 @@ public class TransactionCompletionRequest {
 
   public void setExternalId(String externalId) {
     this.externalId = externalId;
+  }
+
+  
+  public TransactionCompletionRequest invoiceMerchantReference(String invoiceMerchantReference) {
+    this.invoiceMerchantReference = invoiceMerchantReference;
+    return this;
+  }
+
+   /**
+   * 
+   * @return invoiceMerchantReference
+  **/
+  @ApiModelProperty(value = "")
+  public String getInvoiceMerchantReference() {
+    return invoiceMerchantReference;
+  }
+
+  public void setInvoiceMerchantReference(String invoiceMerchantReference) {
+    this.invoiceMerchantReference = invoiceMerchantReference;
   }
 
   
@@ -151,6 +174,7 @@ public class TransactionCompletionRequest {
     }
     TransactionCompletionRequest transactionCompletionRequest = (TransactionCompletionRequest) o;
     return Objects.equals(this.externalId, transactionCompletionRequest.externalId) &&
+        Objects.equals(this.invoiceMerchantReference, transactionCompletionRequest.invoiceMerchantReference) &&
         Objects.equals(this.lastCompletion, transactionCompletionRequest.lastCompletion) &&
         Objects.equals(this.lineItems, transactionCompletionRequest.lineItems) &&
         Objects.equals(this.transactionId, transactionCompletionRequest.transactionId);
@@ -158,7 +182,7 @@ public class TransactionCompletionRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, lastCompletion, lineItems, transactionId);
+    return Objects.hash(externalId, invoiceMerchantReference, lastCompletion, lineItems, transactionId);
   }
 
 
@@ -168,6 +192,7 @@ public class TransactionCompletionRequest {
     sb.append("class TransactionCompletionRequest {\n");
     
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
     sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");

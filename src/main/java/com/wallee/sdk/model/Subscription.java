@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Subscriber;
 import com.wallee.sdk.model.SubscriptionAffiliate;
+import com.wallee.sdk.model.SubscriptionProductVersion;
 import com.wallee.sdk.model.SubscriptionState;
 import com.wallee.sdk.model.Token;
 import io.swagger.annotations.ApiModel;
@@ -51,6 +52,10 @@ public class Subscription {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
+
+  
+  @JsonProperty("currentProductVersion")
+  protected SubscriptionProductVersion currentProductVersion = null;
 
   
   @JsonProperty("description")
@@ -145,6 +150,16 @@ public class Subscription {
   @ApiModelProperty(value = "")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * 
+   * @return currentProductVersion
+  **/
+  @ApiModelProperty(value = "")
+  public SubscriptionProductVersion getCurrentProductVersion() {
+    return currentProductVersion;
   }
 
   
@@ -321,6 +336,7 @@ public class Subscription {
     return Objects.equals(this.activatedOn, subscription.activatedOn) &&
         Objects.equals(this.affiliate, subscription.affiliate) &&
         Objects.equals(this.createdOn, subscription.createdOn) &&
+        Objects.equals(this.currentProductVersion, subscription.currentProductVersion) &&
         Objects.equals(this.description, subscription.description) &&
         Objects.equals(this.id, subscription.id) &&
         Objects.equals(this.initializedOn, subscription.initializedOn) &&
@@ -341,7 +357,7 @@ public class Subscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, affiliate, createdOn, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedBy, terminatedOn, terminatingOn, terminationScheduledOn, token, version);
+    return Objects.hash(activatedOn, affiliate, createdOn, currentProductVersion, description, id, initializedOn, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, reference, state, subscriber, terminatedBy, terminatedOn, terminatingOn, terminationScheduledOn, token, version);
   }
 
 
@@ -353,6 +369,7 @@ public class Subscription {
     sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
     sb.append("    affiliate: ").append(toIndentedString(affiliate)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    currentProductVersion: ").append(toIndentedString(currentProductVersion)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializedOn: ").append(toIndentedString(initializedOn)).append("\n");

@@ -14,11 +14,7 @@ import com.wallee.sdk.model.SubscriptionVersion;
 import com.wallee.sdk.model.TransactionInvoice;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.api.client.http.GenericUrl;
-import com.google.api.client.http.HttpContent;
-import com.google.api.client.http.InputStreamContent;
-import com.google.api.client.http.HttpMethods;
-import com.google.api.client.http.HttpResponse;
+import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
 import javax.ws.rs.core.UriBuilder;
@@ -121,7 +117,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse applyChangesForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
@@ -151,7 +150,10 @@ public class SubscriptionService {
               HttpContent content = request == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse applyChangesForHttpResponse(Long spaceId, SubscriptionChangeRequest request, Map<String, Object> params) throws IOException {
@@ -188,9 +190,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Count
@@ -262,7 +266,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
@@ -289,7 +296,10 @@ public class SubscriptionService {
               HttpContent content = filter == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -323,9 +333,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Create
@@ -401,7 +413,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(createRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream createRequest, String mediaType) throws IOException {
@@ -431,7 +446,10 @@ public class SubscriptionService {
               HttpContent content = createRequest == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, createRequest);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse createForHttpResponse(Long spaceId, SubscriptionCreateRequest createRequest, Map<String, Object> params) throws IOException {
@@ -468,9 +486,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(createRequest);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * initialize
@@ -556,7 +576,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse initializeForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
@@ -595,9 +618,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * initializeSubscriberPresent
@@ -707,7 +732,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse initializeSubscriberPresentForHttpResponse(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
@@ -746,9 +774,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Read
@@ -834,7 +864,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse readForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -873,9 +906,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = null;
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Search
@@ -951,7 +986,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
@@ -981,7 +1019,10 @@ public class SubscriptionService {
               HttpContent content = query == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1018,9 +1059,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * Search Subscription Invoices
@@ -1111,7 +1154,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
       public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, java.io.InputStream query, String mediaType) throws IOException {
@@ -1154,7 +1200,10 @@ public class SubscriptionService {
               HttpContent content = query == null ?
                 apiClient.new JacksonJsonHttpContent(null) :
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
       }
 
     public HttpResponse searchSubscriptionInvoicesForHttpResponse(Long spaceId, Long subscriptionId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1196,9 +1245,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * terminate
@@ -1283,7 +1334,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse terminateForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
@@ -1327,9 +1381,11 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
   /**
     * update product version
@@ -1432,7 +1488,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
 
     public HttpResponse updateProductVersionForHttpResponse(Long spaceId, Long subscriptionId, Boolean respectTerminationPeriod, Map<String, Object> params) throws IOException {
@@ -1476,8 +1535,10 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
-        return apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content).execute();
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
     }
-
 
 }

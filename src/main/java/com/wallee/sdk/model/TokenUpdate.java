@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -94,20 +94,14 @@ public class TokenUpdate extends AbstractTokenUpdate {
       return false;
     }
     TokenUpdate tokenUpdate = (TokenUpdate) o;
-    return Objects.equals(this.customerEmailAddress, tokenUpdate.customerEmailAddress) &&
-        Objects.equals(this.customerId, tokenUpdate.customerId) &&
-        Objects.equals(this.enabledForOneClickPayment, tokenUpdate.enabledForOneClickPayment) &&
-        Objects.equals(this.language, tokenUpdate.language) &&
-        Objects.equals(this.timeZone, tokenUpdate.timeZone) &&
-        Objects.equals(this.tokenReference, tokenUpdate.tokenReference) &&
-        Objects.equals(this.id, tokenUpdate.id) &&
+    return Objects.equals(this.id, tokenUpdate.id) &&
         Objects.equals(this.version, tokenUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerEmailAddress, customerId, enabledForOneClickPayment, language, timeZone, tokenReference, id, version, super.hashCode());
+    return Objects.hash(id, version, super.hashCode());
   }
 
 
@@ -116,12 +110,6 @@ public class TokenUpdate extends AbstractTokenUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
-    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
-    sb.append("    enabledForOneClickPayment: ").append(toIndentedString(enabledForOneClickPayment)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-    sb.append("    tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -25,9 +25,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSpaceUpdate;
+import com.wallee.sdk.model.CreationEntityState;
+import com.wallee.sdk.model.SpaceAddressCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
+import java.time.OffsetDateTime;
+import java.util.List;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -95,22 +98,14 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
       return false;
     }
     SpaceUpdate spaceUpdate = (SpaceUpdate) o;
-    return Objects.equals(this.lastModifiedDate, spaceUpdate.lastModifiedDate) &&
-        Objects.equals(this.name, spaceUpdate.name) &&
-        Objects.equals(this.postalAddress, spaceUpdate.postalAddress) &&
-        Objects.equals(this.primaryCurrency, spaceUpdate.primaryCurrency) &&
-        Objects.equals(this.requestLimit, spaceUpdate.requestLimit) &&
-        Objects.equals(this.state, spaceUpdate.state) &&
-        Objects.equals(this.technicalContactAddresses, spaceUpdate.technicalContactAddresses) &&
-        Objects.equals(this.timeZone, spaceUpdate.timeZone) &&
-        Objects.equals(this.id, spaceUpdate.id) &&
+    return Objects.equals(this.id, spaceUpdate.id) &&
         Objects.equals(this.version, spaceUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, id, version, super.hashCode());
+    return Objects.hash(id, version, super.hashCode());
   }
 
 
@@ -119,14 +114,6 @@ public class SpaceUpdate extends AbstractSpaceUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpaceUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-    sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
-    sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    technicalContactAddresses: ").append(toIndentedString(technicalContactAddresses)).append("\n");
-    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

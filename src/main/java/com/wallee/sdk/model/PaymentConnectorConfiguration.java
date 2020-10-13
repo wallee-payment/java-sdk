@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import com.wallee.sdk.model.PaymentProcessorConfiguration;
+import com.wallee.sdk.model.SalesChannel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -52,6 +53,10 @@ public class PaymentConnectorConfiguration {
   
   @JsonProperty("connector")
   protected Long connector = null;
+
+  
+  @JsonProperty("enabledSalesChannels")
+  protected List<SalesChannel> enabledSalesChannels = null;
 
   
   @JsonProperty("enabledSpaceViews")
@@ -122,6 +127,16 @@ public class PaymentConnectorConfiguration {
   @ApiModelProperty(value = "")
   public Long getConnector() {
     return connector;
+  }
+
+  
+   /**
+   * Defines the sales channels the connector configuration is enabled for. In case the set is empty, the connector configuration is enabled for all sales channels.
+   * @return enabledSalesChannels
+  **/
+  @ApiModelProperty(value = "Defines the sales channels the connector configuration is enabled for. In case the set is empty, the connector configuration is enabled for all sales channels.")
+  public List<SalesChannel> getEnabledSalesChannels() {
+    return enabledSalesChannels;
   }
 
   
@@ -238,6 +253,7 @@ public class PaymentConnectorConfiguration {
     return Objects.equals(this.applicableForTransactionProcessing, paymentConnectorConfiguration.applicableForTransactionProcessing) &&
         Objects.equals(this.conditions, paymentConnectorConfiguration.conditions) &&
         Objects.equals(this.connector, paymentConnectorConfiguration.connector) &&
+        Objects.equals(this.enabledSalesChannels, paymentConnectorConfiguration.enabledSalesChannels) &&
         Objects.equals(this.enabledSpaceViews, paymentConnectorConfiguration.enabledSpaceViews) &&
         Objects.equals(this.id, paymentConnectorConfiguration.id) &&
         Objects.equals(this.linkedSpaceId, paymentConnectorConfiguration.linkedSpaceId) &&
@@ -252,7 +268,7 @@ public class PaymentConnectorConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicableForTransactionProcessing, conditions, connector, enabledSpaceViews, id, linkedSpaceId, name, paymentMethodConfiguration, plannedPurgeDate, priority, processorConfiguration, state, version);
+    return Objects.hash(applicableForTransactionProcessing, conditions, connector, enabledSalesChannels, enabledSpaceViews, id, linkedSpaceId, name, paymentMethodConfiguration, plannedPurgeDate, priority, processorConfiguration, state, version);
   }
 
 
@@ -264,6 +280,7 @@ public class PaymentConnectorConfiguration {
     sb.append("    applicableForTransactionProcessing: ").append(toIndentedString(applicableForTransactionProcessing)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    connector: ").append(toIndentedString(connector)).append("\n");
+    sb.append("    enabledSalesChannels: ").append(toIndentedString(enabledSalesChannels)).append("\n");
     sb.append("    enabledSpaceViews: ").append(toIndentedString(enabledSpaceViews)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

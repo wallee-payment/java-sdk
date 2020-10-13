@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -32,8 +32,10 @@ import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentMethodBrand;
+import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TokenizationMode;
+import com.wallee.sdk.model.TransactionCompletionBehavior;
 import com.wallee.sdk.model.TransactionEnvironmentSelectionStrategy;
 import com.wallee.sdk.model.TransactionGroup;
 import com.wallee.sdk.model.TransactionState;
@@ -110,6 +112,10 @@ public class Transaction {
   
   @JsonProperty("completedOn")
   protected OffsetDateTime completedOn = null;
+
+  
+  @JsonProperty("completionBehavior")
+  protected TransactionCompletionBehavior completionBehavior = null;
 
   
   @JsonProperty("completionTimeoutOn")
@@ -262,6 +268,10 @@ public class Transaction {
   
   @JsonProperty("successUrl")
   protected String successUrl = null;
+
+  
+  @JsonProperty("terminal")
+  protected PaymentTerminal terminal = null;
 
   
   @JsonProperty("timeZone")
@@ -438,6 +448,16 @@ public class Transaction {
   @ApiModelProperty(value = "")
   public OffsetDateTime getCompletedOn() {
     return completedOn;
+  }
+
+  
+   /**
+   * The completion behavior controls when the transaction is completed.
+   * @return completionBehavior
+  **/
+  @ApiModelProperty(value = "The completion behavior controls when the transaction is completed.")
+  public TransactionCompletionBehavior getCompletionBehavior() {
+    return completionBehavior;
   }
 
   
@@ -822,6 +842,16 @@ public class Transaction {
 
   
    /**
+   * The terminal on which the payment was processed.
+   * @return terminal
+  **/
+  @ApiModelProperty(value = "The terminal on which the payment was processed.")
+  public PaymentTerminal getTerminal() {
+    return terminal;
+  }
+
+  
+   /**
    * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
    * @return timeZone
   **/
@@ -935,6 +965,7 @@ public class Transaction {
         Objects.equals(this.chargeRetryEnabled, transaction.chargeRetryEnabled) &&
         Objects.equals(this.completedAmount, transaction.completedAmount) &&
         Objects.equals(this.completedOn, transaction.completedOn) &&
+        Objects.equals(this.completionBehavior, transaction.completionBehavior) &&
         Objects.equals(this.completionTimeoutOn, transaction.completionTimeoutOn) &&
         Objects.equals(this.confirmedBy, transaction.confirmedBy) &&
         Objects.equals(this.confirmedOn, transaction.confirmedOn) &&
@@ -973,6 +1004,7 @@ public class Transaction {
         Objects.equals(this.spaceViewId, transaction.spaceViewId) &&
         Objects.equals(this.state, transaction.state) &&
         Objects.equals(this.successUrl, transaction.successUrl) &&
+        Objects.equals(this.terminal, transaction.terminal) &&
         Objects.equals(this.timeZone, transaction.timeZone) &&
         Objects.equals(this.token, transaction.token) &&
         Objects.equals(this.tokenizationMode, transaction.tokenizationMode) &&
@@ -986,7 +1018,7 @@ public class Transaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, timeZone, token, tokenizationMode, totalAppliedFees, totalSettledAmount, userAgentHeader, userFailureMessage, userInterfaceType, version);
+    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionBehavior, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, terminal, timeZone, token, tokenizationMode, totalAppliedFees, totalSettledAmount, userAgentHeader, userFailureMessage, userInterfaceType, version);
   }
 
 
@@ -1009,6 +1041,7 @@ public class Transaction {
     sb.append("    chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
     sb.append("    completedAmount: ").append(toIndentedString(completedAmount)).append("\n");
     sb.append("    completedOn: ").append(toIndentedString(completedOn)).append("\n");
+    sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
     sb.append("    completionTimeoutOn: ").append(toIndentedString(completionTimeoutOn)).append("\n");
     sb.append("    confirmedBy: ").append(toIndentedString(confirmedBy)).append("\n");
     sb.append("    confirmedOn: ").append(toIndentedString(confirmedOn)).append("\n");
@@ -1047,6 +1080,7 @@ public class Transaction {
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
+    sb.append("    terminal: ").append(toIndentedString(terminal)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");

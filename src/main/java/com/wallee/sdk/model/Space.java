@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -53,6 +53,14 @@ public class Space {
   
   @JsonProperty("activeOrRestrictedActive")
   protected Boolean activeOrRestrictedActive = null;
+
+  
+  @JsonProperty("createdBy")
+  protected Long createdBy = null;
+
+  
+  @JsonProperty("createdOn")
+  protected OffsetDateTime createdOn = null;
 
   
   @JsonProperty("database")
@@ -143,6 +151,26 @@ public class Space {
   @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
   public Boolean isActiveOrRestrictedActive() {
     return activeOrRestrictedActive;
+  }
+
+  
+   /**
+   * The ID of the user who created this entity.
+   * @return createdBy
+  **/
+  @ApiModelProperty(value = "The ID of the user who created this entity.")
+  public Long getCreatedBy() {
+    return createdBy;
+  }
+
+  
+   /**
+   * The date and time when this entity was created.
+   * @return createdOn
+  **/
+  @ApiModelProperty(value = "The date and time when this entity was created.")
+  public OffsetDateTime getCreatedOn() {
+    return createdOn;
   }
 
   
@@ -309,6 +337,8 @@ public class Space {
     return Objects.equals(this.account, space.account) &&
         Objects.equals(this.active, space.active) &&
         Objects.equals(this.activeOrRestrictedActive, space.activeOrRestrictedActive) &&
+        Objects.equals(this.createdBy, space.createdBy) &&
+        Objects.equals(this.createdOn, space.createdOn) &&
         Objects.equals(this.database, space.database) &&
         Objects.equals(this.deletedBy, space.deletedBy) &&
         Objects.equals(this.deletedOn, space.deletedOn) &&
@@ -328,7 +358,7 @@ public class Space {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, active, activeOrRestrictedActive, database, deletedBy, deletedOn, id, lastModifiedDate, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
+    return Objects.hash(account, active, activeOrRestrictedActive, createdBy, createdOn, database, deletedBy, deletedOn, id, lastModifiedDate, name, plannedPurgeDate, postalAddress, primaryCurrency, requestLimit, restrictedActive, state, technicalContactAddresses, timeZone, version);
   }
 
 
@@ -340,6 +370,8 @@ public class Space {
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
     sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");

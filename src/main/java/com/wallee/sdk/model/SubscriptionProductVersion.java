@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
+import com.wallee.sdk.model.TaxCalculation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -116,6 +117,10 @@ public class SubscriptionProductVersion {
   
   @JsonProperty("state")
   protected SubscriptionProductVersionState state = null;
+
+  
+  @JsonProperty("taxCalculation")
+  protected TaxCalculation taxCalculation = null;
 
   
   @JsonProperty("version")
@@ -314,6 +319,16 @@ public class SubscriptionProductVersion {
 
   
    /**
+   * Strategy that is used for tax calculation in fees.
+   * @return taxCalculation
+  **/
+  @ApiModelProperty(value = "Strategy that is used for tax calculation in fees.")
+  public TaxCalculation getTaxCalculation() {
+    return taxCalculation;
+  }
+
+  
+   /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
   **/
@@ -352,12 +367,13 @@ public class SubscriptionProductVersion {
         Objects.equals(this.retiringFinishedOn, subscriptionProductVersion.retiringFinishedOn) &&
         Objects.equals(this.retiringStartedOn, subscriptionProductVersion.retiringStartedOn) &&
         Objects.equals(this.state, subscriptionProductVersion.state) &&
+        Objects.equals(this.taxCalculation, subscriptionProductVersion.taxCalculation) &&
         Objects.equals(this.version, subscriptionProductVersion.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, billingCycle, comment, createdOn, defaultCurrency, enabledCurrencies, id, incrementNumber, linkedSpaceId, minimalNumberOfPeriods, name, numberOfNoticePeriods, obsoletedOn, plannedPurgeDate, product, reference, retiringFinishedOn, retiringStartedOn, state, version);
+    return Objects.hash(activatedOn, billingCycle, comment, createdOn, defaultCurrency, enabledCurrencies, id, incrementNumber, linkedSpaceId, minimalNumberOfPeriods, name, numberOfNoticePeriods, obsoletedOn, plannedPurgeDate, product, reference, retiringFinishedOn, retiringStartedOn, state, taxCalculation, version);
   }
 
 
@@ -385,6 +401,7 @@ public class SubscriptionProductVersion {
     sb.append("    retiringFinishedOn: ").append(toIndentedString(retiringFinishedOn)).append("\n");
     sb.append("    retiringStartedOn: ").append(toIndentedString(retiringStartedOn)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    taxCalculation: ").append(toIndentedString(taxCalculation)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

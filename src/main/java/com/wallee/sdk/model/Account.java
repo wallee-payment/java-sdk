@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -46,6 +46,14 @@ public class Account {
   
   @JsonProperty("activeOrRestrictedActive")
   protected Boolean activeOrRestrictedActive = null;
+
+  
+  @JsonProperty("createdBy")
+  protected Long createdBy = null;
+
+  
+  @JsonProperty("createdOn")
+  protected OffsetDateTime createdOn = null;
 
   
   @JsonProperty("deletedBy")
@@ -118,6 +126,26 @@ public class Account {
   @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
   public Boolean isActiveOrRestrictedActive() {
     return activeOrRestrictedActive;
+  }
+
+  
+   /**
+   * The ID of the user who created this entity.
+   * @return createdBy
+  **/
+  @ApiModelProperty(value = "The ID of the user who created this entity.")
+  public Long getCreatedBy() {
+    return createdBy;
+  }
+
+  
+   /**
+   * The date and time when this entity was created.
+   * @return createdOn
+  **/
+  @ApiModelProperty(value = "The date and time when this entity was created.")
+  public OffsetDateTime getCreatedOn() {
+    return createdOn;
   }
 
   
@@ -263,6 +291,8 @@ public class Account {
     Account account = (Account) o;
     return Objects.equals(this.active, account.active) &&
         Objects.equals(this.activeOrRestrictedActive, account.activeOrRestrictedActive) &&
+        Objects.equals(this.createdBy, account.createdBy) &&
+        Objects.equals(this.createdOn, account.createdOn) &&
         Objects.equals(this.deletedBy, account.deletedBy) &&
         Objects.equals(this.deletedOn, account.deletedOn) &&
         Objects.equals(this.id, account.id) &&
@@ -280,7 +310,7 @@ public class Account {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, activeOrRestrictedActive, deletedBy, deletedOn, id, lastModifiedDate, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
+    return Objects.hash(active, activeOrRestrictedActive, createdBy, createdOn, deletedBy, deletedOn, id, lastModifiedDate, name, parentAccount, plannedPurgeDate, restrictedActive, scope, state, subaccountLimit, type, version);
   }
 
 
@@ -291,6 +321,8 @@ public class Account {
     
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    activeOrRestrictedActive: ").append(toIndentedString(activeOrRestrictedActive)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    deletedBy: ").append(toIndentedString(deletedBy)).append("\n");
     sb.append("    deletedOn: ").append(toIndentedString(deletedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

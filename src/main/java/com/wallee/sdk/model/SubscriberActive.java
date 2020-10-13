@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -24,12 +24,13 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.SubscriberUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -74,24 +75,13 @@ public class SubscriberActive extends SubscriberUpdate {
       return false;
     }
     SubscriberActive subscriberActive = (SubscriberActive) o;
-    return Objects.equals(this.id, subscriberActive.id) &&
-        Objects.equals(this.version, subscriberActive.version) &&
-        Objects.equals(this.additionalAllowedPaymentMethodConfigurations, subscriberActive.additionalAllowedPaymentMethodConfigurations) &&
-        Objects.equals(this.billingAddress, subscriberActive.billingAddress) &&
-        Objects.equals(this.description, subscriberActive.description) &&
-        Objects.equals(this.disallowedPaymentMethodConfigurations, subscriberActive.disallowedPaymentMethodConfigurations) &&
-        Objects.equals(this.emailAddress, subscriberActive.emailAddress) &&
-        Objects.equals(this.language, subscriberActive.language) &&
-        Objects.equals(this.metaData, subscriberActive.metaData) &&
-        Objects.equals(this.reference, subscriberActive.reference) &&
-        Objects.equals(this.shippingAddress, subscriberActive.shippingAddress) &&
-        Objects.equals(this.state, subscriberActive.state) &&
+    return Objects.equals(this.state, subscriberActive.state) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, metaData, reference, shippingAddress, state, super.hashCode());
+    return Objects.hash(state, super.hashCode());
   }
 
 
@@ -100,17 +90,6 @@ public class SubscriberActive extends SubscriberUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriberActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    additionalAllowedPaymentMethodConfigurations: ").append(toIndentedString(additionalAllowedPaymentMethodConfigurations)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
-    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

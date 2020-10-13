@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -52,6 +52,10 @@ public class Charge extends TransactionAwareEntity {
   
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -118,6 +122,16 @@ public class Charge extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public String getLanguage() {
     return language;
+  }
+
+  
+   /**
+   * The linked space id holds the ID of the space to which the entity belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
   }
 
   
@@ -221,12 +235,10 @@ public class Charge extends TransactionAwareEntity {
       return false;
     }
     Charge charge = (Charge) o;
-    return Objects.equals(this.id, charge.id) &&
-        Objects.equals(this.linkedSpaceId, charge.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, charge.linkedTransaction) &&
-        Objects.equals(this.createdOn, charge.createdOn) &&
+    return Objects.equals(this.createdOn, charge.createdOn) &&
         Objects.equals(this.failureReason, charge.failureReason) &&
         Objects.equals(this.language, charge.language) &&
+        Objects.equals(this.linkedSpaceId, charge.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, charge.plannedPurgeDate) &&
         Objects.equals(this.spaceViewId, charge.spaceViewId) &&
         Objects.equals(this.state, charge.state) &&
@@ -241,7 +253,7 @@ public class Charge extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeZone, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
+    return Objects.hash(createdOn, failureReason, language, linkedSpaceId, plannedPurgeDate, spaceViewId, state, timeZone, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
   }
 
 
@@ -250,12 +262,10 @@ public class Charge extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class Charge {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -25,9 +25,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriptionProductActive;
+import com.wallee.sdk.model.SubscriptionProductState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -72,18 +73,13 @@ public class SubscriptionProductCreate extends AbstractSubscriptionProductActive
       return false;
     }
     SubscriptionProductCreate subscriptionProductCreate = (SubscriptionProductCreate) o;
-    return Objects.equals(this.allowedPaymentMethodConfigurations, subscriptionProductCreate.allowedPaymentMethodConfigurations) &&
-        Objects.equals(this.failedPaymentSuspensionPeriod, subscriptionProductCreate.failedPaymentSuspensionPeriod) &&
-        Objects.equals(this.name, subscriptionProductCreate.name) &&
-        Objects.equals(this.sortOrder, subscriptionProductCreate.sortOrder) &&
-        Objects.equals(this.state, subscriptionProductCreate.state) &&
-        Objects.equals(this.reference, subscriptionProductCreate.reference) &&
+    return Objects.equals(this.reference, subscriptionProductCreate.reference) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, sortOrder, state, reference, super.hashCode());
+    return Objects.hash(reference, super.hashCode());
   }
 
 
@@ -92,11 +88,6 @@ public class SubscriptionProductCreate extends AbstractSubscriptionProductActive
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionProductCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
-    sb.append("    failedPaymentSuspensionPeriod: ").append(toIndentedString(failedPaymentSuspensionPeriod)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("}");
     return sb.toString();

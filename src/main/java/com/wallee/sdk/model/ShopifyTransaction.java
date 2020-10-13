@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -51,6 +51,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
   
   @JsonProperty("integration")
   protected ShopifyIntegration integration = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("orderId")
@@ -105,6 +109,16 @@ public class ShopifyTransaction extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public ShopifyIntegration getIntegration() {
     return integration;
+  }
+
+  
+   /**
+   * The linked space id holds the ID of the space to which the entity belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
   }
 
   
@@ -178,12 +192,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
       return false;
     }
     ShopifyTransaction shopifyTransaction = (ShopifyTransaction) o;
-    return Objects.equals(this.id, shopifyTransaction.id) &&
-        Objects.equals(this.linkedSpaceId, shopifyTransaction.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, shopifyTransaction.linkedTransaction) &&
-        Objects.equals(this.checkoutId, shopifyTransaction.checkoutId) &&
+    return Objects.equals(this.checkoutId, shopifyTransaction.checkoutId) &&
         Objects.equals(this.createdOn, shopifyTransaction.createdOn) &&
         Objects.equals(this.integration, shopifyTransaction.integration) &&
+        Objects.equals(this.linkedSpaceId, shopifyTransaction.linkedSpaceId) &&
         Objects.equals(this.orderId, shopifyTransaction.orderId) &&
         Objects.equals(this.orderName, shopifyTransaction.orderName) &&
         Objects.equals(this.plannedPurgeDate, shopifyTransaction.plannedPurgeDate) &&
@@ -195,7 +207,7 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, checkoutId, createdOn, integration, orderId, orderName, plannedPurgeDate, state, transaction, version, super.hashCode());
+    return Objects.hash(checkoutId, createdOn, integration, linkedSpaceId, orderId, orderName, plannedPurgeDate, state, transaction, version, super.hashCode());
   }
 
 
@@ -204,12 +216,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopifyTransaction {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    checkoutId: ").append(toIndentedString(checkoutId)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    orderName: ").append(toIndentedString(orderName)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

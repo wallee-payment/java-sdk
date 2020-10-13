@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -21,12 +21,9 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractWebhookUrlUpdate;
+import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -47,16 +44,12 @@ public class WebhookUrlCreate extends AbstractWebhookUrlUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebhookUrlCreate webhookUrlCreate = (WebhookUrlCreate) o;
-    return Objects.equals(this.name, webhookUrlCreate.name) &&
-        Objects.equals(this.state, webhookUrlCreate.state) &&
-        Objects.equals(this.url, webhookUrlCreate.url) &&
-        super.equals(o);
+    return super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, state, url, super.hashCode());
+    return Objects.hash(super.hashCode());
   }
 
 
@@ -65,9 +58,6 @@ public class WebhookUrlCreate extends AbstractWebhookUrlUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookUrlCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

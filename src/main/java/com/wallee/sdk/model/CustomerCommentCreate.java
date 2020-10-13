@@ -1,7 +1,7 @@
 /**
-*  SDK
+* wallee SDK
 *
-* This library allows to interact with the  payment service.
+* This library allows to interact with the wallee payment service.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -71,14 +71,13 @@ public class CustomerCommentCreate extends AbstractCustomerCommentActive {
       return false;
     }
     CustomerCommentCreate customerCommentCreate = (CustomerCommentCreate) o;
-    return Objects.equals(this.content, customerCommentCreate.content) &&
-        Objects.equals(this.customer, customerCommentCreate.customer) &&
+    return Objects.equals(this.customer, customerCommentCreate.customer) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, customer, super.hashCode());
+    return Objects.hash(customer, super.hashCode());
   }
 
 
@@ -87,7 +86,6 @@ public class CustomerCommentCreate extends AbstractCustomerCommentActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerCommentCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("}");
     return sb.toString();
