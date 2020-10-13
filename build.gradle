@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '2.2.8'
+version = '2.2.9'
 
 buildscript {
     repositories {
@@ -99,7 +99,7 @@ ext {
     google_api_client_version = "1.23.0"
     jersey_common_version = "2.29.1"
     jodatime_version = "2.9.9"
-    junit_version = "4.12"
+    junit_version = "4.13.1"
 }
 
 dependencies {
