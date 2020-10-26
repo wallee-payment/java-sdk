@@ -37,62 +37,6 @@ import java.time.OffsetDateTime;
 
 public class PaymentTerminalContactAddress extends PaymentTerminalAddress {
   
-  @JsonProperty("familyName")
-  protected String familyName = null;
-
-  
-  @JsonProperty("givenName")
-  protected String givenName = null;
-
-  
-  @JsonProperty("organizationName")
-  protected String organizationName = null;
-
-  
-  @JsonProperty("phoneNumber")
-  protected String phoneNumber = null;
-
-  
-  
-   /**
-   * 
-   * @return familyName
-  **/
-  @ApiModelProperty(value = "")
-  public String getFamilyName() {
-    return familyName;
-  }
-
-  
-   /**
-   * 
-   * @return givenName
-  **/
-  @ApiModelProperty(value = "")
-  public String getGivenName() {
-    return givenName;
-  }
-
-  
-   /**
-   * 
-   * @return organizationName
-  **/
-  @ApiModelProperty(value = "")
-  public String getOrganizationName() {
-    return organizationName;
-  }
-
-  
-   /**
-   * 
-   * @return phoneNumber
-  **/
-  @ApiModelProperty(value = "")
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
-
   
 
   @Override
@@ -104,16 +48,26 @@ public class PaymentTerminalContactAddress extends PaymentTerminalAddress {
       return false;
     }
     PaymentTerminalContactAddress paymentTerminalContactAddress = (PaymentTerminalContactAddress) o;
-    return Objects.equals(this.familyName, paymentTerminalContactAddress.familyName) &&
+    return Objects.equals(this.city, paymentTerminalContactAddress.city) &&
+        Objects.equals(this.country, paymentTerminalContactAddress.country) &&
+        Objects.equals(this.dependentLocality, paymentTerminalContactAddress.dependentLocality) &&
+        Objects.equals(this.emailAddress, paymentTerminalContactAddress.emailAddress) &&
+        Objects.equals(this.familyName, paymentTerminalContactAddress.familyName) &&
         Objects.equals(this.givenName, paymentTerminalContactAddress.givenName) &&
+        Objects.equals(this.mobilePhoneNumber, paymentTerminalContactAddress.mobilePhoneNumber) &&
         Objects.equals(this.organizationName, paymentTerminalContactAddress.organizationName) &&
         Objects.equals(this.phoneNumber, paymentTerminalContactAddress.phoneNumber) &&
+        Objects.equals(this.postalState, paymentTerminalContactAddress.postalState) &&
+        Objects.equals(this.postcode, paymentTerminalContactAddress.postcode) &&
+        Objects.equals(this.salutation, paymentTerminalContactAddress.salutation) &&
+        Objects.equals(this.sortingCode, paymentTerminalContactAddress.sortingCode) &&
+        Objects.equals(this.street, paymentTerminalContactAddress.street) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(familyName, givenName, organizationName, phoneNumber, super.hashCode());
+    return Objects.hash(city, country, dependentLocality, emailAddress, familyName, givenName, mobilePhoneNumber, organizationName, phoneNumber, postalState, postcode, salutation, sortingCode, street, super.hashCode());
   }
 
 
@@ -122,10 +76,20 @@ public class PaymentTerminalContactAddress extends PaymentTerminalAddress {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalContactAddress {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    dependentLocality: ").append(toIndentedString(dependentLocality)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
     sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
+    sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
+    sb.append("    salutation: ").append(toIndentedString(salutation)).append("\n");
+    sb.append("    sortingCode: ").append(toIndentedString(sortingCode)).append("\n");
+    sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("}");
     return sb.toString();
   }

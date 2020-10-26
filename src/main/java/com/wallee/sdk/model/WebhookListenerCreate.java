@@ -25,10 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractWebhookListenerUpdate;
-import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -119,7 +118,11 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
       return false;
     }
     WebhookListenerCreate webhookListenerCreate = (WebhookListenerCreate) o;
-    return Objects.equals(this.entity, webhookListenerCreate.entity) &&
+    return Objects.equals(this.entityStates, webhookListenerCreate.entityStates) &&
+        Objects.equals(this.name, webhookListenerCreate.name) &&
+        Objects.equals(this.notifyEveryChange, webhookListenerCreate.notifyEveryChange) &&
+        Objects.equals(this.state, webhookListenerCreate.state) &&
+        Objects.equals(this.entity, webhookListenerCreate.entity) &&
         Objects.equals(this.identity, webhookListenerCreate.identity) &&
         Objects.equals(this.url, webhookListenerCreate.url) &&
         super.equals(o);
@@ -127,7 +130,7 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entity, identity, url, super.hashCode());
+    return Objects.hash(entityStates, name, notifyEveryChange, state, entity, identity, url, super.hashCode());
   }
 
 
@@ -136,6 +139,10 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookListenerCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    identity: ").append(toIndentedString(identity)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");

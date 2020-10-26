@@ -95,14 +95,20 @@ public class TokenCreate extends AbstractTokenUpdate {
       return false;
     }
     TokenCreate tokenCreate = (TokenCreate) o;
-    return Objects.equals(this.externalId, tokenCreate.externalId) &&
+    return Objects.equals(this.customerEmailAddress, tokenCreate.customerEmailAddress) &&
+        Objects.equals(this.customerId, tokenCreate.customerId) &&
+        Objects.equals(this.enabledForOneClickPayment, tokenCreate.enabledForOneClickPayment) &&
+        Objects.equals(this.language, tokenCreate.language) &&
+        Objects.equals(this.timeZone, tokenCreate.timeZone) &&
+        Objects.equals(this.tokenReference, tokenCreate.tokenReference) &&
+        Objects.equals(this.externalId, tokenCreate.externalId) &&
         Objects.equals(this.state, tokenCreate.state) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, state, super.hashCode());
+    return Objects.hash(customerEmailAddress, customerId, enabledForOneClickPayment, language, timeZone, tokenReference, externalId, state, super.hashCode());
   }
 
 
@@ -111,6 +117,12 @@ public class TokenCreate extends AbstractTokenUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class TokenCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    enabledForOneClickPayment: ").append(toIndentedString(enabledForOneClickPayment)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    tokenReference: ").append(toIndentedString(tokenReference)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");

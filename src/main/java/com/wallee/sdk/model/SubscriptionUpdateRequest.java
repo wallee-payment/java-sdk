@@ -24,40 +24,39 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.AbstractRefundCommentActive;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * 
+ * The subscription update request allows to change a subscription properites.
  */
-@ApiModel(description = "")
+@ApiModel(description = "The subscription update request allows to change a subscription properites.")
 
-public class RefundCommentCreate extends AbstractRefundCommentActive {
+public class SubscriptionUpdateRequest {
   
-  @JsonProperty("refund")
-  protected Long refund = null;
+  @JsonProperty("description")
+  protected String description = null;
 
   
   
-  public RefundCommentCreate refund(Long refund) {
-    this.refund = refund;
+  public SubscriptionUpdateRequest description(String description) {
+    this.description = description;
     return this;
   }
 
    /**
    * 
-   * @return refund
+   * @return description
   **/
-  @ApiModelProperty(required = true, value = "")
-  public Long getRefund() {
-    return refund;
+  @ApiModelProperty(value = "")
+  public String getDescription() {
+    return description;
   }
 
-  public void setRefund(Long refund) {
-    this.refund = refund;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   
@@ -70,25 +69,22 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RefundCommentCreate refundCommentCreate = (RefundCommentCreate) o;
-    return Objects.equals(this.content, refundCommentCreate.content) &&
-        Objects.equals(this.refund, refundCommentCreate.refund) &&
-        super.equals(o);
+    SubscriptionUpdateRequest subscriptionUpdateRequest = (SubscriptionUpdateRequest) o;
+    return Objects.equals(this.description, subscriptionUpdateRequest.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, refund, super.hashCode());
+    return Objects.hash(description);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RefundCommentCreate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
+    sb.append("class SubscriptionUpdateRequest {\n");
+    
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();
   }

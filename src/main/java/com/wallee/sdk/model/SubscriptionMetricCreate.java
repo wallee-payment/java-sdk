@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriptionMetricUpdate;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -38,56 +37,10 @@ import java.time.OffsetDateTime;
 
 public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
   
-  @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
-
-  
-  @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
-
-  
   @JsonProperty("type")
   protected Long type = null;
 
   
-  
-  public SubscriptionMetricCreate description(DatabaseTranslatedStringCreate description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * 
-   * @return description
-  **/
-  @ApiModelProperty(value = "")
-  public DatabaseTranslatedStringCreate getDescription() {
-    return description;
-  }
-
-  public void setDescription(DatabaseTranslatedStringCreate description) {
-    this.description = description;
-  }
-
-  
-  public SubscriptionMetricCreate name(DatabaseTranslatedStringCreate name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * 
-   * @return name
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public DatabaseTranslatedStringCreate getName() {
-    return name;
-  }
-
-  public void setName(DatabaseTranslatedStringCreate name) {
-    this.name = name;
-  }
-
   
   public SubscriptionMetricCreate type(Long type) {
     this.type = type;

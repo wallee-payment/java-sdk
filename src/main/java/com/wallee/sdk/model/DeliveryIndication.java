@@ -57,10 +57,6 @@ public class DeliveryIndication extends TransactionAwareEntity {
   protected OffsetDateTime createdOn = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("manualDecisionTimeoutOn")
   protected OffsetDateTime manualDecisionTimeoutOn = null;
 
@@ -127,16 +123,6 @@ public class DeliveryIndication extends TransactionAwareEntity {
   @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
-  }
-
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
   }
 
   
@@ -220,11 +206,13 @@ public class DeliveryIndication extends TransactionAwareEntity {
       return false;
     }
     DeliveryIndication deliveryIndication = (DeliveryIndication) o;
-    return Objects.equals(this.automaticDecisionReason, deliveryIndication.automaticDecisionReason) &&
+    return Objects.equals(this.id, deliveryIndication.id) &&
+        Objects.equals(this.linkedSpaceId, deliveryIndication.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, deliveryIndication.linkedTransaction) &&
+        Objects.equals(this.automaticDecisionReason, deliveryIndication.automaticDecisionReason) &&
         Objects.equals(this.automaticallyDecidedOn, deliveryIndication.automaticallyDecidedOn) &&
         Objects.equals(this.completion, deliveryIndication.completion) &&
         Objects.equals(this.createdOn, deliveryIndication.createdOn) &&
-        Objects.equals(this.linkedSpaceId, deliveryIndication.linkedSpaceId) &&
         Objects.equals(this.manualDecisionTimeoutOn, deliveryIndication.manualDecisionTimeoutOn) &&
         Objects.equals(this.manuallyDecidedBy, deliveryIndication.manuallyDecidedBy) &&
         Objects.equals(this.manuallyDecidedOn, deliveryIndication.manuallyDecidedOn) &&
@@ -237,7 +225,7 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(automaticDecisionReason, automaticallyDecidedOn, completion, createdOn, linkedSpaceId, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, automaticDecisionReason, automaticallyDecidedOn, completion, createdOn, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction, super.hashCode());
   }
 
 
@@ -246,11 +234,13 @@ public class DeliveryIndication extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeliveryIndication {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    automaticDecisionReason: ").append(toIndentedString(automaticDecisionReason)).append("\n");
     sb.append("    automaticallyDecidedOn: ").append(toIndentedString(automaticallyDecidedOn)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    manualDecisionTimeoutOn: ").append(toIndentedString(manualDecisionTimeoutOn)).append("\n");
     sb.append("    manuallyDecidedBy: ").append(toIndentedString(manuallyDecidedBy)).append("\n");
     sb.append("    manuallyDecidedOn: ").append(toIndentedString(manuallyDecidedOn)).append("\n");

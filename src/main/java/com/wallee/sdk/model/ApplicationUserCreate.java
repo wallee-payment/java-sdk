@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractApplicationUserUpdate;
-import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -72,13 +71,16 @@ public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
       return false;
     }
     ApplicationUserCreate applicationUserCreate = (ApplicationUserCreate) o;
-    return Objects.equals(this.primaryAccount, applicationUserCreate.primaryAccount) &&
+    return Objects.equals(this.name, applicationUserCreate.name) &&
+        Objects.equals(this.requestLimit, applicationUserCreate.requestLimit) &&
+        Objects.equals(this.state, applicationUserCreate.state) &&
+        Objects.equals(this.primaryAccount, applicationUserCreate.primaryAccount) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(primaryAccount, super.hashCode());
+    return Objects.hash(name, requestLimit, state, primaryAccount, super.hashCode());
   }
 
 
@@ -87,6 +89,9 @@ public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationUserCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
     sb.append("}");
     return sb.toString();

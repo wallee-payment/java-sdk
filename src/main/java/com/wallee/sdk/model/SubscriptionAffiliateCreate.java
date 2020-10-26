@@ -25,11 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriptionAffiliateUpdate;
-import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -46,10 +44,6 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
   
   @JsonProperty("reference")
   protected String reference = null;
-
-  
-  @JsonProperty("state")
-  protected CreationEntityState state = null;
 
   
   
@@ -91,25 +85,6 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
   }
 
   
-  public SubscriptionAffiliateCreate state(CreationEntityState state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * 
-   * @return state
-  **/
-  @ApiModelProperty(value = "")
-  public CreationEntityState getState() {
-    return state;
-  }
-
-  public void setState(CreationEntityState state) {
-    this.state = state;
-  }
-
-  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,15 +95,18 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
       return false;
     }
     SubscriptionAffiliateCreate subscriptionAffiliateCreate = (SubscriptionAffiliateCreate) o;
-    return Objects.equals(this.externalId, subscriptionAffiliateCreate.externalId) &&
-        Objects.equals(this.reference, subscriptionAffiliateCreate.reference) &&
+    return Objects.equals(this.language, subscriptionAffiliateCreate.language) &&
+        Objects.equals(this.metaData, subscriptionAffiliateCreate.metaData) &&
+        Objects.equals(this.name, subscriptionAffiliateCreate.name) &&
         Objects.equals(this.state, subscriptionAffiliateCreate.state) &&
+        Objects.equals(this.externalId, subscriptionAffiliateCreate.externalId) &&
+        Objects.equals(this.reference, subscriptionAffiliateCreate.reference) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, reference, state, super.hashCode());
+    return Objects.hash(language, metaData, name, state, externalId, reference, super.hashCode());
   }
 
 
@@ -137,9 +115,12 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionAffiliateCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

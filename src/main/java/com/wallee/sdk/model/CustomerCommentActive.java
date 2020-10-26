@@ -94,14 +94,15 @@ public class CustomerCommentActive extends AbstractCustomerCommentActive {
       return false;
     }
     CustomerCommentActive customerCommentActive = (CustomerCommentActive) o;
-    return Objects.equals(this.id, customerCommentActive.id) &&
+    return Objects.equals(this.content, customerCommentActive.content) &&
+        Objects.equals(this.id, customerCommentActive.id) &&
         Objects.equals(this.version, customerCommentActive.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(content, id, version, super.hashCode());
   }
 
 
@@ -110,6 +111,7 @@ public class CustomerCommentActive extends AbstractCustomerCommentActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerCommentActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

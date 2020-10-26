@@ -43,10 +43,6 @@ public class ConnectorInvocation extends TransactionAwareEntity {
   protected OffsetDateTime createdOn = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
@@ -75,16 +71,6 @@ public class ConnectorInvocation extends TransactionAwareEntity {
   @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
-  }
-
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
   }
 
   
@@ -148,8 +134,10 @@ public class ConnectorInvocation extends TransactionAwareEntity {
       return false;
     }
     ConnectorInvocation connectorInvocation = (ConnectorInvocation) o;
-    return Objects.equals(this.createdOn, connectorInvocation.createdOn) &&
+    return Objects.equals(this.id, connectorInvocation.id) &&
         Objects.equals(this.linkedSpaceId, connectorInvocation.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, connectorInvocation.linkedTransaction) &&
+        Objects.equals(this.createdOn, connectorInvocation.createdOn) &&
         Objects.equals(this.plannedPurgeDate, connectorInvocation.plannedPurgeDate) &&
         Objects.equals(this.stage, connectorInvocation.stage) &&
         Objects.equals(this.timeTookInMilliseconds, connectorInvocation.timeTookInMilliseconds) &&
@@ -160,7 +148,7 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, linkedSpaceId, plannedPurgeDate, stage, timeTookInMilliseconds, transaction, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdOn, plannedPurgeDate, stage, timeTookInMilliseconds, transaction, version, super.hashCode());
   }
 
 
@@ -169,8 +157,10 @@ public class ConnectorInvocation extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectorInvocation {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    timeTookInMilliseconds: ").append(toIndentedString(timeTookInMilliseconds)).append("\n");

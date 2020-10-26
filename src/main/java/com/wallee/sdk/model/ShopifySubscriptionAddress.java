@@ -25,11 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
-import com.wallee.sdk.model.Gender;
-import com.wallee.sdk.model.LegalOrganizationForm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.LocalDate;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -40,76 +37,6 @@ import java.time.OffsetDateTime;
 
 public class ShopifySubscriptionAddress extends Address {
   
-  @JsonProperty("city")
-  protected String city = null;
-
-  
-  @JsonProperty("country")
-  protected String country = null;
-
-  
-  @JsonProperty("familyName")
-  protected String familyName = null;
-
-  
-  @JsonProperty("postcode")
-  protected String postcode = null;
-
-  
-  @JsonProperty("street")
-  protected String street = null;
-
-  
-  
-   /**
-   * 
-   * @return city
-  **/
-  @ApiModelProperty(value = "")
-  public String getCity() {
-    return city;
-  }
-
-  
-   /**
-   * 
-   * @return country
-  **/
-  @ApiModelProperty(value = "")
-  public String getCountry() {
-    return country;
-  }
-
-  
-   /**
-   * 
-   * @return familyName
-  **/
-  @ApiModelProperty(value = "")
-  public String getFamilyName() {
-    return familyName;
-  }
-
-  
-   /**
-   * 
-   * @return postcode
-  **/
-  @ApiModelProperty(value = "")
-  public String getPostcode() {
-    return postcode;
-  }
-
-  
-   /**
-   * 
-   * @return street
-  **/
-  @ApiModelProperty(value = "")
-  public String getStreet() {
-    return street;
-  }
-
   
 
   @Override
@@ -122,16 +49,31 @@ public class ShopifySubscriptionAddress extends Address {
     }
     ShopifySubscriptionAddress shopifySubscriptionAddress = (ShopifySubscriptionAddress) o;
     return Objects.equals(this.city, shopifySubscriptionAddress.city) &&
+        Objects.equals(this.commercialRegisterNumber, shopifySubscriptionAddress.commercialRegisterNumber) &&
         Objects.equals(this.country, shopifySubscriptionAddress.country) &&
+        Objects.equals(this.dateOfBirth, shopifySubscriptionAddress.dateOfBirth) &&
+        Objects.equals(this.dependentLocality, shopifySubscriptionAddress.dependentLocality) &&
+        Objects.equals(this.emailAddress, shopifySubscriptionAddress.emailAddress) &&
         Objects.equals(this.familyName, shopifySubscriptionAddress.familyName) &&
+        Objects.equals(this.gender, shopifySubscriptionAddress.gender) &&
+        Objects.equals(this.givenName, shopifySubscriptionAddress.givenName) &&
+        Objects.equals(this.legalOrganizationForm, shopifySubscriptionAddress.legalOrganizationForm) &&
+        Objects.equals(this.mobilePhoneNumber, shopifySubscriptionAddress.mobilePhoneNumber) &&
+        Objects.equals(this.organizationName, shopifySubscriptionAddress.organizationName) &&
+        Objects.equals(this.phoneNumber, shopifySubscriptionAddress.phoneNumber) &&
+        Objects.equals(this.postalState, shopifySubscriptionAddress.postalState) &&
         Objects.equals(this.postcode, shopifySubscriptionAddress.postcode) &&
+        Objects.equals(this.salesTaxNumber, shopifySubscriptionAddress.salesTaxNumber) &&
+        Objects.equals(this.salutation, shopifySubscriptionAddress.salutation) &&
+        Objects.equals(this.socialSecurityNumber, shopifySubscriptionAddress.socialSecurityNumber) &&
+        Objects.equals(this.sortingCode, shopifySubscriptionAddress.sortingCode) &&
         Objects.equals(this.street, shopifySubscriptionAddress.street) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, familyName, postcode, street, super.hashCode());
+    return Objects.hash(city, commercialRegisterNumber, country, dateOfBirth, dependentLocality, emailAddress, familyName, gender, givenName, legalOrganizationForm, mobilePhoneNumber, organizationName, phoneNumber, postalState, postcode, salesTaxNumber, salutation, socialSecurityNumber, sortingCode, street, super.hashCode());
   }
 
 
@@ -141,9 +83,24 @@ public class ShopifySubscriptionAddress extends Address {
     sb.append("class ShopifySubscriptionAddress {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    commercialRegisterNumber: ").append(toIndentedString(commercialRegisterNumber)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
+    sb.append("    dependentLocality: ").append(toIndentedString(dependentLocality)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
+    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
+    sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    legalOrganizationForm: ").append(toIndentedString(legalOrganizationForm)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
+    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
     sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
+    sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");
+    sb.append("    salutation: ").append(toIndentedString(salutation)).append("\n");
+    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+    sb.append("    sortingCode: ").append(toIndentedString(sortingCode)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
     sb.append("}");
     return sb.toString();

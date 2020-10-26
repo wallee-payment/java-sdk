@@ -25,10 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriptionProductActive;
-import com.wallee.sdk.model.SubscriptionProductState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -96,14 +95,19 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
       return false;
     }
     SubscriptionProductActive subscriptionProductActive = (SubscriptionProductActive) o;
-    return Objects.equals(this.id, subscriptionProductActive.id) &&
+    return Objects.equals(this.allowedPaymentMethodConfigurations, subscriptionProductActive.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.failedPaymentSuspensionPeriod, subscriptionProductActive.failedPaymentSuspensionPeriod) &&
+        Objects.equals(this.name, subscriptionProductActive.name) &&
+        Objects.equals(this.sortOrder, subscriptionProductActive.sortOrder) &&
+        Objects.equals(this.state, subscriptionProductActive.state) &&
+        Objects.equals(this.id, subscriptionProductActive.id) &&
         Objects.equals(this.version, subscriptionProductActive.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, sortOrder, state, id, version, super.hashCode());
   }
 
 
@@ -112,6 +116,11 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionProductActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    failedPaymentSuspensionPeriod: ").append(toIndentedString(failedPaymentSuspensionPeriod)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

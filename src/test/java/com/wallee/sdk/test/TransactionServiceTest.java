@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
@@ -213,10 +215,21 @@ public class TransactionServiceTest {
      * <p>
      * Returns the PDF document for the transaction invoice with given id.
      */
-    @Ignore
     @Test
     public void getInvoiceDocumentTest() {
-        // TODO: test validations
+        try {
+            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+            Thread.sleep(2000);
+            RenderedDocument renderedDocument = this.apiClient.getTransactionService().getInvoiceDocument(this.spaceId, transaction.getId());
+            Assert.assertEquals(true, renderedDocument.getData() != null);
+            Assert.assertEquals(true, renderedDocument.getData().length > 0);
+            //OutputStream out = new FileOutputStream("out.pdf");
+            //out.write(renderedDocument.getData());
+            //out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**

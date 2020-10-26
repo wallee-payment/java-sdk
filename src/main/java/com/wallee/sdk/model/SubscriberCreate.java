@@ -25,12 +25,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriberUpdate;
-import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -98,14 +97,23 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
       return false;
     }
     SubscriberCreate subscriberCreate = (SubscriberCreate) o;
-    return Objects.equals(this.state, subscriberCreate.state) &&
+    return Objects.equals(this.additionalAllowedPaymentMethodConfigurations, subscriberCreate.additionalAllowedPaymentMethodConfigurations) &&
+        Objects.equals(this.billingAddress, subscriberCreate.billingAddress) &&
+        Objects.equals(this.description, subscriberCreate.description) &&
+        Objects.equals(this.disallowedPaymentMethodConfigurations, subscriberCreate.disallowedPaymentMethodConfigurations) &&
+        Objects.equals(this.emailAddress, subscriberCreate.emailAddress) &&
+        Objects.equals(this.language, subscriberCreate.language) &&
+        Objects.equals(this.metaData, subscriberCreate.metaData) &&
+        Objects.equals(this.reference, subscriberCreate.reference) &&
+        Objects.equals(this.shippingAddress, subscriberCreate.shippingAddress) &&
+        Objects.equals(this.state, subscriberCreate.state) &&
         Objects.equals(this.externalId, subscriberCreate.externalId) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, externalId, super.hashCode());
+    return Objects.hash(additionalAllowedPaymentMethodConfigurations, billingAddress, description, disallowedPaymentMethodConfigurations, emailAddress, language, metaData, reference, shippingAddress, state, externalId, super.hashCode());
   }
 
 
@@ -114,6 +122,15 @@ public class SubscriberCreate extends AbstractSubscriberUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriberCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    additionalAllowedPaymentMethodConfigurations: ").append(toIndentedString(additionalAllowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    disallowedPaymentMethodConfigurations: ").append(toIndentedString(disallowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("}");

@@ -25,12 +25,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractShopifySubscriptionProductUpdate;
-import com.wallee.sdk.model.ShopifySubscriptionBillingIntervalUnit;
-import com.wallee.sdk.model.ShopifySubscriptionProductPricingOption;
-import com.wallee.sdk.model.ShopifySubscriptionWeekday;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.math.BigDecimal;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -98,14 +94,28 @@ public class ShopifySubscriptionProductUpdate extends AbstractShopifySubscriptio
       return false;
     }
     ShopifySubscriptionProductUpdate shopifySubscriptionProductUpdate = (ShopifySubscriptionProductUpdate) o;
-    return Objects.equals(this.id, shopifySubscriptionProductUpdate.id) &&
+    return Objects.equals(this.absolutePriceAdjustment, shopifySubscriptionProductUpdate.absolutePriceAdjustment) &&
+        Objects.equals(this.billingDayOfMonth, shopifySubscriptionProductUpdate.billingDayOfMonth) &&
+        Objects.equals(this.billingIntervalAmount, shopifySubscriptionProductUpdate.billingIntervalAmount) &&
+        Objects.equals(this.billingIntervalUnit, shopifySubscriptionProductUpdate.billingIntervalUnit) &&
+        Objects.equals(this.billingWeekday, shopifySubscriptionProductUpdate.billingWeekday) &&
+        Objects.equals(this.fixedPrice, shopifySubscriptionProductUpdate.fixedPrice) &&
+        Objects.equals(this.maximalBillingCycles, shopifySubscriptionProductUpdate.maximalBillingCycles) &&
+        Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionProductUpdate.maximalSuspendableCycles) &&
+        Objects.equals(this.minimalBillingCycles, shopifySubscriptionProductUpdate.minimalBillingCycles) &&
+        Objects.equals(this.pricingOption, shopifySubscriptionProductUpdate.pricingOption) &&
+        Objects.equals(this.relativePriceAdjustment, shopifySubscriptionProductUpdate.relativePriceAdjustment) &&
+        Objects.equals(this.storeOrderConfirmationEmailEnabled, shopifySubscriptionProductUpdate.storeOrderConfirmationEmailEnabled) &&
+        Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionProductUpdate.subscriberSuspensionAllowed) &&
+        Objects.equals(this.terminationBillingCycles, shopifySubscriptionProductUpdate.terminationBillingCycles) &&
+        Objects.equals(this.id, shopifySubscriptionProductUpdate.id) &&
         Objects.equals(this.version, shopifySubscriptionProductUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, pricingOption, relativePriceAdjustment, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, id, version, super.hashCode());
   }
 
 
@@ -114,6 +124,20 @@ public class ShopifySubscriptionProductUpdate extends AbstractShopifySubscriptio
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopifySubscriptionProductUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    absolutePriceAdjustment: ").append(toIndentedString(absolutePriceAdjustment)).append("\n");
+    sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
+    sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
+    sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
+    sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
+    sb.append("    fixedPrice: ").append(toIndentedString(fixedPrice)).append("\n");
+    sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
+    sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
+    sb.append("    minimalBillingCycles: ").append(toIndentedString(minimalBillingCycles)).append("\n");
+    sb.append("    pricingOption: ").append(toIndentedString(pricingOption)).append("\n");
+    sb.append("    relativePriceAdjustment: ").append(toIndentedString(relativePriceAdjustment)).append("\n");
+    sb.append("    storeOrderConfirmationEmailEnabled: ").append(toIndentedString(storeOrderConfirmationEmailEnabled)).append("\n");
+    sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
+    sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

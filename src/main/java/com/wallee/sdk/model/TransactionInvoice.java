@@ -90,10 +90,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
   protected List<LineItem> lineItems = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("merchantReference")
   protected String merchantReference = null;
 
@@ -242,16 +238,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
-
-  
-   /**
    * 
    * @return merchantReference
   **/
@@ -351,7 +337,10 @@ public class TransactionInvoice extends TransactionAwareEntity {
       return false;
     }
     TransactionInvoice transactionInvoice = (TransactionInvoice) o;
-    return Objects.equals(this.amount, transactionInvoice.amount) &&
+    return Objects.equals(this.id, transactionInvoice.id) &&
+        Objects.equals(this.linkedSpaceId, transactionInvoice.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionInvoice.linkedTransaction) &&
+        Objects.equals(this.amount, transactionInvoice.amount) &&
         Objects.equals(this.billingAddress, transactionInvoice.billingAddress) &&
         Objects.equals(this.completion, transactionInvoice.completion) &&
         Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
@@ -362,7 +351,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.externalId, transactionInvoice.externalId) &&
         Objects.equals(this.language, transactionInvoice.language) &&
         Objects.equals(this.lineItems, transactionInvoice.lineItems) &&
-        Objects.equals(this.linkedSpaceId, transactionInvoice.linkedSpaceId) &&
         Objects.equals(this.merchantReference, transactionInvoice.merchantReference) &&
         Objects.equals(this.outstandingAmount, transactionInvoice.outstandingAmount) &&
         Objects.equals(this.paidOn, transactionInvoice.paidOn) &&
@@ -377,7 +365,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, billingAddress, completion, createdOn, derecognizedBy, derecognizedOn, dueOn, environment, externalId, language, lineItems, linkedSpaceId, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, billingAddress, completion, createdOn, derecognizedBy, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
   }
 
 
@@ -386,6 +374,9 @@ public class TransactionInvoice extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionInvoice {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
@@ -397,7 +388,6 @@ public class TransactionInvoice extends TransactionAwareEntity {
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    outstandingAmount: ").append(toIndentedString(outstandingAmount)).append("\n");
     sb.append("    paidOn: ").append(toIndentedString(paidOn)).append("\n");

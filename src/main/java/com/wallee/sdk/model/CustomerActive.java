@@ -27,8 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractCustomerActive;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -96,14 +95,21 @@ public class CustomerActive extends AbstractCustomerActive {
       return false;
     }
     CustomerActive customerActive = (CustomerActive) o;
-    return Objects.equals(this.id, customerActive.id) &&
+    return Objects.equals(this.customerId, customerActive.customerId) &&
+        Objects.equals(this.emailAddress, customerActive.emailAddress) &&
+        Objects.equals(this.familyName, customerActive.familyName) &&
+        Objects.equals(this.givenName, customerActive.givenName) &&
+        Objects.equals(this.language, customerActive.language) &&
+        Objects.equals(this.metaData, customerActive.metaData) &&
+        Objects.equals(this.preferredCurrency, customerActive.preferredCurrency) &&
+        Objects.equals(this.id, customerActive.id) &&
         Objects.equals(this.version, customerActive.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(customerId, emailAddress, familyName, givenName, language, metaData, preferredCurrency, id, version, super.hashCode());
   }
 
 
@@ -112,6 +118,13 @@ public class CustomerActive extends AbstractCustomerActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class CustomerActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
+    sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    preferredCurrency: ").append(toIndentedString(preferredCurrency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

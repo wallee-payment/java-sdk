@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractHumanUserUpdate;
-import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -72,13 +71,21 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
       return false;
     }
     HumanUserCreate humanUserCreate = (HumanUserCreate) o;
-    return Objects.equals(this.primaryAccount, humanUserCreate.primaryAccount) &&
+    return Objects.equals(this.emailAddress, humanUserCreate.emailAddress) &&
+        Objects.equals(this.firstname, humanUserCreate.firstname) &&
+        Objects.equals(this.language, humanUserCreate.language) &&
+        Objects.equals(this.lastname, humanUserCreate.lastname) &&
+        Objects.equals(this.mobilePhoneNumber, humanUserCreate.mobilePhoneNumber) &&
+        Objects.equals(this.state, humanUserCreate.state) &&
+        Objects.equals(this.timeZone, humanUserCreate.timeZone) &&
+        Objects.equals(this.twoFactorEnabled, humanUserCreate.twoFactorEnabled) &&
+        Objects.equals(this.primaryAccount, humanUserCreate.primaryAccount) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(primaryAccount, super.hashCode());
+    return Objects.hash(emailAddress, firstname, language, lastname, mobilePhoneNumber, state, timeZone, twoFactorEnabled, primaryAccount, super.hashCode());
   }
 
 
@@ -87,6 +94,14 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class HumanUserCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    firstname: ").append(toIndentedString(firstname)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    twoFactorEnabled: ").append(toIndentedString(twoFactorEnabled)).append("\n");
     sb.append("    primaryAccount: ").append(toIndentedString(primaryAccount)).append("\n");
     sb.append("}");
     return sb.toString();

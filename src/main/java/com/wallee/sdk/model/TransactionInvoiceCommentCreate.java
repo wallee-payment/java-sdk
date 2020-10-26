@@ -71,13 +71,14 @@ public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceC
       return false;
     }
     TransactionInvoiceCommentCreate transactionInvoiceCommentCreate = (TransactionInvoiceCommentCreate) o;
-    return Objects.equals(this.transactionInvoice, transactionInvoiceCommentCreate.transactionInvoice) &&
+    return Objects.equals(this.content, transactionInvoiceCommentCreate.content) &&
+        Objects.equals(this.transactionInvoice, transactionInvoiceCommentCreate.transactionInvoice) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionInvoice, super.hashCode());
+    return Objects.hash(content, transactionInvoice, super.hashCode());
   }
 
 
@@ -86,6 +87,7 @@ public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceC
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionInvoiceCommentCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    transactionInvoice: ").append(toIndentedString(transactionInvoice)).append("\n");
     sb.append("}");
     return sb.toString();

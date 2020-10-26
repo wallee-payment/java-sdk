@@ -25,13 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractDebtCollectionCaseUpdate;
-import com.wallee.sdk.model.AddressCreate;
-import com.wallee.sdk.model.DebtCollectionEnvironment;
-import com.wallee.sdk.model.LineItemCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -99,14 +95,22 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
       return false;
     }
     DebtCollectionCaseUpdate debtCollectionCaseUpdate = (DebtCollectionCaseUpdate) o;
-    return Objects.equals(this.id, debtCollectionCaseUpdate.id) &&
+    return Objects.equals(this.billingAddress, debtCollectionCaseUpdate.billingAddress) &&
+        Objects.equals(this.contractDate, debtCollectionCaseUpdate.contractDate) &&
+        Objects.equals(this.currency, debtCollectionCaseUpdate.currency) &&
+        Objects.equals(this.dueDate, debtCollectionCaseUpdate.dueDate) &&
+        Objects.equals(this.environment, debtCollectionCaseUpdate.environment) &&
+        Objects.equals(this.language, debtCollectionCaseUpdate.language) &&
+        Objects.equals(this.lineItems, debtCollectionCaseUpdate.lineItems) &&
+        Objects.equals(this.spaceViewId, debtCollectionCaseUpdate.spaceViewId) &&
+        Objects.equals(this.id, debtCollectionCaseUpdate.id) &&
         Objects.equals(this.version, debtCollectionCaseUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(billingAddress, contractDate, currency, dueDate, environment, language, lineItems, spaceViewId, id, version, super.hashCode());
   }
 
 
@@ -115,6 +119,14 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class DebtCollectionCaseUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

@@ -60,10 +60,6 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
   protected List<LineItem> lineItems = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
@@ -122,16 +118,6 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
-
-  
-   /**
    * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
    * @return plannedPurgeDate
   **/
@@ -181,11 +167,13 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
       return false;
     }
     InstallmentPaymentSlice installmentPaymentSlice = (InstallmentPaymentSlice) o;
-    return Objects.equals(this.chargeOn, installmentPaymentSlice.chargeOn) &&
+    return Objects.equals(this.id, installmentPaymentSlice.id) &&
+        Objects.equals(this.linkedSpaceId, installmentPaymentSlice.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, installmentPaymentSlice.linkedTransaction) &&
+        Objects.equals(this.chargeOn, installmentPaymentSlice.chargeOn) &&
         Objects.equals(this.createdOn, installmentPaymentSlice.createdOn) &&
         Objects.equals(this.installmentPayment, installmentPaymentSlice.installmentPayment) &&
         Objects.equals(this.lineItems, installmentPaymentSlice.lineItems) &&
-        Objects.equals(this.linkedSpaceId, installmentPaymentSlice.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, installmentPaymentSlice.plannedPurgeDate) &&
         Objects.equals(this.state, installmentPaymentSlice.state) &&
         Objects.equals(this.transaction, installmentPaymentSlice.transaction) &&
@@ -195,7 +183,7 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeOn, createdOn, installmentPayment, lineItems, linkedSpaceId, plannedPurgeDate, state, transaction, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, chargeOn, createdOn, installmentPayment, lineItems, plannedPurgeDate, state, transaction, version, super.hashCode());
   }
 
 
@@ -204,11 +192,13 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstallmentPaymentSlice {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    chargeOn: ").append(toIndentedString(chargeOn)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    installmentPayment: ").append(toIndentedString(installmentPayment)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");

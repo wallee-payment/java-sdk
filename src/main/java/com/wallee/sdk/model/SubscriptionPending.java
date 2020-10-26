@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.SubscriptionUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -37,10 +36,6 @@ import java.time.OffsetDateTime;
 @ApiModel(description = "")
 
 public class SubscriptionPending extends SubscriptionUpdate {
-  
-  @JsonProperty("affiliate")
-  protected Long affiliate = null;
-
   
   @JsonProperty("reference")
   protected String reference = null;
@@ -54,25 +49,6 @@ public class SubscriptionPending extends SubscriptionUpdate {
   protected Long token = null;
 
   
-  
-  public SubscriptionPending affiliate(Long affiliate) {
-    this.affiliate = affiliate;
-    return this;
-  }
-
-   /**
-   * 
-   * @return affiliate
-  **/
-  @ApiModelProperty(value = "")
-  public Long getAffiliate() {
-    return affiliate;
-  }
-
-  public void setAffiliate(Long affiliate) {
-    this.affiliate = affiliate;
-  }
-
   
   public SubscriptionPending reference(String reference) {
     this.reference = reference;
@@ -141,7 +117,11 @@ public class SubscriptionPending extends SubscriptionUpdate {
       return false;
     }
     SubscriptionPending subscriptionPending = (SubscriptionPending) o;
-    return Objects.equals(this.affiliate, subscriptionPending.affiliate) &&
+    return Objects.equals(this.id, subscriptionPending.id) &&
+        Objects.equals(this.version, subscriptionPending.version) &&
+        Objects.equals(this.affiliate, subscriptionPending.affiliate) &&
+        Objects.equals(this.description, subscriptionPending.description) &&
+        Objects.equals(this.plannedTerminationDate, subscriptionPending.plannedTerminationDate) &&
         Objects.equals(this.reference, subscriptionPending.reference) &&
         Objects.equals(this.subscriber, subscriptionPending.subscriber) &&
         Objects.equals(this.token, subscriptionPending.token) &&
@@ -150,7 +130,7 @@ public class SubscriptionPending extends SubscriptionUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(affiliate, reference, subscriber, token, super.hashCode());
+    return Objects.hash(id, version, affiliate, description, plannedTerminationDate, reference, subscriber, token, super.hashCode());
   }
 
 
@@ -159,7 +139,11 @@ public class SubscriptionPending extends SubscriptionUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionPending {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    affiliate: ").append(toIndentedString(affiliate)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    plannedTerminationDate: ").append(toIndentedString(plannedTerminationDate)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    subscriber: ").append(toIndentedString(subscriber)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");

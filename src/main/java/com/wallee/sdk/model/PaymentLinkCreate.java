@@ -26,13 +26,10 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractPaymentLinkUpdate;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentLinkProtectionMode;
-import com.wallee.sdk.model.PaymentMethodConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -123,7 +120,18 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
       return false;
     }
     PaymentLinkCreate paymentLinkCreate = (PaymentLinkCreate) o;
-    return Objects.equals(this.state, paymentLinkCreate.state) &&
+    return Objects.equals(this.allowedPaymentMethodConfigurations, paymentLinkCreate.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.appliedSpaceView, paymentLinkCreate.appliedSpaceView) &&
+        Objects.equals(this.availableFrom, paymentLinkCreate.availableFrom) &&
+        Objects.equals(this.availableUntil, paymentLinkCreate.availableUntil) &&
+        Objects.equals(this.billingAddressRequired, paymentLinkCreate.billingAddressRequired) &&
+        Objects.equals(this.currency, paymentLinkCreate.currency) &&
+        Objects.equals(this.language, paymentLinkCreate.language) &&
+        Objects.equals(this.lineItems, paymentLinkCreate.lineItems) &&
+        Objects.equals(this.maximalNumberOfTransactions, paymentLinkCreate.maximalNumberOfTransactions) &&
+        Objects.equals(this.name, paymentLinkCreate.name) &&
+        Objects.equals(this.shippingAddressRequired, paymentLinkCreate.shippingAddressRequired) &&
+        Objects.equals(this.state, paymentLinkCreate.state) &&
         Objects.equals(this.externalId, paymentLinkCreate.externalId) &&
         Objects.equals(this.protectionMode, paymentLinkCreate.protectionMode) &&
         super.equals(o);
@@ -131,7 +139,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, externalId, protectionMode, super.hashCode());
+    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressRequired, state, externalId, protectionMode, super.hashCode());
   }
 
 
@@ -140,6 +148,17 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentLinkCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
+    sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
+    sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
+    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    protectionMode: ").append(toIndentedString(protectionMode)).append("\n");

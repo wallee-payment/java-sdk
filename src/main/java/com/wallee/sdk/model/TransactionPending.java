@@ -25,15 +25,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractTransactionPending;
-import com.wallee.sdk.model.AddressCreate;
-import com.wallee.sdk.model.LineItemCreate;
-import com.wallee.sdk.model.PaymentMethodBrand;
-import com.wallee.sdk.model.TokenizationMode;
-import com.wallee.sdk.model.TransactionCompletionBehavior;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -101,14 +96,33 @@ public class TransactionPending extends AbstractTransactionPending {
       return false;
     }
     TransactionPending transactionPending = (TransactionPending) o;
-    return Objects.equals(this.id, transactionPending.id) &&
+    return Objects.equals(this.allowedPaymentMethodBrands, transactionPending.allowedPaymentMethodBrands) &&
+        Objects.equals(this.allowedPaymentMethodConfigurations, transactionPending.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.billingAddress, transactionPending.billingAddress) &&
+        Objects.equals(this.completionBehavior, transactionPending.completionBehavior) &&
+        Objects.equals(this.currency, transactionPending.currency) &&
+        Objects.equals(this.customerEmailAddress, transactionPending.customerEmailAddress) &&
+        Objects.equals(this.customerId, transactionPending.customerId) &&
+        Objects.equals(this.failedUrl, transactionPending.failedUrl) &&
+        Objects.equals(this.invoiceMerchantReference, transactionPending.invoiceMerchantReference) &&
+        Objects.equals(this.language, transactionPending.language) &&
+        Objects.equals(this.lineItems, transactionPending.lineItems) &&
+        Objects.equals(this.merchantReference, transactionPending.merchantReference) &&
+        Objects.equals(this.metaData, transactionPending.metaData) &&
+        Objects.equals(this.shippingAddress, transactionPending.shippingAddress) &&
+        Objects.equals(this.shippingMethod, transactionPending.shippingMethod) &&
+        Objects.equals(this.successUrl, transactionPending.successUrl) &&
+        Objects.equals(this.timeZone, transactionPending.timeZone) &&
+        Objects.equals(this.token, transactionPending.token) &&
+        Objects.equals(this.tokenizationMode, transactionPending.tokenizationMode) &&
+        Objects.equals(this.id, transactionPending.id) &&
         Objects.equals(this.version, transactionPending.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, completionBehavior, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode, id, version, super.hashCode());
   }
 
 
@@ -117,6 +131,25 @@ public class TransactionPending extends AbstractTransactionPending {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionPending {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
+    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
+    sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+    sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
+    sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

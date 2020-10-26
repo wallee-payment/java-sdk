@@ -71,13 +71,14 @@ public class TransactionCommentCreate extends AbstractTransactionCommentActive {
       return false;
     }
     TransactionCommentCreate transactionCommentCreate = (TransactionCommentCreate) o;
-    return Objects.equals(this.transaction, transactionCommentCreate.transaction) &&
+    return Objects.equals(this.content, transactionCommentCreate.content) &&
+        Objects.equals(this.transaction, transactionCommentCreate.transaction) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transaction, super.hashCode());
+    return Objects.hash(content, transaction, super.hashCode());
   }
 
 
@@ -86,6 +87,7 @@ public class TransactionCommentCreate extends AbstractTransactionCommentActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionCommentCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("}");
     return sb.toString();

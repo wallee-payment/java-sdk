@@ -26,8 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -39,7 +37,7 @@ import java.time.OffsetDateTime;
 public class RenderedDocument {
   
   @JsonProperty("data")
-  protected List<byte[]> data = null;
+  protected byte[] data = null;
 
   
   @JsonProperty("documentTemplateType")
@@ -55,13 +53,22 @@ public class RenderedDocument {
 
   
   
+  public RenderedDocument data(byte[] data) {
+    this.data = data;
+    return this;
+  }
+
    /**
-   * 
+   * Get data
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public List<byte[]> getData() {
+  public byte[] getData() {
     return data;
+  }
+
+  public void setData(byte[] data) {
+    this.data = data;
   }
 
   
@@ -105,7 +112,7 @@ public class RenderedDocument {
       return false;
     }
     RenderedDocument renderedDocument = (RenderedDocument) o;
-    return Objects.equals(this.data, renderedDocument.data) &&
+    return Arrays.equals(this.data, renderedDocument.data) &&
         Objects.equals(this.documentTemplateType, renderedDocument.documentTemplateType) &&
         Objects.equals(this.mimeType, renderedDocument.mimeType) &&
         Objects.equals(this.title, renderedDocument.title);
@@ -113,7 +120,7 @@ public class RenderedDocument {
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, documentTemplateType, mimeType, title);
+    return Objects.hash(Arrays.hashCode(data), documentTemplateType, mimeType, title);
   }
 
 

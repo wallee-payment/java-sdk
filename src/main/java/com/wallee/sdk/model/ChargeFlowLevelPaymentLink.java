@@ -42,10 +42,6 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   protected ChargeFlowLevel chargeFlowLevel = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("paymentLink")
   protected String paymentLink = null;
 
@@ -58,16 +54,6 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public ChargeFlowLevel getChargeFlowLevel() {
     return chargeFlowLevel;
-  }
-
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
   }
 
   
@@ -91,15 +77,17 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
       return false;
     }
     ChargeFlowLevelPaymentLink chargeFlowLevelPaymentLink = (ChargeFlowLevelPaymentLink) o;
-    return Objects.equals(this.chargeFlowLevel, chargeFlowLevelPaymentLink.chargeFlowLevel) &&
+    return Objects.equals(this.id, chargeFlowLevelPaymentLink.id) &&
         Objects.equals(this.linkedSpaceId, chargeFlowLevelPaymentLink.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, chargeFlowLevelPaymentLink.linkedTransaction) &&
+        Objects.equals(this.chargeFlowLevel, chargeFlowLevelPaymentLink.chargeFlowLevel) &&
         Objects.equals(this.paymentLink, chargeFlowLevelPaymentLink.paymentLink) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chargeFlowLevel, linkedSpaceId, paymentLink, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, chargeFlowLevel, paymentLink, super.hashCode());
   }
 
 
@@ -108,8 +96,10 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeFlowLevelPaymentLink {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
     sb.append("    paymentLink: ").append(toIndentedString(paymentLink)).append("\n");
     sb.append("}");
     return sb.toString();

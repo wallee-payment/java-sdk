@@ -25,13 +25,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.LineItemCreate;
 import com.wallee.sdk.model.PaymentLinkUpdate;
-import com.wallee.sdk.model.PaymentMethodConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -76,13 +73,26 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
       return false;
     }
     PaymentLinkActive paymentLinkActive = (PaymentLinkActive) o;
-    return Objects.equals(this.state, paymentLinkActive.state) &&
+    return Objects.equals(this.id, paymentLinkActive.id) &&
+        Objects.equals(this.version, paymentLinkActive.version) &&
+        Objects.equals(this.allowedPaymentMethodConfigurations, paymentLinkActive.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.appliedSpaceView, paymentLinkActive.appliedSpaceView) &&
+        Objects.equals(this.availableFrom, paymentLinkActive.availableFrom) &&
+        Objects.equals(this.availableUntil, paymentLinkActive.availableUntil) &&
+        Objects.equals(this.billingAddressRequired, paymentLinkActive.billingAddressRequired) &&
+        Objects.equals(this.currency, paymentLinkActive.currency) &&
+        Objects.equals(this.language, paymentLinkActive.language) &&
+        Objects.equals(this.lineItems, paymentLinkActive.lineItems) &&
+        Objects.equals(this.maximalNumberOfTransactions, paymentLinkActive.maximalNumberOfTransactions) &&
+        Objects.equals(this.name, paymentLinkActive.name) &&
+        Objects.equals(this.shippingAddressRequired, paymentLinkActive.shippingAddressRequired) &&
+        Objects.equals(this.state, paymentLinkActive.state) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(state, super.hashCode());
+    return Objects.hash(id, version, allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressRequired, state, super.hashCode());
   }
 
 
@@ -91,6 +101,19 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentLinkActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
+    sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
+    sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
+    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

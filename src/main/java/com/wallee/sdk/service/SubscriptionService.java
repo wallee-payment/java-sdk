@@ -10,6 +10,7 @@ import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionChangeRequest;
 import com.wallee.sdk.model.SubscriptionCharge;
 import com.wallee.sdk.model.SubscriptionCreateRequest;
+import com.wallee.sdk.model.SubscriptionUpdateRequest;
 import com.wallee.sdk.model.SubscriptionVersion;
 import com.wallee.sdk.model.TransactionInvoice;
 
@@ -1381,6 +1382,194 @@ public class SubscriptionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
+    }
+
+  /**
+    * update
+    * This operation allows to update the subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId 
+    * @param request 
+    * @return Subscription
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update">update Documentation</a>
+
+    **/
+    public Subscription update(Long spaceId, Long subscriptionId, SubscriptionUpdateRequest request) throws IOException {
+        HttpResponse response = updateForHttpResponse(spaceId, subscriptionId, request);
+        String returnType = "Subscription";
+        if(returnType.equals("String")){
+          return (Subscription) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Subscription>() {};
+        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * update
+    * This operation allows to update the subscription.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param subscriptionId 
+    * @param request 
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Subscription
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-service--update">update Documentation</a>
+
+    **/
+    public Subscription update(Long spaceId, Long subscriptionId, SubscriptionUpdateRequest request, Map<String, Object> params) throws IOException {
+        HttpResponse response = updateForHttpResponse(spaceId, subscriptionId, request, params);
+        String returnType = "Subscription";
+        if(returnType.equals("String")){
+            return (Subscription) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Subscription>() {};
+        return (Subscription)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse updateForHttpResponse(Long spaceId, Long subscriptionId, SubscriptionUpdateRequest request) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling update");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling update");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/update");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (subscriptionId != null) {
+            String key = "subscriptionId";
+            Object value = subscriptionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
+    }
+
+      public HttpResponse updateForHttpResponse(Long spaceId, Long subscriptionId, java.io.InputStream request, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+              }// verify the required parameter 'subscriptionId' is set
+              if (subscriptionId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling update");
+              }// verify the required parameter 'request' is set
+              if (request == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'request' when calling update");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/update");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }              if (subscriptionId != null) {
+                  String key = "subscriptionId";
+                  Object value = subscriptionId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = request == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
+      }
+
+    public HttpResponse updateForHttpResponse(Long spaceId, Long subscriptionId, SubscriptionUpdateRequest request, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+        }// verify the required parameter 'subscriptionId' is set
+        if (subscriptionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'subscriptionId' when calling update");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling update");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/subscription/update");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'subscriptionId' to the map of query params
+        allParams.put("subscriptionId", subscriptionId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);

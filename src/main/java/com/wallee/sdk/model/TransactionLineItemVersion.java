@@ -63,10 +63,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   protected List<LineItem> lineItems = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
@@ -139,16 +135,6 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
-
-  
-   /**
    * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
    * @return plannedPurgeDate
   **/
@@ -208,12 +194,14 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
       return false;
     }
     TransactionLineItemVersion transactionLineItemVersion = (TransactionLineItemVersion) o;
-    return Objects.equals(this.amount, transactionLineItemVersion.amount) &&
+    return Objects.equals(this.id, transactionLineItemVersion.id) &&
+        Objects.equals(this.linkedSpaceId, transactionLineItemVersion.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionLineItemVersion.linkedTransaction) &&
+        Objects.equals(this.amount, transactionLineItemVersion.amount) &&
         Objects.equals(this.createdBy, transactionLineItemVersion.createdBy) &&
         Objects.equals(this.createdOn, transactionLineItemVersion.createdOn) &&
         Objects.equals(this.language, transactionLineItemVersion.language) &&
         Objects.equals(this.lineItems, transactionLineItemVersion.lineItems) &&
-        Objects.equals(this.linkedSpaceId, transactionLineItemVersion.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, transactionLineItemVersion.plannedPurgeDate) &&
         Objects.equals(this.spaceViewId, transactionLineItemVersion.spaceViewId) &&
         Objects.equals(this.taxAmount, transactionLineItemVersion.taxAmount) &&
@@ -224,7 +212,7 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, createdBy, createdOn, language, lineItems, linkedSpaceId, plannedPurgeDate, spaceViewId, taxAmount, transaction, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, createdBy, createdOn, language, lineItems, plannedPurgeDate, spaceViewId, taxAmount, transaction, version, super.hashCode());
   }
 
 
@@ -233,12 +221,14 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionLineItemVersion {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");

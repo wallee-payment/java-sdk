@@ -21,11 +21,13 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.wallee.sdk.model.CreationEntityState;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.SubscriptionAffiliateUpdate;
 import io.swagger.annotations.ApiModel;
-import java.util.List;
-import java.util.Map;
+import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -46,12 +48,19 @@ public class SubscriptionAffiliateInactive extends SubscriptionAffiliateUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    SubscriptionAffiliateInactive subscriptionAffiliateInactive = (SubscriptionAffiliateInactive) o;
+    return Objects.equals(this.id, subscriptionAffiliateInactive.id) &&
+        Objects.equals(this.version, subscriptionAffiliateInactive.version) &&
+        Objects.equals(this.language, subscriptionAffiliateInactive.language) &&
+        Objects.equals(this.metaData, subscriptionAffiliateInactive.metaData) &&
+        Objects.equals(this.name, subscriptionAffiliateInactive.name) &&
+        Objects.equals(this.state, subscriptionAffiliateInactive.state) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(id, version, language, metaData, name, state, super.hashCode());
   }
 
 
@@ -60,6 +69,12 @@ public class SubscriptionAffiliateInactive extends SubscriptionAffiliateUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionAffiliateInactive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }

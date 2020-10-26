@@ -58,10 +58,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("orderId")
   protected String orderId = null;
 
@@ -140,16 +136,6 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public FailureReason getFailureReason() {
     return failureReason;
-  }
-
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
   }
 
   
@@ -263,11 +249,13 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
       return false;
     }
     ShopifyRecurringOrder shopifyRecurringOrder = (ShopifyRecurringOrder) o;
-    return Objects.equals(this.billedOn, shopifyRecurringOrder.billedOn) &&
+    return Objects.equals(this.id, shopifyRecurringOrder.id) &&
+        Objects.equals(this.linkedSpaceId, shopifyRecurringOrder.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, shopifyRecurringOrder.linkedTransaction) &&
+        Objects.equals(this.billedOn, shopifyRecurringOrder.billedOn) &&
         Objects.equals(this.checkoutToken, shopifyRecurringOrder.checkoutToken) &&
         Objects.equals(this.createdOn, shopifyRecurringOrder.createdOn) &&
         Objects.equals(this.failureReason, shopifyRecurringOrder.failureReason) &&
-        Objects.equals(this.linkedSpaceId, shopifyRecurringOrder.linkedSpaceId) &&
         Objects.equals(this.orderId, shopifyRecurringOrder.orderId) &&
         Objects.equals(this.orderName, shopifyRecurringOrder.orderName) &&
         Objects.equals(this.plannedExecutionDate, shopifyRecurringOrder.plannedExecutionDate) &&
@@ -283,7 +271,7 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billedOn, checkoutToken, createdOn, failureReason, linkedSpaceId, orderId, orderName, plannedExecutionDate, plannedPurgeDate, recurrenceNumber, shop, startedProcessingOn, state, subscriptionVersion, transaction, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, billedOn, checkoutToken, createdOn, failureReason, orderId, orderName, plannedExecutionDate, plannedPurgeDate, recurrenceNumber, shop, startedProcessingOn, state, subscriptionVersion, transaction, super.hashCode());
   }
 
 
@@ -292,11 +280,13 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopifyRecurringOrder {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    billedOn: ").append(toIndentedString(billedOn)).append("\n");
     sb.append("    checkoutToken: ").append(toIndentedString(checkoutToken)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
     sb.append("    orderName: ").append(toIndentedString(orderName)).append("\n");
     sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");

@@ -25,19 +25,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractTransactionPending;
-import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.CustomersPresence;
 import com.wallee.sdk.model.Environment;
-import com.wallee.sdk.model.LineItemCreate;
-import com.wallee.sdk.model.PaymentMethodBrand;
-import com.wallee.sdk.model.TokenizationMode;
-import com.wallee.sdk.model.TransactionCompletionBehavior;
 import com.wallee.sdk.model.TransactionEnvironmentSelectionStrategy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -50,10 +44,6 @@ public class TransactionCreate extends AbstractTransactionPending {
   
   @JsonProperty("autoConfirmationEnabled")
   protected Boolean autoConfirmationEnabled = null;
-
-  
-  @JsonProperty("billingAddress")
-  protected AddressCreate billingAddress = null;
 
   
   @JsonProperty("chargeRetryEnabled")
@@ -80,20 +70,8 @@ public class TransactionCreate extends AbstractTransactionPending {
   protected TransactionEnvironmentSelectionStrategy environmentSelectionStrategy = null;
 
   
-  @JsonProperty("lineItems")
-  protected List<LineItemCreate> lineItems = new ArrayList<>();
-
-  
-  @JsonProperty("shippingAddress")
-  protected AddressCreate shippingAddress = null;
-
-  
   @JsonProperty("spaceViewId")
   protected Long spaceViewId = null;
-
-  
-  @JsonProperty("token")
-  protected Long token = null;
 
   
   
@@ -113,25 +91,6 @@ public class TransactionCreate extends AbstractTransactionPending {
 
   public void setAutoConfirmationEnabled(Boolean autoConfirmationEnabled) {
     this.autoConfirmationEnabled = autoConfirmationEnabled;
-  }
-
-  
-  public TransactionCreate billingAddress(AddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return billingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public AddressCreate getBillingAddress() {
-    return billingAddress;
-  }
-
-  public void setBillingAddress(AddressCreate billingAddress) {
-    this.billingAddress = billingAddress;
   }
 
   
@@ -249,49 +208,6 @@ public class TransactionCreate extends AbstractTransactionPending {
   }
 
   
-  public TransactionCreate lineItems(List<LineItemCreate> lineItems) {
-    this.lineItems = lineItems;
-    return this;
-  }
-
-  public TransactionCreate addLineItemsItem(LineItemCreate lineItemsItem) {
-    this.lineItems.add(lineItemsItem);
-    return this;
-  }
-
-   /**
-   * 
-   * @return lineItems
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public List<LineItemCreate> getLineItems() {
-    return lineItems;
-  }
-
-  public void setLineItems(List<LineItemCreate> lineItems) {
-    this.lineItems = lineItems;
-  }
-
-  
-  public TransactionCreate shippingAddress(AddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-    return this;
-  }
-
-   /**
-   * 
-   * @return shippingAddress
-  **/
-  @ApiModelProperty(value = "")
-  public AddressCreate getShippingAddress() {
-    return shippingAddress;
-  }
-
-  public void setShippingAddress(AddressCreate shippingAddress) {
-    this.shippingAddress = shippingAddress;
-  }
-
-  
   public TransactionCreate spaceViewId(Long spaceViewId) {
     this.spaceViewId = spaceViewId;
     return this;
@@ -311,25 +227,6 @@ public class TransactionCreate extends AbstractTransactionPending {
   }
 
   
-  public TransactionCreate token(Long token) {
-    this.token = token;
-    return this;
-  }
-
-   /**
-   * 
-   * @return token
-  **/
-  @ApiModelProperty(value = "")
-  public Long getToken() {
-    return token;
-  }
-
-  public void setToken(Long token) {
-    this.token = token;
-  }
-
-  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -340,24 +237,39 @@ public class TransactionCreate extends AbstractTransactionPending {
       return false;
     }
     TransactionCreate transactionCreate = (TransactionCreate) o;
-    return Objects.equals(this.autoConfirmationEnabled, transactionCreate.autoConfirmationEnabled) &&
+    return Objects.equals(this.allowedPaymentMethodBrands, transactionCreate.allowedPaymentMethodBrands) &&
+        Objects.equals(this.allowedPaymentMethodConfigurations, transactionCreate.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.billingAddress, transactionCreate.billingAddress) &&
+        Objects.equals(this.completionBehavior, transactionCreate.completionBehavior) &&
+        Objects.equals(this.currency, transactionCreate.currency) &&
+        Objects.equals(this.customerEmailAddress, transactionCreate.customerEmailAddress) &&
+        Objects.equals(this.customerId, transactionCreate.customerId) &&
+        Objects.equals(this.failedUrl, transactionCreate.failedUrl) &&
+        Objects.equals(this.invoiceMerchantReference, transactionCreate.invoiceMerchantReference) &&
+        Objects.equals(this.language, transactionCreate.language) &&
+        Objects.equals(this.lineItems, transactionCreate.lineItems) &&
+        Objects.equals(this.merchantReference, transactionCreate.merchantReference) &&
+        Objects.equals(this.metaData, transactionCreate.metaData) &&
+        Objects.equals(this.shippingAddress, transactionCreate.shippingAddress) &&
+        Objects.equals(this.shippingMethod, transactionCreate.shippingMethod) &&
+        Objects.equals(this.successUrl, transactionCreate.successUrl) &&
+        Objects.equals(this.timeZone, transactionCreate.timeZone) &&
+        Objects.equals(this.token, transactionCreate.token) &&
+        Objects.equals(this.tokenizationMode, transactionCreate.tokenizationMode) &&
+        Objects.equals(this.autoConfirmationEnabled, transactionCreate.autoConfirmationEnabled) &&
         Objects.equals(this.chargeRetryEnabled, transactionCreate.chargeRetryEnabled) &&
         Objects.equals(this.customersPresence, transactionCreate.customersPresence) &&
         Objects.equals(this.deviceSessionIdentifier, transactionCreate.deviceSessionIdentifier) &&
         Objects.equals(this.emailsDisabled, transactionCreate.emailsDisabled) &&
         Objects.equals(this.environment, transactionCreate.environment) &&
         Objects.equals(this.environmentSelectionStrategy, transactionCreate.environmentSelectionStrategy) &&
-        Objects.equals(this.lineItems, transactionCreate.lineItems) &&
-        Objects.equals(this.shippingAddress, transactionCreate.shippingAddress) &&
         Objects.equals(this.spaceViewId, transactionCreate.spaceViewId) &&
-        Objects.equals(this.token, transactionCreate.token) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoConfirmationEnabled, billingAddress, chargeRetryEnabled, customersPresence, deviceSessionIdentifier, emailsDisabled, environment, environmentSelectionStrategy, lineItems, shippingAddress, spaceViewId, token, super.hashCode());
+    return Objects.hash(allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, billingAddress, completionBehavior, currency, customerEmailAddress, customerId, failedUrl, invoiceMerchantReference, language, lineItems, merchantReference, metaData, shippingAddress, shippingMethod, successUrl, timeZone, token, tokenizationMode, autoConfirmationEnabled, chargeRetryEnabled, customersPresence, deviceSessionIdentifier, emailsDisabled, environment, environmentSelectionStrategy, spaceViewId, super.hashCode());
   }
 
 
@@ -366,18 +278,33 @@ public class TransactionCreate extends AbstractTransactionPending {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
+    sb.append("    allowedPaymentMethodBrands: ").append(toIndentedString(allowedPaymentMethodBrands)).append("\n");
+    sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    customerEmailAddress: ").append(toIndentedString(customerEmailAddress)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
+    sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
+    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+    sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
+    sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
+    sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
+    sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    tokenizationMode: ").append(toIndentedString(tokenizationMode)).append("\n");
+    sb.append("    autoConfirmationEnabled: ").append(toIndentedString(autoConfirmationEnabled)).append("\n");
     sb.append("    chargeRetryEnabled: ").append(toIndentedString(chargeRetryEnabled)).append("\n");
     sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
     sb.append("    deviceSessionIdentifier: ").append(toIndentedString(deviceSessionIdentifier)).append("\n");
     sb.append("    emailsDisabled: ").append(toIndentedString(emailsDisabled)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    environmentSelectionStrategy: ").append(toIndentedString(environmentSelectionStrategy)).append("\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
   }

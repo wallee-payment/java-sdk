@@ -25,10 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractWebhookListenerUpdate;
-import com.wallee.sdk.model.CreationEntityState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -96,14 +95,18 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
       return false;
     }
     WebhookListenerUpdate webhookListenerUpdate = (WebhookListenerUpdate) o;
-    return Objects.equals(this.id, webhookListenerUpdate.id) &&
+    return Objects.equals(this.entityStates, webhookListenerUpdate.entityStates) &&
+        Objects.equals(this.name, webhookListenerUpdate.name) &&
+        Objects.equals(this.notifyEveryChange, webhookListenerUpdate.notifyEveryChange) &&
+        Objects.equals(this.state, webhookListenerUpdate.state) &&
+        Objects.equals(this.id, webhookListenerUpdate.id) &&
         Objects.equals(this.version, webhookListenerUpdate.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(entityStates, name, notifyEveryChange, state, id, version, super.hashCode());
   }
 
 
@@ -112,6 +115,10 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookListenerUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

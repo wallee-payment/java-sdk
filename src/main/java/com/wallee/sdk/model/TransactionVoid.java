@@ -69,10 +69,6 @@ public class TransactionVoid extends TransactionAwareEntity {
   protected String language = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("mode")
   protected TransactionVoidMode mode = null;
 
@@ -171,16 +167,6 @@ public class TransactionVoid extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public String getLanguage() {
     return language;
-  }
-
-  
-   /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
   }
 
   
@@ -294,13 +280,15 @@ public class TransactionVoid extends TransactionAwareEntity {
       return false;
     }
     TransactionVoid transactionVoid = (TransactionVoid) o;
-    return Objects.equals(this.createdBy, transactionVoid.createdBy) &&
+    return Objects.equals(this.id, transactionVoid.id) &&
+        Objects.equals(this.linkedSpaceId, transactionVoid.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionVoid.linkedTransaction) &&
+        Objects.equals(this.createdBy, transactionVoid.createdBy) &&
         Objects.equals(this.createdOn, transactionVoid.createdOn) &&
         Objects.equals(this.failedOn, transactionVoid.failedOn) &&
         Objects.equals(this.failureReason, transactionVoid.failureReason) &&
         Objects.equals(this.labels, transactionVoid.labels) &&
         Objects.equals(this.language, transactionVoid.language) &&
-        Objects.equals(this.linkedSpaceId, transactionVoid.linkedSpaceId) &&
         Objects.equals(this.mode, transactionVoid.mode) &&
         Objects.equals(this.nextUpdateOn, transactionVoid.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, transactionVoid.plannedPurgeDate) &&
@@ -316,7 +304,7 @@ public class TransactionVoid extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdBy, createdOn, failedOn, failureReason, labels, language, linkedSpaceId, mode, nextUpdateOn, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeoutOn, transaction, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdBy, createdOn, failedOn, failureReason, labels, language, mode, nextUpdateOn, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeoutOn, transaction, version, super.hashCode());
   }
 
 
@@ -325,13 +313,15 @@ public class TransactionVoid extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionVoid {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

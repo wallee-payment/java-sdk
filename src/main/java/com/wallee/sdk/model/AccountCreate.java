@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractAccountUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -95,14 +94,17 @@ public class AccountCreate extends AbstractAccountUpdate {
       return false;
     }
     AccountCreate accountCreate = (AccountCreate) o;
-    return Objects.equals(this.parentAccount, accountCreate.parentAccount) &&
+    return Objects.equals(this.lastModifiedDate, accountCreate.lastModifiedDate) &&
+        Objects.equals(this.name, accountCreate.name) &&
+        Objects.equals(this.subaccountLimit, accountCreate.subaccountLimit) &&
+        Objects.equals(this.parentAccount, accountCreate.parentAccount) &&
         Objects.equals(this.scope, accountCreate.scope) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(parentAccount, scope, super.hashCode());
+    return Objects.hash(lastModifiedDate, name, subaccountLimit, parentAccount, scope, super.hashCode());
   }
 
 
@@ -111,6 +113,9 @@ public class AccountCreate extends AbstractAccountUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    subaccountLimit: ").append(toIndentedString(subaccountLimit)).append("\n");
     sb.append("    parentAccount: ").append(toIndentedString(parentAccount)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("}");

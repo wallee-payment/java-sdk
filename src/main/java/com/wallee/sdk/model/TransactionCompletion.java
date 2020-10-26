@@ -99,10 +99,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
   protected List<LineItem> lineItems = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
-
-  
   @JsonProperty("mode")
   protected TransactionCompletionMode mode = null;
 
@@ -291,16 +287,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
-
-  
-   /**
    * 
    * @return mode
   **/
@@ -450,7 +436,10 @@ public class TransactionCompletion extends TransactionAwareEntity {
       return false;
     }
     TransactionCompletion transactionCompletion = (TransactionCompletion) o;
-    return Objects.equals(this.amount, transactionCompletion.amount) &&
+    return Objects.equals(this.id, transactionCompletion.id) &&
+        Objects.equals(this.linkedSpaceId, transactionCompletion.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionCompletion.linkedTransaction) &&
+        Objects.equals(this.amount, transactionCompletion.amount) &&
         Objects.equals(this.baseLineItems, transactionCompletion.baseLineItems) &&
         Objects.equals(this.createdBy, transactionCompletion.createdBy) &&
         Objects.equals(this.createdOn, transactionCompletion.createdOn) &&
@@ -463,7 +452,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
         Objects.equals(this.lastCompletion, transactionCompletion.lastCompletion) &&
         Objects.equals(this.lineItemVersion, transactionCompletion.lineItemVersion) &&
         Objects.equals(this.lineItems, transactionCompletion.lineItems) &&
-        Objects.equals(this.linkedSpaceId, transactionCompletion.linkedSpaceId) &&
         Objects.equals(this.mode, transactionCompletion.mode) &&
         Objects.equals(this.nextUpdateOn, transactionCompletion.nextUpdateOn) &&
         Objects.equals(this.paymentInformation, transactionCompletion.paymentInformation) &&
@@ -483,7 +471,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, linkedSpaceId, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, succeededOn, taxAmount, timeZone, timeoutOn, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, succeededOn, taxAmount, timeZone, timeoutOn, version, super.hashCode());
   }
 
 
@@ -492,6 +480,9 @@ public class TransactionCompletion extends TransactionAwareEntity {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionCompletion {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    baseLineItems: ").append(toIndentedString(baseLineItems)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -505,7 +496,6 @@ public class TransactionCompletion extends TransactionAwareEntity {
     sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
     sb.append("    lineItemVersion: ").append(toIndentedString(lineItemVersion)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    paymentInformation: ").append(toIndentedString(paymentInformation)).append("\n");

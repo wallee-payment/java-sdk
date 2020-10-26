@@ -94,14 +94,15 @@ public class RefundCommentActive extends AbstractRefundCommentActive {
       return false;
     }
     RefundCommentActive refundCommentActive = (RefundCommentActive) o;
-    return Objects.equals(this.id, refundCommentActive.id) &&
+    return Objects.equals(this.content, refundCommentActive.content) &&
+        Objects.equals(this.id, refundCommentActive.id) &&
         Objects.equals(this.version, refundCommentActive.version) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, super.hashCode());
+    return Objects.hash(content, id, version, super.hashCode());
   }
 
 
@@ -110,6 +111,7 @@ public class RefundCommentActive extends AbstractRefundCommentActive {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundCommentActive {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
