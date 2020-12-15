@@ -136,6 +136,7 @@ public class MerticUsageService {
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
+        
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
     }
@@ -182,6 +183,7 @@ public class MerticUsageService {
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();

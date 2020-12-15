@@ -121,6 +121,7 @@ public class TransactionPaymentPageService {
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         
+        
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
     }
@@ -162,6 +163,7 @@ public class TransactionPaymentPageService {
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();

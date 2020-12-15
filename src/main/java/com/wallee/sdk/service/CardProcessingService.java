@@ -143,6 +143,7 @@ public class CardProcessingService {
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
+        
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
     }
@@ -251,6 +252,7 @@ public class CardProcessingService {
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
@@ -364,6 +366,7 @@ public class CardProcessingService {
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
+        
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
     }
@@ -472,6 +475,7 @@ public class CardProcessingService {
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(cardData);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();

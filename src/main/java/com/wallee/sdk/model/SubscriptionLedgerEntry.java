@@ -62,6 +62,10 @@ public class SubscriptionLedgerEntry {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("discountIncludingTax")
+  protected BigDecimal discountIncludingTax = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
@@ -154,6 +158,16 @@ public class SubscriptionLedgerEntry {
   @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * 
+   * @return discountIncludingTax
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getDiscountIncludingTax() {
+    return discountIncludingTax;
   }
 
   
@@ -282,6 +296,7 @@ public class SubscriptionLedgerEntry {
         Objects.equals(this.amountIncludingTax, subscriptionLedgerEntry.amountIncludingTax) &&
         Objects.equals(this.createdBy, subscriptionLedgerEntry.createdBy) &&
         Objects.equals(this.createdOn, subscriptionLedgerEntry.createdOn) &&
+        Objects.equals(this.discountIncludingTax, subscriptionLedgerEntry.discountIncludingTax) &&
         Objects.equals(this.externalId, subscriptionLedgerEntry.externalId) &&
         Objects.equals(this.id, subscriptionLedgerEntry.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionLedgerEntry.linkedSpaceId) &&
@@ -297,7 +312,7 @@ public class SubscriptionLedgerEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, createdBy, createdOn, externalId, id, linkedSpaceId, plannedPurgeDate, quantity, state, subscriptionVersion, taxAmount, taxes, title, version);
+    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, createdBy, createdOn, discountIncludingTax, externalId, id, linkedSpaceId, plannedPurgeDate, quantity, state, subscriptionVersion, taxAmount, taxes, title, version);
   }
 
 
@@ -311,6 +326,7 @@ public class SubscriptionLedgerEntry {
     sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

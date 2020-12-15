@@ -149,6 +149,7 @@ public class PaymentTerminalTillService {
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        httpRequest.getHeaders().setContentType("application/json;charset=utf-8");
         httpRequest.setReadTimeout(90 * 1000);
         
         return httpRequest.execute();
@@ -196,6 +197,7 @@ public class PaymentTerminalTillService {
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
+        httpRequest.getHeaders().setContentType("application/json;charset=utf-8");
         httpRequest.setReadTimeout(90 * 1000);
         
         return httpRequest.execute();
