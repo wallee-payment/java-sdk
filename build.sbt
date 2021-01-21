@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.wallee",
     name := "wallee-java-sdk",
-    version := "2.2.11",
+    version := "2.2.12",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),

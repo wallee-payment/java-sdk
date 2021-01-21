@@ -79,20 +79,20 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
         Objects.equals(this.appliedSpaceView, paymentLinkActive.appliedSpaceView) &&
         Objects.equals(this.availableFrom, paymentLinkActive.availableFrom) &&
         Objects.equals(this.availableUntil, paymentLinkActive.availableUntil) &&
-        Objects.equals(this.billingAddressRequired, paymentLinkActive.billingAddressRequired) &&
+        Objects.equals(this.billingAddressHandlingMode, paymentLinkActive.billingAddressHandlingMode) &&
         Objects.equals(this.currency, paymentLinkActive.currency) &&
         Objects.equals(this.language, paymentLinkActive.language) &&
         Objects.equals(this.lineItems, paymentLinkActive.lineItems) &&
         Objects.equals(this.maximalNumberOfTransactions, paymentLinkActive.maximalNumberOfTransactions) &&
         Objects.equals(this.name, paymentLinkActive.name) &&
-        Objects.equals(this.shippingAddressRequired, paymentLinkActive.shippingAddressRequired) &&
+        Objects.equals(this.shippingAddressHandlingMode, paymentLinkActive.shippingAddressHandlingMode) &&
         Objects.equals(this.state, paymentLinkActive.state) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressRequired, state, super.hashCode());
+    return Objects.hash(id, version, allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode, state, super.hashCode());
   }
 
 
@@ -107,13 +107,13 @@ public class PaymentLinkActive extends PaymentLinkUpdate {
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    billingAddressHandlingMode: ").append(toIndentedString(billingAddressHandlingMode)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
+    sb.append("    shippingAddressHandlingMode: ").append(toIndentedString(shippingAddressHandlingMode)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

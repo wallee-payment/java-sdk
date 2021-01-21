@@ -24,6 +24,8 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.CardCryptogramCreate;
+import com.wallee.sdk.model.RecurringIndicator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -34,7 +36,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "This model holds the card data in plain.")
 
-public class UnencryptedCardDataCreate {
+public class TokenizedCardDataCreate {
   
   @JsonProperty("cardHolderName")
   protected String cardHolderName = null;
@@ -42,6 +44,10 @@ public class UnencryptedCardDataCreate {
   
   @JsonProperty("cardVerificationCode")
   protected String cardVerificationCode = null;
+
+  
+  @JsonProperty("cryptogram")
+  protected CardCryptogramCreate cryptogram = null;
 
   
   @JsonProperty("expiryDate")
@@ -52,8 +58,16 @@ public class UnencryptedCardDataCreate {
   protected String primaryAccountNumber = null;
 
   
+  @JsonProperty("recurringIndicator")
+  protected RecurringIndicator recurringIndicator = null;
+
   
-  public UnencryptedCardDataCreate cardHolderName(String cardHolderName) {
+  @JsonProperty("tokenRequestorId")
+  protected String tokenRequestorId = null;
+
+  
+  
+  public TokenizedCardDataCreate cardHolderName(String cardHolderName) {
     this.cardHolderName = cardHolderName;
     return this;
   }
@@ -72,7 +86,7 @@ public class UnencryptedCardDataCreate {
   }
 
   
-  public UnencryptedCardDataCreate cardVerificationCode(String cardVerificationCode) {
+  public TokenizedCardDataCreate cardVerificationCode(String cardVerificationCode) {
     this.cardVerificationCode = cardVerificationCode;
     return this;
   }
@@ -91,7 +105,26 @@ public class UnencryptedCardDataCreate {
   }
 
   
-  public UnencryptedCardDataCreate expiryDate(String expiryDate) {
+  public TokenizedCardDataCreate cryptogram(CardCryptogramCreate cryptogram) {
+    this.cryptogram = cryptogram;
+    return this;
+  }
+
+   /**
+   * The additional authentication value used to secure the tokenized card transactions.
+   * @return cryptogram
+  **/
+  @ApiModelProperty(value = "The additional authentication value used to secure the tokenized card transactions.")
+  public CardCryptogramCreate getCryptogram() {
+    return cryptogram;
+  }
+
+  public void setCryptogram(CardCryptogramCreate cryptogram) {
+    this.cryptogram = cryptogram;
+  }
+
+  
+  public TokenizedCardDataCreate expiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
     return this;
   }
@@ -110,7 +143,7 @@ public class UnencryptedCardDataCreate {
   }
 
   
-  public UnencryptedCardDataCreate primaryAccountNumber(String primaryAccountNumber) {
+  public TokenizedCardDataCreate primaryAccountNumber(String primaryAccountNumber) {
     this.primaryAccountNumber = primaryAccountNumber;
     return this;
   }
@@ -129,6 +162,44 @@ public class UnencryptedCardDataCreate {
   }
 
   
+  public TokenizedCardDataCreate recurringIndicator(RecurringIndicator recurringIndicator) {
+    this.recurringIndicator = recurringIndicator;
+    return this;
+  }
+
+   /**
+   * 
+   * @return recurringIndicator
+  **/
+  @ApiModelProperty(value = "")
+  public RecurringIndicator getRecurringIndicator() {
+    return recurringIndicator;
+  }
+
+  public void setRecurringIndicator(RecurringIndicator recurringIndicator) {
+    this.recurringIndicator = recurringIndicator;
+  }
+
+  
+  public TokenizedCardDataCreate tokenRequestorId(String tokenRequestorId) {
+    this.tokenRequestorId = tokenRequestorId;
+    return this;
+  }
+
+   /**
+   * 
+   * @return tokenRequestorId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTokenRequestorId() {
+    return tokenRequestorId;
+  }
+
+  public void setTokenRequestorId(String tokenRequestorId) {
+    this.tokenRequestorId = tokenRequestorId;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -138,28 +209,34 @@ public class UnencryptedCardDataCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UnencryptedCardDataCreate unencryptedCardDataCreate = (UnencryptedCardDataCreate) o;
-    return Objects.equals(this.cardHolderName, unencryptedCardDataCreate.cardHolderName) &&
-        Objects.equals(this.cardVerificationCode, unencryptedCardDataCreate.cardVerificationCode) &&
-        Objects.equals(this.expiryDate, unencryptedCardDataCreate.expiryDate) &&
-        Objects.equals(this.primaryAccountNumber, unencryptedCardDataCreate.primaryAccountNumber);
+    TokenizedCardDataCreate tokenizedCardDataCreate = (TokenizedCardDataCreate) o;
+    return Objects.equals(this.cardHolderName, tokenizedCardDataCreate.cardHolderName) &&
+        Objects.equals(this.cardVerificationCode, tokenizedCardDataCreate.cardVerificationCode) &&
+        Objects.equals(this.cryptogram, tokenizedCardDataCreate.cryptogram) &&
+        Objects.equals(this.expiryDate, tokenizedCardDataCreate.expiryDate) &&
+        Objects.equals(this.primaryAccountNumber, tokenizedCardDataCreate.primaryAccountNumber) &&
+        Objects.equals(this.recurringIndicator, tokenizedCardDataCreate.recurringIndicator) &&
+        Objects.equals(this.tokenRequestorId, tokenizedCardDataCreate.tokenRequestorId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolderName, cardVerificationCode, expiryDate, primaryAccountNumber);
+    return Objects.hash(cardHolderName, cardVerificationCode, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, tokenRequestorId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UnencryptedCardDataCreate {\n");
+    sb.append("class TokenizedCardDataCreate {\n");
     
     sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
     sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
+    sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
+    sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
+    sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

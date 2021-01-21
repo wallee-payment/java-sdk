@@ -26,6 +26,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
 import com.wallee.sdk.model.LineItem;
+import com.wallee.sdk.model.PaymentLinkAddressHandlingMode;
 import com.wallee.sdk.model.PaymentLinkProtectionMode;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import io.swagger.annotations.ApiModel;
@@ -59,8 +60,8 @@ public class PaymentLink {
   protected OffsetDateTime availableUntil = null;
 
   
-  @JsonProperty("billingAddressRequired")
-  protected Boolean billingAddressRequired = null;
+  @JsonProperty("billingAddressHandlingMode")
+  protected PaymentLinkAddressHandlingMode billingAddressHandlingMode = null;
 
   
   @JsonProperty("currency")
@@ -103,8 +104,8 @@ public class PaymentLink {
   protected PaymentLinkProtectionMode protectionMode = null;
 
   
-  @JsonProperty("shippingAddressRequired")
-  protected Boolean shippingAddressRequired = null;
+  @JsonProperty("shippingAddressHandlingMode")
+  protected PaymentLinkAddressHandlingMode shippingAddressHandlingMode = null;
 
   
   @JsonProperty("state")
@@ -161,12 +162,12 @@ public class PaymentLink {
 
   
    /**
-   * By making the billing address required the transaction can only be created when a billing address is provided within the request.
-   * @return billingAddressRequired
+   * The billing address handling mode controls if the address is collected or not and how it is collected.
+   * @return billingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "By making the billing address required the transaction can only be created when a billing address is provided within the request.")
-  public Boolean isBillingAddressRequired() {
-    return billingAddressRequired;
+  @ApiModelProperty(value = "The billing address handling mode controls if the address is collected or not and how it is collected.")
+  public PaymentLinkAddressHandlingMode getBillingAddressHandlingMode() {
+    return billingAddressHandlingMode;
   }
 
   
@@ -271,12 +272,12 @@ public class PaymentLink {
 
   
    /**
-   * By making the shipping address required the transaction can only be created when a shipping address is provided within the request.
-   * @return shippingAddressRequired
+   * The shipping address handling mode controls if the address is collected or not and how it is collected.
+   * @return shippingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "By making the shipping address required the transaction can only be created when a shipping address is provided within the request.")
-  public Boolean isShippingAddressRequired() {
-    return shippingAddressRequired;
+  @ApiModelProperty(value = "The shipping address handling mode controls if the address is collected or not and how it is collected.")
+  public PaymentLinkAddressHandlingMode getShippingAddressHandlingMode() {
+    return shippingAddressHandlingMode;
   }
 
   
@@ -324,7 +325,7 @@ public class PaymentLink {
         Objects.equals(this.appliedSpaceView, paymentLink.appliedSpaceView) &&
         Objects.equals(this.availableFrom, paymentLink.availableFrom) &&
         Objects.equals(this.availableUntil, paymentLink.availableUntil) &&
-        Objects.equals(this.billingAddressRequired, paymentLink.billingAddressRequired) &&
+        Objects.equals(this.billingAddressHandlingMode, paymentLink.billingAddressHandlingMode) &&
         Objects.equals(this.currency, paymentLink.currency) &&
         Objects.equals(this.externalId, paymentLink.externalId) &&
         Objects.equals(this.id, paymentLink.id) &&
@@ -335,7 +336,7 @@ public class PaymentLink {
         Objects.equals(this.name, paymentLink.name) &&
         Objects.equals(this.plannedPurgeDate, paymentLink.plannedPurgeDate) &&
         Objects.equals(this.protectionMode, paymentLink.protectionMode) &&
-        Objects.equals(this.shippingAddressRequired, paymentLink.shippingAddressRequired) &&
+        Objects.equals(this.shippingAddressHandlingMode, paymentLink.shippingAddressHandlingMode) &&
         Objects.equals(this.state, paymentLink.state) &&
         Objects.equals(this.url, paymentLink.url) &&
         Objects.equals(this.version, paymentLink.version);
@@ -343,7 +344,7 @@ public class PaymentLink {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, externalId, id, language, lineItems, linkedSpaceId, maximalNumberOfTransactions, name, plannedPurgeDate, protectionMode, shippingAddressRequired, state, url, version);
+    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, externalId, id, language, lineItems, linkedSpaceId, maximalNumberOfTransactions, name, plannedPurgeDate, protectionMode, shippingAddressHandlingMode, state, url, version);
   }
 
 
@@ -356,7 +357,7 @@ public class PaymentLink {
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    billingAddressHandlingMode: ").append(toIndentedString(billingAddressHandlingMode)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -367,7 +368,7 @@ public class PaymentLink {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    protectionMode: ").append(toIndentedString(protectionMode)).append("\n");
-    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
+    sb.append("    shippingAddressHandlingMode: ").append(toIndentedString(shippingAddressHandlingMode)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

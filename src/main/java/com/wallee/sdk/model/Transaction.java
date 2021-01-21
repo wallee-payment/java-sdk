@@ -210,6 +210,10 @@ public class Transaction {
   protected String invoiceMerchantReference = null;
 
   
+  @JsonProperty("javaEnabled")
+  protected Boolean javaEnabled = null;
+
+  
   @JsonProperty("language")
   protected String language = null;
 
@@ -248,6 +252,18 @@ public class Transaction {
   
   @JsonProperty("refundedAmount")
   protected BigDecimal refundedAmount = null;
+
+  
+  @JsonProperty("screenColorDepth")
+  protected String screenColorDepth = null;
+
+  
+  @JsonProperty("screenHeight")
+  protected String screenHeight = null;
+
+  
+  @JsonProperty("screenWidth")
+  protected String screenWidth = null;
 
   
   @JsonProperty("shippingAddress")
@@ -308,6 +324,14 @@ public class Transaction {
   
   @JsonProperty("version")
   protected Integer version = null;
+
+  
+  @JsonProperty("windowHeight")
+  protected String windowHeight = null;
+
+  
+  @JsonProperty("windowWidth")
+  protected String windowWidth = null;
 
   
   
@@ -693,6 +717,16 @@ public class Transaction {
   
    /**
    * 
+   * @return javaEnabled
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isJavaEnabled() {
+    return javaEnabled;
+  }
+
+  
+   /**
+   * 
    * @return language
   **/
   @ApiModelProperty(value = "")
@@ -788,6 +822,36 @@ public class Transaction {
   @ApiModelProperty(value = "The refunded amount is the total amount which has been refunded so far.")
   public BigDecimal getRefundedAmount() {
     return refundedAmount;
+  }
+
+  
+   /**
+   * 
+   * @return screenColorDepth
+  **/
+  @ApiModelProperty(value = "")
+  public String getScreenColorDepth() {
+    return screenColorDepth;
+  }
+
+  
+   /**
+   * 
+   * @return screenHeight
+  **/
+  @ApiModelProperty(value = "")
+  public String getScreenHeight() {
+    return screenHeight;
+  }
+
+  
+   /**
+   * 
+   * @return screenWidth
+  **/
+  @ApiModelProperty(value = "")
+  public String getScreenWidth() {
+    return screenWidth;
   }
 
   
@@ -941,6 +1005,26 @@ public class Transaction {
   }
 
   
+   /**
+   * 
+   * @return windowHeight
+  **/
+  @ApiModelProperty(value = "")
+  public String getWindowHeight() {
+    return windowHeight;
+  }
+
+  
+   /**
+   * 
+   * @return windowWidth
+  **/
+  @ApiModelProperty(value = "")
+  public String getWindowWidth() {
+    return windowWidth;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -989,6 +1073,7 @@ public class Transaction {
         Objects.equals(this.internetProtocolAddress, transaction.internetProtocolAddress) &&
         Objects.equals(this.internetProtocolAddressCountry, transaction.internetProtocolAddressCountry) &&
         Objects.equals(this.invoiceMerchantReference, transaction.invoiceMerchantReference) &&
+        Objects.equals(this.javaEnabled, transaction.javaEnabled) &&
         Objects.equals(this.language, transaction.language) &&
         Objects.equals(this.lineItems, transaction.lineItems) &&
         Objects.equals(this.linkedSpaceId, transaction.linkedSpaceId) &&
@@ -999,6 +1084,9 @@ public class Transaction {
         Objects.equals(this.plannedPurgeDate, transaction.plannedPurgeDate) &&
         Objects.equals(this.processingOn, transaction.processingOn) &&
         Objects.equals(this.refundedAmount, transaction.refundedAmount) &&
+        Objects.equals(this.screenColorDepth, transaction.screenColorDepth) &&
+        Objects.equals(this.screenHeight, transaction.screenHeight) &&
+        Objects.equals(this.screenWidth, transaction.screenWidth) &&
         Objects.equals(this.shippingAddress, transaction.shippingAddress) &&
         Objects.equals(this.shippingMethod, transaction.shippingMethod) &&
         Objects.equals(this.spaceViewId, transaction.spaceViewId) &&
@@ -1013,12 +1101,14 @@ public class Transaction {
         Objects.equals(this.userAgentHeader, transaction.userAgentHeader) &&
         Objects.equals(this.userFailureMessage, transaction.userFailureMessage) &&
         Objects.equals(this.userInterfaceType, transaction.userInterfaceType) &&
-        Objects.equals(this.version, transaction.version);
+        Objects.equals(this.version, transaction.version) &&
+        Objects.equals(this.windowHeight, transaction.windowHeight) &&
+        Objects.equals(this.windowWidth, transaction.windowWidth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionBehavior, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, shippingAddress, shippingMethod, spaceViewId, state, successUrl, terminal, timeZone, token, tokenizationMode, totalAppliedFees, totalSettledAmount, userAgentHeader, userFailureMessage, userInterfaceType, version);
+    return Objects.hash(acceptHeader, acceptLanguageHeader, allowedPaymentMethodBrands, allowedPaymentMethodConfigurations, authorizationAmount, authorizationEnvironment, authorizationSalesChannel, authorizationTimeoutOn, authorizedOn, autoConfirmationEnabled, billingAddress, chargeRetryEnabled, completedAmount, completedOn, completionBehavior, completionTimeoutOn, confirmedBy, confirmedOn, createdBy, createdOn, currency, customerEmailAddress, customerId, customersPresence, deliveryDecisionMadeOn, deviceSessionIdentifier, emailsDisabled, endOfLife, environment, environmentSelectionStrategy, failedOn, failedUrl, failureReason, group, id, internetProtocolAddress, internetProtocolAddressCountry, invoiceMerchantReference, javaEnabled, language, lineItems, linkedSpaceId, merchantReference, metaData, parent, paymentConnectorConfiguration, plannedPurgeDate, processingOn, refundedAmount, screenColorDepth, screenHeight, screenWidth, shippingAddress, shippingMethod, spaceViewId, state, successUrl, terminal, timeZone, token, tokenizationMode, totalAppliedFees, totalSettledAmount, userAgentHeader, userFailureMessage, userInterfaceType, version, windowHeight, windowWidth);
   }
 
 
@@ -1065,6 +1155,7 @@ public class Transaction {
     sb.append("    internetProtocolAddress: ").append(toIndentedString(internetProtocolAddress)).append("\n");
     sb.append("    internetProtocolAddressCountry: ").append(toIndentedString(internetProtocolAddressCountry)).append("\n");
     sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
+    sb.append("    javaEnabled: ").append(toIndentedString(javaEnabled)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
@@ -1075,6 +1166,9 @@ public class Transaction {
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    processingOn: ").append(toIndentedString(processingOn)).append("\n");
     sb.append("    refundedAmount: ").append(toIndentedString(refundedAmount)).append("\n");
+    sb.append("    screenColorDepth: ").append(toIndentedString(screenColorDepth)).append("\n");
+    sb.append("    screenHeight: ").append(toIndentedString(screenHeight)).append("\n");
+    sb.append("    screenWidth: ").append(toIndentedString(screenWidth)).append("\n");
     sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
     sb.append("    shippingMethod: ").append(toIndentedString(shippingMethod)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
@@ -1090,6 +1184,8 @@ public class Transaction {
     sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
     sb.append("    userInterfaceType: ").append(toIndentedString(userInterfaceType)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    windowHeight: ").append(toIndentedString(windowHeight)).append("\n");
+    sb.append("    windowWidth: ").append(toIndentedString(windowWidth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

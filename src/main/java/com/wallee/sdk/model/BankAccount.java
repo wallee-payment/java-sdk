@@ -24,9 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.PaymentTerminalAddress;
-import com.wallee.sdk.model.PaymentTerminalConfiguration;
-import com.wallee.sdk.model.PaymentTerminalLocationState;
+import com.wallee.sdk.model.BankAccountState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -38,26 +36,22 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class PaymentTerminalLocation {
+public class BankAccount {
   
-  @JsonProperty("contactAddress")
-  protected PaymentTerminalAddress contactAddress = null;
-
-  
-  @JsonProperty("defaultConfiguration")
-  protected PaymentTerminalConfiguration defaultConfiguration = null;
+  @JsonProperty("description")
+  protected String description = null;
 
   
   @JsonProperty("id")
   protected Long id = null;
 
   
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  @JsonProperty("identifier")
+  protected String identifier = null;
 
   
-  @JsonProperty("name")
-  protected String name = null;
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -65,7 +59,11 @@ public class PaymentTerminalLocation {
 
   
   @JsonProperty("state")
-  protected PaymentTerminalLocationState state = null;
+  protected BankAccountState state = null;
+
+  
+  @JsonProperty("type")
+  protected Long type = null;
 
   
   @JsonProperty("version")
@@ -74,22 +72,12 @@ public class PaymentTerminalLocation {
   
   
    /**
-   * 
-   * @return contactAddress
+   * The optional description is shown along the identifier. The intention of the description is to give an alternative name to the bank account.
+   * @return description
   **/
-  @ApiModelProperty(value = "")
-  public PaymentTerminalAddress getContactAddress() {
-    return contactAddress;
-  }
-
-  
-   /**
-   * 
-   * @return defaultConfiguration
-  **/
-  @ApiModelProperty(value = "")
-  public PaymentTerminalConfiguration getDefaultConfiguration() {
-    return defaultConfiguration;
+  @ApiModelProperty(value = "The optional description is shown along the identifier. The intention of the description is to give an alternative name to the bank account.")
+  public String getDescription() {
+    return description;
   }
 
   
@@ -104,22 +92,22 @@ public class PaymentTerminalLocation {
 
   
    /**
+   * The bank account identifier is responsible to uniquely identify the bank account.
+   * @return identifier
+  **/
+  @ApiModelProperty(value = "The bank account identifier is responsible to uniquely identify the bank account.")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  
+   /**
    * The linked space id holds the ID of the space to which the entity belongs to.
    * @return linkedSpaceId
   **/
   @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
-  }
-
-  
-   /**
-   * The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
-  public String getName() {
-    return name;
   }
 
   
@@ -138,8 +126,18 @@ public class PaymentTerminalLocation {
    * @return state
   **/
   @ApiModelProperty(value = "")
-  public PaymentTerminalLocationState getState() {
+  public BankAccountState getState() {
     return state;
+  }
+
+  
+   /**
+   * 
+   * @return type
+  **/
+  @ApiModelProperty(value = "")
+  public Long getType() {
+    return type;
   }
 
   
@@ -162,35 +160,35 @@ public class PaymentTerminalLocation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentTerminalLocation paymentTerminalLocation = (PaymentTerminalLocation) o;
-    return Objects.equals(this.contactAddress, paymentTerminalLocation.contactAddress) &&
-        Objects.equals(this.defaultConfiguration, paymentTerminalLocation.defaultConfiguration) &&
-        Objects.equals(this.id, paymentTerminalLocation.id) &&
-        Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
-        Objects.equals(this.name, paymentTerminalLocation.name) &&
-        Objects.equals(this.plannedPurgeDate, paymentTerminalLocation.plannedPurgeDate) &&
-        Objects.equals(this.state, paymentTerminalLocation.state) &&
-        Objects.equals(this.version, paymentTerminalLocation.version);
+    BankAccount bankAccount = (BankAccount) o;
+    return Objects.equals(this.description, bankAccount.description) &&
+        Objects.equals(this.id, bankAccount.id) &&
+        Objects.equals(this.identifier, bankAccount.identifier) &&
+        Objects.equals(this.linkedSpaceId, bankAccount.linkedSpaceId) &&
+        Objects.equals(this.plannedPurgeDate, bankAccount.plannedPurgeDate) &&
+        Objects.equals(this.state, bankAccount.state) &&
+        Objects.equals(this.type, bankAccount.type) &&
+        Objects.equals(this.version, bankAccount.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactAddress, defaultConfiguration, id, linkedSpaceId, name, plannedPurgeDate, state, version);
+    return Objects.hash(description, id, identifier, linkedSpaceId, plannedPurgeDate, state, type, version);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentTerminalLocation {\n");
+    sb.append("class BankAccount {\n");
     
-    sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
-    sb.append("    defaultConfiguration: ").append(toIndentedString(defaultConfiguration)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();

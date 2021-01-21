@@ -80,6 +80,10 @@ public class Permission {
   protected Boolean twoFactorRequired = null;
 
   
+  @JsonProperty("webAppEnabled")
+  protected Boolean webAppEnabled = null;
+
+  
   
    /**
    * 
@@ -181,6 +185,16 @@ public class Permission {
   }
 
   
+   /**
+   * 
+   * @return webAppEnabled
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean isWebAppEnabled() {
+    return webAppEnabled;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -200,12 +214,13 @@ public class Permission {
         Objects.equals(this.parent, permission.parent) &&
         Objects.equals(this.pathToRoot, permission.pathToRoot) &&
         Objects.equals(this.title, permission.title) &&
-        Objects.equals(this.twoFactorRequired, permission.twoFactorRequired);
+        Objects.equals(this.twoFactorRequired, permission.twoFactorRequired) &&
+        Objects.equals(this.webAppEnabled, permission.webAppEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title, twoFactorRequired);
+    return Objects.hash(description, feature, group, id, leaf, name, parent, pathToRoot, title, twoFactorRequired, webAppEnabled);
   }
 
 
@@ -224,6 +239,7 @@ public class Permission {
     sb.append("    pathToRoot: ").append(toIndentedString(pathToRoot)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
+    sb.append("    webAppEnabled: ").append(toIndentedString(webAppEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

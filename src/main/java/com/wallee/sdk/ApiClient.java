@@ -141,6 +141,14 @@ public class ApiClient {
         return this.chargeAttemptService;
     }
     
+    private ChargeBankTransactionService chargeBankTransactionService;
+    public ChargeBankTransactionService getChargeBankTransactionService() {
+        if (this.chargeBankTransactionService == null) {
+            this.chargeBankTransactionService = new ChargeBankTransactionService(this);
+        }
+        return this.chargeBankTransactionService;
+    }
+    
     private ChargeFlowLevelPaymentLinkService chargeFlowLevelPaymentLinkService;
     public ChargeFlowLevelPaymentLinkService getChargeFlowLevelPaymentLinkService() {
         if (this.chargeFlowLevelPaymentLinkService == null) {
@@ -269,6 +277,14 @@ public class ApiClient {
         return this.documentTemplateTypeService;
     }
     
+    private ExternalTransferBankTransactionService externalTransferBankTransactionService;
+    public ExternalTransferBankTransactionService getExternalTransferBankTransactionService() {
+        if (this.externalTransferBankTransactionService == null) {
+            this.externalTransferBankTransactionService = new ExternalTransferBankTransactionService(this);
+        }
+        return this.externalTransferBankTransactionService;
+    }
+    
     private HumanUserService humanUserService;
     public HumanUserService getHumanUserService() {
         if (this.humanUserService == null) {
@@ -315,6 +331,14 @@ public class ApiClient {
             this.installmentPlanSliceConfigurationService = new InstallmentPlanSliceConfigurationService(this);
         }
         return this.installmentPlanSliceConfigurationService;
+    }
+    
+    private InternalTransferBankTransactionService internalTransferBankTransactionService;
+    public InternalTransferBankTransactionService getInternalTransferBankTransactionService() {
+        if (this.internalTransferBankTransactionService == null) {
+            this.internalTransferBankTransactionService = new InternalTransferBankTransactionService(this);
+        }
+        return this.internalTransferBankTransactionService;
     }
     
     private LabelDescriptionGroupService labelDescriptionGroupService;
@@ -453,12 +477,28 @@ public class ApiClient {
         return this.permissionService;
     }
     
+    private RefundBankTransactionService refundBankTransactionService;
+    public RefundBankTransactionService getRefundBankTransactionService() {
+        if (this.refundBankTransactionService == null) {
+            this.refundBankTransactionService = new RefundBankTransactionService(this);
+        }
+        return this.refundBankTransactionService;
+    }
+    
     private RefundCommentService refundCommentService;
     public RefundCommentService getRefundCommentService() {
         if (this.refundCommentService == null) {
             this.refundCommentService = new RefundCommentService(this);
         }
         return this.refundCommentService;
+    }
+    
+    private RefundRecoveryBankTransactionService refundRecoveryBankTransactionService;
+    public RefundRecoveryBankTransactionService getRefundRecoveryBankTransactionService() {
+        if (this.refundRecoveryBankTransactionService == null) {
+            this.refundRecoveryBankTransactionService = new RefundRecoveryBankTransactionService(this);
+        }
+        return this.refundRecoveryBankTransactionService;
     }
     
     private RefundService refundService;
@@ -819,6 +859,14 @@ public class ApiClient {
             this.userSpaceRoleService = new UserSpaceRoleService(this);
         }
         return this.userSpaceRoleService;
+    }
+    
+    private WebAppService webAppService;
+    public WebAppService getWebAppService() {
+        if (this.webAppService == null) {
+            this.webAppService = new WebAppService(this);
+        }
+        return this.webAppService;
     }
     
     private WebhookListenerService webhookListenerService;

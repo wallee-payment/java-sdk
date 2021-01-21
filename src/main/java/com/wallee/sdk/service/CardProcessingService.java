@@ -2,10 +2,11 @@ package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
 
+import com.wallee.sdk.model.AuthenticatedCardDataCreate;
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
+import com.wallee.sdk.model.TokenizedCardDataCreate;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.UnencryptedCardDataCreate;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -52,7 +53,7 @@ public class CardProcessingService {
     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
 
     **/
-    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
         String returnType = "Transaction";
         if(returnType.equals("String")){
@@ -80,7 +81,7 @@ public class CardProcessingService {
     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
 
     **/
-    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+    public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
         String returnType = "Transaction";
         if(returnType.equals("String")){
@@ -90,7 +91,7 @@ public class CardProcessingService {
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
@@ -207,7 +208,7 @@ public class CardProcessingService {
               return httpRequest.execute();
       }
 
-    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+    public HttpResponse processForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling process");
@@ -275,7 +276,7 @@ public class CardProcessingService {
     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
 
     **/
-    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData);
         String returnType = "String";
         if(returnType.equals("String")){
@@ -303,7 +304,7 @@ public class CardProcessingService {
     * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
 
     **/
-    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+    public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         HttpResponse response = processWith3DSecureForHttpResponse(spaceId, transactionId, paymentMethodConfigurationId, cardData, params);
         String returnType = "String";
         if(returnType.equals("String")){
@@ -313,7 +314,7 @@ public class CardProcessingService {
         return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData) throws IOException {
+    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");
@@ -430,7 +431,7 @@ public class CardProcessingService {
               return httpRequest.execute();
       }
 
-    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, UnencryptedCardDataCreate cardData, Map<String, Object> params) throws IOException {
+    public HttpResponse processWith3DSecureForHttpResponse(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processWith3DSecure");

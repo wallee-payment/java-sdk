@@ -38,6 +38,10 @@ import java.time.OffsetDateTime;
 
 public class WebhookUrl {
   
+  @JsonProperty("applicationManaged")
+  protected Boolean applicationManaged = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
@@ -66,6 +70,16 @@ public class WebhookUrl {
   protected Integer version = null;
 
   
+  
+   /**
+   * The webhook URL is managed by the application and cannot be changed via the user interface.
+   * @return applicationManaged
+  **/
+  @ApiModelProperty(value = "The webhook URL is managed by the application and cannot be changed via the user interface.")
+  public Boolean isApplicationManaged() {
+    return applicationManaged;
+  }
+
   
    /**
    * The ID is the primary key of the entity. The ID identifies the entity uniquely.
@@ -147,7 +161,8 @@ public class WebhookUrl {
       return false;
     }
     WebhookUrl webhookUrl = (WebhookUrl) o;
-    return Objects.equals(this.id, webhookUrl.id) &&
+    return Objects.equals(this.applicationManaged, webhookUrl.applicationManaged) &&
+        Objects.equals(this.id, webhookUrl.id) &&
         Objects.equals(this.linkedSpaceId, webhookUrl.linkedSpaceId) &&
         Objects.equals(this.name, webhookUrl.name) &&
         Objects.equals(this.plannedPurgeDate, webhookUrl.plannedPurgeDate) &&
@@ -158,7 +173,7 @@ public class WebhookUrl {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, state, url, version);
+    return Objects.hash(applicationManaged, id, linkedSpaceId, name, plannedPurgeDate, state, url, version);
   }
 
 
@@ -167,6 +182,7 @@ public class WebhookUrl {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookUrl {\n");
     
+    sb.append("    applicationManaged: ").append(toIndentedString(applicationManaged)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

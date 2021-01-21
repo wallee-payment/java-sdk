@@ -124,13 +124,13 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
         Objects.equals(this.appliedSpaceView, paymentLinkCreate.appliedSpaceView) &&
         Objects.equals(this.availableFrom, paymentLinkCreate.availableFrom) &&
         Objects.equals(this.availableUntil, paymentLinkCreate.availableUntil) &&
-        Objects.equals(this.billingAddressRequired, paymentLinkCreate.billingAddressRequired) &&
+        Objects.equals(this.billingAddressHandlingMode, paymentLinkCreate.billingAddressHandlingMode) &&
         Objects.equals(this.currency, paymentLinkCreate.currency) &&
         Objects.equals(this.language, paymentLinkCreate.language) &&
         Objects.equals(this.lineItems, paymentLinkCreate.lineItems) &&
         Objects.equals(this.maximalNumberOfTransactions, paymentLinkCreate.maximalNumberOfTransactions) &&
         Objects.equals(this.name, paymentLinkCreate.name) &&
-        Objects.equals(this.shippingAddressRequired, paymentLinkCreate.shippingAddressRequired) &&
+        Objects.equals(this.shippingAddressHandlingMode, paymentLinkCreate.shippingAddressHandlingMode) &&
         Objects.equals(this.state, paymentLinkCreate.state) &&
         Objects.equals(this.externalId, paymentLinkCreate.externalId) &&
         Objects.equals(this.protectionMode, paymentLinkCreate.protectionMode) &&
@@ -139,7 +139,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressRequired, state, externalId, protectionMode, super.hashCode());
+    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode, state, externalId, protectionMode, super.hashCode());
   }
 
 
@@ -152,13 +152,13 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    billingAddressHandlingMode: ").append(toIndentedString(billingAddressHandlingMode)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
+    sb.append("    shippingAddressHandlingMode: ").append(toIndentedString(shippingAddressHandlingMode)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    protectionMode: ").append(toIndentedString(protectionMode)).append("\n");

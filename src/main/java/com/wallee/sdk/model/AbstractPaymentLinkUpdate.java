@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.LineItemCreate;
+import com.wallee.sdk.model.PaymentLinkAddressHandlingMode;
 import com.wallee.sdk.model.PaymentMethodConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -56,8 +57,8 @@ public class AbstractPaymentLinkUpdate {
   protected OffsetDateTime availableUntil = null;
 
   
-  @JsonProperty("billingAddressRequired")
-  protected Boolean billingAddressRequired = null;
+  @JsonProperty("billingAddressHandlingMode")
+  protected PaymentLinkAddressHandlingMode billingAddressHandlingMode = null;
 
   
   @JsonProperty("currency")
@@ -80,8 +81,8 @@ public class AbstractPaymentLinkUpdate {
   protected String name = null;
 
   
-  @JsonProperty("shippingAddressRequired")
-  protected Boolean shippingAddressRequired = null;
+  @JsonProperty("shippingAddressHandlingMode")
+  protected PaymentLinkAddressHandlingMode shippingAddressHandlingMode = null;
 
   
   
@@ -169,22 +170,22 @@ public class AbstractPaymentLinkUpdate {
   }
 
   
-  public AbstractPaymentLinkUpdate billingAddressRequired(Boolean billingAddressRequired) {
-    this.billingAddressRequired = billingAddressRequired;
+  public AbstractPaymentLinkUpdate billingAddressHandlingMode(PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
+    this.billingAddressHandlingMode = billingAddressHandlingMode;
     return this;
   }
 
    /**
-   * By making the billing address required the transaction can only be created when a billing address is provided within the request.
-   * @return billingAddressRequired
+   * The billing address handling mode controls if the address is collected or not and how it is collected.
+   * @return billingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "By making the billing address required the transaction can only be created when a billing address is provided within the request.")
-  public Boolean isBillingAddressRequired() {
-    return billingAddressRequired;
+  @ApiModelProperty(value = "The billing address handling mode controls if the address is collected or not and how it is collected.")
+  public PaymentLinkAddressHandlingMode getBillingAddressHandlingMode() {
+    return billingAddressHandlingMode;
   }
 
-  public void setBillingAddressRequired(Boolean billingAddressRequired) {
-    this.billingAddressRequired = billingAddressRequired;
+  public void setBillingAddressHandlingMode(PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
+    this.billingAddressHandlingMode = billingAddressHandlingMode;
   }
 
   
@@ -291,22 +292,22 @@ public class AbstractPaymentLinkUpdate {
   }
 
   
-  public AbstractPaymentLinkUpdate shippingAddressRequired(Boolean shippingAddressRequired) {
-    this.shippingAddressRequired = shippingAddressRequired;
+  public AbstractPaymentLinkUpdate shippingAddressHandlingMode(PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
+    this.shippingAddressHandlingMode = shippingAddressHandlingMode;
     return this;
   }
 
    /**
-   * By making the shipping address required the transaction can only be created when a shipping address is provided within the request.
-   * @return shippingAddressRequired
+   * The shipping address handling mode controls if the address is collected or not and how it is collected.
+   * @return shippingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "By making the shipping address required the transaction can only be created when a shipping address is provided within the request.")
-  public Boolean isShippingAddressRequired() {
-    return shippingAddressRequired;
+  @ApiModelProperty(value = "The shipping address handling mode controls if the address is collected or not and how it is collected.")
+  public PaymentLinkAddressHandlingMode getShippingAddressHandlingMode() {
+    return shippingAddressHandlingMode;
   }
 
-  public void setShippingAddressRequired(Boolean shippingAddressRequired) {
-    this.shippingAddressRequired = shippingAddressRequired;
+  public void setShippingAddressHandlingMode(PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
+    this.shippingAddressHandlingMode = shippingAddressHandlingMode;
   }
 
   
@@ -324,18 +325,18 @@ public class AbstractPaymentLinkUpdate {
         Objects.equals(this.appliedSpaceView, abstractPaymentLinkUpdate.appliedSpaceView) &&
         Objects.equals(this.availableFrom, abstractPaymentLinkUpdate.availableFrom) &&
         Objects.equals(this.availableUntil, abstractPaymentLinkUpdate.availableUntil) &&
-        Objects.equals(this.billingAddressRequired, abstractPaymentLinkUpdate.billingAddressRequired) &&
+        Objects.equals(this.billingAddressHandlingMode, abstractPaymentLinkUpdate.billingAddressHandlingMode) &&
         Objects.equals(this.currency, abstractPaymentLinkUpdate.currency) &&
         Objects.equals(this.language, abstractPaymentLinkUpdate.language) &&
         Objects.equals(this.lineItems, abstractPaymentLinkUpdate.lineItems) &&
         Objects.equals(this.maximalNumberOfTransactions, abstractPaymentLinkUpdate.maximalNumberOfTransactions) &&
         Objects.equals(this.name, abstractPaymentLinkUpdate.name) &&
-        Objects.equals(this.shippingAddressRequired, abstractPaymentLinkUpdate.shippingAddressRequired);
+        Objects.equals(this.shippingAddressHandlingMode, abstractPaymentLinkUpdate.shippingAddressHandlingMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressRequired, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressRequired);
+    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode);
   }
 
 
@@ -348,13 +349,13 @@ public class AbstractPaymentLinkUpdate {
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");
-    sb.append("    billingAddressRequired: ").append(toIndentedString(billingAddressRequired)).append("\n");
+    sb.append("    billingAddressHandlingMode: ").append(toIndentedString(billingAddressHandlingMode)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    maximalNumberOfTransactions: ").append(toIndentedString(maximalNumberOfTransactions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    shippingAddressRequired: ").append(toIndentedString(shippingAddressRequired)).append("\n");
+    sb.append("    shippingAddressHandlingMode: ").append(toIndentedString(shippingAddressHandlingMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
