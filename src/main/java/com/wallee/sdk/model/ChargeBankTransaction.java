@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.BankTransaction;
+import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -56,7 +57,7 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
 
   
   @JsonProperty("transaction")
-  protected Long transaction = null;
+  protected Transaction transaction = null;
 
   
   @JsonProperty("transactionCurrencyAmount")
@@ -117,7 +118,7 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
    * @return transaction
   **/
   @ApiModelProperty(value = "")
-  public Long getTransaction() {
+  public Transaction getTransaction() {
     return transaction;
   }
 
