@@ -60,10 +60,10 @@ public class CardholderAuthentication {
   
   
    /**
-   * The authentication identifier as assigned by authentication system (e.g. XID or 3DSTransactionID).
+   * The authentication identifier as assigned by authentication system (e.g. XID or DSTransactionID).
    * @return authenticationIdentifier
   **/
-  @ApiModelProperty(value = "The authentication identifier as assigned by authentication system (e.g. XID or 3DSTransactionID).")
+  @ApiModelProperty(value = "The authentication identifier as assigned by authentication system (e.g. XID or DSTransactionID).")
   public String getAuthenticationIdentifier() {
     return authenticationIdentifier;
   }

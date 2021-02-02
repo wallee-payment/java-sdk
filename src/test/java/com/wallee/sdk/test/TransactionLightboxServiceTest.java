@@ -77,14 +77,10 @@ public class TransactionLightboxServiceTest {
      * This operation creates the URL which can be used to embed the JavaScript for handling the Lightbox checkout flow.
      */
     @Test
-    public void javascriptUrlTest() {
-        try {
-            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-            String javascriptUrl = this.apiClient.getTransactionLightboxService().javascriptUrl(spaceId, transaction.getId());
-            Assert.assertTrue(javascriptUrl.contains("https://"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void javascriptUrlTest() throws Exception {
+        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+        String javascriptUrl = this.apiClient.getTransactionLightboxService().javascriptUrl(spaceId, transaction.getId());
+        Assert.assertTrue(javascriptUrl.contains("https://"));
     }
 
 }

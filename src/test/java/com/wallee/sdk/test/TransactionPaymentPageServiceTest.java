@@ -78,14 +78,10 @@ public class TransactionPaymentPageServiceTest {
      *
      */
     @Test
-    public void paymentPageUrlTest() {
-        try {
-            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-            String paymentPageUrl = this.apiClient.getTransactionPaymentPageService().paymentPageUrl(spaceId, transaction.getId());
-            Assert.assertTrue(paymentPageUrl.contains("https://"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void paymentPageUrlTest() throws Exception{
+        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+        String paymentPageUrl = this.apiClient.getTransactionPaymentPageService().paymentPageUrl(spaceId, transaction.getId());
+        Assert.assertTrue(paymentPageUrl.contains("https://"));
     }
 
 }

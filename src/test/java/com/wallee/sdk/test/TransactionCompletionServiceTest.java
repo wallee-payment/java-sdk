@@ -68,6 +68,7 @@ public class TransactionCompletionServiceTest {
             this.transactionPayload.autoConfirmationEnabled(true).currency("CHF").language("en-US");
             this.transactionPayload.setBillingAddress(billingAddress);
             this.transactionPayload.setShippingAddress(billingAddress);
+            this.transactionPayload.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_DEFERRED);
             this.transactionPayload.addLineItemsItem(lineItem);
         }
         return this.transactionPayload;
@@ -79,37 +80,34 @@ public class TransactionCompletionServiceTest {
      * This operation completes the transaction offline. The completion is not forwarded to the processor. This implies the processor does not do anything. This method is only here to fix manually the transaction state.
      */
     @Test
-    public void completeOfflineTest() {
-        try {
-            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-	        // wait for transaction to be authorized
-            for (int i = 1; i <= 5; i++) {
-                if (transaction.getState() == TransactionState.AUTHORIZED) {
-                    break;
-                }
-                System.out.println("Waiting for transaction for be authorized --- transaction current state: " + transaction.getState());
+    public void completeOfflineTest() throws Exception{
+        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+        transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
+        // wait for transaction to be authorized
+		for (int i = 1; i <= 10; i++) {
+			if (
+				transaction.getState() == TransactionState.AUTHORIZED ||
+				transaction.getState() == TransactionState.FAILED
+			) {
+				break;
+			}
 
-                try {
-                    Thread.sleep(i * 15000);
-                } catch (InterruptedException e) {
-                    System.err.println(e.getMessage());
-                }
-                transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
-            }
-			if (transaction.getState() == TransactionState.AUTHORIZED) {
-				transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
-				TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
-				TransactionCompletionState[] TransactionCompletionStates = {
-						TransactionCompletionState.SUCCESSFUL,
-						TransactionCompletionState.PENDING
-				};
-				Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
-			} else {
-                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
-            }
-		} catch (Exception e) {
-            e.printStackTrace();
-        }
+			try {
+				Thread.sleep(i * 500);
+			} catch (InterruptedException e) {
+				System.err.println(e.getMessage());
+			}
+			transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
+		}
+		Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
+ 
+		transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+		TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
+		TransactionCompletionState[] TransactionCompletionStates = {
+				TransactionCompletionState.SUCCESSFUL,
+				TransactionCompletionState.PENDING
+		};
+		Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
     }
 
     /**
@@ -118,37 +116,33 @@ public class TransactionCompletionServiceTest {
      * This operation completes the transaction online. The completion is forwarded to the processor. This implies that the processor may take some actions based on the completion.
      */
     @Test
-    public void completeOnlineTest() {
-        try {
-            Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-	            // wait for transaction to be authorized
-            for (int i = 1; i <= 5; i++) {
-                if (transaction.getState() == TransactionState.AUTHORIZED) {
-                    break;
-                }
-                System.out.println("Waiting for transaction for be authorized --- transaction current state: " + transaction.getState());
+    public void completeOnlineTest() throws Exception {
+        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+        transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
+        // wait for transaction to be authorized
+		for (int i = 1; i <= 10; i++) {
+			if (
+				transaction.getState() == TransactionState.AUTHORIZED ||
+				transaction.getState() == TransactionState.FAILED
+			) {
+				break;
+			}
 
-                try {
-                    Thread.sleep(i * 15000);
-                } catch (InterruptedException e) {
-                    System.err.println(e.getMessage());
-                }
-                transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
-            }
-			if (transaction.getState() == TransactionState.AUTHORIZED) {
-				transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
-				TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOnline(this.spaceId, transaction.getId());
-				TransactionCompletionState[] TransactionCompletionStates = {
-						TransactionCompletionState.SUCCESSFUL,
-						TransactionCompletionState.PENDING
-				};
-				Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
-			} else {
-                Assert.assertTrue(transaction.getState() != TransactionState.AUTHORIZED);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+			try {
+				Thread.sleep(i * 500);
+			} catch (InterruptedException e) {
+				System.err.println(e.getMessage());
+			}
+			transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
+		}
+		Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
+		transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+		TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOnline(this.spaceId, transaction.getId());
+		TransactionCompletionState[] TransactionCompletionStates = {
+				TransactionCompletionState.SUCCESSFUL,
+				TransactionCompletionState.PENDING
+		};
+		Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
     }
 
     /**
