@@ -5,9 +5,6 @@ jdk:
 
 sudo: false
 
-os: osx
-osx_image: xcode9.3
-
 install:
     - mvn install -P !build-extras -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
