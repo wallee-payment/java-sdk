@@ -125,6 +125,22 @@ public class ApiClient {
         return this.applicationUserService;
     }
     
+    private BankAccountService bankAccountService;
+    public BankAccountService getBankAccountService() {
+        if (this.bankAccountService == null) {
+            this.bankAccountService = new BankAccountService(this);
+        }
+        return this.bankAccountService;
+    }
+    
+    private BankTransactionService bankTransactionService;
+    public BankTransactionService getBankTransactionService() {
+        if (this.bankTransactionService == null) {
+            this.bankTransactionService = new BankTransactionService(this);
+        }
+        return this.bankTransactionService;
+    }
+    
     private CardProcessingService cardProcessingService;
     public CardProcessingService getCardProcessingService() {
         if (this.cardProcessingService == null) {
@@ -195,6 +211,14 @@ public class ApiClient {
             this.countryStateService = new CountryStateService(this);
         }
         return this.countryStateService;
+    }
+    
+    private CurrencyBankAccountService currencyBankAccountService;
+    public CurrencyBankAccountService getCurrencyBankAccountService() {
+        if (this.currencyBankAccountService == null) {
+            this.currencyBankAccountService = new CurrencyBankAccountService(this);
+        }
+        return this.currencyBankAccountService;
     }
     
     private CurrencyService currencyService;
