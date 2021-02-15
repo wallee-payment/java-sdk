@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.PaymentTerminalReceiptType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -42,6 +43,14 @@ public class RenderedTerminalReceipt {
   
   @JsonProperty("mimeType")
   protected String mimeType = null;
+
+  
+  @JsonProperty("printed")
+  protected Boolean printed = null;
+
+  
+  @JsonProperty("receiptType")
+  protected PaymentTerminalReceiptType receiptType = null;
 
   
   
@@ -65,12 +74,32 @@ public class RenderedTerminalReceipt {
 
   
    /**
-   * 
+   * The mime type indicates the format of the receipt document. The mime type depends on the requested receipt format.
    * @return mimeType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The mime type indicates the format of the receipt document. The mime type depends on the requested receipt format.")
   public String getMimeType() {
     return mimeType;
+  }
+
+  
+   /**
+   * The terminal might or might not print the receipt. This property is set to true when the configuration of the terminal forces the printing and the device supports the receipt printing.
+   * @return printed
+  **/
+  @ApiModelProperty(value = "The terminal might or might not print the receipt. This property is set to true when the configuration of the terminal forces the printing and the device supports the receipt printing.")
+  public Boolean isPrinted() {
+    return printed;
+  }
+
+  
+   /**
+   * Each receipt has a different usage. The receipt type indicates for what resp. for whom the document is for.
+   * @return receiptType
+  **/
+  @ApiModelProperty(value = "Each receipt has a different usage. The receipt type indicates for what resp. for whom the document is for.")
+  public PaymentTerminalReceiptType getReceiptType() {
+    return receiptType;
   }
 
   
@@ -85,12 +114,14 @@ public class RenderedTerminalReceipt {
     }
     RenderedTerminalReceipt renderedTerminalReceipt = (RenderedTerminalReceipt) o;
     return Arrays.equals(this.data, renderedTerminalReceipt.data) &&
-        Objects.equals(this.mimeType, renderedTerminalReceipt.mimeType);
+        Objects.equals(this.mimeType, renderedTerminalReceipt.mimeType) &&
+        Objects.equals(this.printed, renderedTerminalReceipt.printed) &&
+        Objects.equals(this.receiptType, renderedTerminalReceipt.receiptType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(Arrays.hashCode(data), mimeType);
+    return Objects.hash(Arrays.hashCode(data), mimeType, printed, receiptType);
   }
 
 
@@ -101,6 +132,8 @@ public class RenderedTerminalReceipt {
     
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
+    sb.append("    printed: ").append(toIndentedString(printed)).append("\n");
+    sb.append("    receiptType: ").append(toIndentedString(receiptType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

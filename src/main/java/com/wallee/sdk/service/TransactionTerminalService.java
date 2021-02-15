@@ -5,6 +5,7 @@ import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.RenderedTerminalReceipt;
 import com.wallee.sdk.model.ServerError;
+import com.wallee.sdk.model.TerminalReceiptFetchRequest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -35,106 +36,66 @@ public class TransactionTerminalService {
     }
 
   /**
-    * getTerminalReceipt
-    * Returns the PDF document for the requested terminal receipt with the given page width.
+    * Fetch Receipts
+    * Returns all receipts for the requested terminal transaction.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param transactionId The ID of the transaction to get the receipt for.
-    * @param typeId 
-    * @param width 
-    * @return RenderedTerminalReceipt
+    * @param request 
+    * @return List&lt;RenderedTerminalReceipt&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--receipt">getTerminalReceipt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
 
     **/
-    public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
-        HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width);
-        String returnType = "RenderedTerminalReceipt";
+    public List<RenderedTerminalReceipt> fetchReceipts(Long spaceId, TerminalReceiptFetchRequest request) throws IOException {
+        HttpResponse response = fetchReceiptsForHttpResponse(spaceId, request);
+        String returnType = "List&lt;RenderedTerminalReceipt&gt;";
         if(returnType.equals("String")){
-          return (RenderedTerminalReceipt) (Object) response.parseAsString();
+          return (List<RenderedTerminalReceipt>) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
-        return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<RenderedTerminalReceipt>>() {};
+        return (List<RenderedTerminalReceipt>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
-    * getTerminalReceipt
-    * Returns the PDF document for the requested terminal receipt with the given page width.
+    * Fetch Receipts
+    * Returns all receipts for the requested terminal transaction.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param transactionId The ID of the transaction to get the receipt for.
-    * @param typeId 
-    * @param width 
+    * @param request 
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return RenderedTerminalReceipt
+    * @return List&lt;RenderedTerminalReceipt&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--receipt">getTerminalReceipt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
 
     **/
-    public RenderedTerminalReceipt receipt(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
-        HttpResponse response = receiptForHttpResponse(spaceId, transactionId, typeId, width, params);
-        String returnType = "RenderedTerminalReceipt";
+    public List<RenderedTerminalReceipt> fetchReceipts(Long spaceId, TerminalReceiptFetchRequest request, Map<String, Object> params) throws IOException {
+        HttpResponse response = fetchReceiptsForHttpResponse(spaceId, request, params);
+        String returnType = "List&lt;RenderedTerminalReceipt&gt;";
         if(returnType.equals("String")){
-            return (RenderedTerminalReceipt) (Object) response.parseAsString();
+            return (List<RenderedTerminalReceipt>) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<RenderedTerminalReceipt>() {};
-        return (RenderedTerminalReceipt)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<RenderedTerminalReceipt>>() {};
+        return (List<RenderedTerminalReceipt>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width) throws IOException {
+    public HttpResponse fetchReceiptsForHttpResponse(Long spaceId, TerminalReceiptFetchRequest request) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling receipt");
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling receipt");
-        }// verify the required parameter 'typeId' is set
-        if (typeId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'typeId' when calling receipt");
-        }// verify the required parameter 'width' is set
-        if (width == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'width' when calling receipt");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchReceipts");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling fetchReceipts");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/fetch-receipts");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
-            String key = "transactionId";
-            Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (typeId != null) {
-            String key = "typeId";
-            Object value = typeId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (width != null) {
-            String key = "width";
-            Object value = width;
             if (value instanceof Collection) {
                 uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
             } else if (value instanceof Object[]) {
@@ -147,40 +108,61 @@ public class TransactionTerminalService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
-        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
-        httpRequest.getHeaders().setContentType("*/*");
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
     }
 
-    public HttpResponse receiptForHttpResponse(Long spaceId, Long transactionId, Long typeId, Integer width, Map<String, Object> params) throws IOException {
+      public HttpResponse fetchReceiptsForHttpResponse(Long spaceId, java.io.InputStream request, String mediaType) throws IOException {
+          // verify the required parameter 'spaceId' is set
+              if (spaceId == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchReceipts");
+              }// verify the required parameter 'request' is set
+              if (request == null) {
+              throw new IllegalArgumentException("Missing the required parameter 'request' when calling fetchReceipts");
+              }
+              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/fetch-receipts");
+              if (spaceId != null) {
+                  String key = "spaceId";
+                  Object value = spaceId;
+                  if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                  } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                  } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                  }
+              }
+
+              String url = uriBuilder.build().toString();
+              GenericUrl genericUrl = new GenericUrl(url);
+
+              HttpContent content = request == null ?
+                apiClient.new JacksonJsonHttpContent(null) :
+                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+              
+              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              return httpRequest.execute();
+      }
+
+    public HttpResponse fetchReceiptsForHttpResponse(Long spaceId, TerminalReceiptFetchRequest request, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling receipt");
-        }// verify the required parameter 'transactionId' is set
-        if (transactionId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling receipt");
-        }// verify the required parameter 'typeId' is set
-        if (typeId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'typeId' when calling receipt");
-        }// verify the required parameter 'width' is set
-        if (width == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'width' when calling receipt");
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fetchReceipts");
+        }// verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling fetchReceipts");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/receipt");
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction-terminal/fetch-receipts");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
-        // Add the required query param 'transactionId' to the map of query params
-        allParams.put("transactionId", transactionId);
-        // Add the required query param 'typeId' to the map of query params
-        allParams.put("typeId", typeId);
-        // Add the required query param 'width' to the map of query params
-        allParams.put("width", width);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -200,9 +182,9 @@ public class TransactionTerminalService {
         String url = uriBuilder.build().toString();
         GenericUrl genericUrl = new GenericUrl(url);
 
-        HttpContent content = null;
-        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
-        httpRequest.getHeaders().setContentType("*/*");
+        HttpContent content = apiClient.new JacksonJsonHttpContent(request);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
         
         httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
         return httpRequest.execute();
