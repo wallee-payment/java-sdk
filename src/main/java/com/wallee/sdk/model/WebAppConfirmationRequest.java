@@ -41,6 +41,11 @@ public class WebAppConfirmationRequest {
 
   
   
+  public WebAppConfirmationRequest code(String code) {
+    this.code = code;
+    return this;
+  }
+
    /**
    * The user returns to the web app after granting the permission. The HTTP request contains the code. Provide it here to confirm the web app installation.
    * @return code
@@ -48,6 +53,10 @@ public class WebAppConfirmationRequest {
   @ApiModelProperty(value = "The user returns to the web app after granting the permission. The HTTP request contains the code. Provide it here to confirm the web app installation.")
   public String getCode() {
     return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
   }
 
   
