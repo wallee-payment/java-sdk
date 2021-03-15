@@ -62,6 +62,10 @@ public class TokenizedCardDataCreate {
   protected RecurringIndicator recurringIndicator = null;
 
   
+  @JsonProperty("schemeTransactionReference")
+  protected String schemeTransactionReference = null;
+
+  
   @JsonProperty("tokenRequestorId")
   protected String tokenRequestorId = null;
 
@@ -181,6 +185,25 @@ public class TokenizedCardDataCreate {
   }
 
   
+  public TokenizedCardDataCreate schemeTransactionReference(String schemeTransactionReference) {
+    this.schemeTransactionReference = schemeTransactionReference;
+    return this;
+  }
+
+   /**
+   * 
+   * @return schemeTransactionReference
+  **/
+  @ApiModelProperty(value = "")
+  public String getSchemeTransactionReference() {
+    return schemeTransactionReference;
+  }
+
+  public void setSchemeTransactionReference(String schemeTransactionReference) {
+    this.schemeTransactionReference = schemeTransactionReference;
+  }
+
+  
   public TokenizedCardDataCreate tokenRequestorId(String tokenRequestorId) {
     this.tokenRequestorId = tokenRequestorId;
     return this;
@@ -216,12 +239,13 @@ public class TokenizedCardDataCreate {
         Objects.equals(this.expiryDate, tokenizedCardDataCreate.expiryDate) &&
         Objects.equals(this.primaryAccountNumber, tokenizedCardDataCreate.primaryAccountNumber) &&
         Objects.equals(this.recurringIndicator, tokenizedCardDataCreate.recurringIndicator) &&
+        Objects.equals(this.schemeTransactionReference, tokenizedCardDataCreate.schemeTransactionReference) &&
         Objects.equals(this.tokenRequestorId, tokenizedCardDataCreate.tokenRequestorId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolderName, cardVerificationCode, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, tokenRequestorId);
+    return Objects.hash(cardHolderName, cardVerificationCode, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, schemeTransactionReference, tokenRequestorId);
   }
 
 
@@ -236,6 +260,7 @@ public class TokenizedCardDataCreate {
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
+    sb.append("    schemeTransactionReference: ").append(toIndentedString(schemeTransactionReference)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
     sb.append("}");
     return sb.toString();

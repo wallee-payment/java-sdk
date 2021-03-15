@@ -67,6 +67,10 @@ public class AuthenticatedCardDataCreate {
   protected RecurringIndicator recurringIndicator = null;
 
   
+  @JsonProperty("schemeTransactionReference")
+  protected String schemeTransactionReference = null;
+
+  
   @JsonProperty("tokenRequestorId")
   protected String tokenRequestorId = null;
 
@@ -205,6 +209,25 @@ public class AuthenticatedCardDataCreate {
   }
 
   
+  public AuthenticatedCardDataCreate schemeTransactionReference(String schemeTransactionReference) {
+    this.schemeTransactionReference = schemeTransactionReference;
+    return this;
+  }
+
+   /**
+   * 
+   * @return schemeTransactionReference
+  **/
+  @ApiModelProperty(value = "")
+  public String getSchemeTransactionReference() {
+    return schemeTransactionReference;
+  }
+
+  public void setSchemeTransactionReference(String schemeTransactionReference) {
+    this.schemeTransactionReference = schemeTransactionReference;
+  }
+
+  
   public AuthenticatedCardDataCreate tokenRequestorId(String tokenRequestorId) {
     this.tokenRequestorId = tokenRequestorId;
     return this;
@@ -241,12 +264,13 @@ public class AuthenticatedCardDataCreate {
         Objects.equals(this.expiryDate, authenticatedCardDataCreate.expiryDate) &&
         Objects.equals(this.primaryAccountNumber, authenticatedCardDataCreate.primaryAccountNumber) &&
         Objects.equals(this.recurringIndicator, authenticatedCardDataCreate.recurringIndicator) &&
+        Objects.equals(this.schemeTransactionReference, authenticatedCardDataCreate.schemeTransactionReference) &&
         Objects.equals(this.tokenRequestorId, authenticatedCardDataCreate.tokenRequestorId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolderName, cardVerificationCode, cardholderAuthentication, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, tokenRequestorId);
+    return Objects.hash(cardHolderName, cardVerificationCode, cardholderAuthentication, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, schemeTransactionReference, tokenRequestorId);
   }
 
 
@@ -262,6 +286,7 @@ public class AuthenticatedCardDataCreate {
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
+    sb.append("    schemeTransactionReference: ").append(toIndentedString(schemeTransactionReference)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
     sb.append("}");
     return sb.toString();
