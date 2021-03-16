@@ -55,6 +55,10 @@ public class ShopifySubscription {
   protected Long id = null;
 
   
+  @JsonProperty("initialExecutionDate")
+  protected OffsetDateTime initialExecutionDate = null;
+
+  
   @JsonProperty("initialPaymentTransaction")
   protected Long initialPaymentTransaction = null;
 
@@ -141,6 +145,16 @@ public class ShopifySubscription {
   @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return initialExecutionDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getInitialExecutionDate() {
+    return initialExecutionDate;
   }
 
   
@@ -278,6 +292,7 @@ public class ShopifySubscription {
         Objects.equals(this.createdOn, shopifySubscription.createdOn) &&
         Objects.equals(this.externalId, shopifySubscription.externalId) &&
         Objects.equals(this.id, shopifySubscription.id) &&
+        Objects.equals(this.initialExecutionDate, shopifySubscription.initialExecutionDate) &&
         Objects.equals(this.initialPaymentTransaction, shopifySubscription.initialPaymentTransaction) &&
         Objects.equals(this.initialShopifyTransaction, shopifySubscription.initialShopifyTransaction) &&
         Objects.equals(this.language, shopifySubscription.language) &&
@@ -294,7 +309,7 @@ public class ShopifySubscription {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdBy, createdOn, externalId, id, initialPaymentTransaction, initialShopifyTransaction, language, linkedSpaceId, orderRecurrenceNumber, shop, state, subscriber, terminatedBy, terminatedOn, terminationRequestDate, version);
+    return Objects.hash(createdBy, createdOn, externalId, id, initialExecutionDate, initialPaymentTransaction, initialShopifyTransaction, language, linkedSpaceId, orderRecurrenceNumber, shop, state, subscriber, terminatedBy, terminatedOn, terminationRequestDate, version);
   }
 
 
@@ -307,6 +322,7 @@ public class ShopifySubscription {
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    initialExecutionDate: ").append(toIndentedString(initialExecutionDate)).append("\n");
     sb.append("    initialPaymentTransaction: ").append(toIndentedString(initialPaymentTransaction)).append("\n");
     sb.append("    initialShopifyTransaction: ").append(toIndentedString(initialShopifyTransaction)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");

@@ -30,6 +30,7 @@ import com.wallee.sdk.model.ShopifySubscriptionModelBillingConfiguration;
 import com.wallee.sdk.model.ShopifySubscriptionModelItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -56,6 +57,10 @@ public class ShopifySubscriptionCreationRequest {
   
   @JsonProperty("externalId")
   protected String externalId = null;
+
+  
+  @JsonProperty("initialExecutionDate")
+  protected OffsetDateTime initialExecutionDate = null;
 
   
   @JsonProperty("integration")
@@ -168,6 +173,25 @@ public class ShopifySubscriptionCreationRequest {
 
   public void setExternalId(String externalId) {
     this.externalId = externalId;
+  }
+
+  
+  public ShopifySubscriptionCreationRequest initialExecutionDate(OffsetDateTime initialExecutionDate) {
+    this.initialExecutionDate = initialExecutionDate;
+    return this;
+  }
+
+   /**
+   * 
+   * @return initialExecutionDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getInitialExecutionDate() {
+    return initialExecutionDate;
+  }
+
+  public void setInitialExecutionDate(OffsetDateTime initialExecutionDate) {
+    this.initialExecutionDate = initialExecutionDate;
   }
 
   
@@ -361,6 +385,7 @@ public class ShopifySubscriptionCreationRequest {
         Objects.equals(this.billingConfiguration, shopifySubscriptionCreationRequest.billingConfiguration) &&
         Objects.equals(this.currency, shopifySubscriptionCreationRequest.currency) &&
         Objects.equals(this.externalId, shopifySubscriptionCreationRequest.externalId) &&
+        Objects.equals(this.initialExecutionDate, shopifySubscriptionCreationRequest.initialExecutionDate) &&
         Objects.equals(this.integration, shopifySubscriptionCreationRequest.integration) &&
         Objects.equals(this.items, shopifySubscriptionCreationRequest.items) &&
         Objects.equals(this.language, shopifySubscriptionCreationRequest.language) &&
@@ -374,7 +399,7 @@ public class ShopifySubscriptionCreationRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, billingConfiguration, currency, externalId, integration, items, language, shippingAddress, shippingMethodName, spaceViewId, storeOrderConfirmationEmailEnabled, subscriber, subscriberSuspensionAllowed);
+    return Objects.hash(billingAddress, billingConfiguration, currency, externalId, initialExecutionDate, integration, items, language, shippingAddress, shippingMethodName, spaceViewId, storeOrderConfirmationEmailEnabled, subscriber, subscriberSuspensionAllowed);
   }
 
 
@@ -387,6 +412,7 @@ public class ShopifySubscriptionCreationRequest {
     sb.append("    billingConfiguration: ").append(toIndentedString(billingConfiguration)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    initialExecutionDate: ").append(toIndentedString(initialExecutionDate)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
