@@ -45,6 +45,10 @@ public class PaymentTerminal {
   protected PaymentTerminalConfigurationVersion configurationVersion = null;
 
   
+  @JsonProperty("defaultCurrency")
+  protected String defaultCurrency = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
@@ -89,6 +93,16 @@ public class PaymentTerminal {
   @ApiModelProperty(value = "")
   public PaymentTerminalConfigurationVersion getConfigurationVersion() {
     return configurationVersion;
+  }
+
+  
+   /**
+   * 
+   * @return defaultCurrency
+  **/
+  @ApiModelProperty(value = "")
+  public String getDefaultCurrency() {
+    return defaultCurrency;
   }
 
   
@@ -193,6 +207,7 @@ public class PaymentTerminal {
     }
     PaymentTerminal paymentTerminal = (PaymentTerminal) o;
     return Objects.equals(this.configurationVersion, paymentTerminal.configurationVersion) &&
+        Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
         Objects.equals(this.id, paymentTerminal.id) &&
         Objects.equals(this.identifier, paymentTerminal.identifier) &&
         Objects.equals(this.linkedSpaceId, paymentTerminal.linkedSpaceId) &&
@@ -206,7 +221,7 @@ public class PaymentTerminal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
+    return Objects.hash(configurationVersion, defaultCurrency, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
   }
 
 
@@ -216,6 +231,7 @@ public class PaymentTerminal {
     sb.append("class PaymentTerminal {\n");
     
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
+    sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

@@ -57,6 +57,10 @@ public class PaymentTerminalConfigurationVersion {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("defaultCurrency")
+  protected String defaultCurrency = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
@@ -131,6 +135,16 @@ public class PaymentTerminalConfigurationVersion {
   @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * The currency is derived by default from the terminal location. By setting a specific currency the derived currency is overridden.
+   * @return defaultCurrency
+  **/
+  @ApiModelProperty(value = "The currency is derived by default from the terminal location. By setting a specific currency the derived currency is overridden.")
+  public String getDefaultCurrency() {
+    return defaultCurrency;
   }
 
   
@@ -238,6 +252,7 @@ public class PaymentTerminalConfigurationVersion {
         Objects.equals(this.connectorConfigurations, paymentTerminalConfigurationVersion.connectorConfigurations) &&
         Objects.equals(this.createdBy, paymentTerminalConfigurationVersion.createdBy) &&
         Objects.equals(this.createdOn, paymentTerminalConfigurationVersion.createdOn) &&
+        Objects.equals(this.defaultCurrency, paymentTerminalConfigurationVersion.defaultCurrency) &&
         Objects.equals(this.id, paymentTerminalConfigurationVersion.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalConfigurationVersion.linkedSpaceId) &&
         Objects.equals(this.maintenanceWindowDuration, paymentTerminalConfigurationVersion.maintenanceWindowDuration) &&
@@ -251,7 +266,7 @@ public class PaymentTerminalConfigurationVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_configuration, connectorConfigurations, createdBy, createdOn, id, linkedSpaceId, maintenanceWindowDuration, maintenanceWindowStart, plannedPurgeDate, state, timeZone, version, versionAppliedImmediately);
+    return Objects.hash(_configuration, connectorConfigurations, createdBy, createdOn, defaultCurrency, id, linkedSpaceId, maintenanceWindowDuration, maintenanceWindowStart, plannedPurgeDate, state, timeZone, version, versionAppliedImmediately);
   }
 
 
@@ -264,6 +279,7 @@ public class PaymentTerminalConfigurationVersion {
     sb.append("    connectorConfigurations: ").append(toIndentedString(connectorConfigurations)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    maintenanceWindowDuration: ").append(toIndentedString(maintenanceWindowDuration)).append("\n");

@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '2.2.24'
+version = '2.2.25'
 
 buildscript {
     repositories {
