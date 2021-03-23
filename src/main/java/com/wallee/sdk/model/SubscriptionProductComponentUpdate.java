@@ -173,10 +173,10 @@ public class SubscriptionProductComponentUpdate {
   }
 
    /**
-   * When a component is marked as a &#39;default&#39; component it is used when no other component is selected by the user.
+   * When a component is marked as a &#39;default&#39; component it is used as the default component in its group and will be preselected in the product configuration.
    * @return defaultComponent
   **/
-  @ApiModelProperty(value = "When a component is marked as a 'default' component it is used when no other component is selected by the user.")
+  @ApiModelProperty(value = "When a component is marked as a 'default' component it is used as the default component in its group and will be preselected in the product configuration.")
   public Boolean isDefaultComponent() {
     return defaultComponent;
   }
