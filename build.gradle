@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '2.2.27'
+version = '2.2.28'
 
 buildscript {
     repositories {
@@ -95,11 +95,11 @@ if(hasProperty('target') && target == 'android') {
 
 ext {
     swagger_annotations_version = "1.5.17"
-    jackson_version = "2.10.1"
+    jackson_version = "2.12.2"
     google_api_client_version = "1.23.0"
     jersey_common_version = "2.29.1"
     jodatime_version = "2.9.9"
-    junit_version = "4.13.1"
+    junit_version = "4.13.2"
 }
 
 dependencies {
