@@ -98,6 +98,7 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
     return Objects.equals(this.allowedPaymentMethodConfigurations, subscriptionProductActive.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.failedPaymentSuspensionPeriod, subscriptionProductActive.failedPaymentSuspensionPeriod) &&
         Objects.equals(this.name, subscriptionProductActive.name) &&
+        Objects.equals(this.productLocked, subscriptionProductActive.productLocked) &&
         Objects.equals(this.sortOrder, subscriptionProductActive.sortOrder) &&
         Objects.equals(this.state, subscriptionProductActive.state) &&
         Objects.equals(this.id, subscriptionProductActive.id) &&
@@ -107,7 +108,7 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, sortOrder, state, id, version, super.hashCode());
+    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, productLocked, sortOrder, state, id, version, super.hashCode());
   }
 
 
@@ -119,6 +120,7 @@ public class SubscriptionProductActive extends AbstractSubscriptionProductActive
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    failedPaymentSuspensionPeriod: ").append(toIndentedString(failedPaymentSuspensionPeriod)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productLocked: ").append(toIndentedString(productLocked)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

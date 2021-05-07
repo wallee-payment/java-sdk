@@ -61,6 +61,10 @@ public class ShopifySubscriptionVersion {
   protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
 
   
+  @JsonProperty("billingReferenceDate")
+  protected OffsetDateTime billingReferenceDate = null;
+
+  
   @JsonProperty("billingWeekday")
   protected ShopifySubscriptionWeekday billingWeekday = null;
 
@@ -191,6 +195,16 @@ public class ShopifySubscriptionVersion {
   @ApiModelProperty(value = "")
   public ShopifySubscriptionBillingIntervalUnit getBillingIntervalUnit() {
     return billingIntervalUnit;
+  }
+
+  
+   /**
+   * 
+   * @return billingReferenceDate
+  **/
+  @ApiModelProperty(value = "")
+  public OffsetDateTime getBillingReferenceDate() {
+    return billingReferenceDate;
   }
 
   
@@ -438,6 +452,7 @@ public class ShopifySubscriptionVersion {
         Objects.equals(this.billingDayOfMonth, shopifySubscriptionVersion.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionVersion.billingIntervalAmount) &&
         Objects.equals(this.billingIntervalUnit, shopifySubscriptionVersion.billingIntervalUnit) &&
+        Objects.equals(this.billingReferenceDate, shopifySubscriptionVersion.billingReferenceDate) &&
         Objects.equals(this.billingWeekday, shopifySubscriptionVersion.billingWeekday) &&
         Objects.equals(this.createdBy, shopifySubscriptionVersion.createdBy) &&
         Objects.equals(this.createdOn, shopifySubscriptionVersion.createdOn) &&
@@ -465,7 +480,7 @@ public class ShopifySubscriptionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, createdBy, createdOn, currency, dischargedBy, dischargedOn, id, items, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, paymentGateway, shippingAddress, shippingRate, shop, state, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, subscription, terminationBillingCycles, token, version);
+    return Objects.hash(billingAddress, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingReferenceDate, billingWeekday, createdBy, createdOn, currency, dischargedBy, dischargedOn, id, items, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, paymentGateway, shippingAddress, shippingRate, shop, state, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, subscription, terminationBillingCycles, token, version);
   }
 
 
@@ -478,6 +493,7 @@ public class ShopifySubscriptionVersion {
     sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
     sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
     sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
+    sb.append("    billingReferenceDate: ").append(toIndentedString(billingReferenceDate)).append("\n");
     sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");

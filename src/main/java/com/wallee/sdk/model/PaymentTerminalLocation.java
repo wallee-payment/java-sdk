@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.PaymentTerminalAddress;
-import com.wallee.sdk.model.PaymentTerminalConfiguration;
 import com.wallee.sdk.model.PaymentTerminalLocationState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,10 +41,6 @@ public class PaymentTerminalLocation {
   
   @JsonProperty("contactAddress")
   protected PaymentTerminalAddress contactAddress = null;
-
-  
-  @JsonProperty("defaultConfiguration")
-  protected PaymentTerminalConfiguration defaultConfiguration = null;
 
   
   @JsonProperty("id")
@@ -80,16 +75,6 @@ public class PaymentTerminalLocation {
   @ApiModelProperty(value = "")
   public PaymentTerminalAddress getContactAddress() {
     return contactAddress;
-  }
-
-  
-   /**
-   * 
-   * @return defaultConfiguration
-  **/
-  @ApiModelProperty(value = "")
-  public PaymentTerminalConfiguration getDefaultConfiguration() {
-    return defaultConfiguration;
   }
 
   
@@ -164,7 +149,6 @@ public class PaymentTerminalLocation {
     }
     PaymentTerminalLocation paymentTerminalLocation = (PaymentTerminalLocation) o;
     return Objects.equals(this.contactAddress, paymentTerminalLocation.contactAddress) &&
-        Objects.equals(this.defaultConfiguration, paymentTerminalLocation.defaultConfiguration) &&
         Objects.equals(this.id, paymentTerminalLocation.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
         Objects.equals(this.name, paymentTerminalLocation.name) &&
@@ -175,7 +159,7 @@ public class PaymentTerminalLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactAddress, defaultConfiguration, id, linkedSpaceId, name, plannedPurgeDate, state, version);
+    return Objects.hash(contactAddress, id, linkedSpaceId, name, plannedPurgeDate, state, version);
   }
 
 
@@ -185,7 +169,6 @@ public class PaymentTerminalLocation {
     sb.append("class PaymentTerminalLocation {\n");
     
     sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
-    sb.append("    defaultConfiguration: ").append(toIndentedString(defaultConfiguration)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

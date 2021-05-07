@@ -64,6 +64,10 @@ public class SubscriptionProduct {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
+  @JsonProperty("productLocked")
+  protected Boolean productLocked = null;
+
+  
   @JsonProperty("reference")
   protected String reference = null;
 
@@ -146,6 +150,16 @@ public class SubscriptionProduct {
 
   
    /**
+   * Marks the product as locked. Meaning that customer can not change away from this product or change to this product later on.
+   * @return productLocked
+  **/
+  @ApiModelProperty(value = "Marks the product as locked. Meaning that customer can not change away from this product or change to this product later on.")
+  public Boolean isProductLocked() {
+    return productLocked;
+  }
+
+  
+   /**
    * The product reference identifies the product for external systems. This field may contain the product&#39;s SKU.
    * @return reference
   **/
@@ -211,6 +225,7 @@ public class SubscriptionProduct {
         Objects.equals(this.linkedSpaceId, subscriptionProduct.linkedSpaceId) &&
         Objects.equals(this.name, subscriptionProduct.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionProduct.plannedPurgeDate) &&
+        Objects.equals(this.productLocked, subscriptionProduct.productLocked) &&
         Objects.equals(this.reference, subscriptionProduct.reference) &&
         Objects.equals(this.sortOrder, subscriptionProduct.sortOrder) &&
         Objects.equals(this.spaceId, subscriptionProduct.spaceId) &&
@@ -220,7 +235,7 @@ public class SubscriptionProduct {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, id, linkedSpaceId, name, plannedPurgeDate, reference, sortOrder, spaceId, state, version);
+    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, id, linkedSpaceId, name, plannedPurgeDate, productLocked, reference, sortOrder, spaceId, state, version);
   }
 
 
@@ -235,6 +250,7 @@ public class SubscriptionProduct {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    productLocked: ").append(toIndentedString(productLocked)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");

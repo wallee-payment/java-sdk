@@ -50,6 +50,10 @@ public class AbstractSubscriptionProductActive {
   protected String name = null;
 
   
+  @JsonProperty("productLocked")
+  protected Boolean productLocked = null;
+
+  
   @JsonProperty("sortOrder")
   protected Integer sortOrder = null;
 
@@ -124,6 +128,25 @@ public class AbstractSubscriptionProductActive {
   }
 
   
+  public AbstractSubscriptionProductActive productLocked(Boolean productLocked) {
+    this.productLocked = productLocked;
+    return this;
+  }
+
+   /**
+   * Marks the product as locked. Meaning that customer can not change away from this product or change to this product later on.
+   * @return productLocked
+  **/
+  @ApiModelProperty(value = "Marks the product as locked. Meaning that customer can not change away from this product or change to this product later on.")
+  public Boolean isProductLocked() {
+    return productLocked;
+  }
+
+  public void setProductLocked(Boolean productLocked) {
+    this.productLocked = productLocked;
+  }
+
+  
   public AbstractSubscriptionProductActive sortOrder(Integer sortOrder) {
     this.sortOrder = sortOrder;
     return this;
@@ -175,13 +198,14 @@ public class AbstractSubscriptionProductActive {
     return Objects.equals(this.allowedPaymentMethodConfigurations, abstractSubscriptionProductActive.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.failedPaymentSuspensionPeriod, abstractSubscriptionProductActive.failedPaymentSuspensionPeriod) &&
         Objects.equals(this.name, abstractSubscriptionProductActive.name) &&
+        Objects.equals(this.productLocked, abstractSubscriptionProductActive.productLocked) &&
         Objects.equals(this.sortOrder, abstractSubscriptionProductActive.sortOrder) &&
         Objects.equals(this.state, abstractSubscriptionProductActive.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, sortOrder, state);
+    return Objects.hash(allowedPaymentMethodConfigurations, failedPaymentSuspensionPeriod, name, productLocked, sortOrder, state);
   }
 
 
@@ -193,6 +217,7 @@ public class AbstractSubscriptionProductActive {
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    failedPaymentSuspensionPeriod: ").append(toIndentedString(failedPaymentSuspensionPeriod)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    productLocked: ").append(toIndentedString(productLocked)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");

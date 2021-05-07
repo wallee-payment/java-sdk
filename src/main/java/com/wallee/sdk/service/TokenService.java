@@ -2,6 +2,7 @@ package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
 
+import com.wallee.sdk.model.Charge;
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
@@ -876,6 +877,140 @@ public class TokenService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
+    }
+
+  /**
+    * Process Transaction
+    * This operation processes the given transaction by using the token associated with the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The id of the transaction for which we want to check if the token can be created or not.
+    * @return Charge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--process-transaction">Process Transaction Documentation</a>
+
+    **/
+    public Charge processTransaction(Long spaceId, Long transactionId) throws IOException {
+        HttpResponse response = processTransactionForHttpResponse(spaceId, transactionId);
+        String returnType = "Charge";
+        if(returnType.equals("String")){
+          return (Charge) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Charge>() {};
+        return (Charge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Process Transaction
+    * This operation processes the given transaction by using the token associated with the transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The id of the transaction for which we want to check if the token can be created or not.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Charge
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--process-transaction">Process Transaction Documentation</a>
+
+    **/
+    public Charge processTransaction(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
+        HttpResponse response = processTransactionForHttpResponse(spaceId, transactionId, params);
+        String returnType = "Charge";
+        if(returnType.equals("String")){
+            return (Charge) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Charge>() {};
+        return (Charge)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse processTransactionForHttpResponse(Long spaceId, Long transactionId) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processTransaction");
+        }// verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling processTransaction");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/process-transaction");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }        if (transactionId != null) {
+            String key = "transactionId";
+            Object value = transactionId;
+            if (value instanceof Collection) {
+                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+            } else if (value instanceof Object[]) {
+                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+            } else {
+                uriBuilder = uriBuilder.queryParam(key, value);
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        
+        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        return httpRequest.execute();
+    }
+
+    public HttpResponse processTransactionForHttpResponse(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling processTransaction");
+        }// verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling processTransaction");
+        }
+        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/token/process-transaction");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'transactionId' to the map of query params
+        allParams.put("transactionId", transactionId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+
+            if (key != null && value != null) {
+                if (value instanceof Collection) {
+                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
+                } else if (value instanceof Object[]) {
+                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
+                } else {
+                    uriBuilder = uriBuilder.queryParam(key, value);
+                }
+            }
+        }
+
+        String url = uriBuilder.build().toString();
+        GenericUrl genericUrl = new GenericUrl(url);
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         

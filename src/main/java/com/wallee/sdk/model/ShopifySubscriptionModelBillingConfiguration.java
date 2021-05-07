@@ -28,6 +28,7 @@ import com.wallee.sdk.model.ShopifySubscriptionBillingIntervalUnit;
 import com.wallee.sdk.model.ShopifySubscriptionWeekday;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -48,6 +49,10 @@ public class ShopifySubscriptionModelBillingConfiguration {
   
   @JsonProperty("billingIntervalUnit")
   protected ShopifySubscriptionBillingIntervalUnit billingIntervalUnit = null;
+
+  
+  @JsonProperty("billingReferenceDate")
+  protected OffsetDateTime billingReferenceDate = null;
 
   
   @JsonProperty("billingWeekday")
@@ -125,6 +130,25 @@ public class ShopifySubscriptionModelBillingConfiguration {
 
   public void setBillingIntervalUnit(ShopifySubscriptionBillingIntervalUnit billingIntervalUnit) {
     this.billingIntervalUnit = billingIntervalUnit;
+  }
+
+  
+  public ShopifySubscriptionModelBillingConfiguration billingReferenceDate(OffsetDateTime billingReferenceDate) {
+    this.billingReferenceDate = billingReferenceDate;
+    return this;
+  }
+
+   /**
+   * This date will be used as basis to calculate the dates of recurring orders.
+   * @return billingReferenceDate
+  **/
+  @ApiModelProperty(value = "This date will be used as basis to calculate the dates of recurring orders.")
+  public OffsetDateTime getBillingReferenceDate() {
+    return billingReferenceDate;
+  }
+
+  public void setBillingReferenceDate(OffsetDateTime billingReferenceDate) {
+    this.billingReferenceDate = billingReferenceDate;
   }
 
   
@@ -236,6 +260,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
     return Objects.equals(this.billingDayOfMonth, shopifySubscriptionModelBillingConfiguration.billingDayOfMonth) &&
         Objects.equals(this.billingIntervalAmount, shopifySubscriptionModelBillingConfiguration.billingIntervalAmount) &&
         Objects.equals(this.billingIntervalUnit, shopifySubscriptionModelBillingConfiguration.billingIntervalUnit) &&
+        Objects.equals(this.billingReferenceDate, shopifySubscriptionModelBillingConfiguration.billingReferenceDate) &&
         Objects.equals(this.billingWeekday, shopifySubscriptionModelBillingConfiguration.billingWeekday) &&
         Objects.equals(this.maximalBillingCycles, shopifySubscriptionModelBillingConfiguration.maximalBillingCycles) &&
         Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionModelBillingConfiguration.maximalSuspendableCycles) &&
@@ -245,7 +270,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, terminationBillingCycles);
+    return Objects.hash(billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingReferenceDate, billingWeekday, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, terminationBillingCycles);
   }
 
 
@@ -257,6 +282,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
     sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
     sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");
     sb.append("    billingIntervalUnit: ").append(toIndentedString(billingIntervalUnit)).append("\n");
+    sb.append("    billingReferenceDate: ").append(toIndentedString(billingReferenceDate)).append("\n");
     sb.append("    billingWeekday: ").append(toIndentedString(billingWeekday)).append("\n");
     sb.append("    maximalBillingCycles: ").append(toIndentedString(maximalBillingCycles)).append("\n");
     sb.append("    maximalSuspendableCycles: ").append(toIndentedString(maximalSuspendableCycles)).append("\n");
