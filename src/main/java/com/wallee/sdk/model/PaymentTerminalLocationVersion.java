@@ -44,6 +44,10 @@ public class PaymentTerminalLocationVersion {
   protected PaymentTerminalAddress address = null;
 
   
+  @JsonProperty("contactAddress")
+  protected PaymentTerminalAddress contactAddress = null;
+
+  
   @JsonProperty("createdBy")
   protected Long createdBy = null;
 
@@ -88,6 +92,16 @@ public class PaymentTerminalLocationVersion {
   @ApiModelProperty(value = "")
   public PaymentTerminalAddress getAddress() {
     return address;
+  }
+
+  
+   /**
+   * 
+   * @return contactAddress
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentTerminalAddress getContactAddress() {
+    return contactAddress;
   }
 
   
@@ -192,6 +206,7 @@ public class PaymentTerminalLocationVersion {
     }
     PaymentTerminalLocationVersion paymentTerminalLocationVersion = (PaymentTerminalLocationVersion) o;
     return Objects.equals(this.address, paymentTerminalLocationVersion.address) &&
+        Objects.equals(this.contactAddress, paymentTerminalLocationVersion.contactAddress) &&
         Objects.equals(this.createdBy, paymentTerminalLocationVersion.createdBy) &&
         Objects.equals(this.createdOn, paymentTerminalLocationVersion.createdOn) &&
         Objects.equals(this.id, paymentTerminalLocationVersion.id) &&
@@ -205,7 +220,7 @@ public class PaymentTerminalLocationVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, createdBy, createdOn, id, linkedSpaceId, location, plannedPurgeDate, state, version, versionAppliedImmediately);
+    return Objects.hash(address, contactAddress, createdBy, createdOn, id, linkedSpaceId, location, plannedPurgeDate, state, version, versionAppliedImmediately);
   }
 
 
@@ -215,6 +230,7 @@ public class PaymentTerminalLocationVersion {
     sb.append("class PaymentTerminalLocationVersion {\n");
     
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

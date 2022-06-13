@@ -49,6 +49,10 @@ public class PaymentTerminal {
   protected String defaultCurrency = null;
 
   
+  @JsonProperty("externalId")
+  protected String externalId = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
@@ -103,6 +107,16 @@ public class PaymentTerminal {
   @ApiModelProperty(value = "")
   public String getDefaultCurrency() {
     return defaultCurrency;
+  }
+
+  
+   /**
+   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * @return externalId
+  **/
+  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  public String getExternalId() {
+    return externalId;
   }
 
   
@@ -208,6 +222,7 @@ public class PaymentTerminal {
     PaymentTerminal paymentTerminal = (PaymentTerminal) o;
     return Objects.equals(this.configurationVersion, paymentTerminal.configurationVersion) &&
         Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
+        Objects.equals(this.externalId, paymentTerminal.externalId) &&
         Objects.equals(this.id, paymentTerminal.id) &&
         Objects.equals(this.identifier, paymentTerminal.identifier) &&
         Objects.equals(this.linkedSpaceId, paymentTerminal.linkedSpaceId) &&
@@ -221,7 +236,7 @@ public class PaymentTerminal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, defaultCurrency, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
+    return Objects.hash(configurationVersion, defaultCurrency, externalId, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
   }
 
 
@@ -232,6 +247,7 @@ public class PaymentTerminal {
     
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

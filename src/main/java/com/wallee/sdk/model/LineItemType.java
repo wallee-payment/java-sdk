@@ -39,7 +39,9 @@ public enum LineItemType {
   
   FEE("FEE"),
   
-  PRODUCT("PRODUCT");
+  PRODUCT("PRODUCT"),
+  
+  TIP("TIP");
 
   private String value;
 

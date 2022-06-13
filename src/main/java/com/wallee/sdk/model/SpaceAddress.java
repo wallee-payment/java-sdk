@@ -60,8 +60,16 @@ public class SpaceAddress {
   protected String givenName = null;
 
   
+  @JsonProperty("mobilePhoneNumber")
+  protected String mobilePhoneNumber = null;
+
+  
   @JsonProperty("organizationName")
   protected String organizationName = null;
+
+  
+  @JsonProperty("phoneNumber")
+  protected String phoneNumber = null;
 
   
   @JsonProperty("postalState")
@@ -151,11 +159,31 @@ public class SpaceAddress {
   
    /**
    * 
+   * @return mobilePhoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getMobilePhoneNumber() {
+    return mobilePhoneNumber;
+  }
+
+  
+   /**
+   * 
    * @return organizationName
   **/
   @ApiModelProperty(value = "")
   public String getOrganizationName() {
     return organizationName;
+  }
+
+  
+   /**
+   * 
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
   
@@ -235,7 +263,9 @@ public class SpaceAddress {
         Objects.equals(this.emailAddress, spaceAddress.emailAddress) &&
         Objects.equals(this.familyName, spaceAddress.familyName) &&
         Objects.equals(this.givenName, spaceAddress.givenName) &&
+        Objects.equals(this.mobilePhoneNumber, spaceAddress.mobilePhoneNumber) &&
         Objects.equals(this.organizationName, spaceAddress.organizationName) &&
+        Objects.equals(this.phoneNumber, spaceAddress.phoneNumber) &&
         Objects.equals(this.postalState, spaceAddress.postalState) &&
         Objects.equals(this.postcode, spaceAddress.postcode) &&
         Objects.equals(this.salesTaxNumber, spaceAddress.salesTaxNumber) &&
@@ -246,7 +276,7 @@ public class SpaceAddress {
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, dependentLocality, emailAddress, familyName, givenName, organizationName, postalState, postcode, salesTaxNumber, salutation, sortingCode, street);
+    return Objects.hash(city, country, dependentLocality, emailAddress, familyName, givenName, mobilePhoneNumber, organizationName, phoneNumber, postalState, postcode, salesTaxNumber, salutation, sortingCode, street);
   }
 
 
@@ -261,7 +291,9 @@ public class SpaceAddress {
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
     sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
     sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
     sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");

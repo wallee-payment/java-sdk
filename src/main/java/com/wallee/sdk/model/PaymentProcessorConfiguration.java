@@ -38,6 +38,10 @@ import java.time.OffsetDateTime;
 
 public class PaymentProcessorConfiguration {
   
+  @JsonProperty("applicationManaged")
+  protected Boolean applicationManaged = null;
+
+  
   @JsonProperty("contractId")
   protected Long contractId = null;
 
@@ -70,6 +74,16 @@ public class PaymentProcessorConfiguration {
   protected Integer version = null;
 
   
+  
+   /**
+   * The configuration is managed by the application and cannot be changed via the user interface.
+   * @return applicationManaged
+  **/
+  @ApiModelProperty(value = "The configuration is managed by the application and cannot be changed via the user interface.")
+  public Boolean isApplicationManaged() {
+    return applicationManaged;
+  }
+
   
    /**
    * The contract links the processor configuration with the contract that is used to process payments.
@@ -161,7 +175,8 @@ public class PaymentProcessorConfiguration {
       return false;
     }
     PaymentProcessorConfiguration paymentProcessorConfiguration = (PaymentProcessorConfiguration) o;
-    return Objects.equals(this.contractId, paymentProcessorConfiguration.contractId) &&
+    return Objects.equals(this.applicationManaged, paymentProcessorConfiguration.applicationManaged) &&
+        Objects.equals(this.contractId, paymentProcessorConfiguration.contractId) &&
         Objects.equals(this.id, paymentProcessorConfiguration.id) &&
         Objects.equals(this.linkedSpaceId, paymentProcessorConfiguration.linkedSpaceId) &&
         Objects.equals(this.name, paymentProcessorConfiguration.name) &&
@@ -173,7 +188,7 @@ public class PaymentProcessorConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contractId, id, linkedSpaceId, name, plannedPurgeDate, processor, state, version);
+    return Objects.hash(applicationManaged, contractId, id, linkedSpaceId, name, plannedPurgeDate, processor, state, version);
   }
 
 
@@ -182,6 +197,7 @@ public class PaymentProcessorConfiguration {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentProcessorConfiguration {\n");
     
+    sb.append("    applicationManaged: ").append(toIndentedString(applicationManaged)).append("\n");
     sb.append("    contractId: ").append(toIndentedString(contractId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

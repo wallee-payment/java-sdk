@@ -12,7 +12,6 @@ import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionCreate;
-import com.wallee.sdk.model.TransactionLineItemUpdateRequest;
 import com.wallee.sdk.model.TransactionLineItemVersion;
 import com.wallee.sdk.model.TransactionPending;
 
@@ -1445,7 +1444,7 @@ public class TransactionService {
     }
 
   /**
-    * getLatestTransactionLineItemVersion
+    * getLatestSuccessfulTransactionLineItemVersion
     * 
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -1455,7 +1454,7 @@ public class TransactionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
 
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws IOException {
@@ -1469,7 +1468,7 @@ public class TransactionService {
     }
 
   /**
-    * getLatestTransactionLineItemVersion
+    * getLatestSuccessfulTransactionLineItemVersion
     * 
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -1480,7 +1479,7 @@ public class TransactionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestTransactionLineItemVersion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
 
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -2533,163 +2532,6 @@ public class TransactionService {
         GenericUrl genericUrl = new GenericUrl(url);
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
-        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-        
-        
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
-        return httpRequest.execute();
-    }
-
-  /**
-    * updateTransactionLineItems
-    * 
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param updateRequest 
-    * @return TransactionLineItemVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-
-    **/
-    public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
-        HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest);
-        String returnType = "TransactionLineItemVersion";
-        if(returnType.equals("String")){
-          return (TransactionLineItemVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
-        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
-    }
-
-  /**
-    * updateTransactionLineItems
-    * 
-    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
-    * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
-    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
-    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
-    * @param updateRequest 
-    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return TransactionLineItemVersion
-    * @throws IOException if an error occurs while attempting to invoke the API
-    * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update-transaction-line-items">updateTransactionLineItems Documentation</a>
-
-    **/
-    public TransactionLineItemVersion updateTransactionLineItems(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
-        HttpResponse response = updateTransactionLineItemsForHttpResponse(spaceId, updateRequest, params);
-        String returnType = "TransactionLineItemVersion";
-        if(returnType.equals("String")){
-            return (TransactionLineItemVersion) (Object) response.parseAsString();
-        }
-        TypeReference typeRef = new TypeReference<TransactionLineItemVersion>() {};
-        return (TransactionLineItemVersion)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
-    }
-
-    public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
-        }// verify the required parameter 'updateRequest' is set
-        if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
-        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-        
-        
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
-        return httpRequest.execute();
-    }
-
-      public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, java.io.InputStream updateRequest, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
-              }// verify the required parameter 'updateRequest' is set
-              if (updateRequest == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
-
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
-
-              HttpContent content = updateRequest == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, updateRequest);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
-              return httpRequest.execute();
-      }
-
-    public HttpResponse updateTransactionLineItemsForHttpResponse(Long spaceId, TransactionLineItemUpdateRequest updateRequest, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling updateTransactionLineItems");
-        }// verify the required parameter 'updateRequest' is set
-        if (updateRequest == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'updateRequest' when calling updateTransactionLineItems");
-        }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/transaction/updateTransactionLineItems");
-
-        // Copy the params argument if present, to allow passing in immutable maps
-        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
-        // Add the required query param 'spaceId' to the map of query params
-        allParams.put("spaceId", spaceId);
-
-        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
-            String key = entryMap.getKey();
-            Object value = entryMap.getValue();
-
-            if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
-            }
-        }
-
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
-
-        HttpContent content = apiClient.new JacksonJsonHttpContent(updateRequest);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         

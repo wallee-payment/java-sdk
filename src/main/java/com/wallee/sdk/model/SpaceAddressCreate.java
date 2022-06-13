@@ -60,8 +60,16 @@ public class SpaceAddressCreate {
   protected String givenName = null;
 
   
+  @JsonProperty("mobilePhoneNumber")
+  protected String mobilePhoneNumber = null;
+
+  
   @JsonProperty("organizationName")
   protected String organizationName = null;
+
+  
+  @JsonProperty("phoneNumber")
+  protected String phoneNumber = null;
 
   
   @JsonProperty("postalState")
@@ -203,6 +211,25 @@ public class SpaceAddressCreate {
   }
 
   
+  public SpaceAddressCreate mobilePhoneNumber(String mobilePhoneNumber) {
+    this.mobilePhoneNumber = mobilePhoneNumber;
+    return this;
+  }
+
+   /**
+   * 
+   * @return mobilePhoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getMobilePhoneNumber() {
+    return mobilePhoneNumber;
+  }
+
+  public void setMobilePhoneNumber(String mobilePhoneNumber) {
+    this.mobilePhoneNumber = mobilePhoneNumber;
+  }
+
+  
   public SpaceAddressCreate organizationName(String organizationName) {
     this.organizationName = organizationName;
     return this;
@@ -219,6 +246,25 @@ public class SpaceAddressCreate {
 
   public void setOrganizationName(String organizationName) {
     this.organizationName = organizationName;
+  }
+
+  
+  public SpaceAddressCreate phoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    return this;
+  }
+
+   /**
+   * 
+   * @return phoneNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
   }
 
   
@@ -352,7 +398,9 @@ public class SpaceAddressCreate {
         Objects.equals(this.emailAddress, spaceAddressCreate.emailAddress) &&
         Objects.equals(this.familyName, spaceAddressCreate.familyName) &&
         Objects.equals(this.givenName, spaceAddressCreate.givenName) &&
+        Objects.equals(this.mobilePhoneNumber, spaceAddressCreate.mobilePhoneNumber) &&
         Objects.equals(this.organizationName, spaceAddressCreate.organizationName) &&
+        Objects.equals(this.phoneNumber, spaceAddressCreate.phoneNumber) &&
         Objects.equals(this.postalState, spaceAddressCreate.postalState) &&
         Objects.equals(this.postcode, spaceAddressCreate.postcode) &&
         Objects.equals(this.salesTaxNumber, spaceAddressCreate.salesTaxNumber) &&
@@ -363,7 +411,7 @@ public class SpaceAddressCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, country, dependentLocality, emailAddress, familyName, givenName, organizationName, postalState, postcode, salesTaxNumber, salutation, sortingCode, street);
+    return Objects.hash(city, country, dependentLocality, emailAddress, familyName, givenName, mobilePhoneNumber, organizationName, phoneNumber, postalState, postcode, salesTaxNumber, salutation, sortingCode, street);
   }
 
 
@@ -378,7 +426,9 @@ public class SpaceAddressCreate {
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
     sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
     sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
     sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");

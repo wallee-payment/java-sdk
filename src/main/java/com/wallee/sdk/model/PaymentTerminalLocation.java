@@ -24,7 +24,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.PaymentTerminalAddress;
 import com.wallee.sdk.model.PaymentTerminalLocationState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -39,8 +38,8 @@ import java.time.OffsetDateTime;
 
 public class PaymentTerminalLocation {
   
-  @JsonProperty("contactAddress")
-  protected PaymentTerminalAddress contactAddress = null;
+  @JsonProperty("externalId")
+  protected String externalId = null;
 
   
   @JsonProperty("id")
@@ -69,12 +68,12 @@ public class PaymentTerminalLocation {
   
   
    /**
-   * 
-   * @return contactAddress
+   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * @return externalId
   **/
-  @ApiModelProperty(value = "")
-  public PaymentTerminalAddress getContactAddress() {
-    return contactAddress;
+  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  public String getExternalId() {
+    return externalId;
   }
 
   
@@ -148,7 +147,7 @@ public class PaymentTerminalLocation {
       return false;
     }
     PaymentTerminalLocation paymentTerminalLocation = (PaymentTerminalLocation) o;
-    return Objects.equals(this.contactAddress, paymentTerminalLocation.contactAddress) &&
+    return Objects.equals(this.externalId, paymentTerminalLocation.externalId) &&
         Objects.equals(this.id, paymentTerminalLocation.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
         Objects.equals(this.name, paymentTerminalLocation.name) &&
@@ -159,7 +158,7 @@ public class PaymentTerminalLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactAddress, id, linkedSpaceId, name, plannedPurgeDate, state, version);
+    return Objects.hash(externalId, id, linkedSpaceId, name, plannedPurgeDate, state, version);
   }
 
 
@@ -168,7 +167,7 @@ public class PaymentTerminalLocation {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalLocation {\n");
     
-    sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

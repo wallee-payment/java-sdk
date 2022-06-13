@@ -119,10 +119,10 @@ public class TransactionCreate extends AbstractTransactionPending {
   }
 
    /**
-   * The customer&#39;s presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, &#39;Virtually Present&#39; is used by default.
+   * The customer&#39;s presence indicates what kind of authentication method was finally used during authorization of the transaction. If no value is provided, &#39;Virtually Present&#39; is used by default.
    * @return customersPresence
   **/
-  @ApiModelProperty(value = "The customer's presence indicates what kind of authentication methods can be used during the authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.")
+  @ApiModelProperty(value = "The customer's presence indicates what kind of authentication method was finally used during authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.")
   public CustomersPresence getCustomersPresence() {
     return customersPresence;
   }

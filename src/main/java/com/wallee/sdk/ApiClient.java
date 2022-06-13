@@ -117,6 +117,14 @@ public class ApiClient {
         return this.accountService;
     }
     
+    private AnalyticsQueryService analyticsQueryService;
+    public AnalyticsQueryService getAnalyticsQueryService() {
+        if (this.analyticsQueryService == null) {
+            this.analyticsQueryService = new AnalyticsQueryService(this);
+        }
+        return this.analyticsQueryService;
+    }
+    
     private ApplicationUserService applicationUserService;
     public ApplicationUserService getApplicationUserService() {
         if (this.applicationUserService == null) {
@@ -365,6 +373,22 @@ public class ApiClient {
         return this.internalTransferBankTransactionService;
     }
     
+    private InvoiceReconciliationRecordService invoiceReconciliationRecordService;
+    public InvoiceReconciliationRecordService getInvoiceReconciliationRecordService() {
+        if (this.invoiceReconciliationRecordService == null) {
+            this.invoiceReconciliationRecordService = new InvoiceReconciliationRecordService(this);
+        }
+        return this.invoiceReconciliationRecordService;
+    }
+    
+    private InvoiceReimbursementService invoiceReimbursementService;
+    public InvoiceReimbursementService getInvoiceReimbursementService() {
+        if (this.invoiceReimbursementService == null) {
+            this.invoiceReimbursementService = new InvoiceReimbursementService(this);
+        }
+        return this.invoiceReimbursementService;
+    }
+    
     private LabelDescriptionGroupService labelDescriptionGroupService;
     public LabelDescriptionGroupService getLabelDescriptionGroupService() {
         if (this.labelDescriptionGroupService == null) {
@@ -491,6 +515,22 @@ public class ApiClient {
             this.paymentTerminalTillService = new PaymentTerminalTillService(this);
         }
         return this.paymentTerminalTillService;
+    }
+    
+    private PaymentTerminalTransactionSummaryService paymentTerminalTransactionSummaryService;
+    public PaymentTerminalTransactionSummaryService getPaymentTerminalTransactionSummaryService() {
+        if (this.paymentTerminalTransactionSummaryService == null) {
+            this.paymentTerminalTransactionSummaryService = new PaymentTerminalTransactionSummaryService(this);
+        }
+        return this.paymentTerminalTransactionSummaryService;
+    }
+    
+    private PaymentWebAppService paymentWebAppService;
+    public PaymentWebAppService getPaymentWebAppService() {
+        if (this.paymentWebAppService == null) {
+            this.paymentWebAppService = new PaymentWebAppService(this);
+        }
+        return this.paymentWebAppService;
     }
     
     private PermissionService permissionService;
@@ -827,6 +867,14 @@ public class ApiClient {
             this.transactionLightboxService = new TransactionLightboxService(this);
         }
         return this.transactionLightboxService;
+    }
+    
+    private TransactionLineItemVersionService transactionLineItemVersionService;
+    public TransactionLineItemVersionService getTransactionLineItemVersionService() {
+        if (this.transactionLineItemVersionService == null) {
+            this.transactionLineItemVersionService = new TransactionLineItemVersionService(this);
+        }
+        return this.transactionLineItemVersionService;
     }
     
     private TransactionMobileSdkService transactionMobileSdkService;

@@ -119,10 +119,10 @@ public class SubscriptionProductVersionRetirement {
 
   
    /**
-   * 
+   * When a target product is not chosen, all customers with the retired product will be terminated.
    * @return targetProduct
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When a target product is not chosen, all customers with the retired product will be terminated.")
   public SubscriptionProduct getTargetProduct() {
     return targetProduct;
   }

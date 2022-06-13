@@ -33,6 +33,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum PaymentTerminalState {
   
+  CREATE("CREATE"),
+  
   PREPARING("PREPARING"),
   
   ACTIVE("ACTIVE"),

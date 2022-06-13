@@ -28,6 +28,7 @@ import com.wallee.sdk.model.Charge;
 import com.wallee.sdk.model.ChargeAttemptEnvironment;
 import com.wallee.sdk.model.ChargeAttemptState;
 import com.wallee.sdk.model.ConnectorInvocation;
+import com.wallee.sdk.model.CustomersPresence;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
@@ -64,6 +65,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
+
+  
+  @JsonProperty("customersPresence")
+  protected CustomersPresence customersPresence = null;
 
   
   @JsonProperty("environment")
@@ -184,6 +189,16 @@ public class ChargeAttempt extends TransactionAwareEntity {
   @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * The customers presence indicates which kind of customer interaction was used during the charge attempt.
+   * @return customersPresence
+  **/
+  @ApiModelProperty(value = "The customers presence indicates which kind of customer interaction was used during the charge attempt.")
+  public CustomersPresence getCustomersPresence() {
+    return customersPresence;
   }
 
   
@@ -404,6 +419,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.completionBehavior, chargeAttempt.completionBehavior) &&
         Objects.equals(this.connectorConfiguration, chargeAttempt.connectorConfiguration) &&
         Objects.equals(this.createdOn, chargeAttempt.createdOn) &&
+        Objects.equals(this.customersPresence, chargeAttempt.customersPresence) &&
         Objects.equals(this.environment, chargeAttempt.environment) &&
         Objects.equals(this.failedOn, chargeAttempt.failedOn) &&
         Objects.equals(this.failureReason, chargeAttempt.failureReason) &&
@@ -429,7 +445,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
   }
 
 
@@ -445,6 +461,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
     sb.append("    connectorConfiguration: ").append(toIndentedString(connectorConfiguration)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
