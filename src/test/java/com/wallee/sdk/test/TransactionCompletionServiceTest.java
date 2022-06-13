@@ -99,15 +99,19 @@ public class TransactionCompletionServiceTest {
 			}
 			transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
 		}
-		Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
- 
-		transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
-		TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
-		TransactionCompletionState[] TransactionCompletionStates = {
-				TransactionCompletionState.SUCCESSFUL,
-				TransactionCompletionState.PENDING
-		};
-		Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
+        if (transaction.getState() == TransactionState.FULFILL) {
+            Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
+
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+            TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOffline(this.spaceId, transaction.getId());
+            TransactionCompletionState[] TransactionCompletionStates = {
+                    TransactionCompletionState.SUCCESSFUL,
+                    TransactionCompletionState.PENDING
+            };
+            Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
+        } else {
+            System.err.println("API response timeout");
+        }
     }
 
     /**
@@ -135,14 +139,18 @@ public class TransactionCompletionServiceTest {
 			}
 			transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
 		}
-		Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
-		transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
-		TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOnline(this.spaceId, transaction.getId());
-		TransactionCompletionState[] TransactionCompletionStates = {
-				TransactionCompletionState.SUCCESSFUL,
-				TransactionCompletionState.PENDING
-		};
-		Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
+        if (transaction.getState() == TransactionState.FULFILL) {
+            Assert.assertEquals(TransactionState.AUTHORIZED, transaction.getState());
+            transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(this.spaceId, transaction.getId());
+            TransactionCompletion transactionCompletion = this.apiClient.getTransactionCompletionService().completeOnline(this.spaceId, transaction.getId());
+            TransactionCompletionState[] TransactionCompletionStates = {
+                    TransactionCompletionState.SUCCESSFUL,
+                    TransactionCompletionState.PENDING
+            };
+            Assert.assertTrue("Transaction Completions " + transactionCompletion.getState(), Arrays.asList(TransactionCompletionStates).contains(transactionCompletion.getState()));
+        } else {
+            System.err.println("API response timeout");
+        }
     }
 
     /**
