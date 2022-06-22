@@ -373,6 +373,14 @@ public class ApiClient {
         return this.internalTransferBankTransactionService;
     }
     
+    private InvoiceReconciliationRecordInvoiceLinkService invoiceReconciliationRecordInvoiceLinkService;
+    public InvoiceReconciliationRecordInvoiceLinkService getInvoiceReconciliationRecordInvoiceLinkService() {
+        if (this.invoiceReconciliationRecordInvoiceLinkService == null) {
+            this.invoiceReconciliationRecordInvoiceLinkService = new InvoiceReconciliationRecordInvoiceLinkService(this);
+        }
+        return this.invoiceReconciliationRecordInvoiceLinkService;
+    }
+    
     private InvoiceReconciliationRecordService invoiceReconciliationRecordService;
     public InvoiceReconciliationRecordService getInvoiceReconciliationRecordService() {
         if (this.invoiceReconciliationRecordService == null) {

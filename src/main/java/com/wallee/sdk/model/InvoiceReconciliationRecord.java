@@ -108,6 +108,10 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
   protected String paymentFeeCurrency = null;
 
   
+  @JsonProperty("paymentReason")
+  protected String paymentReason = null;
+
+  
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
@@ -322,6 +326,16 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
 
   
    /**
+   * 
+   * @return paymentReason
+  **/
+  @ApiModelProperty(value = "")
+  public String getPaymentReason() {
+    return paymentReason;
+  }
+
+  
+   /**
    * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
    * @return plannedPurgeDate
   **/
@@ -480,6 +494,7 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
         Objects.equals(this.participantNumber, invoiceReconciliationRecord.participantNumber) &&
         Objects.equals(this.paymentFeeAmount, invoiceReconciliationRecord.paymentFeeAmount) &&
         Objects.equals(this.paymentFeeCurrency, invoiceReconciliationRecord.paymentFeeCurrency) &&
+        Objects.equals(this.paymentReason, invoiceReconciliationRecord.paymentReason) &&
         Objects.equals(this.plannedPurgeDate, invoiceReconciliationRecord.plannedPurgeDate) &&
         Objects.equals(this.postCode, invoiceReconciliationRecord.postCode) &&
         Objects.equals(this.referenceNumber, invoiceReconciliationRecord.referenceNumber) &&
@@ -498,7 +513,7 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, address, amount, city, country, createdOn, currency, discardedBy, discardedOn, environment, familyName, givenName, iban, lastResolutionFailure, participantNumber, paymentFeeAmount, paymentFeeCurrency, plannedPurgeDate, postCode, referenceNumber, rejectionStatus, resolvedBy, resolvedOn, senderBankAccount, state, street, type, uniqueId, valueDate, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, address, amount, city, country, createdOn, currency, discardedBy, discardedOn, environment, familyName, givenName, iban, lastResolutionFailure, participantNumber, paymentFeeAmount, paymentFeeCurrency, paymentReason, plannedPurgeDate, postCode, referenceNumber, rejectionStatus, resolvedBy, resolvedOn, senderBankAccount, state, street, type, uniqueId, valueDate, version, super.hashCode());
   }
 
 
@@ -526,6 +541,7 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
     sb.append("    participantNumber: ").append(toIndentedString(participantNumber)).append("\n");
     sb.append("    paymentFeeAmount: ").append(toIndentedString(paymentFeeAmount)).append("\n");
     sb.append("    paymentFeeCurrency: ").append(toIndentedString(paymentFeeCurrency)).append("\n");
+    sb.append("    paymentReason: ").append(toIndentedString(paymentReason)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    postCode: ").append(toIndentedString(postCode)).append("\n");
     sb.append("    referenceNumber: ").append(toIndentedString(referenceNumber)).append("\n");
