@@ -6,6 +6,7 @@ import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.InvoiceReimbursement;
+import com.wallee.sdk.model.InvoiceReimbursementWithRefundReference;
 import com.wallee.sdk.model.ServerError;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -323,20 +324,20 @@ public class InvoiceReimbursementService {
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param query The query restricts the invoice reimbursements which are returned by the search.
-    * @return List&lt;InvoiceReimbursement&gt;
+    * @return List&lt;InvoiceReimbursementWithRefundReference&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--search">Search Documentation</a>
 
     **/
-    public List<InvoiceReimbursement> search(Long spaceId, EntityQuery query) throws IOException {
+    public List<InvoiceReimbursementWithRefundReference> search(Long spaceId, EntityQuery query) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query);
-        String returnType = "List&lt;InvoiceReimbursement&gt;";
+        String returnType = "List&lt;InvoiceReimbursementWithRefundReference&gt;";
         if(returnType.equals("String")){
-          return (List<InvoiceReimbursement>) (Object) response.parseAsString();
+          return (List<InvoiceReimbursementWithRefundReference>) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<List<InvoiceReimbursement>>() {};
-        return (List<InvoiceReimbursement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<InvoiceReimbursementWithRefundReference>>() {};
+        return (List<InvoiceReimbursementWithRefundReference>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
@@ -348,20 +349,20 @@ public class InvoiceReimbursementService {
     * @param spaceId 
     * @param query The query restricts the invoice reimbursements which are returned by the search.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
-    * @return List&lt;InvoiceReimbursement&gt;
+    * @return List&lt;InvoiceReimbursementWithRefundReference&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--search">Search Documentation</a>
 
     **/
-    public List<InvoiceReimbursement> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
+    public List<InvoiceReimbursementWithRefundReference> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         HttpResponse response = searchForHttpResponse(spaceId, query, params);
-        String returnType = "List&lt;InvoiceReimbursement&gt;";
+        String returnType = "List&lt;InvoiceReimbursementWithRefundReference&gt;";
         if(returnType.equals("String")){
-            return (List<InvoiceReimbursement>) (Object) response.parseAsString();
+            return (List<InvoiceReimbursementWithRefundReference>) (Object) response.parseAsString();
         }
-        TypeReference typeRef = new TypeReference<List<InvoiceReimbursement>>() {};
-        return (List<InvoiceReimbursement>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+        TypeReference typeRef = new TypeReference<List<InvoiceReimbursementWithRefundReference>>() {};
+        return (List<InvoiceReimbursementWithRefundReference>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query) throws IOException {

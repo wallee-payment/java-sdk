@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AddressCreate;
 import com.wallee.sdk.model.LineItemCreate;
-import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.TokenizationMode;
 import com.wallee.sdk.model.TransactionCompletionBehavior;
 import io.swagger.annotations.ApiModel;
@@ -45,7 +44,7 @@ import java.time.OffsetDateTime;
 public class AbstractTransactionPending {
   
   @JsonProperty("allowedPaymentMethodBrands")
-  protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
+  protected List<Long> allowedPaymentMethodBrands = null;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
@@ -121,12 +120,12 @@ public class AbstractTransactionPending {
 
   
   
-  public AbstractTransactionPending allowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
+  public AbstractTransactionPending allowedPaymentMethodBrands(List<Long> allowedPaymentMethodBrands) {
     this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
     return this;
   }
 
-  public AbstractTransactionPending addAllowedPaymentMethodBrandsItem(PaymentMethodBrand allowedPaymentMethodBrandsItem) {
+  public AbstractTransactionPending addAllowedPaymentMethodBrandsItem(Long allowedPaymentMethodBrandsItem) {
     if (this.allowedPaymentMethodBrands == null) {
       this.allowedPaymentMethodBrands = new ArrayList<>();
     }
@@ -139,11 +138,11 @@ public class AbstractTransactionPending {
    * @return allowedPaymentMethodBrands
   **/
   @ApiModelProperty(value = "")
-  public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
+  public List<Long> getAllowedPaymentMethodBrands() {
     return allowedPaymentMethodBrands;
   }
 
-  public void setAllowedPaymentMethodBrands(List<PaymentMethodBrand> allowedPaymentMethodBrands) {
+  public void setAllowedPaymentMethodBrands(List<Long> allowedPaymentMethodBrands) {
     this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
   }
 

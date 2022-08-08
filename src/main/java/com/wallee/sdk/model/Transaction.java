@@ -31,7 +31,6 @@ import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
-import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.Token;
 import com.wallee.sdk.model.TokenizationMode;
@@ -67,7 +66,7 @@ public class Transaction {
 
   
   @JsonProperty("allowedPaymentMethodBrands")
-  protected List<PaymentMethodBrand> allowedPaymentMethodBrands = null;
+  protected List<Long> allowedPaymentMethodBrands = null;
 
   
   @JsonProperty("allowedPaymentMethodConfigurations")
@@ -364,7 +363,7 @@ public class Transaction {
    * @return allowedPaymentMethodBrands
   **/
   @ApiModelProperty(value = "")
-  public List<PaymentMethodBrand> getAllowedPaymentMethodBrands() {
+  public List<Long> getAllowedPaymentMethodBrands() {
     return allowedPaymentMethodBrands;
   }
 
