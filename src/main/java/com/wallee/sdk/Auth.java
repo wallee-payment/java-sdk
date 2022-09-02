@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Auth
  */
-public class Auth implements HttpExecuteInterceptor {
+public class Auth {
 
     private long userId;
     private String applicationKey;

@@ -1,6 +1,8 @@
 package com.wallee.sdk;
 
 import com.wallee.sdk.service.*;
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -12,6 +14,7 @@ import com.google.api.client.http.HttpRequestFactory;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.Json;
+import com.google.api.client.http.HttpHeaders;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -23,6 +26,7 @@ public class ApiClient {
     private final ObjectMapper objectMapper;
     private final long userId;
     private final String applicationKey;
+    private final Map<String, String> defaultHeaders;
     public final static int READ_TIMEOUT = 20 * 1000;
 
     // A reasonable default object mapper. Client can pass in a chosen ObjectMapper anyway, this is just for reasonable defaults.
@@ -36,6 +40,7 @@ public class ApiClient {
         return objectMapper;
     }
 
+
     /**
      * Constructor for ApiClient
      *
@@ -45,7 +50,7 @@ public class ApiClient {
     public ApiClient(long userId, String applicationKey) {
 		this(userId, applicationKey, "https://app-wallee.com:443/api");
 	}
-	
+
     /**
      * Constructor for ApiClient
      *
@@ -66,6 +71,7 @@ public class ApiClient {
 		this.basePath = basePath;
         this.userId = userId;
         this.applicationKey = applicationKey;
+        this.defaultHeaders = new HashMap<>();
         this.httpRequestFactory = this.createRequestFactory();
         this.objectMapper = createDefaultObjectMapper();
     }
@@ -75,13 +81,17 @@ public class ApiClient {
     }
 
     public HttpRequestFactory createRequestFactory() {
-        final Auth signer = new Auth(this.userId, this.applicationKey);
+        final RequestInterceptor interceptor = new RequestInterceptor(this.userId, this.applicationKey, this.defaultHeaders);
         NetHttpTransport transport = new NetHttpTransport();
         return transport.createRequestFactory(new HttpRequestInitializer() {
             public void initialize(HttpRequest request) {
-                request.setInterceptor(signer);
+                request.setInterceptor(interceptor);
             }
         });
+    }
+
+    public void addDefaultHeader (String key, String value) {
+        this.defaultHeaders.put(key, value);
     }
 
     public String getBasePath() {
