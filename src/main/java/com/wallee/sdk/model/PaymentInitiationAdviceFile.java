@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.PaymentInitiationAdviceFileState;
+import com.wallee.sdk.model.PaymentProcessor;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -60,6 +61,10 @@ public class PaymentInitiationAdviceFile {
   
   @JsonProperty("processedOn")
   protected OffsetDateTime processedOn = null;
+
+  
+  @JsonProperty("processor")
+  protected PaymentProcessor processor = null;
 
   
   @JsonProperty("state")
@@ -129,6 +134,16 @@ public class PaymentInitiationAdviceFile {
   
    /**
    * 
+   * @return processor
+  **/
+  @ApiModelProperty(value = "")
+  public PaymentProcessor getProcessor() {
+    return processor;
+  }
+
+  
+   /**
+   * 
    * @return state
   **/
   @ApiModelProperty(value = "")
@@ -153,12 +168,13 @@ public class PaymentInitiationAdviceFile {
         Objects.equals(this.linkedSpaceId, paymentInitiationAdviceFile.linkedSpaceId) &&
         Objects.equals(this.name, paymentInitiationAdviceFile.name) &&
         Objects.equals(this.processedOn, paymentInitiationAdviceFile.processedOn) &&
+        Objects.equals(this.processor, paymentInitiationAdviceFile.processor) &&
         Objects.equals(this.state, paymentInitiationAdviceFile.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, fileGeneratedOn, id, linkedSpaceId, name, processedOn, state);
+    return Objects.hash(createdOn, fileGeneratedOn, id, linkedSpaceId, name, processedOn, processor, state);
   }
 
 
@@ -173,6 +189,7 @@ public class PaymentInitiationAdviceFile {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    processedOn: ").append(toIndentedString(processedOn)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();

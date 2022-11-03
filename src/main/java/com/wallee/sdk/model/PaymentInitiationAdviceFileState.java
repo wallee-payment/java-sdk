@@ -33,7 +33,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum PaymentInitiationAdviceFileState {
   
-  PENDING("PENDING"),
+  CREATED("CREATED"),
+  
+  UPLOADED("UPLOADED"),
+  
+  DOWNLOADED("DOWNLOADED"),
   
   PROCESSED("PROCESSED");
 

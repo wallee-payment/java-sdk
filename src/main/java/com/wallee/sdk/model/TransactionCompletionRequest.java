@@ -55,6 +55,10 @@ public class TransactionCompletionRequest {
   protected List<CompletionLineItemCreate> lineItems = null;
 
   
+  @JsonProperty("statementDescriptor")
+  protected String statementDescriptor = null;
+
+  
   @JsonProperty("transactionId")
   protected Long transactionId = null;
 
@@ -144,6 +148,25 @@ public class TransactionCompletionRequest {
   }
 
   
+  public TransactionCompletionRequest statementDescriptor(String statementDescriptor) {
+    this.statementDescriptor = statementDescriptor;
+    return this;
+  }
+
+   /**
+   * The statement descriptor explain charges or payments on bank statements.
+   * @return statementDescriptor
+  **/
+  @ApiModelProperty(value = "The statement descriptor explain charges or payments on bank statements.")
+  public String getStatementDescriptor() {
+    return statementDescriptor;
+  }
+
+  public void setStatementDescriptor(String statementDescriptor) {
+    this.statementDescriptor = statementDescriptor;
+  }
+
+  
   public TransactionCompletionRequest transactionId(Long transactionId) {
     this.transactionId = transactionId;
     return this;
@@ -177,12 +200,13 @@ public class TransactionCompletionRequest {
         Objects.equals(this.invoiceMerchantReference, transactionCompletionRequest.invoiceMerchantReference) &&
         Objects.equals(this.lastCompletion, transactionCompletionRequest.lastCompletion) &&
         Objects.equals(this.lineItems, transactionCompletionRequest.lineItems) &&
+        Objects.equals(this.statementDescriptor, transactionCompletionRequest.statementDescriptor) &&
         Objects.equals(this.transactionId, transactionCompletionRequest.transactionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalId, invoiceMerchantReference, lastCompletion, lineItems, transactionId);
+    return Objects.hash(externalId, invoiceMerchantReference, lastCompletion, lineItems, statementDescriptor, transactionId);
   }
 
 
@@ -195,6 +219,7 @@ public class TransactionCompletionRequest {
     sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
     sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    transactionId: ").append(toIndentedString(transactionId)).append("\n");
     sb.append("}");
     return sb.toString();

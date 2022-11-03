@@ -5,7 +5,7 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>4.0.10</version>
+    <version>4.0.11</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
     <scm>
@@ -285,7 +285,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson-version}</version>
+            <version>${jackson-databind-version}</version>
         </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -305,8 +305,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.17</swagger-annotations-version>
         <google-api-client-version>1.23.0</google-api-client-version>
-        <jersey-common-version>2.29.1</jersey-common-version>
-        <jackson-version>2.12.7</jackson-version>
+        <jersey-common-version>2.34</jersey-common-version>
+        <jackson-version>2.13.4</jackson-version>
+        <jackson-databind-version>2.13.4.1</jackson-databind-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.2</junit-version>
     </properties>

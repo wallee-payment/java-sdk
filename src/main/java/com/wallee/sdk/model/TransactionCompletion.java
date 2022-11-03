@@ -135,6 +135,10 @@ public class TransactionCompletion extends TransactionAwareEntity {
   protected TransactionCompletionState state = null;
 
   
+  @JsonProperty("statementDescriptor")
+  protected String statementDescriptor = null;
+
+  
   @JsonProperty("succeededOn")
   protected OffsetDateTime succeededOn = null;
 
@@ -377,6 +381,16 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
+   * The statement descriptor explain charges or payments on bank statements.
+   * @return statementDescriptor
+  **/
+  @ApiModelProperty(value = "The statement descriptor explain charges or payments on bank statements.")
+  public String getStatementDescriptor() {
+    return statementDescriptor;
+  }
+
+  
+   /**
    * 
    * @return succeededOn
   **/
@@ -461,6 +475,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
         Objects.equals(this.remainingLineItems, transactionCompletion.remainingLineItems) &&
         Objects.equals(this.spaceViewId, transactionCompletion.spaceViewId) &&
         Objects.equals(this.state, transactionCompletion.state) &&
+        Objects.equals(this.statementDescriptor, transactionCompletion.statementDescriptor) &&
         Objects.equals(this.succeededOn, transactionCompletion.succeededOn) &&
         Objects.equals(this.taxAmount, transactionCompletion.taxAmount) &&
         Objects.equals(this.timeZone, transactionCompletion.timeZone) &&
@@ -471,7 +486,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, succeededOn, taxAmount, timeZone, timeoutOn, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, statementDescriptor, succeededOn, taxAmount, timeZone, timeoutOn, version, super.hashCode());
   }
 
 
@@ -505,6 +520,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
     sb.append("    remainingLineItems: ").append(toIndentedString(remainingLineItems)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
