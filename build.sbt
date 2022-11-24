@@ -2,7 +2,7 @@ lazy val root = (project in file(".")).
   settings(
     organization := "com.wallee",
     name := "wallee-java-sdk",
-    version := "4.0.11",
+    version := "4.0.15",
     scalaVersion := "2.11.4",
     scalacOptions ++= Seq("-feature"),
     javacOptions in compile ++= Seq("-Xlint:deprecation"),
@@ -12,10 +12,10 @@ lazy val root = (project in file(".")).
       "io.swagger" % "swagger-annotations" % "1.5.17",
       "com.google.api-client" % "google-api-client" % "1.23.0",
       "org.glassfish.jersey.core" % "jersey-common" % "2.34",
-      "com.fasterxml.jackson.core" % "jackson-core" % "2.13.4" % "compile",
-      "com.fasterxml.jackson.core" % "jackson-annotations" % "2.13.4" % "compile",
-      "com.fasterxml.jackson.core" % "jackson-databind" % "2.13.4.1" % "compile",
-      "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % "2.13.4" % "compile",
+      "com.fasterxml.jackson.core" % "jackson-core" % "2.14.1" % "compile",
+      "com.fasterxml.jackson.core" % "jackson-annotations" % "2.14.1" % "compile",
+      "com.fasterxml.jackson.core" % "jackson-databind" % "2.14.1" % "compile",
+      "com.fasterxml.jackson.datatype" % "jackson-datatype-jsr310" % "2.14.1" % "compile",
       "junit" % "junit" % "4.13.2" % "test",
       "com.novocode" % "junit-interface" % "0.10" % "test"
     )

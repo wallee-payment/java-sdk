@@ -36,6 +36,7 @@ import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletionBehavior;
+import com.wallee.sdk.model.WalletType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -149,6 +150,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("version")
   protected Integer version = null;
+
+  
+  @JsonProperty("walletType")
+  protected WalletType walletType = null;
 
   
   
@@ -402,6 +407,16 @@ public class ChargeAttempt extends TransactionAwareEntity {
   }
 
   
+   /**
+   * 
+   * @return walletType
+  **/
+  @ApiModelProperty(value = "")
+  public WalletType getWalletType() {
+    return walletType;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -440,12 +455,13 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.tokenVersion, chargeAttempt.tokenVersion) &&
         Objects.equals(this.userFailureMessage, chargeAttempt.userFailureMessage) &&
         Objects.equals(this.version, chargeAttempt.version) &&
+        Objects.equals(this.walletType, chargeAttempt.walletType) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, walletType, super.hashCode());
   }
 
 
@@ -482,6 +498,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    tokenVersion: ").append(toIndentedString(tokenVersion)).append("\n");
     sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
