@@ -1,6 +1,8 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
@@ -8,6 +10,7 @@ import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.InvoiceReimbursement;
 import com.wallee.sdk.model.InvoiceReimbursementWithRefundReference;
 import com.wallee.sdk.model.ServerError;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -39,6 +42,7 @@ public class InvoiceReimbursementService {
 
   /**
     * Count
+    
     * Counts the number of items in the database as restricted by the given filter.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -58,11 +62,15 @@ public class InvoiceReimbursementService {
           return (Long) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Long>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Count
+    
     * Counts the number of items in the database as restricted by the given filter.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -82,6 +90,9 @@ public class InvoiceReimbursementService {
             return (Long) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Long>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -110,7 +121,8 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -140,7 +152,8 @@ public class InvoiceReimbursementService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -178,12 +191,14 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Read
+    
     * Reads the entity with the given &#39;id&#39; and returns it.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -203,11 +218,15 @@ public class InvoiceReimbursementService {
           return (InvoiceReimbursement) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InvoiceReimbursement>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InvoiceReimbursement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Read
+    
     * Reads the entity with the given &#39;id&#39; and returns it.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -228,6 +247,9 @@ public class InvoiceReimbursementService {
             return (InvoiceReimbursement) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InvoiceReimbursement>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InvoiceReimbursement)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -269,7 +291,8 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -312,12 +335,14 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Search
+    
     * Searches for the entities as specified by the given query.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -337,11 +362,15 @@ public class InvoiceReimbursementService {
           return (List<InvoiceReimbursementWithRefundReference>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<InvoiceReimbursementWithRefundReference>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<InvoiceReimbursementWithRefundReference>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Search
+    
     * Searches for the entities as specified by the given query.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -362,6 +391,9 @@ public class InvoiceReimbursementService {
             return (List<InvoiceReimbursementWithRefundReference>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<InvoiceReimbursementWithRefundReference>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<InvoiceReimbursementWithRefundReference>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -393,7 +425,8 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -426,7 +459,8 @@ public class InvoiceReimbursementService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -467,12 +501,14 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Update payment connector configuration
+    
     * Updates payment connector configuration for reimbursement which is in manual review.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -491,6 +527,7 @@ public class InvoiceReimbursementService {
 
   /**
     * Update payment connector configuration
+    
     * Updates payment connector configuration for reimbursement which is in manual review.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -559,7 +596,8 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -607,12 +645,14 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Update IBAN
+    
     * Updates recipient and/or sender IBAN for reimbursement which is in manual review.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -632,6 +672,7 @@ public class InvoiceReimbursementService {
 
   /**
     * Update IBAN
+    
     * Updates recipient and/or sender IBAN for reimbursement which is in manual review.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -706,7 +747,8 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -749,8 +791,14 @@ public class InvoiceReimbursementService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

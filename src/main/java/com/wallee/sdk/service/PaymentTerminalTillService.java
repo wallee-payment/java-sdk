@@ -1,10 +1,13 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.Transaction;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -36,6 +39,7 @@ public class PaymentTerminalTillService {
 
   /**
     * Perform Payment Terminal Transaction
+    * (The read time out for this request is 90 seconds)
     * Starts a payment terminal transaction and waits for its completion. If the call returns with a long polling timeout status, you may try again. The processing of the transaction will be picked up where it was left off.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -59,11 +63,15 @@ public class PaymentTerminalTillService {
           return (Transaction) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Transaction>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Perform Payment Terminal Transaction
+    * (The read time out for this request is 90 seconds)
     * Starts a payment terminal transaction and waits for its completion. If the call returns with a long polling timeout status, you may try again. The processing of the transaction will be picked up where it was left off.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -87,6 +95,9 @@ public class PaymentTerminalTillService {
             return (Transaction) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Transaction>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -150,8 +161,9 @@ public class PaymentTerminalTillService {
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
-        httpRequest.setReadTimeout(90 * 1000);
+        int readTimeOut = 90 * 1000;
         
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -198,13 +210,15 @@ public class PaymentTerminalTillService {
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
-        httpRequest.setReadTimeout(90 * 1000);
+        int readTimeOut = 90 * 1000;
         
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Perform Payment Terminal Transaction (using TID)
+    * (The read time out for this request is 90 seconds)
     * Starts a payment terminal transaction and waits for its completion. If the call returns with a long polling timeout status, you may try again. The processing of the transaction will be picked up where it was left off.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -228,11 +242,15 @@ public class PaymentTerminalTillService {
           return (Transaction) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Transaction>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Perform Payment Terminal Transaction (using TID)
+    * (The read time out for this request is 90 seconds)
     * Starts a payment terminal transaction and waits for its completion. If the call returns with a long polling timeout status, you may try again. The processing of the transaction will be picked up where it was left off.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -256,6 +274,9 @@ public class PaymentTerminalTillService {
             return (Transaction) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Transaction>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Transaction)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -319,8 +340,9 @@ public class PaymentTerminalTillService {
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
-        httpRequest.setReadTimeout(90 * 1000);
+        int readTimeOut = 90 * 1000;
         
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -367,9 +389,15 @@ public class PaymentTerminalTillService {
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
-        httpRequest.setReadTimeout(90 * 1000);
+        int readTimeOut = 90 * 1000;
         
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

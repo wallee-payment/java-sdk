@@ -1,12 +1,15 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.InstallmentPayment;
 import com.wallee.sdk.model.ServerError;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -38,6 +41,7 @@ public class InstallmentPaymentService {
 
   /**
     * Count
+    
     * Counts the number of items in the database as restricted by the given filter.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -57,11 +61,15 @@ public class InstallmentPaymentService {
           return (Long) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Long>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Count
+    
     * Counts the number of items in the database as restricted by the given filter.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -82,6 +90,9 @@ public class InstallmentPaymentService {
             return (Long) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Long>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Long)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -113,7 +124,8 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -146,7 +158,8 @@ public class InstallmentPaymentService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -187,12 +200,14 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Create Installment Payment
+    
     * This operation creates based up on the given transaction an installment payment.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -213,11 +228,15 @@ public class InstallmentPaymentService {
           return (InstallmentPayment) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InstallmentPayment>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InstallmentPayment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Create Installment Payment
+    
     * This operation creates based up on the given transaction an installment payment.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -239,6 +258,9 @@ public class InstallmentPaymentService {
             return (InstallmentPayment) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InstallmentPayment>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InstallmentPayment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -293,7 +315,8 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -341,12 +364,14 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Read
+    
     * Reads the entity with the given &#39;id&#39; and returns it.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -366,11 +391,15 @@ public class InstallmentPaymentService {
           return (InstallmentPayment) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InstallmentPayment>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InstallmentPayment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Read
+    
     * Reads the entity with the given &#39;id&#39; and returns it.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -391,6 +420,9 @@ public class InstallmentPaymentService {
             return (InstallmentPayment) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<InstallmentPayment>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (InstallmentPayment)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -432,7 +464,8 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -475,12 +508,14 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         httpRequest.getHeaders().setContentType("*/*");
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Search
+    
     * Searches for the entities as specified by the given query.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -500,11 +535,15 @@ public class InstallmentPaymentService {
           return (List<InstallmentPayment>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<InstallmentPayment>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<InstallmentPayment>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Search
+    
     * Searches for the entities as specified by the given query.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -525,6 +564,9 @@ public class InstallmentPaymentService {
             return (List<InstallmentPayment>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<InstallmentPayment>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<InstallmentPayment>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -556,7 +598,8 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -589,7 +632,8 @@ public class InstallmentPaymentService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -630,8 +674,14 @@ public class InstallmentPaymentService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

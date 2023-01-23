@@ -1,11 +1,14 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.WebAppConfirmationRequest;
 import com.wallee.sdk.model.WebAppConfirmationResponse;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -37,6 +40,7 @@ public class WebAppService {
 
   /**
     * Check Installation
+    
     * This operation returns true when the app is installed in given space. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -55,11 +59,15 @@ public class WebAppService {
           return (Boolean) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Boolean>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Check Installation
+    
     * This operation returns true when the app is installed in given space. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -79,6 +87,9 @@ public class WebAppService {
             return (Boolean) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<Boolean>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (Boolean)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -107,7 +118,8 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -145,12 +157,14 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Confirm
+    
     * This operation confirms the app installation. This method has to be invoked after the user returns to the web app. The request of the user will contain the code as a request parameter. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -169,11 +183,15 @@ public class WebAppService {
           return (WebAppConfirmationResponse) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<WebAppConfirmationResponse>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (WebAppConfirmationResponse)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Confirm
+    
     * This operation confirms the app installation. This method has to be invoked after the user returns to the web app. The request of the user will contain the code as a request parameter. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -193,6 +211,9 @@ public class WebAppService {
             return (WebAppConfirmationResponse) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<WebAppConfirmationResponse>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (WebAppConfirmationResponse)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -210,7 +231,8 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -229,7 +251,8 @@ public class WebAppService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -265,12 +288,14 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Uninstall
+    
     * This operation uninstalls the web app from the provided space. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -286,6 +311,7 @@ public class WebAppService {
 
   /**
     * Uninstall
+    
     * This operation uninstalls the web app from the provided space. The web app is implied by the client ID resp. user ID that is been used to invoke this operation.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -325,7 +351,8 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -363,8 +390,14 @@ public class WebAppService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

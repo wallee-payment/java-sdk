@@ -43,8 +43,16 @@ public class PaymentInitiationAdviceFile {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("failureMessage")
+  protected String failureMessage = null;
+
+  
   @JsonProperty("fileGeneratedOn")
   protected OffsetDateTime fileGeneratedOn = null;
+
+  
+  @JsonProperty("forwardedOn")
+  protected OffsetDateTime forwardedOn = null;
 
   
   @JsonProperty("id")
@@ -84,11 +92,31 @@ public class PaymentInitiationAdviceFile {
   
    /**
    * 
+   * @return failureMessage
+  **/
+  @ApiModelProperty(value = "")
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+  
+   /**
+   * 
    * @return fileGeneratedOn
   **/
   @ApiModelProperty(value = "")
   public OffsetDateTime getFileGeneratedOn() {
     return fileGeneratedOn;
+  }
+
+  
+   /**
+   * The shipping date indicates the date on which the pain file was transferred to an external processing system.
+   * @return forwardedOn
+  **/
+  @ApiModelProperty(value = "The shipping date indicates the date on which the pain file was transferred to an external processing system.")
+  public OffsetDateTime getForwardedOn() {
+    return forwardedOn;
   }
 
   
@@ -163,7 +191,9 @@ public class PaymentInitiationAdviceFile {
     }
     PaymentInitiationAdviceFile paymentInitiationAdviceFile = (PaymentInitiationAdviceFile) o;
     return Objects.equals(this.createdOn, paymentInitiationAdviceFile.createdOn) &&
+        Objects.equals(this.failureMessage, paymentInitiationAdviceFile.failureMessage) &&
         Objects.equals(this.fileGeneratedOn, paymentInitiationAdviceFile.fileGeneratedOn) &&
+        Objects.equals(this.forwardedOn, paymentInitiationAdviceFile.forwardedOn) &&
         Objects.equals(this.id, paymentInitiationAdviceFile.id) &&
         Objects.equals(this.linkedSpaceId, paymentInitiationAdviceFile.linkedSpaceId) &&
         Objects.equals(this.name, paymentInitiationAdviceFile.name) &&
@@ -174,7 +204,7 @@ public class PaymentInitiationAdviceFile {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, fileGeneratedOn, id, linkedSpaceId, name, processedOn, processor, state);
+    return Objects.hash(createdOn, failureMessage, fileGeneratedOn, forwardedOn, id, linkedSpaceId, name, processedOn, processor, state);
   }
 
 
@@ -184,7 +214,9 @@ public class PaymentInitiationAdviceFile {
     sb.append("class PaymentInitiationAdviceFile {\n");
     
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fileGeneratedOn: ").append(toIndentedString(fileGeneratedOn)).append("\n");
+    sb.append("    forwardedOn: ").append(toIndentedString(forwardedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

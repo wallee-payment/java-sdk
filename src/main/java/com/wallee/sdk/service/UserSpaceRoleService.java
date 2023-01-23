@@ -1,10 +1,13 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.UserSpaceRole;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -36,6 +39,7 @@ public class UserSpaceRoleService {
 
   /**
     * Add Role
+    
     * This operation grants the given role to the user in the given space.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -56,11 +60,15 @@ public class UserSpaceRoleService {
           return (UserSpaceRole) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Add Role
+    
     * This operation grants the given role to the user in the given space.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -82,6 +90,9 @@ public class UserSpaceRoleService {
             return (UserSpaceRole) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<UserSpaceRole>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (UserSpaceRole)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -136,7 +147,8 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -184,12 +196,14 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * List Roles
+    
     * List all the roles that are assigned to the given user in the given space.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -210,11 +224,15 @@ public class UserSpaceRoleService {
           return (List<UserSpaceRole>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * List Roles
+    
     * List all the roles that are assigned to the given user in the given space.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
@@ -236,6 +254,9 @@ public class UserSpaceRoleService {
             return (List<UserSpaceRole>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<UserSpaceRole>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<UserSpaceRole>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -277,7 +298,8 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -320,12 +342,14 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Remove Role
+    
     * This operation removes the specified user space role.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -341,6 +365,7 @@ public class UserSpaceRoleService {
 
   /**
     * Remove Role
+    
     * This operation removes the specified user space role.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -380,7 +405,8 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -418,8 +444,14 @@ public class UserSpaceRoleService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

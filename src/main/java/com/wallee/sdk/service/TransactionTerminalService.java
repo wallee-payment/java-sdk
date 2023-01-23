@@ -1,11 +1,14 @@
 package com.wallee.sdk.service;
 
 import com.wallee.sdk.ApiClient;
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.WalleeSdkException;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.RenderedTerminalReceipt;
 import com.wallee.sdk.model.ServerError;
 import com.wallee.sdk.model.TerminalReceiptFetchRequest;
+
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
@@ -37,6 +40,7 @@ public class TransactionTerminalService {
 
   /**
     * Fetch Receipts
+    
     * Returns all receipts for the requested terminal transaction.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -56,11 +60,15 @@ public class TransactionTerminalService {
           return (List<RenderedTerminalReceipt>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<RenderedTerminalReceipt>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<RenderedTerminalReceipt>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Fetch Receipts
+    
     * Returns all receipts for the requested terminal transaction.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -81,6 +89,9 @@ public class TransactionTerminalService {
             return (List<RenderedTerminalReceipt>) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<List<RenderedTerminalReceipt>>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (List<RenderedTerminalReceipt>)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -112,7 +123,8 @@ public class TransactionTerminalService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -145,7 +157,8 @@ public class TransactionTerminalService {
                 new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
               HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
               
-              httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+              int readTimeOut = apiClient.getReadTimeOut() * 1000;
+              httpRequest.setReadTimeout(readTimeOut);
               return httpRequest.execute();
       }
 
@@ -186,12 +199,14 @@ public class TransactionTerminalService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
   /**
     * Create Till Connection Credentials
+    
     * This operation creates a set of credentials to use within the WebSocket.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -213,11 +228,15 @@ public class TransactionTerminalService {
           return (String) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<String>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Create Till Connection Credentials
+    
     * This operation creates a set of credentials to use within the WebSocket.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
@@ -239,6 +258,9 @@ public class TransactionTerminalService {
             return (String) (Object) response.parseAsString();
         }
         TypeReference typeRef = new TypeReference<String>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
         return (String)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
@@ -303,7 +325,8 @@ public class TransactionTerminalService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
@@ -351,8 +374,14 @@ public class TransactionTerminalService {
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
-        httpRequest.setReadTimeout(ApiClient.READ_TIMEOUT);
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
 
+
+    private boolean isNoBodyResponse(HttpResponse response) throws IOException {
+        java.io.InputStream content = response.getContent();
+        return content.available() == 0;
+    }
 }

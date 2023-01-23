@@ -21,13 +21,13 @@ import java.io.OutputStream;
 
 
 public class ApiClient {
+    private int readTimeOut = 25;
     private final String basePath;
     private final HttpRequestFactory httpRequestFactory;
     private final ObjectMapper objectMapper;
     private final long userId;
     private final String applicationKey;
     private final Map<String, String> defaultHeaders;
-    public final static int READ_TIMEOUT = 20 * 1000;
 
     // A reasonable default object mapper. Client can pass in a chosen ObjectMapper anyway, this is just for reasonable defaults.
     private static ObjectMapper createDefaultObjectMapper() {
@@ -100,6 +100,14 @@ public class ApiClient {
 
     public ObjectMapper getObjectMapper() {
         return objectMapper;
+    }
+
+    public int getReadTimeOut() {
+        return readTimeOut;
+    }
+
+    public void setReadTimeOut(int readTimeOut) {
+        this.readTimeOut = readTimeOut;
     }
 
     public class JacksonJsonHttpContent extends AbstractHttpContent {
