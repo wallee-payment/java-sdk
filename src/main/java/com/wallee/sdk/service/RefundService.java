@@ -3,6 +3,7 @@ package com.wallee.sdk.service;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
+import com.wallee.sdk.URIBuilderUtil;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
@@ -17,7 +18,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
-import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.utils.URIBuilder;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -102,21 +104,14 @@ public class RefundService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/count");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -127,35 +122,28 @@ public class RefundService {
         return httpRequest.execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = filter == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = filter == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -163,7 +151,7 @@ public class RefundService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -173,20 +161,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -258,35 +238,24 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fail");
-        }// verify the required parameter 'refundId' is set
+        }
+        // verify the required parameter 'refundId' is set
         if (refundId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refundId' when calling fail");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/fail");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (refundId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (refundId != null) {
             String key = "refundId";
             Object value = refundId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -301,11 +270,12 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling fail");
-        }// verify the required parameter 'refundId' is set
+        }
+        // verify the required parameter 'refundId' is set
         if (refundId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refundId' when calling fail");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/fail");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/fail");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -317,20 +287,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -402,35 +364,24 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getRefundDocument");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling getRefundDocument");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/getRefundDocument");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -445,11 +396,12 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getRefundDocument");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling getRefundDocument");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocument");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/getRefundDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -461,20 +413,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -548,48 +492,33 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getRefundDocumentWithTargetMediaType");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling getRefundDocumentWithTargetMediaType");
-        }// verify the required parameter 'targetMediaTypeId' is set
+        }
+        // verify the required parameter 'targetMediaTypeId' is set
         if (targetMediaTypeId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'targetMediaTypeId' when calling getRefundDocumentWithTargetMediaType");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (targetMediaTypeId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (targetMediaTypeId != null) {
             String key = "targetMediaTypeId";
             Object value = targetMediaTypeId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -604,14 +533,16 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling getRefundDocumentWithTargetMediaType");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling getRefundDocumentWithTargetMediaType");
-        }// verify the required parameter 'targetMediaTypeId' is set
+        }
+        // verify the required parameter 'targetMediaTypeId' is set
         if (targetMediaTypeId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'targetMediaTypeId' when calling getRefundDocumentWithTargetMediaType");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/getRefundDocumentWithTargetMediaType");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -625,20 +556,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -710,35 +633,24 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/read");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -753,11 +665,12 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -769,20 +682,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -854,25 +759,19 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling refund");
-        }// verify the required parameter 'refund' is set
+        }
+        // verify the required parameter 'refund' is set
         if (refund == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refund' when calling refund");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/refund");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(refund);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -883,49 +782,44 @@ public class RefundService {
         return httpRequest.execute();
     }
 
-      public HttpResponse refundForHttpResponse(Long spaceId, java.io.InputStream refund, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling refund");
-              }// verify the required parameter 'refund' is set
-              if (refund == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'refund' when calling refund");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse refundForHttpResponse(Long spaceId, java.io.InputStream refund, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling refund");
+        }
+        // verify the required parameter 'refund' is set
+        if (refund == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'refund' when calling refund");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/refund");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = refund == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, refund);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = refund == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, refund);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse refundForHttpResponse(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling refund");
-        }// verify the required parameter 'refund' is set
+        }
+        // verify the required parameter 'refund' is set
         if (refund == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refund' when calling refund");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/refund");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/refund");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -935,20 +829,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(refund);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1020,25 +906,19 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/search");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1049,49 +929,44 @@ public class RefundService {
         return httpRequest.execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = query == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1101,20 +976,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1186,35 +1053,24 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling succeed");
-        }// verify the required parameter 'refundId' is set
+        }
+        // verify the required parameter 'refundId' is set
         if (refundId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refundId' when calling succeed");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/succeed");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (refundId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (refundId != null) {
             String key = "refundId";
             Object value = refundId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1229,11 +1085,12 @@ public class RefundService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling succeed");
-        }// verify the required parameter 'refundId' is set
+        }
+        // verify the required parameter 'refundId' is set
         if (refundId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'refundId' when calling succeed");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/refund/succeed");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/refund/succeed");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1245,20 +1102,12 @@ public class RefundService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);

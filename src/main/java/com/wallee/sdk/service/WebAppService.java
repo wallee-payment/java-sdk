@@ -3,6 +3,7 @@ package com.wallee.sdk.service;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
+import com.wallee.sdk.URIBuilderUtil;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
@@ -14,7 +15,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
-import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.utils.URIBuilder;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -98,21 +100,14 @@ public class WebAppService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling checkInstallation");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/check-installation");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/check-installation");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -128,7 +123,7 @@ public class WebAppService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling checkInstallation");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/check-installation");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/check-installation");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -138,20 +133,12 @@ public class WebAppService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -222,10 +209,9 @@ public class WebAppService {
         if (request == null) {
             throw new IllegalArgumentException("Missing the required parameter 'request' when calling confirm");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/confirm");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/confirm");
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -236,24 +222,23 @@ public class WebAppService {
         return httpRequest.execute();
     }
 
-      public HttpResponse confirmForHttpResponse(java.io.InputStream request, String mediaType) throws IOException {
-          // verify the required parameter 'request' is set
-              if (request == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'request' when calling confirm");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/confirm");
+    public HttpResponse confirmForHttpResponse(java.io.InputStream request, String mediaType) throws IOException {
+        // verify the required parameter 'request' is set
+        if (request == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'request' when calling confirm");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/confirm");
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = request == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = request == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, request);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse confirmForHttpResponse(WebAppConfirmationRequest request, Map<String, Object> params) throws IOException {
@@ -261,7 +246,7 @@ public class WebAppService {
         if (request == null) {
             throw new IllegalArgumentException("Missing the required parameter 'request' when calling confirm");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/confirm");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/confirm");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -269,20 +254,12 @@ public class WebAppService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(request);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -331,21 +308,14 @@ public class WebAppService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling uninstall");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/uninstall");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/uninstall");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -361,7 +331,7 @@ public class WebAppService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling uninstall");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/web-app/uninstall");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/web-app/uninstall");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -371,20 +341,12 @@ public class WebAppService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);

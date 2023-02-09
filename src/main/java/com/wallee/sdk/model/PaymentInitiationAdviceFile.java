@@ -121,20 +121,20 @@ public class PaymentInitiationAdviceFile {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
+   * The ID of the space this object belongs to.
    * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
   }
@@ -171,10 +171,10 @@ public class PaymentInitiationAdviceFile {
 
   
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public PaymentInitiationAdviceFileState getState() {
     return state;
   }

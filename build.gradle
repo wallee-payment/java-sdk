@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '5.0.0'
+version = '5.1.0'
 
 buildscript {
     repositories {
@@ -97,19 +97,19 @@ ext {
     swagger_annotations_version = "1.5.17"
     jackson_version = "2.14.1"
     google_api_client_version = "1.23.0"
-    jersey_common_version = "2.34"
     jodatime_version = "2.9.9"
     junit_version = "4.13.2"
+    httpclient_version = "4.5.14"
 }
 
 dependencies {
     compile "io.swagger:swagger-annotations:$swagger_annotations_version"
     compile "com.google.api-client:google-api-client:${google_api_client_version}"
-    compile "org.glassfish.jersey.core:jersey-common:${jersey_common_version}"
     compile "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     compile "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
     compile "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
     compile "com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:$jackson_version"
+    compile "org.apache.httpcomponents:httpclient:$httpclient_version"
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
     testCompile "junit:junit:$junit_version"
 }

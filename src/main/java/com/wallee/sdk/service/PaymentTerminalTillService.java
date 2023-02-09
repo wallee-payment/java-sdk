@@ -3,6 +3,7 @@ package com.wallee.sdk.service;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
+import com.wallee.sdk.URIBuilderUtil;
 
 import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.ServerError;
@@ -13,7 +14,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
-import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.utils.URIBuilder;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -105,58 +107,38 @@ public class PaymentTerminalTillService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling performTransaction");
-        }// verify the required parameter 'transactionId' is set
+        }
+        // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling performTransaction");
-        }// verify the required parameter 'terminalId' is set
+        }
+        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'terminalId' when calling performTransaction");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (transactionId != null) {
             String key = "transactionId";
             Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (terminalId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (terminalId != null) {
             String key = "terminalId";
             Object value = terminalId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (language != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (language != null) {
             String key = "language";
             Object value = language;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -171,14 +153,16 @@ public class PaymentTerminalTillService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling performTransaction");
-        }// verify the required parameter 'transactionId' is set
+        }
+        // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling performTransaction");
-        }// verify the required parameter 'terminalId' is set
+        }
+        // verify the required parameter 'terminalId' is set
         if (terminalId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'terminalId' when calling performTransaction");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -192,20 +176,12 @@ public class PaymentTerminalTillService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -284,58 +260,38 @@ public class PaymentTerminalTillService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling performTransactionByIdentifier");
-        }// verify the required parameter 'transactionId' is set
+        }
+        // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling performTransactionByIdentifier");
-        }// verify the required parameter 'terminalIdentifier' is set
+        }
+        // verify the required parameter 'terminalIdentifier' is set
         if (terminalIdentifier == null) {
             throw new IllegalArgumentException("Missing the required parameter 'terminalIdentifier' when calling performTransactionByIdentifier");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction-by-identifier");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction-by-identifier");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (transactionId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (transactionId != null) {
             String key = "transactionId";
             Object value = transactionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (terminalIdentifier != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (terminalIdentifier != null) {
             String key = "terminalIdentifier";
             Object value = terminalIdentifier;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (language != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (language != null) {
             String key = "language";
             Object value = language;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -350,14 +306,16 @@ public class PaymentTerminalTillService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling performTransactionByIdentifier");
-        }// verify the required parameter 'transactionId' is set
+        }
+        // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling performTransactionByIdentifier");
-        }// verify the required parameter 'terminalIdentifier' is set
+        }
+        // verify the required parameter 'terminalIdentifier' is set
         if (terminalIdentifier == null) {
             throw new IllegalArgumentException("Missing the required parameter 'terminalIdentifier' when calling performTransactionByIdentifier");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction-by-identifier");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/payment-terminal-till/perform-transaction-by-identifier");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -371,20 +329,12 @@ public class PaymentTerminalTillService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);

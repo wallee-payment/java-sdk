@@ -3,6 +3,7 @@ package com.wallee.sdk.service;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
+import com.wallee.sdk.URIBuilderUtil;
 
 import java.math.BigDecimal;
 import com.wallee.sdk.model.ClientError;
@@ -16,7 +17,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
-import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.utils.URIBuilder;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -101,21 +103,14 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -126,35 +121,28 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         return httpRequest.execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = filter == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = filter == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -162,7 +150,7 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -172,20 +160,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -262,58 +242,38 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling link");
-        }// verify the required parameter 'recordId' is set
+        }
+        // verify the required parameter 'recordId' is set
         if (recordId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'recordId' when calling link");
-        }// verify the required parameter 'completionId' is set
+        }
+        // verify the required parameter 'completionId' is set
         if (completionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'completionId' when calling link");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/link");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/link");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (recordId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (recordId != null) {
             String key = "recordId";
             Object value = recordId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (completionId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (completionId != null) {
             String key = "completionId";
             Object value = completionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (amount != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (amount != null) {
             String key = "amount";
             Object value = amount;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -328,14 +288,16 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling link");
-        }// verify the required parameter 'recordId' is set
+        }
+        // verify the required parameter 'recordId' is set
         if (recordId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'recordId' when calling link");
-        }// verify the required parameter 'completionId' is set
+        }
+        // verify the required parameter 'completionId' is set
         if (completionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'completionId' when calling link");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/link");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/link");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -349,20 +311,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -434,35 +388,24 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/read");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -477,11 +420,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -493,20 +437,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -578,25 +514,19 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -607,49 +537,44 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         return httpRequest.execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = query == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -659,20 +584,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -726,48 +643,33 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling unlinkTransaction");
-        }// verify the required parameter 'recordId' is set
+        }
+        // verify the required parameter 'recordId' is set
         if (recordId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'recordId' when calling unlinkTransaction");
-        }// verify the required parameter 'completionId' is set
+        }
+        // verify the required parameter 'completionId' is set
         if (completionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'completionId' when calling unlinkTransaction");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/unlink-transaction");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/unlink-transaction");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (recordId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (recordId != null) {
             String key = "recordId";
             Object value = recordId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (completionId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (completionId != null) {
             String key = "completionId";
             Object value = completionId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -782,14 +684,16 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling unlinkTransaction");
-        }// verify the required parameter 'recordId' is set
+        }
+        // verify the required parameter 'recordId' is set
         if (recordId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'recordId' when calling unlinkTransaction");
-        }// verify the required parameter 'completionId' is set
+        }
+        // verify the required parameter 'completionId' is set
         if (completionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'completionId' when calling unlinkTransaction");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/unlink-transaction");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/invoice-reconciliation-record-invoice-link-service/unlink-transaction");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -803,20 +707,12 @@ public class InvoiceReconciliationRecordInvoiceLinkService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);

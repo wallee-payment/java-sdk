@@ -126,10 +126,10 @@ public class AbstractWebhookListenerUpdate {
   }
 
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public CreationEntityState getState() {
     return state;
   }

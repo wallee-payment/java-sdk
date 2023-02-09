@@ -94,10 +94,10 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The language that is linked to the object.
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
   }
@@ -144,10 +144,10 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
 
   
    /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
   public Integer getVersion() {
     return version;
   }

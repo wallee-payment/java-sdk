@@ -3,6 +3,7 @@ package com.wallee.sdk.service;
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
+import com.wallee.sdk.URIBuilderUtil;
 
 import java.math.BigDecimal;
 import com.wallee.sdk.model.ClientError;
@@ -20,7 +21,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.google.api.client.http.*;
 import com.google.api.client.json.Json;
 
-import javax.ws.rs.core.UriBuilder;
+import org.apache.http.client.utils.URIBuilder;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -111,61 +113,42 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling addCollectedAmount");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling addCollectedAmount");
-        }// verify the required parameter 'collectedAmount' is set
+        }
+        // verify the required parameter 'collectedAmount' is set
         if (collectedAmount == null) {
             throw new IllegalArgumentException("Missing the required parameter 'collectedAmount' when calling addCollectedAmount");
-        }// verify the required parameter 'externalId' is set
+        }
+        // verify the required parameter 'externalId' is set
         if (externalId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'externalId' when calling addCollectedAmount");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (collectedAmount != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (collectedAmount != null) {
             String key = "collectedAmount";
             Object value = collectedAmount;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (externalId != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (externalId != null) {
             String key = "externalId";
             Object value = externalId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -180,17 +163,20 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling addCollectedAmount");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling addCollectedAmount");
-        }// verify the required parameter 'collectedAmount' is set
+        }
+        // verify the required parameter 'collectedAmount' is set
         if (collectedAmount == null) {
             throw new IllegalArgumentException("Missing the required parameter 'collectedAmount' when calling addCollectedAmount");
-        }// verify the required parameter 'externalId' is set
+        }
+        // verify the required parameter 'externalId' is set
         if (externalId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'externalId' when calling addCollectedAmount");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/addCollectedAmount");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -206,20 +192,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -297,61 +275,42 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling attachDocument");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling attachDocument");
-        }// verify the required parameter 'fileName' is set
+        }
+        // verify the required parameter 'fileName' is set
         if (fileName == null) {
             throw new IllegalArgumentException("Missing the required parameter 'fileName' when calling attachDocument");
-        }// verify the required parameter 'contentBase64' is set
+        }
+        // verify the required parameter 'contentBase64' is set
         if (contentBase64 == null) {
             throw new IllegalArgumentException("Missing the required parameter 'contentBase64' when calling attachDocument");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (fileName != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (fileName != null) {
             String key = "fileName";
             Object value = fileName;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (contentBase64 != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (contentBase64 != null) {
             String key = "contentBase64";
             Object value = contentBase64;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -366,17 +325,20 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling attachDocument");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling attachDocument");
-        }// verify the required parameter 'fileName' is set
+        }
+        // verify the required parameter 'fileName' is set
         if (fileName == null) {
             throw new IllegalArgumentException("Missing the required parameter 'fileName' when calling attachDocument");
-        }// verify the required parameter 'contentBase64' is set
+        }
+        // verify the required parameter 'contentBase64' is set
         if (contentBase64 == null) {
             throw new IllegalArgumentException("Missing the required parameter 'contentBase64' when calling attachDocument");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/attachDocument");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -392,20 +354,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -479,35 +433,24 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling close");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling close");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/close");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -522,11 +465,12 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling close");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling close");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/close");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/close");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -538,20 +482,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -623,21 +559,14 @@ public class DebtCollectionCaseService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/count");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -648,35 +577,28 @@ public class DebtCollectionCaseService {
         return httpRequest.execute();
     }
 
-      public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/count");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse countForHttpResponse(Long spaceId, java.io.InputStream filter, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
+        }
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/count");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = filter == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = filter == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, filter);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse countForHttpResponse(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -684,7 +606,7 @@ public class DebtCollectionCaseService {
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling count");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/count");
+                URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/count");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -694,20 +616,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(filter);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -779,25 +693,19 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-        }// verify the required parameter 'entity' is set
+        }
+        // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/create");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/create");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -808,49 +716,44 @@ public class DebtCollectionCaseService {
         return httpRequest.execute();
     }
 
-      public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-              }// verify the required parameter 'entity' is set
-              if (entity == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/create");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
+        }
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/create");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = entity == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse createForHttpResponse(Long spaceId, DebtCollectionCaseCreate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-        }// verify the required parameter 'entity' is set
+        }
+        // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling create");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/create");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/create");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -860,20 +763,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -925,25 +820,19 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/delete");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/delete");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -954,49 +843,44 @@ public class DebtCollectionCaseService {
         return httpRequest.execute();
     }
 
-      public HttpResponse deleteForHttpResponse(Long spaceId, java.io.InputStream id, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
-              }// verify the required parameter 'id' is set
-              if (id == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/delete");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse deleteForHttpResponse(Long spaceId, java.io.InputStream id, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
+        }
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/delete");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = id == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = id == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse deleteForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/delete");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/delete");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1006,20 +890,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(id);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1093,35 +969,24 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling documents");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling documents");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/documents");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1136,11 +1001,12 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling documents");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling documents");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/documents");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/documents");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1152,20 +1018,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1239,35 +1097,24 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsPrepared");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsPrepared");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1282,11 +1129,12 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsPrepared");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsPrepared");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/markAsPrepared");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1298,20 +1146,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1385,35 +1225,24 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsReviewed");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsReviewed");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1428,11 +1257,12 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling markAsReviewed");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling markAsReviewed");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/markAsReviewed");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1444,20 +1274,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(null);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1529,35 +1351,24 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/read");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
-        }        if (id != null) {
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (id != null) {
             String key = "id";
             Object value = id;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -1572,11 +1383,12 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling read");
-        }// verify the required parameter 'id' is set
+        }
+        // verify the required parameter 'id' is set
         if (id == null) {
             throw new IllegalArgumentException("Missing the required parameter 'id' when calling read");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/read");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/read");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1588,20 +1400,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = null;
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.GET, genericUrl, content);
@@ -1673,25 +1477,19 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/search");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1702,49 +1500,44 @@ public class DebtCollectionCaseService {
         return httpRequest.execute();
     }
 
-      public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-              }// verify the required parameter 'query' is set
-              if (query == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse searchForHttpResponse(Long spaceId, java.io.InputStream query, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
+        }
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/search");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = query == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = query == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, query);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse searchForHttpResponse(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling search");
-        }// verify the required parameter 'query' is set
+        }
+        // verify the required parameter 'query' is set
         if (query == null) {
             throw new IllegalArgumentException("Missing the required parameter 'query' when calling search");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/search");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/search");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1754,20 +1547,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(query);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1841,25 +1626,19 @@ public class DebtCollectionCaseService {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
-        }// verify the required parameter 'entity' is set
+        }
+        // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/update");
         if (spaceId != null) {
             String key = "spaceId";
             Object value = spaceId;
-            if (value instanceof Collection) {
-                uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-            } else if (value instanceof Object[]) {
-                uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-            } else {
-                uriBuilder = uriBuilder.queryParam(key, value);
-            }
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
@@ -1870,49 +1649,44 @@ public class DebtCollectionCaseService {
         return httpRequest.execute();
     }
 
-      public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
-          // verify the required parameter 'spaceId' is set
-              if (spaceId == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
-              }// verify the required parameter 'entity' is set
-              if (entity == null) {
-              throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
-              }
-              UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
-              if (spaceId != null) {
-                  String key = "spaceId";
-                  Object value = spaceId;
-                  if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                  } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                  } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                  }
-              }
+    public HttpResponse updateForHttpResponse(Long spaceId, java.io.InputStream entity, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
+        }
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/update");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
 
-              String url = uriBuilder.build().toString();
-              GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-              HttpContent content = entity == null ?
-                apiClient.new JacksonJsonHttpContent(null) :
-                new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
-              HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
-              
-              int readTimeOut = apiClient.getReadTimeOut() * 1000;
-              httpRequest.setReadTimeout(readTimeOut);
-              return httpRequest.execute();
+        HttpContent content = entity == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, entity);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
       }
 
     public HttpResponse updateForHttpResponse(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling update");
-        }// verify the required parameter 'entity' is set
+        }
+        // verify the required parameter 'entity' is set
         if (entity == null) {
             throw new IllegalArgumentException("Missing the required parameter 'entity' when calling update");
         }
-        UriBuilder uriBuilder = UriBuilder.fromUri(apiClient.getBasePath() + "/debt-collection-case/update");
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/debt-collection-case/update");
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
@@ -1922,20 +1696,12 @@ public class DebtCollectionCaseService {
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
             Object value = entryMap.getValue();
-
             if (key != null && value != null) {
-                if (value instanceof Collection) {
-                    uriBuilder = uriBuilder.queryParam(key, ((Collection) value).toArray());
-                } else if (value instanceof Object[]) {
-                    uriBuilder = uriBuilder.queryParam(key, (Object[]) value);
-                } else {
-                    uriBuilder = uriBuilder.queryParam(key, value);
-                }
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
             }
         }
 
-        String url = uriBuilder.build().toString();
-        GenericUrl genericUrl = new GenericUrl(url);
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
         HttpContent content = apiClient.new JacksonJsonHttpContent(entity);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);

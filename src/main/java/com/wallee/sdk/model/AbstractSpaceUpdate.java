@@ -79,10 +79,10 @@ public class AbstractSpaceUpdate {
   }
 
    /**
-   * 
+   * The date and time when the object was last modified.
    * @return lastModifiedDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object was last modified.")
   public OffsetDateTime getLastModifiedDate() {
     return lastModifiedDate;
   }
@@ -174,10 +174,10 @@ public class AbstractSpaceUpdate {
   }
 
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public CreationEntityState getState() {
     return state;
   }

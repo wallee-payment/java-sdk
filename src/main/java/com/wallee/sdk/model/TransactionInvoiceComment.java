@@ -99,10 +99,10 @@ public class TransactionInvoiceComment {
 
   
    /**
-   * The created on date indicates the date on which the entity was stored into the database.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
@@ -129,20 +129,20 @@ public class TransactionInvoiceComment {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
+   * The ID of the space this object belongs to.
    * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
   }
@@ -169,10 +169,10 @@ public class TransactionInvoiceComment {
 
   
    /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
   public Integer getVersion() {
     return version;
   }

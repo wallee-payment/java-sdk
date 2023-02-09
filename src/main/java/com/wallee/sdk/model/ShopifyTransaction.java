@@ -89,10 +89,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   
    /**
-   * The created on date indicates the date on which the entity was stored into the database.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
@@ -129,10 +129,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   
    /**
-   * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
-  @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
+  @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
   }
@@ -159,10 +159,10 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   
    /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
   public Integer getVersion() {
     return version;
   }

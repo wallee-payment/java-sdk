@@ -102,10 +102,10 @@ public class ManualTask {
 
   
    /**
-   * The created on date indicates the date on which the entity was stored into the database.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
@@ -122,30 +122,30 @@ public class ManualTask {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
+   * The ID of the space this object belongs to.
    * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
   }
 
   
    /**
-   * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
-  @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
+  @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
   }
@@ -162,10 +162,10 @@ public class ManualTask {
 
   
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public ManualTaskState getState() {
     return state;
   }

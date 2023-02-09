@@ -170,10 +170,10 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
   
    /**
-   * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
-  @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
+  @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
   }
@@ -210,10 +210,10 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public ShopifyRecurringOrderState getState() {
     return state;
   }

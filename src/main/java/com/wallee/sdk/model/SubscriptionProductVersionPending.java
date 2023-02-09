@@ -294,10 +294,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public SubscriptionProductVersionState getState() {
     return state;
   }

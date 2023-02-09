@@ -154,10 +154,10 @@ public class PaymentContract {
 
   
    /**
-   * The created on date indicates the date on which the entity was stored into the database.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date indicates the date on which the entity was stored into the database.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
@@ -174,10 +174,10 @@ public class PaymentContract {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
@@ -214,10 +214,10 @@ public class PaymentContract {
 
   
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public PaymentContractState getState() {
     return state;
   }
@@ -244,10 +244,10 @@ public class PaymentContract {
 
   
    /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
   public Integer getVersion() {
     return version;
   }

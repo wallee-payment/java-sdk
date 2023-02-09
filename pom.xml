@@ -5,7 +5,7 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>5.0.0</version>
+    <version>5.1.0</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
     <scm>
@@ -265,11 +265,11 @@
             <artifactId>google-api-client</artifactId>
             <version>${google-api-client-version}</version>
         </dependency>
-        <!-- Jersey common to get an implementation of javax.ws.rs.core.UriBuilder for building URLs from templates -->
+        <!-- Apache HttpClient for building URLs from templates -->
         <dependency>
-            <groupId>org.glassfish.jersey.core</groupId>
-            <artifactId>jersey-common</artifactId>
-            <version>${jersey-common-version}</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${apache-httpclient-version}</version>
         </dependency>
         <!-- JSON processing: jackson -->
         <dependency>
@@ -305,8 +305,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.17</swagger-annotations-version>
         <google-api-client-version>1.23.0</google-api-client-version>
-        <jersey-common-version>2.34</jersey-common-version>
         <jackson-version>2.14.1</jackson-version>
+        <apache-httpclient-version>4.5.14</apache-httpclient-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.2</junit-version>
     </properties>

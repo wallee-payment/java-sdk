@@ -49,10 +49,10 @@ public class DocumentTemplateTypeGroup {
   
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }

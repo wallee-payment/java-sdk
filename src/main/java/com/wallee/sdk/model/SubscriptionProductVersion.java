@@ -189,10 +189,10 @@ public class SubscriptionProductVersion {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
@@ -209,10 +209,10 @@ public class SubscriptionProductVersion {
 
   
    /**
-   * The linked space id holds the ID of the space to which the entity belongs to.
+   * The ID of the space this object belongs to.
    * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The linked space id holds the ID of the space to which the entity belongs to.")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
   }
@@ -259,10 +259,10 @@ public class SubscriptionProductVersion {
 
   
    /**
-   * The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
-  @ApiModelProperty(value = "The planned purge date indicates when the entity is permanently removed. When the date is null the entity is not planned to be removed.")
+  @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
   }
@@ -309,10 +309,10 @@ public class SubscriptionProductVersion {
 
   
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public SubscriptionProductVersionState getState() {
     return state;
   }
@@ -329,10 +329,10 @@ public class SubscriptionProductVersion {
 
   
    /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
+  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
   public Integer getVersion() {
     return version;
   }

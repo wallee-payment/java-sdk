@@ -62,10 +62,10 @@ public class AbstractSubscriptionAffiliateUpdate {
   }
 
    /**
-   * 
+   * The language that is linked to the object.
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
   }
@@ -127,10 +127,10 @@ public class AbstractSubscriptionAffiliateUpdate {
   }
 
    /**
-   * 
+   * The object&#39;s current state.
    * @return state
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The object's current state.")
   public CreationEntityState getState() {
     return state;
   }

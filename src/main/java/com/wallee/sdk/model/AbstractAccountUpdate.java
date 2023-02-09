@@ -55,10 +55,10 @@ public class AbstractAccountUpdate {
   }
 
    /**
-   * 
+   * The date and time when the object was last modified.
    * @return lastModifiedDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object was last modified.")
   public OffsetDateTime getLastModifiedDate() {
     return lastModifiedDate;
   }

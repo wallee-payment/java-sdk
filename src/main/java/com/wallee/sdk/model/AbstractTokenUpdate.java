@@ -123,10 +123,10 @@ public class AbstractTokenUpdate {
   }
 
    /**
-   * 
+   * The language that is linked to the object.
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
   }

@@ -129,10 +129,10 @@ public class PaymentConnector {
 
   
    /**
-   * 
+   * The description of the object translated into different languages.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The description of the object translated into different languages.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -149,20 +149,20 @@ public class PaymentConnector {
 
   
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
+   * A unique identifier for the object.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
+  @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
   }
 
   
    /**
-   * 
+   * The name of the object translated into different languages.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the object translated into different languages.")
   public Map<String, String> getName() {
     return name;
   }
