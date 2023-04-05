@@ -163,10 +163,10 @@ public class AddressCreate {
   }
 
    /**
-   * 
+   * The country is represented with a two-letter code (ISO 3166-1 alpha-2 standard) - for example, CH for Switzerland.
    * @return country
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The country is represented with a two-letter code (ISO 3166-1 alpha-2 standard) - for example, CH for Switzerland.")
   public String getCountry() {
     return country;
   }

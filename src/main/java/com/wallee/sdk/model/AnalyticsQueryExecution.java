@@ -46,6 +46,10 @@ public class AnalyticsQueryExecution {
   protected Long account = null;
 
   
+  @JsonProperty("errorMessage")
+  protected String errorMessage = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
@@ -94,6 +98,16 @@ public class AnalyticsQueryExecution {
   @ApiModelProperty(value = "The account in which the query has been executed.")
   public Long getAccount() {
     return account;
+  }
+
+  
+   /**
+   * The error message if and only if the query has failed, otherwise null.
+   * @return errorMessage
+  **/
+  @ApiModelProperty(value = "The error message if and only if the query has failed, otherwise null.")
+  public String getErrorMessage() {
+    return errorMessage;
   }
 
   
@@ -208,6 +222,7 @@ public class AnalyticsQueryExecution {
     }
     AnalyticsQueryExecution analyticsQueryExecution = (AnalyticsQueryExecution) o;
     return Objects.equals(this.account, analyticsQueryExecution.account) &&
+        Objects.equals(this.errorMessage, analyticsQueryExecution.errorMessage) &&
         Objects.equals(this.externalId, analyticsQueryExecution.externalId) &&
         Objects.equals(this.failureReason, analyticsQueryExecution.failureReason) &&
         Objects.equals(this.id, analyticsQueryExecution.id) &&
@@ -222,7 +237,7 @@ public class AnalyticsQueryExecution {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, externalId, failureReason, id, processingEndTime, processingStartTime, queryString, scannedDataInGb, scannedDataLimit, spaces, state);
+    return Objects.hash(account, errorMessage, externalId, failureReason, id, processingEndTime, processingStartTime, queryString, scannedDataInGb, scannedDataLimit, spaces, state);
   }
 
 
@@ -232,6 +247,7 @@ public class AnalyticsQueryExecution {
     sb.append("class AnalyticsQueryExecution {\n");
     
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
