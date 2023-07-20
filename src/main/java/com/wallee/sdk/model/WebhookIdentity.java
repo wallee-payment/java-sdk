@@ -84,10 +84,10 @@ public class WebhookIdentity {
 
   
    /**
-   * The identity name is used internally to identify the webhook identity in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the webhook identity.
    * @return name
   **/
-  @ApiModelProperty(value = "The identity name is used internally to identify the webhook identity in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the webhook identity.")
   public String getName() {
     return name;
   }

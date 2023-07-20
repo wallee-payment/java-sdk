@@ -57,40 +57,40 @@ public class RestAddressFormat {
   
   
    /**
-   * The example post codes allow the user to understand what we expect here.
+   * A list of sample post codes.
    * @return postCodeExamples
   **/
-  @ApiModelProperty(value = "The example post codes allow the user to understand what we expect here.")
+  @ApiModelProperty(value = "A list of sample post codes.")
   public List<String> getPostCodeExamples() {
     return postCodeExamples;
   }
 
   
    /**
-   * The post code regex is a regular expression which can validates the input of the post code.
+   * The regular expression to validate post codes.
    * @return postCodeRegex
   **/
-  @ApiModelProperty(value = "The post code regex is a regular expression which can validates the input of the post code.")
+  @ApiModelProperty(value = "The regular expression to validate post codes.")
   public String getPostCodeRegex() {
     return postCodeRegex;
   }
 
   
    /**
-   * The required fields indicate what fields are required within an address to comply with the address format.
+   * The fields that are required in the address format.
    * @return requiredFields
   **/
-  @ApiModelProperty(value = "The required fields indicate what fields are required within an address to comply with the address format.")
+  @ApiModelProperty(value = "The fields that are required in the address format.")
   public List<RestAddressFormatField> getRequiredFields() {
     return requiredFields;
   }
 
   
    /**
-   * The used fields indicate what fields are used within this address format.
+   * The fields that are used in the address format.
    * @return usedFields
   **/
-  @ApiModelProperty(value = "The used fields indicate what fields are used within this address format.")
+  @ApiModelProperty(value = "The fields that are used in the address format.")
   public List<RestAddressFormatField> getUsedFields() {
     return usedFields;
   }

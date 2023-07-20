@@ -57,10 +57,10 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
   }
 
    /**
-   * The listener listens on state changes of the entity linked with the listener.
+   * The entity that is to be monitored.
    * @return entity
   **/
-  @ApiModelProperty(required = true, value = "The listener listens on state changes of the entity linked with the listener.")
+  @ApiModelProperty(required = true, value = "The entity that is to be monitored.")
   public Long getEntity() {
     return entity;
   }
@@ -76,10 +76,10 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
   }
 
    /**
-   * The identity which will be used to sign messages sent by this listener.
+   * The identity used to sign messages.
    * @return identity
   **/
-  @ApiModelProperty(value = "The identity which will be used to sign messages sent by this listener.")
+  @ApiModelProperty(value = "The identity used to sign messages.")
   public Long getIdentity() {
     return identity;
   }
@@ -95,10 +95,10 @@ public class WebhookListenerCreate extends AbstractWebhookListenerUpdate {
   }
 
    /**
-   * The URL which is invoked by the listener to notify the application about the event.
+   * The URL where notifications about entity changes are sent to.
    * @return url
   **/
-  @ApiModelProperty(required = true, value = "The URL which is invoked by the listener to notify the application about the event.")
+  @ApiModelProperty(required = true, value = "The URL where notifications about entity changes are sent to.")
   public Long getUrl() {
     return url;
   }

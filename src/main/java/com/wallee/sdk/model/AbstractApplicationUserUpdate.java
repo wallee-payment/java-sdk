@@ -55,10 +55,10 @@ public class AbstractApplicationUserUpdate {
   }
 
    /**
-   * The user name is used to identify the application user in administrative interfaces.
+   * The name used to identify the application user.
    * @return name
   **/
-  @ApiModelProperty(value = "The user name is used to identify the application user in administrative interfaces.")
+  @ApiModelProperty(value = "The name used to identify the application user.")
   public String getName() {
     return name;
   }
@@ -74,10 +74,10 @@ public class AbstractApplicationUserUpdate {
   }
 
    /**
-   * The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.
+   * The maximum number of API requests that are accepted every 2 minutes.
    * @return requestLimit
   **/
-  @ApiModelProperty(value = "The request limit defines the maximum number of API request accepted within 2 minutes. This limit can only be changed with special privileges.")
+  @ApiModelProperty(value = "The maximum number of API requests that are accepted every 2 minutes.")
   public Long getRequestLimit() {
     return requestLimit;
   }

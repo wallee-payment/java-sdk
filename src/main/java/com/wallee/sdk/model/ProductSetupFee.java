@@ -24,14 +24,15 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.PersistableCurrencyAmount;
 import com.wallee.sdk.model.ProductFeeType;
 import com.wallee.sdk.model.SubscriptionProductComponent;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -47,7 +48,7 @@ public class ProductSetupFee {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("id")
@@ -59,7 +60,7 @@ public class ProductSetupFee {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("onDowngradeCreditedAmount")
@@ -98,7 +99,7 @@ public class ProductSetupFee {
    * @return description
   **/
   @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
-  public DatabaseTranslatedString getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
@@ -128,7 +129,7 @@ public class ProductSetupFee {
    * @return name
   **/
   @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
-  public DatabaseTranslatedString getName() {
+  public Map<String, String> getName() {
     return name;
   }
 

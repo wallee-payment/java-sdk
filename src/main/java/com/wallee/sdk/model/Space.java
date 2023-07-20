@@ -125,80 +125,80 @@ public class Space {
   
   
    /**
-   * The account to which the space belongs to.
+   * The account that the space belongs to.
    * @return account
   **/
-  @ApiModelProperty(value = "The account to which the space belongs to.")
+  @ApiModelProperty(value = "The account that the space belongs to.")
   public Account getAccount() {
     return account;
   }
 
   
    /**
-   * Active means that this account and all accounts in the hierarchy are active.
+   * Whether this space and all its parent accounts are active.
    * @return active
   **/
-  @ApiModelProperty(value = "Active means that this account and all accounts in the hierarchy are active.")
+  @ApiModelProperty(value = "Whether this space and all its parent accounts are active.")
   public Boolean isActive() {
     return active;
   }
 
   
    /**
-   * This property is true when all accounts in the hierarchy are active or restricted active.
+   * Whether this space and all its parent accounts are active or restricted active.
    * @return activeOrRestrictedActive
   **/
-  @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
+  @ApiModelProperty(value = "Whether this space and all its parent accounts are active or restricted active.")
   public Boolean isActiveOrRestrictedActive() {
     return activeOrRestrictedActive;
   }
 
   
    /**
-   * The ID of the user who created this entity.
+   * The ID of the user the space was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "The ID of the user who created this entity.")
+  @ApiModelProperty(value = "The ID of the user the space was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
 
   
    /**
-   * The date and time when this entity was created.
+   * The date and time when the space was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The date and time when this entity was created.")
+  @ApiModelProperty(value = "The date and time when the space was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The database in which the space&#39;s data are stored in.
+   * The database the space is connected to and that holds the space&#39;s data.
    * @return database
   **/
-  @ApiModelProperty(value = "The database in which the space's data are stored in.")
+  @ApiModelProperty(value = "The database the space is connected to and that holds the space's data.")
   public TenantDatabase getDatabase() {
     return database;
   }
 
   
    /**
-   * The ID of a user that deleted this entity.
+   * The ID of the user the space was deleted by.
    * @return deletedBy
   **/
-  @ApiModelProperty(value = "The ID of a user that deleted this entity.")
+  @ApiModelProperty(value = "The ID of the user the space was deleted by.")
   public Long getDeletedBy() {
     return deletedBy;
   }
 
   
    /**
-   * The date and time when this entity was deleted.
+   * The date and time when the space was deleted.
    * @return deletedOn
   **/
-  @ApiModelProperty(value = "The date and time when this entity was deleted.")
+  @ApiModelProperty(value = "The date and time when the space was deleted.")
   public OffsetDateTime getDeletedOn() {
     return deletedOn;
   }
@@ -225,10 +225,10 @@ public class Space {
 
   
    /**
-   * The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the space.
    * @return name
   **/
-  @ApiModelProperty(value = "The space name is used internally to identify the space in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the space.")
   public String getName() {
     return name;
   }
@@ -245,40 +245,40 @@ public class Space {
 
   
    /**
-   * The address to use in communication with clients for example in email, documents etc.
+   * The address that is used in communication with clients for example in emails, documents, etc.
    * @return postalAddress
   **/
-  @ApiModelProperty(value = "The address to use in communication with clients for example in email, documents etc.")
+  @ApiModelProperty(value = "The address that is used in communication with clients for example in emails, documents, etc.")
   public SpaceAddress getPostalAddress() {
     return postalAddress;
   }
 
   
    /**
-   * This is the currency that is used to display aggregated amounts in the space.
+   * The currency that is used to display aggregated amounts in the space.
    * @return primaryCurrency
   **/
-  @ApiModelProperty(value = "This is the currency that is used to display aggregated amounts in the space.")
+  @ApiModelProperty(value = "The currency that is used to display aggregated amounts in the space.")
   public String getPrimaryCurrency() {
     return primaryCurrency;
   }
 
   
    /**
-   * The request limit defines the maximum number of API request accepted within 2 minutes for this space. This limit can only be changed with special privileges.
+   * The maximum number of API requests that are accepted within two minutes. This limit can only be changed with special privileges.
    * @return requestLimit
   **/
-  @ApiModelProperty(value = "The request limit defines the maximum number of API request accepted within 2 minutes for this space. This limit can only be changed with special privileges.")
+  @ApiModelProperty(value = "The maximum number of API requests that are accepted within two minutes. This limit can only be changed with special privileges.")
   public Long getRequestLimit() {
     return requestLimit;
   }
 
   
    /**
-   * Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.
+   * Whether this space and all its parent accounts are active or restricted active. There is least one parent account that is restricted active.
    * @return restrictedActive
   **/
-  @ApiModelProperty(value = "Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.")
+  @ApiModelProperty(value = "Whether this space and all its parent accounts are active or restricted active. There is least one parent account that is restricted active.")
   public Boolean isRestrictedActive() {
     return restrictedActive;
   }
@@ -295,20 +295,20 @@ public class Space {
 
   
    /**
-   * The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.
+   * The email address that will receive messages about technical issues and errors that occur in the space.
    * @return technicalContactAddresses
   **/
-  @ApiModelProperty(value = "The email address provided as contact addresses will be informed about technical issues or errors triggered by the space.")
+  @ApiModelProperty(value = "The email address that will receive messages about technical issues and errors that occur in the space.")
   public List<String> getTechnicalContactAddresses() {
     return technicalContactAddresses;
   }
 
   
    /**
-   * The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.
+   * The time zone that is used to schedule and run background processes. This does not affect the formatting of dates in the user interface.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone assigned to the space determines the time offset for calculating dates within the space. This is typically used for background processed which needs to be triggered on a specific hour within the day. Changing the space time zone will not change the display of dates.")
+  @ApiModelProperty(value = "The time zone that is used to schedule and run background processes. This does not affect the formatting of dates in the user interface.")
   public String getTimeZone() {
     return timeZone;
   }

@@ -25,14 +25,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Account;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.Permission;
 import com.wallee.sdk.model.RoleState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -52,7 +53,7 @@ public class Role {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("permissions")
@@ -77,10 +78,10 @@ public class Role {
   
   
    /**
-   * The account to which this role belongs to. This role can only be assigned within the assigned account and the sub accounts of the assigned account.
+   * The account the role belongs to. The role can only be assigned within this account.
    * @return account
   **/
-  @ApiModelProperty(value = "The account to which this role belongs to. This role can only be assigned within the assigned account and the sub accounts of the assigned account.")
+  @ApiModelProperty(value = "The account the role belongs to. The role can only be assigned within this account.")
   public Account getAccount() {
     return account;
   }
@@ -97,20 +98,20 @@ public class Role {
 
   
    /**
-   * The name of this role is used to identify the role within administrative interfaces.
+   * The name used to identify the role.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of this role is used to identify the role within administrative interfaces.")
-  public DatabaseTranslatedString getName() {
+  @ApiModelProperty(value = "The name used to identify the role.")
+  public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * Set of permissions that are granted to this role.
+   * The permissions granted to users with this role.
    * @return permissions
   **/
-  @ApiModelProperty(value = "Set of permissions that are granted to this role.")
+  @ApiModelProperty(value = "The permissions granted to users with this role.")
   public List<Permission> getPermissions() {
     return permissions;
   }
@@ -137,10 +138,10 @@ public class Role {
 
   
    /**
-   * Defines whether having been granted this role will force a user to use two-factor authentication.
+   * Whether users with this role are required to use two-factor authentication.
    * @return twoFactorRequired
   **/
-  @ApiModelProperty(value = "Defines whether having been granted this role will force a user to use two-factor authentication.")
+  @ApiModelProperty(value = "Whether users with this role are required to use two-factor authentication.")
   public Boolean isTwoFactorRequired() {
     return twoFactorRequired;
   }

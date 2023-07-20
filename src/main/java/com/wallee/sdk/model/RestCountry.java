@@ -65,60 +65,60 @@ public class RestCountry {
   
   
    /**
-   * The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).
+   * The country&#39;s two-letter code (ISO 3166-1 alpha-2 format).
    * @return isOCode2Letter
   **/
-  @ApiModelProperty(value = "The ISO code 2 letter identifies the country by two chars as defined in ISO 3166-1 (e.g. US, DE, CH).")
+  @ApiModelProperty(value = "The country's two-letter code (ISO 3166-1 alpha-2 format).")
   public String getIsOCode2Letter() {
     return isOCode2Letter;
   }
 
   
    /**
-   * The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).
+   * The country&#39;s three-letter code (ISO 3166-1 alpha-3 format).
    * @return isOCode3Letter
   **/
-  @ApiModelProperty(value = "The ISO code 3 letter identifies the country by three chars as defined in ISO 3166-1 (e.g. CHE, USA, GBR).")
+  @ApiModelProperty(value = "The country's three-letter code (ISO 3166-1 alpha-3 format).")
   public String getIsOCode3Letter() {
     return isOCode3Letter;
   }
 
   
    /**
-   * The address format of the country indicates how an address has to look like for the country.
+   * Specifies the country&#39;s way of formatting addresses.
    * @return addressFormat
   **/
-  @ApiModelProperty(value = "The address format of the country indicates how an address has to look like for the country.")
+  @ApiModelProperty(value = "Specifies the country's way of formatting addresses.")
   public RestAddressFormat getAddressFormat() {
     return addressFormat;
   }
 
   
    /**
-   * The name labels the country by a name in English.
+   * The name of the country.
    * @return name
   **/
-  @ApiModelProperty(value = "The name labels the country by a name in English.")
+  @ApiModelProperty(value = "The name of the country.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).
+   * The country&#39;s three-digit code (ISO 3166-1 numeric format).
    * @return numericCode
   **/
-  @ApiModelProperty(value = "The numeric code identifies the country by a three digit number as defined in ISO 3166-1 (e.g. 840, 826, 756).")
+  @ApiModelProperty(value = "The country's three-digit code (ISO 3166-1 numeric format).")
   public String getNumericCode() {
     return numericCode;
   }
 
   
    /**
-   * The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.
+   * The codes of all regions (e.g. states, provinces) of the country (ISO 3166-2 format).
    * @return stateCodes
   **/
-  @ApiModelProperty(value = "The state codes field is a list of all states associated with this country. The list contains the identifiers of the states. The identifiers corresponds to the ISO 3166-2 subdivision identifier.")
+  @ApiModelProperty(value = "The codes of all regions (e.g. states, provinces) of the country (ISO 3166-2 format).")
   public List<String> getStateCodes() {
     return stateCodes;
   }

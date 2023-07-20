@@ -79,30 +79,30 @@ public class Feature {
   
   
    /**
-   * 
+   * Whether the feature is in beta stage and there may still be some issues.
    * @return beta
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the feature is in beta stage and there may still be some issues.")
   public Boolean isBeta() {
     return beta;
   }
 
   
    /**
-   * 
+   * The category that the feature belongs to.
    * @return category
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The category that the feature belongs to.")
   public FeatureCategory getCategory() {
     return category;
   }
 
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -119,40 +119,40 @@ public class Feature {
 
   
    /**
-   * 
+   * The path to the feature&#39;s logo image.
    * @return logoPath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The path to the feature's logo image.")
   public String getLogoPath() {
     return logoPath;
   }
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The features that must be enabled for this feature to work properly.
    * @return requiredFeatures
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The features that must be enabled for this feature to work properly.")
   public List<Long> getRequiredFeatures() {
     return requiredFeatures;
   }
 
   
    /**
-   * 
+   * When listing features, they can be sorted by this number.
    * @return sortOrder
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When listing features, they can be sorted by this number.")
   public Integer getSortOrder() {
     return sortOrder;
   }

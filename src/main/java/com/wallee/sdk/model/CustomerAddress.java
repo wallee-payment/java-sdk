@@ -74,20 +74,20 @@ public class CustomerAddress {
   
   
    /**
-   * 
+   * The actual postal address.
    * @return address
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The actual postal address.")
   public CustomerPostalAddress getAddress() {
     return address;
   }
 
   
    /**
-   * 
+   * Whether the address is for billing or shipping or both.
    * @return addressType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the address is for billing or shipping or both.")
   public CustomerAddressType getAddressType() {
     return addressType;
   }
@@ -104,20 +104,20 @@ public class CustomerAddress {
 
   
    /**
-   * 
+   * The customer that the object belongs to.
    * @return customer
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer that the object belongs to.")
   public Customer getCustomer() {
     return customer;
   }
 
   
    /**
-   * 
+   * Whether this is the customer&#39;s default address.
    * @return defaultAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether this is the customer's default address.")
   public Boolean isDefaultAddress() {
     return defaultAddress;
   }

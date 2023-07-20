@@ -24,10 +24,12 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionProductVersion;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -47,7 +49,7 @@ public class SubscriptionProductComponentGroup {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("optional")
@@ -92,7 +94,7 @@ public class SubscriptionProductComponentGroup {
    * @return name
   **/
   @ApiModelProperty(value = "The component group name will be shown when the components are selected. This can be visible to the subscriber.")
-  public DatabaseTranslatedString getName() {
+  public Map<String, String> getName() {
     return name;
   }
 

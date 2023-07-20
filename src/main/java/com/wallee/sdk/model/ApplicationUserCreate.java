@@ -48,10 +48,10 @@ public class ApplicationUserCreate extends AbstractApplicationUserUpdate {
   }
 
    /**
-   * The account that this user is associated with. The account owner will be able to manage this user.
+   * The primary account that the user belongs to.
    * @return primaryAccount
   **/
-  @ApiModelProperty(required = true, value = "The account that this user is associated with. The account owner will be able to manage this user.")
+  @ApiModelProperty(required = true, value = "The primary account that the user belongs to.")
   public Long getPrimaryAccount() {
     return primaryAccount;
   }

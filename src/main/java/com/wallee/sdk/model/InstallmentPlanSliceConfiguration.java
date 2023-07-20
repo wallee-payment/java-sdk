@@ -25,12 +25,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.InstallmentPlanConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -46,7 +48,7 @@ public class InstallmentPlanSliceConfiguration {
 
   
   @JsonProperty("lineItemTitle")
-  protected DatabaseTranslatedString lineItemTitle = null;
+  protected Map<String, String> lineItemTitle = null;
 
   
   @JsonProperty("linkedSpaceId")
@@ -97,7 +99,7 @@ public class InstallmentPlanSliceConfiguration {
    * @return lineItemTitle
   **/
   @ApiModelProperty(value = "The title of this slices line items. The title is visible to the buyer.")
-  public DatabaseTranslatedString getLineItemTitle() {
+  public Map<String, String> getLineItemTitle() {
     return lineItemTitle;
   }
 

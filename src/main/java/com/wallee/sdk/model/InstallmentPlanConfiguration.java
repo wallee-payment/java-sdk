@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.ResourcePath;
 import com.wallee.sdk.model.SpaceReference;
 import com.wallee.sdk.model.TaxClass;
@@ -34,7 +33,9 @@ import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -106,7 +107,7 @@ public class InstallmentPlanConfiguration {
 
   
   @JsonProperty("title")
-  protected DatabaseTranslatedString title = null;
+  protected Map<String, String> title = null;
 
   
   @JsonProperty("version")
@@ -269,7 +270,7 @@ public class InstallmentPlanConfiguration {
    * @return title
   **/
   @ApiModelProperty(value = "The title of the installment plan is used within the payment process. The title is visible to the buyer.")
-  public DatabaseTranslatedString getTitle() {
+  public Map<String, String> getTitle() {
     return title;
   }
 

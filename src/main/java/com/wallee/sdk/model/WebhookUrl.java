@@ -72,10 +72,10 @@ public class WebhookUrl {
   
   
    /**
-   * The webhook URL is managed by the application and cannot be changed via the user interface.
+   * Whether the webhook URL is managed by the application, and therefore cannot be changed via the user interface.
    * @return applicationManaged
   **/
-  @ApiModelProperty(value = "The webhook URL is managed by the application and cannot be changed via the user interface.")
+  @ApiModelProperty(value = "Whether the webhook URL is managed by the application, and therefore cannot be changed via the user interface.")
   public Boolean isApplicationManaged() {
     return applicationManaged;
   }
@@ -102,10 +102,10 @@ public class WebhookUrl {
 
   
    /**
-   * The URL name is used internally to identify the URL in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the webhook URL.
    * @return name
   **/
-  @ApiModelProperty(value = "The URL name is used internally to identify the URL in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the webhook URL.")
   public String getName() {
     return name;
   }
@@ -132,10 +132,10 @@ public class WebhookUrl {
 
   
    /**
-   * The URL to which the HTTP requests are sent to. An example URL could look like https://www.example.com/some/path?some-query-parameter&#x3D;value.
+   * The actual URL where notifications about entity changes are sent to.
    * @return url
   **/
-  @ApiModelProperty(value = "The URL to which the HTTP requests are sent to. An example URL could look like https://www.example.com/some/path?some-query-parameter=value.")
+  @ApiModelProperty(value = "The actual URL where notifications about entity changes are sent to.")
   public String getUrl() {
     return url;
   }

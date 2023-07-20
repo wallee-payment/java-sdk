@@ -24,9 +24,11 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -46,11 +48,11 @@ public class SubscriptionMetricUpdate {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   
@@ -92,8 +94,16 @@ public class SubscriptionMetricUpdate {
   }
 
   
-  public SubscriptionMetricUpdate description(DatabaseTranslatedStringCreate description) {
+  public SubscriptionMetricUpdate description(Map<String, String> description) {
     this.description = description;
+    return this;
+  }
+
+  public SubscriptionMetricUpdate putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -102,17 +112,25 @@ public class SubscriptionMetricUpdate {
    * @return description
   **/
   @ApiModelProperty(value = "")
-  public DatabaseTranslatedStringCreate getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
-  public void setDescription(DatabaseTranslatedStringCreate description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 
   
-  public SubscriptionMetricUpdate name(DatabaseTranslatedStringCreate name) {
+  public SubscriptionMetricUpdate name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public SubscriptionMetricUpdate putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -121,11 +139,11 @@ public class SubscriptionMetricUpdate {
    * @return name
   **/
   @ApiModelProperty(value = "")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

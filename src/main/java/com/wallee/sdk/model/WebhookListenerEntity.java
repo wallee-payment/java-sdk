@@ -63,20 +63,20 @@ public class WebhookListenerEntity {
 
   
    /**
-   * 
+   * The name used to identify the webhook listener entity.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to identify the webhook listener entity.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The name used to programmatically identify the webhook listener entity.
    * @return technicalName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to programmatically identify the webhook listener entity.")
   public String getTechnicalName() {
     return technicalName;
   }

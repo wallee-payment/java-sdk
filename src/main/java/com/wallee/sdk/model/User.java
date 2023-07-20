@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.UserType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -49,7 +48,7 @@ public class User {
 
   
   @JsonProperty("scope")
-  protected Scope scope = null;
+  protected Long scope = null;
 
   
   @JsonProperty("state")
@@ -86,11 +85,11 @@ public class User {
 
   
    /**
-   * 
+   * The scope that the user belongs to.
    * @return scope
   **/
-  @ApiModelProperty(value = "")
-  public Scope getScope() {
+  @ApiModelProperty(value = "The scope that the user belongs to.")
+  public Long getScope() {
     return scope;
   }
 
@@ -106,10 +105,10 @@ public class User {
 
   
    /**
-   * 
+   * The user&#39;s type which defines its role and capabilities.
    * @return userType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's type which defines its role and capabilities.")
   public UserType getUserType() {
     return userType;
   }

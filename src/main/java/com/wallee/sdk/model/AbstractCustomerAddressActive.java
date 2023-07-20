@@ -52,10 +52,10 @@ public class AbstractCustomerAddressActive {
   }
 
    /**
-   * 
+   * The actual postal address.
    * @return address
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The actual postal address.")
   public CustomerPostalAddressCreate getAddress() {
     return address;
   }
@@ -71,10 +71,10 @@ public class AbstractCustomerAddressActive {
   }
 
    /**
-   * 
+   * Whether the address is for billing or shipping or both.
    * @return addressType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the address is for billing or shipping or both.")
   public CustomerAddressType getAddressType() {
     return addressType;
   }

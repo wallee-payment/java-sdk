@@ -74,10 +74,10 @@ public class AbstractAccountUpdate {
   }
 
    /**
-   * The name of the account identifies the account within the administrative interface.
+   * The name used to identify the account.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the account identifies the account within the administrative interface.")
+  @ApiModelProperty(value = "The name used to identify the account.")
   public String getName() {
     return name;
   }
@@ -93,10 +93,10 @@ public class AbstractAccountUpdate {
   }
 
    /**
-   * This property restricts the number of subaccounts which can be created within this account.
+   * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
   **/
-  @ApiModelProperty(value = "This property restricts the number of subaccounts which can be created within this account.")
+  @ApiModelProperty(value = "The number of sub-accounts that can be created within this account.")
   public Long getSubaccountLimit() {
     return subaccountLimit;
   }

@@ -24,12 +24,13 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.PersistableCurrencyAmountUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -53,11 +54,11 @@ public class ProductSetupFeeUpdate {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("onDowngradeCreditedAmount")
@@ -130,8 +131,16 @@ public class ProductSetupFeeUpdate {
   }
 
   
-  public ProductSetupFeeUpdate description(DatabaseTranslatedStringCreate description) {
+  public ProductSetupFeeUpdate description(Map<String, String> description) {
     this.description = description;
+    return this;
+  }
+
+  public ProductSetupFeeUpdate putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -140,17 +149,25 @@ public class ProductSetupFeeUpdate {
    * @return description
   **/
   @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
-  public DatabaseTranslatedStringCreate getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
-  public void setDescription(DatabaseTranslatedStringCreate description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 
   
-  public ProductSetupFeeUpdate name(DatabaseTranslatedStringCreate name) {
+  public ProductSetupFeeUpdate name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public ProductSetupFeeUpdate putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -159,11 +176,11 @@ public class ProductSetupFeeUpdate {
    * @return name
   **/
   @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

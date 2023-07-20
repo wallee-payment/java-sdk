@@ -34,9 +34,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * A manual task requires a manual intervention by a human.
+ * A manual task requires the manual intervention of a human.
  */
-@ApiModel(description = "A manual task requires a manual intervention by a human.")
+@ApiModel(description = "A manual task requires the manual intervention of a human.")
 
 public class ManualTask {
   
@@ -68,10 +68,6 @@ public class ManualTask {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @JsonProperty("spaceId")
-  protected Long spaceId = null;
-
-  
   @JsonProperty("state")
   protected ManualTaskState state = null;
 
@@ -82,20 +78,20 @@ public class ManualTask {
   
   
    /**
-   * 
+   * The actions that can be triggered to handle the manual task.
    * @return actions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The actions that can be triggered to handle the manual task.")
   public List<Long> getActions() {
     return actions;
   }
 
   
    /**
-   * The context entity ID links the manual task to the entity which caused its creation.
+   * The ID of the entity the manual task is linked to.
    * @return contextEntityId
   **/
-  @ApiModelProperty(value = "The context entity ID links the manual task to the entity which caused its creation.")
+  @ApiModelProperty(value = "The ID of the entity the manual task is linked to.")
   public Long getContextEntityId() {
     return contextEntityId;
   }
@@ -112,10 +108,10 @@ public class ManualTask {
 
   
    /**
-   * The expiry date indicates until when the manual task has to be executed.
+   * The date and time until when the manual task has to be handled.
    * @return expiresOn
   **/
-  @ApiModelProperty(value = "The expiry date indicates until when the manual task has to be executed.")
+  @ApiModelProperty(value = "The date and time until when the manual task has to be handled.")
   public OffsetDateTime getExpiresOn() {
     return expiresOn;
   }
@@ -152,16 +148,6 @@ public class ManualTask {
 
   
    /**
-   * 
-   * @return spaceId
-  **/
-  @ApiModelProperty(value = "")
-  public Long getSpaceId() {
-    return spaceId;
-  }
-
-  
-   /**
    * The object&#39;s current state.
    * @return state
   **/
@@ -172,10 +158,10 @@ public class ManualTask {
 
   
    /**
-   * The type categorizes the manual task.
+   * The manual task&#39;s type.
    * @return type
   **/
-  @ApiModelProperty(value = "The type categorizes the manual task.")
+  @ApiModelProperty(value = "The manual task's type.")
   public Long getType() {
     return type;
   }
@@ -198,14 +184,13 @@ public class ManualTask {
         Objects.equals(this.id, manualTask.id) &&
         Objects.equals(this.linkedSpaceId, manualTask.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, manualTask.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, manualTask.spaceId) &&
         Objects.equals(this.state, manualTask.state) &&
         Objects.equals(this.type, manualTask.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, contextEntityId, createdOn, expiresOn, id, linkedSpaceId, plannedPurgeDate, spaceId, state, type);
+    return Objects.hash(actions, contextEntityId, createdOn, expiresOn, id, linkedSpaceId, plannedPurgeDate, state, type);
   }
 
 
@@ -221,7 +206,6 @@ public class ManualTask {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

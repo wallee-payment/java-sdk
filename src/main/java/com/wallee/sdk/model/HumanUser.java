@@ -24,8 +24,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Account;
-import com.wallee.sdk.model.Scope;
 import com.wallee.sdk.model.TwoFactorAuthenticationType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -68,11 +66,11 @@ public class HumanUser {
 
   
   @JsonProperty("primaryAccount")
-  protected Account primaryAccount = null;
+  protected Long primaryAccount = null;
 
   
   @JsonProperty("scope")
-  protected Scope scope = null;
+  protected Long scope = null;
 
   
   @JsonProperty("timeZone")
@@ -89,120 +87,120 @@ public class HumanUser {
   
   
    /**
-   * The email address of the user.
+   * The user&#39;s email address.
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "The email address of the user.")
+  @ApiModelProperty(value = "The user's email address.")
   public String getEmailAddress() {
     return emailAddress;
   }
 
   
    /**
-   * Defines whether a user is verified or not.
+   * Whether the user&#39;s email address has been verified.
    * @return emailAddressVerified
   **/
-  @ApiModelProperty(value = "Defines whether a user is verified or not.")
+  @ApiModelProperty(value = "Whether the user's email address has been verified.")
   public Boolean isEmailAddressVerified() {
     return emailAddressVerified;
   }
 
   
    /**
-   * The first name of the user.
+   * The user&#39;s first name.
    * @return firstname
   **/
-  @ApiModelProperty(value = "The first name of the user.")
+  @ApiModelProperty(value = "The user's first name.")
   public String getFirstname() {
     return firstname;
   }
 
   
    /**
-   * The preferred language of the user.
+   * The user&#39;s preferred language.
    * @return language
   **/
-  @ApiModelProperty(value = "The preferred language of the user.")
+  @ApiModelProperty(value = "The user's preferred language.")
   public String getLanguage() {
     return language;
   }
 
   
    /**
-   * The last name of the user.
+   * The user&#39;s last name.
    * @return lastname
   **/
-  @ApiModelProperty(value = "The last name of the user.")
+  @ApiModelProperty(value = "The user's last name.")
   public String getLastname() {
     return lastname;
   }
 
   
    /**
-   * 
+   * The user&#39;s mobile phone number.
    * @return mobilePhoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's mobile phone number.")
   public String getMobilePhoneNumber() {
     return mobilePhoneNumber;
   }
 
   
    /**
-   * Defines whether a users mobile phone number is verified or not.
+   * Whether the user&#39;s mobile phone number has been verified.
    * @return mobilePhoneVerified
   **/
-  @ApiModelProperty(value = "Defines whether a users mobile phone number is verified or not.")
+  @ApiModelProperty(value = "Whether the user's mobile phone number has been verified.")
   public Boolean isMobilePhoneVerified() {
     return mobilePhoneVerified;
   }
 
   
    /**
-   * The primary account links the user to a specific account.
+   * The primary account that the user belongs to.
    * @return primaryAccount
   **/
-  @ApiModelProperty(value = "The primary account links the user to a specific account.")
-  public Account getPrimaryAccount() {
+  @ApiModelProperty(value = "The primary account that the user belongs to.")
+  public Long getPrimaryAccount() {
     return primaryAccount;
   }
 
   
    /**
-   * The scope to which the user belongs to.
+   * The scope that the user belongs to.
    * @return scope
   **/
-  @ApiModelProperty(value = "The scope to which the user belongs to.")
-  public Scope getScope() {
+  @ApiModelProperty(value = "The scope that the user belongs to.")
+  public Long getScope() {
     return scope;
   }
 
   
    /**
-   * The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
+   * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
+  @ApiModelProperty(value = "The user's time zone. If none is specified, the one provided by the browser will be used.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * Defines whether two-factor authentication is enabled for this user.
+   * Whether two-factor authentication is enabled for this user.
    * @return twoFactorEnabled
   **/
-  @ApiModelProperty(value = "Defines whether two-factor authentication is enabled for this user.")
+  @ApiModelProperty(value = "Whether two-factor authentication is enabled for this user.")
   public Boolean isTwoFactorEnabled() {
     return twoFactorEnabled;
   }
 
   
    /**
-   * 
+   * The type of two-factor authentication that is enabled for the user.
    * @return twoFactorType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of two-factor authentication that is enabled for the user.")
   public TwoFactorAuthenticationType getTwoFactorType() {
     return twoFactorType;
   }

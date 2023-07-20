@@ -48,10 +48,10 @@ public class HumanUserCreate extends AbstractHumanUserUpdate {
   }
 
    /**
-   * The primary account links the user to a specific account.
+   * The primary account that the user belongs to.
    * @return primaryAccount
   **/
-  @ApiModelProperty(value = "The primary account links the user to a specific account.")
+  @ApiModelProperty(value = "The primary account that the user belongs to.")
   public Long getPrimaryAccount() {
     return primaryAccount;
   }

@@ -75,40 +75,40 @@ public class LabelDescriptor {
   
   
    /**
-   * 
+   * The label&#39;s category.
    * @return category
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The label's category.")
   public LabelDescriptorCategory getCategory() {
     return category;
   }
 
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
 
   
    /**
-   * 
+   * The features that this label belongs to.
    * @return features
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The features that this label belongs to.")
   public List<Long> getFeatures() {
     return features;
   }
 
   
    /**
-   * 
+   * The group that this label belongs to.
    * @return group
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group that this label belongs to.")
   public Long getGroup() {
     return group;
   }
@@ -125,30 +125,30 @@ public class LabelDescriptor {
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The type of the label&#39;s value.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the label's value.")
   public Long getType() {
     return type;
   }
 
   
    /**
-   * 
+   * When listing labels, they can be sorted by this number.
    * @return weight
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When listing labels, they can be sorted by this number.")
   public Integer getWeight() {
     return weight;
   }

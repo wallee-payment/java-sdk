@@ -60,10 +60,10 @@ public class TenantDatabase {
 
   
    /**
-   * The name of the database.
+   * The name used to identify the database.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the database.")
+  @ApiModelProperty(value = "The name used to identify the database.")
   public String getName() {
     return name;
   }

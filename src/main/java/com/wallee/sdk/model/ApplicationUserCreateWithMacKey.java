@@ -43,10 +43,10 @@ public class ApplicationUserCreateWithMacKey extends ApplicationUser {
   
   
    /**
-   * 
+   * The user&#39;s authentication key securing requests. Only displayed a single time after the user has been created.
    * @return macKey
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's authentication key securing requests. Only displayed a single time after the user has been created.")
   public String getMacKey() {
     return macKey;
   }

@@ -61,30 +61,30 @@ public class TwoFactorAuthenticationType {
   
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
 
   
    /**
-   * 
+   * The feature that this type belongs to.
    * @return feature
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The feature that this type belongs to.")
   public Long getFeature() {
     return feature;
   }
 
   
    /**
-   * 
+   * The identifier of the icon representing this type.
    * @return icon
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The identifier of the icon representing this type.")
   public String getIcon() {
     return icon;
   }
@@ -101,10 +101,10 @@ public class TwoFactorAuthenticationType {
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }

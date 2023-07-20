@@ -75,10 +75,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * The email address of the user.
+   * The user&#39;s email address.
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "The email address of the user.")
+  @ApiModelProperty(value = "The user's email address.")
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -94,10 +94,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * The first name of the user.
+   * The user&#39;s first name.
    * @return firstname
   **/
-  @ApiModelProperty(value = "The first name of the user.")
+  @ApiModelProperty(value = "The user's first name.")
   public String getFirstname() {
     return firstname;
   }
@@ -113,10 +113,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * The preferred language of the user.
+   * The user&#39;s preferred language.
    * @return language
   **/
-  @ApiModelProperty(value = "The preferred language of the user.")
+  @ApiModelProperty(value = "The user's preferred language.")
   public String getLanguage() {
     return language;
   }
@@ -132,10 +132,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * The last name of the user.
+   * The user&#39;s last name.
    * @return lastname
   **/
-  @ApiModelProperty(value = "The last name of the user.")
+  @ApiModelProperty(value = "The user's last name.")
   public String getLastname() {
     return lastname;
   }
@@ -151,10 +151,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * 
+   * The user&#39;s mobile phone number.
    * @return mobilePhoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user's mobile phone number.")
   public String getMobilePhoneNumber() {
     return mobilePhoneNumber;
   }
@@ -189,10 +189,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.
+   * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone which is applied for the user. If no timezone is specified the browser is used to determine an appropriate time zone.")
+  @ApiModelProperty(value = "The user's time zone. If none is specified, the one provided by the browser will be used.")
   public String getTimeZone() {
     return timeZone;
   }
@@ -208,10 +208,10 @@ public class AbstractHumanUserUpdate {
   }
 
    /**
-   * Defines whether two-factor authentication is enabled for this user.
+   * Whether two-factor authentication is enabled for this user.
    * @return twoFactorEnabled
   **/
-  @ApiModelProperty(value = "Defines whether two-factor authentication is enabled for this user.")
+  @ApiModelProperty(value = "Whether two-factor authentication is enabled for this user.")
   public Boolean isTwoFactorEnabled() {
     return twoFactorEnabled;
   }

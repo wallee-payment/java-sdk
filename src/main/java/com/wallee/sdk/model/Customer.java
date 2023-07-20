@@ -96,40 +96,40 @@ public class Customer {
 
   
    /**
-   * 
+   * The customer&#39;s ID in the merchant&#39;s system.
    * @return customerId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer's ID in the merchant's system.")
   public String getCustomerId() {
     return customerId;
   }
 
   
    /**
-   * 
+   * The customer&#39;s email address.
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer's email address.")
   public String getEmailAddress() {
     return emailAddress;
   }
 
   
    /**
-   * 
+   * The customer&#39;s family or last name.
    * @return familyName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer's family or last name.")
   public String getFamilyName() {
     return familyName;
   }
 
   
    /**
-   * 
+   * The customer&#39;s given or first name.
    * @return givenName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer's given or first name.")
   public String getGivenName() {
     return givenName;
   }
@@ -166,20 +166,20 @@ public class Customer {
 
   
    /**
-   * Meta data allow to store additional data along the object.
+   * Allow to store additional information about the object.
    * @return metaData
   **/
-  @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
+  @ApiModelProperty(value = "Allow to store additional information about the object.")
   public Map<String, String> getMetaData() {
     return metaData;
   }
 
   
    /**
-   * 
+   * The customer&#39;s preferred currency.
    * @return preferredCurrency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The customer's preferred currency.")
   public String getPreferredCurrency() {
     return preferredCurrency;
   }

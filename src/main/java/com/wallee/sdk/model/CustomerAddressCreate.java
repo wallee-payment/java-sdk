@@ -48,10 +48,10 @@ public class CustomerAddressCreate extends AbstractCustomerAddressActive {
   }
 
    /**
-   * 
+   * The customer that the object belongs to.
    * @return customer
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The customer that the object belongs to.")
   public Long getCustomer() {
     return customer;
   }

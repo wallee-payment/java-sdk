@@ -69,10 +69,10 @@ public class AbstractWebhookListenerUpdate {
   }
 
    /**
-   * The target state identifies the state into which entities need to move into to trigger the webhook listener.
+   * The entity&#39;s target states that are to be monitored.
    * @return entityStates
   **/
-  @ApiModelProperty(value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
+  @ApiModelProperty(value = "The entity's target states that are to be monitored.")
   public List<String> getEntityStates() {
     return entityStates;
   }
@@ -88,10 +88,10 @@ public class AbstractWebhookListenerUpdate {
   }
 
    /**
-   * The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the webhook listener.
    * @return name
   **/
-  @ApiModelProperty(value = "The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the webhook listener.")
   public String getName() {
     return name;
   }
@@ -107,10 +107,10 @@ public class AbstractWebhookListenerUpdate {
   }
 
    /**
-   * Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
+   * Whether every update of the entity or only state changes are to be monitored.
    * @return notifyEveryChange
   **/
-  @ApiModelProperty(value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
+  @ApiModelProperty(value = "Whether every update of the entity or only state changes are to be monitored.")
   public Boolean isNotifyEveryChange() {
     return notifyEveryChange;
   }

@@ -40,6 +40,10 @@ public class RestCountryState {
   protected String code = null;
 
   
+  @JsonProperty("country")
+  protected String country = null;
+
+  
   @JsonProperty("countryCode")
   protected String countryCode = null;
 
@@ -54,40 +58,50 @@ public class RestCountryState {
   
   
    /**
-   * The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.
+   * The state&#39;s code used within addresses.
    * @return code
   **/
-  @ApiModelProperty(value = "The code of the state identifies the state. The code is typically used within addresses. Some countries may not provide a code. For those the field is null.")
+  @ApiModelProperty(value = "The state's code used within addresses.")
   public String getCode() {
     return code;
   }
 
   
    /**
-   * The country code in ISO two letter format (e.g. UK, DE, CH, US).
+   * 
+   * @return country
+  **/
+  @ApiModelProperty(value = "")
+  public String getCountry() {
+    return country;
+  }
+
+  
+   /**
+   * The two-letter code of the state&#39;s country (ISO 3166-1 alpha-2 format).
    * @return countryCode
   **/
-  @ApiModelProperty(value = "The country code in ISO two letter format (e.g. UK, DE, CH, US).")
+  @ApiModelProperty(value = "The two-letter code of the state's country (ISO 3166-1 alpha-2 format).")
   public String getCountryCode() {
     return countryCode;
   }
 
   
    /**
-   * The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.
+   * The state&#39;s code in ISO 3166-2 format.
    * @return id
   **/
-  @ApiModelProperty(value = "The ID of the state corresponds to the subdivision identifier defined in ISO 3166-2. The format consists of the country code followed by a dash and a subdivision identifier.")
+  @ApiModelProperty(value = "The state's code in ISO 3166-2 format.")
   public String getId() {
     return id;
   }
 
   
    /**
-   * The name is a human readable label of the state in the language of the region.
+   * The name of the state.
    * @return name
   **/
-  @ApiModelProperty(value = "The name is a human readable label of the state in the language of the region.")
+  @ApiModelProperty(value = "The name of the state.")
   public String getName() {
     return name;
   }
@@ -104,6 +118,7 @@ public class RestCountryState {
     }
     RestCountryState restCountryState = (RestCountryState) o;
     return Objects.equals(this.code, restCountryState.code) &&
+        Objects.equals(this.country, restCountryState.country) &&
         Objects.equals(this.countryCode, restCountryState.countryCode) &&
         Objects.equals(this.id, restCountryState.id) &&
         Objects.equals(this.name, restCountryState.name);
@@ -111,7 +126,7 @@ public class RestCountryState {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, countryCode, id, name);
+    return Objects.hash(code, country, countryCode, id, name);
   }
 
 
@@ -121,6 +136,7 @@ public class RestCountryState {
     sb.append("class RestCountryState {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

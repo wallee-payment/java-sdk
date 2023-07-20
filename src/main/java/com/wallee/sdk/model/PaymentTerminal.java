@@ -49,6 +49,10 @@ public class PaymentTerminal {
   protected String defaultCurrency = null;
 
   
+  @JsonProperty("deviceSerialNumber")
+  protected String deviceSerialNumber = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
@@ -107,6 +111,16 @@ public class PaymentTerminal {
   @ApiModelProperty(value = "")
   public String getDefaultCurrency() {
     return defaultCurrency;
+  }
+
+  
+   /**
+   * 
+   * @return deviceSerialNumber
+  **/
+  @ApiModelProperty(value = "")
+  public String getDeviceSerialNumber() {
+    return deviceSerialNumber;
   }
 
   
@@ -222,6 +236,7 @@ public class PaymentTerminal {
     PaymentTerminal paymentTerminal = (PaymentTerminal) o;
     return Objects.equals(this.configurationVersion, paymentTerminal.configurationVersion) &&
         Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
+        Objects.equals(this.deviceSerialNumber, paymentTerminal.deviceSerialNumber) &&
         Objects.equals(this.externalId, paymentTerminal.externalId) &&
         Objects.equals(this.id, paymentTerminal.id) &&
         Objects.equals(this.identifier, paymentTerminal.identifier) &&
@@ -236,7 +251,7 @@ public class PaymentTerminal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, defaultCurrency, externalId, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
+    return Objects.hash(configurationVersion, defaultCurrency, deviceSerialNumber, externalId, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
   }
 
 
@@ -247,6 +262,7 @@ public class PaymentTerminal {
     
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
+    sb.append("    deviceSerialNumber: ").append(toIndentedString(deviceSerialNumber)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");

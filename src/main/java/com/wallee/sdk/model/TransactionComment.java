@@ -79,20 +79,20 @@ public class TransactionComment {
   
   
    /**
-   * 
+   * The comment&#39;s actual content.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The comment's actual content.")
   public String getContent() {
     return content;
   }
 
   
    /**
-   * 
+   * The ID of the user the comment was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the comment was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -109,20 +109,20 @@ public class TransactionComment {
 
   
    /**
-   * 
+   * The ID of the user the comment was last updated by.
    * @return editedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the comment was last updated by.")
   public Long getEditedBy() {
     return editedBy;
   }
 
   
    /**
-   * The date on which the comment was last edited.
+   * The date and time when the comment was last updated.
    * @return editedOn
   **/
-  @ApiModelProperty(value = "The date on which the comment was last edited.")
+  @ApiModelProperty(value = "The date and time when the comment was last updated.")
   public OffsetDateTime getEditedOn() {
     return editedOn;
   }
@@ -149,10 +149,10 @@ public class TransactionComment {
 
   
    /**
-   * 
+   * Whether the comment is pinned to the top.
    * @return pinned
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the comment is pinned to the top.")
   public Boolean isPinned() {
     return pinned;
   }

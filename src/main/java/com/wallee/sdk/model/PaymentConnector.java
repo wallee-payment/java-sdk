@@ -129,10 +129,10 @@ public class PaymentConnector {
 
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -159,10 +159,10 @@ public class PaymentConnector {
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }

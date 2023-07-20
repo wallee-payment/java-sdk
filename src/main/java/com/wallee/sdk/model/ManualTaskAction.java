@@ -68,30 +68,30 @@ public class ManualTaskAction {
 
   
    /**
-   * 
+   * The action&#39;s label.
    * @return label
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The action's label.")
   public Map<String, String> getLabel() {
     return label;
   }
 
   
    /**
-   * 
+   * The action&#39;s style.
    * @return style
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The action's style.")
   public ManualTaskActionStyle getStyle() {
     return style;
   }
 
   
    /**
-   * 
+   * The type of manual tasks this action belongs to.
    * @return taskType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of manual tasks this action belongs to.")
   public Long getTaskType() {
     return taskType;
   }

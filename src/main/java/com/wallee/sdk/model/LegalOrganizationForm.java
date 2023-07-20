@@ -61,30 +61,30 @@ public class LegalOrganizationForm {
   
   
    /**
-   * 
+   * The two-letter code of the country the legal organization form is used in (ISO 3166-1 alpha-2 format).
    * @return country
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The two-letter code of the country the legal organization form is used in (ISO 3166-1 alpha-2 format).")
   public String getCountry() {
     return country;
   }
 
   
    /**
-   * 
+   * The localized descriptions of the legal organization form.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized descriptions of the legal organization form.")
   public List<LocalizedString> getDescription() {
     return description;
   }
 
   
    /**
-   * 
+   * The English name of the legal organization form.
    * @return englishDescription
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The English name of the legal organization form.")
   public String getEnglishDescription() {
     return englishDescription;
   }
@@ -101,10 +101,10 @@ public class LegalOrganizationForm {
 
   
    /**
-   * 
+   * The localized shortcuts of the legal organization form.
    * @return shortcut
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized shortcuts of the legal organization form.")
   public List<LocalizedString> getShortcut() {
     return shortcut;
   }

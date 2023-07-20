@@ -110,60 +110,60 @@ public class Account {
   
   
    /**
-   * Active means that this account and all accounts in the hierarchy are active.
+   * Whether this account and all its parent accounts are active.
    * @return active
   **/
-  @ApiModelProperty(value = "Active means that this account and all accounts in the hierarchy are active.")
+  @ApiModelProperty(value = "Whether this account and all its parent accounts are active.")
   public Boolean isActive() {
     return active;
   }
 
   
    /**
-   * This property is true when all accounts in the hierarchy are active or restricted active.
+   * Whether this account and all its parent accounts are active or restricted active.
    * @return activeOrRestrictedActive
   **/
-  @ApiModelProperty(value = "This property is true when all accounts in the hierarchy are active or restricted active.")
+  @ApiModelProperty(value = "Whether this account and all its parent accounts are active or restricted active.")
   public Boolean isActiveOrRestrictedActive() {
     return activeOrRestrictedActive;
   }
 
   
    /**
-   * The ID of the user who created this entity.
+   * The ID of the user the account was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "The ID of the user who created this entity.")
+  @ApiModelProperty(value = "The ID of the user the account was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
 
   
    /**
-   * The date and time when this entity was created.
+   * The date and time when the account was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The date and time when this entity was created.")
+  @ApiModelProperty(value = "The date and time when the account was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The ID of a user that deleted this entity.
+   * The ID of a user the account was deleted by.
    * @return deletedBy
   **/
-  @ApiModelProperty(value = "The ID of a user that deleted this entity.")
+  @ApiModelProperty(value = "The ID of a user the account was deleted by.")
   public Long getDeletedBy() {
     return deletedBy;
   }
 
   
    /**
-   * The date and time when this entity was deleted.
+   * The date and time when the account was deleted.
    * @return deletedOn
   **/
-  @ApiModelProperty(value = "The date and time when this entity was deleted.")
+  @ApiModelProperty(value = "The date and time when the account was deleted.")
   public OffsetDateTime getDeletedOn() {
     return deletedOn;
   }
@@ -190,20 +190,20 @@ public class Account {
 
   
    /**
-   * The name of the account identifies the account within the administrative interface.
+   * The name used to identify the account.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the account identifies the account within the administrative interface.")
+  @ApiModelProperty(value = "The name used to identify the account.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * The account which is responsible for administering the account.
+   * The parent account responsible for administering this account.
    * @return parentAccount
   **/
-  @ApiModelProperty(value = "The account which is responsible for administering the account.")
+  @ApiModelProperty(value = "The parent account responsible for administering this account.")
   public Account getParentAccount() {
     return parentAccount;
   }
@@ -220,20 +220,20 @@ public class Account {
 
   
    /**
-   * Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.
+   * Whether this account and all its parent accounts are active or restricted active. There is at least one account that is restricted active.
    * @return restrictedActive
   **/
-  @ApiModelProperty(value = "Restricted active means that at least one account in the hierarchy is only restricted active, but all are either restricted active or active.")
+  @ApiModelProperty(value = "Whether this account and all its parent accounts are active or restricted active. There is at least one account that is restricted active.")
   public Boolean isRestrictedActive() {
     return restrictedActive;
   }
 
   
    /**
-   * This is the scope to which the account belongs to.
+   * The scope that the account belongs to.
    * @return scope
   **/
-  @ApiModelProperty(value = "This is the scope to which the account belongs to.")
+  @ApiModelProperty(value = "The scope that the account belongs to.")
   public Long getScope() {
     return scope;
   }
@@ -250,20 +250,20 @@ public class Account {
 
   
    /**
-   * This property restricts the number of subaccounts which can be created within this account.
+   * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
   **/
-  @ApiModelProperty(value = "This property restricts the number of subaccounts which can be created within this account.")
+  @ApiModelProperty(value = "The number of sub-accounts that can be created within this account.")
   public Long getSubaccountLimit() {
     return subaccountLimit;
   }
 
   
    /**
-   * The account type defines which role and capabilities it has.
+   * The account&#39;s type which defines its role and capabilities.
    * @return type
   **/
-  @ApiModelProperty(value = "The account type defines which role and capabilities it has.")
+  @ApiModelProperty(value = "The account's type which defines its role and capabilities.")
   public AccountType getType() {
     return type;
   }

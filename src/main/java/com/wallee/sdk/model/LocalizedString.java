@@ -36,10 +36,6 @@ import java.time.OffsetDateTime;
 
 public class LocalizedString {
   
-  @JsonProperty("displayName")
-  protected String displayName = null;
-
-  
   @JsonProperty("language")
   protected String language = null;
 
@@ -50,30 +46,20 @@ public class LocalizedString {
   
   
    /**
-   * 
-   * @return displayName
-  **/
-  @ApiModelProperty(value = "")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  
-   /**
-   * 
+   * The term&#39;s language.
    * @return language
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The term's language.")
   public String getLanguage() {
     return language;
   }
 
   
    /**
-   * 
+   * The localized term.
    * @return string
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized term.")
   public String getString() {
     return string;
   }
@@ -89,14 +75,13 @@ public class LocalizedString {
       return false;
     }
     LocalizedString localizedString = (LocalizedString) o;
-    return Objects.equals(this.displayName, localizedString.displayName) &&
-        Objects.equals(this.language, localizedString.language) &&
+    return Objects.equals(this.language, localizedString.language) &&
         Objects.equals(this.string, localizedString.string);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, language, string);
+    return Objects.hash(language, string);
   }
 
 
@@ -105,7 +90,6 @@ public class LocalizedString {
     StringBuilder sb = new StringBuilder();
     sb.append("class LocalizedString {\n");
     
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    string: ").append(toIndentedString(string)).append("\n");
     sb.append("}");

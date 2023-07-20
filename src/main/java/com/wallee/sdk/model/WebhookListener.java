@@ -88,20 +88,20 @@ public class WebhookListener {
   
   
    /**
-   * The listener listens on state changes of the entity linked with the listener.
+   * The entity that is to be monitored.
    * @return entity
   **/
-  @ApiModelProperty(value = "The listener listens on state changes of the entity linked with the listener.")
+  @ApiModelProperty(value = "The entity that is to be monitored.")
   public Long getEntity() {
     return entity;
   }
 
   
    /**
-   * The target state identifies the state into which entities need to move into to trigger the webhook listener.
+   * The entity&#39;s target states that are to be monitored.
    * @return entityStates
   **/
-  @ApiModelProperty(value = "The target state identifies the state into which entities need to move into to trigger the webhook listener.")
+  @ApiModelProperty(value = "The entity's target states that are to be monitored.")
   public List<String> getEntityStates() {
     return entityStates;
   }
@@ -118,10 +118,10 @@ public class WebhookListener {
 
   
    /**
-   * The identity which will be used to sign messages sent by this listener.
+   * The identity used to sign messages.
    * @return identity
   **/
-  @ApiModelProperty(value = "The identity which will be used to sign messages sent by this listener.")
+  @ApiModelProperty(value = "The identity used to sign messages.")
   public WebhookIdentity getIdentity() {
     return identity;
   }
@@ -138,20 +138,20 @@ public class WebhookListener {
 
   
    /**
-   * The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the webhook listener.
    * @return name
   **/
-  @ApiModelProperty(value = "The webhook listener name is used internally to identify the webhook listener in administrative interfaces.For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the webhook listener.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.
+   * Whether every update of the entity or only state changes are to be monitored.
    * @return notifyEveryChange
   **/
-  @ApiModelProperty(value = "Defines whether the webhook listener is to be informed about every change made to the entity in contrast to state transitions only.")
+  @ApiModelProperty(value = "Whether every update of the entity or only state changes are to be monitored.")
   public Boolean isNotifyEveryChange() {
     return notifyEveryChange;
   }
@@ -178,10 +178,10 @@ public class WebhookListener {
 
   
    /**
-   * The URL which is invoked by the listener to notify the application about the event.
+   * The URL where notifications about entity changes are sent to.
    * @return url
   **/
-  @ApiModelProperty(value = "The URL which is invoked by the listener to notify the application about the event.")
+  @ApiModelProperty(value = "The URL where notifications about entity changes are sent to.")
   public WebhookUrl getUrl() {
     return url;
   }

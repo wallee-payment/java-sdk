@@ -91,20 +91,20 @@ public class Scope {
   
   
    /**
-   * The domain name to which this scope is mapped to.
+   * The domain name that belongs to the scope.
    * @return domainName
   **/
-  @ApiModelProperty(value = "The domain name to which this scope is mapped to.")
+  @ApiModelProperty(value = "The domain name that belongs to the scope.")
   public String getDomainName() {
     return domainName;
   }
 
   
    /**
-   * 
+   * The list of features that are active in the scope.
    * @return features
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The list of features that are active in the scope.")
   public List<Feature> getFeatures() {
     return features;
   }
@@ -121,20 +121,20 @@ public class Scope {
 
   
    /**
-   * 
+   * The name identifying the scope in e.g. URLs.
    * @return machineName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name identifying the scope in e.g. URLs.")
   public String getMachineName() {
     return machineName;
   }
 
   
    /**
-   * The name of the scope is shown to the user where the user should select a scope.
+   * The name used to identify the scope.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the scope is shown to the user where the user should select a scope.")
+  @ApiModelProperty(value = "The name used to identify the scope.")
   public String getName() {
     return name;
   }
@@ -151,20 +151,20 @@ public class Scope {
 
   
    /**
-   * The port number to which this scope is mapped to.
+   * The port where the scope can be accessed.
    * @return port
   **/
-  @ApiModelProperty(value = "The port number to which this scope is mapped to.")
+  @ApiModelProperty(value = "The port where the scope can be accessed.")
   public Integer getPort() {
     return port;
   }
 
   
    /**
-   * Define whether the scope supports SSL.
+   * Whether the scope supports SSL.
    * @return sslActive
   **/
-  @ApiModelProperty(value = "Define whether the scope supports SSL.")
+  @ApiModelProperty(value = "Whether the scope supports SSL.")
   public Boolean isSslActive() {
     return sslActive;
   }
@@ -181,20 +181,20 @@ public class Scope {
 
   
    /**
-   * The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.
+   * The themes that determine the look and feel of the scope&#39;s user interface. A fall-through strategy is applied when building the actual theme.
    * @return themes
   **/
-  @ApiModelProperty(value = "The themes determines how the application layout, look and feel is. By providing multiple themes you can fallback to other themes.")
+  @ApiModelProperty(value = "The themes that determine the look and feel of the scope's user interface. A fall-through strategy is applied when building the actual theme.")
   public List<String> getThemes() {
     return themes;
   }
 
   
    /**
-   * 
+   * The URL where the scope can be accessed.
    * @return url
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL where the scope can be accessed.")
   public String getUrl() {
     return url;
   }

@@ -46,10 +46,10 @@ public class AbstractCustomerCommentActive {
   }
 
    /**
-   * 
+   * The comment&#39;s actual content.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The comment's actual content.")
   public String getContent() {
     return content;
   }

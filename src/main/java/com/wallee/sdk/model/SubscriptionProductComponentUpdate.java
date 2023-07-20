@@ -24,10 +24,12 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -59,7 +61,7 @@ public class SubscriptionProductComponentUpdate {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("maximalQuantity")
@@ -71,7 +73,7 @@ public class SubscriptionProductComponentUpdate {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("quantityStep")
@@ -186,8 +188,16 @@ public class SubscriptionProductComponentUpdate {
   }
 
   
-  public SubscriptionProductComponentUpdate description(DatabaseTranslatedStringCreate description) {
+  public SubscriptionProductComponentUpdate description(Map<String, String> description) {
     this.description = description;
+    return this;
+  }
+
+  public SubscriptionProductComponentUpdate putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -196,11 +206,11 @@ public class SubscriptionProductComponentUpdate {
    * @return description
   **/
   @ApiModelProperty(value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
-  public DatabaseTranslatedStringCreate getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
-  public void setDescription(DatabaseTranslatedStringCreate description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 
@@ -243,8 +253,16 @@ public class SubscriptionProductComponentUpdate {
   }
 
   
-  public SubscriptionProductComponentUpdate name(DatabaseTranslatedStringCreate name) {
+  public SubscriptionProductComponentUpdate name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public SubscriptionProductComponentUpdate putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -253,11 +271,11 @@ public class SubscriptionProductComponentUpdate {
    * @return name
   **/
   @ApiModelProperty(value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

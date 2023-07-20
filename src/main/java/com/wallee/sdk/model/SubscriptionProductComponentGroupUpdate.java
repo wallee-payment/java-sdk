@@ -24,9 +24,11 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -46,7 +48,7 @@ public class SubscriptionProductComponentGroupUpdate {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("optional")
@@ -100,8 +102,16 @@ public class SubscriptionProductComponentGroupUpdate {
   }
 
   
-  public SubscriptionProductComponentGroupUpdate name(DatabaseTranslatedStringCreate name) {
+  public SubscriptionProductComponentGroupUpdate name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public SubscriptionProductComponentGroupUpdate putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -110,11 +120,11 @@ public class SubscriptionProductComponentGroupUpdate {
    * @return name
   **/
   @ApiModelProperty(value = "The component group name will be shown when the components are selected. This can be visible to the subscriber.")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

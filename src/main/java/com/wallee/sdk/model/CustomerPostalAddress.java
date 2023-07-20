@@ -121,200 +121,200 @@ public class CustomerPostalAddress {
   
   
    /**
-   * 
+   * The city, town or village.
    * @return city
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The city, town or village.")
   public String getCity() {
     return city;
   }
 
   
    /**
-   * 
+   * The commercial registration number of the organization.
    * @return commercialRegisterNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The commercial registration number of the organization.")
   public String getCommercialRegisterNumber() {
     return commercialRegisterNumber;
   }
 
   
    /**
-   * 
+   * The two-letter country code (ISO 3166 format).
    * @return country
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The two-letter country code (ISO 3166 format).")
   public String getCountry() {
     return country;
   }
 
   
    /**
-   * 
+   * The date of birth.
    * @return dateOfBirth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date of birth.")
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
 
   
    /**
-   * 
+   * The dependent locality which is a sub-division of the state.
    * @return dependentLocality
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The dependent locality which is a sub-division of the state.")
   public String getDependentLocality() {
     return dependentLocality;
   }
 
   
    /**
-   * 
+   * The email address.
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The email address.")
   public String getEmailAddress() {
     return emailAddress;
   }
 
   
    /**
-   * 
+   * The family or last name.
    * @return familyName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The family or last name.")
   public String getFamilyName() {
     return familyName;
   }
 
   
    /**
-   * 
+   * The gender.
    * @return gender
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The gender.")
   public Gender getGender() {
     return gender;
   }
 
   
    /**
-   * 
+   * The given or first name.
    * @return givenName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The given or first name.")
   public String getGivenName() {
     return givenName;
   }
 
   
    /**
-   * 
+   * The legal form of the organization.
    * @return legalOrganizationForm
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The legal form of the organization.")
   public LegalOrganizationForm getLegalOrganizationForm() {
     return legalOrganizationForm;
   }
 
   
    /**
-   * 
+   * The phone number of a mobile phone.
    * @return mobilePhoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone number of a mobile phone.")
   public String getMobilePhoneNumber() {
     return mobilePhoneNumber;
   }
 
   
    /**
-   * 
+   * The organization&#39;s name.
    * @return organizationName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The organization's name.")
   public String getOrganizationName() {
     return organizationName;
   }
 
   
    /**
-   * 
+   * The phone number.
    * @return phoneNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The phone number.")
   public String getPhoneNumber() {
     return phoneNumber;
   }
 
   
    /**
-   * 
+   * The name of the region, typically a state, county, province or prefecture.
    * @return postalState
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the region, typically a state, county, province or prefecture.")
   public String getPostalState() {
     return postalState;
   }
 
   
    /**
-   * 
+   * The postal code, also known as ZIP, postcode, etc.
    * @return postcode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The postal code, also known as ZIP, postcode, etc.")
   public String getPostcode() {
     return postcode;
   }
 
   
    /**
-   * 
+   * The sales tax number of the organization.
    * @return salesTaxNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sales tax number of the organization.")
   public String getSalesTaxNumber() {
     return salesTaxNumber;
   }
 
   
    /**
-   * 
+   * The salutation e.g. Mrs, Mr, Dr.
    * @return salutation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The salutation e.g. Mrs, Mr, Dr.")
   public String getSalutation() {
     return salutation;
   }
 
   
    /**
-   * 
+   * The social security number.
    * @return socialSecurityNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The social security number.")
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
   
    /**
-   * The sorting code identifies the post office at which the post box is located in.
+   * The sorting code identifying the post office where the PO Box is located.
    * @return sortingCode
   **/
-  @ApiModelProperty(value = "The sorting code identifies the post office at which the post box is located in.")
+  @ApiModelProperty(value = "The sorting code identifying the post office where the PO Box is located.")
   public String getSortingCode() {
     return sortingCode;
   }
 
   
    /**
-   * 
+   * The street or PO Box.
    * @return street
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The street or PO Box.")
   public String getStreet() {
     return street;
   }

@@ -25,11 +25,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionMetricType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -41,7 +43,7 @@ import java.time.OffsetDateTime;
 public class SubscriptionMetric {
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("id")
@@ -53,7 +55,7 @@ public class SubscriptionMetric {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -78,7 +80,7 @@ public class SubscriptionMetric {
    * @return description
   **/
   @ApiModelProperty(value = "")
-  public DatabaseTranslatedString getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
@@ -108,7 +110,7 @@ public class SubscriptionMetric {
    * @return name
   **/
   @ApiModelProperty(value = "")
-  public DatabaseTranslatedString getName() {
+  public Map<String, String> getName() {
     return name;
   }
 

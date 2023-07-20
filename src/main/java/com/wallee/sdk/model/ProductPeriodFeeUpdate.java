@@ -24,12 +24,13 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.PersistableCurrencyAmountUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -53,15 +54,15 @@ public class ProductPeriodFeeUpdate {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedStringCreate description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("ledgerEntryTitle")
-  protected DatabaseTranslatedStringCreate ledgerEntryTitle = null;
+  protected Map<String, String> ledgerEntryTitle = null;
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("numberOfFreeTrialPeriods")
@@ -130,8 +131,16 @@ public class ProductPeriodFeeUpdate {
   }
 
   
-  public ProductPeriodFeeUpdate description(DatabaseTranslatedStringCreate description) {
+  public ProductPeriodFeeUpdate description(Map<String, String> description) {
     this.description = description;
+    return this;
+  }
+
+  public ProductPeriodFeeUpdate putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
+    this.description.put(key, descriptionItem);
     return this;
   }
 
@@ -140,17 +149,25 @@ public class ProductPeriodFeeUpdate {
    * @return description
   **/
   @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
-  public DatabaseTranslatedStringCreate getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
-  public void setDescription(DatabaseTranslatedStringCreate description) {
+  public void setDescription(Map<String, String> description) {
     this.description = description;
   }
 
   
-  public ProductPeriodFeeUpdate ledgerEntryTitle(DatabaseTranslatedStringCreate ledgerEntryTitle) {
+  public ProductPeriodFeeUpdate ledgerEntryTitle(Map<String, String> ledgerEntryTitle) {
     this.ledgerEntryTitle = ledgerEntryTitle;
+    return this;
+  }
+
+  public ProductPeriodFeeUpdate putLedgerEntryTitleItem(String key, String ledgerEntryTitleItem) {
+    if (this.ledgerEntryTitle == null) {
+      this.ledgerEntryTitle = new HashMap<>();
+    }
+    this.ledgerEntryTitle.put(key, ledgerEntryTitleItem);
     return this;
   }
 
@@ -159,17 +176,25 @@ public class ProductPeriodFeeUpdate {
    * @return ledgerEntryTitle
   **/
   @ApiModelProperty(value = "The ledger entry title will be used for the title in the ledger entry and in the invoice.")
-  public DatabaseTranslatedStringCreate getLedgerEntryTitle() {
+  public Map<String, String> getLedgerEntryTitle() {
     return ledgerEntryTitle;
   }
 
-  public void setLedgerEntryTitle(DatabaseTranslatedStringCreate ledgerEntryTitle) {
+  public void setLedgerEntryTitle(Map<String, String> ledgerEntryTitle) {
     this.ledgerEntryTitle = ledgerEntryTitle;
   }
 
   
-  public ProductPeriodFeeUpdate name(DatabaseTranslatedStringCreate name) {
+  public ProductPeriodFeeUpdate name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public ProductPeriodFeeUpdate putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -178,11 +203,11 @@ public class ProductPeriodFeeUpdate {
    * @return name
   **/
   @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

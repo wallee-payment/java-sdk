@@ -86,30 +86,30 @@ public class Permission {
   
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
 
   
    /**
-   * 
+   * The feature that this permission belongs to.
    * @return feature
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The feature that this permission belongs to.")
   public Long getFeature() {
     return feature;
   }
 
   
    /**
-   * 
+   * Whether this is a permission group.
    * @return group
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether this is a permission group.")
   public Boolean isGroup() {
     return group;
   }
@@ -126,60 +126,60 @@ public class Permission {
 
   
    /**
-   * 
+   * Whether this is a leaf in the tree of permissions, and not a group.
    * @return leaf
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether this is a leaf in the tree of permissions, and not a group.")
   public Boolean isLeaf() {
     return leaf;
   }
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The group that this permission belongs to.
    * @return parent
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group that this permission belongs to.")
   public Long getParent() {
     return parent;
   }
 
   
    /**
-   * 
+   * All parents of this permission up to the root of the permission tree.
    * @return pathToRoot
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "All parents of this permission up to the root of the permission tree.")
   public List<Long> getPathToRoot() {
     return pathToRoot;
   }
 
   
    /**
-   * 
+   * The localized name of the object.
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getTitle() {
     return title;
   }
 
   
    /**
-   * 
+   * Whether users with this permission are required to enable two-factor authentication.
    * @return twoFactorRequired
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether users with this permission are required to enable two-factor authentication.")
   public Boolean isTwoFactorRequired() {
     return twoFactorRequired;
   }

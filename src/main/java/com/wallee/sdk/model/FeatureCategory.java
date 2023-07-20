@@ -57,10 +57,10 @@ public class FeatureCategory {
   
   
    /**
-   * The description of the object translated into different languages.
+   * The localized description of the object.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -77,20 +77,20 @@ public class FeatureCategory {
 
   
    /**
-   * The name of the object translated into different languages.
+   * The localized name of the object.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the object translated into different languages.")
+  @ApiModelProperty(value = "The localized name of the object.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * 
+   * When listing feature categories, they can be sorted by this number.
    * @return orderWeight
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When listing feature categories, they can be sorted by this number.")
   public Integer getOrderWeight() {
     return orderWeight;
   }

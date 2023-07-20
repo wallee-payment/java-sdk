@@ -27,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.AbstractSubscriptionMetricUpdate;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.HashMap;
 import java.util.*;
 import java.time.OffsetDateTime;
 

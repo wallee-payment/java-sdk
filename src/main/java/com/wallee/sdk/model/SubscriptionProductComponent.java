@@ -24,13 +24,15 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedString;
 import com.wallee.sdk.model.SubscriptionProductComponentGroup;
 import com.wallee.sdk.model.SubscriptionProductComponentReference;
 import com.wallee.sdk.model.TaxClass;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -54,7 +56,7 @@ public class SubscriptionProductComponent {
 
   
   @JsonProperty("description")
-  protected DatabaseTranslatedString description = null;
+  protected Map<String, String> description = null;
 
   
   @JsonProperty("id")
@@ -74,7 +76,7 @@ public class SubscriptionProductComponent {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedString name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("quantityStep")
@@ -133,7 +135,7 @@ public class SubscriptionProductComponent {
    * @return description
   **/
   @ApiModelProperty(value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
-  public DatabaseTranslatedString getDescription() {
+  public Map<String, String> getDescription() {
     return description;
   }
 
@@ -183,7 +185,7 @@ public class SubscriptionProductComponent {
    * @return name
   **/
   @ApiModelProperty(value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
-  public DatabaseTranslatedString getName() {
+  public Map<String, String> getName() {
     return name;
   }
 

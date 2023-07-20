@@ -24,13 +24,14 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.DatabaseTranslatedStringCreate;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
 import com.wallee.sdk.model.TaxCalculation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -70,7 +71,7 @@ public class SubscriptionProductVersionPending {
 
   
   @JsonProperty("name")
-  protected DatabaseTranslatedStringCreate name = null;
+  protected Map<String, String> name = null;
 
   
   @JsonProperty("numberOfNoticePeriods")
@@ -231,8 +232,16 @@ public class SubscriptionProductVersionPending {
   }
 
   
-  public SubscriptionProductVersionPending name(DatabaseTranslatedStringCreate name) {
+  public SubscriptionProductVersionPending name(Map<String, String> name) {
     this.name = name;
+    return this;
+  }
+
+  public SubscriptionProductVersionPending putNameItem(String key, String nameItem) {
+    if (this.name == null) {
+      this.name = new HashMap<>();
+    }
+    this.name.put(key, nameItem);
     return this;
   }
 
@@ -241,11 +250,11 @@ public class SubscriptionProductVersionPending {
    * @return name
   **/
   @ApiModelProperty(value = "The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.")
-  public DatabaseTranslatedStringCreate getName() {
+  public Map<String, String> getName() {
     return name;
   }
 
-  public void setName(DatabaseTranslatedStringCreate name) {
+  public void setName(Map<String, String> name) {
     this.name = name;
   }
 

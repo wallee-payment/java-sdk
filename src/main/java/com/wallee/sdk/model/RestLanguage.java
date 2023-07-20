@@ -52,6 +52,10 @@ public class RestLanguage {
   protected String iso3Code = null;
 
   
+  @JsonProperty("name")
+  protected String name = null;
+
+  
   @JsonProperty("pluralExpression")
   protected String pluralExpression = null;
 
@@ -62,60 +66,70 @@ public class RestLanguage {
   
   
    /**
-   * The country code represents the region of the language as a 2 letter ISO code.
+   * The two-letter code of the language&#39;s region (ISO 3166-1 alpha-2 format).
    * @return countryCode
   **/
-  @ApiModelProperty(value = "The country code represents the region of the language as a 2 letter ISO code.")
+  @ApiModelProperty(value = "The two-letter code of the language's region (ISO 3166-1 alpha-2 format).")
   public String getCountryCode() {
     return countryCode;
   }
 
   
    /**
-   * The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).
+   * The language&#39;s IETF tag consisting of the two-letter ISO code and region e.g. en-US, de-CH.
    * @return ietfCode
   **/
-  @ApiModelProperty(value = "The IETF code represents the language as the two letter ISO code including the region (e.g. en-US).")
+  @ApiModelProperty(value = "The language's IETF tag consisting of the two-letter ISO code and region e.g. en-US, de-CH.")
   public String getIetfCode() {
     return ietfCode;
   }
 
   
    /**
-   * The ISO 2 letter code represents the language with two letters.
+   * The language&#39;s two-letter code (ISO 639-1 format).
    * @return iso2Code
   **/
-  @ApiModelProperty(value = "The ISO 2 letter code represents the language with two letters.")
+  @ApiModelProperty(value = "The language's two-letter code (ISO 639-1 format).")
   public String getIso2Code() {
     return iso2Code;
   }
 
   
    /**
-   * The ISO 3 letter code represents the language with three letters.
+   * The language&#39;s three-letter code (ISO 639-2/T format).
    * @return iso3Code
   **/
-  @ApiModelProperty(value = "The ISO 3 letter code represents the language with three letters.")
+  @ApiModelProperty(value = "The language's three-letter code (ISO 639-2/T format).")
   public String getIso3Code() {
     return iso3Code;
   }
 
   
    /**
-   * The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.
+   * The name of the language.
+   * @return name
+  **/
+  @ApiModelProperty(value = "The name of the language.")
+  public String getName() {
+    return name;
+  }
+
+  
+   /**
+   * The expression to determine the plural index for a given number of items used to find the proper plural form for translations.
    * @return pluralExpression
   **/
-  @ApiModelProperty(value = "The plural expression defines how to map a plural into the language index. This expression is used to determine the plural form for the translations.")
+  @ApiModelProperty(value = "The expression to determine the plural index for a given number of items used to find the proper plural form for translations.")
   public String getPluralExpression() {
     return pluralExpression;
   }
 
   
    /**
-   * The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.
+   * Whether this is the primary language in a group of languages.
    * @return primaryOfGroup
   **/
-  @ApiModelProperty(value = "The primary language of a group indicates whether a language is the primary language of a group of languages. The group is determine by the ISO 2 letter code.")
+  @ApiModelProperty(value = "Whether this is the primary language in a group of languages.")
   public Boolean isPrimaryOfGroup() {
     return primaryOfGroup;
   }
@@ -135,13 +149,14 @@ public class RestLanguage {
         Objects.equals(this.ietfCode, restLanguage.ietfCode) &&
         Objects.equals(this.iso2Code, restLanguage.iso2Code) &&
         Objects.equals(this.iso3Code, restLanguage.iso3Code) &&
+        Objects.equals(this.name, restLanguage.name) &&
         Objects.equals(this.pluralExpression, restLanguage.pluralExpression) &&
         Objects.equals(this.primaryOfGroup, restLanguage.primaryOfGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(countryCode, ietfCode, iso2Code, iso3Code, pluralExpression, primaryOfGroup);
+    return Objects.hash(countryCode, ietfCode, iso2Code, iso3Code, name, pluralExpression, primaryOfGroup);
   }
 
 
@@ -154,6 +169,7 @@ public class RestLanguage {
     sb.append("    ietfCode: ").append(toIndentedString(ietfCode)).append("\n");
     sb.append("    iso2Code: ").append(toIndentedString(iso2Code)).append("\n");
     sb.append("    iso3Code: ").append(toIndentedString(iso3Code)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pluralExpression: ").append(toIndentedString(pluralExpression)).append("\n");
     sb.append("    primaryOfGroup: ").append(toIndentedString(primaryOfGroup)).append("\n");
     sb.append("}");

@@ -769,10 +769,10 @@ public class Transaction {
 
   
    /**
-   * Meta data allow to store additional data along the object.
+   * Allow to store additional information about the object.
    * @return metaData
   **/
-  @ApiModelProperty(value = "Meta data allow to store additional data along the object.")
+  @ApiModelProperty(value = "Allow to store additional information about the object.")
   public Map<String, String> getMetaData() {
     return metaData;
   }
