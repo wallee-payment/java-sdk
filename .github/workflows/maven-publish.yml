@@ -3,7 +3,8 @@
 
 name: Maven Package
 on:
-  push
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -19,10 +20,10 @@ jobs:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '8'
         server-id: 'ossrh'
-        server-username: ${{ secrets.OSSRH_USERNAME }}
-        server-password: ${{ secrets.OSSRH_TOKEN }}
+        server-username: OSSRH_USERNAME
+        server-password: OSSRH_PASSWORD
         gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase : ${{ secrets.SIGN_KEY_PASS }}
+        gpg-passphrase : SIGN_KEY_PASS
         
     - name: Build with Maven
       id: build
@@ -32,5 +33,6 @@ jobs:
       id: deploy
       run: mvn -U -B clean deploy -P release -DskipTests=true
       env:
+        SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
         OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

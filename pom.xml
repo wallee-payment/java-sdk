@@ -5,7 +5,7 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>6.0.1</version>
+    <version>6.0.3</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
     <scm>
