@@ -33,6 +33,5 @@ jobs:
       id: deploy
       run: mvn -U -B clean deploy -P release -DskipTests=true
       env:
-        SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
         OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
