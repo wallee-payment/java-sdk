@@ -3,7 +3,8 @@
 
 name: Maven Package
 on:
-  push
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -18,18 +19,20 @@ jobs:
       with:
         distribution: 'temurin' # See 'Supported distributions' for available options
         java-version: '8'
+        server-id: 'ossrh'
+        server-username: ${{ secrets.OSSRH_USERNAME }}
+        server-password: ${{ secrets.OSSRH_TOKEN }}
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        gpg-passphrase : ${{ secrets.SIGN_KEY_PASS }}
         
-    - name: install
-      run : mvn install -P !build-extras -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-      
     - name: Build with Maven
       id: build
       run: mvn -B package --file pom.xml
-
-    - name: Release Maven package
-      uses: samuelmeuli/action-maven-publish@v1
-      with:
-        gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg_passphrase: ${{ secrets.PASSPHRASE }}
-        nexus_username: ${{ secrets.OSSRH_USERNAME }}
-        nexus_password: ${{ secrets.OSSRH_TOKEN }}
+    
+    - name: Publish with Maven
+      id: deploy
+      run: mvn -U -B clean deploy -P release -DskipTests=true
+      env:
+        SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
+        OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+        OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

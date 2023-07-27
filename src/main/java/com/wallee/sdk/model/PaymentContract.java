@@ -74,6 +74,10 @@ public class PaymentContract {
   protected Long id = null;
 
   
+  @JsonProperty("lastModifiedDate")
+  protected OffsetDateTime lastModifiedDate = null;
+
+  
   @JsonProperty("rejectedOn")
   protected OffsetDateTime rejectedOn = null;
 
@@ -184,6 +188,16 @@ public class PaymentContract {
 
   
    /**
+   * The date and time when the object was last modified.
+   * @return lastModifiedDate
+  **/
+  @ApiModelProperty(value = "The date and time when the object was last modified.")
+  public OffsetDateTime getLastModifiedDate() {
+    return lastModifiedDate;
+  }
+
+  
+   /**
    * 
    * @return rejectedOn
   **/
@@ -271,6 +285,7 @@ public class PaymentContract {
         Objects.equals(this.createdOn, paymentContract.createdOn) &&
         Objects.equals(this.externalId, paymentContract.externalId) &&
         Objects.equals(this.id, paymentContract.id) &&
+        Objects.equals(this.lastModifiedDate, paymentContract.lastModifiedDate) &&
         Objects.equals(this.rejectedOn, paymentContract.rejectedOn) &&
         Objects.equals(this.rejectionReason, paymentContract.rejectionReason) &&
         Objects.equals(this.startTerminatingOn, paymentContract.startTerminatingOn) &&
@@ -282,7 +297,7 @@ public class PaymentContract {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, activatedOn, contractIdentifier, contractType, createdBy, createdOn, externalId, id, rejectedOn, rejectionReason, startTerminatingOn, state, terminatedBy, terminatedOn, version);
+    return Objects.hash(account, activatedOn, contractIdentifier, contractType, createdBy, createdOn, externalId, id, lastModifiedDate, rejectedOn, rejectionReason, startTerminatingOn, state, terminatedBy, terminatedOn, version);
   }
 
 
@@ -299,6 +314,7 @@ public class PaymentContract {
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
     sb.append("    rejectedOn: ").append(toIndentedString(rejectedOn)).append("\n");
     sb.append("    rejectionReason: ").append(toIndentedString(rejectionReason)).append("\n");
     sb.append("    startTerminatingOn: ").append(toIndentedString(startTerminatingOn)).append("\n");
