@@ -3,8 +3,7 @@
 
 name: Maven Package
 on:
-  release:
-    types: [published]
+  push
 
 jobs:
   build:
