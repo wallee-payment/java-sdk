@@ -454,6 +454,132 @@ public class TokenService {
     }
 
   /**
+    * Create Token
+    
+    * This operation creates a token for the given transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The id of the transaction for which we want to create the token.
+    * @return Token
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token">Create Token Documentation</a>
+
+    **/
+    public Token createToken(Long spaceId, Long transactionId) throws IOException {
+        HttpResponse response = createTokenForHttpResponse(spaceId, transactionId);
+        String returnType = "Token";
+        if(returnType.equals("String")){
+          return (Token) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Token>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+  /**
+    * Create Token
+    
+    * This operation creates a token for the given transaction.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
+    * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
+    * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
+    * @param spaceId 
+    * @param transactionId The id of the transaction for which we want to create the token.
+    * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return Token
+    * @throws IOException if an error occurs while attempting to invoke the API
+    * For more information visit this link.
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token">Create Token Documentation</a>
+
+    **/
+    public Token createToken(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
+        HttpResponse response = createTokenForHttpResponse(spaceId, transactionId, params);
+        String returnType = "Token";
+        if(returnType.equals("String")){
+            return (Token) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<Token>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (Token)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
+    }
+
+    public HttpResponse createTokenForHttpResponse(Long spaceId, Long transactionId) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createToken");
+        }
+        // verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling createToken");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/token/create-token");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+        if (transactionId != null) {
+            String key = "transactionId";
+            Object value = transactionId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
+    }
+
+    public HttpResponse createTokenForHttpResponse(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling createToken");
+        }
+        // verify the required parameter 'transactionId' is set
+        if (transactionId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'transactionId' when calling createToken");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/token/create-token");
+
+        // Copy the params argument if present, to allow passing in immutable maps
+        Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
+        // Add the required query param 'spaceId' to the map of query params
+        allParams.put("spaceId", spaceId);
+        // Add the required query param 'transactionId' to the map of query params
+        allParams.put("transactionId", transactionId);
+
+        for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
+            String key = entryMap.getKey();
+            Object value = entryMap.getValue();
+            if (key != null && value != null) {
+                uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+            }
+        }
+
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
+
+        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
+    }
+
+  /**
     * Create Token Based On Transaction
     
     * This operation creates a token for the given transaction and fills it with the stored payment information of the transaction.

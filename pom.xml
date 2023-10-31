@@ -5,7 +5,7 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>6.2.0</version>
+    <version>7.0.0</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
     <scm>
@@ -53,8 +53,8 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>(,3.9)</version>
-                                    <message>Invalid Maven version. It should, at least, be 2.0</message>
+                                    <version>[3.2,3.8]</version>
+                                    <message>Invalid Maven version. It should be between 3.2 and 3.8 inclusive.</message>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>

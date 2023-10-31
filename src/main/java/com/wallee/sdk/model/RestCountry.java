@@ -39,16 +39,16 @@ import java.time.OffsetDateTime;
 
 public class RestCountry {
   
-  @JsonProperty("ISOCode2Letter")
-  protected String isOCode2Letter = null;
-
-  
-  @JsonProperty("ISOCode3Letter")
-  protected String isOCode3Letter = null;
-
-  
   @JsonProperty("addressFormat")
   protected RestAddressFormat addressFormat = null;
+
+  
+  @JsonProperty("isoCode2")
+  protected String isoCode2 = null;
+
+  
+  @JsonProperty("isoCode3")
+  protected String isoCode3 = null;
 
   
   @JsonProperty("name")
@@ -65,32 +65,32 @@ public class RestCountry {
   
   
    /**
-   * The country&#39;s two-letter code (ISO 3166-1 alpha-2 format).
-   * @return isOCode2Letter
-  **/
-  @ApiModelProperty(value = "The country's two-letter code (ISO 3166-1 alpha-2 format).")
-  public String getIsOCode2Letter() {
-    return isOCode2Letter;
-  }
-
-  
-   /**
-   * The country&#39;s three-letter code (ISO 3166-1 alpha-3 format).
-   * @return isOCode3Letter
-  **/
-  @ApiModelProperty(value = "The country's three-letter code (ISO 3166-1 alpha-3 format).")
-  public String getIsOCode3Letter() {
-    return isOCode3Letter;
-  }
-
-  
-   /**
    * Specifies the country&#39;s way of formatting addresses.
    * @return addressFormat
   **/
   @ApiModelProperty(value = "Specifies the country's way of formatting addresses.")
   public RestAddressFormat getAddressFormat() {
     return addressFormat;
+  }
+
+  
+   /**
+   * The country&#39;s two-letter code (ISO 3166-1 alpha-2 format).
+   * @return isoCode2
+  **/
+  @ApiModelProperty(value = "The country's two-letter code (ISO 3166-1 alpha-2 format).")
+  public String getIsoCode2() {
+    return isoCode2;
+  }
+
+  
+   /**
+   * The country&#39;s three-letter code (ISO 3166-1 alpha-3 format).
+   * @return isoCode3
+  **/
+  @ApiModelProperty(value = "The country's three-letter code (ISO 3166-1 alpha-3 format).")
+  public String getIsoCode3() {
+    return isoCode3;
   }
 
   
@@ -134,9 +134,9 @@ public class RestCountry {
       return false;
     }
     RestCountry restCountry = (RestCountry) o;
-    return Objects.equals(this.isOCode2Letter, restCountry.isOCode2Letter) &&
-        Objects.equals(this.isOCode3Letter, restCountry.isOCode3Letter) &&
-        Objects.equals(this.addressFormat, restCountry.addressFormat) &&
+    return Objects.equals(this.addressFormat, restCountry.addressFormat) &&
+        Objects.equals(this.isoCode2, restCountry.isoCode2) &&
+        Objects.equals(this.isoCode3, restCountry.isoCode3) &&
         Objects.equals(this.name, restCountry.name) &&
         Objects.equals(this.numericCode, restCountry.numericCode) &&
         Objects.equals(this.stateCodes, restCountry.stateCodes);
@@ -144,7 +144,7 @@ public class RestCountry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(isOCode2Letter, isOCode3Letter, addressFormat, name, numericCode, stateCodes);
+    return Objects.hash(addressFormat, isoCode2, isoCode3, name, numericCode, stateCodes);
   }
 
 
@@ -153,9 +153,9 @@ public class RestCountry {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestCountry {\n");
     
-    sb.append("    isOCode2Letter: ").append(toIndentedString(isOCode2Letter)).append("\n");
-    sb.append("    isOCode3Letter: ").append(toIndentedString(isOCode3Letter)).append("\n");
     sb.append("    addressFormat: ").append(toIndentedString(addressFormat)).append("\n");
+    sb.append("    isoCode2: ").append(toIndentedString(isoCode2)).append("\n");
+    sb.append("    isoCode3: ").append(toIndentedString(isoCode3)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    numericCode: ").append(toIndentedString(numericCode)).append("\n");
     sb.append("    stateCodes: ").append(toIndentedString(stateCodes)).append("\n");

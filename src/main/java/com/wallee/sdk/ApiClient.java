@@ -1,35 +1,51 @@
 package com.wallee.sdk;
 
 import com.wallee.sdk.service.*;
+
+import java.net.InetSocketAddress;
+import java.net.Proxy;
 import java.util.HashMap;
 import java.util.Map;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.api.client.http.AbstractHttpContent;
-import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.Json;
-import com.google.api.client.http.HttpHeaders;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
+/**
+* The ApiClient class is responsible for setting up and maintaining the state and configuration
+* necessary to interact with a remote API service.
+*/
 
 public class ApiClient {
-    private int readTimeOut = 25;
-    private final String basePath;
-    private final HttpRequestFactory httpRequestFactory;
-    private final ObjectMapper objectMapper;
-    private final long userId;
-    private final String applicationKey;
-    private final Map<String, String> defaultHeaders;
 
-    // A reasonable default object mapper. Client can pass in a chosen ObjectMapper anyway, this is just for reasonable defaults.
+    private static final String DEFAULT_BASE_PATH = "https://app-wallee.com:443/api";
+
+    // Configuration fields
+    private int readTimeOut = 25;
+    private String basePath;
+    private HttpRequestFactory httpRequestFactory;
+    private ObjectMapper objectMapper;
+    private long userId;
+    private String applicationKey;
+    private Map<String, String> defaultHeaders = new HashMap<>();
+
+    // Proxy settings
+    private String proxyHostname;
+    private int proxyPort;
+
+    /**
+    * Creates a default ObjectMapper for JSON serialization/deserialization.
+    * This mapper will ignore unknown properties and set proper date formats among other configurations.
+    */
     private static ObjectMapper createDefaultObjectMapper() {
         ObjectMapper objectMapper = new ObjectMapper()
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
@@ -40,58 +56,119 @@ public class ApiClient {
         return objectMapper;
     }
 
-
     /**
-     * Constructor for ApiClient
-     *
-     * @param userId
-     * @param applicationKey
-     */
-    public ApiClient(long userId, String applicationKey) {
-		this(userId, applicationKey, "https://app-wallee.com:443/api");
-	}
-
-    /**
-     * Constructor for ApiClient
-     *
-     * @param userId
-     * @param applicationKey
-     */
-    public ApiClient(long userId, String applicationKey, String basePath) {
+    * Validates the primary inputs required for establishing a connection with the API.
+    *
+    * @param userId         The user ID that will be authenticated.
+    * @param applicationKey The application key corresponding to the user's account, used for authentication.
+    * @param basePath       The base URL for the API against which all the requests would be made.
+    * @throws IllegalArgumentException if any argument does not meet the criteria.
+    */
+    private void validateInputs(long userId, String applicationKey, String basePath) {
         if (applicationKey == null || applicationKey.trim().isEmpty()) {
-            throw new IllegalArgumentException("The application key cannot be empty or null.");
+            throw new IllegalArgumentException("Application key cannot be null or empty.");
         }
         if (userId < 1) {
-            throw new IllegalArgumentException("The user id is invalid.");
+            throw new IllegalArgumentException("User ID must be positive.");
         }
         if (basePath == null || basePath.trim().isEmpty()) {
-	        throw new IllegalArgumentException("The base path cannot be empty.");
-	    }
-	    
-		this.basePath = basePath;
+            throw new IllegalArgumentException("Base path cannot be null or empty.");
+        }
+    }
+
+    /**
+    * Initializes common properties for the API client.
+    */
+    private void initializeBaseProperties(long userId, String applicationKey, String basePath) {
+        validateInputs(userId, applicationKey, basePath);
+        this.basePath = basePath;
         this.userId = userId;
         this.applicationKey = applicationKey;
-        this.defaultHeaders = new HashMap<>();
-        this.httpRequestFactory = this.createRequestFactory();
         this.objectMapper = createDefaultObjectMapper();
     }
 
-    public HttpRequestFactory getHttpRequestFactory() {
-        return httpRequestFactory;
+    /**
+    * Sets up the proxy properties for the API client.
+    */
+    private void initializeProxyProperties(String proxyHostname, int proxyPort) {
+        this.proxyHostname = proxyHostname;
+        this.proxyPort = proxyPort;
     }
 
-    public HttpRequestFactory createRequestFactory() {
+    /**
+    * Constructs an ApiClient with the default base path.
+    */
+    public ApiClient(long userId, String applicationKey) {
+        this(userId, applicationKey, DEFAULT_BASE_PATH);
+	}
+
+    /**
+    * Constructs an ApiClient with a custom base path.
+    */
+    public ApiClient(long userId, String applicationKey, String basePath) {
+        initializeBaseProperties(userId, applicationKey, basePath);
+        this.httpRequestFactory = createRequestFactory();
+    }
+
+    /**
+    * Constructor for ApiClient specifying user credentials, proxy details, and base path.
+    *
+    * @param userId user identifier for authentication.
+    * @param applicationKey unique application key for user authentication.
+    * @param basePath the base URL for API requests.
+    * @param proxyHostname the hostname of the proxy server.
+    * @param proxyPort the port of the proxy server.
+    */
+    public ApiClient(long userId, String applicationKey, String basePath, String proxyHostname, int proxyPort) {
+        initializeBaseProperties(userId, applicationKey, basePath);
+        initializeProxyProperties(proxyHostname, proxyPort);
+        this.httpRequestFactory = createRequestFactory();
+    }
+
+    /**
+    * Constructor for ApiClient specifying user credentials with the default base path and proxy details.
+    *
+    * @param userId user identifier for authentication.
+    * @param applicationKey unique application key for user authentication.
+    * @param proxyHostname the hostname of the proxy server.
+    * @param proxyPort the port of the proxy server.
+    */
+    public ApiClient(long userId, String applicationKey, String proxyHostname, int proxyPort) {
+        this(userId, applicationKey, DEFAULT_BASE_PATH, proxyHostname, proxyPort);
+    }
+
+    /**
+     * Creates an HttpRequestFactory configured for making HTTP requests. The method initializes a transport builder
+     * and potentially sets a proxy for it.
+     *
+     * @return HttpRequestFactory This factory is configured with the built transport and the interceptor.
+     *                            It is ready for making HTTP requests, handling the details of connection
+     *                            and protocol, allowing for high configurability and ease of modifications.
+     */
+    private HttpRequestFactory createRequestFactory() {
         final RequestInterceptor interceptor = new RequestInterceptor(this.userId, this.applicationKey, this.defaultHeaders);
-        NetHttpTransport transport = new NetHttpTransport();
-        return transport.createRequestFactory(new HttpRequestInitializer() {
-            public void initialize(HttpRequest request) {
-                request.setInterceptor(interceptor);
-            }
-        });
+        NetHttpTransport.Builder builder = new NetHttpTransport.Builder();
+
+        if (proxyHostname != null && !proxyHostname.isEmpty()) {
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHostname, proxyPort));
+            builder.setProxy(proxy);
+        }
+
+        NetHttpTransport transport = builder.build();
+
+        return transport.createRequestFactory(request -> request.setInterceptor(interceptor));
     }
 
+    /**
+    * Allows the addition of default headers that will be sent with each request.
+    */
     public void addDefaultHeader (String key, String value) {
         this.defaultHeaders.put(key, value);
+    }
+
+    // Standard getters and setters
+    public HttpRequestFactory getHttpRequestFactory() {
+        return httpRequestFactory;
     }
 
     public String getBasePath() {

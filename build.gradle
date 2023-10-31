@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '6.2.0'
+version = '7.0.0'
 
 buildscript {
     repositories {
@@ -105,7 +105,7 @@ ext {
 
 dependencies {
     compile "io.swagger:swagger-annotations:$swagger_annotations_version"
-    compile "com.google.api-client:google-api-client:${google_api_client_version}" {
+    compile ("com.google.api-client:google-api-client:$google_api_client_version") {
         exclude group: 'commons-codec', module: 'commons-codec'
     }
     compile "com.google.guava:guava:$guava_version"

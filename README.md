@@ -23,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>6.2.0</version>
+    <version>7.0.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:6.2.0"
+compile "com.wallee:wallee-java-sdk:7.0.0"
 ```
 
 ### Others
@@ -46,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-6.2.0.jar`
+* `target/wallee-java-sdk-7.0.0.jar`
 * `target/lib/*.jar`
 
 ## Usage
@@ -155,6 +155,43 @@ public class TransactionPaymentPageExample {
 }
 
 ```
+Consider using the following overloaded ApiClient constructor and following code snippet to gain access to a resource behind a **proxy** server with a Basic Authentication scheme
+```java
+    // Create an instance of the ApiClient with the user's unique credentials and proxy information.
+    ApiClient apiClient = new ApiClient(userId, secret, String proxyHostname, int proxyPort);
+
+    Authenticator authenticator = new Authenticator() {
+        @Override
+        protected PasswordAuthentication getPasswordAuthentication() {
+            // Check if the authentication request is for a proxy
+            if (getRequestorType() == RequestorType.PROXY) {
+                // Check if the authentication scheme is Basic
+                if ("Basic".equalsIgnoreCase(getRequestingScheme())) {
+                    // Return the PasswordAuthentication instance with the proxy credentials
+                    return new PasswordAuthentication(proxyUsername, proxyPassword.toCharArray());
+                }
+            }
+
+            return null;
+          }
+    };
+
+    // Set the default Authenticator that will be used by the networking code when a proxy or an HTTP server asks for authentication.
+    // Authenticator.setDefault will set the java.net.Authenticator that processes all authentication requests.
+    Authenticator.setDefault(authenticator);
+```
+### Disable Basic authentication for HTTPS tunneling
+
+>In some environments, certain authentication schemes may be undesirable when proxying HTTPS. Accordingly, the Basic authentication scheme has been deactivated, by default, in the Oracle
+>Java Runtime, by adding Basic to the jdk.http.auth.tunneling.disabledSchemes networking property. Now, proxies requiring Basic authentication when setting up a tunnel for HTTPS
+>will no longer succeed by default. If required, this authentication scheme can be reactivated by removing Basic from the jdk.http.auth.tunneling.disabledSchemes networking
+>property, or by setting a system property of the same name to "" ( empty ) on the command line.
+
+```java
+    System.setProperty("jdk.http.auth.tunneling.disabledSchemes", "");
+    System.setProperty("jdk.http.auth.proxying.disabledSchemes", "");
+```
+
 ## Recommendation
 
 It is recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
