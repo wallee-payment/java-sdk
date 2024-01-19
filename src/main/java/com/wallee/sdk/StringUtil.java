@@ -57,4 +57,22 @@ public class StringUtil {
     }
     return out.toString();
   }
+
+  /**
+   * Trim string to null
+   * @param str string to trim
+   * @return trimmed string
+   */
+  public static String trimToNull(final String str) {
+    final String ts = trim(str);
+    return isEmpty(ts) ? null : ts;
+  }
+
+  private static String trim(final String str) {
+    return str == null ? null : str.trim();
+  }
+
+  private static boolean isEmpty(final CharSequence cs) {
+    return cs == null || cs.length() == 0;
+  }
 }

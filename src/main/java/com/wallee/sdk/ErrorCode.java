@@ -25,7 +25,13 @@ package com.wallee.sdk;
  */
 public enum ErrorCode {
 
-    ENTITY_NOT_FOUND(0, "Entity not found")
+    ENTITY_NOT_FOUND(0, "Entity not found"),
+    WEBHOOK_ENCRYPTION_GENERAL_ERROR(100, "General webhook encryption error"),
+    WEBHOOK_ENCRYPTION_SIGNATURE_HEADER_INVALID(101, "Invalid webhook signature header"),
+    WEBHOOK_ENCRYPTION_PUBLIC_KEY_INVALID(102, "Invalid webhook signature public key"),
+    WEBHOOK_ENCRYPTION_PUBLIC_KEY_UNKNOWN(103, "Unknown webhook signature public key"),
+    WEBHOOK_ENCRYPTION_UNKNOWN_PROVIDER(104, "Unknown webhook signature encryption provider"),
+    WEBHOOK_ENCRYPTION_UNKNOWN_ALGORITHM(105, "Unknown webhook signature encryption algorithm")
     ;
 
     private final int code;

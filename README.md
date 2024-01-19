@@ -23,7 +23,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>7.0.1</version>
+    <version>7.1.0</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -33,7 +33,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:7.0.1"
+compile "com.wallee:wallee-java-sdk:7.1.0"
 ```
 
 ### Others
@@ -46,7 +46,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-7.0.1.jar`
+* `target/wallee-java-sdk-7.1.0.jar`
 * `target/lib/*.jar`
 
 ## Usage
@@ -190,6 +190,63 @@ Consider using the following overloaded ApiClient constructor and following code
 ```java
     System.setProperty("jdk.http.auth.tunneling.disabledSchemes", "");
     System.setProperty("jdk.http.auth.proxying.disabledSchemes", "");
+```
+### Integrating Webhook Payload Signing Mechanism into webhook callback handler
+
+The HTTP request which is sent for a state change of an entity now includes an additional field `state`, which provides information about the update of the monitored entity's state. This enhancement is a result of the implementation of our webhook encryption mechanism.
+
+Payload field `state` provides direct information about the state update of the entity, making additional API calls to retrieve the entity state redundant.
+
+#### ⚠️ Warning: Generic Pseudocode
+
+> **The provided pseudocode is intentionally generic and serves to illustrate the process of enhancing your API to leverage webhook payload signing. It is not a complete implementation.**
+>
+> Please ensure that you adapt and extend this code to meet the specific needs of your application, including appropriate security measures and error handling.
+For a detailed webhook payload signing mechanism understanding we highly recommend referring to our comprehensive
+[Webhook Payload Signing Documentation](https://app-wallee.com/doc/webhooks#_webhook_payload_signing_mechanism).
+
+
+```java
+@RestController
+@RequestMapping("/webhook")
+public class WebhookController {
+
+    @PostMapping("/callback")
+    public ResponseEntity<Object> handleWebhook(@RequestBody String requestPayload,
+                                                HttpServletRequest request) {
+
+      // ...
+
+      // Retrieve the 'x-signature' header from the request
+        String signature = request.getHeader("x-signature");
+
+        // Check if the x-signature header is present
+        if (signature == null || signature.isEmpty()) {
+
+          // Make additional API call to retrieve the entity state.
+          // ...
+
+        } else {
+
+          // Authenticate webhook payload
+          if (apiClient.getWebhookEncryptionService().isContentValid(signature, requestPayload)) {
+            // parse the requestPayload to extract the 'state' value
+
+            // After parsing the 'state', process the entity's state change.
+             if (state != null) {
+                 processEntityStateChange(state);
+             }
+
+            // Process the received webhook data
+            // ...
+          }
+
+        }
+
+        // Process the received webhook data
+        // ...
+    }
+}
 ```
 
 ## Recommendation

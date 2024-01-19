@@ -26,59 +26,42 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * 
+ * The webhook encryption public key is used to verify the webhook content signature.
  */
-@ApiModel(description = "")
+@ApiModel(description = "The webhook encryption public key is used to verify the webhook content signature.")
 
-public class WalletType {
-  
-  @JsonProperty("description")
-  protected Map<String, String> description = null;
-
+public class WebhookEncryptionPublicKey {
   
   @JsonProperty("id")
-  protected Long id = null;
+  protected String id = null;
 
   
-  @JsonProperty("name")
-  protected Map<String, String> name = null;
+  @JsonProperty("publicKey")
+  protected String publicKey = null;
 
   
   
    /**
-   * The localized description of the object.
-   * @return description
-  **/
-  @ApiModelProperty(value = "The localized description of the object.")
-  public Map<String, String> getDescription() {
-    return description;
-  }
-
-  
-   /**
-   * A unique identifier for the object.
+   * The ID of encryption key
    * @return id
   **/
-  @ApiModelProperty(value = "A unique identifier for the object.")
-  public Long getId() {
+  @ApiModelProperty(value = "The ID of encryption key")
+  public String getId() {
     return id;
   }
 
   
    /**
-   * The localized name of the object.
-   * @return name
+   * The BASE64 encoded public key
+   * @return publicKey
   **/
-  @ApiModelProperty(value = "The localized name of the object.")
-  public Map<String, String> getName() {
-    return name;
+  @ApiModelProperty(value = "The BASE64 encoded public key")
+  public String getPublicKey() {
+    return publicKey;
   }
 
   
@@ -91,26 +74,24 @@ public class WalletType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WalletType walletType = (WalletType) o;
-    return Objects.equals(this.description, walletType.description) &&
-        Objects.equals(this.id, walletType.id) &&
-        Objects.equals(this.name, walletType.name);
+    WebhookEncryptionPublicKey webhookEncryptionPublicKey = (WebhookEncryptionPublicKey) o;
+    return Objects.equals(this.id, webhookEncryptionPublicKey.id) &&
+        Objects.equals(this.publicKey, webhookEncryptionPublicKey.publicKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name);
+    return Objects.hash(id, publicKey);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WalletType {\n");
+    sb.append("class WebhookEncryptionPublicKey {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -5,7 +5,7 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>7.0.1</version>
+    <version>7.1.0</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
     <scm>
@@ -320,6 +320,11 @@
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson-version}</version>
             </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle_version}</version>
+        </dependency>
 
         <!-- test dependencies -->
         <dependency>
@@ -338,5 +343,6 @@
         <apache-httpclient-version>4.5.14</apache-httpclient-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.2</junit-version>
+        <bouncycastle_version>1.77</bouncycastle_version>
     </properties>
 </project>

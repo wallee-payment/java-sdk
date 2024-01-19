@@ -152,8 +152,8 @@ public class ChargeAttempt extends TransactionAwareEntity {
   protected Integer version = null;
 
   
-  @JsonProperty("walletType")
-  protected WalletType walletType = null;
+  @JsonProperty("wallet")
+  protected WalletType wallet = null;
 
   
   
@@ -409,11 +409,11 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
    /**
    * 
-   * @return walletType
+   * @return wallet
   **/
   @ApiModelProperty(value = "")
-  public WalletType getWalletType() {
-    return walletType;
+  public WalletType getWallet() {
+    return wallet;
   }
 
   
@@ -455,13 +455,13 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.tokenVersion, chargeAttempt.tokenVersion) &&
         Objects.equals(this.userFailureMessage, chargeAttempt.userFailureMessage) &&
         Objects.equals(this.version, chargeAttempt.version) &&
-        Objects.equals(this.walletType, chargeAttempt.walletType) &&
+        Objects.equals(this.wallet, chargeAttempt.wallet) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, walletType, super.hashCode());
+    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, wallet, super.hashCode());
   }
 
 
@@ -498,7 +498,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    tokenVersion: ").append(toIndentedString(tokenVersion)).append("\n");
     sb.append("    userFailureMessage: ").append(toIndentedString(userFailureMessage)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
+    sb.append("    wallet: ").append(toIndentedString(wallet)).append("\n");
     sb.append("}");
     return sb.toString();
   }

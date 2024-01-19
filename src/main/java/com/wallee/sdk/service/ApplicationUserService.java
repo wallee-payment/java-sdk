@@ -1,9 +1,12 @@
 package com.wallee.sdk.service;
 
+import static com.wallee.sdk.ErrorCode.*;
+
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
 import com.wallee.sdk.WalleeSdkException;
 import com.wallee.sdk.URIBuilderUtil;
+import com.wallee.sdk.StringUtil;
 
 import com.wallee.sdk.model.ApplicationUser;
 import com.wallee.sdk.model.ApplicationUserCreate;
@@ -27,13 +30,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Objects;
+
 
 
 public class ApplicationUserService {
     private ApiClient apiClient;
 
     public ApplicationUserService(ApiClient apiClient) {
-        this.apiClient = apiClient;
+        this.apiClient = Objects.requireNonNull(apiClient, "ApiClient must be non null");
     }
 
     public ApiClient getApiClient() {
@@ -41,7 +46,7 @@ public class ApplicationUserService {
     }
 
     public void setApiClient(ApiClient apiClient) {
-        this.apiClient = apiClient;
+        this.apiClient = Objects.requireNonNull(apiClient, "ApiClient must be non null");
     }
 
   /**
@@ -726,6 +731,7 @@ public class ApplicationUserService {
         httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
+
 
 
     private boolean isNoBodyResponse(HttpResponse response) throws IOException {

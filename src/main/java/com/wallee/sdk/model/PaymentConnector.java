@@ -89,6 +89,10 @@ public class PaymentConnector {
   protected Long processor = null;
 
   
+  @JsonProperty("supportedCurrencies")
+  protected List<String> supportedCurrencies = null;
+
+  
   @JsonProperty("supportedCustomersPresences")
   protected List<CustomersPresence> supportedCustomersPresences = null;
 
@@ -210,6 +214,16 @@ public class PaymentConnector {
   
    /**
    * 
+   * @return supportedCurrencies
+  **/
+  @ApiModelProperty(value = "")
+  public List<String> getSupportedCurrencies() {
+    return supportedCurrencies;
+  }
+
+  
+   /**
+   * 
    * @return supportedCustomersPresences
   **/
   @ApiModelProperty(value = "")
@@ -249,13 +263,14 @@ public class PaymentConnector {
         Objects.equals(this.paymentMethodBrand, paymentConnector.paymentMethodBrand) &&
         Objects.equals(this.primaryRiskTaker, paymentConnector.primaryRiskTaker) &&
         Objects.equals(this.processor, paymentConnector.processor) &&
+        Objects.equals(this.supportedCurrencies, paymentConnector.supportedCurrencies) &&
         Objects.equals(this.supportedCustomersPresences, paymentConnector.supportedCustomersPresences) &&
         Objects.equals(this.supportedFeatures, paymentConnector.supportedFeatures);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataCollectionType, deprecated, deprecationReason, description, feature, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCustomersPresences, supportedFeatures);
+    return Objects.hash(dataCollectionType, deprecated, deprecationReason, description, feature, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCurrencies, supportedCustomersPresences, supportedFeatures);
   }
 
 
@@ -275,6 +290,7 @@ public class PaymentConnector {
     sb.append("    paymentMethodBrand: ").append(toIndentedString(paymentMethodBrand)).append("\n");
     sb.append("    primaryRiskTaker: ").append(toIndentedString(primaryRiskTaker)).append("\n");
     sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    supportedCurrencies: ").append(toIndentedString(supportedCurrencies)).append("\n");
     sb.append("    supportedCustomersPresences: ").append(toIndentedString(supportedCustomersPresences)).append("\n");
     sb.append("    supportedFeatures: ").append(toIndentedString(supportedFeatures)).append("\n");
     sb.append("}");
