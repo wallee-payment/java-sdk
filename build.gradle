@@ -2,7 +2,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 group = 'com.wallee'
-version = '7.1.0'
+version = '7.2.0'
 
 buildscript {
     repositories {
@@ -98,9 +98,9 @@ ext {
     jackson_version = "2.14.1"
     google_api_client_version = "2.2.0"
     guava_version = "32.1.2-jre"
-    jodatime_version = "2.9.9"
     junit_version = "4.13.2"
     httpclient_version = "4.5.14"
+    bouncycastle_version = "1.77"
 }
 
 dependencies {
@@ -117,5 +117,6 @@ dependencies {
         exclude group: 'commons-codec', module: 'commons-codec'
     }
     compile "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jackson_version"
+    compile "org.bouncycastle:bcprov-jdk18on:$bouncycastle_version"
     testCompile "junit:junit:$junit_version"
 }
