@@ -1,357 +1,303 @@
 package com.wallee.sdk.test;
 
+import static com.wallee.sdk.test.TestConstants.FAKE_CARD_DATA;
+import static com.wallee.sdk.test.TestConstants.SPACE_ID;
+import static com.wallee.sdk.test.TestConstants.TEST_CARD_PAYMENT_METHOD_CONFIGURATION_ID;
+import static com.wallee.sdk.test.TestConstants.TEST_CUSTOMER_ID;
+import static com.wallee.sdk.test.TestUtils.getApiClient;
+import static com.wallee.sdk.test.TestUtils.getTransactionCreatePayload;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
+
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.*;
 import com.wallee.sdk.service.*;
 
-import org.junit.Assert;
+import java.io.IOException;
+import java.util.List;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-
-/**
- * API tests for TransactionService
- */
 public class TransactionServiceTest {
+  private TransactionService transactionService;
+  private CardProcessingService cardProcessingService;
+  private TokenService tokenService;
+  private TransactionCompletionService transactionCompletionService;
 
-    // Credentials
-    private Long spaceId = (long) 405;
-    private Long applicationUserId = (long) 512;
-    private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+  @Before
+  public void beforeEach() {
+    ApiClient apiClient = getApiClient();
 
-    // Services
-    private ApiClient apiClient;
+    transactionService = apiClient.getTransactionService();
+    cardProcessingService = apiClient.getCardProcessingService();
+    tokenService = apiClient.getTokenService();
+    transactionCompletionService = apiClient.getTransactionCompletionService();
+  }
 
-    // Models
-    private TransactionCreate transactionPayload;
+  @Test
+  public void createShouldCreateTransactionInPendingState() throws IOException {
+    Transaction transaction = transactionService.create(SPACE_ID,
+        getTransactionCreatePayload());
 
-    @Before
-    public void setup() {
-        if (this.apiClient == null) {
-            this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-    }
+    assertEquals("State must be PENDING",
+        TransactionState.PENDING, transaction.getState());
+  }
 
-    /**
-     * Get transaction payload
-     *
-     * @return TransactionCreate
-     */
-    private TransactionCreate getTransactionPayload() {
-        if (this.transactionPayload == null) {
-            // Line item
-            LineItemCreate lineItem = new LineItemCreate();
-            lineItem.name("Red T-Shirt")
-                .uniqueId("5412")
-                .type(LineItemType.PRODUCT)
-                .quantity(BigDecimal.valueOf(1))
-                .amountIncludingTax(BigDecimal.valueOf(29.95))
-                .sku("red-t-shirt-123");
+  @Test
+  public void confirmShouldMakeTransactionConfirmed() throws IOException {
+    Transaction transaction = transactionService.create(SPACE_ID, getTransactionCreatePayload());
 
+    TransactionPending update = new TransactionPending();
+    update.setId(transaction.getId());
+    update.setVersion(Long.valueOf(transaction.getVersion()));
+    Transaction confirmedTransaction =
+        transactionService.confirm(SPACE_ID, update);
 
-            // Customer email address
-            String customerEmailAddress = "test@example.com";
+    assertEquals("State must be CONFIRMED",
+        TransactionState.CONFIRMED, confirmedTransaction.getState());
+  }
 
+  @Test
+  public void deferredTransactionProcessingShouldMakeTransactionAuthorized()
+      throws IOException {
+    TransactionCreate transactionCreate = getTransactionCreatePayload();
+    transactionCreate.setTokenizationMode(TokenizationMode.FORCE_CREATION);
+    transactionCreate.setCustomersPresence(CustomersPresence.NOT_PRESENT);
+    transactionCreate.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_DEFERRED);
 
-            // Customer Billind Address
-            AddressCreate billingAddress = new AddressCreate();
-            billingAddress.city("Winterthur")
-                .country("CH")
-                .emailAddress(customerEmailAddress)
-                .familyName("Customer")
-                .givenName("Good")
-                .postcode("8400")
-                .postalState("ZH")
-                .organizationName("Test GmbH")
-                .mobilePhoneNumber("+41791234567")
-                .salutation("Ms");
+    Transaction transaction = transactionService.create(SPACE_ID, transactionCreate);
 
-            this.transactionPayload = new TransactionCreate();
-            this.transactionPayload.autoConfirmationEnabled(true).currency("CHF").language("en-US");
-            this.transactionPayload.setBillingAddress(billingAddress);
-            this.transactionPayload.setShippingAddress(billingAddress);
-            this.transactionPayload.addLineItemsItem(lineItem);
-			this.transactionPayload.setCustomerId("1234");
-			this.transactionPayload.setCustomerEmailAddress(customerEmailAddress);
-        }
-        return this.transactionPayload;
-    }
+    Transaction processedTransaction =
+        cardProcessingService.process(SPACE_ID, transaction.getId(),
+            TEST_CARD_PAYMENT_METHOD_CONFIGURATION_ID, FAKE_CARD_DATA);
 
+    assertEquals("State must be AUTHORIZED",
+        TransactionState.AUTHORIZED, processedTransaction.getState());
+  }
 
-    /**
-     * Confirm
-     * <p>
-     * The confirm operation marks the transaction as confirmed. Once the transaction is confirmed no more changes can be applied.
-     *
-     */
-    @Ignore
-    @Test
-    public void confirmTest() {
-        // TODO: test validations
-    }
+  @Test
+  public void completeImmediatelyTransactionShouldMakeTransactionFulfilled()
+      throws IOException {
+    TransactionCreate transactionCreate = getTransactionCreatePayload();
+    transactionCreate.setTokenizationMode(TokenizationMode.FORCE_CREATION);
+    transactionCreate.setCustomersPresence(CustomersPresence.NOT_PRESENT);
+    transactionCreate.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_IMMEDIATELY);
 
-    /**
-     * Count
-     * <p>
-     * Counts the number of items in the database as restricted by the given filter.
-     *
-     */
-    @Test
-    public void countTest() throws Exception{
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        EntityQueryFilter filter = new EntityQueryFilter();
-        filter.type(EntityQueryFilterType.LEAF)
-            .fieldName("id")
-            .value(transaction.getId())
-            .operator(CriteriaOperator.EQUALS);
-        Long count = this.apiClient.getTransactionService().count(this.spaceId, filter);
-        Assert.assertEquals((long) count, (long) 1);
-    }
+    Transaction transaction = transactionService.create(SPACE_ID, transactionCreate);
 
-    /**
-     * Create
-     * <p>
-     * Creates the entity with the given properties.
-     */
-    @Test
-    public void createTest() throws Exception {
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        Assert.assertEquals(transaction.getState(), TransactionState.PENDING);
-    }
+    Transaction processedTransaction =
+        cardProcessingService.process(SPACE_ID, transaction.getId(),
+            TEST_CARD_PAYMENT_METHOD_CONFIGURATION_ID, FAKE_CARD_DATA);
 
-    /**
-     * Create Transaction Credentials
-     * <p>
-     * This operation allows to create transaction credentials to delegate temporarily the access to the web service API for this particular transaction.
-     */
-    @Test
-    public void createTransactionCredentialsTest() throws Exception {
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        String transactionCredentials = this.apiClient.getTransactionService().createTransactionCredentials(this.spaceId, transaction.getId());
-        Assert.assertTrue(!transactionCredentials.isEmpty());
-    }
+    assertEquals("State must be FULFILL",
+        TransactionState.FULFILL, processedTransaction.getState());
+  }
 
-    /**
-     * Delete One-Click Token with Credentials
-     * <p>
-     * This operation removes the given token.
-     */
-    @Ignore
-    @Test
-    public void deleteOneClickTokenWithCredentialsTest() {
-        // TODO: test validations
-    }
+  @Test
+  public void countByGivenCriteriaShouldReturnTransactionCount() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
-    /**
-     * Export
-     * <p>
-     * Exports the transactions into a CSV file. The file will contain the properties defined in the request.
-     */
-    @Ignore
-    @Test
-    public void exportTest() {
-        // TODO: test validations
-    }
+    EntityQueryFilter criteria = new EntityQueryFilter();
+    criteria.setFieldName("id");
+    criteria.setValue(transaction.getId());
+    criteria.setType(EntityQueryFilterType.LEAF);
+    criteria.setOperator(CriteriaOperator.EQUALS);
 
-    /**
-     * Fetch One Click Tokens with Credentials
-     * <p>
-     * This operation returns the token version objects which references the tokens usable as one-click payment tokens for the provided transaction.
-     */
-    @Ignore
-    @Test
-    public void fetchOneClickTokensWithCredentialsTest() {
-        // TODO: test validations
-    }
+    long count = transactionService.count(SPACE_ID, criteria);
+    assertEquals("Transaction count should be 1",
+        1, count);
+  }
 
-    /**
-     * Fetch Possible Payment Methods
-     * <p>
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     * payment_page, iframe, lightbox, mobile_web_view, terminal, payment_link, charge_flow, direct_card_processing
-     */
-    @Test
-    public void fetchPaymentMethodsTest() throws Exception{
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        List<PaymentMethodConfiguration> paymentMethods = this.apiClient.getTransactionService().fetchPaymentMethods(this.spaceId, transaction.getId(), "payment_page");
-        Assert.assertTrue(paymentMethods.size() >= 1);
-    }
+  @Test
+  public void fetchPaymentMethodsShouldReturnAvailablePaymentMethods() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
-    /**
-     * Fetch Possible Payment Methods with Credentials
-     * <p>
-     * This operation allows to get the payment method configurations which can be used with the provided transaction.
-     */
-    @Ignore
-    @Test
-    public void fetchPaymentMethodsWithCredentialsTest() {
-        // TODO: test validations
-    }
+    List<PaymentMethodConfiguration> methods =
+        transactionService.fetchPaymentMethods(SPACE_ID, transaction.getId(), "payment_page");
 
-    /**
-     * getLatestTransactionLineItemVersion
-     */
-    @Ignore
-    @Test
-    public void getLatestTransactionLineItemVersionTest() {
-        // TODO: test validations
-    }
+    assertFalse("Payment methods should be configured for a given transaction in test space",
+        methods.isEmpty());
+  }
 
-    /**
-     * getPackingSlip
-     * <p>
-     * Returns the packing slip for the transaction with given id.
-     */
-    @Ignore
-    @Test
-    public void getPackingSlipTest() {
-        // TODO: test validations
-    }
+  @Test
+  public void createTransactionCredentialsShouldCreateTransactionToken() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
-    /**
-     * Process One-Click Token with Credentials
-     * <p>
-     * This operation assigns the given token to the transaction and process it. This method will return an URL where the customer has to be redirect to complete the transaction.
-     */
-    @Ignore
-    @Test
-    public void processOneClickTokenAndRedirectWithCredentialsTest() {
-        // TODO: test validations
-    }
+    String creds = transactionService.createTransactionCredentials(
+        SPACE_ID, transaction.getId());
 
-    /**
-     * Process Without User Interaction
-     * <p>
-     * This operation processes the transaction without requiring that the customer is present. Means this operation applies strategies to process the transaction without a direct interaction with the buyer. This operation is suitable for recurring transactions.
-     *
-     */
-    @Test
-    public void processWithoutUserInteractionTest() throws Exception{
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        transaction = this.apiClient.getTransactionService().processWithoutUserInteraction(spaceId, transaction.getId());
-        // wait for transaction to be authorized
-		for (int i = 1; i <= 10; i++) {
-			if (
-				transaction.getState() == TransactionState.FULFILL ||
-				transaction.getState() == TransactionState.FAILED
-			) {
-				break;
-			}
+    assertTrue("Transaction credentials token should have valid format",
+        creds.startsWith(String.valueOf(SPACE_ID)));
+  }
 
-			try {
-				Thread.sleep(i * 500);
-			} catch (InterruptedException e) {
-				System.err.println(e.getMessage());
-			}
-			transaction = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
-		}
-		TransactionState[] TransactionStates = {
-			TransactionState.FULFILL
-		};
-        if (transaction.getState() == TransactionState.FULFILL) {
-            Assert.assertTrue(Arrays.asList(TransactionStates).contains(transaction.getState()));
+  @Test
+  public void readForExistingTransactionShouldReturnTransactionData() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
+    Transaction readTransaction = transactionService.read(
+        SPACE_ID, transaction.getId());
 
-            RenderedDocument renderedDocument = this.apiClient.getTransactionService().getInvoiceDocument(this.spaceId, transaction.getId());
-            Assert.assertEquals(true, renderedDocument.getData() != null);
-            Assert.assertEquals(true, renderedDocument.getData().length > 0);
-        } else {
-            System.err.println("API response timeout");
-        }
-    }
+    assertEquals("Transaction ids should match",
+        transaction.getId(), readTransaction.getId());
+  }
 
-    /**
-     * Read
-     * <p>
-     * Reads the entity with the given &#39;id&#39; and returns it.
-     */
-    @Test
-    public void readTest() throws Exception {
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        Transaction transactionRead = this.apiClient.getTransactionService().read(this.spaceId, transaction.getId());
-        Assert.assertTrue(transaction.getId().equals(transactionRead.getId()));
-    }
+  @Test
+  public void readWithCredentialsWithGivenBadCredentialsShouldFail() {
+    assertThrows("Bad token should error response",
+      IOException.class, () -> {
+        transactionService.readWithCredentials("invalid_token");
+      });
+  }
 
-    /**
-     * Read With Credentials
-     * <p>
-     * Reads the transaction with the given &#39;id&#39; and returns it. This method uses the credentials to authenticate and identify the transaction.
-     */
-    @Ignore
-    @Test
-    public void readWithCredentialsTest() {
-        // TODO: test validations
-    }
+  @Test
+  public void readWithCredentialsShouldReturnTransactionData() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
-    /**
-     * Search
-     * <p>
-     * Searches for the entities as specified by the given query.
-     */
-    @Test
-    public void searchTest() throws Exception{
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        EntityQueryFilter entityQueryFilter = new EntityQueryFilter();
-        entityQueryFilter.fieldName("id")
-            .value(transaction.getId())
-            .type(EntityQueryFilterType.LEAF)
-            .operator(CriteriaOperator.EQUALS);
+    String creds = transactionService.createTransactionCredentials(
+        SPACE_ID, transaction.getId());
 
-        EntityQuery entityQuery = new EntityQuery();
-        entityQuery.setFilter(entityQueryFilter);
-        List<Transaction> transactionSearch = this.apiClient.getTransactionService().search(this.spaceId, entityQuery);
-        Assert.assertEquals(transactionSearch.size(), 1);
-        for (Transaction t : transactionSearch) {
-            Assert.assertEquals(t.getState(), TransactionState.PENDING);
-        }
-    }
+    Transaction readTransaction = transactionService.readWithCredentials(creds);
+    assertEquals("Transaction ids should match",
+        transaction.getId(), readTransaction.getId());
+  }
 
-    /**
-     * Update
-     * <p>
-     * This updates the entity with the given properties. Only those properties which should be updated can be provided. The &#39;id&#39; and &#39;version&#39; are required to identify the entity.
-     */
-    @Test
-    public void updateTest() throws Exception {
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        TransactionPending transactionPending = new TransactionPending();
-        transactionPending.id(transaction.getId()).language("en-US");
-        transactionPending.version(transaction.getVersion().longValue());
-        transactionPending.setCurrency(transaction.getCurrency());
-        Transaction transactionUpdate = this.apiClient.getTransactionService().update(spaceId, transactionPending);
-        Assert.assertEquals(transaction.getId(), transactionUpdate.getId());
-    }
+  @Test
+  public void searchByGivenCriteriaShouldFindTransaction() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
 
-    /**
-     * updateTransactionLineItems
-     */
-    @Test
-    public void updateTransactionLineItemsTest() throws Exception {
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
+    EntityQueryFilter filter = new EntityQueryFilter();
+    filter.setFieldName("id");
+    filter.setValue(transaction.getId());
+    filter.setType(EntityQueryFilterType.LEAF);
+    filter.setOperator(CriteriaOperator.EQUALS);
 
-        // Line item
-        LineItemCreate lineItem = new LineItemCreate();
-        lineItem.name("Blue T-Shirt")
-                .uniqueId("5413")
-                .type(LineItemType.PRODUCT)
-                .quantity(BigDecimal.valueOf(1))
-                .amountIncludingTax(BigDecimal.valueOf(39.95))
-                .sku("blue-t-shirt-123");
+    EntityQuery entityQuery = new EntityQuery();
+    entityQuery.setFilter(filter);
 
-        TransactionPending transactionPending = new TransactionPending();
-        transactionPending.version(transaction.getVersion().longValue())
-                          .id(transaction.getId())
-                          .addLineItemsItem(lineItem)
-                          .customerId(transaction.getCustomerId())
-                          .currency(transaction.getCurrency());
-        Transaction transactionUpdate = this.apiClient.getTransactionService().update(spaceId, transactionPending);
-        Assert.assertEquals(transaction.getId(), transactionUpdate.getId());
-    }
+    List<Transaction> transactions = transactionService.search(SPACE_ID, entityQuery);
 
+    assertEquals("Should find 1 transaction", 1, transactions.size());
+
+    transactions.forEach(trans -> {
+      assertEquals("Transaction ids should match",
+        transaction.getId(), trans.getId());
+    });
+  }
+
+  @Test
+  public void updateShouldChangeTransactionData() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
+
+    TransactionPending update = new TransactionPending();
+    update.setId(transaction.getId());
+    update.setVersion(Long.valueOf(transaction.getVersion()));
+    update.setLanguage("en-GB");
+
+    Transaction updatedTransaction = transactionService.update(SPACE_ID, update);
+    assertEquals("en-GB", updatedTransaction.getLanguage());
+  }
+
+  @Test
+  public void processWithoutUserInteractionShouldProcessTransactionProperly() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
+
+    Transaction processedTransaction = transactionService.processWithoutUserInteraction(
+        SPACE_ID, transaction.getId());
+
+    assertEquals("Transaction ids mush match",
+        transaction.getId(), processedTransaction.getId());
+  }
+
+  @Test
+  public void fetchOneClickTokenShouldReturnNoTokensIfThoseWereNotCreatedYet() throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
+
+    String creds = transactionService.createTransactionCredentials(
+        SPACE_ID, transaction.getId());
+
+    List<TokenVersion> tokens = transactionService.fetchOneClickTokensWithCredentials(creds);
+    assertTrue("Should be no tokens yet", tokens.isEmpty());
+  }
+
+  @Test
+  public void fetchPaymentMethodsWithCredentialsShouldReturnDefinedPaymentMethods()
+      throws IOException {
+    Transaction transaction = transactionService.create(
+        SPACE_ID, getTransactionCreatePayload());
+
+    String creds = transactionService.createTransactionCredentials(
+        SPACE_ID, transaction.getId());
+
+    List<PaymentMethodConfiguration> methods =
+        transactionService.fetchPaymentMethodsWithCredentials(creds, "payment_page");
+
+    assertFalse("Should have some payment methods set up", methods.isEmpty());
+  }
+
+  @Test
+  public void processOneClickTokenAndRedirectWithCredentialsShouldReturnPaymentUrl()
+      throws IOException {
+    TransactionCreate transactionCreate1 = getTransactionCreatePayload();
+    transactionCreate1.setTokenizationMode(TokenizationMode.FORCE_CREATION_WITH_ONE_CLICK_PAYMENT);
+    transactionCreate1.setCustomersPresence(CustomersPresence.NOT_PRESENT);
+    transactionCreate1.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_DEFERRED);
+    transactionCreate1.setCustomerId(String.valueOf(TEST_CUSTOMER_ID));
+
+    Transaction transaction1 = transactionService.create(
+        SPACE_ID, transactionCreate1);
+
+    Transaction processedTransaction1 =
+        cardProcessingService.process(SPACE_ID, transaction1.getId(),
+            TEST_CARD_PAYMENT_METHOD_CONFIGURATION_ID, FAKE_CARD_DATA);
+
+    Token token = tokenService.createToken(SPACE_ID, processedTransaction1.getId());
+    TokenUpdate tokenUpdate = new TokenUpdate();
+    tokenUpdate.setId(token.getId());
+    tokenUpdate.setVersion(Long.valueOf(token.getVersion()));
+    tokenUpdate.enabledForOneClickPayment(true);
+    Token updatedToken = tokenService.update(SPACE_ID, tokenUpdate);
+
+    TransactionCreate transactionCreate2 = getTransactionCreatePayload();
+    transactionCreate2.setTokenizationMode(TokenizationMode.FORCE_CREATION_WITH_ONE_CLICK_PAYMENT);
+    transactionCreate2.setCustomersPresence(CustomersPresence.NOT_PRESENT);
+    transactionCreate2.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_DEFERRED);
+    transactionCreate2.setCustomerId(String.valueOf(TEST_CUSTOMER_ID));
+
+    Transaction transaction2 = transactionService.create(SPACE_ID, transactionCreate2);
+    String creds2 = transactionService.createTransactionCredentials(SPACE_ID, transaction2.getId());
+    String paymentUrl2 = transactionService.processOneClickTokenAndRedirectWithCredentials(creds2,
+        updatedToken.getId());
+
+    assertTrue("URL must be of a proper format", paymentUrl2.contains("securityToken"));
+
+    Transaction readTransaction2 = transactionService.read(SPACE_ID, transaction2.getId());
+
+    assertEquals("State must be AUTHORIZED",
+        TransactionState.AUTHORIZED, readTransaction2.getState());
+
+    TransactionCompletion completedTransaction2 =
+        transactionCompletionService.completeOnline(SPACE_ID, transaction2.getId());
+
+    assertEquals("State must be SUCCESSFUL",
+        TransactionCompletionState.SUCCESSFUL, completedTransaction2.getState());
+
+    TransactionCompletion completedTransaction1 =
+        transactionCompletionService.completeOnline(SPACE_ID, transaction1.getId());
+
+    assertEquals("State must be SUCCESSFUL",
+        TransactionCompletionState.SUCCESSFUL, completedTransaction1.getState());
+
+    tokenService.delete(SPACE_ID, token.getId());
+  }
 }

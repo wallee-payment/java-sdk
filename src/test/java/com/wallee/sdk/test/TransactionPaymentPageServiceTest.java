@@ -1,87 +1,36 @@
 package com.wallee.sdk.test;
 
+import static com.wallee.sdk.test.TestUtils.getApiClient;
+import static org.junit.Assert.assertTrue;
+
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.model.*;
 import com.wallee.sdk.service.*;
 
-import org.junit.Assert;
+import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
-/**
- * API tests for TransactionPaymentPageService
- */
 public class TransactionPaymentPageServiceTest {
+  private TransactionService transactionService;
+  private TransactionPaymentPageService transactionPaymentPageService;
 
-    // Credentials
-    private Long spaceId = (long) 405;
-    private Long applicationUserId = (long) 512;
-    private String authenticationKey = "FKrO76r5VwJtBrqZawBspljbBNOxp5veKQQkOnZxucQ=";
+  @Before
+  public void beforeEach() {
+    ApiClient apiClient = getApiClient();
 
-    // Services
-    private ApiClient apiClient;
+    transactionService = apiClient.getTransactionService();
+    transactionPaymentPageService = apiClient.getTransactionPaymentPageService();
+  }
 
-    // Models
-    private TransactionCreate transactionPayload;
+  @Test
+  public void shouldCreateUrlForJavascriptUsage() throws IOException {
+    Transaction transaction = transactionService.create(TestConstants.SPACE_ID,
+        TestUtils.getTransactionCreatePayload());
 
-    @Before
-    public void setup() {
-        if (this.apiClient == null) {
-            this.apiClient = new ApiClient(applicationUserId, authenticationKey);
-        }
-    }
+    String url =
+        transactionPaymentPageService.paymentPageUrl(TestConstants.SPACE_ID, transaction.getId());
 
-    /**
-     * Get transaction payload
-     *
-     * @return TransactionCreate
-     */
-    private TransactionCreate getTransactionPayload() {
-        if (this.transactionPayload == null) {
-            // Line item
-            LineItemCreate lineItem = new LineItemCreate();
-            lineItem.name("Red T-Shirt")
-                    .uniqueId("5412")
-                    .type(LineItemType.PRODUCT)
-                    .quantity(BigDecimal.valueOf(1))
-                    .amountIncludingTax(BigDecimal.valueOf(29.95))
-                    .sku("red-t-shirt-123");
-
-            // Customer Billind Address
-            AddressCreate billingAddress = new AddressCreate();
-            billingAddress.city("Winterthur")
-                    .country("CH")
-                    .emailAddress("test@example.com")
-                    .familyName("Customer")
-                    .givenName("Good")
-                    .postcode("8400")
-                    .postalState("ZH")
-                    .organizationName("Test GmbH")
-                    .mobilePhoneNumber("+41791234567")
-                    .salutation("Ms");
-
-            this.transactionPayload = new TransactionCreate();
-            this.transactionPayload.autoConfirmationEnabled(true).currency("CHF").language("en-US");
-            this.transactionPayload.setBillingAddress(billingAddress);
-            this.transactionPayload.setShippingAddress(billingAddress);
-            this.transactionPayload.addLineItemsItem(lineItem);
-        }
-        return this.transactionPayload;
-    }
-
-    /**
-     * Build Payment Page URL
-     *
-     * This operation creates the URL to which the user should be redirected to when the payment page should be used.
-     *
-     */
-    @Test
-    public void paymentPageUrlTest() throws Exception{
-        Transaction transaction = this.apiClient.getTransactionService().create(this.spaceId, this.getTransactionPayload());
-        String paymentPageUrl = this.apiClient.getTransactionPaymentPageService().paymentPageUrl(spaceId, transaction.getId());
-        Assert.assertTrue(paymentPageUrl.contains("https://"));
-    }
-
+    assertTrue("URL must have proper format", url.contains("securityToken"));
+  }
 }

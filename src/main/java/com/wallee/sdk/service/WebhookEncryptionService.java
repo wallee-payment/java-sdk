@@ -4,8 +4,8 @@ import static com.wallee.sdk.ErrorCode.*;
 
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
-import com.wallee.sdk.WalleeSdkException;
-import com.wallee.sdk.URIBuilderUtil;
+import com.wallee.sdk.exception.WalleeSdkException;
+import com.wallee.sdk.util.URIBuilderUtil;
 import com.wallee.sdk.StringUtil;
 
 import com.wallee.sdk.model.ClientError;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import java.util.concurrent.ConcurrentHashMap;
-import com.wallee.sdk.EncryptionUtil;
+import com.wallee.sdk.util.EncryptionUtil;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.security.Security;

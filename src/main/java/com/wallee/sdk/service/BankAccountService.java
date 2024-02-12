@@ -4,8 +4,8 @@ import static com.wallee.sdk.ErrorCode.*;
 
 import com.wallee.sdk.ApiClient;
 import com.wallee.sdk.ErrorCode;
-import com.wallee.sdk.WalleeSdkException;
-import com.wallee.sdk.URIBuilderUtil;
+import com.wallee.sdk.exception.WalleeSdkException;
+import com.wallee.sdk.util.URIBuilderUtil;
 import com.wallee.sdk.StringUtil;
 
 import com.wallee.sdk.model.BankAccount;

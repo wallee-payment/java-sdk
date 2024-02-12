@@ -17,7 +17,7 @@
 */
 
 
-package com.wallee.sdk;
+package com.wallee.sdk.util;
 
 import com.google.api.client.http.UriTemplate;
 import java.net.URI;

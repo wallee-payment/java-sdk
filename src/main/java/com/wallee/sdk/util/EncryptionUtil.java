@@ -17,7 +17,10 @@
 */
 
 
-package com.wallee.sdk;
+package com.wallee.sdk.util;
+
+import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.exception.WalleeSdkException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -71,7 +74,6 @@ public class EncryptionUtil {
     } catch (SignatureException e) {
       throw new WalleeSdkException(ErrorCode.WEBHOOK_ENCRYPTION_GENERAL_ERROR,
           "Could not verify content due to unknown issue: " + e.getLocalizedMessage());
-
     }
   }
 

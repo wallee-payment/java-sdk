@@ -67,6 +67,10 @@ public class PaymentConnectorConfiguration {
   protected Long id = null;
 
   
+  @JsonProperty("imagePath")
+  protected String imagePath = null;
+
+  
   @JsonProperty("linkedSpaceId")
   protected Long linkedSpaceId = null;
 
@@ -157,6 +161,16 @@ public class PaymentConnectorConfiguration {
   @ApiModelProperty(value = "A unique identifier for the object.")
   public Long getId() {
     return id;
+  }
+
+  
+   /**
+   * 
+   * @return imagePath
+  **/
+  @ApiModelProperty(value = "")
+  public String getImagePath() {
+    return imagePath;
   }
 
   
@@ -256,6 +270,7 @@ public class PaymentConnectorConfiguration {
         Objects.equals(this.enabledSalesChannels, paymentConnectorConfiguration.enabledSalesChannels) &&
         Objects.equals(this.enabledSpaceViews, paymentConnectorConfiguration.enabledSpaceViews) &&
         Objects.equals(this.id, paymentConnectorConfiguration.id) &&
+        Objects.equals(this.imagePath, paymentConnectorConfiguration.imagePath) &&
         Objects.equals(this.linkedSpaceId, paymentConnectorConfiguration.linkedSpaceId) &&
         Objects.equals(this.name, paymentConnectorConfiguration.name) &&
         Objects.equals(this.paymentMethodConfiguration, paymentConnectorConfiguration.paymentMethodConfiguration) &&
@@ -268,7 +283,7 @@ public class PaymentConnectorConfiguration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicableForTransactionProcessing, conditions, connector, enabledSalesChannels, enabledSpaceViews, id, linkedSpaceId, name, paymentMethodConfiguration, plannedPurgeDate, priority, processorConfiguration, state, version);
+    return Objects.hash(applicableForTransactionProcessing, conditions, connector, enabledSalesChannels, enabledSpaceViews, id, imagePath, linkedSpaceId, name, paymentMethodConfiguration, plannedPurgeDate, priority, processorConfiguration, state, version);
   }
 
 
@@ -283,6 +298,7 @@ public class PaymentConnectorConfiguration {
     sb.append("    enabledSalesChannels: ").append(toIndentedString(enabledSalesChannels)).append("\n");
     sb.append("    enabledSpaceViews: ").append(toIndentedString(enabledSpaceViews)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    imagePath: ").append(toIndentedString(imagePath)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    paymentMethodConfiguration: ").append(toIndentedString(paymentMethodConfiguration)).append("\n");

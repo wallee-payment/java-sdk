@@ -17,10 +17,12 @@
 */
 
 
-package com.wallee.sdk;
+package com.wallee.sdk.exception;
+
+import com.wallee.sdk.ErrorCode;
 
 /**
- * Exception thrown when the Wallee SDK API call results in an invalid response.
+ * Exception thrown when the SDK API call results in an invalid response.
  */
 public class WalleeSdkException extends RuntimeException {
 
@@ -33,10 +35,8 @@ public class WalleeSdkException extends RuntimeException {
 	/**
 	 * Constructor.
 	 *
-	 * @param code
-	 *            the Wallee SDK error code
-	 * @param message
-	 *            the exception message details
+	 * @param code    SDK error code
+	 * @param message  exception message details
 	 */
     public WalleeSdkException(ErrorCode code, String message) {
         super();
@@ -45,14 +45,14 @@ public class WalleeSdkException extends RuntimeException {
     }
 
     /**
-	 * @return the Wallee SDK error code
+	 * @return SDK error code
 	 */
 	public ErrorCode getCode() {
 		return this.code;
 	}
 
 	/**
-	 * @return the Wallee SDK error message
+	 * @return SDK error message
 	 */
 	public String getMessage() {
 		return this.message;

@@ -42,6 +42,10 @@ import java.time.OffsetDateTime;
 
 public class WebhookListener {
   
+  @JsonProperty("enablePayloadSignatureAndState")
+  protected Boolean enablePayloadSignatureAndState = null;
+
+  
   @JsonProperty("entity")
   protected Long entity = null;
 
@@ -86,6 +90,16 @@ public class WebhookListener {
   protected Integer version = null;
 
   
+  
+   /**
+   * Whether signature header and state property are enabled in webhook payload.
+   * @return enablePayloadSignatureAndState
+  **/
+  @ApiModelProperty(value = "Whether signature header and state property are enabled in webhook payload.")
+  public Boolean isEnablePayloadSignatureAndState() {
+    return enablePayloadSignatureAndState;
+  }
+
   
    /**
    * The entity that is to be monitored.
@@ -207,7 +221,8 @@ public class WebhookListener {
       return false;
     }
     WebhookListener webhookListener = (WebhookListener) o;
-    return Objects.equals(this.entity, webhookListener.entity) &&
+    return Objects.equals(this.enablePayloadSignatureAndState, webhookListener.enablePayloadSignatureAndState) &&
+        Objects.equals(this.entity, webhookListener.entity) &&
         Objects.equals(this.entityStates, webhookListener.entityStates) &&
         Objects.equals(this.id, webhookListener.id) &&
         Objects.equals(this.identity, webhookListener.identity) &&
@@ -222,7 +237,7 @@ public class WebhookListener {
 
   @Override
   public int hashCode() {
-    return Objects.hash(entity, entityStates, id, identity, linkedSpaceId, name, notifyEveryChange, plannedPurgeDate, state, url, version);
+    return Objects.hash(enablePayloadSignatureAndState, entity, entityStates, id, identity, linkedSpaceId, name, notifyEveryChange, plannedPurgeDate, state, url, version);
   }
 
 
@@ -231,6 +246,7 @@ public class WebhookListener {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookListener {\n");
     
+    sb.append("    enablePayloadSignatureAndState: ").append(toIndentedString(enablePayloadSignatureAndState)).append("\n");
     sb.append("    entity: ").append(toIndentedString(entity)).append("\n");
     sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
