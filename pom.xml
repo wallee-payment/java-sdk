@@ -347,6 +347,6 @@
         <apache-httpclient-version>4.5.14</apache-httpclient-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.2</junit-version>
-        <bouncycastle_version>1.77</bouncycastle_version>
+        <bouncycastle_version>1.78</bouncycastle_version>
     </properties>
 </project>
