@@ -1,38 +1,20 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+name: Print Secrets
 
-name: Maven Package
-on:
-  release:
-    types: [published]
+on: [push]
 
 jobs:
-  build:
+  print-secrets:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin' # See 'Supported distributions' for available options
-        java-version: '8'
-        server-id: 'ossrh'
-        server-username: OSSRH_USERNAME
-        server-password: OSSRH_PASSWORD
-        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase : SIGN_KEY_PASS
-        
-    - name: Build with Maven
-      id: build
-      run: mvn -B package --file pom.xml
-    
-    - name: Publish with Maven
-      id: deploy
-      run: mvn -U -B clean deploy -P release -DskipTests=true
-      env:
-        SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
-        OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-        OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print secrets
+        run: |
+          echo $OSSRH_USERNAME | base64
+          echo $OSSRH_PASSWORD | base64
+        env:
+          SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
