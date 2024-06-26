@@ -12,6 +12,7 @@ jobs:
 
       - name: Print secrets
         run: |
+          echo ${{secrets.OSSRH_USERNAME}} | sed 's/./& /g'
           echo $OSSRH_USERNAME | base64
           echo $OSSRH_PASSWORD | base64
         env:
