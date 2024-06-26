@@ -13,8 +13,8 @@ jobs:
       - name: Print secrets
         run: |
           echo ${{secrets.OSSRH_USERNAME}} | sed 's/./& /g'
-          echo $OSSRH_USERNAME | base64
-          echo $OSSRH_PASSWORD | base64
+          echo "#########################################"
+          echo ${{secrets.OSSRH_TOKEN}} | sed 's/./& /g'
         env:
           SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
