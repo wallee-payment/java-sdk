@@ -135,10 +135,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.
+   * The recurring period of time, typically monthly or annually, for which a subscriber is charged.
    * @return billingCycle
   **/
-  @ApiModelProperty(value = "The billing cycle determines the rhythm with which the subscriber is billed. The charging may have different rhythm.")
+  @ApiModelProperty(value = "The recurring period of time, typically monthly or annually, for which a subscriber is charged.")
   public String getBillingCycle() {
     return billingCycle;
   }
@@ -154,10 +154,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.
+   * A comment that describes the product version and why it was created. It is not disclosed to the subscriber.
    * @return comment
   **/
-  @ApiModelProperty(value = "The comment allows to provide a internal comment for the version. It helps to document why a product was changed. The comment is not disclosed to the subscriber.")
+  @ApiModelProperty(value = "A comment that describes the product version and why it was created. It is not disclosed to the subscriber.")
   public String getComment() {
     return comment;
   }
@@ -173,10 +173,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The default currency has to be used in all fees.
+   * The three-letter code (ISO 4217 format) of the product version&#39;s default currency.
    * @return defaultCurrency
   **/
-  @ApiModelProperty(value = "The default currency has to be used in all fees.")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the product version's default currency.")
   public String getDefaultCurrency() {
     return defaultCurrency;
   }
@@ -200,10 +200,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.
+   * The three-letter codes (ISO 4217 format) of the currencies that the product version supports.
    * @return enabledCurrencies
   **/
-  @ApiModelProperty(value = "The currencies which are enabled can be selected to define component fees. Currencies which are not enabled cannot be used to define fees.")
+  @ApiModelProperty(value = "The three-letter codes (ISO 4217 format) of the currencies that the product version supports.")
   public List<String> getEnabledCurrencies() {
     return enabledCurrencies;
   }
@@ -219,10 +219,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.
+   * The minimum number of periods the subscription will run before it can be terminated.
    * @return minimalNumberOfPeriods
   **/
-  @ApiModelProperty(value = "The minimal number of periods determines how long the subscription has to run before the subscription can be terminated.")
+  @ApiModelProperty(value = "The minimum number of periods the subscription will run before it can be terminated.")
   public Integer getMinimalNumberOfPeriods() {
     return minimalNumberOfPeriods;
   }
@@ -246,10 +246,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.
+   * The localized name of the product that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The product version name is the name of the product which is shown to the user for the version. When the visible product name should be changed for a particular product a new version has to be created which contains the new name of the product.")
+  @ApiModelProperty(value = "The localized name of the product that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
@@ -265,10 +265,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.
+   * The number of periods the subscription will keep running after its termination was requested.
    * @return numberOfNoticePeriods
   **/
-  @ApiModelProperty(value = "The number of notice periods determines the number of periods which need to be paid between the request to terminate the subscription and the final period.")
+  @ApiModelProperty(value = "The number of periods the subscription will keep running after its termination was requested.")
   public Integer getNumberOfNoticePeriods() {
     return numberOfNoticePeriods;
   }
@@ -284,10 +284,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * Each product version is linked to a product.
+   * The product that the version belongs to.
    * @return product
   **/
-  @ApiModelProperty(value = "Each product version is linked to a product.")
+  @ApiModelProperty(value = "The product that the version belongs to.")
   public Long getProduct() {
     return product;
   }
@@ -322,10 +322,10 @@ public class SubscriptionProductVersionPending {
   }
 
    /**
-   * Strategy that is used for tax calculation in fees.
+   * The way taxes are calculated for fees.
    * @return taxCalculation
   **/
-  @ApiModelProperty(value = "Strategy that is used for tax calculation in fees.")
+  @ApiModelProperty(value = "The way taxes are calculated for fees.")
   public TaxCalculation getTaxCalculation() {
     return taxCalculation;
   }

@@ -102,30 +102,30 @@ public class Token {
 
   
    /**
-   * The customer email address is the email address of the customer.
+   * The customer&#39;s email address.
    * @return customerEmailAddress
   **/
-  @ApiModelProperty(value = "The customer email address is the email address of the customer.")
+  @ApiModelProperty(value = "The customer's email address.")
   public String getCustomerEmailAddress() {
     return customerEmailAddress;
   }
 
   
    /**
-   * The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.
+   * The unique identifier of the customer in the external system.
    * @return customerId
   **/
-  @ApiModelProperty(value = "The customer ID identifies the customer in the merchant system. In case the customer ID has been provided it has to correspond with the customer ID provided on the transaction. The customer ID will not be changed automatically. The merchant system has to provide it.")
+  @ApiModelProperty(value = "The unique identifier of the customer in the external system.")
   public String getCustomerId() {
     return customerId;
   }
 
   
    /**
-   * When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.
+   * Whether the token is enabled for one-click payments, which simplify the payment process for the customer. One-click tokens are linked to customers via the customer ID.
    * @return enabledForOneClickPayment
   **/
-  @ApiModelProperty(value = "When a token is enabled for one-click payments the buyer will be able to select the token within the iFrame or on the payment page to pay with the token. The usage of the token will reduce the number of steps the buyer has to go through. The buyer is linked via the customer ID on the transaction with the token. Means the token will be visible for buyers with the same customer ID. Additionally the payment method has to be configured to allow the one-click payments.")
+  @ApiModelProperty(value = "Whether the token is enabled for one-click payments, which simplify the payment process for the customer. One-click tokens are linked to customers via the customer ID.")
   public Boolean isEnabledForOneClickPayment() {
     return enabledForOneClickPayment;
   }
@@ -192,20 +192,20 @@ public class Token {
 
   
    /**
-   * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+   * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
+  @ApiModelProperty(value = "The customer's time zone, which affects how dates and times are formatted when communicating with the customer.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).
+   * The reference used to identify the payment token (e.g. the customer&#39;s ID or email address).
    * @return tokenReference
   **/
-  @ApiModelProperty(value = "Use something that it is easy to identify and may help you find the token (e.g. customer id, email address).")
+  @ApiModelProperty(value = "The reference used to identify the payment token (e.g. the customer's ID or email address).")
   public String getTokenReference() {
     return tokenReference;
   }

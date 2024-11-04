@@ -26,9 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -37,30 +34,24 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class PaymentContractType {
-  
-  @JsonProperty("description")
-  protected Map<String, String> description = null;
-
+public class PaymentTerminalTransactionSummaryReference {
   
   @JsonProperty("id")
   protected Long id = null;
 
   
-  @JsonProperty("name")
-  protected Map<String, String> name = null;
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
-  
-   /**
-   * The localized description of the object.
-   * @return description
-  **/
-  @ApiModelProperty(value = "The localized description of the object.")
-  public Map<String, String> getDescription() {
-    return description;
-  }
+  @JsonProperty("terminalId")
+  protected Long terminalId = null;
 
+  
+  @JsonProperty("terminalIdentifier")
+  protected String terminalIdentifier = null;
+
+  
   
    /**
    * A unique identifier for the object.
@@ -73,12 +64,32 @@ public class PaymentContractType {
 
   
    /**
-   * The localized name of the object.
-   * @return name
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The localized name of the object.")
-  public Map<String, String> getName() {
-    return name;
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * 
+   * @return terminalId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getTerminalId() {
+    return terminalId;
+  }
+
+  
+   /**
+   * 
+   * @return terminalIdentifier
+  **/
+  @ApiModelProperty(value = "")
+  public String getTerminalIdentifier() {
+    return terminalIdentifier;
   }
 
   
@@ -91,26 +102,28 @@ public class PaymentContractType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentContractType paymentContractType = (PaymentContractType) o;
-    return Objects.equals(this.description, paymentContractType.description) &&
-        Objects.equals(this.id, paymentContractType.id) &&
-        Objects.equals(this.name, paymentContractType.name);
+    PaymentTerminalTransactionSummaryReference paymentTerminalTransactionSummaryReference = (PaymentTerminalTransactionSummaryReference) o;
+    return Objects.equals(this.id, paymentTerminalTransactionSummaryReference.id) &&
+        Objects.equals(this.linkedSpaceId, paymentTerminalTransactionSummaryReference.linkedSpaceId) &&
+        Objects.equals(this.terminalId, paymentTerminalTransactionSummaryReference.terminalId) &&
+        Objects.equals(this.terminalIdentifier, paymentTerminalTransactionSummaryReference.terminalIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name);
+    return Objects.hash(id, linkedSpaceId, terminalId, terminalIdentifier);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentContractType {\n");
+    sb.append("class PaymentTerminalTransactionSummaryReference {\n");
     
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    terminalId: ").append(toIndentedString(terminalId)).append("\n");
+    sb.append("    terminalIdentifier: ").append(toIndentedString(terminalIdentifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,9 +30,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The subscription update request allows to change a subscription properites.
+ * 
  */
-@ApiModel(description = "The subscription update request allows to change a subscription properites.")
+@ApiModel(description = "")
 
 public class SubscriptionUpdateRequest {
   
@@ -47,10 +47,10 @@ public class SubscriptionUpdateRequest {
   }
 
    /**
-   * 
+   * A description used to identify the subscription.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A description used to identify the subscription.")
   public String getDescription() {
     return description;
   }

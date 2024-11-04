@@ -55,8 +55,8 @@ public class SubscriptionProductVersionRetirement {
   protected SubscriptionProductVersion productVersion = null;
 
   
-  @JsonProperty("respectTerminiationPeriodsEnabled")
-  protected Boolean respectTerminiationPeriodsEnabled = null;
+  @JsonProperty("respectTerminationPeriods")
+  protected Boolean respectTerminationPeriods = null;
 
   
   @JsonProperty("targetProduct")
@@ -99,30 +99,30 @@ public class SubscriptionProductVersionRetirement {
 
   
    /**
-   * 
+   * The product version that is to be retired.
    * @return productVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product version that is to be retired.")
   public SubscriptionProductVersion getProductVersion() {
     return productVersion;
   }
 
   
    /**
-   * 
-   * @return respectTerminiationPeriodsEnabled
+   * Whether the subscriptions&#39; termination periods should be respected.
+   * @return respectTerminationPeriods
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isRespectTerminiationPeriodsEnabled() {
-    return respectTerminiationPeriodsEnabled;
+  @ApiModelProperty(value = "Whether the subscriptions' termination periods should be respected.")
+  public Boolean isRespectTerminationPeriods() {
+    return respectTerminationPeriods;
   }
 
   
    /**
-   * When a target product is not chosen, all customers with the retired product will be terminated.
+   * The product to which the subscriptions with the retiring product version are to be migrated. If none is defined, the subscriptions are terminated.
    * @return targetProduct
   **/
-  @ApiModelProperty(value = "When a target product is not chosen, all customers with the retired product will be terminated.")
+  @ApiModelProperty(value = "The product to which the subscriptions with the retiring product version are to be migrated. If none is defined, the subscriptions are terminated.")
   public SubscriptionProduct getTargetProduct() {
     return targetProduct;
   }
@@ -152,14 +152,14 @@ public class SubscriptionProductVersionRetirement {
         Objects.equals(this.id, subscriptionProductVersionRetirement.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionProductVersionRetirement.linkedSpaceId) &&
         Objects.equals(this.productVersion, subscriptionProductVersionRetirement.productVersion) &&
-        Objects.equals(this.respectTerminiationPeriodsEnabled, subscriptionProductVersionRetirement.respectTerminiationPeriodsEnabled) &&
+        Objects.equals(this.respectTerminationPeriods, subscriptionProductVersionRetirement.respectTerminationPeriods) &&
         Objects.equals(this.targetProduct, subscriptionProductVersionRetirement.targetProduct) &&
         Objects.equals(this.version, subscriptionProductVersionRetirement.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, id, linkedSpaceId, productVersion, respectTerminiationPeriodsEnabled, targetProduct, version);
+    return Objects.hash(createdOn, id, linkedSpaceId, productVersion, respectTerminationPeriods, targetProduct, version);
   }
 
 
@@ -172,7 +172,7 @@ public class SubscriptionProductVersionRetirement {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-    sb.append("    respectTerminiationPeriodsEnabled: ").append(toIndentedString(respectTerminiationPeriodsEnabled)).append("\n");
+    sb.append("    respectTerminationPeriods: ").append(toIndentedString(respectTerminationPeriods)).append("\n");
     sb.append("    targetProduct: ").append(toIndentedString(targetProduct)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

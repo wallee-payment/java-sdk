@@ -212,14 +212,6 @@ public class ApiClient {
         return this.accountService;
     }
     
-    private AnalyticsQueryService analyticsQueryService;
-    public AnalyticsQueryService getAnalyticsQueryService() {
-        if (this.analyticsQueryService == null) {
-            this.analyticsQueryService = new AnalyticsQueryService(this);
-        }
-        return this.analyticsQueryService;
-    }
-    
     private ApplicationUserService applicationUserService;
     public ApplicationUserService getApplicationUserService() {
         if (this.applicationUserService == null) {

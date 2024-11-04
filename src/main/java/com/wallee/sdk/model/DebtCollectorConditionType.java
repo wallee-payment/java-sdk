@@ -33,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The debt collection condition type controls how a condition is applied to a case.
+ * 
  */
-@ApiModel(description = "The debt collection condition type controls how a condition is applied to a case.")
+@ApiModel(description = "")
 
 public class DebtCollectorConditionType {
   

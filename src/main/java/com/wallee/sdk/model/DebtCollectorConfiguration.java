@@ -86,30 +86,30 @@ public class DebtCollectorConfiguration {
   
   
    /**
-   * The collector handles the debt collection case based on the settings of this configuration.
+   * The debt collector that the configuration is for.
    * @return collector
   **/
-  @ApiModelProperty(value = "The collector handles the debt collection case based on the settings of this configuration.")
+  @ApiModelProperty(value = "The debt collector that the configuration is for.")
   public Long getCollector() {
     return collector;
   }
 
   
    /**
-   * The conditions applied to the collector configuration restricts the application of this configuration onto a particular debt collection case.
+   * Conditions allow to define criteria that a debt collection case must fulfill in order for the debt collector configuration to be considered for processing the case.
    * @return conditions
   **/
-  @ApiModelProperty(value = "The conditions applied to the collector configuration restricts the application of this configuration onto a particular debt collection case.")
+  @ApiModelProperty(value = "Conditions allow to define criteria that a debt collection case must fulfill in order for the debt collector configuration to be considered for processing the case.")
   public List<Long> getConditions() {
     return conditions;
   }
 
   
    /**
-   * The collector configuration is only enabled for the selected space views. In case the set is empty the collector configuration is enabled for all space views.
+   * The space views for which the debt collector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
   **/
-  @ApiModelProperty(value = "The collector configuration is only enabled for the selected space views. In case the set is empty the collector configuration is enabled for all space views.")
+  @ApiModelProperty(value = "The space views for which the debt collector configuration is enabled. If empty, it is enabled for all space views.")
   public List<Long> getEnabledSpaceViews() {
     return enabledSpaceViews;
   }
@@ -136,10 +136,10 @@ public class DebtCollectorConfiguration {
 
   
    /**
-   * The collector configuration name is used internally to identify a specific collector configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the debt collector configuration.
    * @return name
   **/
-  @ApiModelProperty(value = "The collector configuration name is used internally to identify a specific collector configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the debt collector configuration.")
   public String getName() {
     return name;
   }
@@ -156,20 +156,20 @@ public class DebtCollectorConfiguration {
 
   
    /**
-   * The priority defines the order in which the collector configuration is tried to be applied onto a debt collection case. The higher the value the less likely the configuration is applied on a case.
+   * The priority that determines the order in which debt collector configurations are taken into account when processing a case. Low values are considered first.
    * @return priority
   **/
-  @ApiModelProperty(value = "The priority defines the order in which the collector configuration is tried to be applied onto a debt collection case. The higher the value the less likely the configuration is applied on a case.")
+  @ApiModelProperty(value = "The priority that determines the order in which debt collector configurations are taken into account when processing a case. Low values are considered first.")
   public Integer getPriority() {
     return priority;
   }
 
   
    /**
-   * When the review is skipped there will be no review for cases which use this configuration.
+   * Whether the review of debt collection cases is skipped.
    * @return skipReviewEnabled
   **/
-  @ApiModelProperty(value = "When the review is skipped there will be no review for cases which use this configuration.")
+  @ApiModelProperty(value = "Whether the review of debt collection cases is skipped.")
   public Boolean isSkipReviewEnabled() {
     return skipReviewEnabled;
   }

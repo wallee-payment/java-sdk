@@ -24,10 +24,10 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.BillingConfiguration;
+import com.wallee.sdk.model.Item;
 import com.wallee.sdk.model.ShopifySubscriberCreation;
 import com.wallee.sdk.model.ShopifySubscriptionAddressCreate;
-import com.wallee.sdk.model.ShopifySubscriptionModelBillingConfiguration;
-import com.wallee.sdk.model.ShopifySubscriptionModelItem;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -48,7 +48,7 @@ public class ShopifySubscriptionCreationRequest {
 
   
   @JsonProperty("billingConfiguration")
-  protected ShopifySubscriptionModelBillingConfiguration billingConfiguration = null;
+  protected BillingConfiguration billingConfiguration = null;
 
   
   @JsonProperty("currency")
@@ -68,7 +68,7 @@ public class ShopifySubscriptionCreationRequest {
 
   
   @JsonProperty("items")
-  protected List<ShopifySubscriptionModelItem> items = new ArrayList<>();
+  protected List<Item> items = new ArrayList<>();
 
   
   @JsonProperty("language")
@@ -119,7 +119,7 @@ public class ShopifySubscriptionCreationRequest {
   }
 
   
-  public ShopifySubscriptionCreationRequest billingConfiguration(ShopifySubscriptionModelBillingConfiguration billingConfiguration) {
+  public ShopifySubscriptionCreationRequest billingConfiguration(BillingConfiguration billingConfiguration) {
     this.billingConfiguration = billingConfiguration;
     return this;
   }
@@ -129,11 +129,11 @@ public class ShopifySubscriptionCreationRequest {
    * @return billingConfiguration
   **/
   @ApiModelProperty(value = "")
-  public ShopifySubscriptionModelBillingConfiguration getBillingConfiguration() {
+  public BillingConfiguration getBillingConfiguration() {
     return billingConfiguration;
   }
 
-  public void setBillingConfiguration(ShopifySubscriptionModelBillingConfiguration billingConfiguration) {
+  public void setBillingConfiguration(BillingConfiguration billingConfiguration) {
     this.billingConfiguration = billingConfiguration;
   }
 
@@ -214,12 +214,12 @@ public class ShopifySubscriptionCreationRequest {
   }
 
   
-  public ShopifySubscriptionCreationRequest items(List<ShopifySubscriptionModelItem> items) {
+  public ShopifySubscriptionCreationRequest items(List<Item> items) {
     this.items = items;
     return this;
   }
 
-  public ShopifySubscriptionCreationRequest addItemsItem(ShopifySubscriptionModelItem itemsItem) {
+  public ShopifySubscriptionCreationRequest addItemsItem(Item itemsItem) {
     this.items.add(itemsItem);
     return this;
   }
@@ -229,11 +229,11 @@ public class ShopifySubscriptionCreationRequest {
    * @return items
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<ShopifySubscriptionModelItem> getItems() {
+  public List<Item> getItems() {
     return items;
   }
 
-  public void setItems(List<ShopifySubscriptionModelItem> items) {
+  public void setItems(List<Item> items) {
     this.items = items;
   }
 

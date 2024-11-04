@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CustomersPresence;
 import com.wallee.sdk.model.DataCollectionType;
-import com.wallee.sdk.model.Feature;
 import com.wallee.sdk.model.PaymentMethodBrand;
 import com.wallee.sdk.model.PaymentPrimaryRiskTaker;
 import io.swagger.annotations.ApiModel;
@@ -59,10 +58,6 @@ public class PaymentConnector {
   
   @JsonProperty("description")
   protected Map<String, String> description = null;
-
-  
-  @JsonProperty("feature")
-  protected Feature feature = null;
 
   
   @JsonProperty("id")
@@ -103,30 +98,30 @@ public class PaymentConnector {
   
   
    /**
-   * 
+   * The data collection type specifies how the payment information is collected.
    * @return dataCollectionType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The data collection type specifies how the payment information is collected.")
   public DataCollectionType getDataCollectionType() {
     return dataCollectionType;
   }
 
   
    /**
-   * 
+   * Whether the object was deprecated.
    * @return deprecated
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the object was deprecated.")
   public Boolean isDeprecated() {
     return deprecated;
   }
 
   
    /**
-   * 
+   * The deprecation reason describes why the object was deprecated.
    * @return deprecationReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The deprecation reason describes why the object was deprecated.")
   public Map<String, String> getDeprecationReason() {
     return deprecationReason;
   }
@@ -139,16 +134,6 @@ public class PaymentConnector {
   @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
-  }
-
-  
-   /**
-   * 
-   * @return feature
-  **/
-  @ApiModelProperty(value = "")
-  public Feature getFeature() {
-    return feature;
   }
 
   
@@ -173,70 +158,70 @@ public class PaymentConnector {
 
   
    /**
-   * 
+   * The payment method that the connector supports.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method that the connector supports.")
   public Long getPaymentMethod() {
     return paymentMethod;
   }
 
   
    /**
-   * 
+   * The specific brand that this payment connector supports.
    * @return paymentMethodBrand
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The specific brand that this payment connector supports.")
   public PaymentMethodBrand getPaymentMethodBrand() {
     return paymentMethodBrand;
   }
 
   
    /**
-   * 
+   * The entity that bears the main risk in the event that a contracting party fails to meet its obligations.
    * @return primaryRiskTaker
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The entity that bears the main risk in the event that a contracting party fails to meet its obligations.")
   public PaymentPrimaryRiskTaker getPrimaryRiskTaker() {
     return primaryRiskTaker;
   }
 
   
    /**
-   * 
+   * The processor that the connector belongs to.
    * @return processor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The processor that the connector belongs to.")
   public Long getProcessor() {
     return processor;
   }
 
   
    /**
-   * 
+   * The currencies that are supported by the connector.
    * @return supportedCurrencies
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The currencies that are supported by the connector.")
   public List<String> getSupportedCurrencies() {
     return supportedCurrencies;
   }
 
   
    /**
-   * 
+   * The types of customer&#39;s presence that are supported by the connector.
    * @return supportedCustomersPresences
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The types of customer's presence that are supported by the connector.")
   public List<CustomersPresence> getSupportedCustomersPresences() {
     return supportedCustomersPresences;
   }
 
   
    /**
-   * 
+   * The features that are supported by the connector.
    * @return supportedFeatures
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The features that are supported by the connector.")
   public List<Long> getSupportedFeatures() {
     return supportedFeatures;
   }
@@ -256,7 +241,6 @@ public class PaymentConnector {
         Objects.equals(this.deprecated, paymentConnector.deprecated) &&
         Objects.equals(this.deprecationReason, paymentConnector.deprecationReason) &&
         Objects.equals(this.description, paymentConnector.description) &&
-        Objects.equals(this.feature, paymentConnector.feature) &&
         Objects.equals(this.id, paymentConnector.id) &&
         Objects.equals(this.name, paymentConnector.name) &&
         Objects.equals(this.paymentMethod, paymentConnector.paymentMethod) &&
@@ -270,7 +254,7 @@ public class PaymentConnector {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataCollectionType, deprecated, deprecationReason, description, feature, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCurrencies, supportedCustomersPresences, supportedFeatures);
+    return Objects.hash(dataCollectionType, deprecated, deprecationReason, description, id, name, paymentMethod, paymentMethodBrand, primaryRiskTaker, processor, supportedCurrencies, supportedCustomersPresences, supportedFeatures);
   }
 
 
@@ -283,7 +267,6 @@ public class PaymentConnector {
     sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
     sb.append("    deprecationReason: ").append(toIndentedString(deprecationReason)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");

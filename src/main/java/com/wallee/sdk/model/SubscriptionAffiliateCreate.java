@@ -72,10 +72,10 @@ public class SubscriptionAffiliateCreate extends AbstractSubscriptionAffiliateUp
   }
 
    /**
-   * 
+   * The reference used to identify the affiliate.
    * @return reference
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The reference used to identify the affiliate.")
   public String getReference() {
     return reference;
   }

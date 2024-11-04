@@ -98,10 +98,10 @@ public class PaymentTerminalLocation {
 
   
    /**
-   * The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment terminal location.
    * @return name
   **/
-  @ApiModelProperty(value = "The terminal location name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment terminal location.")
   public String getName() {
     return name;
   }

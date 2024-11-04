@@ -71,10 +71,10 @@ public class SubscriptionLedgerEntryCreate {
   }
 
    /**
-   * 
+   * The leger entry&#39;s amount with discounts applied, including taxes.
    * @return amountIncludingTax
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The leger entry's amount with discounts applied, including taxes.")
   public BigDecimal getAmountIncludingTax() {
     return amountIncludingTax;
   }
@@ -109,10 +109,10 @@ public class SubscriptionLedgerEntryCreate {
   }
 
    /**
-   * 
+   * The number of items that were consumed.
    * @return quantity
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The number of items that were consumed.")
   public BigDecimal getQuantity() {
     return quantity;
   }
@@ -128,10 +128,10 @@ public class SubscriptionLedgerEntryCreate {
   }
 
    /**
-   * 
+   * The subscription version that the ledger entry belongs to.
    * @return subscriptionVersion
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The subscription version that the ledger entry belongs to.")
   public Long getSubscriptionVersion() {
     return subscriptionVersion;
   }
@@ -155,10 +155,10 @@ public class SubscriptionLedgerEntryCreate {
   }
 
    /**
-   * 
+   * A set of tax lines, each of which specifies a tax applied to the ledger entry.
    * @return taxes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of tax lines, each of which specifies a tax applied to the ledger entry.")
   public List<TaxCreate> getTaxes() {
     return taxes;
   }
@@ -174,10 +174,10 @@ public class SubscriptionLedgerEntryCreate {
   }
 
    /**
-   * 
+   * The title that indicates what the ledger entry is about.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The title that indicates what the ledger entry is about.")
   public String getTitle() {
     return title;
   }

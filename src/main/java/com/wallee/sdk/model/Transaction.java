@@ -339,60 +339,60 @@ public class Transaction {
   
   
    /**
-   * 
+   * The &#39;Accept&#39; header of the customer&#39;s web browser.
    * @return acceptHeader
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The 'Accept' header of the customer's web browser.")
   public String getAcceptHeader() {
     return acceptHeader;
   }
 
   
    /**
-   * The accept language contains the header which indicates the language preferences of the buyer.
+   * The &#39;Accept Language&#39; header of the customer&#39;s web browser.
    * @return acceptLanguageHeader
   **/
-  @ApiModelProperty(value = "The accept language contains the header which indicates the language preferences of the buyer.")
+  @ApiModelProperty(value = "The 'Accept Language' header of the customer's web browser.")
   public String getAcceptLanguageHeader() {
     return acceptLanguageHeader;
   }
 
   
    /**
-   * 
+   * The payment method brands that can be used to authorize the transaction.
    * @return allowedPaymentMethodBrands
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method brands that can be used to authorize the transaction.")
   public List<Long> getAllowedPaymentMethodBrands() {
     return allowedPaymentMethodBrands;
   }
 
   
    /**
-   * 
+   * The payment method configurations that can be used to authorize the transaction.
    * @return allowedPaymentMethodConfigurations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method configurations that can be used to authorize the transaction.")
   public List<Long> getAllowedPaymentMethodConfigurations() {
     return allowedPaymentMethodConfigurations;
   }
 
   
    /**
-   * 
+   * The sum of all line item prices including taxes in the transaction&#39;s currency.
    * @return authorizationAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sum of all line item prices including taxes in the transaction's currency.")
   public BigDecimal getAuthorizationAmount() {
     return authorizationAmount;
   }
 
   
    /**
-   * The environment in which this transaction was successfully authorized.
+   * The environment in which the transaction was authorized.
    * @return authorizationEnvironment
   **/
-  @ApiModelProperty(value = "The environment in which this transaction was successfully authorized.")
+  @ApiModelProperty(value = "The environment in which the transaction was authorized.")
   public ChargeAttemptEnvironment getAuthorizationEnvironment() {
     return authorizationEnvironment;
   }
@@ -409,120 +409,120 @@ public class Transaction {
 
   
    /**
-   * This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.
+   * The date and time when the transaction must be authorized, otherwise it will canceled.
    * @return authorizationTimeoutOn
   **/
-  @ApiModelProperty(value = "This is the time on which the transaction will be timed out when it is not at least authorized. The timeout time may change over time.")
+  @ApiModelProperty(value = "The date and time when the transaction must be authorized, otherwise it will canceled.")
   public OffsetDateTime getAuthorizationTimeoutOn() {
     return authorizationTimeoutOn;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction was authorized.
    * @return authorizedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction was authorized.")
   public OffsetDateTime getAuthorizedOn() {
     return authorizedOn;
   }
 
   
    /**
-   * When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.
+   * Whether the transaction can be confirmed automatically or whether this must be done explicitly via the API. Default is true.
    * @return autoConfirmationEnabled
   **/
-  @ApiModelProperty(value = "When auto confirmation is enabled the transaction can be confirmed by the user and does not require an explicit confirmation through the web service API.")
+  @ApiModelProperty(value = "Whether the transaction can be confirmed automatically or whether this must be done explicitly via the API. Default is true.")
   public Boolean isAutoConfirmationEnabled() {
     return autoConfirmationEnabled;
   }
 
   
    /**
-   * 
+   * The address associated with the payment method for invoicing and transaction processing purposes.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address associated with the payment method for invoicing and transaction processing purposes.")
   public Address getBillingAddress() {
     return billingAddress;
   }
 
   
    /**
-   * When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.
+   * Whether the customer can make further payment attempts if the first one has failed. Default is true.
    * @return chargeRetryEnabled
   **/
-  @ApiModelProperty(value = "When the charging of the customer fails we can retry the charging. This implies that we redirect the user back to the payment page which allows the customer to retry. By default we will retry.")
+  @ApiModelProperty(value = "Whether the customer can make further payment attempts if the first one has failed. Default is true.")
   public Boolean isChargeRetryEnabled() {
     return chargeRetryEnabled;
   }
 
   
    /**
-   * The completed amount is the total amount which has been captured so far.
+   * The total amount that was completed, in the transaction&#39;s currency.
    * @return completedAmount
   **/
-  @ApiModelProperty(value = "The completed amount is the total amount which has been captured so far.")
+  @ApiModelProperty(value = "The total amount that was completed, in the transaction's currency.")
   public BigDecimal getCompletedAmount() {
     return completedAmount;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction was completed.
    * @return completedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction was completed.")
   public OffsetDateTime getCompletedOn() {
     return completedOn;
   }
 
   
    /**
-   * The completion behavior controls when the transaction is completed.
+   * The behavior that controls when the transaction is completed.
    * @return completionBehavior
   **/
-  @ApiModelProperty(value = "The completion behavior controls when the transaction is completed.")
+  @ApiModelProperty(value = "The behavior that controls when the transaction is completed.")
   public TransactionCompletionBehavior getCompletionBehavior() {
     return completionBehavior;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction is completed automatically.
    * @return completionTimeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction is completed automatically.")
   public OffsetDateTime getCompletionTimeoutOn() {
     return completionTimeoutOn;
   }
 
   
    /**
-   * 
+   * The ID of the user the transaction was confirmed by.
    * @return confirmedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the transaction was confirmed by.")
   public Long getConfirmedBy() {
     return confirmedBy;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction was created.
    * @return confirmedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction was created.")
   public OffsetDateTime getConfirmedOn() {
     return confirmedOn;
   }
 
   
    /**
-   * 
+   * The ID of the user the transaction was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the transaction was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -539,80 +539,80 @@ public class Transaction {
 
   
    /**
-   * 
+   * The three-letter code (ISO 4217 format) of the transaction&#39;s currency.
    * @return currency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the transaction's currency.")
   public String getCurrency() {
     return currency;
   }
 
   
    /**
-   * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
+   * The customer&#39;s email address.
    * @return customerEmailAddress
   **/
-  @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
+  @ApiModelProperty(value = "The customer's email address.")
   public String getCustomerEmailAddress() {
     return customerEmailAddress;
   }
 
   
    /**
-   * 
+   * The unique identifier of the customer in the external system.
    * @return customerId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the customer in the external system.")
   public String getCustomerId() {
     return customerId;
   }
 
   
    /**
-   * The customer&#39;s presence indicates what kind of authentication method was finally used during authorization of the transaction. If no value is provided, &#39;Virtually Present&#39; is used by default.
+   * The customer&#39;s presence indicates whether and in what way the transaction&#39;s customer is present. Default is VIRTUAL_PRESENT.
    * @return customersPresence
   **/
-  @ApiModelProperty(value = "The customer's presence indicates what kind of authentication method was finally used during authorization of the transaction. If no value is provided, 'Virtually Present' is used by default.")
+  @ApiModelProperty(value = "The customer's presence indicates whether and in what way the transaction's customer is present. Default is VIRTUAL_PRESENT.")
   public CustomersPresence getCustomersPresence() {
     return customersPresence;
   }
 
   
    /**
-   * This date indicates when the decision has been made if a transaction should be delivered or not.
+   * This date and time when the decision was made as to whether the order should be shipped.
    * @return deliveryDecisionMadeOn
   **/
-  @ApiModelProperty(value = "This date indicates when the decision has been made if a transaction should be delivered or not.")
+  @ApiModelProperty(value = "This date and time when the decision was made as to whether the order should be shipped.")
   public OffsetDateTime getDeliveryDecisionMadeOn() {
     return deliveryDecisionMadeOn;
   }
 
   
    /**
-   * The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.
+   * Allows to link the transaction to the data collected from the customer&#39;s device.
    * @return deviceSessionIdentifier
   **/
-  @ApiModelProperty(value = "The device session identifier links the transaction with the session identifier provided in the URL of the device data JavaScript. This allows to link the transaction with the collected device data of the buyer.")
+  @ApiModelProperty(value = "Allows to link the transaction to the data collected from the customer's device.")
   public String getDeviceSessionIdentifier() {
     return deviceSessionIdentifier;
   }
 
   
    /**
-   * Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.
+   * Whether email sending is deactivated for the transaction. Default is false.
    * @return emailsDisabled
   **/
-  @ApiModelProperty(value = "Flag indicating whether email sending is disabled for this particular transaction. Defaults to false.")
+  @ApiModelProperty(value = "Whether email sending is deactivated for the transaction. Default is false.")
   public Boolean isEmailsDisabled() {
     return emailsDisabled;
   }
 
   
    /**
-   * The transaction&#39;s end of life indicates the date from which on no operation can be carried out anymore.
+   * The date and time when the transaction reaches its end of live. No further actions can be carried out at this time.
    * @return endOfLife
   **/
-  @ApiModelProperty(value = "The transaction's end of life indicates the date from which on no operation can be carried out anymore.")
+  @ApiModelProperty(value = "The date and time when the transaction reaches its end of live. No further actions can be carried out at this time.")
   public OffsetDateTime getEndOfLife() {
     return endOfLife;
   }
@@ -629,50 +629,50 @@ public class Transaction {
 
   
    /**
-   * The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.
+   * The strategy for determining whether the transaction is to be processed in the test or production environment.
    * @return environmentSelectionStrategy
   **/
-  @ApiModelProperty(value = "The environment selection strategy determines how the environment (test or production) for processing the transaction is selected.")
+  @ApiModelProperty(value = "The strategy for determining whether the transaction is to be processed in the test or production environment.")
   public TransactionEnvironmentSelectionStrategy getEnvironmentSelectionStrategy() {
     return environmentSelectionStrategy;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+   * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they canceled or failed to authenticated their payment.")
   public String getFailedUrl() {
     return failedUrl;
   }
 
   
    /**
-   * The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.
+   * The reason for the failure of the transaction.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "The failure reason describes why the transaction failed. This is only provided when the transaction is marked as failed.")
+  @ApiModelProperty(value = "The reason for the failure of the transaction.")
   public FailureReason getFailureReason() {
     return failureReason;
   }
 
   
    /**
-   * 
+   * The group that the transaction belongs to.
    * @return group
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group that the transaction belongs to.")
   public TransactionGroup getGroup() {
     return group;
   }
@@ -689,40 +689,40 @@ public class Transaction {
 
   
    /**
-   * The Internet Protocol (IP) address identifies the device of the buyer.
+   * The IP address of the customer&#39;s device.
    * @return internetProtocolAddress
   **/
-  @ApiModelProperty(value = "The Internet Protocol (IP) address identifies the device of the buyer.")
+  @ApiModelProperty(value = "The IP address of the customer's device.")
   public String getInternetProtocolAddress() {
     return internetProtocolAddress;
   }
 
   
    /**
-   * 
+   * The country determined from the IP address of the customer&#39;s device.
    * @return internetProtocolAddressCountry
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The country determined from the IP address of the customer's device.")
   public String getInternetProtocolAddressCountry() {
     return internetProtocolAddressCountry;
   }
 
   
    /**
-   * 
+   * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the invoice.")
   public String getInvoiceMerchantReference() {
     return invoiceMerchantReference;
   }
 
   
    /**
-   * 
+   * Whether Java is enabled on the customer&#39;s web browser.
    * @return javaEnabled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether Java is enabled on the customer's web browser.")
   public Boolean isJavaEnabled() {
     return javaEnabled;
   }
@@ -739,10 +739,10 @@ public class Transaction {
 
   
    /**
-   * 
+   * The line items purchased by the customer.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items purchased by the customer.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
@@ -759,10 +759,10 @@ public class Transaction {
 
   
    /**
-   * 
+   * The merchant&#39;s reference used to identify the transaction.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the transaction.")
   public String getMerchantReference() {
     return merchantReference;
   }
@@ -779,20 +779,20 @@ public class Transaction {
 
   
    /**
-   * 
+   * The parent transaction which was (partially) replaced by this transaction.
    * @return parent
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The parent transaction which was (partially) replaced by this transaction.")
   public Long getParent() {
     return parent;
   }
 
   
    /**
-   * 
+   * The payment connector configuration that was used to authorize the transaction.
    * @return paymentConnectorConfiguration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment connector configuration that was used to authorize the transaction.")
   public PaymentConnectorConfiguration getPaymentConnectorConfiguration() {
     return paymentConnectorConfiguration;
   }
@@ -809,80 +809,80 @@ public class Transaction {
 
   
    /**
-   * 
+   * The date and time when the processing of the transaction was started.
    * @return processingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the transaction was started.")
   public OffsetDateTime getProcessingOn() {
     return processingOn;
   }
 
   
    /**
-   * The refunded amount is the total amount which has been refunded so far.
+   * The total amount that was refunded, in the transaction&#39;s currency.
    * @return refundedAmount
   **/
-  @ApiModelProperty(value = "The refunded amount is the total amount which has been refunded so far.")
+  @ApiModelProperty(value = "The total amount that was refunded, in the transaction's currency.")
   public BigDecimal getRefundedAmount() {
     return refundedAmount;
   }
 
   
    /**
-   * 
+   * The screen color depth of the customer&#39;s web browser.
    * @return screenColorDepth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The screen color depth of the customer's web browser.")
   public String getScreenColorDepth() {
     return screenColorDepth;
   }
 
   
    /**
-   * 
+   * The screen height of the customer&#39;s web browser.
    * @return screenHeight
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The screen height of the customer's web browser.")
   public String getScreenHeight() {
     return screenHeight;
   }
 
   
    /**
-   * 
+   * The screen width of the customer&#39;s web browser.
    * @return screenWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The screen width of the customer's web browser.")
   public String getScreenWidth() {
     return screenWidth;
   }
 
   
    /**
-   * 
+   * The address to where the order will be shipped.
    * @return shippingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address to where the order will be shipped.")
   public Address getShippingAddress() {
     return shippingAddress;
   }
 
   
    /**
-   * 
+   * The name of the shipping method used to ship the products.
    * @return shippingMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the shipping method used to ship the products.")
   public String getShippingMethod() {
     return shippingMethod;
   }
 
   
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }
@@ -899,100 +899,100 @@ public class Transaction {
 
   
    /**
-   * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+   * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they successfully authenticated their payment.")
   public String getSuccessUrl() {
     return successUrl;
   }
 
   
    /**
-   * The terminal on which the payment was processed.
+   * The payment terminal through which the payment was processed.
    * @return terminal
   **/
-  @ApiModelProperty(value = "The terminal on which the payment was processed.")
+  @ApiModelProperty(value = "The payment terminal through which the payment was processed.")
   public PaymentTerminal getTerminal() {
     return terminal;
   }
 
   
    /**
-   * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+   * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
+  @ApiModelProperty(value = "The customer's time zone, which affects how dates and times are formatted when communicating with the customer.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * 
+   * The payment token that should be used to charge the customer.
    * @return token
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment token that should be used to charge the customer.")
   public Token getToken() {
     return token;
   }
 
   
    /**
-   * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
+   * The tokenization mode specifies whether and how the tokenization of payment information is applied to the transaction.
    * @return tokenizationMode
   **/
-  @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")
+  @ApiModelProperty(value = "The tokenization mode specifies whether and how the tokenization of payment information is applied to the transaction.")
   public TokenizationMode getTokenizationMode() {
     return tokenizationMode;
   }
 
   
    /**
-   * The total applied fees is the sum of all fees that have been applied so far.
+   * The total of all fees charged, in the transaction&#39;s currency.
    * @return totalAppliedFees
   **/
-  @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
+  @ApiModelProperty(value = "The total of all fees charged, in the transaction's currency.")
   public BigDecimal getTotalAppliedFees() {
     return totalAppliedFees;
   }
 
   
    /**
-   * The total settled amount is the total amount which has been settled so far.
+   * The total amount that was settled, in the transaction&#39;s currency.
    * @return totalSettledAmount
   **/
-  @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
+  @ApiModelProperty(value = "The total amount that was settled, in the transaction's currency.")
   public BigDecimal getTotalSettledAmount() {
     return totalSettledAmount;
   }
 
   
    /**
-   * The user agent header provides the exact string which contains the user agent of the buyer.
+   * The &#39;User Agent&#39; header of the customer&#39;s web browser.
    * @return userAgentHeader
   **/
-  @ApiModelProperty(value = "The user agent header provides the exact string which contains the user agent of the buyer.")
+  @ApiModelProperty(value = "The 'User Agent' header of the customer's web browser.")
   public String getUserAgentHeader() {
     return userAgentHeader;
   }
 
   
    /**
-   * The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.
+   * The message that can be displayed to the customer explaining why the transaction failed, in the customer&#39;s language.
    * @return userFailureMessage
   **/
-  @ApiModelProperty(value = "The failure message describes for an end user why the transaction is failed in the language of the user. This is only provided when the transaction is marked as failed.")
+  @ApiModelProperty(value = "The message that can be displayed to the customer explaining why the transaction failed, in the customer's language.")
   public String getUserFailureMessage() {
     return userFailureMessage;
   }
 
   
    /**
-   * The user interface type defines through which user interface the transaction has been processed resp. created.
+   * The type of user interface the customer used to provide the payment information.
    * @return userInterfaceType
   **/
-  @ApiModelProperty(value = "The user interface type defines through which user interface the transaction has been processed resp. created.")
+  @ApiModelProperty(value = "The type of user interface the customer used to provide the payment information.")
   public TransactionUserInterfaceType getUserInterfaceType() {
     return userInterfaceType;
   }
@@ -1009,30 +1009,30 @@ public class Transaction {
 
   
    /**
-   * 
+   * The window height of the customer&#39;s web browser.
    * @return windowHeight
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The window height of the customer's web browser.")
   public String getWindowHeight() {
     return windowHeight;
   }
 
   
    /**
-   * 
+   * The window width of the customer&#39;s web browser.
    * @return windowWidth
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The window width of the customer's web browser.")
   public String getWindowWidth() {
     return windowWidth;
   }
 
   
    /**
-   * The number of years the transaction will be stored after it has been authorized.
+   * The number of years the transaction is kept after its authorization.
    * @return yearsToKeep
   **/
-  @ApiModelProperty(value = "The number of years the transaction will be stored after it has been authorized.")
+  @ApiModelProperty(value = "The number of years the transaction is kept after its authorization.")
   public Integer getYearsToKeep() {
     return yearsToKeep;
   }

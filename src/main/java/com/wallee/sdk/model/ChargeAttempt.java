@@ -198,10 +198,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * The customers presence indicates which kind of customer interaction was used during the charge attempt.
+   * The customer&#39;s presence indicates which kind of customer interaction was used during the charge attempt.
    * @return customersPresence
   **/
-  @ApiModelProperty(value = "The customers presence indicates which kind of customer interaction was used during the charge attempt.")
+  @ApiModelProperty(value = "The customer's presence indicates which kind of customer interaction was used during the charge attempt.")
   public CustomersPresence getCustomersPresence() {
     return customersPresence;
   }
@@ -258,10 +258,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The labels providing additional information about the object.
    * @return labels
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The labels providing additional information about the object.")
   public List<Label> getLabels() {
     return labels;
   }
@@ -318,10 +318,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }

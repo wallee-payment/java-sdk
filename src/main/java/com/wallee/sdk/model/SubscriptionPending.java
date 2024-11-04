@@ -56,10 +56,10 @@ public class SubscriptionPending extends SubscriptionUpdate {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the subscription.
    * @return reference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the subscription.")
   public String getReference() {
     return reference;
   }
@@ -75,10 +75,10 @@ public class SubscriptionPending extends SubscriptionUpdate {
   }
 
    /**
-   * 
+   * The subscriber that the subscription belongs to.
    * @return subscriber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscriber that the subscription belongs to.")
   public Long getSubscriber() {
     return subscriber;
   }
@@ -94,10 +94,10 @@ public class SubscriptionPending extends SubscriptionUpdate {
   }
 
    /**
-   * 
+   * The payment token that is used to charge the customer.
    * @return token
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment token that is used to charge the customer.")
   public Long getToken() {
     return token;
   }

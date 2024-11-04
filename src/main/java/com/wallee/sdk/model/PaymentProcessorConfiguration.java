@@ -76,20 +76,20 @@ public class PaymentProcessorConfiguration {
   
   
    /**
-   * The configuration is managed by the application and cannot be changed via the user interface.
+   * Whether the processor configuration is managed by the application and therefore cannot be changed.
    * @return applicationManaged
   **/
-  @ApiModelProperty(value = "The configuration is managed by the application and cannot be changed via the user interface.")
+  @ApiModelProperty(value = "Whether the processor configuration is managed by the application and therefore cannot be changed.")
   public Boolean isApplicationManaged() {
     return applicationManaged;
   }
 
   
    /**
-   * The contract links the processor configuration with the contract that is used to process payments.
+   * The ID of the payment contract the processor configuration is linked to.
    * @return contractId
   **/
-  @ApiModelProperty(value = "The contract links the processor configuration with the contract that is used to process payments.")
+  @ApiModelProperty(value = "The ID of the payment contract the processor configuration is linked to.")
   public Long getContractId() {
     return contractId;
   }
@@ -116,10 +116,10 @@ public class PaymentProcessorConfiguration {
 
   
    /**
-   * The processor configuration name is used internally to identify a specific processor configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment method configuration.
    * @return name
   **/
-  @ApiModelProperty(value = "The processor configuration name is used internally to identify a specific processor configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment method configuration.")
   public String getName() {
     return name;
   }
@@ -136,10 +136,10 @@ public class PaymentProcessorConfiguration {
 
   
    /**
-   * A processor handles the connection to a third part company (a Payment Service Provider) that technically manages the transaction and therefore processes the payment. For the same processor multiple processor configuration can be setup.
+   * The payment processor that the configuration is for.
    * @return processor
   **/
-  @ApiModelProperty(value = "A processor handles the connection to a third part company (a Payment Service Provider) that technically manages the transaction and therefore processes the payment. For the same processor multiple processor configuration can be setup.")
+  @ApiModelProperty(value = "The payment processor that the configuration is for.")
   public Long getProcessor() {
     return processor;
   }

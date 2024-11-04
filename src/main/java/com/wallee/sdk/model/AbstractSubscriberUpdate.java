@@ -91,10 +91,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * Those payment methods which are allowed additionally will be available even when the product does not allow those methods.
+   * Allow the subscriber to use these payment methods even if subscription products do not accept them.
    * @return additionalAllowedPaymentMethodConfigurations
   **/
-  @ApiModelProperty(value = "Those payment methods which are allowed additionally will be available even when the product does not allow those methods.")
+  @ApiModelProperty(value = "Allow the subscriber to use these payment methods even if subscription products do not accept them.")
   public List<Long> getAdditionalAllowedPaymentMethodConfigurations() {
     return additionalAllowedPaymentMethodConfigurations;
   }
@@ -110,10 +110,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * 
+   * The address associated with the subscriber for invoicing and transaction processing purposes.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address associated with the subscriber for invoicing and transaction processing purposes.")
   public AddressCreate getBillingAddress() {
     return billingAddress;
   }
@@ -129,10 +129,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.
+   * The description used to identify the subscriber.
    * @return description
   **/
-  @ApiModelProperty(value = "The subscriber description can be used to add a description to the subscriber. This is used in the back office to identify the subscriber.")
+  @ApiModelProperty(value = "The description used to identify the subscriber.")
   public String getDescription() {
     return description;
   }
@@ -156,10 +156,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.
+   * Prevent the subscriber from using these payment methods even if subscription products do accept them.
    * @return disallowedPaymentMethodConfigurations
   **/
-  @ApiModelProperty(value = "Those payment methods which are disallowed will not be available to the subscriber even if the product allows those methods.")
+  @ApiModelProperty(value = "Prevent the subscriber from using these payment methods even if subscription products do accept them.")
   public List<Long> getDisallowedPaymentMethodConfigurations() {
     return disallowedPaymentMethodConfigurations;
   }
@@ -175,10 +175,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
+   * The email address that is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
    * @return emailAddress
   **/
-  @ApiModelProperty(value = "The email address is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
+  @ApiModelProperty(value = "The email address that is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.")
   public String getEmailAddress() {
     return emailAddress;
   }
@@ -194,10 +194,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).
+   * The language that is used when communicating with the subscriber via emails and documents.
    * @return language
   **/
-  @ApiModelProperty(value = "The subscriber language determines the language which is used to communicate with the subscriber in emails and documents (e.g. invoices).")
+  @ApiModelProperty(value = "The language that is used when communicating with the subscriber via emails and documents.")
   public String getLanguage() {
     return language;
   }
@@ -240,10 +240,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).
+   * The merchant&#39;s reference used to identify the subscriber.
    * @return reference
   **/
-  @ApiModelProperty(value = "The subscriber reference identifies the subscriber in administrative interfaces (e.g. customer id).")
+  @ApiModelProperty(value = "The merchant's reference used to identify the subscriber.")
   public String getReference() {
     return reference;
   }
@@ -259,10 +259,10 @@ public class AbstractSubscriberUpdate {
   }
 
    /**
-   * 
+   * The address to where orders will be shipped.
    * @return shippingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address to where orders will be shipped.")
   public AddressCreate getShippingAddress() {
     return shippingAddress;
   }

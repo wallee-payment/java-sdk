@@ -108,10 +108,10 @@ public class SubscriptionMetricUpdate {
   }
 
    /**
-   * 
+   * The localized description of the metric that is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description of the metric that is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -135,10 +135,10 @@ public class SubscriptionMetricUpdate {
   }
 
    /**
-   * 
+   * The localized name of the metric that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized name of the metric that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }

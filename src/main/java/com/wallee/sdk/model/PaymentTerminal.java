@@ -49,6 +49,10 @@ public class PaymentTerminal {
   protected String defaultCurrency = null;
 
   
+  @JsonProperty("deviceName")
+  protected String deviceName = null;
+
+  
   @JsonProperty("deviceSerialNumber")
   protected String deviceSerialNumber = null;
 
@@ -95,30 +99,40 @@ public class PaymentTerminal {
   
   
    /**
-   * 
+   * The configuration that is assigned to the terminal and determines how it works.
    * @return configurationVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The configuration that is assigned to the terminal and determines how it works.")
   public PaymentTerminalConfigurationVersion getConfigurationVersion() {
     return configurationVersion;
   }
 
   
    /**
-   * 
+   * The default currency of the terminal.
    * @return defaultCurrency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The default currency of the terminal.")
   public String getDefaultCurrency() {
     return defaultCurrency;
   }
 
   
    /**
-   * 
+   * The name of the device that is currently linked to the payment terminal.
+   * @return deviceName
+  **/
+  @ApiModelProperty(value = "The name of the device that is currently linked to the payment terminal.")
+  public String getDeviceName() {
+    return deviceName;
+  }
+
+  
+   /**
+   * The serial number of the device that is currently linked to the payment terminal.
    * @return deviceSerialNumber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The serial number of the device that is currently linked to the payment terminal.")
   public String getDeviceSerialNumber() {
     return deviceSerialNumber;
   }
@@ -145,10 +159,10 @@ public class PaymentTerminal {
 
   
    /**
-   * The identifier uniquely identifies the terminal. Normally it is visible on the device or in the display of the device.
+   * The unique identifier of the terminal, that is displayed on the device.
    * @return identifier
   **/
-  @ApiModelProperty(value = "The identifier uniquely identifies the terminal. Normally it is visible on the device or in the display of the device.")
+  @ApiModelProperty(value = "The unique identifier of the terminal, that is displayed on the device.")
   public String getIdentifier() {
     return identifier;
   }
@@ -165,20 +179,20 @@ public class PaymentTerminal {
 
   
    /**
-   * 
+   * The physical location where the terminal is used.
    * @return locationVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The physical location where the terminal is used.")
   public PaymentTerminalLocationVersion getLocationVersion() {
     return locationVersion;
   }
 
   
    /**
-   * The terminal name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment terminal.
    * @return name
   **/
-  @ApiModelProperty(value = "The terminal name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment terminal.")
   public String getName() {
     return name;
   }
@@ -205,10 +219,10 @@ public class PaymentTerminal {
 
   
    /**
-   * 
+   * The type of the payment terminal.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the payment terminal.")
   public PaymentTerminalType getType() {
     return type;
   }
@@ -236,6 +250,7 @@ public class PaymentTerminal {
     PaymentTerminal paymentTerminal = (PaymentTerminal) o;
     return Objects.equals(this.configurationVersion, paymentTerminal.configurationVersion) &&
         Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
+        Objects.equals(this.deviceName, paymentTerminal.deviceName) &&
         Objects.equals(this.deviceSerialNumber, paymentTerminal.deviceSerialNumber) &&
         Objects.equals(this.externalId, paymentTerminal.externalId) &&
         Objects.equals(this.id, paymentTerminal.id) &&
@@ -251,7 +266,7 @@ public class PaymentTerminal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, defaultCurrency, deviceSerialNumber, externalId, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
+    return Objects.hash(configurationVersion, defaultCurrency, deviceName, deviceSerialNumber, externalId, id, identifier, linkedSpaceId, locationVersion, name, plannedPurgeDate, state, type, version);
   }
 
 
@@ -262,6 +277,7 @@ public class PaymentTerminal {
     
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
+    sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    deviceSerialNumber: ").append(toIndentedString(deviceSerialNumber)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

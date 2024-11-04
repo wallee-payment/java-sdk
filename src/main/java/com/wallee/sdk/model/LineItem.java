@@ -130,210 +130,210 @@ public class LineItem {
   
   
    /**
-   * The aggregated tax rate is the sum of all tax rates of the line item.
+   * The total tax rate applied to the item, calculated from the rates of all tax lines.
    * @return aggregatedTaxRate
   **/
-  @ApiModelProperty(value = "The aggregated tax rate is the sum of all tax rates of the line item.")
+  @ApiModelProperty(value = "The total tax rate applied to the item, calculated from the rates of all tax lines.")
   public BigDecimal getAggregatedTaxRate() {
     return aggregatedTaxRate;
   }
 
   
    /**
-   * 
+   * The line item price with discounts applied, excluding taxes.
    * @return amountExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line item price with discounts applied, excluding taxes.")
   public BigDecimal getAmountExcludingTax() {
     return amountExcludingTax;
   }
 
   
    /**
-   * 
+   * The line item price with discounts applied, including taxes.
    * @return amountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line item price with discounts applied, including taxes.")
   public BigDecimal getAmountIncludingTax() {
     return amountIncludingTax;
   }
 
   
    /**
-   * 
+   * A map of custom information for the item.
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A map of custom information for the item.")
   public Map<String, LineItemAttribute> getAttributes() {
     return attributes;
   }
 
   
    /**
-   * 
+   * The discount allocated to the item, excluding taxes.
    * @return discountExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The discount allocated to the item, excluding taxes.")
   public BigDecimal getDiscountExcludingTax() {
     return discountExcludingTax;
   }
 
   
    /**
-   * 
+   * The discount allocated to the item, including taxes.
    * @return discountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The discount allocated to the item, including taxes.")
   public BigDecimal getDiscountIncludingTax() {
     return discountIncludingTax;
   }
 
   
    /**
-   * 
+   * The name of the product, ideally in the customer&#39;s language.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the product, ideally in the customer's language.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The number of items that were purchased.
    * @return quantity
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The number of items that were purchased.")
   public BigDecimal getQuantity() {
     return quantity;
   }
 
   
    /**
-   * 
+   * Whether the item required shipping.
    * @return shippingRequired
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the item required shipping.")
   public Boolean isShippingRequired() {
     return shippingRequired;
   }
 
   
    /**
-   * 
+   * The SKU (stock-keeping unit) of the product.
    * @return sku
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The SKU (stock-keeping unit) of the product.")
   public String getSku() {
     return sku;
   }
 
   
    /**
-   * 
+   * The sum of all taxes applied to the item.
    * @return taxAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sum of all taxes applied to the item.")
   public BigDecimal getTaxAmount() {
     return taxAmount;
   }
 
   
    /**
-   * 
+   * The calculated tax amount per unit.
    * @return taxAmountPerUnit
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated tax amount per unit.")
   public BigDecimal getTaxAmountPerUnit() {
     return taxAmountPerUnit;
   }
 
   
    /**
-   * 
+   * A set of tax lines, each of which specifies a tax applied to the item.
    * @return taxes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of tax lines, each of which specifies a tax applied to the item.")
   public List<Tax> getTaxes() {
     return taxes;
   }
 
   
    /**
-   * 
+   * The type of the line item.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the line item.")
   public LineItemType getType() {
     return type;
   }
 
   
    /**
-   * 
+   * The line item price with discounts not applied, excluding taxes.
    * @return undiscountedAmountExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line item price with discounts not applied, excluding taxes.")
   public BigDecimal getUndiscountedAmountExcludingTax() {
     return undiscountedAmountExcludingTax;
   }
 
   
    /**
-   * 
+   * The line item price with discounts not applied, including taxes.
    * @return undiscountedAmountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line item price with discounts not applied, including taxes.")
   public BigDecimal getUndiscountedAmountIncludingTax() {
     return undiscountedAmountIncludingTax;
   }
 
   
    /**
-   * 
+   * The calculated price per unit with discounts not applied, excluding taxes.
    * @return undiscountedUnitPriceExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated price per unit with discounts not applied, excluding taxes.")
   public BigDecimal getUndiscountedUnitPriceExcludingTax() {
     return undiscountedUnitPriceExcludingTax;
   }
 
   
    /**
-   * 
+   * The calculated price per unit with discounts not applied, including taxes.
    * @return undiscountedUnitPriceIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated price per unit with discounts not applied, including taxes.")
   public BigDecimal getUndiscountedUnitPriceIncludingTax() {
     return undiscountedUnitPriceIncludingTax;
   }
 
   
    /**
-   * The unique id identifies the line item within the set of line items associated with the transaction.
+   * The unique identifier of the line item within the set of line items.
    * @return uniqueId
   **/
-  @ApiModelProperty(value = "The unique id identifies the line item within the set of line items associated with the transaction.")
+  @ApiModelProperty(value = "The unique identifier of the line item within the set of line items.")
   public String getUniqueId() {
     return uniqueId;
   }
 
   
    /**
-   * 
+   * The calculated price per unit with discounts applied, excluding taxes.
    * @return unitPriceExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated price per unit with discounts applied, excluding taxes.")
   public BigDecimal getUnitPriceExcludingTax() {
     return unitPriceExcludingTax;
   }
 
   
    /**
-   * 
+   * The calculated price per unit with discounts applied, including taxes.
    * @return unitPriceIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The calculated price per unit with discounts applied, including taxes.")
   public BigDecimal getUnitPriceIncludingTax() {
     return unitPriceIncludingTax;
   }

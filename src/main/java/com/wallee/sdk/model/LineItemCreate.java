@@ -91,10 +91,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The line item price with discounts applied, including taxes.
    * @return amountIncludingTax
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The line item price with discounts applied, including taxes.")
   public BigDecimal getAmountIncludingTax() {
     return amountIncludingTax;
   }
@@ -118,10 +118,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * A map of custom information for the item.
    * @return attributes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A map of custom information for the item.")
   public Map<String, LineItemAttributeCreate> getAttributes() {
     return attributes;
   }
@@ -137,10 +137,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The discount allocated to the item, including taxes.
    * @return discountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The discount allocated to the item, including taxes.")
   public BigDecimal getDiscountIncludingTax() {
     return discountIncludingTax;
   }
@@ -156,10 +156,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The name of the product, ideally in the customer&#39;s language.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the product, ideally in the customer's language.")
   public String getName() {
     return name;
   }
@@ -175,10 +175,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The number of items that were purchased.
    * @return quantity
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The number of items that were purchased.")
   public BigDecimal getQuantity() {
     return quantity;
   }
@@ -194,10 +194,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * Whether the item required shipping.
    * @return shippingRequired
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the item required shipping.")
   public Boolean isShippingRequired() {
     return shippingRequired;
   }
@@ -213,10 +213,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The SKU (stock-keeping unit) of the product.
    * @return sku
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The SKU (stock-keeping unit) of the product.")
   public String getSku() {
     return sku;
   }
@@ -240,10 +240,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * A set of tax lines, each of which specifies a tax applied to the item.
    * @return taxes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of tax lines, each of which specifies a tax applied to the item.")
   public List<TaxCreate> getTaxes() {
     return taxes;
   }
@@ -259,10 +259,10 @@ public class LineItemCreate {
   }
 
    /**
-   * 
+   * The type of the line item.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of the line item.")
   public LineItemType getType() {
     return type;
   }
@@ -278,10 +278,10 @@ public class LineItemCreate {
   }
 
    /**
-   * The unique id identifies the line item within the set of line items associated with the transaction.
+   * The unique identifier of the line item within the set of line items.
    * @return uniqueId
   **/
-  @ApiModelProperty(required = true, value = "The unique id identifies the line item within the set of line items associated with the transaction.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the line item within the set of line items.")
   public String getUniqueId() {
     return uniqueId;
   }

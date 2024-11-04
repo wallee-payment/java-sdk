@@ -101,40 +101,40 @@ public class SubscriptionProductComponent {
   
   
    /**
-   * If a product component changes from one with a lower product component tier (e.g. 1) to one with a higher product component tier (e.g. 3), it is considered an upgrade and a one-time fee could be applied.
+   * If switching from a component with a lower tier to a component with a higher one, this is considered an upgrade and a fee may be applied.
    * @return componentChangeWeight
   **/
-  @ApiModelProperty(value = "If a product component changes from one with a lower product component tier (e.g. 1) to one with a higher product component tier (e.g. 3), it is considered an upgrade and a one-time fee could be applied.")
+  @ApiModelProperty(value = "If switching from a component with a lower tier to a component with a higher one, this is considered an upgrade and a fee may be applied.")
   public Integer getComponentChangeWeight() {
     return componentChangeWeight;
   }
 
   
    /**
-   * 
+   * The group that the component belongs to.
    * @return componentGroup
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group that the component belongs to.")
   public SubscriptionProductComponentGroup getComponentGroup() {
     return componentGroup;
   }
 
   
    /**
-   * When a component is marked as a &#39;default&#39; component it is used as the default component in its group and will be preselected in the product configuration.
+   * Whether this is the default component in its group and preselected.
    * @return defaultComponent
   **/
-  @ApiModelProperty(value = "When a component is marked as a 'default' component it is used as the default component in its group and will be preselected in the product configuration.")
+  @ApiModelProperty(value = "Whether this is the default component in its group and preselected.")
   public Boolean isDefaultComponent() {
     return defaultComponent;
   }
 
   
    /**
-   * The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.
+   * The localized description of the component that is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "The component description may contain a longer description which gives the subscriber a better understanding of what the component contains.")
+  @ApiModelProperty(value = "The localized description of the component that is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -161,70 +161,70 @@ public class SubscriptionProductComponent {
 
   
    /**
-   * The maximum quantity defines the maximum value which must be entered for the quantity.
+   * A maximum of the defined quantity can be selected for this component.
    * @return maximalQuantity
   **/
-  @ApiModelProperty(value = "The maximum quantity defines the maximum value which must be entered for the quantity.")
+  @ApiModelProperty(value = "A maximum of the defined quantity can be selected for this component.")
   public BigDecimal getMaximalQuantity() {
     return maximalQuantity;
   }
 
   
    /**
-   * The minimal quantity defines the minimum value which must be entered for the quantity.
+   * A minimum of the defined quantity must be selected for this component.
    * @return minimalQuantity
   **/
-  @ApiModelProperty(value = "The minimal quantity defines the minimum value which must be entered for the quantity.")
+  @ApiModelProperty(value = "A minimum of the defined quantity must be selected for this component.")
   public BigDecimal getMinimalQuantity() {
     return minimalQuantity;
   }
 
   
    /**
-   * The component name is shown to the subscriber. It should describe in few words what the component does contain.
+   * The localized name of the component that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The component name is shown to the subscriber. It should describe in few words what the component does contain.")
+  @ApiModelProperty(value = "The localized name of the component that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * The quantity step defines at which interval the quantity can be increased.
+   * The quantity step determines the interval in which the quantity can be increased.
    * @return quantityStep
   **/
-  @ApiModelProperty(value = "The quantity step defines at which interval the quantity can be increased.")
+  @ApiModelProperty(value = "The quantity step determines the interval in which the quantity can be increased.")
   public BigDecimal getQuantityStep() {
     return quantityStep;
   }
 
   
    /**
-   * The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.
+   * The reference is used to link components across different product versions.
    * @return reference
   **/
-  @ApiModelProperty(value = "The component reference is used to identify the component by external systems and it marks components to represent the same component within different product versions.")
+  @ApiModelProperty(value = "The reference is used to link components across different product versions.")
   public SubscriptionProductComponentReference getReference() {
     return reference;
   }
 
   
    /**
-   * The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.
+   * When listing components, they can be sorted by this number.
    * @return sortOrder
   **/
-  @ApiModelProperty(value = "The sort order controls in which order the component is listed. The sort order is used to order the components in ascending order.")
+  @ApiModelProperty(value = "When listing components, they can be sorted by this number.")
   public Integer getSortOrder() {
     return sortOrder;
   }
 
   
    /**
-   * The tax class of the component determines the taxes which are applicable on all fees linked with the component.
+   * The tax class to be applied to fees.
    * @return taxClass
   **/
-  @ApiModelProperty(value = "The tax class of the component determines the taxes which are applicable on all fees linked with the component.")
+  @ApiModelProperty(value = "The tax class to be applied to fees.")
   public TaxClass getTaxClass() {
     return taxClass;
   }

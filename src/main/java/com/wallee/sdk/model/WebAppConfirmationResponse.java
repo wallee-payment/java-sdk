@@ -31,9 +31,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The confirmation response provides the details about the installation of the web app.
+ * The confirmation response provides details about the installation of the web app.
  */
-@ApiModel(description = "The confirmation response provides the details about the installation of the web app.")
+@ApiModel(description = "The confirmation response provides details about the installation of the web app.")
 
 public class WebAppConfirmationResponse {
   
@@ -59,50 +59,50 @@ public class WebAppConfirmationResponse {
   
   
    /**
-   * The access code grants permissions to the web service API according to the OAuth standard.
+   * The access code granting permissions to the web service API according to the OAuth standard.
    * @return accessToken
   **/
-  @ApiModelProperty(value = "The access code grants permissions to the web service API according to the OAuth standard.")
+  @ApiModelProperty(value = "The access code granting permissions to the web service API according to the OAuth standard.")
   public String getAccessToken() {
     return accessToken;
   }
 
   
    /**
-   * The scope contains the permissions granted to the web app within the space.
+   * The list of the permissions granted to the web app within the space.
    * @return scope
   **/
-  @ApiModelProperty(value = "The scope contains the permissions granted to the web app within the space.")
+  @ApiModelProperty(value = "The list of the permissions granted to the web app within the space.")
   public String getScope() {
     return scope;
   }
 
   
    /**
-   * This is the space into which the web app is installed into.
+   * The space that the web app was installed in.
    * @return space
   **/
-  @ApiModelProperty(value = "This is the space into which the web app is installed into.")
+  @ApiModelProperty(value = "The space that the web app was installed in.")
   public Space getSpace() {
     return space;
   }
 
   
    /**
-   * The state contains the state parameter content provided when initiating the app installation.
+   * The state parameter that was provided in the authorization request.
    * @return state
   **/
-  @ApiModelProperty(value = "The state contains the state parameter content provided when initiating the app installation.")
+  @ApiModelProperty(value = "The state parameter that was provided in the authorization request.")
   public String getState() {
     return state;
   }
 
   
    /**
-   * The token type indicates the type of the access token. The type determines the authentication mechanism to use for accessing the web service API.
+   * The type of the access token that determines the authentication mechanism to use for accessing the web service API.
    * @return tokenType
   **/
-  @ApiModelProperty(value = "The token type indicates the type of the access token. The type determines the authentication mechanism to use for accessing the web service API.")
+  @ApiModelProperty(value = "The type of the access token that determines the authentication mechanism to use for accessing the web service API.")
   public String getTokenType() {
     return tokenType;
   }

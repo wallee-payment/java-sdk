@@ -62,20 +62,20 @@ public class UserAccountRole {
   
   
    /**
-   * 
+   * The account in which the role is assigned to the user.
    * @return account
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The account in which the role is assigned to the user.")
   public Long getAccount() {
     return account;
   }
 
   
    /**
-   * 
+   * Whether the role is assigned to the user in subaccounts only.
    * @return appliesOnSubAccount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the role is assigned to the user in subaccounts only.")
   public Boolean isAppliesOnSubAccount() {
     return appliesOnSubAccount;
   }
@@ -92,20 +92,20 @@ public class UserAccountRole {
 
   
    /**
-   * 
+   * The role that is assigned to the user.
    * @return role
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The role that is assigned to the user.")
   public Long getRole() {
     return role;
   }
 
   
    /**
-   * 
+   * The user whose role this defines.
    * @return user
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user whose role this defines.")
   public Long getUser() {
     return user;
   }

@@ -49,10 +49,10 @@ public class SubscriptionMetricCreate extends AbstractSubscriptionMetricUpdate {
   }
 
    /**
-   * 
+   * The type of the metric.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type of the metric.")
   public Long getType() {
     return type;
   }

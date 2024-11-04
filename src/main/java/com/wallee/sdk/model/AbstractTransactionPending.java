@@ -134,10 +134,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The payment method brands that can be used to authorize the transaction.
    * @return allowedPaymentMethodBrands
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method brands that can be used to authorize the transaction.")
   public List<Long> getAllowedPaymentMethodBrands() {
     return allowedPaymentMethodBrands;
   }
@@ -161,10 +161,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The payment method configurations that can be used to authorize the transaction.
    * @return allowedPaymentMethodConfigurations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method configurations that can be used to authorize the transaction.")
   public List<Long> getAllowedPaymentMethodConfigurations() {
     return allowedPaymentMethodConfigurations;
   }
@@ -180,10 +180,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The address associated with the payment method for invoicing and transaction processing purposes.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address associated with the payment method for invoicing and transaction processing purposes.")
   public AddressCreate getBillingAddress() {
     return billingAddress;
   }
@@ -199,10 +199,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The completion behavior controls when the transaction is completed.
+   * The behavior that controls when the transaction is completed.
    * @return completionBehavior
   **/
-  @ApiModelProperty(value = "The completion behavior controls when the transaction is completed.")
+  @ApiModelProperty(value = "The behavior that controls when the transaction is completed.")
   public TransactionCompletionBehavior getCompletionBehavior() {
     return completionBehavior;
   }
@@ -218,10 +218,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The three-letter code (ISO 4217 format) of the transaction&#39;s currency.
    * @return currency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the transaction's currency.")
   public String getCurrency() {
     return currency;
   }
@@ -237,10 +237,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.
+   * The customer&#39;s email address.
    * @return customerEmailAddress
   **/
-  @ApiModelProperty(value = "The customer email address is the email address of the customer. If no email address is provided on the shipping or billing address this address is used.")
+  @ApiModelProperty(value = "The customer's email address.")
   public String getCustomerEmailAddress() {
     return customerEmailAddress;
   }
@@ -256,10 +256,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The unique identifier of the customer in the external system.
    * @return customerId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the customer in the external system.")
   public String getCustomerId() {
     return customerId;
   }
@@ -275,10 +275,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+   * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they canceled or failed to authenticated their payment.")
   public String getFailedUrl() {
     return failedUrl;
   }
@@ -294,10 +294,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the invoice.")
   public String getInvoiceMerchantReference() {
     return invoiceMerchantReference;
   }
@@ -340,10 +340,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The line items purchased by the customer.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items purchased by the customer.")
   public List<LineItemCreate> getLineItems() {
     return lineItems;
   }
@@ -359,10 +359,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the transaction.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the transaction.")
   public String getMerchantReference() {
     return merchantReference;
   }
@@ -405,10 +405,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The address to where the order will be shipped.
    * @return shippingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address to where the order will be shipped.")
   public AddressCreate getShippingAddress() {
     return shippingAddress;
   }
@@ -424,10 +424,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The name of the shipping method used to ship the products.
    * @return shippingMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the shipping method used to ship the products.")
   public String getShippingMethod() {
     return shippingMethod;
   }
@@ -443,10 +443,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+   * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they successfully authenticated their payment.")
   public String getSuccessUrl() {
     return successUrl;
   }
@@ -462,10 +462,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.
+   * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "The time zone defines in which time zone the customer is located in. The time zone may affects how dates are formatted when interacting with the customer.")
+  @ApiModelProperty(value = "The customer's time zone, which affects how dates and times are formatted when communicating with the customer.")
   public String getTimeZone() {
     return timeZone;
   }
@@ -481,10 +481,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * 
+   * The payment token that should be used to charge the customer.
    * @return token
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment token that should be used to charge the customer.")
   public Long getToken() {
     return token;
   }
@@ -500,10 +500,10 @@ public class AbstractTransactionPending {
   }
 
    /**
-   * The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.
+   * The tokenization mode specifies whether and how the tokenization of payment information is applied to the transaction.
    * @return tokenizationMode
   **/
-  @ApiModelProperty(value = "The tokenization mode controls if and how the tokenization of payment information is applied to the transaction.")
+  @ApiModelProperty(value = "The tokenization mode specifies whether and how the tokenization of payment information is applied to the transaction.")
   public TokenizationMode getTokenizationMode() {
     return tokenizationMode;
   }

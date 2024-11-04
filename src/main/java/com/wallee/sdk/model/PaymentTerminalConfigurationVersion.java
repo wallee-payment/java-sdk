@@ -99,30 +99,30 @@ public class PaymentTerminalConfigurationVersion {
   
   
    /**
-   * 
+   * The payment terminal configuration that the version belongs to.
    * @return _configuration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment terminal configuration that the version belongs to.")
   public PaymentTerminalConfiguration getConfiguration() {
     return _configuration;
   }
 
   
    /**
-   * 
+   * The payment connector configurations that are available on the payment terminal.
    * @return connectorConfigurations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment connector configurations that are available on the payment terminal.")
   public List<Long> getConnectorConfigurations() {
     return connectorConfigurations;
   }
 
   
    /**
-   * 
+   * The ID of the user the payment terminal configuration version was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the payment terminal configuration version was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -139,10 +139,10 @@ public class PaymentTerminalConfigurationVersion {
 
   
    /**
-   * The currency is derived by default from the terminal location. By setting a specific currency the derived currency is overridden.
+   * The default currency that is used if none is set on the payment terminal itself. If it is empty, the currency is derived from the location of the terminal.
    * @return defaultCurrency
   **/
-  @ApiModelProperty(value = "The currency is derived by default from the terminal location. By setting a specific currency the derived currency is overridden.")
+  @ApiModelProperty(value = "The default currency that is used if none is set on the payment terminal itself. If it is empty, the currency is derived from the location of the terminal.")
   public String getDefaultCurrency() {
     return defaultCurrency;
   }
@@ -169,20 +169,20 @@ public class PaymentTerminalConfigurationVersion {
 
   
    /**
-   * 
+   * The permitted duration of the terminal&#39;s maintenance window.
    * @return maintenanceWindowDuration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The permitted duration of the terminal's maintenance window.")
   public String getMaintenanceWindowDuration() {
     return maintenanceWindowDuration;
   }
 
   
    /**
-   * 
+   * The start time of the terminal&#39;s maintenance window.
    * @return maintenanceWindowStart
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The start time of the terminal's maintenance window.")
   public String getMaintenanceWindowStart() {
     return maintenanceWindowStart;
   }
@@ -209,10 +209,10 @@ public class PaymentTerminalConfigurationVersion {
 
   
    /**
-   * 
+   * The time zone of the payment terminal used to determine the maintenance window.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone of the payment terminal used to determine the maintenance window.")
   public String getTimeZone() {
     return timeZone;
   }
@@ -229,10 +229,10 @@ public class PaymentTerminalConfigurationVersion {
 
   
    /**
-   * 
+   * Whether payment terminals are immediately updated to this configuration version. If not, it will be applied during the maintenance window.
    * @return versionAppliedImmediately
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether payment terminals are immediately updated to this configuration version. If not, it will be applied during the maintenance window.")
   public Boolean isVersionAppliedImmediately() {
     return versionAppliedImmediately;
   }

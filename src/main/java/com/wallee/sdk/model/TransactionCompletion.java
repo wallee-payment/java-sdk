@@ -241,10 +241,10 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The labels providing additional information about the object.
    * @return labels
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The labels providing additional information about the object.")
   public List<Label> getLabels() {
     return labels;
   }
@@ -361,10 +361,10 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }

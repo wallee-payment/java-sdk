@@ -88,10 +88,10 @@ public class DebtCollectorCondition {
 
   
    /**
-   * The condition name is used internally to identify the condition. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the condition.
    * @return name
   **/
-  @ApiModelProperty(value = "The condition name is used internally to identify the condition. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the condition.")
   public String getName() {
     return name;
   }
@@ -118,10 +118,10 @@ public class DebtCollectorCondition {
 
   
    /**
-   * The condition type determines the condition realization.
+   * The condition type determines the criteria that a debt collection case must fulfill in order for a debt collector configuration to be considered for handling the case.
    * @return type
   **/
-  @ApiModelProperty(value = "The condition type determines the condition realization.")
+  @ApiModelProperty(value = "The condition type determines the criteria that a debt collection case must fulfill in order for a debt collector configuration to be considered for handling the case.")
   public Long getType() {
     return type;
   }

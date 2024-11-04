@@ -34,7 +34,7 @@ public class DefaultHeaders {
 
     private HttpHeaders getDefaultHeaders() {
         HttpHeaders headers = new HttpHeaders();
-        headers.put("x-meta-sdk-version", "8.0.0");
+        headers.put("x-meta-sdk-version", "8.1.1");
         headers.put("x-meta-sdk-language", "java");
         headers.put("x-meta-sdk-provider", "wallee");
         headers.put("x-meta-sdk-language-version", System.getProperty("java.version"));

@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionComponentConfiguration;
-import com.wallee.sdk.model.SubscriptionProductComponent;
 import com.wallee.sdk.model.SubscriptionProductVersion;
 import com.wallee.sdk.model.SubscriptionVersionState;
 import io.swagger.annotations.ApiModel;
@@ -92,10 +91,6 @@ public class SubscriptionVersion {
   protected SubscriptionProductVersion productVersion = null;
 
   
-  @JsonProperty("selectedComponents")
-  protected List<SubscriptionProductComponent> selectedComponents = null;
-
-  
   @JsonProperty("state")
   protected SubscriptionVersionState state = null;
 
@@ -122,60 +117,60 @@ public class SubscriptionVersion {
   
   
    /**
-   * 
+   * The date and time when the subscription version was activated.
    * @return activatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription version was activated.")
   public OffsetDateTime getActivatedOn() {
     return activatedOn;
   }
 
   
    /**
-   * The subscriber is charged in the billing currency. The billing currency has to be one of the enabled currencies on the subscription product.
+   * The three-letter code (ISO 4217 format) of the currency used to invoice the customer. Must be one of the currencies supported by the product.
    * @return billingCurrency
   **/
-  @ApiModelProperty(value = "The subscriber is charged in the billing currency. The billing currency has to be one of the enabled currencies on the subscription product.")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the currency used to invoice the customer. Must be one of the currencies supported by the product.")
   public String getBillingCurrency() {
     return billingCurrency;
   }
 
   
    /**
-   * 
+   * The configurations of the subscription&#39;s components.
    * @return componentConfigurations
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The configurations of the subscription's components.")
   public List<SubscriptionComponentConfiguration> getComponentConfigurations() {
     return componentConfigurations;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription version was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription version was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The expected last period end is the date on which the projected end date of the last period is. This is only a projection and as such the actual date may be different.
+   * The date and time when the last period is expected to end.
    * @return expectedLastPeriodEnd
   **/
-  @ApiModelProperty(value = "The expected last period end is the date on which the projected end date of the last period is. This is only a projection and as such the actual date may be different.")
+  @ApiModelProperty(value = "The date and time when the last period is expected to end.")
   public OffsetDateTime getExpectedLastPeriodEnd() {
     return expectedLastPeriodEnd;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription version failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription version failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
@@ -222,32 +217,22 @@ public class SubscriptionVersion {
 
   
    /**
-   * 
+   * The date and time when the termination of the subscription version is planned.
    * @return plannedTerminationDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the termination of the subscription version is planned.")
   public OffsetDateTime getPlannedTerminationDate() {
     return plannedTerminationDate;
   }
 
   
    /**
-   * 
+   * The product version that is subscribed to.
    * @return productVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product version that is subscribed to.")
   public SubscriptionProductVersion getProductVersion() {
     return productVersion;
-  }
-
-  
-   /**
-   * 
-   * @return selectedComponents
-  **/
-  @ApiModelProperty(value = "")
-  public List<SubscriptionProductComponent> getSelectedComponents() {
-    return selectedComponents;
   }
 
   
@@ -262,40 +247,40 @@ public class SubscriptionVersion {
 
   
    /**
-   * 
+   * The subscription that this version belongs to.
    * @return subscription
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscription that this version belongs to.")
   public Subscription getSubscription() {
     return subscription;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription version was terminated.
    * @return terminatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription version was terminated.")
   public OffsetDateTime getTerminatedOn() {
     return terminatedOn;
   }
 
   
    /**
-   * 
+   * The date and time when the termination of the subscription version started.
    * @return terminatingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the termination of the subscription version started.")
   public OffsetDateTime getTerminatingOn() {
     return terminatingOn;
   }
 
   
    /**
-   * 
+   * The date and time when the termination of the subscription version was issued.
    * @return terminationIssuedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the termination of the subscription version was issued.")
   public OffsetDateTime getTerminationIssuedOn() {
     return terminationIssuedOn;
   }
@@ -333,7 +318,6 @@ public class SubscriptionVersion {
         Objects.equals(this.plannedPurgeDate, subscriptionVersion.plannedPurgeDate) &&
         Objects.equals(this.plannedTerminationDate, subscriptionVersion.plannedTerminationDate) &&
         Objects.equals(this.productVersion, subscriptionVersion.productVersion) &&
-        Objects.equals(this.selectedComponents, subscriptionVersion.selectedComponents) &&
         Objects.equals(this.state, subscriptionVersion.state) &&
         Objects.equals(this.subscription, subscriptionVersion.subscription) &&
         Objects.equals(this.terminatedOn, subscriptionVersion.terminatedOn) &&
@@ -344,7 +328,7 @@ public class SubscriptionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, billingCurrency, componentConfigurations, createdOn, expectedLastPeriodEnd, failedOn, id, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, productVersion, selectedComponents, state, subscription, terminatedOn, terminatingOn, terminationIssuedOn, version);
+    return Objects.hash(activatedOn, billingCurrency, componentConfigurations, createdOn, expectedLastPeriodEnd, failedOn, id, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, productVersion, state, subscription, terminatedOn, terminatingOn, terminationIssuedOn, version);
   }
 
 
@@ -365,7 +349,6 @@ public class SubscriptionVersion {
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    plannedTerminationDate: ").append(toIndentedString(plannedTerminationDate)).append("\n");
     sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-    sb.append("    selectedComponents: ").append(toIndentedString(selectedComponents)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
     sb.append("    terminatedOn: ").append(toIndentedString(terminatedOn)).append("\n");

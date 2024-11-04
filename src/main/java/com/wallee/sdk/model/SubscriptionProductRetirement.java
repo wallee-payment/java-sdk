@@ -54,8 +54,8 @@ public class SubscriptionProductRetirement {
   protected SubscriptionProduct product = null;
 
   
-  @JsonProperty("respectTerminiationPeriodsEnabled")
-  protected Boolean respectTerminiationPeriodsEnabled = null;
+  @JsonProperty("respectTerminationPeriods")
+  protected Boolean respectTerminationPeriods = null;
 
   
   @JsonProperty("targetProduct")
@@ -98,30 +98,30 @@ public class SubscriptionProductRetirement {
 
   
    /**
-   * 
+   * The product that is to be retired.
    * @return product
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product that is to be retired.")
   public SubscriptionProduct getProduct() {
     return product;
   }
 
   
    /**
-   * 
-   * @return respectTerminiationPeriodsEnabled
+   * Whether the subscriptions&#39; termination periods should be respected.
+   * @return respectTerminationPeriods
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isRespectTerminiationPeriodsEnabled() {
-    return respectTerminiationPeriodsEnabled;
+  @ApiModelProperty(value = "Whether the subscriptions' termination periods should be respected.")
+  public Boolean isRespectTerminationPeriods() {
+    return respectTerminationPeriods;
   }
 
   
    /**
-   * 
+   * The product to which the subscriptions with the retiring product are to be migrated. If none is defined, the subscriptions are terminated.
    * @return targetProduct
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product to which the subscriptions with the retiring product are to be migrated. If none is defined, the subscriptions are terminated.")
   public SubscriptionProduct getTargetProduct() {
     return targetProduct;
   }
@@ -151,14 +151,14 @@ public class SubscriptionProductRetirement {
         Objects.equals(this.id, subscriptionProductRetirement.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionProductRetirement.linkedSpaceId) &&
         Objects.equals(this.product, subscriptionProductRetirement.product) &&
-        Objects.equals(this.respectTerminiationPeriodsEnabled, subscriptionProductRetirement.respectTerminiationPeriodsEnabled) &&
+        Objects.equals(this.respectTerminationPeriods, subscriptionProductRetirement.respectTerminationPeriods) &&
         Objects.equals(this.targetProduct, subscriptionProductRetirement.targetProduct) &&
         Objects.equals(this.version, subscriptionProductRetirement.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, id, linkedSpaceId, product, respectTerminiationPeriodsEnabled, targetProduct, version);
+    return Objects.hash(createdOn, id, linkedSpaceId, product, respectTerminationPeriods, targetProduct, version);
   }
 
 
@@ -171,7 +171,7 @@ public class SubscriptionProductRetirement {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
-    sb.append("    respectTerminiationPeriodsEnabled: ").append(toIndentedString(respectTerminiationPeriodsEnabled)).append("\n");
+    sb.append("    respectTerminationPeriods: ").append(toIndentedString(respectTerminationPeriods)).append("\n");
     sb.append("    targetProduct: ").append(toIndentedString(targetProduct)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

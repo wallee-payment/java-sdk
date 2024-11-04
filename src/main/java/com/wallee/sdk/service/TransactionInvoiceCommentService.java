@@ -180,7 +180,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param entity 
+    * @param entity The comment object which should be created.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -208,7 +208,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param entity 
+    * @param entity The comment object which should be created.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
@@ -371,15 +371,10 @@ public class TransactionInvoiceCommentService {
             Object value = spaceId;
             uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
         }
-        if (id != null) {
-            String key = "id";
-            Object value = id;
-            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
-        }
 
         GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(id);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
@@ -387,6 +382,34 @@ public class TransactionInvoiceCommentService {
         httpRequest.setReadTimeout(readTimeOut);
         return httpRequest.execute();
     }
+
+    public HttpResponse deleteForHttpResponse(Long spaceId, java.io.InputStream id, String mediaType) throws IOException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling delete");
+        }
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new IllegalArgumentException("Missing the required parameter 'id' when calling delete");
+        }
+        URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/transaction-invoice-comment/delete");
+        if (spaceId != null) {
+            String key = "spaceId";
+            Object value = spaceId;
+            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
+        }
+
+        GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
+
+        HttpContent content = id == null ?
+            apiClient.new JacksonJsonHttpContent(null) :
+            new InputStreamContent(mediaType == null ? Json.MEDIA_TYPE : mediaType, id);
+        HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
+        
+        int readTimeOut = apiClient.getReadTimeOut() * 1000;
+        httpRequest.setReadTimeout(readTimeOut);
+        return httpRequest.execute();
+      }
 
     public HttpResponse deleteForHttpResponse(Long spaceId, Long id, Map<String, Object> params) throws IOException {
         // verify the required parameter 'spaceId' is set
@@ -403,8 +426,6 @@ public class TransactionInvoiceCommentService {
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
         // Add the required query param 'spaceId' to the map of query params
         allParams.put("spaceId", spaceId);
-        // Add the required query param 'id' to the map of query params
-        allParams.put("id", id);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -416,7 +437,7 @@ public class TransactionInvoiceCommentService {
 
         GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
-        HttpContent content = apiClient.new JacksonJsonHttpContent(null);
+        HttpContent content = apiClient.new JacksonJsonHttpContent(id);
         HttpRequest httpRequest = apiClient.getHttpRequestFactory().buildRequest(HttpMethods.POST, genericUrl, content);
         
         
@@ -433,7 +454,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment to pin to the top.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--pin">Pin Documentation</a>
@@ -451,7 +472,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment to pin to the top.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -539,7 +560,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment which should be returned.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -567,7 +588,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment which should be returned.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
@@ -665,7 +686,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment to unpin.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--unpin">Unpin Documentation</a>
@@ -683,7 +704,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param id 
+    * @param id The id of the comment to unpin.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -772,7 +793,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param entity 
+    * @param entity The comment object with the properties which should be updated.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
@@ -801,7 +822,7 @@ public class TransactionInvoiceCommentService {
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
-    * @param entity 
+    * @param entity The comment object with the properties which should be updated.
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API

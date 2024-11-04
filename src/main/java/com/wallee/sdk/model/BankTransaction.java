@@ -76,6 +76,10 @@ public class BankTransaction {
   protected Long linkedSpaceId = null;
 
   
+  @JsonProperty("paymentDate")
+  protected OffsetDateTime paymentDate = null;
+
+  
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
 
@@ -198,6 +202,16 @@ public class BankTransaction {
 
   
    /**
+   * The payment date describes the date when the transaction was made.
+   * @return paymentDate
+  **/
+  @ApiModelProperty(value = "The payment date describes the date when the transaction was made.")
+  public OffsetDateTime getPaymentDate() {
+    return paymentDate;
+  }
+
+  
+   /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
@@ -315,6 +329,7 @@ public class BankTransaction {
         Objects.equals(this.flowDirection, bankTransaction.flowDirection) &&
         Objects.equals(this.id, bankTransaction.id) &&
         Objects.equals(this.linkedSpaceId, bankTransaction.linkedSpaceId) &&
+        Objects.equals(this.paymentDate, bankTransaction.paymentDate) &&
         Objects.equals(this.plannedPurgeDate, bankTransaction.plannedPurgeDate) &&
         Objects.equals(this.postingAmount, bankTransaction.postingAmount) &&
         Objects.equals(this.reference, bankTransaction.reference) &&
@@ -329,7 +344,7 @@ public class BankTransaction {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adjustments, createdBy, createdOn, currencyBankAccount, externalId, flowDirection, id, linkedSpaceId, plannedPurgeDate, postingAmount, reference, source, state, totalAdjustmentAmountIncludingTax, type, valueAmount, valueDate, version);
+    return Objects.hash(adjustments, createdBy, createdOn, currencyBankAccount, externalId, flowDirection, id, linkedSpaceId, paymentDate, plannedPurgeDate, postingAmount, reference, source, state, totalAdjustmentAmountIncludingTax, type, valueAmount, valueDate, version);
   }
 
 
@@ -346,6 +361,7 @@ public class BankTransaction {
     sb.append("    flowDirection: ").append(toIndentedString(flowDirection)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    paymentDate: ").append(toIndentedString(paymentDate)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    postingAmount: ").append(toIndentedString(postingAmount)).append("\n");
     sb.append("    reference: ").append(toIndentedString(reference)).append("\n");

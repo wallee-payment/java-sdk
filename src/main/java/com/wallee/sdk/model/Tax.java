@@ -47,20 +47,20 @@ public class Tax {
   
   
    /**
-   * 
+   * The tax rate to be applied.
    * @return rate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The tax rate to be applied.")
   public BigDecimal getRate() {
     return rate;
   }
 
   
    /**
-   * 
+   * The name of the tax.
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the tax.")
   public String getTitle() {
     return title;
   }

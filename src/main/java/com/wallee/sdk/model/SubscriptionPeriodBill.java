@@ -85,20 +85,20 @@ public class SubscriptionPeriodBill {
   
   
    /**
-   * 
+   * The date and time when the period bill was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the period bill was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * 
+   * The date and time when the period actually ended.
    * @return effectivePeriodEndDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the period actually ended.")
   public OffsetDateTime getEffectivePeriodEndDate() {
     return effectivePeriodEndDate;
   }
@@ -135,20 +135,20 @@ public class SubscriptionPeriodBill {
 
   
    /**
-   * 
+   * The date and time when the period started.
    * @return periodStartDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the period started.")
   public OffsetDateTime getPeriodStartDate() {
     return periodStartDate;
   }
 
   
    /**
-   * 
+   * The date and time when the period is planned to end.
    * @return plannedPeriodEndDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the period is planned to end.")
   public OffsetDateTime getPlannedPeriodEndDate() {
     return plannedPeriodEndDate;
   }
@@ -175,10 +175,10 @@ public class SubscriptionPeriodBill {
 
   
    /**
-   * 
+   * The subscription version that the period bill belongs to.
    * @return subscriptionVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscription version that the period bill belongs to.")
   public SubscriptionVersion getSubscriptionVersion() {
     return subscriptionVersion;
   }

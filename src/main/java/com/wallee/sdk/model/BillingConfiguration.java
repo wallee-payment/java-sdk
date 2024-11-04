@@ -37,7 +37,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifySubscriptionModelBillingConfiguration {
+public class BillingConfiguration {
   
   @JsonProperty("billingDayOfMonth")
   protected Integer billingDayOfMonth = null;
@@ -76,7 +76,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
 
   
   
-  public ShopifySubscriptionModelBillingConfiguration billingDayOfMonth(Integer billingDayOfMonth) {
+  public BillingConfiguration billingDayOfMonth(Integer billingDayOfMonth) {
     this.billingDayOfMonth = billingDayOfMonth;
     return this;
   }
@@ -95,7 +95,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration billingIntervalAmount(Integer billingIntervalAmount) {
+  public BillingConfiguration billingIntervalAmount(Integer billingIntervalAmount) {
     this.billingIntervalAmount = billingIntervalAmount;
     return this;
   }
@@ -114,7 +114,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration billingIntervalUnit(ShopifySubscriptionBillingIntervalUnit billingIntervalUnit) {
+  public BillingConfiguration billingIntervalUnit(ShopifySubscriptionBillingIntervalUnit billingIntervalUnit) {
     this.billingIntervalUnit = billingIntervalUnit;
     return this;
   }
@@ -133,7 +133,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration billingReferenceDate(OffsetDateTime billingReferenceDate) {
+  public BillingConfiguration billingReferenceDate(OffsetDateTime billingReferenceDate) {
     this.billingReferenceDate = billingReferenceDate;
     return this;
   }
@@ -152,7 +152,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration billingWeekday(ShopifySubscriptionWeekday billingWeekday) {
+  public BillingConfiguration billingWeekday(ShopifySubscriptionWeekday billingWeekday) {
     this.billingWeekday = billingWeekday;
     return this;
   }
@@ -171,7 +171,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration maximalBillingCycles(Integer maximalBillingCycles) {
+  public BillingConfiguration maximalBillingCycles(Integer maximalBillingCycles) {
     this.maximalBillingCycles = maximalBillingCycles;
     return this;
   }
@@ -190,7 +190,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration maximalSuspendableCycles(Integer maximalSuspendableCycles) {
+  public BillingConfiguration maximalSuspendableCycles(Integer maximalSuspendableCycles) {
     this.maximalSuspendableCycles = maximalSuspendableCycles;
     return this;
   }
@@ -209,7 +209,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration minimalBillingCycles(Integer minimalBillingCycles) {
+  public BillingConfiguration minimalBillingCycles(Integer minimalBillingCycles) {
     this.minimalBillingCycles = minimalBillingCycles;
     return this;
   }
@@ -228,7 +228,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   }
 
   
-  public ShopifySubscriptionModelBillingConfiguration terminationBillingCycles(Integer terminationBillingCycles) {
+  public BillingConfiguration terminationBillingCycles(Integer terminationBillingCycles) {
     this.terminationBillingCycles = terminationBillingCycles;
     return this;
   }
@@ -256,16 +256,16 @@ public class ShopifySubscriptionModelBillingConfiguration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifySubscriptionModelBillingConfiguration shopifySubscriptionModelBillingConfiguration = (ShopifySubscriptionModelBillingConfiguration) o;
-    return Objects.equals(this.billingDayOfMonth, shopifySubscriptionModelBillingConfiguration.billingDayOfMonth) &&
-        Objects.equals(this.billingIntervalAmount, shopifySubscriptionModelBillingConfiguration.billingIntervalAmount) &&
-        Objects.equals(this.billingIntervalUnit, shopifySubscriptionModelBillingConfiguration.billingIntervalUnit) &&
-        Objects.equals(this.billingReferenceDate, shopifySubscriptionModelBillingConfiguration.billingReferenceDate) &&
-        Objects.equals(this.billingWeekday, shopifySubscriptionModelBillingConfiguration.billingWeekday) &&
-        Objects.equals(this.maximalBillingCycles, shopifySubscriptionModelBillingConfiguration.maximalBillingCycles) &&
-        Objects.equals(this.maximalSuspendableCycles, shopifySubscriptionModelBillingConfiguration.maximalSuspendableCycles) &&
-        Objects.equals(this.minimalBillingCycles, shopifySubscriptionModelBillingConfiguration.minimalBillingCycles) &&
-        Objects.equals(this.terminationBillingCycles, shopifySubscriptionModelBillingConfiguration.terminationBillingCycles);
+    BillingConfiguration billingConfiguration = (BillingConfiguration) o;
+    return Objects.equals(this.billingDayOfMonth, billingConfiguration.billingDayOfMonth) &&
+        Objects.equals(this.billingIntervalAmount, billingConfiguration.billingIntervalAmount) &&
+        Objects.equals(this.billingIntervalUnit, billingConfiguration.billingIntervalUnit) &&
+        Objects.equals(this.billingReferenceDate, billingConfiguration.billingReferenceDate) &&
+        Objects.equals(this.billingWeekday, billingConfiguration.billingWeekday) &&
+        Objects.equals(this.maximalBillingCycles, billingConfiguration.maximalBillingCycles) &&
+        Objects.equals(this.maximalSuspendableCycles, billingConfiguration.maximalSuspendableCycles) &&
+        Objects.equals(this.minimalBillingCycles, billingConfiguration.minimalBillingCycles) &&
+        Objects.equals(this.terminationBillingCycles, billingConfiguration.terminationBillingCycles);
   }
 
   @Override
@@ -277,7 +277,7 @@ public class ShopifySubscriptionModelBillingConfiguration {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionModelBillingConfiguration {\n");
+    sb.append("class BillingConfiguration {\n");
     
     sb.append("    billingDayOfMonth: ").append(toIndentedString(billingDayOfMonth)).append("\n");
     sb.append("    billingIntervalAmount: ").append(toIndentedString(billingIntervalAmount)).append("\n");

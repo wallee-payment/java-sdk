@@ -52,10 +52,10 @@ public class TaxCreate {
   }
 
    /**
-   * 
+   * The tax rate to be applied.
    * @return rate
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The tax rate to be applied.")
   public BigDecimal getRate() {
     return rate;
   }
@@ -71,10 +71,10 @@ public class TaxCreate {
   }
 
    /**
-   * 
+   * The name of the tax.
    * @return title
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The name of the tax.")
   public String getTitle() {
     return title;
   }

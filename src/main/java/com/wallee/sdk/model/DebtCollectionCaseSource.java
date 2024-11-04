@@ -33,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The debt collection case source represents the origin of the case. It allows to understand from where the amount receivable is coming from.
+ * The debt collection case source represents the origin of the case. It allows to understand where the amount receivable is coming from.
  */
-@ApiModel(description = "The debt collection case source represents the origin of the case. It allows to understand from where the amount receivable is coming from.")
+@ApiModel(description = "The debt collection case source represents the origin of the case. It allows to understand where the amount receivable is coming from.")
 
 public class DebtCollectionCaseSource {
   
@@ -67,10 +67,10 @@ public class DebtCollectionCaseSource {
 
   
    /**
-   * 
+   * Whether debt collection cases created from this source will skip review and directly enter preparing state.
    * @return forcedPreparingState
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether debt collection cases created from this source will skip review and directly enter preparing state.")
   public Boolean isForcedPreparingState() {
     return forcedPreparingState;
   }

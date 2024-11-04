@@ -58,40 +58,40 @@ public class MetricUsage {
   
   
    /**
-   * The consumed units provide the value of how much has been consumed of the particular metric.
+   * The number of consumed units.
    * @return consumedUnits
   **/
-  @ApiModelProperty(value = "The consumed units provide the value of how much has been consumed of the particular metric.")
+  @ApiModelProperty(value = "The number of consumed units.")
   public BigDecimal getConsumedUnits() {
     return consumedUnits;
   }
 
   
    /**
-   * The metric description describes the metric.
+   * The description of the consumed unit&#39;s metric.
    * @return metricDescription
   **/
-  @ApiModelProperty(value = "The metric description describes the metric.")
+  @ApiModelProperty(value = "The description of the consumed unit's metric.")
   public Map<String, String> getMetricDescription() {
     return metricDescription;
   }
 
   
    /**
-   * The metric ID identifies the metric for consumed units.
+   * The ID of the consumed units&#39; metric.
    * @return metricId
   **/
-  @ApiModelProperty(value = "The metric ID identifies the metric for consumed units.")
+  @ApiModelProperty(value = "The ID of the consumed units' metric.")
   public Long getMetricId() {
     return metricId;
   }
 
   
    /**
-   * The metric name defines the name of the consumed units.
+   * The name of the consumed units&#39; metric.
    * @return metricName
   **/
-  @ApiModelProperty(value = "The metric name defines the name of the consumed units.")
+  @ApiModelProperty(value = "The name of the consumed units' metric.")
   public Map<String, String> getMetricName() {
     return metricName;
   }

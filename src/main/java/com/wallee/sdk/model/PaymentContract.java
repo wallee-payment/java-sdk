@@ -108,50 +108,50 @@ public class PaymentContract {
   
   
    /**
-   * 
+   * This account that the contract belongs to.
    * @return account
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "This account that the contract belongs to.")
   public Account getAccount() {
     return account;
   }
 
   
    /**
-   * 
+   * The date and time when the contract was activated.
    * @return activatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the contract was activated.")
   public OffsetDateTime getActivatedOn() {
     return activatedOn;
   }
 
   
    /**
-   * 
+   * The identifier of the contract.
    * @return contractIdentifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The identifier of the contract.")
   public String getContractIdentifier() {
     return contractIdentifier;
   }
 
   
    /**
-   * 
+   * The type of the contract.
    * @return contractType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the contract.")
   public PaymentContractType getContractType() {
     return contractType;
   }
 
   
    /**
-   * 
+   * The ID of the user the contract was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the contract was created by.")
   public User getCreatedBy() {
     return createdBy;
   }
@@ -198,30 +198,30 @@ public class PaymentContract {
 
   
    /**
-   * 
+   * The date and time when the contract was rejected.
    * @return rejectedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the contract was rejected.")
   public OffsetDateTime getRejectedOn() {
     return rejectedOn;
   }
 
   
    /**
-   * 
+   * The reason for rejecting the contract.
    * @return rejectionReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for rejecting the contract.")
   public FailureReason getRejectionReason() {
     return rejectionReason;
   }
 
   
    /**
-   * 
+   * The date and time when the termination process of the contract was started.
    * @return startTerminatingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the termination process of the contract was started.")
   public OffsetDateTime getStartTerminatingOn() {
     return startTerminatingOn;
   }
@@ -238,20 +238,20 @@ public class PaymentContract {
 
   
    /**
-   * 
+   * The ID of the user the contract was terminated by.
    * @return terminatedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the contract was terminated by.")
   public User getTerminatedBy() {
     return terminatedBy;
   }
 
   
    /**
-   * 
+   * The date and time when the contract was terminated.
    * @return terminatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the contract was terminated.")
   public OffsetDateTime getTerminatedOn() {
     return terminatedOn;
   }

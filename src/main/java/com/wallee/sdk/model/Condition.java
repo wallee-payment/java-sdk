@@ -32,9 +32,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * A condition configuration controls under which condition a payment connector is applied to a transaction.
+ * A condition allows you to define a criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.
  */
-@ApiModel(description = "A condition configuration controls under which condition a payment connector is applied to a transaction.")
+@ApiModel(description = "A condition allows you to define a criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.")
 
 public class Condition {
   
@@ -68,10 +68,10 @@ public class Condition {
   
   
    /**
-   * The selected condition type defines how the configuration is applied to the transactions.
+   * The condition type determines the criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.
    * @return conditionType
   **/
-  @ApiModelProperty(value = "The selected condition type defines how the configuration is applied to the transactions.")
+  @ApiModelProperty(value = "The condition type determines the criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.")
   public Long getConditionType() {
     return conditionType;
   }
@@ -98,10 +98,10 @@ public class Condition {
 
   
    /**
-   * The condition name is used internally to identify the condition. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the condition.
    * @return name
   **/
-  @ApiModelProperty(value = "The condition name is used internally to identify the condition. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the condition.")
   public String getName() {
     return name;
   }

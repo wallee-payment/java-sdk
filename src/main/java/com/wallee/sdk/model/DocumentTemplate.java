@@ -85,20 +85,20 @@ public class DocumentTemplate {
   
   
    /**
-   * The default document template is used whenever no specific template is specified for a particular template type.
+   * Whether this is the default document template which is used whenever no specific template is specified for the same template type.
    * @return defaultTemplate
   **/
-  @ApiModelProperty(value = "The default document template is used whenever no specific template is specified for a particular template type.")
+  @ApiModelProperty(value = "Whether this is the default document template which is used whenever no specific template is specified for the same template type.")
   public Boolean isDefaultTemplate() {
     return defaultTemplate;
   }
 
   
    /**
-   * 
+   * Whether documents of this template should be delivered.
    * @return deliveryEnabled
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether documents of this template should be delivered.")
   public Boolean isDeliveryEnabled() {
     return deliveryEnabled;
   }
@@ -125,10 +125,10 @@ public class DocumentTemplate {
 
   
    /**
-   * 
+   * The name used to identify the document template.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to identify the document template.")
   public String getName() {
     return name;
   }
@@ -145,10 +145,10 @@ public class DocumentTemplate {
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
    * @return spaceId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getSpaceId() {
     return spaceId;
   }
@@ -165,20 +165,20 @@ public class DocumentTemplate {
 
   
    /**
-   * 
+   * The resource path to a custom template to be used to generate PDF documents.
    * @return templateResource
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The resource path to a custom template to be used to generate PDF documents.")
   public ResourcePath getTemplateResource() {
     return templateResource;
   }
 
   
    /**
-   * 
+   * The document template&#39;s type.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The document template's type.")
   public Long getType() {
     return type;
   }

@@ -33,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * 
+ * Payment processors handle the connection to third part companies (payment service providers) that technically manage payment transactions and therefore process payments.
  */
-@ApiModel(description = "")
+@ApiModel(description = "Payment processors handle the connection to third part companies (payment service providers) that technically manage payment transactions and therefore process payments.")
 
 public class PaymentProcessor {
   
@@ -45,10 +45,6 @@ public class PaymentProcessor {
   
   @JsonProperty("description")
   protected Map<String, String> description = null;
-
-  
-  @JsonProperty("feature")
-  protected Long feature = null;
 
   
   @JsonProperty("headquartersLocation")
@@ -73,10 +69,10 @@ public class PaymentProcessor {
   
   
    /**
-   * 
+   * The name of the company to which the processor belongs.
    * @return companyName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the company to which the processor belongs.")
   public Map<String, String> getCompanyName() {
     return companyName;
   }
@@ -93,20 +89,10 @@ public class PaymentProcessor {
 
   
    /**
-   * 
-   * @return feature
-  **/
-  @ApiModelProperty(value = "")
-  public Long getFeature() {
-    return feature;
-  }
-
-  
-   /**
-   * 
+   * Where the processor&#39;s headquarters are located.
    * @return headquartersLocation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Where the processor's headquarters are located.")
   public Map<String, String> getHeadquartersLocation() {
     return headquartersLocation;
   }
@@ -123,10 +109,10 @@ public class PaymentProcessor {
 
   
    /**
-   * 
+   * The path to the logo image of the processor.
    * @return logoPath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The path to the logo image of the processor.")
   public String getLogoPath() {
     return logoPath;
   }
@@ -143,10 +129,10 @@ public class PaymentProcessor {
 
   
    /**
-   * 
+   * The name of the processor&#39;s product.
    * @return productName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the processor's product.")
   public Map<String, String> getProductName() {
     return productName;
   }
@@ -164,7 +150,6 @@ public class PaymentProcessor {
     PaymentProcessor paymentProcessor = (PaymentProcessor) o;
     return Objects.equals(this.companyName, paymentProcessor.companyName) &&
         Objects.equals(this.description, paymentProcessor.description) &&
-        Objects.equals(this.feature, paymentProcessor.feature) &&
         Objects.equals(this.headquartersLocation, paymentProcessor.headquartersLocation) &&
         Objects.equals(this.id, paymentProcessor.id) &&
         Objects.equals(this.logoPath, paymentProcessor.logoPath) &&
@@ -174,7 +159,7 @@ public class PaymentProcessor {
 
   @Override
   public int hashCode() {
-    return Objects.hash(companyName, description, feature, headquartersLocation, id, logoPath, name, productName);
+    return Objects.hash(companyName, description, headquartersLocation, id, logoPath, name, productName);
   }
 
 
@@ -185,7 +170,6 @@ public class PaymentProcessor {
     
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
     sb.append("    headquartersLocation: ").append(toIndentedString(headquartersLocation)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    logoPath: ").append(toIndentedString(logoPath)).append("\n");

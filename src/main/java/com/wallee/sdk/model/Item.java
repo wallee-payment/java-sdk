@@ -24,7 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ShopifySubscriptionModelTaxLine;
+import com.wallee.sdk.model.TaxLine;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -38,7 +38,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifySubscriptionModelItem {
+public class Item {
   
   @JsonProperty("priceIncludingTax")
   protected BigDecimal priceIncludingTax = null;
@@ -57,11 +57,11 @@ public class ShopifySubscriptionModelItem {
 
   
   @JsonProperty("taxLines")
-  protected List<ShopifySubscriptionModelTaxLine> taxLines = null;
+  protected List<TaxLine> taxLines = null;
 
   
   
-  public ShopifySubscriptionModelItem priceIncludingTax(BigDecimal priceIncludingTax) {
+  public Item priceIncludingTax(BigDecimal priceIncludingTax) {
     this.priceIncludingTax = priceIncludingTax;
     return this;
   }
@@ -80,7 +80,7 @@ public class ShopifySubscriptionModelItem {
   }
 
   
-  public ShopifySubscriptionModelItem productId(Long productId) {
+  public Item productId(Long productId) {
     this.productId = productId;
     return this;
   }
@@ -99,7 +99,7 @@ public class ShopifySubscriptionModelItem {
   }
 
   
-  public ShopifySubscriptionModelItem quantity(BigDecimal quantity) {
+  public Item quantity(BigDecimal quantity) {
     this.quantity = quantity;
     return this;
   }
@@ -118,7 +118,7 @@ public class ShopifySubscriptionModelItem {
   }
 
   
-  public ShopifySubscriptionModelItem recalculatePrice(Boolean recalculatePrice) {
+  public Item recalculatePrice(Boolean recalculatePrice) {
     this.recalculatePrice = recalculatePrice;
     return this;
   }
@@ -137,12 +137,12 @@ public class ShopifySubscriptionModelItem {
   }
 
   
-  public ShopifySubscriptionModelItem taxLines(List<ShopifySubscriptionModelTaxLine> taxLines) {
+  public Item taxLines(List<TaxLine> taxLines) {
     this.taxLines = taxLines;
     return this;
   }
 
-  public ShopifySubscriptionModelItem addTaxLinesItem(ShopifySubscriptionModelTaxLine taxLinesItem) {
+  public Item addTaxLinesItem(TaxLine taxLinesItem) {
     if (this.taxLines == null) {
       this.taxLines = new ArrayList<>();
     }
@@ -155,11 +155,11 @@ public class ShopifySubscriptionModelItem {
    * @return taxLines
   **/
   @ApiModelProperty(value = "")
-  public List<ShopifySubscriptionModelTaxLine> getTaxLines() {
+  public List<TaxLine> getTaxLines() {
     return taxLines;
   }
 
-  public void setTaxLines(List<ShopifySubscriptionModelTaxLine> taxLines) {
+  public void setTaxLines(List<TaxLine> taxLines) {
     this.taxLines = taxLines;
   }
 
@@ -173,12 +173,12 @@ public class ShopifySubscriptionModelItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifySubscriptionModelItem shopifySubscriptionModelItem = (ShopifySubscriptionModelItem) o;
-    return Objects.equals(this.priceIncludingTax, shopifySubscriptionModelItem.priceIncludingTax) &&
-        Objects.equals(this.productId, shopifySubscriptionModelItem.productId) &&
-        Objects.equals(this.quantity, shopifySubscriptionModelItem.quantity) &&
-        Objects.equals(this.recalculatePrice, shopifySubscriptionModelItem.recalculatePrice) &&
-        Objects.equals(this.taxLines, shopifySubscriptionModelItem.taxLines);
+    Item item = (Item) o;
+    return Objects.equals(this.priceIncludingTax, item.priceIncludingTax) &&
+        Objects.equals(this.productId, item.productId) &&
+        Objects.equals(this.quantity, item.quantity) &&
+        Objects.equals(this.recalculatePrice, item.recalculatePrice) &&
+        Objects.equals(this.taxLines, item.taxLines);
   }
 
   @Override
@@ -190,7 +190,7 @@ public class ShopifySubscriptionModelItem {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionModelItem {\n");
+    sb.append("class Item {\n");
     
     sb.append("    priceIncludingTax: ").append(toIndentedString(priceIncludingTax)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");

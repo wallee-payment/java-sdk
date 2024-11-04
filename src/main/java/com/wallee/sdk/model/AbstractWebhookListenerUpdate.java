@@ -65,10 +65,10 @@ public class AbstractWebhookListenerUpdate {
   }
 
    /**
-   * Whether signature header and state property are enabled in webhook payload.
+   * Whether signature header and &#39;state&#39; property are enabled in webhook payload.
    * @return enablePayloadSignatureAndState
   **/
-  @ApiModelProperty(value = "Whether signature header and state property are enabled in webhook payload.")
+  @ApiModelProperty(value = "Whether signature header and 'state' property are enabled in webhook payload.")
   public Boolean isEnablePayloadSignatureAndState() {
     return enablePayloadSignatureAndState;
   }

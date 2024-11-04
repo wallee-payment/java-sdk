@@ -42,7 +42,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "A Shopify Integration allows to connect a Shopify shop.")
 
-public class ShopifyIntegration {
+public class ShopifyV1Integration {
   
   @JsonProperty("additionalLineItemData")
   protected List<ShopifyAdditionalLineItemData> additionalLineItemData = null;
@@ -212,10 +212,10 @@ public class ShopifyIntegration {
 
   
    /**
-   * The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shops payment gateway configuration.
+   * The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shop&#39;s payment gateway configuration.
    * @return loginName
   **/
-  @ApiModelProperty(value = "The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shops payment gateway configuration.")
+  @ApiModelProperty(value = "The login name is used to link a specific Shopify payment gateway to this integration.This login name is to be filled into the appropriate field in the shop's payment gateway configuration.")
   public String getLoginName() {
     return loginName;
   }
@@ -252,10 +252,10 @@ public class ShopifyIntegration {
 
   
    /**
-   * Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.
+   * Define the path of the proxy URL. This only needs to be changed if the app&#39;s proxy URL is overwritten in the Shopify store.
    * @return paymentProxyPath
   **/
-  @ApiModelProperty(value = "Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.")
+  @ApiModelProperty(value = "Define the path of the proxy URL. This only needs to be changed if the app's proxy URL is overwritten in the Shopify store.")
   public String getPaymentProxyPath() {
     return paymentProxyPath;
   }
@@ -282,10 +282,10 @@ public class ShopifyIntegration {
 
   
    /**
-   * The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopifys admin URL: [storeAddress].myshopify.com
+   * The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopify&#39;s admin URL: [storeAddress].myshopify.com
    * @return shopName
   **/
-  @ApiModelProperty(value = "The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopifys admin URL: [storeAddress].myshopify.com")
+  @ApiModelProperty(value = "The store address is used to link a specific Shopify shop to this integration. This is the name used in the Shopify's admin URL: [storeAddress].myshopify.com")
   public String getShopName() {
     return shopName;
   }
@@ -322,10 +322,10 @@ public class ShopifyIntegration {
 
   
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }
@@ -362,10 +362,10 @@ public class ShopifyIntegration {
 
   
    /**
-   * Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.
+   * Define the path of the proxy URL. This only needs to be changed if the app&#39;s proxy URL is overwritten in the Shopify store.
    * @return subscriptionProxyPath
   **/
-  @ApiModelProperty(value = "Define the path of the proxy URL. This only needs to be changed if the apps proxy URL is overwritten in the Shopify store.")
+  @ApiModelProperty(value = "Define the path of the proxy URL. This only needs to be changed if the app's proxy URL is overwritten in the Shopify store.")
   public String getSubscriptionProxyPath() {
     return subscriptionProxyPath;
   }
@@ -390,31 +390,31 @@ public class ShopifyIntegration {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifyIntegration shopifyIntegration = (ShopifyIntegration) o;
-    return Objects.equals(this.additionalLineItemData, shopifyIntegration.additionalLineItemData) &&
-        Objects.equals(this.allowInvoiceDownload, shopifyIntegration.allowInvoiceDownload) &&
-        Objects.equals(this.allowedPaymentMethodConfigurations, shopifyIntegration.allowedPaymentMethodConfigurations) &&
-        Objects.equals(this.currency, shopifyIntegration.currency) &&
-        Objects.equals(this.id, shopifyIntegration.id) &&
-        Objects.equals(this.integratedPaymentFormEnabled, shopifyIntegration.integratedPaymentFormEnabled) &&
-        Objects.equals(this.language, shopifyIntegration.language) &&
-        Objects.equals(this.loginName, shopifyIntegration.loginName) &&
-        Objects.equals(this.name, shopifyIntegration.name) &&
-        Objects.equals(this.paymentAppVersion, shopifyIntegration.paymentAppVersion) &&
-        Objects.equals(this.paymentInstalled, shopifyIntegration.paymentInstalled) &&
-        Objects.equals(this.paymentProxyPath, shopifyIntegration.paymentProxyPath) &&
-        Objects.equals(this.plannedPurgeDate, shopifyIntegration.plannedPurgeDate) &&
-        Objects.equals(this.replacePaymentMethodImage, shopifyIntegration.replacePaymentMethodImage) &&
-        Objects.equals(this.shopName, shopifyIntegration.shopName) &&
-        Objects.equals(this.showPaymentInformation, shopifyIntegration.showPaymentInformation) &&
-        Objects.equals(this.showSubscriptionInformation, shopifyIntegration.showSubscriptionInformation) &&
-        Objects.equals(this.spaceId, shopifyIntegration.spaceId) &&
-        Objects.equals(this.spaceViewId, shopifyIntegration.spaceViewId) &&
-        Objects.equals(this.state, shopifyIntegration.state) &&
-        Objects.equals(this.subscriptionAppVersion, shopifyIntegration.subscriptionAppVersion) &&
-        Objects.equals(this.subscriptionInstalled, shopifyIntegration.subscriptionInstalled) &&
-        Objects.equals(this.subscriptionProxyPath, shopifyIntegration.subscriptionProxyPath) &&
-        Objects.equals(this.version, shopifyIntegration.version);
+    ShopifyV1Integration shopifyV1Integration = (ShopifyV1Integration) o;
+    return Objects.equals(this.additionalLineItemData, shopifyV1Integration.additionalLineItemData) &&
+        Objects.equals(this.allowInvoiceDownload, shopifyV1Integration.allowInvoiceDownload) &&
+        Objects.equals(this.allowedPaymentMethodConfigurations, shopifyV1Integration.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.currency, shopifyV1Integration.currency) &&
+        Objects.equals(this.id, shopifyV1Integration.id) &&
+        Objects.equals(this.integratedPaymentFormEnabled, shopifyV1Integration.integratedPaymentFormEnabled) &&
+        Objects.equals(this.language, shopifyV1Integration.language) &&
+        Objects.equals(this.loginName, shopifyV1Integration.loginName) &&
+        Objects.equals(this.name, shopifyV1Integration.name) &&
+        Objects.equals(this.paymentAppVersion, shopifyV1Integration.paymentAppVersion) &&
+        Objects.equals(this.paymentInstalled, shopifyV1Integration.paymentInstalled) &&
+        Objects.equals(this.paymentProxyPath, shopifyV1Integration.paymentProxyPath) &&
+        Objects.equals(this.plannedPurgeDate, shopifyV1Integration.plannedPurgeDate) &&
+        Objects.equals(this.replacePaymentMethodImage, shopifyV1Integration.replacePaymentMethodImage) &&
+        Objects.equals(this.shopName, shopifyV1Integration.shopName) &&
+        Objects.equals(this.showPaymentInformation, shopifyV1Integration.showPaymentInformation) &&
+        Objects.equals(this.showSubscriptionInformation, shopifyV1Integration.showSubscriptionInformation) &&
+        Objects.equals(this.spaceId, shopifyV1Integration.spaceId) &&
+        Objects.equals(this.spaceViewId, shopifyV1Integration.spaceViewId) &&
+        Objects.equals(this.state, shopifyV1Integration.state) &&
+        Objects.equals(this.subscriptionAppVersion, shopifyV1Integration.subscriptionAppVersion) &&
+        Objects.equals(this.subscriptionInstalled, shopifyV1Integration.subscriptionInstalled) &&
+        Objects.equals(this.subscriptionProxyPath, shopifyV1Integration.subscriptionProxyPath) &&
+        Objects.equals(this.version, shopifyV1Integration.version);
   }
 
   @Override
@@ -426,7 +426,7 @@ public class ShopifyIntegration {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifyIntegration {\n");
+    sb.append("class ShopifyV1Integration {\n");
     
     sb.append("    additionalLineItemData: ").append(toIndentedString(additionalLineItemData)).append("\n");
     sb.append("    allowInvoiceDownload: ").append(toIndentedString(allowInvoiceDownload)).append("\n");

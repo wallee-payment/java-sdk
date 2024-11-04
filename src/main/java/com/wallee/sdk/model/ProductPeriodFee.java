@@ -85,20 +85,20 @@ public class ProductPeriodFee {
   
   
    /**
-   * 
+   * The product component that the fee belongs to.
    * @return component
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product component that the fee belongs to.")
   public SubscriptionProductComponent getComponent() {
     return component;
   }
 
   
    /**
-   * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+   * The localized description of the fee that is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
+  @ApiModelProperty(value = "The localized description of the fee that is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -115,10 +115,10 @@ public class ProductPeriodFee {
 
   
    /**
-   * The ledger entry title will be used for the title in the ledger entry and in the invoice.
+   * The localized title that be used on ledger entries and invoices.
    * @return ledgerEntryTitle
   **/
-  @ApiModelProperty(value = "The ledger entry title will be used for the title in the ledger entry and in the invoice.")
+  @ApiModelProperty(value = "The localized title that be used on ledger entries and invoices.")
   public Map<String, String> getLedgerEntryTitle() {
     return ledgerEntryTitle;
   }
@@ -135,40 +135,40 @@ public class ProductPeriodFee {
 
   
    /**
-   * The name of the fee should describe for the subscriber in few words for what the fee is for.
+   * The localized name of the fee that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
+  @ApiModelProperty(value = "The localized name of the fee that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * The number of free trial periods specify how many periods are free of charge at the begining of the subscription.
+   * The number of subscription billing cycles that count as a trial phase and during which no fees are charged.
    * @return numberOfFreeTrialPeriods
   **/
-  @ApiModelProperty(value = "The number of free trial periods specify how many periods are free of charge at the begining of the subscription.")
+  @ApiModelProperty(value = "The number of subscription billing cycles that count as a trial phase and during which no fees are charged.")
   public Integer getNumberOfFreeTrialPeriods() {
     return numberOfFreeTrialPeriods;
   }
 
   
    /**
-   * The period fee is charged for every period of the subscription except for those periods which are trial periods.
+   * The amount charged to the customer for each billing cycle during the term of a subscription.
    * @return periodFee
   **/
-  @ApiModelProperty(value = "The period fee is charged for every period of the subscription except for those periods which are trial periods.")
+  @ApiModelProperty(value = "The amount charged to the customer for each billing cycle during the term of a subscription.")
   public List<PersistableCurrencyAmount> getPeriodFee() {
     return periodFee;
   }
 
   
    /**
-   * 
+   * The type of the fee.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the fee.")
   public ProductFeeType getType() {
     return type;
   }

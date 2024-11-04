@@ -108,20 +108,20 @@ public class SubscriptionSuspension {
 
   
    /**
-   * 
+   * The date and time when the suspension ended.
    * @return effectiveEndDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the suspension ended.")
   public OffsetDateTime getEffectiveEndDate() {
     return effectiveEndDate;
   }
 
   
    /**
-   * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
+   * Whether the subscription should be terminated or reactivated after the suspension has reached its end date.
    * @return endAction
   **/
-  @ApiModelProperty(value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
+  @ApiModelProperty(value = "Whether the subscription should be terminated or reactivated after the suspension has reached its end date.")
   public SubscriptionSuspensionAction getEndAction() {
     return endAction;
   }
@@ -158,30 +158,30 @@ public class SubscriptionSuspension {
 
   
    /**
-   * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
+   * A note that contains details about the suspension. It is not disclosed to the subscriber.
    * @return note
   **/
-  @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
+  @ApiModelProperty(value = "A note that contains details about the suspension. It is not disclosed to the subscriber.")
   public String getNote() {
     return note;
   }
 
   
    /**
-   * 
+   * The period bill that led to the suspension of the subscription.
    * @return periodBill
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The period bill that led to the suspension of the subscription.")
   public Long getPeriodBill() {
     return periodBill;
   }
 
   
    /**
-   * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
+   * The date and time when the suspension is planned to end.
    * @return plannedEndDate
   **/
-  @ApiModelProperty(value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
+  @ApiModelProperty(value = "The date and time when the suspension is planned to end.")
   public OffsetDateTime getPlannedEndDate() {
     return plannedEndDate;
   }
@@ -198,10 +198,10 @@ public class SubscriptionSuspension {
 
   
    /**
-   * The suspension reason indicates why a suspension has been created.
+   * The reason why the subscription was suspended.
    * @return reason
   **/
-  @ApiModelProperty(value = "The suspension reason indicates why a suspension has been created.")
+  @ApiModelProperty(value = "The reason why the subscription was suspended.")
   public SubscriptionSuspensionReason getReason() {
     return reason;
   }
@@ -218,10 +218,10 @@ public class SubscriptionSuspension {
 
   
    /**
-   * 
+   * The subscription that this suspension belongs to.
    * @return subscription
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscription that this suspension belongs to.")
   public Long getSubscription() {
     return subscription;
   }

@@ -116,10 +116,10 @@ public class SubscriptionProductComponentGroupUpdate {
   }
 
    /**
-   * The component group name will be shown when the components are selected. This can be visible to the subscriber.
+   * The localized name of the component group that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The component group name will be shown when the components are selected. This can be visible to the subscriber.")
+  @ApiModelProperty(value = "The localized name of the component group that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
@@ -135,10 +135,10 @@ public class SubscriptionProductComponentGroupUpdate {
   }
 
    /**
-   * The component group can be optional. This means no component has to be selected by the subscriber.
+   * Whether the component group is optional, i.e. the customer does not have to select any component.
    * @return optional
   **/
-  @ApiModelProperty(value = "The component group can be optional. This means no component has to be selected by the subscriber.")
+  @ApiModelProperty(value = "Whether the component group is optional, i.e. the customer does not have to select any component.")
   public Boolean isOptional() {
     return optional;
   }
@@ -154,10 +154,10 @@ public class SubscriptionProductComponentGroupUpdate {
   }
 
    /**
-   * 
+   * The product version that the component group belongs to.
    * @return productVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product version that the component group belongs to.")
   public Long getProductVersion() {
     return productVersion;
   }
@@ -173,10 +173,10 @@ public class SubscriptionProductComponentGroupUpdate {
   }
 
    /**
-   * The sort order controls in which order the component group is listed. The sort order is used to order the component groups in ascending order.
+   * When listing component groups, they can be sorted by this number.
    * @return sortOrder
   **/
-  @ApiModelProperty(value = "The sort order controls in which order the component group is listed. The sort order is used to order the component groups in ascending order.")
+  @ApiModelProperty(value = "When listing component groups, they can be sorted by this number.")
   public Integer getSortOrder() {
     return sortOrder;
   }

@@ -40,8 +40,8 @@ public class SubscriptionProductVersionRetirementCreate {
   protected Long productVersion = null;
 
   
-  @JsonProperty("respectTerminiationPeriodsEnabled")
-  protected Boolean respectTerminiationPeriodsEnabled = null;
+  @JsonProperty("respectTerminationPeriods")
+  protected Boolean respectTerminationPeriods = null;
 
   
   @JsonProperty("targetProduct")
@@ -55,10 +55,10 @@ public class SubscriptionProductVersionRetirementCreate {
   }
 
    /**
-   * 
+   * The product version that is to be retired.
    * @return productVersion
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The product version that is to be retired.")
   public Long getProductVersion() {
     return productVersion;
   }
@@ -68,22 +68,22 @@ public class SubscriptionProductVersionRetirementCreate {
   }
 
   
-  public SubscriptionProductVersionRetirementCreate respectTerminiationPeriodsEnabled(Boolean respectTerminiationPeriodsEnabled) {
-    this.respectTerminiationPeriodsEnabled = respectTerminiationPeriodsEnabled;
+  public SubscriptionProductVersionRetirementCreate respectTerminationPeriods(Boolean respectTerminationPeriods) {
+    this.respectTerminationPeriods = respectTerminationPeriods;
     return this;
   }
 
    /**
-   * 
-   * @return respectTerminiationPeriodsEnabled
+   * Whether the subscriptions&#39; termination periods should be respected.
+   * @return respectTerminationPeriods
   **/
-  @ApiModelProperty(value = "")
-  public Boolean isRespectTerminiationPeriodsEnabled() {
-    return respectTerminiationPeriodsEnabled;
+  @ApiModelProperty(value = "Whether the subscriptions' termination periods should be respected.")
+  public Boolean isRespectTerminationPeriods() {
+    return respectTerminationPeriods;
   }
 
-  public void setRespectTerminiationPeriodsEnabled(Boolean respectTerminiationPeriodsEnabled) {
-    this.respectTerminiationPeriodsEnabled = respectTerminiationPeriodsEnabled;
+  public void setRespectTerminationPeriods(Boolean respectTerminationPeriods) {
+    this.respectTerminationPeriods = respectTerminationPeriods;
   }
 
   
@@ -93,10 +93,10 @@ public class SubscriptionProductVersionRetirementCreate {
   }
 
    /**
-   * When a target product is not chosen, all customers with the retired product will be terminated.
+   * The product to which the subscriptions with the retiring product version are to be migrated. If none is defined, the subscriptions are terminated.
    * @return targetProduct
   **/
-  @ApiModelProperty(value = "When a target product is not chosen, all customers with the retired product will be terminated.")
+  @ApiModelProperty(value = "The product to which the subscriptions with the retiring product version are to be migrated. If none is defined, the subscriptions are terminated.")
   public Long getTargetProduct() {
     return targetProduct;
   }
@@ -117,13 +117,13 @@ public class SubscriptionProductVersionRetirementCreate {
     }
     SubscriptionProductVersionRetirementCreate subscriptionProductVersionRetirementCreate = (SubscriptionProductVersionRetirementCreate) o;
     return Objects.equals(this.productVersion, subscriptionProductVersionRetirementCreate.productVersion) &&
-        Objects.equals(this.respectTerminiationPeriodsEnabled, subscriptionProductVersionRetirementCreate.respectTerminiationPeriodsEnabled) &&
+        Objects.equals(this.respectTerminationPeriods, subscriptionProductVersionRetirementCreate.respectTerminationPeriods) &&
         Objects.equals(this.targetProduct, subscriptionProductVersionRetirementCreate.targetProduct);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(productVersion, respectTerminiationPeriodsEnabled, targetProduct);
+    return Objects.hash(productVersion, respectTerminationPeriods, targetProduct);
   }
 
 
@@ -133,7 +133,7 @@ public class SubscriptionProductVersionRetirementCreate {
     sb.append("class SubscriptionProductVersionRetirementCreate {\n");
     
     sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");
-    sb.append("    respectTerminiationPeriodsEnabled: ").append(toIndentedString(respectTerminiationPeriodsEnabled)).append("\n");
+    sb.append("    respectTerminationPeriods: ").append(toIndentedString(respectTerminationPeriods)).append("\n");
     sb.append("    targetProduct: ").append(toIndentedString(targetProduct)).append("\n");
     sb.append("}");
     return sb.toString();

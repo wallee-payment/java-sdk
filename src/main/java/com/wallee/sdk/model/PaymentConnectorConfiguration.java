@@ -105,50 +105,50 @@ public class PaymentConnectorConfiguration {
   
   
    /**
-   * This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.
+   * Whether this connector configuration is enabled for processing payments, taking into account the state of the processor and payment method configurations.
    * @return applicableForTransactionProcessing
   **/
-  @ApiModelProperty(value = "This property indicates if the connector is currently used for processing transactions. In case either the payment method configuration or the processor configuration is not active the connector will not be used even though the connector state is active.")
+  @ApiModelProperty(value = "Whether this connector configuration is enabled for processing payments, taking into account the state of the processor and payment method configurations.")
   public Boolean isApplicableForTransactionProcessing() {
     return applicableForTransactionProcessing;
   }
 
   
    /**
-   * If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.
+   * Conditions allow to define criteria that a transaction must fulfill in order for the connector configuration to be considered for processing the payment.
    * @return conditions
   **/
-  @ApiModelProperty(value = "If a transaction meet all selected conditions the connector configuration will be used to process the transaction otherwise the next connector configuration in line will be chosen according to the priorities.")
+  @ApiModelProperty(value = "Conditions allow to define criteria that a transaction must fulfill in order for the connector configuration to be considered for processing the payment.")
   public List<Long> getConditions() {
     return conditions;
   }
 
   
    /**
-   * 
+   * The connector that the configuration is for.
    * @return connector
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The connector that the configuration is for.")
   public Long getConnector() {
     return connector;
   }
 
   
    /**
-   * Defines the sales channels the connector configuration is enabled for. In case the set is empty, the connector configuration is enabled for all sales channels.
+   * The sales channels for which the connector configuration is enabled. If empty, it is enabled for all sales channels.
    * @return enabledSalesChannels
   **/
-  @ApiModelProperty(value = "Defines the sales channels the connector configuration is enabled for. In case the set is empty, the connector configuration is enabled for all sales channels.")
+  @ApiModelProperty(value = "The sales channels for which the connector configuration is enabled. If empty, it is enabled for all sales channels.")
   public List<SalesChannel> getEnabledSalesChannels() {
     return enabledSalesChannels;
   }
 
   
    /**
-   * The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.
+   * The space views for which the connector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
   **/
-  @ApiModelProperty(value = "The connector configuration is only enabled for the selected space views. In case the set is empty the connector configuration is enabled for all space views.")
+  @ApiModelProperty(value = "The space views for which the connector configuration is enabled. If empty, it is enabled for all space views.")
   public List<Long> getEnabledSpaceViews() {
     return enabledSpaceViews;
   }
@@ -165,10 +165,10 @@ public class PaymentConnectorConfiguration {
 
   
    /**
-   * 
+   * The URL to the connector&#39;s image.
    * @return imagePath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL to the connector's image.")
   public String getImagePath() {
     return imagePath;
   }
@@ -185,20 +185,20 @@ public class PaymentConnectorConfiguration {
 
   
    /**
-   * The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the connector configuration.
    * @return name
   **/
-  @ApiModelProperty(value = "The connector configuration name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the connector configuration.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The payment method configuration that the connector configuration belongs to.
    * @return paymentMethodConfiguration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method configuration that the connector configuration belongs to.")
   public PaymentMethodConfiguration getPaymentMethodConfiguration() {
     return paymentMethodConfiguration;
   }
@@ -215,20 +215,20 @@ public class PaymentConnectorConfiguration {
 
   
    /**
-   * The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.
+   * The priority that determines the order in which connector configurations are taken into account when processing a payment. Low values are considered first.
    * @return priority
   **/
-  @ApiModelProperty(value = "The priority will define the order of choice of the connector configurations. The lower the value, the higher the priority is going to be. This value can also be a negative number in case you are adding a new configuration that you want to have a high priority and you dont want to change the priority of all the other configurations.")
+  @ApiModelProperty(value = "The priority that determines the order in which connector configurations are taken into account when processing a payment. Low values are considered first.")
   public Integer getPriority() {
     return priority;
   }
 
   
    /**
-   * 
+   * The processor configuration that the connector configuration belongs to.
    * @return processorConfiguration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The processor configuration that the connector configuration belongs to.")
   public PaymentProcessorConfiguration getProcessorConfiguration() {
     return processorConfiguration;
   }

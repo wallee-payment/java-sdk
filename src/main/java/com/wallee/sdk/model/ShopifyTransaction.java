@@ -24,8 +24,8 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ShopifyIntegration;
 import com.wallee.sdk.model.ShopifyTransactionState;
+import com.wallee.sdk.model.ShopifyV1Integration;
 import com.wallee.sdk.model.Transaction;
 import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
@@ -50,7 +50,7 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   
   @JsonProperty("integration")
-  protected ShopifyIntegration integration = null;
+  protected ShopifyV1Integration integration = null;
 
   
   @JsonProperty("orderId")
@@ -103,7 +103,7 @@ public class ShopifyTransaction extends TransactionAwareEntity {
    * @return integration
   **/
   @ApiModelProperty(value = "")
-  public ShopifyIntegration getIntegration() {
+  public ShopifyV1Integration getIntegration() {
     return integration;
   }
 

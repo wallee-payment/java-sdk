@@ -59,10 +59,10 @@ public class SubscriptionComponentConfiguration {
   
   
    /**
-   * 
+   * The component that is being configured.
    * @return component
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The component that is being configured.")
   public Long getComponent() {
     return component;
   }
@@ -89,10 +89,10 @@ public class SubscriptionComponentConfiguration {
 
   
    /**
-   * 
+   * The quantity that should be applied to the component.
    * @return quantity
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The quantity that should be applied to the component.")
   public BigDecimal getQuantity() {
     return quantity;
   }

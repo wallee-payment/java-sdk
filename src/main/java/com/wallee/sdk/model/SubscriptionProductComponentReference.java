@@ -32,9 +32,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.
+ * The product component reference links components from different product versions, which makes it possible to carry out migrations.
  */
-@ApiModel(description = "The product component reference binds components from different product versions together. By binding them together the product version migration can be realized.")
+@ApiModel(description = "The product component reference links components from different product versions, which makes it possible to carry out migrations.")
 
 public class SubscriptionProductComponentReference {
   
@@ -52,10 +52,6 @@ public class SubscriptionProductComponentReference {
   
   @JsonProperty("plannedPurgeDate")
   protected OffsetDateTime plannedPurgeDate = null;
-
-  
-  @JsonProperty("spaceId")
-  protected Long spaceId = null;
 
   
   @JsonProperty("state")
@@ -88,10 +84,10 @@ public class SubscriptionProductComponentReference {
 
   
    /**
-   * The component reference name is used internally to identify the reference. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the component reference.
    * @return name
   **/
-  @ApiModelProperty(value = "The component reference name is used internally to identify the reference. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the component reference.")
   public String getName() {
     return name;
   }
@@ -104,16 +100,6 @@ public class SubscriptionProductComponentReference {
   @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
-  }
-
-  
-   /**
-   * 
-   * @return spaceId
-  **/
-  @ApiModelProperty(value = "")
-  public Long getSpaceId() {
-    return spaceId;
   }
 
   
@@ -151,14 +137,13 @@ public class SubscriptionProductComponentReference {
         Objects.equals(this.linkedSpaceId, subscriptionProductComponentReference.linkedSpaceId) &&
         Objects.equals(this.name, subscriptionProductComponentReference.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionProductComponentReference.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, subscriptionProductComponentReference.spaceId) &&
         Objects.equals(this.state, subscriptionProductComponentReference.state) &&
         Objects.equals(this.version, subscriptionProductComponentReference.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, spaceId, state, version);
+    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, state, version);
   }
 
 
@@ -171,7 +156,6 @@ public class SubscriptionProductComponentReference {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

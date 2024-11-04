@@ -174,50 +174,50 @@ public class DebtCollectionCase {
   
   
    /**
-   * The amount is the total amount of the not paid items. The amount cannot be change once the case is reviewed.
+   * The sum of all unpaid item prices in the case&#39;s currency. The amount can no longer be changed once the case has been reviewed.
    * @return amount
   **/
-  @ApiModelProperty(value = "The amount is the total amount of the not paid items. The amount cannot be change once the case is reviewed.")
+  @ApiModelProperty(value = "The sum of all unpaid item prices in the case's currency. The amount can no longer be changed once the case has been reviewed.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * The billing address of the case identifies the debtor.
+   * The billing address that identifies the debtor.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "The billing address of the case identifies the debtor.")
+  @ApiModelProperty(value = "The billing address that identifies the debtor.")
   public Address getBillingAddress() {
     return billingAddress;
   }
 
   
    /**
-   * The closed on date indicates when the case is closed on.
+   * The date and time when the case was closed.
    * @return closedOn
   **/
-  @ApiModelProperty(value = "The closed on date indicates when the case is closed on.")
+  @ApiModelProperty(value = "The date and time when the case was closed.")
   public OffsetDateTime getClosedOn() {
     return closedOn;
   }
 
   
    /**
-   * The collector configuration determines how the debt collection case is processed.
+   * The configuration that the case is processed with.
    * @return collectorConfiguration
   **/
-  @ApiModelProperty(value = "The collector configuration determines how the debt collection case is processed.")
+  @ApiModelProperty(value = "The configuration that the case is processed with.")
   public DebtCollectorConfiguration getCollectorConfiguration() {
     return collectorConfiguration;
   }
 
   
    /**
-   * The contract date is the date on which the contract with the debtor was signed on.
+   * The date and time when the contract with the debtor was signed.
    * @return contractDate
   **/
-  @ApiModelProperty(value = "The contract date is the date on which the contract with the debtor was signed on.")
+  @ApiModelProperty(value = "The date and time when the contract with the debtor was signed.")
   public OffsetDateTime getContractDate() {
     return contractDate;
   }
@@ -234,40 +234,40 @@ public class DebtCollectionCase {
 
   
    /**
-   * The creator references the user which has created the debt collection case.
+   * The ID of the user the case was created by.
    * @return creator
   **/
-  @ApiModelProperty(value = "The creator references the user which has created the debt collection case.")
+  @ApiModelProperty(value = "The ID of the user the case was created by.")
   public Long getCreator() {
     return creator;
   }
 
   
    /**
-   * The currency defines the billing currency of the debt collection case.
+   * The three-letter code (ISO 4217 format) of the case&#39;s currency.
    * @return currency
   **/
-  @ApiModelProperty(value = "The currency defines the billing currency of the debt collection case.")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the case's currency.")
   public String getCurrency() {
     return currency;
   }
 
   
    /**
-   * The due date indicates the date on which the amount receivable was due. This date has to be always in the past.
+   * The date and time when the claim was due.
    * @return dueDate
   **/
-  @ApiModelProperty(value = "The due date indicates the date on which the amount receivable was due. This date has to be always in the past.")
+  @ApiModelProperty(value = "The date and time when the claim was due.")
   public OffsetDateTime getDueDate() {
     return dueDate;
   }
 
   
    /**
-   * The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.
+   * The environment in which the case is processed.
    * @return environment
   **/
-  @ApiModelProperty(value = "The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.")
+  @ApiModelProperty(value = "The environment in which the case is processed.")
   public DebtCollectionEnvironment getEnvironment() {
     return environment;
   }
@@ -284,20 +284,20 @@ public class DebtCollectionCase {
 
   
    /**
-   * The failed on date indicates when the case is failed on.
+   * The date and time when the case failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "The failed on date indicates when the case is failed on.")
+  @ApiModelProperty(value = "The date and time when the case failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the case.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the case.")
   public FailureReason getFailureReason() {
     return failureReason;
   }
@@ -314,30 +314,30 @@ public class DebtCollectionCase {
 
   
    /**
-   * 
+   * The labels providing additional information about the object.
    * @return labels
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The labels providing additional information about the object.")
   public List<Label> getLabels() {
     return labels;
   }
 
   
    /**
-   * The language indicates the language to be used in the communication with the debtor.
+   * The language that is linked to the object.
    * @return language
   **/
-  @ApiModelProperty(value = "The language indicates the language to be used in the communication with the debtor.")
+  @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
   }
 
   
    /**
-   * The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.
+   * The line items that are subject of this debt collection case.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.")
+  @ApiModelProperty(value = "The line items that are subject of this debt collection case.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
@@ -354,10 +354,10 @@ public class DebtCollectionCase {
 
   
    /**
-   * 
+   * The date and time when the next attempt at processing the case will be made.
    * @return nextAttemptOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next attempt at processing the case will be made.")
   public OffsetDateTime getNextAttemptOn() {
     return nextAttemptOn;
   }
@@ -374,90 +374,90 @@ public class DebtCollectionCase {
 
   
    /**
-   * The processing started on date indicates the date on which the processing of the case started on.
+   * The date and time when the processing of the case was started.
    * @return processingStartedOn
   **/
-  @ApiModelProperty(value = "The processing started on date indicates the date on which the processing of the case started on.")
+  @ApiModelProperty(value = "The date and time when the processing of the case was started.")
   public OffsetDateTime getProcessingStartedOn() {
     return processingStartedOn;
   }
 
   
    /**
-   * 
+   * The date and time when the processing of the case times out.
    * @return processingTimeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the case times out.")
   public OffsetDateTime getProcessingTimeoutOn() {
     return processingTimeoutOn;
   }
 
   
    /**
-   * The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.
+   * A unique reference to identify the debt collection case in communication with the debtor.
    * @return reference
   **/
-  @ApiModelProperty(value = "The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.")
+  @ApiModelProperty(value = "A unique reference to identify the debt collection case in communication with the debtor.")
   public String getReference() {
     return reference;
   }
 
   
    /**
-   * 
+   * The date and time when the review of the case was started.
    * @return reviewStartedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the review of the case was started.")
   public OffsetDateTime getReviewStartedOn() {
     return reviewStartedOn;
   }
 
   
    /**
-   * The reviewed on date indicates when the review of the case was conducted on.
+   * The date and time when the case was reviewed.
    * @return reviewedOn
   **/
-  @ApiModelProperty(value = "The reviewed on date indicates when the review of the case was conducted on.")
+  @ApiModelProperty(value = "The date and time when the case was reviewed.")
   public OffsetDateTime getReviewedOn() {
     return reviewedOn;
   }
 
   
    /**
-   * The reviewer references the user which has reviewed the case.
+   * The ID of the user the case was reviewed by.
    * @return reviewer
   **/
-  @ApiModelProperty(value = "The reviewer references the user which has reviewed the case.")
+  @ApiModelProperty(value = "The ID of the user the case was reviewed by.")
   public Long getReviewer() {
     return reviewer;
   }
 
   
    /**
-   * The source of the debt collection case indicates the origin of the amount receivable.
+   * The source of the case stating the origin of the claim.
    * @return source
   **/
-  @ApiModelProperty(value = "The source of the debt collection case indicates the origin of the amount receivable.")
+  @ApiModelProperty(value = "The source of the case stating the origin of the claim.")
   public DebtCollectionCaseSource getSource() {
     return source;
   }
 
   
    /**
-   * The source entity ID points to the object which is the origin of the debt collection case. This ID is only set when the case was triggered by an internal process.
+   * The ID of the object that is the source of the case. Only defined if the case was created by an internal process.
    * @return sourceEntityId
   **/
-  @ApiModelProperty(value = "The source entity ID points to the object which is the origin of the debt collection case. This ID is only set when the case was triggered by an internal process.")
+  @ApiModelProperty(value = "The ID of the object that is the source of the case. Only defined if the case was created by an internal process.")
   public Long getSourceEntityId() {
     return sourceEntityId;
   }
 
   
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }

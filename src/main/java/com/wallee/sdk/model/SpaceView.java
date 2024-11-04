@@ -89,10 +89,10 @@ public class SpaceView {
 
   
    /**
-   * The space view name is used internally to identify the space view in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the space view.
    * @return name
   **/
-  @ApiModelProperty(value = "The space view name is used internally to identify the space view in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the space view.")
   public String getName() {
     return name;
   }
@@ -109,10 +109,10 @@ public class SpaceView {
 
   
    /**
-   * The space to which the view belongs to.
+   * The space that the space view belongs to.
    * @return space
   **/
-  @ApiModelProperty(value = "The space to which the view belongs to.")
+  @ApiModelProperty(value = "The space that the space view belongs to.")
   public Space getSpace() {
     return space;
   }

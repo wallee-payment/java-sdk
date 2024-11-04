@@ -95,10 +95,10 @@ public class PaymentMethodBrand {
 
   
    /**
-   * 
+   * The path to the payment brand&#39;s image which is displayed to the customer.
    * @return imagePath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The path to the payment brand's image which is displayed to the customer.")
   public String getImagePath() {
     return imagePath;
   }
@@ -115,10 +115,10 @@ public class PaymentMethodBrand {
 
   
    /**
-   * 
+   * The payment method that the brand belongs to.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method that the brand belongs to.")
   public Long getPaymentMethod() {
     return paymentMethod;
   }

@@ -133,10 +133,10 @@ public class SubscriptionAffiliate {
 
   
    /**
-   * 
+   * The name used to identify the affiliate.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to identify the affiliate.")
   public String getName() {
     return name;
   }
@@ -153,10 +153,10 @@ public class SubscriptionAffiliate {
 
   
    /**
-   * 
+   * The reference used to identify the affiliate.
    * @return reference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reference used to identify the affiliate.")
   public String getReference() {
     return reference;
   }

@@ -102,10 +102,10 @@ public class SubscriptionUpdate {
   }
 
    /**
-   * 
+   * The affiliate that led to the creation of the subscription.
    * @return affiliate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The affiliate that led to the creation of the subscription.")
   public Long getAffiliate() {
     return affiliate;
   }
@@ -121,10 +121,10 @@ public class SubscriptionUpdate {
   }
 
    /**
-   * 
+   * A description used to identify the subscription.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A description used to identify the subscription.")
   public String getDescription() {
     return description;
   }
@@ -140,10 +140,10 @@ public class SubscriptionUpdate {
   }
 
    /**
-   * 
+   * The date and time when the subscription is planned to be terminated.
    * @return plannedTerminationDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription is planned to be terminated.")
   public OffsetDateTime getPlannedTerminationDate() {
     return plannedTerminationDate;
   }

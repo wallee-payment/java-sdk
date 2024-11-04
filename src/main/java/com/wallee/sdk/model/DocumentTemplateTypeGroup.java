@@ -59,10 +59,10 @@ public class DocumentTemplateTypeGroup {
 
   
    /**
-   * 
+   * The localized title of the group.
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized title of the group.")
   public Map<String, String> getTitle() {
     return title;
   }

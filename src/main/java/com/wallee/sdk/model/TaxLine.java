@@ -35,7 +35,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifySubscriptionModelTaxLine {
+public class TaxLine {
   
   @JsonProperty("rate")
   protected BigDecimal rate = null;
@@ -46,7 +46,7 @@ public class ShopifySubscriptionModelTaxLine {
 
   
   
-  public ShopifySubscriptionModelTaxLine rate(BigDecimal rate) {
+  public TaxLine rate(BigDecimal rate) {
     this.rate = rate;
     return this;
   }
@@ -65,7 +65,7 @@ public class ShopifySubscriptionModelTaxLine {
   }
 
   
-  public ShopifySubscriptionModelTaxLine title(String title) {
+  public TaxLine title(String title) {
     this.title = title;
     return this;
   }
@@ -93,9 +93,9 @@ public class ShopifySubscriptionModelTaxLine {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShopifySubscriptionModelTaxLine shopifySubscriptionModelTaxLine = (ShopifySubscriptionModelTaxLine) o;
-    return Objects.equals(this.rate, shopifySubscriptionModelTaxLine.rate) &&
-        Objects.equals(this.title, shopifySubscriptionModelTaxLine.title);
+    TaxLine taxLine = (TaxLine) o;
+    return Objects.equals(this.rate, taxLine.rate) &&
+        Objects.equals(this.title, taxLine.title);
   }
 
   @Override
@@ -107,7 +107,7 @@ public class ShopifySubscriptionModelTaxLine {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShopifySubscriptionModelTaxLine {\n");
+    sb.append("class TaxLine {\n");
     
     sb.append("    rate: ").append(toIndentedString(rate)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

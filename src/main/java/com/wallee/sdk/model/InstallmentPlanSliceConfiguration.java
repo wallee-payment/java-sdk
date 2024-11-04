@@ -95,10 +95,10 @@ public class InstallmentPlanSliceConfiguration {
 
   
    /**
-   * The title of this slices line items. The title is visible to the buyer.
+   * The title of this slice&#39;s line items. The title is visible to the buyer.
    * @return lineItemTitle
   **/
-  @ApiModelProperty(value = "The title of this slices line items. The title is visible to the buyer.")
+  @ApiModelProperty(value = "The title of this slice's line items. The title is visible to the buyer.")
   public Map<String, String> getLineItemTitle() {
     return lineItemTitle;
   }

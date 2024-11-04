@@ -69,6 +69,10 @@ public class PaymentTerminalTransactionSummary {
   protected String receipt = null;
 
   
+  @JsonProperty("reference")
+  protected Long reference = null;
+
+  
   @JsonProperty("startedOn")
   protected OffsetDateTime startedOn = null;
 
@@ -154,6 +158,16 @@ public class PaymentTerminalTransactionSummary {
   
    /**
    * 
+   * @return reference
+  **/
+  @ApiModelProperty(value = "")
+  public Long getReference() {
+    return reference;
+  }
+
+  
+   /**
+   * 
    * @return startedOn
   **/
   @ApiModelProperty(value = "")
@@ -199,6 +213,7 @@ public class PaymentTerminalTransactionSummary {
         Objects.equals(this.numberOfTransactions, paymentTerminalTransactionSummary.numberOfTransactions) &&
         Objects.equals(this.paymentTerminal, paymentTerminalTransactionSummary.paymentTerminal) &&
         Objects.equals(this.receipt, paymentTerminalTransactionSummary.receipt) &&
+        Objects.equals(this.reference, paymentTerminalTransactionSummary.reference) &&
         Objects.equals(this.startedOn, paymentTerminalTransactionSummary.startedOn) &&
         Objects.equals(this.transactionSums, paymentTerminalTransactionSummary.transactionSums) &&
         Objects.equals(this.version, paymentTerminalTransactionSummary.version);
@@ -206,7 +221,7 @@ public class PaymentTerminalTransactionSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dccTransactionSums, endedOn, id, linkedSpaceId, numberOfTransactions, paymentTerminal, receipt, startedOn, transactionSums, version);
+    return Objects.hash(dccTransactionSums, endedOn, id, linkedSpaceId, numberOfTransactions, paymentTerminal, receipt, reference, startedOn, transactionSums, version);
   }
 
 
@@ -222,6 +237,7 @@ public class PaymentTerminalTransactionSummary {
     sb.append("    numberOfTransactions: ").append(toIndentedString(numberOfTransactions)).append("\n");
     sb.append("    paymentTerminal: ").append(toIndentedString(paymentTerminal)).append("\n");
     sb.append("    receipt: ").append(toIndentedString(receipt)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
     sb.append("    transactionSums: ").append(toIndentedString(transactionSums)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

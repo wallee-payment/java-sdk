@@ -114,20 +114,20 @@ public class PaymentMethodConfiguration {
   
   
    /**
-   * The data collection type determines who is collecting the payment information. This can be done either by the processor (offsite) or by our application (onsite).
+   * The data collection type specifies how the payment information is collected.
    * @return dataCollectionType
   **/
-  @ApiModelProperty(value = "The data collection type determines who is collecting the payment information. This can be done either by the processor (offsite) or by our application (onsite).")
+  @ApiModelProperty(value = "The data collection type specifies how the payment information is collected.")
   public DataCollectionType getDataCollectionType() {
     return dataCollectionType;
   }
 
   
    /**
-   * The payment method configuration description can be used to show a text during the payment process. Choose an appropriate description as it will be displayed to your customer.
+   * A custom description for the payment method which is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "The payment method configuration description can be used to show a text during the payment process. Choose an appropriate description as it will be displayed to your customer.")
+  @ApiModelProperty(value = "A custom description for the payment method which is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -144,10 +144,10 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The image of the payment method configuration overrides the default image of the payment method.
+   * The resource path to a custom image for the payment method which is displayed to the customer.
    * @return imageResourcePath
   **/
-  @ApiModelProperty(value = "The image of the payment method configuration overrides the default image of the payment method.")
+  @ApiModelProperty(value = "The resource path to a custom image for the payment method which is displayed to the customer.")
   public ResourcePath getImageResourcePath() {
     return imageResourcePath;
   }
@@ -164,30 +164,30 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The payment method configuration name is used internally to identify the payment method configuration. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment method configuration.
    * @return name
   **/
-  @ApiModelProperty(value = "The payment method configuration name is used internally to identify the payment method configuration. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment method configuration.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * When the buyer is present on the payment page or within the iFrame the payment details can be stored automatically. The buyer will be able to use the stored payment details for subsequent transactions. When the transaction already contains a token one-click payments are disabled anyway
+   * The one-click payment mode determines whether the customer can save their payment details for later payments.
    * @return oneClickPaymentMode
   **/
-  @ApiModelProperty(value = "When the buyer is present on the payment page or within the iFrame the payment details can be stored automatically. The buyer will be able to use the stored payment details for subsequent transactions. When the transaction already contains a token one-click payments are disabled anyway")
+  @ApiModelProperty(value = "The one-click payment mode determines whether the customer can save their payment details for later payments.")
   public OneClickPaymentMode getOneClickPaymentMode() {
     return oneClickPaymentMode;
   }
 
   
    /**
-   * 
+   * The payment method that the configuration is for.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method that the configuration is for.")
   public Long getPaymentMethod() {
     return paymentMethod;
   }
@@ -204,50 +204,50 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The resolved description uses the specified description or the default one when it is not overridden.
+   * The description for the payment method that is actually displayed to the customer. This is either the custom description, if defined, or otherwise the payment method&#39;s default one.
    * @return resolvedDescription
   **/
-  @ApiModelProperty(value = "The resolved description uses the specified description or the default one when it is not overridden.")
+  @ApiModelProperty(value = "The description for the payment method that is actually displayed to the customer. This is either the custom description, if defined, or otherwise the payment method's default one.")
   public Map<String, String> getResolvedDescription() {
     return resolvedDescription;
   }
 
   
    /**
-   * The resolved URL of the image to use with this payment method.
+   * The image URL for the payment method that is actually displayed to the customer. This is either the custom image, if defined, or otherwise the payment method&#39;s default one.
    * @return resolvedImageUrl
   **/
-  @ApiModelProperty(value = "The resolved URL of the image to use with this payment method.")
+  @ApiModelProperty(value = "The image URL for the payment method that is actually displayed to the customer. This is either the custom image, if defined, or otherwise the payment method's default one.")
   public String getResolvedImageUrl() {
     return resolvedImageUrl;
   }
 
   
    /**
-   * The resolved title uses the specified title or the default one when it is not overridden.
+   * The title for the payment method that is actually displayed to the customer. This is either the custom title, if defined, or otherwise the payment method&#39;s default one.
    * @return resolvedTitle
   **/
-  @ApiModelProperty(value = "The resolved title uses the specified title or the default one when it is not overridden.")
+  @ApiModelProperty(value = "The title for the payment method that is actually displayed to the customer. This is either the custom title, if defined, or otherwise the payment method's default one.")
   public Map<String, String> getResolvedTitle() {
     return resolvedTitle;
   }
 
   
    /**
-   * The sort order of the payment method determines the ordering of the methods shown to the user during the payment process.
+   * When listing payment methods, they can be sorted by this number.
    * @return sortOrder
   **/
-  @ApiModelProperty(value = "The sort order of the payment method determines the ordering of the methods shown to the user during the payment process.")
+  @ApiModelProperty(value = "When listing payment methods, they can be sorted by this number.")
   public Integer getSortOrder() {
     return sortOrder;
   }
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
    * @return spaceId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
   public Long getSpaceId() {
     return spaceId;
   }
@@ -264,10 +264,10 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The title of the payment method configuration is used within the payment process. The title is visible to the customer.
+   * A custom title for the payment method which is displayed to the customer.
    * @return title
   **/
-  @ApiModelProperty(value = "The title of the payment method configuration is used within the payment process. The title is visible to the customer.")
+  @ApiModelProperty(value = "A custom title for the payment method which is displayed to the customer.")
   public Map<String, String> getTitle() {
     return title;
   }

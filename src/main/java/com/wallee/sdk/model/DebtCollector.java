@@ -33,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The debt collector connects to an external service to process the debt collection case and as such directs the debt collection process.
+ * The debt collector connects to an external service to process debt collection cases and directs the debt collection process.
  */
-@ApiModel(description = "The debt collector connects to an external service to process the debt collection case and as such directs the debt collection process.")
+@ApiModel(description = "The debt collector connects to an external service to process debt collection cases and directs the debt collection process.")
 
 public class DebtCollector {
   

@@ -80,20 +80,20 @@ public class DebtCollectionReceipt {
   
   
    /**
-   * 
+   * The amount that was collected.
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The amount that was collected.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * The created by field indicates the user which has created the receipt.
+   * The ID of the user the receipt was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "The created by field indicates the user which has created the receipt.")
+  @ApiModelProperty(value = "The ID of the user the receipt was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -110,20 +110,20 @@ public class DebtCollectionReceipt {
 
   
    /**
-   * 
+   * The debt collection case that this document belongs to.
    * @return debtCollectionCase
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The debt collection case that this document belongs to.")
   public Long getDebtCollectionCase() {
     return debtCollectionCase;
   }
 
   
    /**
-   * The external id is a unique identifier for the receipt. The external id has to be unique in combination with the debt collection case. When a receipt is sent with an existing external id the existing one is returned rather than a new one is created.
+   * A client-generated nonce which uniquely identifies the receipt.Subsequent requests with the same external ID do not lead to the creation of another receipt, but return the original one.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external id is a unique identifier for the receipt. The external id has to be unique in combination with the debt collection case. When a receipt is sent with an existing external id the existing one is returned rather than a new one is created.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies the receipt.Subsequent requests with the same external ID do not lead to the creation of another receipt, but return the original one.")
   public String getExternalId() {
     return externalId;
   }
@@ -160,10 +160,10 @@ public class DebtCollectionReceipt {
 
   
    /**
-   * 
+   * The source stating where the receipt is coming from.
    * @return source
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The source stating where the receipt is coming from.")
   public Long getSource() {
     return source;
   }

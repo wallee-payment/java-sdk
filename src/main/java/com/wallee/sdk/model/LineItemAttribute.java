@@ -46,20 +46,20 @@ public class LineItemAttribute {
   
   
    /**
-   * 
+   * The label describing the line item attribute.
    * @return label
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The label describing the line item attribute.")
   public String getLabel() {
     return label;
   }
 
   
    /**
-   * 
+   * The value of the line item attribute.
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value of the line item attribute.")
   public String getValue() {
     return value;
   }

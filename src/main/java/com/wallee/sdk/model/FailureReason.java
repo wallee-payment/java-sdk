@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.FailureCategory;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,10 +48,6 @@ public class FailureReason {
   protected Map<String, String> description = null;
 
   
-  @JsonProperty("features")
-  protected List<Long> features = null;
-
-  
   @JsonProperty("id")
   protected Long id = null;
 
@@ -63,10 +58,10 @@ public class FailureReason {
   
   
    /**
-   * 
+   * The category that the failure reason belongs to.
    * @return category
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The category that the failure reason belongs to.")
   public FailureCategory getCategory() {
     return category;
   }
@@ -79,16 +74,6 @@ public class FailureReason {
   @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
-  }
-
-  
-   /**
-   * 
-   * @return features
-  **/
-  @ApiModelProperty(value = "")
-  public List<Long> getFeatures() {
-    return features;
   }
 
   
@@ -124,14 +109,13 @@ public class FailureReason {
     FailureReason failureReason = (FailureReason) o;
     return Objects.equals(this.category, failureReason.category) &&
         Objects.equals(this.description, failureReason.description) &&
-        Objects.equals(this.features, failureReason.features) &&
         Objects.equals(this.id, failureReason.id) &&
         Objects.equals(this.name, failureReason.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, description, features, id, name);
+    return Objects.hash(category, description, id, name);
   }
 
 
@@ -142,7 +126,6 @@ public class FailureReason {
     
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");

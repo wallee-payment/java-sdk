@@ -57,10 +57,10 @@ public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The collector configuration determines how the debt collection case is processed.
+   * The configuration that the case is processed with.
    * @return collectorConfiguration
   **/
-  @ApiModelProperty(value = "The collector configuration determines how the debt collection case is processed.")
+  @ApiModelProperty(value = "The configuration that the case is processed with.")
   public Long getCollectorConfiguration() {
     return collectorConfiguration;
   }
@@ -95,10 +95,10 @@ public class DebtCollectionCaseCreate extends AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.
+   * A unique reference to identify the debt collection case in communication with the debtor.
    * @return reference
   **/
-  @ApiModelProperty(required = true, value = "The case reference is used in the communication with the debtor. It should be unique and it should be linkable with the source of the debt collection case.")
+  @ApiModelProperty(required = true, value = "A unique reference to identify the debt collection case in communication with the debtor.")
   public String getReference() {
     return reference;
   }

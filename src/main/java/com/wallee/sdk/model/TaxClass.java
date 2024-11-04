@@ -54,10 +54,6 @@ public class TaxClass {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @JsonProperty("spaceId")
-  protected Long spaceId = null;
-
-  
   @JsonProperty("state")
   protected CreationEntityState state = null;
 
@@ -88,10 +84,10 @@ public class TaxClass {
 
   
    /**
-   * The tax class name is used internally to identify the tax class in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the tax class.
    * @return name
   **/
-  @ApiModelProperty(value = "The tax class name is used internally to identify the tax class in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the tax class.")
   public String getName() {
     return name;
   }
@@ -104,16 +100,6 @@ public class TaxClass {
   @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
-  }
-
-  
-   /**
-   * 
-   * @return spaceId
-  **/
-  @ApiModelProperty(value = "")
-  public Long getSpaceId() {
-    return spaceId;
   }
 
   
@@ -151,14 +137,13 @@ public class TaxClass {
         Objects.equals(this.linkedSpaceId, taxClass.linkedSpaceId) &&
         Objects.equals(this.name, taxClass.name) &&
         Objects.equals(this.plannedPurgeDate, taxClass.plannedPurgeDate) &&
-        Objects.equals(this.spaceId, taxClass.spaceId) &&
         Objects.equals(this.state, taxClass.state) &&
         Objects.equals(this.version, taxClass.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, spaceId, state, version);
+    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, state, version);
   }
 
 
@@ -171,7 +156,6 @@ public class TaxClass {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

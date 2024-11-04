@@ -59,30 +59,30 @@ public class Label {
   
   
    /**
-   * 
+   * The label&#39;s actual content.
    * @return content
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The label's actual content.")
   public Object getContent() {
     return content;
   }
 
   
    /**
-   * 
+   * The label&#39;s content formatted as string.
    * @return contentAsString
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The label's content formatted as string.")
   public String getContentAsString() {
     return contentAsString;
   }
 
   
    /**
-   * 
+   * The descriptor that describes what information the label provides.
    * @return descriptor
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The descriptor that describes what information the label provides.")
   public LabelDescriptor getDescriptor() {
     return descriptor;
   }

@@ -24,8 +24,8 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ShopifySubscriptionModelBillingConfiguration;
-import com.wallee.sdk.model.ShopifySubscriptionModelItem;
+import com.wallee.sdk.model.BillingConfiguration;
+import com.wallee.sdk.model.Item;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import java.time.OffsetDateTime;
 public class ShopifySubscriptionUpdateRequest {
   
   @JsonProperty("billingConfiguration")
-  protected ShopifySubscriptionModelBillingConfiguration billingConfiguration = null;
+  protected BillingConfiguration billingConfiguration = null;
 
   
   @JsonProperty("id")
@@ -49,7 +49,7 @@ public class ShopifySubscriptionUpdateRequest {
 
   
   @JsonProperty("items")
-  protected List<ShopifySubscriptionModelItem> items = null;
+  protected List<Item> items = null;
 
   
   @JsonProperty("storeOrderConfirmationEmailEnabled")
@@ -61,7 +61,7 @@ public class ShopifySubscriptionUpdateRequest {
 
   
   
-  public ShopifySubscriptionUpdateRequest billingConfiguration(ShopifySubscriptionModelBillingConfiguration billingConfiguration) {
+  public ShopifySubscriptionUpdateRequest billingConfiguration(BillingConfiguration billingConfiguration) {
     this.billingConfiguration = billingConfiguration;
     return this;
   }
@@ -71,11 +71,11 @@ public class ShopifySubscriptionUpdateRequest {
    * @return billingConfiguration
   **/
   @ApiModelProperty(value = "")
-  public ShopifySubscriptionModelBillingConfiguration getBillingConfiguration() {
+  public BillingConfiguration getBillingConfiguration() {
     return billingConfiguration;
   }
 
-  public void setBillingConfiguration(ShopifySubscriptionModelBillingConfiguration billingConfiguration) {
+  public void setBillingConfiguration(BillingConfiguration billingConfiguration) {
     this.billingConfiguration = billingConfiguration;
   }
 
@@ -99,12 +99,12 @@ public class ShopifySubscriptionUpdateRequest {
   }
 
   
-  public ShopifySubscriptionUpdateRequest items(List<ShopifySubscriptionModelItem> items) {
+  public ShopifySubscriptionUpdateRequest items(List<Item> items) {
     this.items = items;
     return this;
   }
 
-  public ShopifySubscriptionUpdateRequest addItemsItem(ShopifySubscriptionModelItem itemsItem) {
+  public ShopifySubscriptionUpdateRequest addItemsItem(Item itemsItem) {
     if (this.items == null) {
       this.items = new ArrayList<>();
     }
@@ -117,11 +117,11 @@ public class ShopifySubscriptionUpdateRequest {
    * @return items
   **/
   @ApiModelProperty(value = "")
-  public List<ShopifySubscriptionModelItem> getItems() {
+  public List<Item> getItems() {
     return items;
   }
 
-  public void setItems(List<ShopifySubscriptionModelItem> items) {
+  public void setItems(List<Item> items) {
     this.items = items;
   }
 

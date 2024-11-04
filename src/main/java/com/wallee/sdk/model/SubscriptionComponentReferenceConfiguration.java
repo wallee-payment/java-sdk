@@ -52,10 +52,10 @@ public class SubscriptionComponentReferenceConfiguration {
   }
 
    /**
-   * 
+   * The ID of the component reference that is being configured.
    * @return productComponentReferenceId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the component reference that is being configured.")
   public Long getProductComponentReferenceId() {
     return productComponentReferenceId;
   }
@@ -71,10 +71,10 @@ public class SubscriptionComponentReferenceConfiguration {
   }
 
    /**
-   * 
+   * The quantity that should be applied to the component.
    * @return quantity
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The quantity that should be applied to the component.")
   public BigDecimal getQuantity() {
     return quantity;
   }

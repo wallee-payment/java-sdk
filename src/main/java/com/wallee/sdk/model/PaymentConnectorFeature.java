@@ -24,7 +24,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Feature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -41,32 +40,18 @@ public class PaymentConnectorFeature {
   protected String displayName = null;
 
   
-  @JsonProperty("feature")
-  protected Feature feature = null;
-
-  
   @JsonProperty("id")
   protected Long id = null;
 
   
   
    /**
-   * 
+   * The name of the feature.
    * @return displayName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name of the feature.")
   public String getDisplayName() {
     return displayName;
-  }
-
-  
-   /**
-   * 
-   * @return feature
-  **/
-  @ApiModelProperty(value = "")
-  public Feature getFeature() {
-    return feature;
   }
 
   
@@ -91,13 +76,12 @@ public class PaymentConnectorFeature {
     }
     PaymentConnectorFeature paymentConnectorFeature = (PaymentConnectorFeature) o;
     return Objects.equals(this.displayName, paymentConnectorFeature.displayName) &&
-        Objects.equals(this.feature, paymentConnectorFeature.feature) &&
         Objects.equals(this.id, paymentConnectorFeature.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayName, feature, id);
+    return Objects.hash(displayName, id);
   }
 
 
@@ -107,7 +91,6 @@ public class PaymentConnectorFeature {
     sb.append("class PaymentConnectorFeature {\n");
     
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

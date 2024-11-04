@@ -61,10 +61,10 @@ public class SubscriptionSuspensionCreate {
   }
 
    /**
-   * When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.
+   * Whether the subscription should be terminated or reactivated after the suspension has reached its end date.
    * @return endAction
   **/
-  @ApiModelProperty(required = true, value = "When the suspension reaches the planned end date the end action will be carried out. This action is only executed when the suspension is ended automatically based on the end date.")
+  @ApiModelProperty(required = true, value = "Whether the subscription should be terminated or reactivated after the suspension has reached its end date.")
   public SubscriptionSuspensionAction getEndAction() {
     return endAction;
   }
@@ -80,10 +80,10 @@ public class SubscriptionSuspensionCreate {
   }
 
    /**
-   * The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.
+   * A note that contains details about the suspension. It is not disclosed to the subscriber.
    * @return note
   **/
-  @ApiModelProperty(value = "The note may contain some internal information for the suspension. The note will not be disclosed to the subscriber.")
+  @ApiModelProperty(value = "A note that contains details about the suspension. It is not disclosed to the subscriber.")
   public String getNote() {
     return note;
   }
@@ -99,10 +99,10 @@ public class SubscriptionSuspensionCreate {
   }
 
    /**
-   * The planned end date of the suspension identifies the date on which the suspension will be ended automatically.
+   * The date and time when the suspension is planned to end.
    * @return plannedEndDate
   **/
-  @ApiModelProperty(required = true, value = "The planned end date of the suspension identifies the date on which the suspension will be ended automatically.")
+  @ApiModelProperty(required = true, value = "The date and time when the suspension is planned to end.")
   public OffsetDateTime getPlannedEndDate() {
     return plannedEndDate;
   }
@@ -118,10 +118,10 @@ public class SubscriptionSuspensionCreate {
   }
 
    /**
-   * 
+   * The subscription that this suspension belongs to.
    * @return subscription
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The subscription that this suspension belongs to.")
   public Long getSubscription() {
     return subscription;
   }

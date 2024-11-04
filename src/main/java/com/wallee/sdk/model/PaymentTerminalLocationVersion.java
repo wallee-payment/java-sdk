@@ -86,30 +86,30 @@ public class PaymentTerminalLocationVersion {
   
   
    /**
-   * 
+   * The postal address of the location where the payment terminals are used.
    * @return address
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The postal address of the location where the payment terminals are used.")
   public PaymentTerminalAddress getAddress() {
     return address;
   }
 
   
    /**
-   * 
+   * The contact details if the person responsible for the payment terminals at this location.
    * @return contactAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The contact details if the person responsible for the payment terminals at this location.")
   public PaymentTerminalAddress getContactAddress() {
     return contactAddress;
   }
 
   
    /**
-   * 
+   * The ID of the user the payment terminal location version was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the payment terminal location version was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -146,10 +146,10 @@ public class PaymentTerminalLocationVersion {
 
   
    /**
-   * 
+   * The payment terminal location that the version belongs to.
    * @return location
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment terminal location that the version belongs to.")
   public PaymentTerminalLocation getLocation() {
     return location;
   }
@@ -186,10 +186,10 @@ public class PaymentTerminalLocationVersion {
 
   
    /**
-   * 
+   * Whether payment terminals are immediately updated to this configuration version. If not, it will be applied during the maintenance window.
    * @return versionAppliedImmediately
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether payment terminals are immediately updated to this configuration version. If not, it will be applied during the maintenance window.")
   public Boolean isVersionAppliedImmediately() {
     return versionAppliedImmediately;
   }

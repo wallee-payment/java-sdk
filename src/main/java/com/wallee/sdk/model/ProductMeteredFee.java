@@ -81,20 +81,20 @@ public class ProductMeteredFee {
   
   
    /**
-   * 
+   * The product component that the fee belongs to.
    * @return component
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product component that the fee belongs to.")
   public SubscriptionProductComponent getComponent() {
     return component;
   }
 
   
    /**
-   * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+   * The localized description of the fee that is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
+  @ApiModelProperty(value = "The localized description of the fee that is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -121,40 +121,40 @@ public class ProductMeteredFee {
 
   
    /**
-   * 
+   * The metric used to determine the resource consumption billed to the customer.
    * @return metric
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The metric used to determine the resource consumption billed to the customer.")
   public SubscriptionMetric getMetric() {
     return metric;
   }
 
   
    /**
-   * The name of the fee should describe for the subscriber in few words for what the fee is for.
+   * The localized name of the fee that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
+  @ApiModelProperty(value = "The localized name of the fee that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
 
   
    /**
-   * The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.
+   * The method used to calculate the tier price.
    * @return tierPricing
   **/
-  @ApiModelProperty(value = "The tier pricing determines the calculation method of the tiers. The prices of the different tiers can be applied in different ways. The tier pricing controls this calculation.")
+  @ApiModelProperty(value = "The method used to calculate the tier price.")
   public ProductMeteredTierPricing getTierPricing() {
     return tierPricing;
   }
 
   
    /**
-   * 
+   * The type of the fee.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the fee.")
   public ProductFeeType getType() {
     return type;
   }

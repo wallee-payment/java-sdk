@@ -105,6 +105,10 @@ public class InvoiceReimbursement {
   protected String recipientIban = null;
 
   
+  @JsonProperty("recipientOrganizationName")
+  protected String recipientOrganizationName = null;
+
+  
   @JsonProperty("recipientPostcode")
   protected String recipientPostcode = null;
 
@@ -288,6 +292,16 @@ public class InvoiceReimbursement {
   
    /**
    * 
+   * @return recipientOrganizationName
+  **/
+  @ApiModelProperty(value = "")
+  public String getRecipientOrganizationName() {
+    return recipientOrganizationName;
+  }
+
+  
+   /**
+   * 
    * @return recipientPostcode
   **/
   @ApiModelProperty(value = "")
@@ -362,6 +376,7 @@ public class InvoiceReimbursement {
         Objects.equals(this.recipientFamilyName, invoiceReimbursement.recipientFamilyName) &&
         Objects.equals(this.recipientGivenName, invoiceReimbursement.recipientGivenName) &&
         Objects.equals(this.recipientIban, invoiceReimbursement.recipientIban) &&
+        Objects.equals(this.recipientOrganizationName, invoiceReimbursement.recipientOrganizationName) &&
         Objects.equals(this.recipientPostcode, invoiceReimbursement.recipientPostcode) &&
         Objects.equals(this.recipientStreet, invoiceReimbursement.recipientStreet) &&
         Objects.equals(this.senderIban, invoiceReimbursement.senderIban) &&
@@ -371,7 +386,7 @@ public class InvoiceReimbursement {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, createdOn, currency, discardedBy, discardedOn, id, linkedSpaceId, paymentConnectorConfiguration, paymentInitiationAdviceFile, processedBy, processedOn, recipientCity, recipientCountry, recipientFamilyName, recipientGivenName, recipientIban, recipientPostcode, recipientStreet, senderIban, state, version);
+    return Objects.hash(amount, createdOn, currency, discardedBy, discardedOn, id, linkedSpaceId, paymentConnectorConfiguration, paymentInitiationAdviceFile, processedBy, processedOn, recipientCity, recipientCountry, recipientFamilyName, recipientGivenName, recipientIban, recipientOrganizationName, recipientPostcode, recipientStreet, senderIban, state, version);
   }
 
 
@@ -396,6 +411,7 @@ public class InvoiceReimbursement {
     sb.append("    recipientFamilyName: ").append(toIndentedString(recipientFamilyName)).append("\n");
     sb.append("    recipientGivenName: ").append(toIndentedString(recipientGivenName)).append("\n");
     sb.append("    recipientIban: ").append(toIndentedString(recipientIban)).append("\n");
+    sb.append("    recipientOrganizationName: ").append(toIndentedString(recipientOrganizationName)).append("\n");
     sb.append("    recipientPostcode: ").append(toIndentedString(recipientPostcode)).append("\n");
     sb.append("    recipientStreet: ").append(toIndentedString(recipientStreet)).append("\n");
     sb.append("    senderIban: ").append(toIndentedString(senderIban)).append("\n");

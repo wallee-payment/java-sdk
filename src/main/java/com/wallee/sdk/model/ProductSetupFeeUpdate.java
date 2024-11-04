@@ -118,10 +118,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * 
+   * The product component that the fee belongs to.
    * @return component
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The product component that the fee belongs to.")
   public Long getComponent() {
     return component;
   }
@@ -145,10 +145,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.
+   * The localized description of the fee that is displayed to the customer.
    * @return description
   **/
-  @ApiModelProperty(value = "The description of a component fee describes the fee to the subscriber. The description may be shown in documents or on certain user interfaces.")
+  @ApiModelProperty(value = "The localized description of the fee that is displayed to the customer.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -172,10 +172,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * The name of the fee should describe for the subscriber in few words for what the fee is for.
+   * The localized name of the fee that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the fee should describe for the subscriber in few words for what the fee is for.")
+  @ApiModelProperty(value = "The localized name of the fee that is displayed to the customer.")
   public Map<String, String> getName() {
     return name;
   }
@@ -199,10 +199,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.
+   * The amount charged to the customer when a subscription is downgraded.
    * @return onDowngradeCreditedAmount
   **/
-  @ApiModelProperty(value = "When the subscription is changed and the change is considered as a downgrade the amount defined by this property will be credited to the subscriber.")
+  @ApiModelProperty(value = "The amount charged to the customer when a subscription is downgraded.")
   public List<PersistableCurrencyAmountUpdate> getOnDowngradeCreditedAmount() {
     return onDowngradeCreditedAmount;
   }
@@ -226,10 +226,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.
+   * The amount charged to the customer when a subscription is upgraded.
    * @return onUpgradeCreditedAmount
   **/
-  @ApiModelProperty(value = "When the subscription is changed and the change is considered as a upgrade the amount defined by this property will be credited to the subscriber.")
+  @ApiModelProperty(value = "The amount charged to the customer when a subscription is upgraded.")
   public List<PersistableCurrencyAmountUpdate> getOnUpgradeCreditedAmount() {
     return onUpgradeCreditedAmount;
   }
@@ -253,10 +253,10 @@ public class ProductSetupFeeUpdate {
   }
 
    /**
-   * The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.
+   * The amount charged to the customer once when they subscribe to a subscription.
    * @return setupFee
   **/
-  @ApiModelProperty(value = "The setup fee is charged when the subscriber subscribes to this component. The setup fee is debited with the first charge for the subscriptions.")
+  @ApiModelProperty(value = "The amount charged to the customer once when they subscribe to a subscription.")
   public List<PersistableCurrencyAmountUpdate> getSetupFee() {
     return setupFee;
   }

@@ -12,6 +12,7 @@ import com.wallee.sdk.model.ClientError;
 import com.wallee.sdk.model.EntityQuery;
 import com.wallee.sdk.model.EntityQueryFilter;
 import com.wallee.sdk.model.PaymentTerminal;
+import com.wallee.sdk.model.PaymentTerminalTransactionSummaryReference;
 import com.wallee.sdk.model.ServerError;
 
 
@@ -580,37 +581,59 @@ public class PaymentTerminalService {
     * Remotely Trigger Final Balance
     
     * Remotely triggers the final balance receipt on the terminal.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param terminalId 
+    * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
 
     **/
-    public void triggerFinalBalance(Long spaceId, Long terminalId) throws IOException {
-        triggerFinalBalanceForHttpResponse(spaceId, terminalId);
+    public PaymentTerminalTransactionSummaryReference triggerFinalBalance(Long spaceId, Long terminalId) throws IOException {
+        HttpResponse response = triggerFinalBalanceForHttpResponse(spaceId, terminalId);
+        String returnType = "PaymentTerminalTransactionSummaryReference";
+        if(returnType.equals("String")){
+          return (PaymentTerminalTransactionSummaryReference) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<PaymentTerminalTransactionSummaryReference>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (PaymentTerminalTransactionSummaryReference)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Remotely Trigger Final Balance
     
     * Remotely triggers the final balance receipt on the terminal.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param terminalId 
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
 
     **/
-    public void triggerFinalBalance(Long spaceId, Long terminalId, Map<String, Object> params) throws IOException {
-        triggerFinalBalanceForHttpResponse(spaceId, terminalId, params);
+    public PaymentTerminalTransactionSummaryReference triggerFinalBalance(Long spaceId, Long terminalId, Map<String, Object> params) throws IOException {
+        HttpResponse response = triggerFinalBalanceForHttpResponse(spaceId, terminalId, params);
+        String returnType = "PaymentTerminalTransactionSummaryReference";
+        if(returnType.equals("String")){
+            return (PaymentTerminalTransactionSummaryReference) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<PaymentTerminalTransactionSummaryReference>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (PaymentTerminalTransactionSummaryReference)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse triggerFinalBalanceForHttpResponse(Long spaceId, Long terminalId) throws IOException {
@@ -686,37 +709,59 @@ public class PaymentTerminalService {
     * Remotely Trigger Final Balance By Identifier
     
     * Remotely triggers the final balance receipt on the terminal by terminal identifier.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param terminalIdentifier 
+    * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
 
     **/
-    public void triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier) throws IOException {
-        triggerFinalBalanceByIdentifierForHttpResponse(spaceId, terminalIdentifier);
+    public PaymentTerminalTransactionSummaryReference triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier) throws IOException {
+        HttpResponse response = triggerFinalBalanceByIdentifierForHttpResponse(spaceId, terminalIdentifier);
+        String returnType = "PaymentTerminalTransactionSummaryReference";
+        if(returnType.equals("String")){
+          return (PaymentTerminalTransactionSummaryReference) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<PaymentTerminalTransactionSummaryReference>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (PaymentTerminalTransactionSummaryReference)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
   /**
     * Remotely Trigger Final Balance By Identifier
     
     * Remotely triggers the final balance receipt on the terminal by terminal identifier.
+    * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>409</b> - This status code indicates that there was a conflict with the current version of the data in the database and the provided data in the request.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
     * @param spaceId 
     * @param terminalIdentifier 
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
+    * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
     * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
 
     **/
-    public void triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier, Map<String, Object> params) throws IOException {
-        triggerFinalBalanceByIdentifierForHttpResponse(spaceId, terminalIdentifier, params);
+    public PaymentTerminalTransactionSummaryReference triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier, Map<String, Object> params) throws IOException {
+        HttpResponse response = triggerFinalBalanceByIdentifierForHttpResponse(spaceId, terminalIdentifier, params);
+        String returnType = "PaymentTerminalTransactionSummaryReference";
+        if(returnType.equals("String")){
+            return (PaymentTerminalTransactionSummaryReference) (Object) response.parseAsString();
+        }
+        TypeReference typeRef = new TypeReference<PaymentTerminalTransactionSummaryReference>() {};
+        if (isNoBodyResponse(response)) {
+            throw new WalleeSdkException(ErrorCode.ENTITY_NOT_FOUND, "Entity was not found for: " + typeRef.getType().getTypeName());
+        }
+        return (PaymentTerminalTransactionSummaryReference)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
     public HttpResponse triggerFinalBalanceByIdentifierForHttpResponse(Long spaceId, String terminalIdentifier) throws IOException {

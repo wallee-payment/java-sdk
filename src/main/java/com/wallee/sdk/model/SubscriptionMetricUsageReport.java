@@ -84,50 +84,50 @@ public class SubscriptionMetricUsageReport {
   
   
    /**
-   * The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.
+   * The number of resources consumed, will be charged in the next billing cycle.
    * @return consumedUnits
   **/
-  @ApiModelProperty(value = "The consumed units describe the amount of resources consumed. Those consumed units will be billed in the next billing cycle.")
+  @ApiModelProperty(value = "The number of resources consumed, will be charged in the next billing cycle.")
   public BigDecimal getConsumedUnits() {
     return consumedUnits;
   }
 
   
    /**
-   * 
+   * The ID of the user the usage report was created by.
    * @return createdByUserId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the usage report was created by.")
   public Long getCreatedByUserId() {
     return createdByUserId;
   }
 
   
    /**
-   * 
+   * The date and time when the usage report was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the usage report was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The metric usage report description describe the reported usage. This description may be shown to the end user.
+   * A description used to identify the usage report.
    * @return description
   **/
-  @ApiModelProperty(value = "The metric usage report description describe the reported usage. This description may be shown to the end user.")
+  @ApiModelProperty(value = "A description used to identify the usage report.")
   public String getDescription() {
     return description;
   }
 
   
    /**
-   * The external id identifies the metric usage uniquely.
+   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external id identifies the metric usage uniquely.")
+  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
   public String getExternalId() {
     return externalId;
   }
@@ -154,10 +154,10 @@ public class SubscriptionMetricUsageReport {
 
   
    /**
-   * The metric usage report is linked to the metric for which the usage should be recorded.
+   * The metric that the usage report is recorded for.
    * @return metric
   **/
-  @ApiModelProperty(value = "The metric usage report is linked to the metric for which the usage should be recorded.")
+  @ApiModelProperty(value = "The metric that the usage report is recorded for.")
   public Long getMetric() {
     return metric;
   }
@@ -174,10 +174,10 @@ public class SubscriptionMetricUsageReport {
 
   
    /**
-   * The subscription to which the usage is added to.
+   * The subscription that the usage report is recorded for.
    * @return subscription
   **/
-  @ApiModelProperty(value = "The subscription to which the usage is added to.")
+  @ApiModelProperty(value = "The subscription that the usage report is recorded for.")
   public Long getSubscription() {
     return subscription;
   }

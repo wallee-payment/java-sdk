@@ -92,10 +92,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.
+   * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to failed URL when the transaction could not be authorized or completed. In case no failed URL is specified a default failed page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they canceled or failed to authenticated their payment.")
   public String getFailedUrl() {
     return failedUrl;
   }
@@ -111,10 +111,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * 
+   * The date and time when the execution of the charge is planned.
    * @return plannedExecutionDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the execution of the charge is planned.")
   public OffsetDateTime getPlannedExecutionDate() {
     return plannedExecutionDate;
   }
@@ -130,10 +130,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * 
+   * The processing type specifies how the charge is to be processed.
    * @return processingType
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The processing type specifies how the charge is to be processed.")
   public SubscriptionChargeProcessingType getProcessingType() {
     return processingType;
   }
@@ -149,10 +149,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the charge.
    * @return reference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the charge.")
   public String getReference() {
     return reference;
   }
@@ -168,10 +168,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * The field subscription indicates the subscription to which the charge belongs to.
+   * The subscription that the charge belongs to.
    * @return subscription
   **/
-  @ApiModelProperty(required = true, value = "The field subscription indicates the subscription to which the charge belongs to.")
+  @ApiModelProperty(required = true, value = "The subscription that the charge belongs to.")
   public Long getSubscription() {
     return subscription;
   }
@@ -187,10 +187,10 @@ public class SubscriptionChargeCreate {
   }
 
    /**
-   * The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.
+   * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
   **/
-  @ApiModelProperty(value = "The user will be redirected to success URL when the transaction could be authorized or completed. In case no success URL is specified a default success page will be displayed.")
+  @ApiModelProperty(value = "The URL to redirect the customer back to after they successfully authenticated their payment.")
   public String getSuccessUrl() {
     return successUrl;
   }

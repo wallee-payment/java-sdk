@@ -68,30 +68,30 @@ public class UserSpaceRole {
 
   
    /**
-   * 
+   * The role that is assigned to the user.
    * @return role
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The role that is assigned to the user.")
   public Long getRole() {
     return role;
   }
 
   
    /**
-   * 
+   * The space in which the role is assigned to the user.
    * @return space
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The space in which the role is assigned to the user.")
   public Long getSpace() {
     return space;
   }
 
   
    /**
-   * 
+   * The user whose role this defines.
    * @return user
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The user whose role this defines.")
   public Long getUser() {
     return user;
   }

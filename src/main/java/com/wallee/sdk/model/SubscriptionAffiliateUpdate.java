@@ -155,10 +155,10 @@ public class SubscriptionAffiliateUpdate {
   }
 
    /**
-   * 
+   * The name used to identify the affiliate.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to identify the affiliate.")
   public String getName() {
     return name;
   }

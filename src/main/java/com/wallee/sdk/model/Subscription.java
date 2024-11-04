@@ -124,50 +124,50 @@ public class Subscription {
   
   
    /**
-   * 
+   * The date and time when the subscription was activate.
    * @return activatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription was activate.")
   public OffsetDateTime getActivatedOn() {
     return activatedOn;
   }
 
   
    /**
-   * 
+   * The affiliate that led to the creation of the subscription.
    * @return affiliate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The affiliate that led to the creation of the subscription.")
   public SubscriptionAffiliate getAffiliate() {
     return affiliate;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * 
+   * The version of the product that the subscription is currently linked to.
    * @return currentProductVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The version of the product that the subscription is currently linked to.")
   public SubscriptionProductVersion getCurrentProductVersion() {
     return currentProductVersion;
   }
 
   
    /**
-   * 
+   * A description used to identify the subscription.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A description used to identify the subscription.")
   public String getDescription() {
     return description;
   }
@@ -184,10 +184,10 @@ public class Subscription {
 
   
    /**
-   * 
+   * The date and time when the subscription was initialized.
    * @return initializedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription was initialized.")
   public OffsetDateTime getInitializedOn() {
     return initializedOn;
   }
@@ -224,20 +224,20 @@ public class Subscription {
 
   
    /**
-   * 
+   * The date and time when the subscription is planned to be terminated.
    * @return plannedTerminationDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription is planned to be terminated.")
   public OffsetDateTime getPlannedTerminationDate() {
     return plannedTerminationDate;
   }
 
   
    /**
-   * 
+   * The merchant&#39;s reference used to identify the subscription.
    * @return reference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the subscription.")
   public String getReference() {
     return reference;
   }
@@ -254,60 +254,60 @@ public class Subscription {
 
   
    /**
-   * 
+   * The subscriber that the subscription belongs to.
    * @return subscriber
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscriber that the subscription belongs to.")
   public Subscriber getSubscriber() {
     return subscriber;
   }
 
   
    /**
-   * 
+   * The ID of the user the subscription was terminated by.
    * @return terminatedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the subscription was terminated by.")
   public Long getTerminatedBy() {
     return terminatedBy;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription was terminated.
    * @return terminatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription was terminated.")
   public OffsetDateTime getTerminatedOn() {
     return terminatedOn;
   }
 
   
    /**
-   * 
+   * The date and time when the termination of the subscription started.
    * @return terminatingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the termination of the subscription started.")
   public OffsetDateTime getTerminatingOn() {
     return terminatingOn;
   }
 
   
    /**
-   * 
+   * The date and time when the subscription was scheduled to be terminated.
    * @return terminationScheduledOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the subscription was scheduled to be terminated.")
   public OffsetDateTime getTerminationScheduledOn() {
     return terminationScheduledOn;
   }
 
   
    /**
-   * 
+   * The payment token that is used to charge the customer.
    * @return token
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment token that is used to charge the customer.")
   public Token getToken() {
     return token;
   }

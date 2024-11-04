@@ -100,7 +100,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
    * The protection mode determines if the payment link is protected against tampering and in what way.
    * @return protectionMode
   **/
-  @ApiModelProperty(value = "The protection mode determines if the payment link is protected against tampering and in what way.")
+  @ApiModelProperty(required = true, value = "The protection mode determines if the payment link is protected against tampering and in what way.")
   public PaymentLinkProtectionMode getProtectionMode() {
     return protectionMode;
   }

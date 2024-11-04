@@ -24,7 +24,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.SalesChannel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -44,20 +43,12 @@ public class SalesChannel {
   protected Map<String, String> description = null;
 
   
-  @JsonProperty("icon")
-  protected String icon = null;
-
-  
   @JsonProperty("id")
   protected Long id = null;
 
   
   @JsonProperty("name")
   protected Map<String, String> name = null;
-
-  
-  @JsonProperty("parent")
-  protected SalesChannel parent = null;
 
   
   @JsonProperty("sortOrder")
@@ -72,16 +63,6 @@ public class SalesChannel {
   @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
-  }
-
-  
-   /**
-   * 
-   * @return icon
-  **/
-  @ApiModelProperty(value = "")
-  public String getIcon() {
-    return icon;
   }
 
   
@@ -106,20 +87,10 @@ public class SalesChannel {
 
   
    /**
-   * 
-   * @return parent
-  **/
-  @ApiModelProperty(value = "")
-  public SalesChannel getParent() {
-    return parent;
-  }
-
-  
-   /**
-   * 
+   * When listing sales channels, they can be sorted by this number.
    * @return sortOrder
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "When listing sales channels, they can be sorted by this number.")
   public Integer getSortOrder() {
     return sortOrder;
   }
@@ -136,16 +107,14 @@ public class SalesChannel {
     }
     SalesChannel salesChannel = (SalesChannel) o;
     return Objects.equals(this.description, salesChannel.description) &&
-        Objects.equals(this.icon, salesChannel.icon) &&
         Objects.equals(this.id, salesChannel.id) &&
         Objects.equals(this.name, salesChannel.name) &&
-        Objects.equals(this.parent, salesChannel.parent) &&
         Objects.equals(this.sortOrder, salesChannel.sortOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, icon, id, name, parent, sortOrder);
+    return Objects.hash(description, id, name, sortOrder);
   }
 
 
@@ -155,10 +124,8 @@ public class SalesChannel {
     sb.append("class SalesChannel {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("}");
     return sb.toString();

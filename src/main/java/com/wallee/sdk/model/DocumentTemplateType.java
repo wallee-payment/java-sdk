@@ -62,30 +62,30 @@ public class DocumentTemplateType {
   
   
    /**
-   * 
+   * The localized description of the document template type.
    * @return description
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized description of the document template type.")
   public Map<String, String> getDescription() {
     return description;
   }
 
   
    /**
-   * 
+   * The feature that this document template type belongs to.
    * @return feature
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The feature that this document template type belongs to.")
   public Long getFeature() {
     return feature;
   }
 
   
    /**
-   * 
+   * The group that this document template type belongs to.
    * @return group
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The group that this document template type belongs to.")
   public DocumentTemplateTypeGroup getGroup() {
     return group;
   }
@@ -102,10 +102,10 @@ public class DocumentTemplateType {
 
   
    /**
-   * 
+   * The localized title of the document template type.
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized title of the document template type.")
   public Map<String, String> getTitle() {
     return title;
   }

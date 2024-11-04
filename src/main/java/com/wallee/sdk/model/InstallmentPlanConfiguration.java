@@ -176,10 +176,10 @@ public class InstallmentPlanConfiguration {
 
   
    /**
-   * The installment plan can only be applied if the orders total is at least the defined minimal amount.
+   * The installment plan can only be applied if the order&#39;s total is at least the defined minimal amount.
    * @return minimalAmount
   **/
-  @ApiModelProperty(value = "The installment plan can only be applied if the orders total is at least the defined minimal amount.")
+  @ApiModelProperty(value = "The installment plan can only be applied if the order's total is at least the defined minimal amount.")
   public BigDecimal getMinimalAmount() {
     return minimalAmount;
   }

@@ -82,6 +82,10 @@ public class SubscriptionLedgerEntry {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
+  @JsonProperty("proRataCalculated")
+  protected Boolean proRataCalculated = null;
+
+  
   @JsonProperty("quantity")
   protected BigDecimal quantity = null;
 
@@ -112,40 +116,40 @@ public class SubscriptionLedgerEntry {
   
   
    /**
-   * 
+   * The total tax rate applied to the ledger entry, calculated from the rates of all tax lines.
    * @return aggregatedTaxRate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total tax rate applied to the ledger entry, calculated from the rates of all tax lines.")
   public BigDecimal getAggregatedTaxRate() {
     return aggregatedTaxRate;
   }
 
   
    /**
-   * 
+   * The leger entry&#39;s amount with discounts applied, excluding taxes.
    * @return amountExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The leger entry's amount with discounts applied, excluding taxes.")
   public BigDecimal getAmountExcludingTax() {
     return amountExcludingTax;
   }
 
   
    /**
-   * 
+   * The leger entry&#39;s amount with discounts applied, including taxes.
    * @return amountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The leger entry's amount with discounts applied, including taxes.")
   public BigDecimal getAmountIncludingTax() {
     return amountIncludingTax;
   }
 
   
    /**
-   * 
+   * The ID of the user the ledger entry was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the ledger entry was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -162,10 +166,10 @@ public class SubscriptionLedgerEntry {
 
   
    /**
-   * 
+   * The discount allocated to the ledger entry, including taxes.
    * @return discountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The discount allocated to the ledger entry, including taxes.")
   public BigDecimal getDiscountIncludingTax() {
     return discountIncludingTax;
   }
@@ -213,9 +217,19 @@ public class SubscriptionLedgerEntry {
   
    /**
    * 
-   * @return quantity
+   * @return proRataCalculated
   **/
   @ApiModelProperty(value = "")
+  public Boolean isProRataCalculated() {
+    return proRataCalculated;
+  }
+
+  
+   /**
+   * The number of items that were consumed.
+   * @return quantity
+  **/
+  @ApiModelProperty(value = "The number of items that were consumed.")
   public BigDecimal getQuantity() {
     return quantity;
   }
@@ -232,40 +246,40 @@ public class SubscriptionLedgerEntry {
 
   
    /**
-   * 
+   * The subscription version that the ledger entry belongs to.
    * @return subscriptionVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The subscription version that the ledger entry belongs to.")
   public Long getSubscriptionVersion() {
     return subscriptionVersion;
   }
 
   
    /**
-   * 
+   * The sum of all taxes applied to the ledger entry.
    * @return taxAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sum of all taxes applied to the ledger entry.")
   public BigDecimal getTaxAmount() {
     return taxAmount;
   }
 
   
    /**
-   * 
+   * A set of tax lines, each of which specifies a tax applied to the ledger entry.
    * @return taxes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A set of tax lines, each of which specifies a tax applied to the ledger entry.")
   public List<Tax> getTaxes() {
     return taxes;
   }
 
   
    /**
-   * 
+   * The title that indicates what the ledger entry is about.
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The title that indicates what the ledger entry is about.")
   public String getTitle() {
     return title;
   }
@@ -301,6 +315,7 @@ public class SubscriptionLedgerEntry {
         Objects.equals(this.id, subscriptionLedgerEntry.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionLedgerEntry.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, subscriptionLedgerEntry.plannedPurgeDate) &&
+        Objects.equals(this.proRataCalculated, subscriptionLedgerEntry.proRataCalculated) &&
         Objects.equals(this.quantity, subscriptionLedgerEntry.quantity) &&
         Objects.equals(this.state, subscriptionLedgerEntry.state) &&
         Objects.equals(this.subscriptionVersion, subscriptionLedgerEntry.subscriptionVersion) &&
@@ -312,7 +327,7 @@ public class SubscriptionLedgerEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, createdBy, createdOn, discountIncludingTax, externalId, id, linkedSpaceId, plannedPurgeDate, quantity, state, subscriptionVersion, taxAmount, taxes, title, version);
+    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, createdBy, createdOn, discountIncludingTax, externalId, id, linkedSpaceId, plannedPurgeDate, proRataCalculated, quantity, state, subscriptionVersion, taxAmount, taxes, title, version);
   }
 
 
@@ -331,6 +346,7 @@ public class SubscriptionLedgerEntry {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    proRataCalculated: ").append(toIndentedString(proRataCalculated)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");

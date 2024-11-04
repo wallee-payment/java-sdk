@@ -279,10 +279,10 @@ public class Refund {
 
   
    /**
-   * 
+   * The labels providing additional information about the object.
    * @return labels
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The labels providing additional information about the object.")
   public List<Label> getLabels() {
     return labels;
   }

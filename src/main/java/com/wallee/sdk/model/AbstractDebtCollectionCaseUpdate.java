@@ -80,10 +80,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The billing address of the case identifies the debtor.
+   * The billing address that identifies the debtor.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "The billing address of the case identifies the debtor.")
+  @ApiModelProperty(value = "The billing address that identifies the debtor.")
   public AddressCreate getBillingAddress() {
     return billingAddress;
   }
@@ -99,10 +99,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The contract date is the date on which the contract with the debtor was signed on.
+   * The date and time when the contract with the debtor was signed.
    * @return contractDate
   **/
-  @ApiModelProperty(value = "The contract date is the date on which the contract with the debtor was signed on.")
+  @ApiModelProperty(value = "The date and time when the contract with the debtor was signed.")
   public OffsetDateTime getContractDate() {
     return contractDate;
   }
@@ -118,10 +118,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The currency defines the billing currency of the debt collection case.
+   * The three-letter code (ISO 4217 format) of the case&#39;s currency.
    * @return currency
   **/
-  @ApiModelProperty(value = "The currency defines the billing currency of the debt collection case.")
+  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the case's currency.")
   public String getCurrency() {
     return currency;
   }
@@ -137,10 +137,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The due date indicates the date on which the amount receivable was due. This date has to be always in the past.
+   * The date and time when the claim was due.
    * @return dueDate
   **/
-  @ApiModelProperty(value = "The due date indicates the date on which the amount receivable was due. This date has to be always in the past.")
+  @ApiModelProperty(value = "The date and time when the claim was due.")
   public OffsetDateTime getDueDate() {
     return dueDate;
   }
@@ -156,10 +156,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.
+   * The environment in which the case is processed.
    * @return environment
   **/
-  @ApiModelProperty(value = "The environment in which this case will be processed. There must be a debt collector configuration present which supports the chosen environment.")
+  @ApiModelProperty(value = "The environment in which the case is processed.")
   public DebtCollectionEnvironment getEnvironment() {
     return environment;
   }
@@ -175,10 +175,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The language indicates the language to be used in the communication with the debtor.
+   * The language that is linked to the object.
    * @return language
   **/
-  @ApiModelProperty(value = "The language indicates the language to be used in the communication with the debtor.")
+  @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
   }
@@ -202,10 +202,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.
+   * The line items that are subject of this debt collection case.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "The line items of the debt collection case will be shown on documents sent to the debtor and the total of them makes up total amount to collect.")
+  @ApiModelProperty(value = "The line items that are subject of this debt collection case.")
   public List<LineItemCreate> getLineItems() {
     return lineItems;
   }
@@ -221,10 +221,10 @@ public class AbstractDebtCollectionCaseUpdate {
   }
 
    /**
-   * 
+   * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the space view this object is linked to.")
   public Long getSpaceViewId() {
     return spaceViewId;
   }

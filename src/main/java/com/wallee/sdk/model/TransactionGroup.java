@@ -72,30 +72,30 @@ public class TransactionGroup {
   
   
    /**
-   * 
+   * The date and time when the initial transaction in the group was created.
    * @return beginDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the initial transaction in the group was created.")
   public OffsetDateTime getBeginDate() {
     return beginDate;
   }
 
   
    /**
-   * 
+   * The unique identifier of the customer in the external system.
    * @return customerId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the customer in the external system.")
   public String getCustomerId() {
     return customerId;
   }
 
   
    /**
-   * 
+   * The date and time when the final transaction in the group was last updated.
    * @return endDate
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the final transaction in the group was last updated.")
   public OffsetDateTime getEndDate() {
     return endDate;
   }

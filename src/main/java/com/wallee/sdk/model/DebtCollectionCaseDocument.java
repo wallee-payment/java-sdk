@@ -72,10 +72,6 @@ public class DebtCollectionCaseDocument {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
-  @JsonProperty("storageId")
-  protected String storageId = null;
-
-  
   @JsonProperty("uniqueId")
   protected String uniqueId = null;
 
@@ -96,20 +92,20 @@ public class DebtCollectionCaseDocument {
 
   
    /**
-   * 
+   * The debt collection case that this document belongs to.
    * @return debtCollectionCase
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The debt collection case that this document belongs to.")
   public Long getDebtCollectionCase() {
     return debtCollectionCase;
   }
 
   
    /**
-   * 
+   * The file name of the document.
    * @return fileName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The file name of the document.")
   public String getFileName() {
     return fileName;
   }
@@ -126,10 +122,10 @@ public class DebtCollectionCaseDocument {
 
   
    /**
-   * 
+   * The labels providing additional information about the object.
    * @return labels
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The labels providing additional information about the object.")
   public List<Label> getLabels() {
     return labels;
   }
@@ -146,10 +142,10 @@ public class DebtCollectionCaseDocument {
 
   
    /**
-   * 
+   * The MIME type of the document&#39;s content.
    * @return mimeType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The MIME type of the document's content.")
   public String getMimeType() {
     return mimeType;
   }
@@ -166,20 +162,10 @@ public class DebtCollectionCaseDocument {
 
   
    /**
-   * 
-   * @return storageId
-  **/
-  @ApiModelProperty(value = "")
-  public String getStorageId() {
-    return storageId;
-  }
-
-  
-   /**
-   * 
+   * A unique identifier of the document.
    * @return uniqueId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A unique identifier of the document.")
   public String getUniqueId() {
     return uniqueId;
   }
@@ -213,14 +199,13 @@ public class DebtCollectionCaseDocument {
         Objects.equals(this.linkedSpaceId, debtCollectionCaseDocument.linkedSpaceId) &&
         Objects.equals(this.mimeType, debtCollectionCaseDocument.mimeType) &&
         Objects.equals(this.plannedPurgeDate, debtCollectionCaseDocument.plannedPurgeDate) &&
-        Objects.equals(this.storageId, debtCollectionCaseDocument.storageId) &&
         Objects.equals(this.uniqueId, debtCollectionCaseDocument.uniqueId) &&
         Objects.equals(this.version, debtCollectionCaseDocument.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, debtCollectionCase, fileName, id, labels, linkedSpaceId, mimeType, plannedPurgeDate, storageId, uniqueId, version);
+    return Objects.hash(createdOn, debtCollectionCase, fileName, id, labels, linkedSpaceId, mimeType, plannedPurgeDate, uniqueId, version);
   }
 
 
@@ -237,7 +222,6 @@ public class DebtCollectionCaseDocument {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
-    sb.append("    storageId: ").append(toIndentedString(storageId)).append("\n");
     sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

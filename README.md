@@ -21,7 +21,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
-    <version>8.0.0</version>
+    <version>8.1.1</version>
     <scope>compile</scope>
 </dependency>
 ```
@@ -31,7 +31,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.wallee:wallee-java-sdk:8.0.0"
+compile "com.wallee:wallee-java-sdk:8.1.1"
 ```
 
 ### Others
@@ -44,7 +44,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/wallee-java-sdk-8.0.0.jar`
+* `target/wallee-java-sdk-8.1.1.jar`
 * `target/lib/*.jar`
 
 ## Usage

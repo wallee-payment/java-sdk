@@ -461,7 +461,7 @@ public class TokenService {
   /**
     * Create Token
     
-    * This operation creates a token for the given transaction.
+    * This operation creates a token for the given transaction. The transaction payment information will be populated asynchronously as soon as all data becomes available.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -489,7 +489,7 @@ public class TokenService {
   /**
     * Create Token
     
-    * This operation creates a token for the given transaction.
+    * This operation creates a token for the given transaction. The transaction payment information will be populated asynchronously as soon as all data becomes available.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -585,9 +585,9 @@ public class TokenService {
     }
 
   /**
-    * Create Token Based On Transaction
+    * Create Token Based On Transaction And Fill It With Stored Payment Information
     
-    * This operation creates a token for the given transaction and fills it with the stored payment information of the transaction.
+    * This operation creates a token for the given transaction and fills it with the stored payment information of the transaction. The payment information for the transaction will be filled in immediately, if payment information is missing, an exception will be thrown.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -596,7 +596,7 @@ public class TokenService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
 
     **/
     public TokenVersion createTokenBasedOnTransaction(Long spaceId, Long transactionId) throws IOException {
@@ -613,9 +613,9 @@ public class TokenService {
     }
 
   /**
-    * Create Token Based On Transaction
+    * Create Token Based On Transaction And Fill It With Stored Payment Information
     
-    * This operation creates a token for the given transaction and fills it with the stored payment information of the transaction.
+    * This operation creates a token for the given transaction and fills it with the stored payment information of the transaction. The payment information for the transaction will be filled in immediately, if payment information is missing, an exception will be thrown.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
@@ -625,7 +625,7 @@ public class TokenService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
 
     **/
     public TokenVersion createTokenBasedOnTransaction(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {

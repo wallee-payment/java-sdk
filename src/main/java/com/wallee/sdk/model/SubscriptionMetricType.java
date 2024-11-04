@@ -24,7 +24,6 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Feature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class SubscriptionMetricType {
 
   
   @JsonProperty("feature")
-  protected Feature feature = null;
+  protected Long feature = null;
 
   
   @JsonProperty("id")
@@ -72,7 +71,7 @@ public class SubscriptionMetricType {
    * @return feature
   **/
   @ApiModelProperty(value = "")
-  public Feature getFeature() {
+  public Long getFeature() {
     return feature;
   }
 

@@ -89,10 +89,10 @@ public class PaymentTerminalConfiguration {
 
   
    /**
-   * The terminal configuration name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment terminal configuration.
    * @return name
   **/
-  @ApiModelProperty(value = "The terminal configuration name is used internally to identify the terminal in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment terminal configuration.")
   public String getName() {
     return name;
   }
@@ -119,10 +119,10 @@ public class PaymentTerminalConfiguration {
 
   
    /**
-   * 
+   * The type of payment terminals that this configuration can be assigned to.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of payment terminals that this configuration can be assigned to.")
   public PaymentTerminalType getType() {
     return type;
   }

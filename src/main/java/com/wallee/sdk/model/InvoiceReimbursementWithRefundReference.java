@@ -78,6 +78,7 @@ public class InvoiceReimbursementWithRefundReference extends InvoiceReimbursemen
         Objects.equals(this.recipientFamilyName, invoiceReimbursementWithRefundReference.recipientFamilyName) &&
         Objects.equals(this.recipientGivenName, invoiceReimbursementWithRefundReference.recipientGivenName) &&
         Objects.equals(this.recipientIban, invoiceReimbursementWithRefundReference.recipientIban) &&
+        Objects.equals(this.recipientOrganizationName, invoiceReimbursementWithRefundReference.recipientOrganizationName) &&
         Objects.equals(this.recipientPostcode, invoiceReimbursementWithRefundReference.recipientPostcode) &&
         Objects.equals(this.recipientStreet, invoiceReimbursementWithRefundReference.recipientStreet) &&
         Objects.equals(this.senderIban, invoiceReimbursementWithRefundReference.senderIban) &&
@@ -89,7 +90,7 @@ public class InvoiceReimbursementWithRefundReference extends InvoiceReimbursemen
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, createdOn, currency, discardedBy, discardedOn, id, linkedSpaceId, paymentConnectorConfiguration, paymentInitiationAdviceFile, processedBy, processedOn, recipientCity, recipientCountry, recipientFamilyName, recipientGivenName, recipientIban, recipientPostcode, recipientStreet, senderIban, state, version, refundMerchantReference, super.hashCode());
+    return Objects.hash(amount, createdOn, currency, discardedBy, discardedOn, id, linkedSpaceId, paymentConnectorConfiguration, paymentInitiationAdviceFile, processedBy, processedOn, recipientCity, recipientCountry, recipientFamilyName, recipientGivenName, recipientIban, recipientOrganizationName, recipientPostcode, recipientStreet, senderIban, state, version, refundMerchantReference, super.hashCode());
   }
 
 
@@ -114,6 +115,7 @@ public class InvoiceReimbursementWithRefundReference extends InvoiceReimbursemen
     sb.append("    recipientFamilyName: ").append(toIndentedString(recipientFamilyName)).append("\n");
     sb.append("    recipientGivenName: ").append(toIndentedString(recipientGivenName)).append("\n");
     sb.append("    recipientIban: ").append(toIndentedString(recipientIban)).append("\n");
+    sb.append("    recipientOrganizationName: ").append(toIndentedString(recipientOrganizationName)).append("\n");
     sb.append("    recipientPostcode: ").append(toIndentedString(recipientPostcode)).append("\n");
     sb.append("    recipientStreet: ").append(toIndentedString(recipientStreet)).append("\n");
     sb.append("    senderIban: ").append(toIndentedString(senderIban)).append("\n");

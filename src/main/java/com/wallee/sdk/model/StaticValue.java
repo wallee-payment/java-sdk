@@ -68,10 +68,10 @@ public class StaticValue {
 
   
    /**
-   * 
+   * The features that this static value belongs to.
    * @return features
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The features that this static value belongs to.")
   public List<Long> getFeatures() {
     return features;
   }
