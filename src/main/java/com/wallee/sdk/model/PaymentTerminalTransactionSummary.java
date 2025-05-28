@@ -28,9 +28,12 @@ import com.wallee.sdk.model.PaymentTerminalDccTransactionSum;
 import com.wallee.sdk.model.PaymentTerminalTransactionSum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.time.OffsetDateTime;
 
@@ -40,6 +43,10 @@ import java.time.OffsetDateTime;
 @ApiModel(description = "")
 
 public class PaymentTerminalTransactionSummary {
+  
+  @JsonProperty("balanceAmountPerCurrency")
+  protected Map<String, BigDecimal> balanceAmountPerCurrency = null;
+
   
   @JsonProperty("dccTransactionSums")
   protected List<PaymentTerminalDccTransactionSum> dccTransactionSums = null;
@@ -85,6 +92,16 @@ public class PaymentTerminalTransactionSummary {
   protected Integer version = null;
 
   
+  
+   /**
+   * The transactions amount per currency.
+   * @return balanceAmountPerCurrency
+  **/
+  @ApiModelProperty(value = "The transactions amount per currency.")
+  public Map<String, BigDecimal> getBalanceAmountPerCurrency() {
+    return balanceAmountPerCurrency;
+  }
+
   
    /**
    * 
@@ -137,10 +154,10 @@ public class PaymentTerminalTransactionSummary {
 
   
    /**
-   * 
+   * The payment terminal of the transaction summary.
    * @return paymentTerminal
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment terminal of the transaction summary.")
   public Long getPaymentTerminal() {
     return paymentTerminal;
   }
@@ -206,7 +223,8 @@ public class PaymentTerminalTransactionSummary {
       return false;
     }
     PaymentTerminalTransactionSummary paymentTerminalTransactionSummary = (PaymentTerminalTransactionSummary) o;
-    return Objects.equals(this.dccTransactionSums, paymentTerminalTransactionSummary.dccTransactionSums) &&
+    return Objects.equals(this.balanceAmountPerCurrency, paymentTerminalTransactionSummary.balanceAmountPerCurrency) &&
+        Objects.equals(this.dccTransactionSums, paymentTerminalTransactionSummary.dccTransactionSums) &&
         Objects.equals(this.endedOn, paymentTerminalTransactionSummary.endedOn) &&
         Objects.equals(this.id, paymentTerminalTransactionSummary.id) &&
         Objects.equals(this.linkedSpaceId, paymentTerminalTransactionSummary.linkedSpaceId) &&
@@ -221,7 +239,7 @@ public class PaymentTerminalTransactionSummary {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dccTransactionSums, endedOn, id, linkedSpaceId, numberOfTransactions, paymentTerminal, receipt, reference, startedOn, transactionSums, version);
+    return Objects.hash(balanceAmountPerCurrency, dccTransactionSums, endedOn, id, linkedSpaceId, numberOfTransactions, paymentTerminal, receipt, reference, startedOn, transactionSums, version);
   }
 
 
@@ -230,6 +248,7 @@ public class PaymentTerminalTransactionSummary {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalTransactionSummary {\n");
     
+    sb.append("    balanceAmountPerCurrency: ").append(toIndentedString(balanceAmountPerCurrency)).append("\n");
     sb.append("    dccTransactionSums: ").append(toIndentedString(dccTransactionSums)).append("\n");
     sb.append("    endedOn: ").append(toIndentedString(endedOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

@@ -63,10 +63,10 @@ public class PaymentAppCompletionConfigurationCreate {
   }
 
    /**
-   * The completion endpoint is invoked to request the payment service provider to execute a completion.
+   * The URL that the payment service provider will invoke to process a completion request. This endpoint handles communication with the provider for initiating and managing completions.
    * @return completionEndpoint
   **/
-  @ApiModelProperty(value = "The completion endpoint is invoked to request the payment service provider to execute a completion.")
+  @ApiModelProperty(value = "The URL that the payment service provider will invoke to process a completion request. This endpoint handles communication with the provider for initiating and managing completions.")
   public String getCompletionEndpoint() {
     return completionEndpoint;
   }
@@ -82,10 +82,10 @@ public class PaymentAppCompletionConfigurationCreate {
   }
 
    /**
-   * When the completion or the void is triggered we expect a feedback about the state of it. This timeout defines after how long we consider the void resp. completion as failed without receiving a final state update.
+   * The maximum time (in minutes) to wait for a response from the payment service provider after a completion request is triggered. If no feedback or final status is received within this period, the completion is considered failed.
    * @return completionTimeoutInMinutes
   **/
-  @ApiModelProperty(value = "When the completion or the void is triggered we expect a feedback about the state of it. This timeout defines after how long we consider the void resp. completion as failed without receiving a final state update.")
+  @ApiModelProperty(value = "The maximum time (in minutes) to wait for a response from the payment service provider after a completion request is triggered. If no feedback or final status is received within this period, the completion is considered failed.")
   public Integer getCompletionTimeoutInMinutes() {
     return completionTimeoutInMinutes;
   }
@@ -101,10 +101,10 @@ public class PaymentAppCompletionConfigurationCreate {
   }
 
    /**
-   * The completion resp. the void can be triggered a while after the authorization of the transaction has been executed. This delay defines how many days after the authorization the void resp. completion must be triggered at the latest.
+   * The maximum number of days after a transaction&#39;s authorization during which a completion or void action can be triggered. Once this period has passed, neither action can be executed.
    * @return maximalCompletionDelayInDays
   **/
-  @ApiModelProperty(value = "The completion resp. the void can be triggered a while after the authorization of the transaction has been executed. This delay defines how many days after the authorization the void resp. completion must be triggered at the latest.")
+  @ApiModelProperty(value = "The maximum number of days after a transaction's authorization during which a completion or void action can be triggered. Once this period has passed, neither action can be executed.")
   public Integer getMaximalCompletionDelayInDays() {
     return maximalCompletionDelayInDays;
   }
@@ -120,10 +120,10 @@ public class PaymentAppCompletionConfigurationCreate {
   }
 
    /**
-   * This flag indicates whether the connector supports multiple completions for a single transaction or not.
+   * Whether the payment connector can process multiple completions for a single transaction.
    * @return multipleCompletionsSupported
   **/
-  @ApiModelProperty(value = "This flag indicates whether the connector supports multiple completions for a single transaction or not.")
+  @ApiModelProperty(value = "Whether the payment connector can process multiple completions for a single transaction.")
   public Boolean isMultipleCompletionsSupported() {
     return multipleCompletionsSupported;
   }
@@ -139,10 +139,10 @@ public class PaymentAppCompletionConfigurationCreate {
   }
 
    /**
-   * The void endpoint is invoked to request the payment service provider to execute a void.
+   * The URL that the payment service provider will invoke to process a void request. This endpoint handles communication with the provider for initiating and managing voids.
    * @return voidEndpoint
   **/
-  @ApiModelProperty(value = "The void endpoint is invoked to request the payment service provider to execute a void.")
+  @ApiModelProperty(value = "The URL that the payment service provider will invoke to process a void request. This endpoint handles communication with the provider for initiating and managing voids.")
   public String getVoidEndpoint() {
     return voidEndpoint;
   }

@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.ProductFeeType;
 import com.wallee.sdk.model.SubscriptionLedgerEntryState;
 import com.wallee.sdk.model.Tax;
 import io.swagger.annotations.ApiModel;
@@ -54,6 +55,14 @@ public class SubscriptionLedgerEntry {
   protected BigDecimal amountIncludingTax = null;
 
   
+  @JsonProperty("componentReferenceName")
+  protected String componentReferenceName = null;
+
+  
+  @JsonProperty("componentReferenceSku")
+  protected String componentReferenceSku = null;
+
+  
   @JsonProperty("createdBy")
   protected Long createdBy = null;
 
@@ -68,6 +77,10 @@ public class SubscriptionLedgerEntry {
   
   @JsonProperty("externalId")
   protected String externalId = null;
+
+  
+  @JsonProperty("feeType")
+  protected ProductFeeType feeType = null;
 
   
   @JsonProperty("id")
@@ -92,6 +105,10 @@ public class SubscriptionLedgerEntry {
   
   @JsonProperty("state")
   protected SubscriptionLedgerEntryState state = null;
+
+  
+  @JsonProperty("subscriptionMetricId")
+  protected Long subscriptionMetricId = null;
 
   
   @JsonProperty("subscriptionVersion")
@@ -146,6 +163,26 @@ public class SubscriptionLedgerEntry {
 
   
    /**
+   * 
+   * @return componentReferenceName
+  **/
+  @ApiModelProperty(value = "")
+  public String getComponentReferenceName() {
+    return componentReferenceName;
+  }
+
+  
+   /**
+   * 
+   * @return componentReferenceSku
+  **/
+  @ApiModelProperty(value = "")
+  public String getComponentReferenceSku() {
+    return componentReferenceSku;
+  }
+
+  
+   /**
    * The ID of the user the ledger entry was created by.
    * @return createdBy
   **/
@@ -176,12 +213,22 @@ public class SubscriptionLedgerEntry {
 
   
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
+  }
+
+  
+   /**
+   * 
+   * @return feeType
+  **/
+  @ApiModelProperty(value = "")
+  public ProductFeeType getFeeType() {
+    return feeType;
   }
 
   
@@ -242,6 +289,16 @@ public class SubscriptionLedgerEntry {
   @ApiModelProperty(value = "The object's current state.")
   public SubscriptionLedgerEntryState getState() {
     return state;
+  }
+
+  
+   /**
+   * 
+   * @return subscriptionMetricId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSubscriptionMetricId() {
+    return subscriptionMetricId;
   }
 
   
@@ -308,16 +365,20 @@ public class SubscriptionLedgerEntry {
     return Objects.equals(this.aggregatedTaxRate, subscriptionLedgerEntry.aggregatedTaxRate) &&
         Objects.equals(this.amountExcludingTax, subscriptionLedgerEntry.amountExcludingTax) &&
         Objects.equals(this.amountIncludingTax, subscriptionLedgerEntry.amountIncludingTax) &&
+        Objects.equals(this.componentReferenceName, subscriptionLedgerEntry.componentReferenceName) &&
+        Objects.equals(this.componentReferenceSku, subscriptionLedgerEntry.componentReferenceSku) &&
         Objects.equals(this.createdBy, subscriptionLedgerEntry.createdBy) &&
         Objects.equals(this.createdOn, subscriptionLedgerEntry.createdOn) &&
         Objects.equals(this.discountIncludingTax, subscriptionLedgerEntry.discountIncludingTax) &&
         Objects.equals(this.externalId, subscriptionLedgerEntry.externalId) &&
+        Objects.equals(this.feeType, subscriptionLedgerEntry.feeType) &&
         Objects.equals(this.id, subscriptionLedgerEntry.id) &&
         Objects.equals(this.linkedSpaceId, subscriptionLedgerEntry.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, subscriptionLedgerEntry.plannedPurgeDate) &&
         Objects.equals(this.proRataCalculated, subscriptionLedgerEntry.proRataCalculated) &&
         Objects.equals(this.quantity, subscriptionLedgerEntry.quantity) &&
         Objects.equals(this.state, subscriptionLedgerEntry.state) &&
+        Objects.equals(this.subscriptionMetricId, subscriptionLedgerEntry.subscriptionMetricId) &&
         Objects.equals(this.subscriptionVersion, subscriptionLedgerEntry.subscriptionVersion) &&
         Objects.equals(this.taxAmount, subscriptionLedgerEntry.taxAmount) &&
         Objects.equals(this.taxes, subscriptionLedgerEntry.taxes) &&
@@ -327,7 +388,7 @@ public class SubscriptionLedgerEntry {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, createdBy, createdOn, discountIncludingTax, externalId, id, linkedSpaceId, plannedPurgeDate, proRataCalculated, quantity, state, subscriptionVersion, taxAmount, taxes, title, version);
+    return Objects.hash(aggregatedTaxRate, amountExcludingTax, amountIncludingTax, componentReferenceName, componentReferenceSku, createdBy, createdOn, discountIncludingTax, externalId, feeType, id, linkedSpaceId, plannedPurgeDate, proRataCalculated, quantity, state, subscriptionMetricId, subscriptionVersion, taxAmount, taxes, title, version);
   }
 
 
@@ -339,16 +400,20 @@ public class SubscriptionLedgerEntry {
     sb.append("    aggregatedTaxRate: ").append(toIndentedString(aggregatedTaxRate)).append("\n");
     sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
     sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
+    sb.append("    componentReferenceName: ").append(toIndentedString(componentReferenceName)).append("\n");
+    sb.append("    componentReferenceSku: ").append(toIndentedString(componentReferenceSku)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    discountIncludingTax: ").append(toIndentedString(discountIncludingTax)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    proRataCalculated: ").append(toIndentedString(proRataCalculated)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    subscriptionMetricId: ").append(toIndentedString(subscriptionMetricId)).append("\n");
     sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
     sb.append("    taxAmount: ").append(toIndentedString(taxAmount)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");

@@ -100,50 +100,50 @@ public class PaymentAppConnector {
   
   
    /**
-   * 
+   * The duration within which the authorization process for a payment should complete.
    * @return authorizationTimeout
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The duration within which the authorization process for a payment should complete.")
   public String getAuthorizationTimeout() {
     return authorizationTimeout;
   }
 
   
    /**
-   * The completion configuration defines how the deferred completion is processed. If it is not present it means that deferred completion is not supported by this connector.
+   * The completion configuration controlling how deferred completion is processed. If not present, deferred completion is not supported for this connector.
    * @return completionConfiguration
   **/
-  @ApiModelProperty(value = "The completion configuration defines how the deferred completion is processed. If it is not present it means that deferred completion is not supported by this connector.")
+  @ApiModelProperty(value = "The completion configuration controlling how deferred completion is processed. If not present, deferred completion is not supported for this connector.")
   public PaymentAppCompletionConfiguration getCompletionConfiguration() {
     return completionConfiguration;
   }
 
   
    /**
-   * The connector configuration references the configuration that was created as part of this connector within the space. The connector configuration is referenced within transactions created with this connector.
+   * The connector configuration created alongside the connector within its designated space. This configuration is used in transactions created using this connector.
    * @return connectorConfiguration
   **/
-  @ApiModelProperty(value = "The connector configuration references the configuration that was created as part of this connector within the space. The connector configuration is referenced within transactions created with this connector.")
+  @ApiModelProperty(value = "The connector configuration created alongside the connector within its designated space. This configuration is used in transactions created using this connector.")
   public PaymentConnectorConfiguration getConnectorConfiguration() {
     return connectorConfiguration;
   }
 
   
    /**
-   * The created on date indicates when the connector was added.
+   * The date and time when the connector was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date indicates when the connector was added.")
+  @ApiModelProperty(value = "The date and time when the connector was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The external ID corresponds to the ID provided during inserting of the processor.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external ID corresponds to the ID provided during inserting of the processor.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -170,40 +170,40 @@ public class PaymentAppConnector {
 
   
    /**
-   * The name of the connector will be displayed within the user interfaces that the merchant is interacting with.
+   * The name used to identify the connector.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the connector will be displayed within the user interfaces that the merchant is interacting with.")
+  @ApiModelProperty(value = "The name used to identify the connector.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * The payment page endpoint is invoked to process the transaction. The endpoint is defined by the external service provider.
+   * The URL where the user is redirected to process a payment. This endpoint is provided by the external service provider.
    * @return paymentPageEndpoint
   **/
-  @ApiModelProperty(value = "The payment page endpoint is invoked to process the transaction. The endpoint is defined by the external service provider.")
+  @ApiModelProperty(value = "The URL where the user is redirected to process a payment. This endpoint is provided by the external service provider.")
   public String getPaymentPageEndpoint() {
     return paymentPageEndpoint;
   }
 
   
    /**
-   * The processor references the app processor to which this connector belongs to. The relationship is established during the creation of the connector.
+   * The payment app processor that the connector belongs to. This relationship is defined when the connector is created.
    * @return processor
   **/
-  @ApiModelProperty(value = "The processor references the app processor to which this connector belongs to. The relationship is established during the creation of the connector.")
+  @ApiModelProperty(value = "The payment app processor that the connector belongs to. This relationship is defined when the connector is created.")
   public PaymentAppProcessor getProcessor() {
     return processor;
   }
 
   
    /**
-   * The refund configuration defines how refunds are processed. If it is not present it means that refunds are not supported by this connector.
+   * The refund configuration controlling the behavior for processing refunds. If not present, refunds are not supported for this connector.
    * @return refundConfiguration
   **/
-  @ApiModelProperty(value = "The refund configuration defines how refunds are processed. If it is not present it means that refunds are not supported by this connector.")
+  @ApiModelProperty(value = "The refund configuration controlling the behavior for processing refunds. If not present, refunds are not supported for this connector.")
   public PaymentAppRefundConfiguration getRefundConfiguration() {
     return refundConfiguration;
   }
@@ -220,10 +220,10 @@ public class PaymentAppConnector {
 
   
    /**
-   * The updated on date indicates when the last time the connector was updated on.
+   * The date and time when the connector was last updated.
    * @return updatedOn
   **/
-  @ApiModelProperty(value = "The updated on date indicates when the last time the connector was updated on.")
+  @ApiModelProperty(value = "The date and time when the connector was last updated.")
   public OffsetDateTime getUpdatedOn() {
     return updatedOn;
   }

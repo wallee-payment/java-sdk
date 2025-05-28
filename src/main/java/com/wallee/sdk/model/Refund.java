@@ -43,9 +43,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
+ * A refund is a credit issued to the customer, which can be initiated either by the merchant or by the customer as a reversal.
  */
-@ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
+@ApiModel(description = "A refund is a credit issued to the customer, which can be initiated either by the merchant or by the customer as a reversal.")
 
 public class Refund {
   
@@ -179,40 +179,40 @@ public class Refund {
   
   
    /**
-   * 
+   * The total monetary amount of the refund, representing the exact credit issued to the customer.
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total monetary amount of the refund, representing the exact credit issued to the customer.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * 
+   * The original base line items from the transaction prior to the refund, serving as a reference for the refunded amounts.
    * @return baseLineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The original base line items from the transaction prior to the refund, serving as a reference for the refunded amounts.")
   public List<LineItem> getBaseLineItems() {
     return baseLineItems;
   }
 
   
    /**
-   * 
+   * The transaction completion that the refund belongs to.
    * @return completion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction completion that the refund belongs to.")
   public Long getCompletion() {
     return completion;
   }
 
   
    /**
-   * 
+   * The ID of the user the refund was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the refund was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -229,40 +229,40 @@ public class Refund {
 
   
    /**
-   * 
+   * The environment used when rendering resources.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment used when rendering resources.")
   public Environment getEnvironment() {
     return environment;
   }
 
   
    /**
-   * The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
 
   
    /**
-   * 
+   * The date and time when the refund failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the refund failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the refund.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the refund.")
   public FailureReason getFailureReason() {
     return failureReason;
   }
@@ -299,10 +299,10 @@ public class Refund {
 
   
    /**
-   * 
+   * The line items included in the refund, representing the reductions.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items included in the refund, representing the reductions.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
@@ -319,20 +319,20 @@ public class Refund {
 
   
    /**
-   * 
+   * The merchant&#39;s reference used to identify the refund.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the refund.")
   public String getMerchantReference() {
     return merchantReference;
   }
 
   
    /**
-   * 
+   * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next update of the object's state is planned.")
   public OffsetDateTime getNextUpdateOn() {
     return nextUpdateOn;
   }
@@ -349,40 +349,40 @@ public class Refund {
 
   
    /**
-   * 
+   * The date and time when the processing of the refund was started.
    * @return processingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the refund was started.")
   public OffsetDateTime getProcessingOn() {
     return processingOn;
   }
 
   
    /**
-   * 
+   * The reference ID provided by the payment processor, used to trace the refund through the external payment system.
    * @return processorReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reference ID provided by the payment processor, used to trace the refund through the external payment system.")
   public String getProcessorReference() {
     return processorReference;
   }
 
   
    /**
-   * 
+   * The line items from the original transaction, adjusted to reflect any reductions applied during the refund process.
    * @return reducedLineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items from the original transaction, adjusted to reflect any reductions applied during the refund process.")
   public List<LineItem> getReducedLineItems() {
     return reducedLineItems;
   }
 
   
    /**
-   * 
+   * The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.
    * @return reductions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.")
   public List<LineItemReduction> getReductions() {
     return reductions;
   }
@@ -399,90 +399,90 @@ public class Refund {
 
   
    /**
-   * 
+   * The date and time when the refund succeeded.
    * @return succeededOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the refund succeeded.")
   public OffsetDateTime getSucceededOn() {
     return succeededOn;
   }
 
   
    /**
-   * 
+   * The tax breakdown applied to the refund amount, helping with tax calculations or reporting.
    * @return taxes
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The tax breakdown applied to the refund amount, helping with tax calculations or reporting.")
   public List<Tax> getTaxes() {
     return taxes;
   }
 
   
    /**
-   * 
+   * The time zone that this object is associated with.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone that this object is associated with.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * 
+   * The date and time when the object will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * The total applied fees is the sum of all fees that have been applied so far.
+   * The sum of fees applied to the refund transaction, such as processing or service charges.
    * @return totalAppliedFees
   **/
-  @ApiModelProperty(value = "The total applied fees is the sum of all fees that have been applied so far.")
+  @ApiModelProperty(value = "The sum of fees applied to the refund transaction, such as processing or service charges.")
   public BigDecimal getTotalAppliedFees() {
     return totalAppliedFees;
   }
 
   
    /**
-   * The total settled amount is the total amount which has been settled so far.
+   * The total amount settled for the refund, factoring in reductions, taxes, and any additional applied fees.
    * @return totalSettledAmount
   **/
-  @ApiModelProperty(value = "The total settled amount is the total amount which has been settled so far.")
+  @ApiModelProperty(value = "The total amount settled for the refund, factoring in reductions, taxes, and any additional applied fees.")
   public BigDecimal getTotalSettledAmount() {
     return totalSettledAmount;
   }
 
   
    /**
-   * 
+   * The transaction that the refund belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the refund belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
 
   
    /**
-   * 
+   * The type specifying the method and origin of the refund (e.g., initiated by the customer or merchant).
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type specifying the method and origin of the refund (e.g., initiated by the customer or merchant).")
   public RefundType getType() {
     return type;
   }
 
   
    /**
-   * 
+   * An updated invoice reflecting adjustments made by the refund.
    * @return updatedInvoice
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An updated invoice reflecting adjustments made by the refund.")
   public Long getUpdatedInvoice() {
     return updatedInvoice;
   }

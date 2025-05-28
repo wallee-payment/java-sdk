@@ -59,10 +59,10 @@ public class PaymentInformationHashType {
 
   
    /**
-   * 
+   * The name that describes the hash type.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name that describes the hash type.")
   public Map<String, String> getName() {
     return name;
   }

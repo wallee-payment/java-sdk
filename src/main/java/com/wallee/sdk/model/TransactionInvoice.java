@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.Environment;
 import com.wallee.sdk.model.LineItem;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletion;
 import com.wallee.sdk.model.TransactionInvoiceState;
 import io.swagger.annotations.ApiModel;
@@ -40,11 +39,11 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The transaction invoice represents the invoice document for a particular transaction.
+ * 
  */
-@ApiModel(description = "The transaction invoice represents the invoice document for a particular transaction.")
+@ApiModel(description = "")
 
-public class TransactionInvoice extends TransactionAwareEntity {
+public class TransactionInvoice {
   
   @JsonProperty("amount")
   protected BigDecimal amount = null;
@@ -82,12 +81,24 @@ public class TransactionInvoice extends TransactionAwareEntity {
   protected String externalId = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("language")
   protected String language = null;
 
   
   @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("merchantReference")
@@ -128,92 +139,102 @@ public class TransactionInvoice extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The total sum of all line items on the invoice, including taxes.
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total sum of all line items on the invoice, including taxes.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * 
+   * The address associated with the invoice, used for billing purposes.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address associated with the invoice, used for billing purposes.")
   public Address getBillingAddress() {
     return billingAddress;
   }
 
   
    /**
-   * 
+   * The transaction completion this object is linked to.
    * @return completion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction completion this object is linked to.")
   public TransactionCompletion getCompletion() {
     return completion;
   }
 
   
    /**
-   * The date on which the invoice is created on.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The date on which the invoice is created on.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The id of the user which marked the invoice as derecognized.
+   * The ID of the user the invoice was derecognized by.
    * @return derecognizedBy
   **/
-  @ApiModelProperty(value = "The id of the user which marked the invoice as derecognized.")
+  @ApiModelProperty(value = "The ID of the user the invoice was derecognized by.")
   public Long getDerecognizedBy() {
     return derecognizedBy;
   }
 
   
    /**
-   * The date on which the invoice is marked as derecognized.
+   * The date and time when the invoice was derecognized, meaning it is no longer considered outstanding or valid in the system.
    * @return derecognizedOn
   **/
-  @ApiModelProperty(value = "The date on which the invoice is marked as derecognized.")
+  @ApiModelProperty(value = "The date and time when the invoice was derecognized, meaning it is no longer considered outstanding or valid in the system.")
   public OffsetDateTime getDerecognizedOn() {
     return derecognizedOn;
   }
 
   
    /**
-   * The date on which the invoice should be paid on.
+   * The due date for payment of the invoice.
    * @return dueOn
   **/
-  @ApiModelProperty(value = "The date on which the invoice should be paid on.")
+  @ApiModelProperty(value = "The due date for payment of the invoice.")
   public OffsetDateTime getDueOn() {
     return dueOn;
   }
 
   
    /**
-   * 
+   * The environment used when rendering resources.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment used when rendering resources.")
   public Environment getEnvironment() {
     return environment;
   }
 
   
    /**
-   * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -228,40 +249,60 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The invoiced line items that will appear on the invoice document.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The invoiced line items that will appear on the invoice document.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The merchant&#39;s reference used to identify the invoice.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the invoice.")
   public String getMerchantReference() {
     return merchantReference;
   }
 
   
    /**
-   * The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.
+   * The remaining amount the buyer owes to the merchant. A negative value indicates the invoice has been overpaid.
    * @return outstandingAmount
   **/
-  @ApiModelProperty(value = "The outstanding amount indicates how much the buyer owes the merchant. A negative amount indicates that the invoice is overpaid.")
+  @ApiModelProperty(value = "The remaining amount the buyer owes to the merchant. A negative value indicates the invoice has been overpaid.")
   public BigDecimal getOutstandingAmount() {
     return outstandingAmount;
   }
 
   
    /**
-   * The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.
+   * The date and time when the invoice was recorded as paid. May differ from the actual payment date due to processing delays.
    * @return paidOn
   **/
-  @ApiModelProperty(value = "The date on which the invoice is marked as paid. Eventually this date lags behind of the actual paid date.")
+  @ApiModelProperty(value = "The date and time when the invoice was recorded as paid. May differ from the actual payment date due to processing delays.")
   public OffsetDateTime getPaidOn() {
     return paidOn;
   }
@@ -298,20 +339,20 @@ public class TransactionInvoice extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The portion of the invoiced amount that corresponds to taxes.
    * @return taxAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The portion of the invoiced amount that corresponds to taxes.")
   public BigDecimal getTaxAmount() {
     return taxAmount;
   }
 
   
    /**
-   * 
+   * The time zone that this object is associated with.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone that this object is associated with.")
   public String getTimeZone() {
     return timeZone;
   }
@@ -337,10 +378,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
       return false;
     }
     TransactionInvoice transactionInvoice = (TransactionInvoice) o;
-    return Objects.equals(this.id, transactionInvoice.id) &&
-        Objects.equals(this.linkedSpaceId, transactionInvoice.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, transactionInvoice.linkedTransaction) &&
-        Objects.equals(this.amount, transactionInvoice.amount) &&
+    return Objects.equals(this.amount, transactionInvoice.amount) &&
         Objects.equals(this.billingAddress, transactionInvoice.billingAddress) &&
         Objects.equals(this.completion, transactionInvoice.completion) &&
         Objects.equals(this.createdOn, transactionInvoice.createdOn) &&
@@ -349,8 +387,11 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.dueOn, transactionInvoice.dueOn) &&
         Objects.equals(this.environment, transactionInvoice.environment) &&
         Objects.equals(this.externalId, transactionInvoice.externalId) &&
+        Objects.equals(this.id, transactionInvoice.id) &&
         Objects.equals(this.language, transactionInvoice.language) &&
         Objects.equals(this.lineItems, transactionInvoice.lineItems) &&
+        Objects.equals(this.linkedSpaceId, transactionInvoice.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionInvoice.linkedTransaction) &&
         Objects.equals(this.merchantReference, transactionInvoice.merchantReference) &&
         Objects.equals(this.outstandingAmount, transactionInvoice.outstandingAmount) &&
         Objects.equals(this.paidOn, transactionInvoice.paidOn) &&
@@ -359,13 +400,12 @@ public class TransactionInvoice extends TransactionAwareEntity {
         Objects.equals(this.state, transactionInvoice.state) &&
         Objects.equals(this.taxAmount, transactionInvoice.taxAmount) &&
         Objects.equals(this.timeZone, transactionInvoice.timeZone) &&
-        Objects.equals(this.version, transactionInvoice.version) &&
-        super.equals(o);
+        Objects.equals(this.version, transactionInvoice.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, billingAddress, completion, createdOn, derecognizedBy, derecognizedOn, dueOn, environment, externalId, language, lineItems, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version, super.hashCode());
+    return Objects.hash(amount, billingAddress, completion, createdOn, derecognizedBy, derecognizedOn, dueOn, environment, externalId, id, language, lineItems, linkedSpaceId, linkedTransaction, merchantReference, outstandingAmount, paidOn, plannedPurgeDate, spaceViewId, state, taxAmount, timeZone, version);
   }
 
 
@@ -373,10 +413,7 @@ public class TransactionInvoice extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionInvoice {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
@@ -386,8 +423,11 @@ public class TransactionInvoice extends TransactionAwareEntity {
     sb.append("    dueOn: ").append(toIndentedString(dueOn)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    merchantReference: ").append(toIndentedString(merchantReference)).append("\n");
     sb.append("    outstandingAmount: ").append(toIndentedString(outstandingAmount)).append("\n");
     sb.append("    paidOn: ").append(toIndentedString(paidOn)).append("\n");

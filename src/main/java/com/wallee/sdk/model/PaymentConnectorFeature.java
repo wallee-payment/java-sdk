@@ -46,10 +46,10 @@ public class PaymentConnectorFeature {
   
   
    /**
-   * The name of the feature.
+   * The localized name of the feature.
    * @return displayName
   **/
-  @ApiModelProperty(value = "The name of the feature.")
+  @ApiModelProperty(value = "The localized name of the feature.")
   public String getDisplayName() {
     return displayName;
   }

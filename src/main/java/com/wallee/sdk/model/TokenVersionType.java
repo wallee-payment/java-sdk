@@ -68,10 +68,10 @@ public class TokenVersionType {
 
   
    /**
-   * 
+   * The feature that the token version type belongs to.
    * @return feature
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The feature that the token version type belongs to.")
   public Feature getFeature() {
     return feature;
   }

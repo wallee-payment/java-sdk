@@ -72,10 +72,10 @@ public class BankAccount {
   
   
    /**
-   * The optional description is shown along the identifier. The intention of the description is to give an alternative name to the bank account.
+   * The description serves as an alternative name for the bank account.
    * @return description
   **/
-  @ApiModelProperty(value = "The optional description is shown along the identifier. The intention of the description is to give an alternative name to the bank account.")
+  @ApiModelProperty(value = "The description serves as an alternative name for the bank account.")
   public String getDescription() {
     return description;
   }
@@ -92,10 +92,10 @@ public class BankAccount {
 
   
    /**
-   * The bank account identifier is responsible to uniquely identify the bank account.
+   * The identifier is used to uniquely identify the bank account.
    * @return identifier
   **/
-  @ApiModelProperty(value = "The bank account identifier is responsible to uniquely identify the bank account.")
+  @ApiModelProperty(value = "The identifier is used to uniquely identify the bank account.")
   public String getIdentifier() {
     return identifier;
   }
@@ -132,10 +132,10 @@ public class BankAccount {
 
   
    /**
-   * 
+   * The bank account&#39;s type
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank account's type")
   public Long getType() {
     return type;
   }

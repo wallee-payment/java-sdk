@@ -32,9 +32,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * A condition allows you to define a criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.
+ * A connector condition defines criteria that a transaction must meet for a connector configuration to process the payment.
  */
-@ApiModel(description = "A condition allows you to define a criteria that a transaction must fulfill in order for a connector configuration to be considered for processing the payment.")
+@ApiModel(description = "A connector condition defines criteria that a transaction must meet for a connector configuration to process the payment.")
 
 public class Condition {
   

@@ -58,10 +58,10 @@ public class TransactionLineItemVersionCreate {
   }
 
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(required = true, value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -82,10 +82,10 @@ public class TransactionLineItemVersionCreate {
   }
 
    /**
-   * 
+   * The line items that replace the original line items in the transaction.
    * @return lineItems
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The line items that replace the original line items in the transaction.")
   public List<LineItemCreate> getLineItems() {
     return lineItems;
   }
@@ -101,10 +101,10 @@ public class TransactionLineItemVersionCreate {
   }
 
    /**
-   * 
+   * The transaction that the line item version belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The transaction that the line item version belongs to.")
   public Long getTransaction() {
     return transaction;
   }

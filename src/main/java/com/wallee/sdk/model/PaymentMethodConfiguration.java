@@ -38,9 +38,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The payment method configuration builds the base to connect with different payment method connectors.
+ * 
  */
-@ApiModel(description = "The payment method configuration builds the base to connect with different payment method connectors.")
+@ApiModel(description = "")
 
 public class PaymentMethodConfiguration {
   
@@ -124,10 +124,10 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * A custom description for the payment method which is displayed to the customer.
+   * A customer-facing custom description for the payment method.
    * @return description
   **/
-  @ApiModelProperty(value = "A custom description for the payment method which is displayed to the customer.")
+  @ApiModelProperty(value = "A customer-facing custom description for the payment method.")
   public Map<String, String> getDescription() {
     return description;
   }
@@ -144,10 +144,10 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The resource path to a custom image for the payment method which is displayed to the customer.
+   * The resource path to a custom image for the payment method, displayed to the customer for visual identification.
    * @return imageResourcePath
   **/
-  @ApiModelProperty(value = "The resource path to a custom image for the payment method which is displayed to the customer.")
+  @ApiModelProperty(value = "The resource path to a custom image for the payment method, displayed to the customer for visual identification.")
   public ResourcePath getImageResourcePath() {
     return imageResourcePath;
   }
@@ -204,30 +204,30 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * The description for the payment method that is actually displayed to the customer. This is either the custom description, if defined, or otherwise the payment method&#39;s default one.
+   * The description of the payment method displayed to the customer. If a custom description is defined, it will be used; otherwise, the default description of the payment method will be shown.
    * @return resolvedDescription
   **/
-  @ApiModelProperty(value = "The description for the payment method that is actually displayed to the customer. This is either the custom description, if defined, or otherwise the payment method's default one.")
+  @ApiModelProperty(value = "The description of the payment method displayed to the customer. If a custom description is defined, it will be used; otherwise, the default description of the payment method will be shown.")
   public Map<String, String> getResolvedDescription() {
     return resolvedDescription;
   }
 
   
    /**
-   * The image URL for the payment method that is actually displayed to the customer. This is either the custom image, if defined, or otherwise the payment method&#39;s default one.
+   * The URL to the image of the payment method displayed to the customer. If a custom image is defined, it will be used; otherwise, the default image of the payment method will be shown.
    * @return resolvedImageUrl
   **/
-  @ApiModelProperty(value = "The image URL for the payment method that is actually displayed to the customer. This is either the custom image, if defined, or otherwise the payment method's default one.")
+  @ApiModelProperty(value = "The URL to the image of the payment method displayed to the customer. If a custom image is defined, it will be used; otherwise, the default image of the payment method will be shown.")
   public String getResolvedImageUrl() {
     return resolvedImageUrl;
   }
 
   
    /**
-   * The title for the payment method that is actually displayed to the customer. This is either the custom title, if defined, or otherwise the payment method&#39;s default one.
+   * The title of the payment method displayed to the customer. If a custom title is defined, it will be used; otherwise, the default title of the payment method will be shown.
    * @return resolvedTitle
   **/
-  @ApiModelProperty(value = "The title for the payment method that is actually displayed to the customer. This is either the custom title, if defined, or otherwise the payment method's default one.")
+  @ApiModelProperty(value = "The title of the payment method displayed to the customer. If a custom title is defined, it will be used; otherwise, the default title of the payment method will be shown.")
   public Map<String, String> getResolvedTitle() {
     return resolvedTitle;
   }
@@ -264,10 +264,10 @@ public class PaymentMethodConfiguration {
 
   
    /**
-   * A custom title for the payment method which is displayed to the customer.
+   * A customer-facing custom title for the payment method.
    * @return title
   **/
-  @ApiModelProperty(value = "A custom title for the payment method which is displayed to the customer.")
+  @ApiModelProperty(value = "A customer-facing custom title for the payment method.")
   public Map<String, String> getTitle() {
     return title;
   }

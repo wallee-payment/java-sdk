@@ -154,10 +154,10 @@ public class TransactionCompletionRequest {
   }
 
    /**
-   * The statement descriptor explain charges or payments on bank statements.
+   * The statement descriptor that appears on a customer&#39;s bank statement, providing an explanation for charges or payments, helping customers identify the transaction.
    * @return statementDescriptor
   **/
-  @ApiModelProperty(value = "The statement descriptor explain charges or payments on bank statements.")
+  @ApiModelProperty(value = "The statement descriptor that appears on a customer's bank statement, providing an explanation for charges or payments, helping customers identify the transaction.")
   public String getStatementDescriptor() {
     return statementDescriptor;
   }

@@ -31,15 +31,25 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * 
  */
-public enum CardAuthenticationVersion {
+public enum PanType {
   
-  V1("V1"),
+  PLAIN("PLAIN"),
   
-  V2("V2");
+  SCHEME_TOKEN("SCHEME_TOKEN"),
+  
+  SCHEME_TOKEN_CLICK_TO_PAY("SCHEME_TOKEN_CLICK_TO_PAY"),
+  
+  DEVICE_TOKEN_APPLE_PAY("DEVICE_TOKEN_APPLE_PAY"),
+  
+  DEVICE_TOKEN_GOOGLE_PAY("DEVICE_TOKEN_GOOGLE_PAY"),
+  
+  DEVICE_TOKEN_SAMSUNG_PAY("DEVICE_TOKEN_SAMSUNG_PAY"),
+  
+  DEVICE_TOKEN_ANDROID_PAY("DEVICE_TOKEN_ANDROID_PAY");
 
   private String value;
 
-  CardAuthenticationVersion(String value) {
+  PanType(String value) {
     this.value = value;
   }
 
@@ -54,8 +64,8 @@ public enum CardAuthenticationVersion {
   }
 
   @JsonCreator
-  public static CardAuthenticationVersion fromValue(String text) {
-    for (CardAuthenticationVersion b : CardAuthenticationVersion.values()) {
+  public static PanType fromValue(String text) {
+    for (PanType b : PanType.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

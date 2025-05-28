@@ -44,12 +44,20 @@ public class SubscriptionLedgerEntryCreate {
   protected BigDecimal amountIncludingTax = null;
 
   
+  @JsonProperty("componentReferenceName")
+  protected String componentReferenceName = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
   
   @JsonProperty("quantity")
   protected BigDecimal quantity = null;
+
+  
+  @JsonProperty("subscriptionMetricId")
+  protected Long subscriptionMetricId = null;
 
   
   @JsonProperty("subscriptionVersion")
@@ -84,16 +92,35 @@ public class SubscriptionLedgerEntryCreate {
   }
 
   
+  public SubscriptionLedgerEntryCreate componentReferenceName(String componentReferenceName) {
+    this.componentReferenceName = componentReferenceName;
+    return this;
+  }
+
+   /**
+   * 
+   * @return componentReferenceName
+  **/
+  @ApiModelProperty(value = "")
+  public String getComponentReferenceName() {
+    return componentReferenceName;
+  }
+
+  public void setComponentReferenceName(String componentReferenceName) {
+    this.componentReferenceName = componentReferenceName;
+  }
+
+  
   public SubscriptionLedgerEntryCreate externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
 
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(required = true, value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -119,6 +146,25 @@ public class SubscriptionLedgerEntryCreate {
 
   public void setQuantity(BigDecimal quantity) {
     this.quantity = quantity;
+  }
+
+  
+  public SubscriptionLedgerEntryCreate subscriptionMetricId(Long subscriptionMetricId) {
+    this.subscriptionMetricId = subscriptionMetricId;
+    return this;
+  }
+
+   /**
+   * 
+   * @return subscriptionMetricId
+  **/
+  @ApiModelProperty(value = "")
+  public Long getSubscriptionMetricId() {
+    return subscriptionMetricId;
+  }
+
+  public void setSubscriptionMetricId(Long subscriptionMetricId) {
+    this.subscriptionMetricId = subscriptionMetricId;
   }
 
   
@@ -198,8 +244,10 @@ public class SubscriptionLedgerEntryCreate {
     }
     SubscriptionLedgerEntryCreate subscriptionLedgerEntryCreate = (SubscriptionLedgerEntryCreate) o;
     return Objects.equals(this.amountIncludingTax, subscriptionLedgerEntryCreate.amountIncludingTax) &&
+        Objects.equals(this.componentReferenceName, subscriptionLedgerEntryCreate.componentReferenceName) &&
         Objects.equals(this.externalId, subscriptionLedgerEntryCreate.externalId) &&
         Objects.equals(this.quantity, subscriptionLedgerEntryCreate.quantity) &&
+        Objects.equals(this.subscriptionMetricId, subscriptionLedgerEntryCreate.subscriptionMetricId) &&
         Objects.equals(this.subscriptionVersion, subscriptionLedgerEntryCreate.subscriptionVersion) &&
         Objects.equals(this.taxes, subscriptionLedgerEntryCreate.taxes) &&
         Objects.equals(this.title, subscriptionLedgerEntryCreate.title);
@@ -207,7 +255,7 @@ public class SubscriptionLedgerEntryCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountIncludingTax, externalId, quantity, subscriptionVersion, taxes, title);
+    return Objects.hash(amountIncludingTax, componentReferenceName, externalId, quantity, subscriptionMetricId, subscriptionVersion, taxes, title);
   }
 
 
@@ -217,8 +265,10 @@ public class SubscriptionLedgerEntryCreate {
     sb.append("class SubscriptionLedgerEntryCreate {\n");
     
     sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
+    sb.append("    componentReferenceName: ").append(toIndentedString(componentReferenceName)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    subscriptionMetricId: ").append(toIndentedString(subscriptionMetricId)).append("\n");
     sb.append("    subscriptionVersion: ").append(toIndentedString(subscriptionVersion)).append("\n");
     sb.append("    taxes: ").append(toIndentedString(taxes)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");

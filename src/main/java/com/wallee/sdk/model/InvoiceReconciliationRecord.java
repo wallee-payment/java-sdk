@@ -29,7 +29,6 @@ import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.InvoiceReconciliationRecordRejectionStatus;
 import com.wallee.sdk.model.InvoiceReconciliationRecordState;
 import com.wallee.sdk.model.InvoiceReconciliationRecordType;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -42,7 +41,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class InvoiceReconciliationRecord extends TransactionAwareEntity {
+public class InvoiceReconciliationRecord {
   
   @JsonProperty("address")
   protected String address = null;
@@ -92,8 +91,20 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
   protected String iban = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("lastResolutionFailure")
   protected FailureReason lastResolutionFailure = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("participantNumber")
@@ -286,12 +297,42 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
 
   
    /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
    * 
    * @return lastResolutionFailure
   **/
   @ApiModelProperty(value = "")
   public FailureReason getLastResolutionFailure() {
     return lastResolutionFailure;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
   }
 
   
@@ -475,10 +516,7 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
       return false;
     }
     InvoiceReconciliationRecord invoiceReconciliationRecord = (InvoiceReconciliationRecord) o;
-    return Objects.equals(this.id, invoiceReconciliationRecord.id) &&
-        Objects.equals(this.linkedSpaceId, invoiceReconciliationRecord.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, invoiceReconciliationRecord.linkedTransaction) &&
-        Objects.equals(this.address, invoiceReconciliationRecord.address) &&
+    return Objects.equals(this.address, invoiceReconciliationRecord.address) &&
         Objects.equals(this.amount, invoiceReconciliationRecord.amount) &&
         Objects.equals(this.city, invoiceReconciliationRecord.city) &&
         Objects.equals(this.country, invoiceReconciliationRecord.country) &&
@@ -490,7 +528,10 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
         Objects.equals(this.familyName, invoiceReconciliationRecord.familyName) &&
         Objects.equals(this.givenName, invoiceReconciliationRecord.givenName) &&
         Objects.equals(this.iban, invoiceReconciliationRecord.iban) &&
+        Objects.equals(this.id, invoiceReconciliationRecord.id) &&
         Objects.equals(this.lastResolutionFailure, invoiceReconciliationRecord.lastResolutionFailure) &&
+        Objects.equals(this.linkedSpaceId, invoiceReconciliationRecord.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, invoiceReconciliationRecord.linkedTransaction) &&
         Objects.equals(this.participantNumber, invoiceReconciliationRecord.participantNumber) &&
         Objects.equals(this.paymentFeeAmount, invoiceReconciliationRecord.paymentFeeAmount) &&
         Objects.equals(this.paymentFeeCurrency, invoiceReconciliationRecord.paymentFeeCurrency) &&
@@ -507,13 +548,12 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
         Objects.equals(this.type, invoiceReconciliationRecord.type) &&
         Objects.equals(this.uniqueId, invoiceReconciliationRecord.uniqueId) &&
         Objects.equals(this.valueDate, invoiceReconciliationRecord.valueDate) &&
-        Objects.equals(this.version, invoiceReconciliationRecord.version) &&
-        super.equals(o);
+        Objects.equals(this.version, invoiceReconciliationRecord.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, address, amount, city, country, createdOn, currency, discardedBy, discardedOn, environment, familyName, givenName, iban, lastResolutionFailure, participantNumber, paymentFeeAmount, paymentFeeCurrency, paymentReason, plannedPurgeDate, postCode, referenceNumber, rejectionStatus, resolvedBy, resolvedOn, senderBankAccount, state, street, type, uniqueId, valueDate, version, super.hashCode());
+    return Objects.hash(address, amount, city, country, createdOn, currency, discardedBy, discardedOn, environment, familyName, givenName, iban, id, lastResolutionFailure, linkedSpaceId, linkedTransaction, participantNumber, paymentFeeAmount, paymentFeeCurrency, paymentReason, plannedPurgeDate, postCode, referenceNumber, rejectionStatus, resolvedBy, resolvedOn, senderBankAccount, state, street, type, uniqueId, valueDate, version);
   }
 
 
@@ -521,10 +561,7 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InvoiceReconciliationRecord {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -537,7 +574,10 @@ public class InvoiceReconciliationRecord extends TransactionAwareEntity {
     sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
     sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
     sb.append("    iban: ").append(toIndentedString(iban)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastResolutionFailure: ").append(toIndentedString(lastResolutionFailure)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    participantNumber: ").append(toIndentedString(participantNumber)).append("\n");
     sb.append("    paymentFeeAmount: ").append(toIndentedString(paymentFeeAmount)).append("\n");
     sb.append("    paymentFeeCurrency: ").append(toIndentedString(paymentFeeCurrency)).append("\n");

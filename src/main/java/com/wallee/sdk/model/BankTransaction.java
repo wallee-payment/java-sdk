@@ -122,20 +122,20 @@ public class BankTransaction {
   
   
    /**
-   * The adjustments applied on this bank transaction.
+   * Adjustments are changes made to the initial transaction amount, such as fees or corrections.
    * @return adjustments
   **/
-  @ApiModelProperty(value = "The adjustments applied on this bank transaction.")
+  @ApiModelProperty(value = "Adjustments are changes made to the initial transaction amount, such as fees or corrections.")
   public List<PaymentAdjustment> getAdjustments() {
     return adjustments;
   }
 
   
    /**
-   * The created by indicates the user which has created the bank transaction.
+   * The ID of the user the bank transaction was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "The created by indicates the user which has created the bank transaction.")
+  @ApiModelProperty(value = "The ID of the user the bank transaction was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -152,30 +152,30 @@ public class BankTransaction {
 
   
    /**
-   * The currency bank account which is used to handle money flow.
+   * The currency bank account that sends or receives money based on the bank transaction&#39;s flow direction.
    * @return currencyBankAccount
   **/
-  @ApiModelProperty(value = "The currency bank account which is used to handle money flow.")
+  @ApiModelProperty(value = "The currency bank account that sends or receives money based on the bank transaction's flow direction.")
   public CurrencyBankAccount getCurrencyBankAccount() {
     return currencyBankAccount;
   }
 
   
    /**
-   * 
+   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
    * @return externalId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
   public String getExternalId() {
     return externalId;
   }
 
   
    /**
-   * 
+   * Indicates the direction of a bank transaction, specifying whether the amount flows into or out of the bank account.
    * @return flowDirection
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Indicates the direction of a bank transaction, specifying whether the amount flows into or out of the bank account.")
   public BankTransactionFlowDirection getFlowDirection() {
     return flowDirection;
   }
@@ -202,10 +202,10 @@ public class BankTransaction {
 
   
    /**
-   * The payment date describes the date when the transaction was made.
+   * The payment date specifies the date on which the payment was processed.
    * @return paymentDate
   **/
-  @ApiModelProperty(value = "The payment date describes the date when the transaction was made.")
+  @ApiModelProperty(value = "The payment date specifies the date on which the payment was processed.")
   public OffsetDateTime getPaymentDate() {
     return paymentDate;
   }
@@ -222,30 +222,30 @@ public class BankTransaction {
 
   
    /**
-   * The posting amount indicates the amount including adjustments.
+   * The posting amount refers to the monetary value recorded for the bank transaction prior to any adjustments.
    * @return postingAmount
   **/
-  @ApiModelProperty(value = "The posting amount indicates the amount including adjustments.")
+  @ApiModelProperty(value = "The posting amount refers to the monetary value recorded for the bank transaction prior to any adjustments.")
   public BigDecimal getPostingAmount() {
     return postingAmount;
   }
 
   
    /**
-   * 
+   * A unique reference to identify the bank transaction.
    * @return reference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A unique reference to identify the bank transaction.")
   public String getReference() {
     return reference;
   }
 
   
    /**
-   * 
+   * The source indicates how the bank transaction was created.
    * @return source
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The source indicates how the bank transaction was created.")
   public Long getSource() {
     return source;
   }
@@ -262,40 +262,40 @@ public class BankTransaction {
 
   
    /**
-   * 
+   * Represents the total value of all adjustments to the bank transaction, including tax.
    * @return totalAdjustmentAmountIncludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Represents the total value of all adjustments to the bank transaction, including tax.")
   public BigDecimal getTotalAdjustmentAmountIncludingTax() {
     return totalAdjustmentAmountIncludingTax;
   }
 
   
    /**
-   * 
+   * The bank transaction&#39;s type.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank transaction's type.")
   public Long getType() {
     return type;
   }
 
   
    /**
-   * 
+   * The value amount represents the net monetary value of the transaction after applicable deductions.
    * @return valueAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value amount represents the net monetary value of the transaction after applicable deductions.")
   public BigDecimal getValueAmount() {
     return valueAmount;
   }
 
   
    /**
-   * The value date describes the date the amount is effective on the account.
+   * The value date indicates the date on which the transaction amount becomes effective.
    * @return valueDate
   **/
-  @ApiModelProperty(value = "The value date describes the date the amount is effective on the account.")
+  @ApiModelProperty(value = "The value date indicates the date on which the transaction amount becomes effective.")
   public OffsetDateTime getValueDate() {
     return valueDate;
   }

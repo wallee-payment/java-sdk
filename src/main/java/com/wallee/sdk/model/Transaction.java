@@ -619,10 +619,10 @@ public class Transaction {
 
   
    /**
-   * 
+   * The environment used when rendering resources.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment used when rendering resources.")
   public Environment getEnvironment() {
     return environment;
   }

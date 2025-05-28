@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.BillingCycleModel;
 import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionComponentConfiguration;
 import com.wallee.sdk.model.SubscriptionProductVersion;
@@ -49,6 +50,10 @@ public class SubscriptionVersion {
   
   @JsonProperty("billingCurrency")
   protected String billingCurrency = null;
+
+  
+  @JsonProperty("billingCycleModel")
+  protected BillingCycleModel billingCycleModel = null;
 
   
   @JsonProperty("componentConfigurations")
@@ -133,6 +138,16 @@ public class SubscriptionVersion {
   @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the currency used to invoice the customer. Must be one of the currencies supported by the product.")
   public String getBillingCurrency() {
     return billingCurrency;
+  }
+
+  
+   /**
+   * 
+   * @return billingCycleModel
+  **/
+  @ApiModelProperty(value = "")
+  public BillingCycleModel getBillingCycleModel() {
+    return billingCycleModel;
   }
 
   
@@ -308,6 +323,7 @@ public class SubscriptionVersion {
     SubscriptionVersion subscriptionVersion = (SubscriptionVersion) o;
     return Objects.equals(this.activatedOn, subscriptionVersion.activatedOn) &&
         Objects.equals(this.billingCurrency, subscriptionVersion.billingCurrency) &&
+        Objects.equals(this.billingCycleModel, subscriptionVersion.billingCycleModel) &&
         Objects.equals(this.componentConfigurations, subscriptionVersion.componentConfigurations) &&
         Objects.equals(this.createdOn, subscriptionVersion.createdOn) &&
         Objects.equals(this.expectedLastPeriodEnd, subscriptionVersion.expectedLastPeriodEnd) &&
@@ -328,7 +344,7 @@ public class SubscriptionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, billingCurrency, componentConfigurations, createdOn, expectedLastPeriodEnd, failedOn, id, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, productVersion, state, subscription, terminatedOn, terminatingOn, terminationIssuedOn, version);
+    return Objects.hash(activatedOn, billingCurrency, billingCycleModel, componentConfigurations, createdOn, expectedLastPeriodEnd, failedOn, id, language, linkedSpaceId, plannedPurgeDate, plannedTerminationDate, productVersion, state, subscription, terminatedOn, terminatingOn, terminationIssuedOn, version);
   }
 
 
@@ -339,6 +355,7 @@ public class SubscriptionVersion {
     
     sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
     sb.append("    billingCurrency: ").append(toIndentedString(billingCurrency)).append("\n");
+    sb.append("    billingCycleModel: ").append(toIndentedString(billingCycleModel)).append("\n");
     sb.append("    componentConfigurations: ").append(toIndentedString(componentConfigurations)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    expectedLastPeriodEnd: ").append(toIndentedString(expectedLastPeriodEnd)).append("\n");

@@ -159,10 +159,10 @@ public class Feature {
 
   
    /**
-   * 
+   * Whether the feature is visible to the user.
    * @return visible
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the feature is visible to the user.")
   public Boolean isVisible() {
     return visible;
   }

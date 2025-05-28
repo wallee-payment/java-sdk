@@ -51,30 +51,30 @@ public class LineItemReduction {
   
   
    /**
-   * The unique id identifies the line item on which the reduction is applied on.
+   * The unique identifier of the line item to which the reduction is applied. This ID ensures the reduction is accurately associated with the correct item.
    * @return lineItemUniqueId
   **/
-  @ApiModelProperty(value = "The unique id identifies the line item on which the reduction is applied on.")
+  @ApiModelProperty(value = "The unique identifier of the line item to which the reduction is applied. This ID ensures the reduction is accurately associated with the correct item.")
   public String getLineItemUniqueId() {
     return lineItemUniqueId;
   }
 
   
    /**
-   * 
+   * The quantity removed or reduced from the line item. This value reflects the decrease in the item count due to the reduction.
    * @return quantityReduction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The quantity removed or reduced from the line item. This value reflects the decrease in the item count due to the reduction.")
   public BigDecimal getQuantityReduction() {
     return quantityReduction;
   }
 
   
    /**
-   * 
+   * The monetary amount by which the line item&#39;s unit price is discounted. This reduction adjusts the price without altering the quantity.
    * @return unitPriceReduction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The monetary amount by which the line item's unit price is discounted. This reduction adjusts the price without altering the quantity.")
   public BigDecimal getUnitPriceReduction() {
     return unitPriceReduction;
   }

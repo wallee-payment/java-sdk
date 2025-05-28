@@ -40,10 +40,6 @@ public class RestCountryState {
   protected String code = null;
 
   
-  @JsonProperty("country")
-  protected String country = null;
-
-  
   @JsonProperty("countryCode")
   protected String countryCode = null;
 
@@ -64,16 +60,6 @@ public class RestCountryState {
   @ApiModelProperty(value = "The state's code used within addresses.")
   public String getCode() {
     return code;
-  }
-
-  
-   /**
-   * 
-   * @return country
-  **/
-  @ApiModelProperty(value = "")
-  public String getCountry() {
-    return country;
   }
 
   
@@ -118,7 +104,6 @@ public class RestCountryState {
     }
     RestCountryState restCountryState = (RestCountryState) o;
     return Objects.equals(this.code, restCountryState.code) &&
-        Objects.equals(this.country, restCountryState.country) &&
         Objects.equals(this.countryCode, restCountryState.countryCode) &&
         Objects.equals(this.id, restCountryState.id) &&
         Objects.equals(this.name, restCountryState.name);
@@ -126,7 +111,7 @@ public class RestCountryState {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, country, countryCode, id, name);
+    return Objects.hash(code, countryCode, id, name);
   }
 
 
@@ -136,7 +121,6 @@ public class RestCountryState {
     sb.append("class RestCountryState {\n");
     
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

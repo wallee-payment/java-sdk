@@ -48,6 +48,10 @@ public class ShopifySubscriberActive {
   protected String emailAddress = null;
 
   
+  @JsonProperty("externalGid")
+  protected String externalGid = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
@@ -114,16 +118,35 @@ public class ShopifySubscriberActive {
   }
 
   
+  public ShopifySubscriberActive externalGid(String externalGid) {
+    this.externalGid = externalGid;
+    return this;
+  }
+
+   /**
+   * 
+   * @return externalGid
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGid() {
+    return externalGid;
+  }
+
+  public void setExternalGid(String externalGid) {
+    this.externalGid = externalGid;
+  }
+
+  
   public ShopifySubscriberActive externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
 
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -165,13 +188,14 @@ public class ShopifySubscriberActive {
     return Objects.equals(this.id, shopifySubscriberActive.id) &&
         Objects.equals(this.version, shopifySubscriberActive.version) &&
         Objects.equals(this.emailAddress, shopifySubscriberActive.emailAddress) &&
+        Objects.equals(this.externalGid, shopifySubscriberActive.externalGid) &&
         Objects.equals(this.externalId, shopifySubscriberActive.externalId) &&
         Objects.equals(this.phoneNumber, shopifySubscriberActive.phoneNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, emailAddress, externalId, phoneNumber);
+    return Objects.hash(id, version, emailAddress, externalGid, externalId, phoneNumber);
   }
 
 
@@ -183,6 +207,7 @@ public class ShopifySubscriberActive {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    externalGid: ").append(toIndentedString(externalGid)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
     sb.append("}");

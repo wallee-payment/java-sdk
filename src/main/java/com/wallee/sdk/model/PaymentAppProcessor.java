@@ -106,40 +106,40 @@ public class PaymentAppProcessor {
   
   
    /**
-   * 
+   * The environment (e.g., test or production) currently configured for the processor.
    * @return configuredEnvironment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment (e.g., test or production) currently configured for the processor.")
   public ChargeAttemptEnvironment getConfiguredEnvironment() {
     return configuredEnvironment;
   }
 
   
    /**
-   * The created on date is the date when this processor has been added.
+   * The date and time when the processor was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The created on date is the date when this processor has been added.")
+  @ApiModelProperty(value = "The date and time when the processor was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * The documentation URL points to a web site that describes how to configure and use the processor.
+   * A URL pointing to the documentation that explains how to configure and use the processor.
    * @return documentationUrl
   **/
-  @ApiModelProperty(value = "The documentation URL points to a web site that describes how to configure and use the processor.")
+  @ApiModelProperty(value = "A URL pointing to the documentation that explains how to configure and use the processor.")
   public String getDocumentationUrl() {
     return documentationUrl;
   }
 
   
    /**
-   * The external ID corresponds to the ID that was provided during creation of the processor.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external ID corresponds to the ID that was provided during creation of the processor.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -176,30 +176,30 @@ public class PaymentAppProcessor {
 
   
    /**
-   * The name of the processor will be displayed within the user interfaces that the merchant is interacting with.
+   * The name used to identify the processor.
    * @return name
   **/
-  @ApiModelProperty(value = "The name of the processor will be displayed within the user interfaces that the merchant is interacting with.")
+  @ApiModelProperty(value = "The name used to identify the processor.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * This processor configuration is created as part of the app processor. Any transaction created with the processor is linked with this processor configuration.
+   * The processor configuration created alongside the process within its designated space. This configuration is used in transactions created using this processor.
    * @return processorConfiguration
   **/
-  @ApiModelProperty(value = "This processor configuration is created as part of the app processor. Any transaction created with the processor is linked with this processor configuration.")
+  @ApiModelProperty(value = "The processor configuration created alongside the process within its designated space. This configuration is used in transactions created using this processor.")
   public PaymentProcessorConfiguration getProcessorConfiguration() {
     return processorConfiguration;
   }
 
   
    /**
-   * When the user sets the processor into the production mode the user will be forwarded to this URL to configure the production environment. When no URL is provided no redirection will happen.
+   * A URL pointing to the site where merchants can set up production mode for the processor.
    * @return productionModeUrl
   **/
-  @ApiModelProperty(value = "When the user sets the processor into the production mode the user will be forwarded to this URL to configure the production environment. When no URL is provided no redirection will happen.")
+  @ApiModelProperty(value = "A URL pointing to the site where merchants can set up production mode for the processor.")
   public String getProductionModeUrl() {
     return productionModeUrl;
   }
@@ -216,40 +216,40 @@ public class PaymentAppProcessor {
 
   
    /**
-   * 
+   * An SVG icon representing the processor, displayed to the user in the interface.
    * @return svgIcon
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "An SVG icon representing the processor, displayed to the user in the interface.")
   public String getSvgIcon() {
     return svgIcon;
   }
 
   
    /**
-   * The updated on date indicates when the last update on the processor occurred.
+   * The date and time when the processor was last updated.
    * @return updatedOn
   **/
-  @ApiModelProperty(value = "The updated on date indicates when the last update on the processor occurred.")
+  @ApiModelProperty(value = "The date and time when the processor was last updated.")
   public OffsetDateTime getUpdatedOn() {
     return updatedOn;
   }
 
   
    /**
-   * When the processor is ready to be used for transactions in the production environment this flag is set to true.
+   * Whether the processor is fully prepared and available for handling transactions in a production environment.
    * @return usableInProduction
   **/
-  @ApiModelProperty(value = "When the processor is ready to be used for transactions in the production environment this flag is set to true.")
+  @ApiModelProperty(value = "Whether the processor is fully prepared and available for handling transactions in a production environment.")
   public Boolean isUsableInProduction() {
     return usableInProduction;
   }
 
   
    /**
-   * 
+   * the date and time when the processor became fully usable and available for handling transactions in a production environment.
    * @return usableInProductionSince
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "the date and time when the processor became fully usable and available for handling transactions in a production environment.")
   public OffsetDateTime getUsableInProductionSince() {
     return usableInProductionSince;
   }

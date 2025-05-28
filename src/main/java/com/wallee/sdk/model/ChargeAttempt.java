@@ -34,7 +34,6 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.TokenVersion;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletionBehavior;
 import com.wallee.sdk.model.WalletType;
 import io.swagger.annotations.ApiModel;
@@ -50,7 +49,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ChargeAttempt extends TransactionAwareEntity {
+public class ChargeAttempt {
   
   @JsonProperty("charge")
   protected Charge charge = null;
@@ -84,6 +83,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("initializingTokenVersion")
   protected Boolean initializingTokenVersion = null;
 
@@ -98,6 +101,14 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("nextUpdateOn")
@@ -158,30 +169,30 @@ public class ChargeAttempt extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The charge that the charge attempt belongs to.
    * @return charge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The charge that the charge attempt belongs to.")
   public Charge getCharge() {
     return charge;
   }
 
   
    /**
-   * 
+   * The behavior that controls when the transaction is completed.
    * @return completionBehavior
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The behavior that controls when the transaction is completed.")
   public TransactionCompletionBehavior getCompletionBehavior() {
     return completionBehavior;
   }
 
   
    /**
-   * 
+   * The payment connector configuration that was used for the charge attempt.
    * @return connectorConfiguration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment connector configuration that was used for the charge attempt.")
   public PaymentConnectorConfiguration getConnectorConfiguration() {
     return connectorConfiguration;
   }
@@ -198,60 +209,70 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * The customer&#39;s presence indicates which kind of customer interaction was used during the charge attempt.
+   * The customer&#39;s presence indicates whether and in what way the charge attempt&#39;s customer is present.
    * @return customersPresence
   **/
-  @ApiModelProperty(value = "The customer's presence indicates which kind of customer interaction was used during the charge attempt.")
+  @ApiModelProperty(value = "The customer's presence indicates whether and in what way the charge attempt's customer is present.")
   public CustomersPresence getCustomersPresence() {
     return customersPresence;
   }
 
   
    /**
-   * 
+   * The environment in which the charge attempt is executed.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment in which the charge attempt is executed.")
   public ChargeAttemptEnvironment getEnvironment() {
     return environment;
   }
 
   
    /**
-   * 
+   * The date and time when the charge attempt failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the charge attempt failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the charge attempt.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the charge attempt.")
   public FailureReason getFailureReason() {
     return failureReason;
   }
 
   
    /**
-   * 
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * Whether a new token version is being initialized.
    * @return initializingTokenVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether a new token version is being initialized.")
   public Boolean isInitializingTokenVersion() {
     return initializingTokenVersion;
   }
 
   
    /**
-   * 
+   * The connector invocation that the charge attempt belongs to.
    * @return invocation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The connector invocation that the charge attempt belongs to.")
   public ConnectorInvocation getInvocation() {
     return invocation;
   }
@@ -278,10 +299,30 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next update of the object's state is planned.")
   public OffsetDateTime getNextUpdateOn() {
     return nextUpdateOn;
   }
@@ -298,20 +339,20 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The URL to redirect the customer to after payment processing.
    * @return redirectionUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL to redirect the customer to after payment processing.")
   public String getRedirectionUrl() {
     return redirectionUrl;
   }
 
   
    /**
-   * 
+   * The sales channel through which the charge attempt was made.
    * @return salesChannel
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The sales channel through which the charge attempt was made.")
   public Long getSalesChannel() {
     return salesChannel;
   }
@@ -338,60 +379,60 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the charge attempt succeeded.
    * @return succeededOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the charge attempt succeeded.")
   public OffsetDateTime getSucceededOn() {
     return succeededOn;
   }
 
   
    /**
-   * 
+   * The payment terminal through which the charge attempt was made.
    * @return terminal
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment terminal through which the charge attempt was made.")
   public PaymentTerminal getTerminal() {
     return terminal;
   }
 
   
    /**
-   * 
+   * The time zone that this object is associated with.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone that this object is associated with.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * 
+   * The date and time when the object will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The token version used for the charge attempt.
    * @return tokenVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The token version used for the charge attempt.")
   public TokenVersion getTokenVersion() {
     return tokenVersion;
   }
 
   
    /**
-   * The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.
+   * The message that can be displayed to the customer explaining why the charge attempt failed, in the customer&#39;s language.
    * @return userFailureMessage
   **/
-  @ApiModelProperty(value = "The user failure message contains the message for the user in case the attempt failed. The message is localized into the language specified on the transaction.")
+  @ApiModelProperty(value = "The message that can be displayed to the customer explaining why the charge attempt failed, in the customer's language.")
   public String getUserFailureMessage() {
     return userFailureMessage;
   }
@@ -408,10 +449,10 @@ public class ChargeAttempt extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The type of wallet used to make the charge attempt.
    * @return wallet
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of wallet used to make the charge attempt.")
   public WalletType getWallet() {
     return wallet;
   }
@@ -427,10 +468,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
       return false;
     }
     ChargeAttempt chargeAttempt = (ChargeAttempt) o;
-    return Objects.equals(this.id, chargeAttempt.id) &&
-        Objects.equals(this.linkedSpaceId, chargeAttempt.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, chargeAttempt.linkedTransaction) &&
-        Objects.equals(this.charge, chargeAttempt.charge) &&
+    return Objects.equals(this.charge, chargeAttempt.charge) &&
         Objects.equals(this.completionBehavior, chargeAttempt.completionBehavior) &&
         Objects.equals(this.connectorConfiguration, chargeAttempt.connectorConfiguration) &&
         Objects.equals(this.createdOn, chargeAttempt.createdOn) &&
@@ -438,10 +476,13 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.environment, chargeAttempt.environment) &&
         Objects.equals(this.failedOn, chargeAttempt.failedOn) &&
         Objects.equals(this.failureReason, chargeAttempt.failureReason) &&
+        Objects.equals(this.id, chargeAttempt.id) &&
         Objects.equals(this.initializingTokenVersion, chargeAttempt.initializingTokenVersion) &&
         Objects.equals(this.invocation, chargeAttempt.invocation) &&
         Objects.equals(this.labels, chargeAttempt.labels) &&
         Objects.equals(this.language, chargeAttempt.language) &&
+        Objects.equals(this.linkedSpaceId, chargeAttempt.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, chargeAttempt.linkedTransaction) &&
         Objects.equals(this.nextUpdateOn, chargeAttempt.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, chargeAttempt.plannedPurgeDate) &&
         Objects.equals(this.redirectionUrl, chargeAttempt.redirectionUrl) &&
@@ -455,13 +496,12 @@ public class ChargeAttempt extends TransactionAwareEntity {
         Objects.equals(this.tokenVersion, chargeAttempt.tokenVersion) &&
         Objects.equals(this.userFailureMessage, chargeAttempt.userFailureMessage) &&
         Objects.equals(this.version, chargeAttempt.version) &&
-        Objects.equals(this.wallet, chargeAttempt.wallet) &&
-        super.equals(o);
+        Objects.equals(this.wallet, chargeAttempt.wallet);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, initializingTokenVersion, invocation, labels, language, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, wallet, super.hashCode());
+    return Objects.hash(charge, completionBehavior, connectorConfiguration, createdOn, customersPresence, environment, failedOn, failureReason, id, initializingTokenVersion, invocation, labels, language, linkedSpaceId, linkedTransaction, nextUpdateOn, plannedPurgeDate, redirectionUrl, salesChannel, spaceViewId, state, succeededOn, terminal, timeZone, timeoutOn, tokenVersion, userFailureMessage, version, wallet);
   }
 
 
@@ -469,10 +509,7 @@ public class ChargeAttempt extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeAttempt {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    charge: ").append(toIndentedString(charge)).append("\n");
     sb.append("    completionBehavior: ").append(toIndentedString(completionBehavior)).append("\n");
     sb.append("    connectorConfiguration: ").append(toIndentedString(connectorConfiguration)).append("\n");
@@ -481,10 +518,13 @@ public class ChargeAttempt extends TransactionAwareEntity {
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    initializingTokenVersion: ").append(toIndentedString(initializingTokenVersion)).append("\n");
     sb.append("    invocation: ").append(toIndentedString(invocation)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    redirectionUrl: ").append(toIndentedString(redirectionUrl)).append("\n");

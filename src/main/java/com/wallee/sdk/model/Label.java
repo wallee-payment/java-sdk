@@ -49,14 +49,6 @@ public class Label {
   protected LabelDescriptor descriptor = null;
 
   
-  @JsonProperty("id")
-  protected Long id = null;
-
-  
-  @JsonProperty("version")
-  protected Integer version = null;
-
-  
   
    /**
    * The label&#39;s actual content.
@@ -88,26 +80,6 @@ public class Label {
   }
 
   
-   /**
-   * A unique identifier for the object.
-   * @return id
-  **/
-  @ApiModelProperty(value = "A unique identifier for the object.")
-  public Long getId() {
-    return id;
-  }
-
-  
-   /**
-   * The version is used for optimistic locking and incremented whenever the object is updated.
-   * @return version
-  **/
-  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
-  public Integer getVersion() {
-    return version;
-  }
-
-  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,14 +92,12 @@ public class Label {
     Label label = (Label) o;
     return Objects.equals(this.content, label.content) &&
         Objects.equals(this.contentAsString, label.contentAsString) &&
-        Objects.equals(this.descriptor, label.descriptor) &&
-        Objects.equals(this.id, label.id) &&
-        Objects.equals(this.version, label.version);
+        Objects.equals(this.descriptor, label.descriptor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, contentAsString, descriptor, id, version);
+    return Objects.hash(content, contentAsString, descriptor);
   }
 
 
@@ -139,8 +109,6 @@ public class Label {
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    contentAsString: ").append(toIndentedString(contentAsString)).append("\n");
     sb.append("    descriptor: ").append(toIndentedString(descriptor)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

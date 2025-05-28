@@ -56,10 +56,10 @@ public class CompletionLineItemCreate {
   }
 
    /**
-   * The total amount of the line item including any tax.
+   * The total amount of the line item to be captured, including taxes.
    * @return amount
   **/
-  @ApiModelProperty(required = true, value = "The total amount of the line item including any tax.")
+  @ApiModelProperty(required = true, value = "The total amount of the line item to be captured, including taxes.")
   public BigDecimal getAmount() {
     return amount;
   }
@@ -75,10 +75,10 @@ public class CompletionLineItemCreate {
   }
 
    /**
-   * The quantity of the line item which should be completed.
+   * The number of items to be captured.
    * @return quantity
   **/
-  @ApiModelProperty(required = true, value = "The quantity of the line item which should be completed.")
+  @ApiModelProperty(required = true, value = "The number of items to be captured.")
   public BigDecimal getQuantity() {
     return quantity;
   }
@@ -94,10 +94,10 @@ public class CompletionLineItemCreate {
   }
 
    /**
-   * The unique id identifies the line item on which the capture is applied on.
+   * The unique identifier of the line item within the set of line items.
    * @return uniqueId
   **/
-  @ApiModelProperty(required = true, value = "The unique id identifies the line item on which the capture is applied on.")
+  @ApiModelProperty(required = true, value = "The unique identifier of the line item within the set of line items.")
   public String getUniqueId() {
     return uniqueId;
   }

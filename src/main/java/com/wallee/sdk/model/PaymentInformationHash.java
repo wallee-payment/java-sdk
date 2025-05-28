@@ -31,9 +31,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.
+ * A payment information hash is generated from user input, ensuring consistent and collision-free results for identical inputs.
  */
-@ApiModel(description = "A payment information hash is calculated based on the information entered by the user. The same input leads to the same hash. The hash is collision free.")
+@ApiModel(description = "A payment information hash is generated from user input, ensuring consistent and collision-free results for identical inputs.")
 
 public class PaymentInformationHash {
   
@@ -61,20 +61,20 @@ public class PaymentInformationHash {
 
   
    /**
-   * 
+   * The type specifies the algorithm used for calculating the hash.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type specifies the algorithm used for calculating the hash.")
   public PaymentInformationHashType getType() {
     return type;
   }
 
   
    /**
-   * 
+   * The hash value generated based on the specified type.
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The hash value generated based on the specified type.")
   public String getValue() {
     return value;
   }

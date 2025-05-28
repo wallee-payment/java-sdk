@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ShopifyTransactionState;
 import com.wallee.sdk.model.ShopifyV1Integration;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -39,7 +38,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifyTransaction extends TransactionAwareEntity {
+public class ShopifyTransaction {
   
   @JsonProperty("checkoutId")
   protected String checkoutId = null;
@@ -49,12 +48,32 @@ public class ShopifyTransaction extends TransactionAwareEntity {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("draftOrderId")
+  protected String draftOrderId = null;
+
+  
+  @JsonProperty("draftOrderLegacyId")
+  protected String draftOrderLegacyId = null;
+
+  
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("integration")
   protected ShopifyV1Integration integration = null;
 
   
-  @JsonProperty("orderId")
-  protected String orderId = null;
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
+
+  
+  @JsonProperty("orderLegacyId")
+  protected String orderLegacyId = null;
 
   
   @JsonProperty("orderName")
@@ -100,6 +119,36 @@ public class ShopifyTransaction extends TransactionAwareEntity {
   
    /**
    * 
+   * @return draftOrderId
+  **/
+  @ApiModelProperty(value = "")
+  public String getDraftOrderId() {
+    return draftOrderId;
+  }
+
+  
+   /**
+   * 
+   * @return draftOrderLegacyId
+  **/
+  @ApiModelProperty(value = "")
+  public String getDraftOrderLegacyId() {
+    return draftOrderLegacyId;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * 
    * @return integration
   **/
   @ApiModelProperty(value = "")
@@ -109,12 +158,32 @@ public class ShopifyTransaction extends TransactionAwareEntity {
 
   
    /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
    * 
-   * @return orderId
+   * @return orderLegacyId
   **/
   @ApiModelProperty(value = "")
-  public String getOrderId() {
-    return orderId;
+  public String getOrderLegacyId() {
+    return orderLegacyId;
   }
 
   
@@ -178,24 +247,25 @@ public class ShopifyTransaction extends TransactionAwareEntity {
       return false;
     }
     ShopifyTransaction shopifyTransaction = (ShopifyTransaction) o;
-    return Objects.equals(this.id, shopifyTransaction.id) &&
+    return Objects.equals(this.checkoutId, shopifyTransaction.checkoutId) &&
+        Objects.equals(this.createdOn, shopifyTransaction.createdOn) &&
+        Objects.equals(this.draftOrderId, shopifyTransaction.draftOrderId) &&
+        Objects.equals(this.draftOrderLegacyId, shopifyTransaction.draftOrderLegacyId) &&
+        Objects.equals(this.id, shopifyTransaction.id) &&
+        Objects.equals(this.integration, shopifyTransaction.integration) &&
         Objects.equals(this.linkedSpaceId, shopifyTransaction.linkedSpaceId) &&
         Objects.equals(this.linkedTransaction, shopifyTransaction.linkedTransaction) &&
-        Objects.equals(this.checkoutId, shopifyTransaction.checkoutId) &&
-        Objects.equals(this.createdOn, shopifyTransaction.createdOn) &&
-        Objects.equals(this.integration, shopifyTransaction.integration) &&
-        Objects.equals(this.orderId, shopifyTransaction.orderId) &&
+        Objects.equals(this.orderLegacyId, shopifyTransaction.orderLegacyId) &&
         Objects.equals(this.orderName, shopifyTransaction.orderName) &&
         Objects.equals(this.plannedPurgeDate, shopifyTransaction.plannedPurgeDate) &&
         Objects.equals(this.state, shopifyTransaction.state) &&
         Objects.equals(this.transaction, shopifyTransaction.transaction) &&
-        Objects.equals(this.version, shopifyTransaction.version) &&
-        super.equals(o);
+        Objects.equals(this.version, shopifyTransaction.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, checkoutId, createdOn, integration, orderId, orderName, plannedPurgeDate, state, transaction, version, super.hashCode());
+    return Objects.hash(checkoutId, createdOn, draftOrderId, draftOrderLegacyId, id, integration, linkedSpaceId, linkedTransaction, orderLegacyId, orderName, plannedPurgeDate, state, transaction, version);
   }
 
 
@@ -203,14 +273,16 @@ public class ShopifyTransaction extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopifyTransaction {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    checkoutId: ").append(toIndentedString(checkoutId)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    draftOrderId: ").append(toIndentedString(draftOrderId)).append("\n");
+    sb.append("    draftOrderLegacyId: ").append(toIndentedString(draftOrderLegacyId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
-    sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    sb.append("    orderLegacyId: ").append(toIndentedString(orderLegacyId)).append("\n");
     sb.append("    orderName: ").append(toIndentedString(orderName)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.DeliveryIndicationDecisionReason;
 import com.wallee.sdk.model.DeliveryIndicationState;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -39,7 +38,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class DeliveryIndication extends TransactionAwareEntity {
+public class DeliveryIndication {
   
   @JsonProperty("automaticDecisionReason")
   protected DeliveryIndicationDecisionReason automaticDecisionReason = null;
@@ -55,6 +54,18 @@ public class DeliveryIndication extends TransactionAwareEntity {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
+
+  
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("manualDecisionTimeoutOn")
@@ -87,30 +98,30 @@ public class DeliveryIndication extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The reason for the automatic system decision about the delivery indication.
    * @return automaticDecisionReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the automatic system decision about the delivery indication.")
   public DeliveryIndicationDecisionReason getAutomaticDecisionReason() {
     return automaticDecisionReason;
   }
 
   
    /**
-   * 
+   * The date and time when an automatic decision was made.
    * @return automaticallyDecidedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when an automatic decision was made.")
   public OffsetDateTime getAutomaticallyDecidedOn() {
     return automaticallyDecidedOn;
   }
 
   
    /**
-   * 
+   * The transaction completion that the delivery indication is linked to.
    * @return completion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction completion that the delivery indication is linked to.")
   public Long getCompletion() {
     return completion;
   }
@@ -127,30 +138,60 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The date and time by which a decision must be made before the system automatically proceeds according to the connector&#39;s predefined settings.
    * @return manualDecisionTimeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time by which a decision must be made before the system automatically proceeds according to the connector's predefined settings.")
   public OffsetDateTime getManualDecisionTimeoutOn() {
     return manualDecisionTimeoutOn;
   }
 
   
    /**
-   * 
+   * The ID of the user who manually decided the delivery indication&#39;s state.
    * @return manuallyDecidedBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user who manually decided the delivery indication's state.")
   public Long getManuallyDecidedBy() {
     return manuallyDecidedBy;
   }
 
   
    /**
-   * 
+   * The date and time when a manual decision was made.
    * @return manuallyDecidedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when a manual decision was made.")
   public OffsetDateTime getManuallyDecidedOn() {
     return manuallyDecidedOn;
   }
@@ -177,20 +218,20 @@ public class DeliveryIndication extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the delivery indication will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the delivery indication will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The payment transaction that the delivery indication is linked to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment transaction that the delivery indication is linked to.")
   public Transaction getTransaction() {
     return transaction;
   }
@@ -206,26 +247,25 @@ public class DeliveryIndication extends TransactionAwareEntity {
       return false;
     }
     DeliveryIndication deliveryIndication = (DeliveryIndication) o;
-    return Objects.equals(this.id, deliveryIndication.id) &&
-        Objects.equals(this.linkedSpaceId, deliveryIndication.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, deliveryIndication.linkedTransaction) &&
-        Objects.equals(this.automaticDecisionReason, deliveryIndication.automaticDecisionReason) &&
+    return Objects.equals(this.automaticDecisionReason, deliveryIndication.automaticDecisionReason) &&
         Objects.equals(this.automaticallyDecidedOn, deliveryIndication.automaticallyDecidedOn) &&
         Objects.equals(this.completion, deliveryIndication.completion) &&
         Objects.equals(this.createdOn, deliveryIndication.createdOn) &&
+        Objects.equals(this.id, deliveryIndication.id) &&
+        Objects.equals(this.linkedSpaceId, deliveryIndication.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, deliveryIndication.linkedTransaction) &&
         Objects.equals(this.manualDecisionTimeoutOn, deliveryIndication.manualDecisionTimeoutOn) &&
         Objects.equals(this.manuallyDecidedBy, deliveryIndication.manuallyDecidedBy) &&
         Objects.equals(this.manuallyDecidedOn, deliveryIndication.manuallyDecidedOn) &&
         Objects.equals(this.plannedPurgeDate, deliveryIndication.plannedPurgeDate) &&
         Objects.equals(this.state, deliveryIndication.state) &&
         Objects.equals(this.timeoutOn, deliveryIndication.timeoutOn) &&
-        Objects.equals(this.transaction, deliveryIndication.transaction) &&
-        super.equals(o);
+        Objects.equals(this.transaction, deliveryIndication.transaction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, automaticDecisionReason, automaticallyDecidedOn, completion, createdOn, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction, super.hashCode());
+    return Objects.hash(automaticDecisionReason, automaticallyDecidedOn, completion, createdOn, id, linkedSpaceId, linkedTransaction, manualDecisionTimeoutOn, manuallyDecidedBy, manuallyDecidedOn, plannedPurgeDate, state, timeoutOn, transaction);
   }
 
 
@@ -233,14 +273,14 @@ public class DeliveryIndication extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeliveryIndication {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    automaticDecisionReason: ").append(toIndentedString(automaticDecisionReason)).append("\n");
     sb.append("    automaticallyDecidedOn: ").append(toIndentedString(automaticallyDecidedOn)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    manualDecisionTimeoutOn: ").append(toIndentedString(manualDecisionTimeoutOn)).append("\n");
     sb.append("    manuallyDecidedBy: ").append(toIndentedString(manuallyDecidedBy)).append("\n");
     sb.append("    manuallyDecidedOn: ").append(toIndentedString(manuallyDecidedOn)).append("\n");

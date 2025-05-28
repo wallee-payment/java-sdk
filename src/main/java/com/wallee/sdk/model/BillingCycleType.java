@@ -31,15 +31,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * 
  */
-public enum CardAuthenticationVersion {
+public enum BillingCycleType {
   
-  V1("V1"),
+  DAILY("DAILY"),
   
-  V2("V2");
+  WEEKLY("WEEKLY"),
+  
+  MONTHLY("MONTHLY"),
+  
+  YEARLY("YEARLY");
 
   private String value;
 
-  CardAuthenticationVersion(String value) {
+  BillingCycleType(String value) {
     this.value = value;
   }
 
@@ -54,8 +58,8 @@ public enum CardAuthenticationVersion {
   }
 
   @JsonCreator
-  public static CardAuthenticationVersion fromValue(String text) {
-    for (CardAuthenticationVersion b : CardAuthenticationVersion.values()) {
+  public static BillingCycleType fromValue(String text) {
+    for (BillingCycleType b : BillingCycleType.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

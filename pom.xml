@@ -1,13 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.wallee</groupId>
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>8.1.1</version>
+    <version>8.7.0</version>
     <url>https://www.wallee.com</url>
     <description>The SDK for simplifying the integration with wallee API.</description>
+
     <scm>
         <connection>scm:git:git@github.com:wallee-payment/java-sdk.git</connection>
         <developerConnection>scm:git:git@github.com:wallee-payment/java-sdk.git</developerConnection>
@@ -32,12 +36,6 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -53,14 +51,15 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>[3.2,3.9.5]</version>
-                                    <message>Invalid Maven version. It should be between 3.2 and 3.9.5 inclusive.</message>
+                                    <version>[3.2,3.9.9]</version>
+                                    <message>Invalid Maven version. It should be between 3.2 and 3.9.9 inclusive.</message>
                                 </requireMavenVersion>
                             </rules>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -77,21 +76,20 @@
                     <forkMode>pertest</forkMode>
                 </configuration>
             </plugin>
+
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
+                        <goals><goal>copy-dependencies</goal></goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <!-- attach test jar -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -104,9 +102,8 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -115,41 +112,32 @@
                     <execution>
                         <id>add_sources</id>
                         <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
+                        <goals><goal>add-source</goal></goals>
                         <configuration>
-                            <sources>
-                                <source>
-                                src/main/java</source>
-                            </sources>
+                            <sources> <source>src/main/java</source> </sources>
                         </configuration>
                     </execution>
                     <execution>
                         <id>add_test_sources</id>
                         <phase>generate-test-sources</phase>
-                        <goals>
-                            <goal>add-test-source</goal>
-                        </goals>
+                        <goals><goal>add-test-source</goal></goals>
                         <configuration>
-                            <sources>
-                                <source>
-                                src/test/java</source>
-                            </sources>
+                            <sources> <source>src/test/java</source> </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.1</version>
                 <configuration>
-                        <source>
-                        1.8</source>
-                        <target>1.8</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
@@ -161,12 +149,11 @@
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
+                        <goals><goal>jar</goal></goals>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -174,20 +161,20 @@
                 <executions>
                     <execution>
                         <id>attach-sources</id>
-                        <goals>
-                            <goal>jar-no-fork</goal>
-                        </goals>
+                        <goals><goal>jar-no-fork</goal></goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>release</id>
             <build>
                 <pluginManagement>
                     <plugins>
+                        <!-- Maven Release Plugin -->
                         <plugin>
                             <artifactId>maven-release-plugin</artifactId>
                             <version>3.0.0</version>
@@ -195,6 +182,8 @@
                                 <tagNameFormat>@{project.version}</tagNameFormat>
                             </configuration>
                         </plugin>
+
+                        <!-- GPG Plugin for signing (for Maven Central) -->
                         <!-- The key's name & passphrase are configured via GitHub's setup-java action. -->
                         <plugin>
                             <artifactId>maven-gpg-plugin</artifactId>
@@ -203,9 +192,7 @@
                                 <execution>
                                     <id>sign-artifacts</id>
                                     <phase>verify</phase>
-                                    <goals>
-                                        <goal>sign</goal>
-                                    </goals>
+                                    <goals><goal>sign</goal></goals>
                                     <configuration>
                                         <!-- This is required to make sure the plugin does not stop asking for -->
                                         <!-- user input on the passphrase -->
@@ -217,20 +204,24 @@
                                 </execution>
                             </executions>
                         </plugin>
-                         <plugin>
-                            <groupId>org.sonatype.plugins</groupId>
-                            <artifactId>nexus-staging-maven-plugin</artifactId>
-                            <version>1.6.13</version>
+
+                        <!-- Sonatype Central Publishing Plugin -->
+                        <plugin>
+                            <groupId>org.sonatype.central</groupId>
+                            <artifactId>central-publishing-maven-plugin</artifactId>
+                            <version>0.7.0</version>
                             <extensions>true</extensions>
                             <configuration>
-                                <serverId>ossrh</serverId>
-                                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                                <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                                <publishingServerId>central</publishingServerId>
+                                <centralBaseUrl>https://central.sonatype.com</centralBaseUrl>
+                                <autoPublish>true</autoPublish>
                             </configuration>
                         </plugin>
                     </plugins>
-                 </pluginManagement>
+                </pluginManagement>
+
                 <plugins>
+                    <!-- Maven Source Plugin -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -238,12 +229,12 @@
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
+                                <goals><goal>jar-no-fork</goal></goals>
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- Maven Javadoc Plugin -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -251,29 +242,36 @@
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
+                                <goals><goal>jar</goal></goals>
                             </execution>
                         </executions>
                     </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                    </plugin>
+
                     <plugin>
                         <artifactId>maven-gpg-plugin</artifactId>
                     </plugin>
+
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
+
     <dependencies>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-version}</version>
         </dependency>
+
         <!-- HTTP client: google-api-client -->
         <dependency>
             <groupId>com.google.api-client</groupId>
@@ -286,11 +284,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava-version}</version>
         </dependency>
+
         <!-- Apache HttpClient for building URLs from templates -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -303,6 +303,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <!-- JSON processing: jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -319,11 +320,15 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>${jackson-version}</version>
-            </dependency>
+
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
@@ -338,6 +343,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.5.17</swagger-annotations-version>

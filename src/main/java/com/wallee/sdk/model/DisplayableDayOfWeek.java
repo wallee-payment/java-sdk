@@ -29,15 +29,27 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * This model defines the card cryptogram types.
+ * 
  */
-public enum CardCryptogramType {
+public enum DisplayableDayOfWeek {
   
-  SCHEME_TOKEN("SCHEME_TOKEN");
+  MONDAY("MONDAY"),
+  
+  TUESDAY("TUESDAY"),
+  
+  WEDNESDAY("WEDNESDAY"),
+  
+  THURSDAY("THURSDAY"),
+  
+  FRIDAY("FRIDAY"),
+  
+  SATURDAY("SATURDAY"),
+  
+  SUNDAY("SUNDAY");
 
   private String value;
 
-  CardCryptogramType(String value) {
+  DisplayableDayOfWeek(String value) {
     this.value = value;
   }
 
@@ -52,8 +64,8 @@ public enum CardCryptogramType {
   }
 
   @JsonCreator
-  public static CardCryptogramType fromValue(String text) {
-    for (CardCryptogramType b : CardCryptogramType.values()) {
+  public static DisplayableDayOfWeek fromValue(String text) {
+    for (DisplayableDayOfWeek b : DisplayableDayOfWeek.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

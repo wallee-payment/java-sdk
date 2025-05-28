@@ -28,7 +28,6 @@ import com.wallee.sdk.model.InstallmentPayment;
 import com.wallee.sdk.model.InstallmentPaymentSliceState;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -42,7 +41,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "An installment payment slice represents a single transaction of money from the buyer to the merchant.")
 
-public class InstallmentPaymentSlice extends TransactionAwareEntity {
+public class InstallmentPaymentSlice {
   
   @JsonProperty("chargeOn")
   protected OffsetDateTime chargeOn = null;
@@ -52,12 +51,24 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("installmentPayment")
   protected InstallmentPayment installmentPayment = null;
 
   
   @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -98,6 +109,16 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
 
   
    /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
    * 
    * @return installmentPayment
   **/
@@ -114,6 +135,26 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public List<LineItem> getLineItems() {
     return lineItems;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
   }
 
   
@@ -167,23 +208,22 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
       return false;
     }
     InstallmentPaymentSlice installmentPaymentSlice = (InstallmentPaymentSlice) o;
-    return Objects.equals(this.id, installmentPaymentSlice.id) &&
-        Objects.equals(this.linkedSpaceId, installmentPaymentSlice.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, installmentPaymentSlice.linkedTransaction) &&
-        Objects.equals(this.chargeOn, installmentPaymentSlice.chargeOn) &&
+    return Objects.equals(this.chargeOn, installmentPaymentSlice.chargeOn) &&
         Objects.equals(this.createdOn, installmentPaymentSlice.createdOn) &&
+        Objects.equals(this.id, installmentPaymentSlice.id) &&
         Objects.equals(this.installmentPayment, installmentPaymentSlice.installmentPayment) &&
         Objects.equals(this.lineItems, installmentPaymentSlice.lineItems) &&
+        Objects.equals(this.linkedSpaceId, installmentPaymentSlice.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, installmentPaymentSlice.linkedTransaction) &&
         Objects.equals(this.plannedPurgeDate, installmentPaymentSlice.plannedPurgeDate) &&
         Objects.equals(this.state, installmentPaymentSlice.state) &&
         Objects.equals(this.transaction, installmentPaymentSlice.transaction) &&
-        Objects.equals(this.version, installmentPaymentSlice.version) &&
-        super.equals(o);
+        Objects.equals(this.version, installmentPaymentSlice.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, chargeOn, createdOn, installmentPayment, lineItems, plannedPurgeDate, state, transaction, version, super.hashCode());
+    return Objects.hash(chargeOn, createdOn, id, installmentPayment, lineItems, linkedSpaceId, linkedTransaction, plannedPurgeDate, state, transaction, version);
   }
 
 
@@ -191,14 +231,14 @@ public class InstallmentPaymentSlice extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstallmentPaymentSlice {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    chargeOn: ").append(toIndentedString(chargeOn)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    installmentPayment: ").append(toIndentedString(installmentPayment)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");

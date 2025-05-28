@@ -32,14 +32,18 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the card data in plain.
+ * 
  */
-@ApiModel(description = "This model holds the card data in plain.")
+@ApiModel(description = "")
 
 public class TokenizedCardData {
   
   @JsonProperty("cryptogram")
   protected CardCryptogram cryptogram = null;
+
+  
+  @JsonProperty("initialRecurringTransaction")
+  protected Boolean initialRecurringTransaction = null;
 
   
   @JsonProperty("recurringIndicator")
@@ -52,30 +56,40 @@ public class TokenizedCardData {
   
   
    /**
-   * The additional authentication value used to secure the tokenized card transactions.
+   * An additional authentication value that enhances the security of tokenized card transactions.
    * @return cryptogram
   **/
-  @ApiModelProperty(value = "The additional authentication value used to secure the tokenized card transactions.")
+  @ApiModelProperty(value = "An additional authentication value that enhances the security of tokenized card transactions.")
   public CardCryptogram getCryptogram() {
     return cryptogram;
   }
 
   
    /**
-   * 
+   * Whether the transaction is an initial recurring transaction, based on the recurring indicator. This is used to identify the first transaction in a recurring payment setup.
+   * @return initialRecurringTransaction
+  **/
+  @ApiModelProperty(value = "Whether the transaction is an initial recurring transaction, based on the recurring indicator. This is used to identify the first transaction in a recurring payment setup.")
+  public Boolean isInitialRecurringTransaction() {
+    return initialRecurringTransaction;
+  }
+
+  
+   /**
+   * The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction&#39;s properties.
    * @return recurringIndicator
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction's properties.")
   public RecurringIndicator getRecurringIndicator() {
     return recurringIndicator;
   }
 
   
    /**
-   * 
+   * The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.
    * @return tokenRequestorId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.")
   public String getTokenRequestorId() {
     return tokenRequestorId;
   }
@@ -92,13 +106,14 @@ public class TokenizedCardData {
     }
     TokenizedCardData tokenizedCardData = (TokenizedCardData) o;
     return Objects.equals(this.cryptogram, tokenizedCardData.cryptogram) &&
+        Objects.equals(this.initialRecurringTransaction, tokenizedCardData.initialRecurringTransaction) &&
         Objects.equals(this.recurringIndicator, tokenizedCardData.recurringIndicator) &&
         Objects.equals(this.tokenRequestorId, tokenizedCardData.tokenRequestorId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cryptogram, recurringIndicator, tokenRequestorId);
+    return Objects.hash(cryptogram, initialRecurringTransaction, recurringIndicator, tokenRequestorId);
   }
 
 
@@ -108,6 +123,7 @@ public class TokenizedCardData {
     sb.append("class TokenizedCardData {\n");
     
     sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
+    sb.append("    initialRecurringTransaction: ").append(toIndentedString(initialRecurringTransaction)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
     sb.append("}");

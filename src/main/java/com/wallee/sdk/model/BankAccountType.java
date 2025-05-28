@@ -77,10 +77,10 @@ public class BankAccountType {
 
   
    /**
-   * 
+   * The identifier name specifies how the bank account type&#39;s identifier is called.
    * @return identifierName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The identifier name specifies how the bank account type's identifier is called.")
   public Map<String, String> getIdentifierName() {
     return identifierName;
   }

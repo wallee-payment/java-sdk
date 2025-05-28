@@ -48,10 +48,10 @@ public class TransactionInvoiceCommentCreate extends AbstractTransactionInvoiceC
   }
 
    /**
-   * 
+   * The transaction invoice that the comment belongs to.
    * @return transactionInvoice
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The transaction invoice that the comment belongs to.")
   public Long getTransactionInvoice() {
     return transactionInvoice;
   }

@@ -73,30 +73,30 @@ public class RenderedDocument {
 
   
    /**
-   * 
+   * The document&#39;s template type
    * @return documentTemplateType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The document's template type")
   public Long getDocumentTemplateType() {
     return documentTemplateType;
   }
 
   
    /**
-   * 
+   * The document&#39;s content type
    * @return mimeType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The document's content type")
   public String getMimeType() {
     return mimeType;
   }
 
   
    /**
-   * 
+   * The title of the rendered document
    * @return title
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The title of the rendered document")
   public String getTitle() {
     return title;
   }

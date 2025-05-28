@@ -28,7 +28,6 @@ import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.LineItem;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionLineItemVersionState;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -44,7 +43,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class TransactionLineItemVersion extends TransactionAwareEntity {
+public class TransactionLineItemVersion {
   
   @JsonProperty("amount")
   protected BigDecimal amount = null;
@@ -70,6 +69,10 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("labels")
   protected List<Label> labels = null;
 
@@ -80,6 +83,14 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   
   @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("nextUpdateOn")
@@ -124,20 +135,20 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The total amount of the updated line items, including taxes.
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total amount of the updated line items, including taxes.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * 
+   * The ID of the user the line item version was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the line item version was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -154,20 +165,20 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
 
   
    /**
-   * 
+   * The date and time when the processing of the line item version failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the line item version failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
@@ -180,6 +191,16 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public FailureReason getFailureReason() {
     return failureReason;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -204,20 +225,40 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The line items that replace the original line items in the transaction.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items that replace the original line items in the transaction.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The date and time when the next update of the line item version&#39;s state is planned.
    * @return nextUpdateOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next update of the line item version's state is planned.")
   public OffsetDateTime getNextUpdateOn() {
     return nextUpdateOn;
   }
@@ -234,10 +275,10 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the processing of the line item version was started.
    * @return processingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the line item version was started.")
   public OffsetDateTime getProcessingOn() {
     return processingOn;
   }
@@ -264,40 +305,40 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the line item version was processed successfully.
    * @return succeededOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the line item version was processed successfully.")
   public OffsetDateTime getSucceededOn() {
     return succeededOn;
   }
 
   
    /**
-   * 
+   * The portion of the total amount that corresponds to taxes.
    * @return taxAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The portion of the total amount that corresponds to taxes.")
   public BigDecimal getTaxAmount() {
     return taxAmount;
   }
 
   
    /**
-   * 
+   * The date and time by when the line item version is expected to be processed.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time by when the line item version is expected to be processed.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The transaction that the line item version belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the line item version belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
@@ -323,18 +364,18 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
       return false;
     }
     TransactionLineItemVersion transactionLineItemVersion = (TransactionLineItemVersion) o;
-    return Objects.equals(this.id, transactionLineItemVersion.id) &&
-        Objects.equals(this.linkedSpaceId, transactionLineItemVersion.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, transactionLineItemVersion.linkedTransaction) &&
-        Objects.equals(this.amount, transactionLineItemVersion.amount) &&
+    return Objects.equals(this.amount, transactionLineItemVersion.amount) &&
         Objects.equals(this.createdBy, transactionLineItemVersion.createdBy) &&
         Objects.equals(this.createdOn, transactionLineItemVersion.createdOn) &&
         Objects.equals(this.externalId, transactionLineItemVersion.externalId) &&
         Objects.equals(this.failedOn, transactionLineItemVersion.failedOn) &&
         Objects.equals(this.failureReason, transactionLineItemVersion.failureReason) &&
+        Objects.equals(this.id, transactionLineItemVersion.id) &&
         Objects.equals(this.labels, transactionLineItemVersion.labels) &&
         Objects.equals(this.language, transactionLineItemVersion.language) &&
         Objects.equals(this.lineItems, transactionLineItemVersion.lineItems) &&
+        Objects.equals(this.linkedSpaceId, transactionLineItemVersion.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionLineItemVersion.linkedTransaction) &&
         Objects.equals(this.nextUpdateOn, transactionLineItemVersion.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, transactionLineItemVersion.plannedPurgeDate) &&
         Objects.equals(this.processingOn, transactionLineItemVersion.processingOn) &&
@@ -344,13 +385,12 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
         Objects.equals(this.taxAmount, transactionLineItemVersion.taxAmount) &&
         Objects.equals(this.timeoutOn, transactionLineItemVersion.timeoutOn) &&
         Objects.equals(this.transaction, transactionLineItemVersion.transaction) &&
-        Objects.equals(this.version, transactionLineItemVersion.version) &&
-        super.equals(o);
+        Objects.equals(this.version, transactionLineItemVersion.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, createdBy, createdOn, externalId, failedOn, failureReason, labels, language, lineItems, nextUpdateOn, plannedPurgeDate, processingOn, spaceViewId, state, succeededOn, taxAmount, timeoutOn, transaction, version, super.hashCode());
+    return Objects.hash(amount, createdBy, createdOn, externalId, failedOn, failureReason, id, labels, language, lineItems, linkedSpaceId, linkedTransaction, nextUpdateOn, plannedPurgeDate, processingOn, spaceViewId, state, succeededOn, taxAmount, timeoutOn, transaction, version);
   }
 
 
@@ -358,19 +398,19 @@ public class TransactionLineItemVersion extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionLineItemVersion {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    processingOn: ").append(toIndentedString(processingOn)).append("\n");

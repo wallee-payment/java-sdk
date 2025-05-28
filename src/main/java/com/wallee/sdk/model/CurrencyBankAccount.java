@@ -64,30 +64,30 @@ public class CurrencyBankAccount {
   
   
    /**
-   * 
+   * The bank account this currency bank account belongs to.
    * @return bankAccount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank account this currency bank account belongs to.")
   public BankAccount getBankAccount() {
     return bankAccount;
   }
 
   
    /**
-   * 
+   * The currency associated with the bank account.
    * @return currency
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The currency associated with the bank account.")
   public String getCurrency() {
     return currency;
   }
 
   
    /**
-   * 
+   * Whether the bank account operates in a test or production environment.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Whether the bank account operates in a test or production environment.")
   public BankAccountEnvironment getEnvironment() {
     return environment;
   }

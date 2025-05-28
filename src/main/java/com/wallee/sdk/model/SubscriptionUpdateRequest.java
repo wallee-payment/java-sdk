@@ -41,11 +41,6 @@ public class SubscriptionUpdateRequest {
 
   
   
-  public SubscriptionUpdateRequest description(String description) {
-    this.description = description;
-    return this;
-  }
-
    /**
    * A description used to identify the subscription.
    * @return description
@@ -53,10 +48,6 @@ public class SubscriptionUpdateRequest {
   @ApiModelProperty(value = "A description used to identify the subscription.")
   public String getDescription() {
     return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
   }
 
   

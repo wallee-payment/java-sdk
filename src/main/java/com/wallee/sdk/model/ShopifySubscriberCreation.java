@@ -44,6 +44,10 @@ public class ShopifySubscriberCreation {
   protected String phoneNumber = null;
 
   
+  @JsonProperty("shopifyCustomerGid")
+  protected String shopifyCustomerGid = null;
+
+  
   @JsonProperty("shopifyCustomerId")
   protected String shopifyCustomerId = null;
 
@@ -87,6 +91,25 @@ public class ShopifySubscriberCreation {
   }
 
   
+  public ShopifySubscriberCreation shopifyCustomerGid(String shopifyCustomerGid) {
+    this.shopifyCustomerGid = shopifyCustomerGid;
+    return this;
+  }
+
+   /**
+   * The customer Global ID has to correspond to the Global ID assigned to the customer by Shopify. When the subscriber already exists no new subscriber will be created.
+   * @return shopifyCustomerGid
+  **/
+  @ApiModelProperty(value = "The customer Global ID has to correspond to the Global ID assigned to the customer by Shopify. When the subscriber already exists no new subscriber will be created.")
+  public String getShopifyCustomerGid() {
+    return shopifyCustomerGid;
+  }
+
+  public void setShopifyCustomerGid(String shopifyCustomerGid) {
+    this.shopifyCustomerGid = shopifyCustomerGid;
+  }
+
+  
   public ShopifySubscriberCreation shopifyCustomerId(String shopifyCustomerId) {
     this.shopifyCustomerId = shopifyCustomerId;
     return this;
@@ -118,12 +141,13 @@ public class ShopifySubscriberCreation {
     ShopifySubscriberCreation shopifySubscriberCreation = (ShopifySubscriberCreation) o;
     return Objects.equals(this.emailAddress, shopifySubscriberCreation.emailAddress) &&
         Objects.equals(this.phoneNumber, shopifySubscriberCreation.phoneNumber) &&
+        Objects.equals(this.shopifyCustomerGid, shopifySubscriberCreation.shopifyCustomerGid) &&
         Objects.equals(this.shopifyCustomerId, shopifySubscriberCreation.shopifyCustomerId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailAddress, phoneNumber, shopifyCustomerId);
+    return Objects.hash(emailAddress, phoneNumber, shopifyCustomerGid, shopifyCustomerId);
   }
 
 
@@ -134,6 +158,7 @@ public class ShopifySubscriberCreation {
     
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    shopifyCustomerGid: ").append(toIndentedString(shopifyCustomerGid)).append("\n");
     sb.append("    shopifyCustomerId: ").append(toIndentedString(shopifyCustomerId)).append("\n");
     sb.append("}");
     return sb.toString();

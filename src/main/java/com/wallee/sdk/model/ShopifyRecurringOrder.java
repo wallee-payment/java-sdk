@@ -28,7 +28,6 @@ import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.ShopifyRecurringOrderState;
 import com.wallee.sdk.model.ShopifySubscriptionVersion;
 import com.wallee.sdk.model.ShopifyTransaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -40,7 +39,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ShopifyRecurringOrder extends TransactionAwareEntity {
+public class ShopifyRecurringOrder {
   
   @JsonProperty("billedOn")
   protected OffsetDateTime billedOn = null;
@@ -54,12 +53,32 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   protected OffsetDateTime createdOn = null;
 
   
+  @JsonProperty("draftOrderId")
+  protected String draftOrderId = null;
+
+  
   @JsonProperty("failureReason")
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
+
+  
   @JsonProperty("orderId")
   protected String orderId = null;
+
+  
+  @JsonProperty("orderLegacyId")
+  protected String orderLegacyId = null;
 
   
   @JsonProperty("orderName")
@@ -131,11 +150,51 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   
    /**
    * 
+   * @return draftOrderId
+  **/
+  @ApiModelProperty(value = "")
+  public String getDraftOrderId() {
+    return draftOrderId;
+  }
+
+  
+   /**
+   * 
    * @return failureReason
   **/
   @ApiModelProperty(value = "")
   public FailureReason getFailureReason() {
     return failureReason;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
   }
 
   
@@ -146,6 +205,16 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   @ApiModelProperty(value = "")
   public String getOrderId() {
     return orderId;
+  }
+
+  
+   /**
+   * 
+   * @return orderLegacyId
+  **/
+  @ApiModelProperty(value = "")
+  public String getOrderLegacyId() {
+    return orderLegacyId;
   }
 
   
@@ -249,14 +318,16 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
       return false;
     }
     ShopifyRecurringOrder shopifyRecurringOrder = (ShopifyRecurringOrder) o;
-    return Objects.equals(this.id, shopifyRecurringOrder.id) &&
-        Objects.equals(this.linkedSpaceId, shopifyRecurringOrder.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, shopifyRecurringOrder.linkedTransaction) &&
-        Objects.equals(this.billedOn, shopifyRecurringOrder.billedOn) &&
+    return Objects.equals(this.billedOn, shopifyRecurringOrder.billedOn) &&
         Objects.equals(this.checkoutToken, shopifyRecurringOrder.checkoutToken) &&
         Objects.equals(this.createdOn, shopifyRecurringOrder.createdOn) &&
+        Objects.equals(this.draftOrderId, shopifyRecurringOrder.draftOrderId) &&
         Objects.equals(this.failureReason, shopifyRecurringOrder.failureReason) &&
+        Objects.equals(this.id, shopifyRecurringOrder.id) &&
+        Objects.equals(this.linkedSpaceId, shopifyRecurringOrder.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, shopifyRecurringOrder.linkedTransaction) &&
         Objects.equals(this.orderId, shopifyRecurringOrder.orderId) &&
+        Objects.equals(this.orderLegacyId, shopifyRecurringOrder.orderLegacyId) &&
         Objects.equals(this.orderName, shopifyRecurringOrder.orderName) &&
         Objects.equals(this.plannedExecutionDate, shopifyRecurringOrder.plannedExecutionDate) &&
         Objects.equals(this.plannedPurgeDate, shopifyRecurringOrder.plannedPurgeDate) &&
@@ -265,13 +336,12 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
         Objects.equals(this.startedProcessingOn, shopifyRecurringOrder.startedProcessingOn) &&
         Objects.equals(this.state, shopifyRecurringOrder.state) &&
         Objects.equals(this.subscriptionVersion, shopifyRecurringOrder.subscriptionVersion) &&
-        Objects.equals(this.transaction, shopifyRecurringOrder.transaction) &&
-        super.equals(o);
+        Objects.equals(this.transaction, shopifyRecurringOrder.transaction);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, billedOn, checkoutToken, createdOn, failureReason, orderId, orderName, plannedExecutionDate, plannedPurgeDate, recurrenceNumber, shop, startedProcessingOn, state, subscriptionVersion, transaction, super.hashCode());
+    return Objects.hash(billedOn, checkoutToken, createdOn, draftOrderId, failureReason, id, linkedSpaceId, linkedTransaction, orderId, orderLegacyId, orderName, plannedExecutionDate, plannedPurgeDate, recurrenceNumber, shop, startedProcessingOn, state, subscriptionVersion, transaction);
   }
 
 
@@ -279,15 +349,17 @@ public class ShopifyRecurringOrder extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShopifyRecurringOrder {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    billedOn: ").append(toIndentedString(billedOn)).append("\n");
     sb.append("    checkoutToken: ").append(toIndentedString(checkoutToken)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    draftOrderId: ").append(toIndentedString(draftOrderId)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    orderId: ").append(toIndentedString(orderId)).append("\n");
+    sb.append("    orderLegacyId: ").append(toIndentedString(orderLegacyId)).append("\n");
     sb.append("    orderName: ").append(toIndentedString(orderName)).append("\n");
     sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

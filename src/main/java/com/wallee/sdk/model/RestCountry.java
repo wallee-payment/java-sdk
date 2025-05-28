@@ -65,10 +65,10 @@ public class RestCountry {
   
   
    /**
-   * Specifies the country&#39;s way of formatting addresses.
+   * The country&#39;s way of formatting addresses.
    * @return addressFormat
   **/
-  @ApiModelProperty(value = "Specifies the country's way of formatting addresses.")
+  @ApiModelProperty(value = "The country's way of formatting addresses.")
   public RestAddressFormat getAddressFormat() {
     return addressFormat;
   }

@@ -32,9 +32,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the cardholder authentication data (e.g. 3-D Secure authentication).
+ * 
  */
-@ApiModel(description = "This model holds the cardholder authentication data (e.g. 3-D Secure authentication).")
+@ApiModel(description = "")
 
 public class CardholderAuthentication {
   
@@ -60,50 +60,50 @@ public class CardholderAuthentication {
   
   
    /**
-   * The authentication identifier as assigned by authentication system (e.g. XID or DSTransactionID).
+   * The identifier (e.g., XID or DSTransactionID) assigned by the authentication system for tracking and verification.
    * @return authenticationIdentifier
   **/
-  @ApiModelProperty(value = "The authentication identifier as assigned by authentication system (e.g. XID or DSTransactionID).")
+  @ApiModelProperty(value = "The identifier (e.g., XID or DSTransactionID) assigned by the authentication system for tracking and verification.")
   public String getAuthenticationIdentifier() {
     return authenticationIdentifier;
   }
 
   
    /**
-   * 
+   * The result of the authentication process.
    * @return authenticationResponse
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The result of the authentication process.")
   public CardAuthenticationResponse getAuthenticationResponse() {
     return authenticationResponse;
   }
 
   
    /**
-   * The cardholder authentication value. Also known as Cardholder Authentication Verification Value (CAVV).
+   * The cryptographic token (CAVV/AAV) generated during the authentication process to validate the cardholder&#39;s identity.
    * @return authenticationValue
   **/
-  @ApiModelProperty(value = "The cardholder authentication value. Also known as Cardholder Authentication Verification Value (CAVV).")
+  @ApiModelProperty(value = "The cryptographic token (CAVV/AAV) generated during the authentication process to validate the cardholder's identity.")
   public String getAuthenticationValue() {
     return authenticationValue;
   }
 
   
    /**
-   * The Electronic Commerce Indicator (ECI) value. The ECI is returned by authentication system and indicates the outcome/status of authentication.
+   * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
    * @return electronicCommerceIndicator
   **/
-  @ApiModelProperty(value = "The Electronic Commerce Indicator (ECI) value. The ECI is returned by authentication system and indicates the outcome/status of authentication.")
+  @ApiModelProperty(value = "The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.")
   public String getElectronicCommerceIndicator() {
     return electronicCommerceIndicator;
   }
 
   
    /**
-   * 
+   * The version of the authentication protocol (e.g., 3D Secure 1.0 or 2.0) used for the transaction.
    * @return version
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The version of the authentication protocol (e.g., 3D Secure 1.0 or 2.0) used for the transaction.")
   public CardAuthenticationVersion getVersion() {
     return version;
   }

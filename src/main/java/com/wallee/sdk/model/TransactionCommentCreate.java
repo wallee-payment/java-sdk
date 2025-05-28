@@ -48,10 +48,10 @@ public class TransactionCommentCreate extends AbstractTransactionCommentActive {
   }
 
    /**
-   * 
+   * The transaction that the comment belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The transaction that the comment belongs to.")
   public Long getTransaction() {
     return transaction;
   }

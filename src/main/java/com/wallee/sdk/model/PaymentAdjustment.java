@@ -46,6 +46,10 @@ public class PaymentAdjustment {
   protected BigDecimal amountIncludingTax = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("rateInPercentage")
   protected BigDecimal rateInPercentage = null;
 
@@ -60,50 +64,60 @@ public class PaymentAdjustment {
   
   
    /**
-   * 
+   * The adjustment&#39;s amount, excluding taxes.
    * @return amountExcludingTax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The adjustment's amount, excluding taxes.")
   public BigDecimal getAmountExcludingTax() {
     return amountExcludingTax;
   }
 
   
    /**
-   * The total amount of this adjustment including taxes.
+   * The adjustment&#39;s amount, including taxes.
    * @return amountIncludingTax
   **/
-  @ApiModelProperty(value = "The total amount of this adjustment including taxes.")
+  @ApiModelProperty(value = "The adjustment's amount, including taxes.")
   public BigDecimal getAmountIncludingTax() {
     return amountIncludingTax;
   }
 
   
    /**
-   * The rate in percentage is the rate on which the adjustment amount was calculated with.
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The percentage rate used to calculate the adjustment amount.
    * @return rateInPercentage
   **/
-  @ApiModelProperty(value = "The rate in percentage is the rate on which the adjustment amount was calculated with.")
+  @ApiModelProperty(value = "The percentage rate used to calculate the adjustment amount.")
   public BigDecimal getRateInPercentage() {
     return rateInPercentage;
   }
 
   
    /**
-   * 
+   * The tax applied to the adjustment.
    * @return tax
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The tax applied to the adjustment.")
   public Tax getTax() {
     return tax;
   }
 
   
    /**
-   * 
+   * The type of the adjustment.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type of the adjustment.")
   public Long getType() {
     return type;
   }
@@ -121,6 +135,7 @@ public class PaymentAdjustment {
     PaymentAdjustment paymentAdjustment = (PaymentAdjustment) o;
     return Objects.equals(this.amountExcludingTax, paymentAdjustment.amountExcludingTax) &&
         Objects.equals(this.amountIncludingTax, paymentAdjustment.amountIncludingTax) &&
+        Objects.equals(this.id, paymentAdjustment.id) &&
         Objects.equals(this.rateInPercentage, paymentAdjustment.rateInPercentage) &&
         Objects.equals(this.tax, paymentAdjustment.tax) &&
         Objects.equals(this.type, paymentAdjustment.type);
@@ -128,7 +143,7 @@ public class PaymentAdjustment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(amountExcludingTax, amountIncludingTax, rateInPercentage, tax, type);
+    return Objects.hash(amountExcludingTax, amountIncludingTax, id, rateInPercentage, tax, type);
   }
 
 
@@ -139,6 +154,7 @@ public class PaymentAdjustment {
     
     sb.append("    amountExcludingTax: ").append(toIndentedString(amountExcludingTax)).append("\n");
     sb.append("    amountIncludingTax: ").append(toIndentedString(amountIncludingTax)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    rateInPercentage: ").append(toIndentedString(rateInPercentage)).append("\n");
     sb.append("    tax: ").append(toIndentedString(tax)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

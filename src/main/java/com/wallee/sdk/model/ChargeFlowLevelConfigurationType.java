@@ -77,10 +77,10 @@ public class ChargeFlowLevelConfigurationType {
 
   
    /**
-   * 
+   * The localized label that describes the action triggered by the configuration type.
    * @return label
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The localized label that describes the action triggered by the configuration type.")
   public Map<String, String> getLabel() {
     return label;
   }

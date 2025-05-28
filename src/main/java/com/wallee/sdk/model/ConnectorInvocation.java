@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ConnectorInvocationStage;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -37,10 +36,18 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ConnectorInvocation extends TransactionAwareEntity {
+public class ConnectorInvocation {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
+
+  
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -75,6 +82,26 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 
   
    /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
   **/
@@ -85,30 +112,30 @@ public class ConnectorInvocation extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The transaction stage during which the connector invocation was performed.
    * @return stage
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction stage during which the connector invocation was performed.")
   public ConnectorInvocationStage getStage() {
     return stage;
   }
 
   
    /**
-   * 
+   * The duration, in milliseconds, taken to execute the connector invocation.
    * @return timeTookInMilliseconds
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The duration, in milliseconds, taken to execute the connector invocation.")
   public Long getTimeTookInMilliseconds() {
     return timeTookInMilliseconds;
   }
 
   
    /**
-   * 
+   * The transaction that the connector invocation belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the connector invocation belongs to.")
   public Long getTransaction() {
     return transaction;
   }
@@ -134,21 +161,19 @@ public class ConnectorInvocation extends TransactionAwareEntity {
       return false;
     }
     ConnectorInvocation connectorInvocation = (ConnectorInvocation) o;
-    return Objects.equals(this.id, connectorInvocation.id) &&
+    return Objects.equals(this.createdOn, connectorInvocation.createdOn) &&
+        Objects.equals(this.id, connectorInvocation.id) &&
         Objects.equals(this.linkedSpaceId, connectorInvocation.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, connectorInvocation.linkedTransaction) &&
-        Objects.equals(this.createdOn, connectorInvocation.createdOn) &&
         Objects.equals(this.plannedPurgeDate, connectorInvocation.plannedPurgeDate) &&
         Objects.equals(this.stage, connectorInvocation.stage) &&
         Objects.equals(this.timeTookInMilliseconds, connectorInvocation.timeTookInMilliseconds) &&
         Objects.equals(this.transaction, connectorInvocation.transaction) &&
-        Objects.equals(this.version, connectorInvocation.version) &&
-        super.equals(o);
+        Objects.equals(this.version, connectorInvocation.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdOn, plannedPurgeDate, stage, timeTookInMilliseconds, transaction, version, super.hashCode());
+    return Objects.hash(createdOn, id, linkedSpaceId, plannedPurgeDate, stage, timeTookInMilliseconds, transaction, version);
   }
 
 
@@ -156,11 +181,10 @@ public class ConnectorInvocation extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectorInvocation {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    stage: ").append(toIndentedString(stage)).append("\n");
     sb.append("    timeTookInMilliseconds: ").append(toIndentedString(timeTookInMilliseconds)).append("\n");

@@ -159,10 +159,10 @@ public class TransactionComment {
 
   
    /**
-   * 
+   * The transaction that the comment belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the comment belongs to.")
   public Long getTransaction() {
     return transaction;
   }

@@ -25,7 +25,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ChargeFlowLevel;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
@@ -36,10 +35,18 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
+public class ChargeFlowLevelPaymentLink {
   
   @JsonProperty("chargeFlowLevel")
   protected ChargeFlowLevel chargeFlowLevel = null;
+
+  
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("paymentLink")
@@ -48,20 +55,40 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The charge flow level that the payment link belongs to.
    * @return chargeFlowLevel
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The charge flow level that the payment link belongs to.")
   public ChargeFlowLevel getChargeFlowLevel() {
     return chargeFlowLevel;
   }
 
   
    /**
-   * 
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The URL provided to the customer for entering their payment details and completing the transaction.
    * @return paymentLink
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL provided to the customer for entering their payment details and completing the transaction.")
   public String getPaymentLink() {
     return paymentLink;
   }
@@ -77,17 +104,15 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
       return false;
     }
     ChargeFlowLevelPaymentLink chargeFlowLevelPaymentLink = (ChargeFlowLevelPaymentLink) o;
-    return Objects.equals(this.id, chargeFlowLevelPaymentLink.id) &&
+    return Objects.equals(this.chargeFlowLevel, chargeFlowLevelPaymentLink.chargeFlowLevel) &&
+        Objects.equals(this.id, chargeFlowLevelPaymentLink.id) &&
         Objects.equals(this.linkedSpaceId, chargeFlowLevelPaymentLink.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, chargeFlowLevelPaymentLink.linkedTransaction) &&
-        Objects.equals(this.chargeFlowLevel, chargeFlowLevelPaymentLink.chargeFlowLevel) &&
-        Objects.equals(this.paymentLink, chargeFlowLevelPaymentLink.paymentLink) &&
-        super.equals(o);
+        Objects.equals(this.paymentLink, chargeFlowLevelPaymentLink.paymentLink);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, chargeFlowLevel, paymentLink, super.hashCode());
+    return Objects.hash(chargeFlowLevel, id, linkedSpaceId, paymentLink);
   }
 
 
@@ -95,11 +120,10 @@ public class ChargeFlowLevelPaymentLink extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeFlowLevelPaymentLink {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-    sb.append("    chargeFlowLevel: ").append(toIndentedString(chargeFlowLevel)).append("\n");
     sb.append("    paymentLink: ").append(toIndentedString(paymentLink)).append("\n");
     sb.append("}");
     return sb.toString();

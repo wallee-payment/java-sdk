@@ -50,30 +50,30 @@ public class PaymentAppRefundConfiguration {
   
   
    /**
-   * This flag indicates whether the connector supports multiple refunds for a single transaction or not.
+   * Whether the payment connector can process multiple refunds for a single transaction.
    * @return multipleRefundsSupported
   **/
-  @ApiModelProperty(value = "This flag indicates whether the connector supports multiple refunds for a single transaction or not.")
+  @ApiModelProperty(value = "Whether the payment connector can process multiple refunds for a single transaction.")
   public Boolean isMultipleRefundsSupported() {
     return multipleRefundsSupported;
   }
 
   
    /**
-   * The refund endpoint is invoked to request the payment service provider to execute a refund.
+   * The URL that the payment service provider will invoke to process a refund request. This endpoint handles communication with the provider for initiating and managing refunds.
    * @return refundEndpoint
   **/
-  @ApiModelProperty(value = "The refund endpoint is invoked to request the payment service provider to execute a refund.")
+  @ApiModelProperty(value = "The URL that the payment service provider will invoke to process a refund request. This endpoint handles communication with the provider for initiating and managing refunds.")
   public String getRefundEndpoint() {
     return refundEndpoint;
   }
 
   
    /**
-   * When the refund is triggered we expect a feedback about the state of it. This timeout defines after how long we consider the refund as failed without receiving a final state update.
+   * The maximum time (in minutes) to wait for a response from the payment service provider after a refund request is triggered. If no feedback or final status is received within this period, the refund is considered failed.
    * @return refundTimeoutInMinutes
   **/
-  @ApiModelProperty(value = "When the refund is triggered we expect a feedback about the state of it. This timeout defines after how long we consider the refund as failed without receiving a final state update.")
+  @ApiModelProperty(value = "The maximum time (in minutes) to wait for a response from the payment service provider after a refund request is triggered. If no feedback or final status is received within this period, the refund is considered failed.")
   public Integer getRefundTimeoutInMinutes() {
     return refundTimeoutInMinutes;
   }

@@ -159,10 +159,10 @@ public class RefundComment {
 
   
    /**
-   * 
+   * The refund that the comment belongs to.
    * @return refund
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The refund that the comment belongs to.")
   public Long getRefund() {
     return refund;
   }

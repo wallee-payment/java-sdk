@@ -159,10 +159,10 @@ public class TransactionInvoiceComment {
 
   
    /**
-   * 
+   * The transaction invoice that the comment belongs to.
    * @return transactionInvoice
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction invoice that the comment belongs to.")
   public Long getTransactionInvoice() {
     return transactionInvoice;
   }

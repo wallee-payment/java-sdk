@@ -54,6 +54,10 @@ public class SubscriptionProductComponentReference {
   protected OffsetDateTime plannedPurgeDate = null;
 
   
+  @JsonProperty("sku")
+  protected String sku = null;
+
+  
   @JsonProperty("state")
   protected SubscriptionProductComponentReferenceState state = null;
 
@@ -104,6 +108,16 @@ public class SubscriptionProductComponentReference {
 
   
    /**
+   * The component reference sku as a unique identifier.
+   * @return sku
+  **/
+  @ApiModelProperty(value = "The component reference sku as a unique identifier.")
+  public String getSku() {
+    return sku;
+  }
+
+  
+   /**
    * The object&#39;s current state.
    * @return state
   **/
@@ -137,13 +151,14 @@ public class SubscriptionProductComponentReference {
         Objects.equals(this.linkedSpaceId, subscriptionProductComponentReference.linkedSpaceId) &&
         Objects.equals(this.name, subscriptionProductComponentReference.name) &&
         Objects.equals(this.plannedPurgeDate, subscriptionProductComponentReference.plannedPurgeDate) &&
+        Objects.equals(this.sku, subscriptionProductComponentReference.sku) &&
         Objects.equals(this.state, subscriptionProductComponentReference.state) &&
         Objects.equals(this.version, subscriptionProductComponentReference.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, state, version);
+    return Objects.hash(id, linkedSpaceId, name, plannedPurgeDate, sku, state, version);
   }
 
 
@@ -156,6 +171,7 @@ public class SubscriptionProductComponentReference {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    sku: ").append(toIndentedString(sku)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");

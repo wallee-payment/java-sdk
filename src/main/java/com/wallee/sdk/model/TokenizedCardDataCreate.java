@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CardCryptogramCreate;
+import com.wallee.sdk.model.PanType;
 import com.wallee.sdk.model.RecurringIndicator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the card data in plain.
+ * 
  */
-@ApiModel(description = "This model holds the card data in plain.")
+@ApiModel(description = "")
 
 public class TokenizedCardDataCreate {
   
@@ -52,6 +53,10 @@ public class TokenizedCardDataCreate {
   
   @JsonProperty("expiryDate")
   protected String expiryDate = null;
+
+  
+  @JsonProperty("panType")
+  protected PanType panType = null;
 
   
   @JsonProperty("primaryAccountNumber")
@@ -77,10 +82,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * The card holder name is the name printed onto the card. It identifies the person who owns the card.
+   * The name of the cardholder, as printed on the card, identifying the card owner.
    * @return cardHolderName
   **/
-  @ApiModelProperty(value = "The card holder name is the name printed onto the card. It identifies the person who owns the card.")
+  @ApiModelProperty(value = "The name of the cardholder, as printed on the card, identifying the card owner.")
   public String getCardHolderName() {
     return cardHolderName;
   }
@@ -96,10 +101,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * The card verification code (CVC) is a 3 to 4 digit code typically printed on the back of the card. It helps to ensure that the card holder is authorizing the transaction. For card not-present transactions this field is optional.
+   * The security code used to validate the card during transactions.
    * @return cardVerificationCode
   **/
-  @ApiModelProperty(value = "The card verification code (CVC) is a 3 to 4 digit code typically printed on the back of the card. It helps to ensure that the card holder is authorizing the transaction. For card not-present transactions this field is optional.")
+  @ApiModelProperty(value = "The security code used to validate the card during transactions.")
   public String getCardVerificationCode() {
     return cardVerificationCode;
   }
@@ -115,10 +120,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * The additional authentication value used to secure the tokenized card transactions.
+   * An additional authentication value that enhances the security of tokenized card transactions.
    * @return cryptogram
   **/
-  @ApiModelProperty(value = "The additional authentication value used to secure the tokenized card transactions.")
+  @ApiModelProperty(value = "An additional authentication value that enhances the security of tokenized card transactions.")
   public CardCryptogramCreate getCryptogram() {
     return cryptogram;
   }
@@ -134,10 +139,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * The card expiry date indicates when the card expires. The format is the format yyyy-mm where yyyy is the year (e.g. 2019) and the mm is the month (e.g. 09).
+   * The expiry date of the card, indicating its validity period in yyyy-mm format (e.g., 2023-09).
    * @return expiryDate
   **/
-  @ApiModelProperty(value = "The card expiry date indicates when the card expires. The format is the format yyyy-mm where yyyy is the year (e.g. 2019) and the mm is the month (e.g. 09).")
+  @ApiModelProperty(value = "The expiry date of the card, indicating its validity period in yyyy-mm format (e.g., 2023-09).")
   public String getExpiryDate() {
     return expiryDate;
   }
@@ -147,16 +152,35 @@ public class TokenizedCardDataCreate {
   }
 
   
+  public TokenizedCardDataCreate panType(PanType panType) {
+    this.panType = panType;
+    return this;
+  }
+
+   /**
+   * The type of PAN or token, indicating the source or security method of the card information.
+   * @return panType
+  **/
+  @ApiModelProperty(value = "The type of PAN or token, indicating the source or security method of the card information.")
+  public PanType getPanType() {
+    return panType;
+  }
+
+  public void setPanType(PanType panType) {
+    this.panType = panType;
+  }
+
+  
   public TokenizedCardDataCreate primaryAccountNumber(String primaryAccountNumber) {
     this.primaryAccountNumber = primaryAccountNumber;
     return this;
   }
 
    /**
-   * The primary account number (PAN) identifies the card. The number is numeric and typically printed on the front of the card.
+   * The card&#39;s primary account number (PAN), the unique identifier of the card.
    * @return primaryAccountNumber
   **/
-  @ApiModelProperty(required = true, value = "The primary account number (PAN) identifies the card. The number is numeric and typically printed on the front of the card.")
+  @ApiModelProperty(required = true, value = "The card's primary account number (PAN), the unique identifier of the card.")
   public String getPrimaryAccountNumber() {
     return primaryAccountNumber;
   }
@@ -172,10 +196,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * 
+   * The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction&#39;s properties.
    * @return recurringIndicator
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction's properties.")
   public RecurringIndicator getRecurringIndicator() {
     return recurringIndicator;
   }
@@ -191,10 +215,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * 
+   * A reference specific to the card&#39;s transaction within its payment scheme.
    * @return schemeTransactionReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A reference specific to the card's transaction within its payment scheme.")
   public String getSchemeTransactionReference() {
     return schemeTransactionReference;
   }
@@ -210,10 +234,10 @@ public class TokenizedCardDataCreate {
   }
 
    /**
-   * 
+   * The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.
    * @return tokenRequestorId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.")
   public String getTokenRequestorId() {
     return tokenRequestorId;
   }
@@ -237,6 +261,7 @@ public class TokenizedCardDataCreate {
         Objects.equals(this.cardVerificationCode, tokenizedCardDataCreate.cardVerificationCode) &&
         Objects.equals(this.cryptogram, tokenizedCardDataCreate.cryptogram) &&
         Objects.equals(this.expiryDate, tokenizedCardDataCreate.expiryDate) &&
+        Objects.equals(this.panType, tokenizedCardDataCreate.panType) &&
         Objects.equals(this.primaryAccountNumber, tokenizedCardDataCreate.primaryAccountNumber) &&
         Objects.equals(this.recurringIndicator, tokenizedCardDataCreate.recurringIndicator) &&
         Objects.equals(this.schemeTransactionReference, tokenizedCardDataCreate.schemeTransactionReference) &&
@@ -245,7 +270,7 @@ public class TokenizedCardDataCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolderName, cardVerificationCode, cryptogram, expiryDate, primaryAccountNumber, recurringIndicator, schemeTransactionReference, tokenRequestorId);
+    return Objects.hash(cardHolderName, cardVerificationCode, cryptogram, expiryDate, panType, primaryAccountNumber, recurringIndicator, schemeTransactionReference, tokenRequestorId);
   }
 
 
@@ -258,6 +283,7 @@ public class TokenizedCardDataCreate {
     sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
     sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
+    sb.append("    panType: ").append(toIndentedString(panType)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
     sb.append("    schemeTransactionReference: ").append(toIndentedString(schemeTransactionReference)).append("\n");

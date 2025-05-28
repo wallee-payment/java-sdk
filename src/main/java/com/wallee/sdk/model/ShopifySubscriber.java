@@ -46,6 +46,10 @@ public class ShopifySubscriber {
   protected String emailAddress = null;
 
   
+  @JsonProperty("externalGid")
+  protected String externalGid = null;
+
+  
   @JsonProperty("externalId")
   protected String externalId = null;
 
@@ -100,10 +104,20 @@ public class ShopifySubscriber {
 
   
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * 
+   * @return externalGid
+  **/
+  @ApiModelProperty(value = "")
+  public String getExternalGid() {
+    return externalGid;
+  }
+
+  
+   /**
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -191,6 +205,7 @@ public class ShopifySubscriber {
     ShopifySubscriber shopifySubscriber = (ShopifySubscriber) o;
     return Objects.equals(this.createdOn, shopifySubscriber.createdOn) &&
         Objects.equals(this.emailAddress, shopifySubscriber.emailAddress) &&
+        Objects.equals(this.externalGid, shopifySubscriber.externalGid) &&
         Objects.equals(this.externalId, shopifySubscriber.externalId) &&
         Objects.equals(this.id, shopifySubscriber.id) &&
         Objects.equals(this.linkedSpaceId, shopifySubscriber.linkedSpaceId) &&
@@ -203,7 +218,7 @@ public class ShopifySubscriber {
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, emailAddress, externalId, id, linkedSpaceId, phoneNumber, plannedPurgeDate, shop, state, version);
+    return Objects.hash(createdOn, emailAddress, externalGid, externalId, id, linkedSpaceId, phoneNumber, plannedPurgeDate, shop, state, version);
   }
 
 
@@ -214,6 +229,7 @@ public class ShopifySubscriber {
     
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
+    sb.append("    externalGid: ").append(toIndentedString(externalGid)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");

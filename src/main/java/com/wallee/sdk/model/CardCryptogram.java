@@ -24,21 +24,20 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.CardCryptogramType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the additional card authentication.
+ * 
  */
-@ApiModel(description = "This model holds the additional card authentication.")
+@ApiModel(description = "")
 
 public class CardCryptogram {
   
-  @JsonProperty("type")
-  protected CardCryptogramType type = null;
+  @JsonProperty("eci")
+  protected String eci = null;
 
   
   @JsonProperty("value")
@@ -47,20 +46,20 @@ public class CardCryptogram {
   
   
    /**
-   * 
-   * @return type
+   * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
+   * @return eci
   **/
-  @ApiModelProperty(value = "")
-  public CardCryptogramType getType() {
-    return type;
+  @ApiModelProperty(value = "The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.")
+  public String getEci() {
+    return eci;
   }
 
   
    /**
-   * 
+   * The cryptogram value used for securing card transactions, format varying based on the PAN type.
    * @return value
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The cryptogram value used for securing card transactions, format varying based on the PAN type.")
   public String getValue() {
     return value;
   }
@@ -76,13 +75,13 @@ public class CardCryptogram {
       return false;
     }
     CardCryptogram cardCryptogram = (CardCryptogram) o;
-    return Objects.equals(this.type, cardCryptogram.type) &&
+    return Objects.equals(this.eci, cardCryptogram.eci) &&
         Objects.equals(this.value, cardCryptogram.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value);
+    return Objects.hash(eci, value);
   }
 
 
@@ -91,7 +90,7 @@ public class CardCryptogram {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardCryptogram {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

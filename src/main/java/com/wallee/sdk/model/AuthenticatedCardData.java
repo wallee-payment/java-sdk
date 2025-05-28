@@ -32,9 +32,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the card data and optional cardholder authentication details.
+ * 
  */
-@ApiModel(description = "This model holds the card data and optional cardholder authentication details.")
+@ApiModel(description = "")
 
 public class AuthenticatedCardData extends TokenizedCardData {
   
@@ -44,10 +44,10 @@ public class AuthenticatedCardData extends TokenizedCardData {
   
   
    /**
-   * The cardholder authentication information. The authentication is optional and can be provided if the cardholder has been already authenticated (e.g. in 3-D Secure system).
+   * Optional authentication details for the cardholder, such as 3D Secure authentication, used when the cardholder has already been verified during the transaction for added security.
    * @return cardholderAuthentication
   **/
-  @ApiModelProperty(value = "The cardholder authentication information. The authentication is optional and can be provided if the cardholder has been already authenticated (e.g. in 3-D Secure system).")
+  @ApiModelProperty(value = "Optional authentication details for the cardholder, such as 3D Secure authentication, used when the cardholder has already been verified during the transaction for added security.")
   public CardholderAuthentication getCardholderAuthentication() {
     return cardholderAuthentication;
   }
@@ -64,6 +64,7 @@ public class AuthenticatedCardData extends TokenizedCardData {
     }
     AuthenticatedCardData authenticatedCardData = (AuthenticatedCardData) o;
     return Objects.equals(this.cryptogram, authenticatedCardData.cryptogram) &&
+        Objects.equals(this.initialRecurringTransaction, authenticatedCardData.initialRecurringTransaction) &&
         Objects.equals(this.recurringIndicator, authenticatedCardData.recurringIndicator) &&
         Objects.equals(this.tokenRequestorId, authenticatedCardData.tokenRequestorId) &&
         Objects.equals(this.cardholderAuthentication, authenticatedCardData.cardholderAuthentication) &&
@@ -72,7 +73,7 @@ public class AuthenticatedCardData extends TokenizedCardData {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cryptogram, recurringIndicator, tokenRequestorId, cardholderAuthentication, super.hashCode());
+    return Objects.hash(cryptogram, initialRecurringTransaction, recurringIndicator, tokenRequestorId, cardholderAuthentication, super.hashCode());
   }
 
 
@@ -82,6 +83,7 @@ public class AuthenticatedCardData extends TokenizedCardData {
     sb.append("class AuthenticatedCardData {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
+    sb.append("    initialRecurringTransaction: ").append(toIndentedString(initialRecurringTransaction)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
     sb.append("    cardholderAuthentication: ").append(toIndentedString(cardholderAuthentication)).append("\n");

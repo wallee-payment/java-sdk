@@ -31,15 +31,35 @@ import com.fasterxml.jackson.annotation.JsonValue;
 /**
  * 
  */
-public enum CardAuthenticationVersion {
+public enum DisplayableMonth {
   
-  V1("V1"),
+  JANUARY("JANUARY"),
   
-  V2("V2");
+  FEBRUARY("FEBRUARY"),
+  
+  MARCH("MARCH"),
+  
+  APRIL("APRIL"),
+  
+  MAY("MAY"),
+  
+  JUNE("JUNE"),
+  
+  JULY("JULY"),
+  
+  AUGUST("AUGUST"),
+  
+  SEPTEMBER("SEPTEMBER"),
+  
+  OCTOBER("OCTOBER"),
+  
+  NOVEMBER("NOVEMBER"),
+  
+  DECEMBER("DECEMBER");
 
   private String value;
 
-  CardAuthenticationVersion(String value) {
+  DisplayableMonth(String value) {
     this.value = value;
   }
 
@@ -54,8 +74,8 @@ public enum CardAuthenticationVersion {
   }
 
   @JsonCreator
-  public static CardAuthenticationVersion fromValue(String text) {
-    for (CardAuthenticationVersion b : CardAuthenticationVersion.values()) {
+  public static DisplayableMonth fromValue(String text) {
+    for (DisplayableMonth b : DisplayableMonth.values()) {
       if (String.valueOf(b.value).equals(text)) {
         return b;
       }

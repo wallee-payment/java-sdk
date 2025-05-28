@@ -28,7 +28,6 @@ import com.wallee.sdk.model.ChargeState;
 import com.wallee.sdk.model.ChargeType;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -40,7 +39,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class Charge extends TransactionAwareEntity {
+public class Charge {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
@@ -50,8 +49,16 @@ public class Charge extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -92,22 +99,32 @@ public class Charge extends TransactionAwareEntity {
   
   
    /**
-   * The date on which the charge was created on.
+   * The date and time when the object was created.
    * @return createdOn
   **/
-  @ApiModelProperty(value = "The date on which the charge was created on.")
+  @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the charge.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the charge.")
   public FailureReason getFailureReason() {
     return failureReason;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -118,6 +135,16 @@ public class Charge extends TransactionAwareEntity {
   @ApiModelProperty(value = "The language that is linked to the object.")
   public String getLanguage() {
     return language;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
   }
 
   
@@ -152,50 +179,50 @@ public class Charge extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The time zone that this object is associated with.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone that this object is associated with.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * 
+   * The date and time when the charge will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the charge will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The transaction that the charge belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the charge belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
 
   
    /**
-   * 
+   * The type specifying how the customer was charged.
    * @return type
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The type specifying how the customer was charged.")
   public ChargeType getType() {
     return type;
   }
 
   
    /**
-   * The failure message describes for an end user why the charge is failed in the language of the user. This is only provided when the charge is marked as failed.
+   * The message that can be displayed to the customer explaining why the charge failed, in the customer&#39;s language.
    * @return userFailureMessage
   **/
-  @ApiModelProperty(value = "The failure message describes for an end user why the charge is failed in the language of the user. This is only provided when the charge is marked as failed.")
+  @ApiModelProperty(value = "The message that can be displayed to the customer explaining why the charge failed, in the customer's language.")
   public String getUserFailureMessage() {
     return userFailureMessage;
   }
@@ -221,12 +248,11 @@ public class Charge extends TransactionAwareEntity {
       return false;
     }
     Charge charge = (Charge) o;
-    return Objects.equals(this.id, charge.id) &&
-        Objects.equals(this.linkedSpaceId, charge.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, charge.linkedTransaction) &&
-        Objects.equals(this.createdOn, charge.createdOn) &&
+    return Objects.equals(this.createdOn, charge.createdOn) &&
         Objects.equals(this.failureReason, charge.failureReason) &&
+        Objects.equals(this.id, charge.id) &&
         Objects.equals(this.language, charge.language) &&
+        Objects.equals(this.linkedSpaceId, charge.linkedSpaceId) &&
         Objects.equals(this.plannedPurgeDate, charge.plannedPurgeDate) &&
         Objects.equals(this.spaceViewId, charge.spaceViewId) &&
         Objects.equals(this.state, charge.state) &&
@@ -235,13 +261,12 @@ public class Charge extends TransactionAwareEntity {
         Objects.equals(this.transaction, charge.transaction) &&
         Objects.equals(this.type, charge.type) &&
         Objects.equals(this.userFailureMessage, charge.userFailureMessage) &&
-        Objects.equals(this.version, charge.version) &&
-        super.equals(o);
+        Objects.equals(this.version, charge.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdOn, failureReason, language, plannedPurgeDate, spaceViewId, state, timeZone, timeoutOn, transaction, type, userFailureMessage, version, super.hashCode());
+    return Objects.hash(createdOn, failureReason, id, language, linkedSpaceId, plannedPurgeDate, spaceViewId, state, timeZone, timeoutOn, transaction, type, userFailureMessage, version);
   }
 
 
@@ -249,13 +274,12 @@ public class Charge extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Charge {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");

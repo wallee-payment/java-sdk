@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.BankTransaction;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -38,7 +37,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ChargeBankTransaction extends TransactionAwareEntity {
+public class ChargeBankTransaction {
   
   @JsonProperty("bankTransaction")
   protected BankTransaction bankTransaction = null;
@@ -48,8 +47,20 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
   protected Long completion = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("spaceViewId")
@@ -74,22 +85,32 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * Provides general information about the bank transaction.
    * @return bankTransaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Provides general information about the bank transaction.")
   public BankTransaction getBankTransaction() {
     return bankTransaction;
   }
 
   
    /**
-   * 
+   * The transaction completion this bank transaction is belongs to.
    * @return completion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction completion this bank transaction is belongs to.")
   public Long getCompletion() {
     return completion;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -104,6 +125,26 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
 
   
    /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
   **/
@@ -114,30 +155,30 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The payment transaction this bank transaction belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment transaction this bank transaction belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
 
   
    /**
-   * Specify the posting amount in the transaction&#39;s currency.
+   * The posting amount represents the monetary value of the bank transaction, recorded in the payment transaction&#39;s currency, before applying any adjustments.
    * @return transactionCurrencyAmount
   **/
-  @ApiModelProperty(value = "Specify the posting amount in the transaction's currency.")
+  @ApiModelProperty(value = "The posting amount represents the monetary value of the bank transaction, recorded in the payment transaction's currency, before applying any adjustments.")
   public BigDecimal getTransactionCurrencyAmount() {
     return transactionCurrencyAmount;
   }
 
   
    /**
-   * 
+   * The value amount represents the net monetary value of the bank transaction, recorded in the payment transaction&#39;s currency, after applicable deductions.
    * @return transactionCurrencyValueAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value amount represents the net monetary value of the bank transaction, recorded in the payment transaction's currency, after applicable deductions.")
   public BigDecimal getTransactionCurrencyValueAmount() {
     return transactionCurrencyValueAmount;
   }
@@ -163,23 +204,22 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
       return false;
     }
     ChargeBankTransaction chargeBankTransaction = (ChargeBankTransaction) o;
-    return Objects.equals(this.id, chargeBankTransaction.id) &&
+    return Objects.equals(this.bankTransaction, chargeBankTransaction.bankTransaction) &&
+        Objects.equals(this.completion, chargeBankTransaction.completion) &&
+        Objects.equals(this.id, chargeBankTransaction.id) &&
+        Objects.equals(this.language, chargeBankTransaction.language) &&
         Objects.equals(this.linkedSpaceId, chargeBankTransaction.linkedSpaceId) &&
         Objects.equals(this.linkedTransaction, chargeBankTransaction.linkedTransaction) &&
-        Objects.equals(this.bankTransaction, chargeBankTransaction.bankTransaction) &&
-        Objects.equals(this.completion, chargeBankTransaction.completion) &&
-        Objects.equals(this.language, chargeBankTransaction.language) &&
         Objects.equals(this.spaceViewId, chargeBankTransaction.spaceViewId) &&
         Objects.equals(this.transaction, chargeBankTransaction.transaction) &&
         Objects.equals(this.transactionCurrencyAmount, chargeBankTransaction.transactionCurrencyAmount) &&
         Objects.equals(this.transactionCurrencyValueAmount, chargeBankTransaction.transactionCurrencyValueAmount) &&
-        Objects.equals(this.version, chargeBankTransaction.version) &&
-        super.equals(o);
+        Objects.equals(this.version, chargeBankTransaction.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, bankTransaction, completion, language, spaceViewId, transaction, transactionCurrencyAmount, transactionCurrencyValueAmount, version, super.hashCode());
+    return Objects.hash(bankTransaction, completion, id, language, linkedSpaceId, linkedTransaction, spaceViewId, transaction, transactionCurrencyAmount, transactionCurrencyValueAmount, version);
   }
 
 
@@ -187,13 +227,13 @@ public class ChargeBankTransaction extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeBankTransaction {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    bankTransaction: ").append(toIndentedString(bankTransaction)).append("\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
     sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
     sb.append("    transactionCurrencyAmount: ").append(toIndentedString(transactionCurrencyAmount)).append("\n");

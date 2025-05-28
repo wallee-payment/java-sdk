@@ -48,10 +48,10 @@ public class RefundCommentCreate extends AbstractRefundCommentActive {
   }
 
    /**
-   * 
+   * The refund that the comment belongs to.
    * @return refund
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The refund that the comment belongs to.")
   public Long getRefund() {
     return refund;
   }

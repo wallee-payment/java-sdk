@@ -141,20 +141,20 @@ public class TokenVersion {
   
   
    /**
-   * 
+   * The date and time when the token version was activated.
    * @return activatedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the token version was activated.")
   public OffsetDateTime getActivatedOn() {
     return activatedOn;
   }
 
   
    /**
-   * 
+   * The billing address to be used for the transaction if no explicit billing address is provided during payment processing.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The billing address to be used for the transaction if no explicit billing address is provided during payment processing.")
   public Address getBillingAddress() {
     return billingAddress;
   }
@@ -171,30 +171,30 @@ public class TokenVersion {
 
   
    /**
-   * 
+   * The environment in which the token version was created.
    * @return environment
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The environment in which the token version was created.")
   public ChargeAttemptEnvironment getEnvironment() {
     return environment;
   }
 
   
    /**
-   * The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.
+   * The date and time when the token version is set to expire, after which it will be marked as obsolete.
    * @return expiresOn
   **/
-  @ApiModelProperty(value = "The expires on date indicates when token version expires. Once this date is reached the token version is marked as obsolete.")
+  @ApiModelProperty(value = "The date and time when the token version is set to expire, after which it will be marked as obsolete.")
   public OffsetDateTime getExpiresOn() {
     return expiresOn;
   }
 
   
    /**
-   * 
+   * The URL to the token&#39;s icon displayed to the customer.
    * @return iconUrl
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The URL to the token's icon displayed to the customer.")
   public String getIconUrl() {
     return iconUrl;
   }
@@ -241,60 +241,60 @@ public class TokenVersion {
 
   
    /**
-   * 
+   * The name used to identify the token.
    * @return name
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The name used to identify the token.")
   public String getName() {
     return name;
   }
 
   
    /**
-   * 
+   * The date and time when the token version was marked obsolete.
    * @return obsoletedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the token version was marked obsolete.")
   public OffsetDateTime getObsoletedOn() {
     return obsoletedOn;
   }
 
   
    /**
-   * 
+   * The payment connector configuration that initialized the token version.
    * @return paymentConnectorConfiguration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment connector configuration that initialized the token version.")
   public PaymentConnectorConfiguration getPaymentConnectorConfiguration() {
     return paymentConnectorConfiguration;
   }
 
   
    /**
-   * The payment information hash set contains hashes of the payment information represented by this token version.
+   * The hashed payment information that the token version represents.
    * @return paymentInformationHashes
   **/
-  @ApiModelProperty(value = "The payment information hash set contains hashes of the payment information represented by this token version.")
+  @ApiModelProperty(value = "The hashed payment information that the token version represents.")
   public List<PaymentInformationHash> getPaymentInformationHashes() {
     return paymentInformationHashes;
   }
 
   
    /**
-   * 
+   * The payment method that initialized the token version.
    * @return paymentMethod
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method that initialized the token version.")
   public Long getPaymentMethod() {
     return paymentMethod;
   }
 
   
    /**
-   * 
+   * The payment method brand that initialized the token version.
    * @return paymentMethodBrand
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The payment method brand that initialized the token version.")
   public Long getPaymentMethodBrand() {
     return paymentMethodBrand;
   }
@@ -311,20 +311,20 @@ public class TokenVersion {
 
   
    /**
-   * 
+   * The token name as specified by the processor.
    * @return processorToken
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The token name as specified by the processor.")
   public String getProcessorToken() {
     return processorToken;
   }
 
   
    /**
-   * 
+   * The shipping address to be used for the transaction if no explicit shipping address is provided during payment processing.
    * @return shippingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The shipping address to be used for the transaction if no explicit shipping address is provided during payment processing.")
   public Address getShippingAddress() {
     return shippingAddress;
   }
@@ -341,20 +341,20 @@ public class TokenVersion {
 
   
    /**
-   * 
+   * The token that the token version belongs to.
    * @return token
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The token that the token version belongs to.")
   public Token getToken() {
     return token;
   }
 
   
    /**
-   * The token version type determines what kind of token it is and by which payment connector the token can be processed by.
+   * The type specifies the nature of the token and identifies the payment connector capable of processing it.
    * @return type
   **/
-  @ApiModelProperty(value = "The token version type determines what kind of token it is and by which payment connector the token can be processed by.")
+  @ApiModelProperty(value = "The type specifies the nature of the token and identifies the payment connector capable of processing it.")
   public TokenVersionType getType() {
     return type;
   }

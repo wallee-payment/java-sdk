@@ -74,10 +74,10 @@ public class ChargeFlow {
   
   
    /**
-   * If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.
+   * Conditions allow to define criteria that a transaction must fulfill in order for the charge flow to be considered for processing the payment.
    * @return conditions
   **/
-  @ApiModelProperty(value = "If a transaction meets all selected conditions, the charge flow will be used to process the transaction. If the conditions are not met the next charge flow in line will be chosen according to the priorities.")
+  @ApiModelProperty(value = "Conditions allow to define criteria that a transaction must fulfill in order for the charge flow to be considered for processing the payment.")
   public List<Long> getConditions() {
     return conditions;
   }
@@ -104,10 +104,10 @@ public class ChargeFlow {
 
   
    /**
-   * The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the charge flow.
    * @return name
   **/
-  @ApiModelProperty(value = "The charge flow name is used internally to identify the configuration in administrative interfaces. For example it is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the charge flow.")
   public String getName() {
     return name;
   }
@@ -124,10 +124,10 @@ public class ChargeFlow {
 
   
    /**
-   * The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.
+   * The priority that determines the order in which charge flows are taken into account when processing a payment. Low values are considered first.
    * @return priority
   **/
-  @ApiModelProperty(value = "The priority orders the charge flows. As such the priority determines together with the conditions the charge flow the selection mechanism for a particular transaction. A change of the priority affects all future selections.")
+  @ApiModelProperty(value = "The priority that determines the order in which charge flows are taken into account when processing a payment. Low values are considered first.")
   public Integer getPriority() {
     return priority;
   }

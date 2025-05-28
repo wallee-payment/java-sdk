@@ -35,9 +35,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).
+ * A refund is a credit issued to the customer, which can be initiated either by the merchant or by the customer as a reversal.
  */
-@ApiModel(description = "The refund represents a credit back to the customer. It can be issued by the merchant or by the customer (reversal).")
+@ApiModel(description = "A refund is a credit issued to the customer, which can be initiated either by the merchant or by the customer as a reversal.")
 
 public class RefundCreate {
   
@@ -76,10 +76,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The total monetary amount of the refund, representing the exact credit issued to the customer.
    * @return amount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The total monetary amount of the refund, representing the exact credit issued to the customer.")
   public BigDecimal getAmount() {
     return amount;
   }
@@ -95,10 +95,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The transaction completion that the refund belongs to.
    * @return completion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction completion that the refund belongs to.")
   public Long getCompletion() {
     return completion;
   }
@@ -114,10 +114,10 @@ public class RefundCreate {
   }
 
    /**
-   * The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "The external id helps to identify duplicate calls to the refund service. As such the external ID has to be unique per transaction.")
+  @ApiModelProperty(required = true, value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -133,10 +133,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the refund.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the refund.")
   public String getMerchantReference() {
     return merchantReference;
   }
@@ -160,10 +160,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.
    * @return reductions
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.")
   public List<LineItemReductionCreate> getReductions() {
     return reductions;
   }
@@ -179,10 +179,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The transaction that the refund belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the refund belongs to.")
   public Long getTransaction() {
     return transaction;
   }
@@ -198,10 +198,10 @@ public class RefundCreate {
   }
 
    /**
-   * 
+   * The type specifying the method and origin of the refund (e.g., initiated by the customer or merchant).
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The type specifying the method and origin of the refund (e.g., initiated by the customer or merchant).")
   public RefundType getType() {
     return type;
   }

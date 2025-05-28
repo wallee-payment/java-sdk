@@ -72,10 +72,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * 
+   * The address associated with the invoice, used for billing purposes.
    * @return billingAddress
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The address associated with the invoice, used for billing purposes.")
   public AddressCreate getBillingAddress() {
     return billingAddress;
   }
@@ -91,10 +91,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * The date on which the invoice should be paid on.
+   * The due date for payment of the invoice.
    * @return dueOn
   **/
-  @ApiModelProperty(value = "The date on which the invoice should be paid on.")
+  @ApiModelProperty(value = "The due date for payment of the invoice.")
   public OffsetDateTime getDueOn() {
     return dueOn;
   }
@@ -110,10 +110,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "The external id helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
+  @ApiModelProperty(required = true, value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -134,10 +134,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * 
+   * The invoiced line items that will appear on the invoice document.
    * @return lineItems
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The invoiced line items that will appear on the invoice document.")
   public List<LineItemCreate> getLineItems() {
     return lineItems;
   }
@@ -153,10 +153,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * 
+   * The merchant&#39;s reference used to identify the invoice.
    * @return merchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the invoice.")
   public String getMerchantReference() {
     return merchantReference;
   }
@@ -172,10 +172,10 @@ public class TransactionInvoiceReplacement {
   }
 
    /**
-   * When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.
+   * Whether the invoice will be sent to the customer via email.
    * @return sentToCustomer
   **/
-  @ApiModelProperty(value = "When the connector is configured to send the invoice to the customer and this property is true the customer will receive an email with the updated invoice. When this property is false no invoice is sent.")
+  @ApiModelProperty(value = "Whether the invoice will be sent to the customer via email.")
   public Boolean isSentToCustomer() {
     return sentToCustomer;
   }

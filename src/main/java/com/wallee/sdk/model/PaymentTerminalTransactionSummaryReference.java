@@ -74,20 +74,20 @@ public class PaymentTerminalTransactionSummaryReference {
 
   
    /**
-   * 
+   * The unique identifier of the terminal.
    * @return terminalId
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the terminal.")
   public Long getTerminalId() {
     return terminalId;
   }
 
   
    /**
-   * 
+   * The unique identifier of the terminal, that is displayed on the device.
    * @return terminalIdentifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The unique identifier of the terminal, that is displayed on the device.")
   public String getTerminalIdentifier() {
     return terminalIdentifier;
   }

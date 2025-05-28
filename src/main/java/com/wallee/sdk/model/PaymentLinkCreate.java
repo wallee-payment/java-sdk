@@ -34,9 +34,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The payment link defines an URL to automatically create transactions.
+ * 
  */
-@ApiModel(description = "The payment link defines an URL to automatically create transactions.")
+@ApiModel(description = "")
 
 public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
   
@@ -78,10 +78,10 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
   }
 
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(required = true, value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(required = true, value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -97,10 +97,10 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
   }
 
    /**
-   * The protection mode determines if the payment link is protected against tampering and in what way.
+   * The protection mode defines whether the payment link is protected against tampering and specifies the protection method.
    * @return protectionMode
   **/
-  @ApiModelProperty(required = true, value = "The protection mode determines if the payment link is protected against tampering and in what way.")
+  @ApiModelProperty(required = true, value = "The protection mode defines whether the payment link is protected against tampering and specifies the protection method.")
   public PaymentLinkProtectionMode getProtectionMode() {
     return protectionMode;
   }

@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.LineItem;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionCompletionMode;
 import com.wallee.sdk.model.TransactionCompletionState;
 import com.wallee.sdk.model.TransactionLineItemVersion;
@@ -45,7 +44,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class TransactionCompletion extends TransactionAwareEntity {
+public class TransactionCompletion {
   
   @JsonProperty("amount")
   protected BigDecimal amount = null;
@@ -75,6 +74,10 @@ public class TransactionCompletion extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("invoiceMerchantReference")
   protected String invoiceMerchantReference = null;
 
@@ -97,6 +100,14 @@ public class TransactionCompletion extends TransactionAwareEntity {
   
   @JsonProperty("lineItems")
   protected List<LineItem> lineItems = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("mode")
@@ -161,30 +172,30 @@ public class TransactionCompletion extends TransactionAwareEntity {
   
   
    /**
-   * The amount which is captured. The amount represents sum of line items including taxes.
+   * The total amount to be captured in this completion, including taxes.
    * @return amount
   **/
-  @ApiModelProperty(value = "The amount which is captured. The amount represents sum of line items including taxes.")
+  @ApiModelProperty(value = "The total amount to be captured in this completion, including taxes.")
   public BigDecimal getAmount() {
     return amount;
   }
 
   
    /**
-   * The base line items on which the completion is applied on.
+   * The original line items from the transaction that serve as the baseline for this completion.
    * @return baseLineItems
   **/
-  @ApiModelProperty(value = "The base line items on which the completion is applied on.")
+  @ApiModelProperty(value = "The original line items from the transaction that serve as the baseline for this completion.")
   public List<LineItem> getBaseLineItems() {
     return baseLineItems;
   }
 
   
    /**
-   * 
+   * The ID of the user the transaction completion was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the transaction completion was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -201,40 +212,50 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "The external ID helps to identify the entity and a subsequent creation of an entity with the same ID will not create a new entity.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction completion failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction completion failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the transaction completion.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the transaction completion.")
   public FailureReason getFailureReason() {
     return failureReason;
   }
 
   
    /**
-   * 
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The merchant's reference used to identify the invoice.")
   public String getInvoiceMerchantReference() {
     return invoiceMerchantReference;
   }
@@ -261,60 +282,80 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * Indicates if this is the last completion. After the last completion is created the transaction cannot be completed anymore.
+   * Whether this is the final completion for the transaction. After the last completion is successfully created, the transaction enters its final state, and no further completions can occur.
    * @return lastCompletion
   **/
-  @ApiModelProperty(value = "Indicates if this is the last completion. After the last completion is created the transaction cannot be completed anymore.")
+  @ApiModelProperty(value = "Whether this is the final completion for the transaction. After the last completion is successfully created, the transaction enters its final state, and no further completions can occur.")
   public Boolean isLastCompletion() {
     return lastCompletion;
   }
 
   
    /**
-   * 
+   * The specific version of the line items that are being used for this completion.
    * @return lineItemVersion
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The specific version of the line items that are being used for this completion.")
   public TransactionLineItemVersion getLineItemVersion() {
     return lineItemVersion;
   }
 
   
    /**
-   * The line items which are captured.
+   * The line items captured in this transaction completion.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "The line items which are captured.")
+  @ApiModelProperty(value = "The line items captured in this transaction completion.")
   public List<LineItem> getLineItems() {
     return lineItems;
   }
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The mode of transaction completion, such as online or offline, determining how the completion process is executed.
    * @return mode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The mode of transaction completion, such as online or offline, determining how the completion process is executed.")
   public TransactionCompletionMode getMode() {
     return mode;
   }
 
   
    /**
-   * 
+   * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next update of the object's state is planned.")
   public OffsetDateTime getNextUpdateOn() {
     return nextUpdateOn;
   }
 
   
    /**
-   * 
+   * Payment-specific details related to this transaction completion such as payment instructions or references needed for processing.
    * @return paymentInformation
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Payment-specific details related to this transaction completion such as payment instructions or references needed for processing.")
   public String getPaymentInformation() {
     return paymentInformation;
   }
@@ -331,30 +372,30 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the processing of the transaction completion was started.
    * @return processingOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the processing of the transaction completion was started.")
   public OffsetDateTime getProcessingOn() {
     return processingOn;
   }
 
   
    /**
-   * 
+   * The reference ID provided by the payment processor, used to trace the completion through the external payment system.
    * @return processorReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reference ID provided by the payment processor, used to trace the completion through the external payment system.")
   public String getProcessorReference() {
     return processorReference;
   }
 
   
    /**
-   * 
+   * The line items yet to be captured in the transaction.
    * @return remainingLineItems
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The line items yet to be captured in the transaction.")
   public List<LineItem> getRemainingLineItems() {
     return remainingLineItems;
   }
@@ -381,50 +422,50 @@ public class TransactionCompletion extends TransactionAwareEntity {
 
   
    /**
-   * The statement descriptor explain charges or payments on bank statements.
+   * The statement descriptor that appears on a customer&#39;s bank statement, providing an explanation for charges or payments, helping customers identify the transaction.
    * @return statementDescriptor
   **/
-  @ApiModelProperty(value = "The statement descriptor explain charges or payments on bank statements.")
+  @ApiModelProperty(value = "The statement descriptor that appears on a customer's bank statement, providing an explanation for charges or payments, helping customers identify the transaction.")
   public String getStatementDescriptor() {
     return statementDescriptor;
   }
 
   
    /**
-   * 
+   * The date and time when the transaction completion succeeded.
    * @return succeededOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction completion succeeded.")
   public OffsetDateTime getSucceededOn() {
     return succeededOn;
   }
 
   
    /**
-   * The total sum of all taxes of line items.
+   * The portion of the captured amount that corresponds to taxes.
    * @return taxAmount
   **/
-  @ApiModelProperty(value = "The total sum of all taxes of line items.")
+  @ApiModelProperty(value = "The portion of the captured amount that corresponds to taxes.")
   public BigDecimal getTaxAmount() {
     return taxAmount;
   }
 
   
    /**
-   * 
+   * The time zone that this object is associated with.
    * @return timeZone
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The time zone that this object is associated with.")
   public String getTimeZone() {
     return timeZone;
   }
 
   
    /**
-   * 
+   * The date and time when the object will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
@@ -450,22 +491,22 @@ public class TransactionCompletion extends TransactionAwareEntity {
       return false;
     }
     TransactionCompletion transactionCompletion = (TransactionCompletion) o;
-    return Objects.equals(this.id, transactionCompletion.id) &&
-        Objects.equals(this.linkedSpaceId, transactionCompletion.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, transactionCompletion.linkedTransaction) &&
-        Objects.equals(this.amount, transactionCompletion.amount) &&
+    return Objects.equals(this.amount, transactionCompletion.amount) &&
         Objects.equals(this.baseLineItems, transactionCompletion.baseLineItems) &&
         Objects.equals(this.createdBy, transactionCompletion.createdBy) &&
         Objects.equals(this.createdOn, transactionCompletion.createdOn) &&
         Objects.equals(this.externalId, transactionCompletion.externalId) &&
         Objects.equals(this.failedOn, transactionCompletion.failedOn) &&
         Objects.equals(this.failureReason, transactionCompletion.failureReason) &&
+        Objects.equals(this.id, transactionCompletion.id) &&
         Objects.equals(this.invoiceMerchantReference, transactionCompletion.invoiceMerchantReference) &&
         Objects.equals(this.labels, transactionCompletion.labels) &&
         Objects.equals(this.language, transactionCompletion.language) &&
         Objects.equals(this.lastCompletion, transactionCompletion.lastCompletion) &&
         Objects.equals(this.lineItemVersion, transactionCompletion.lineItemVersion) &&
         Objects.equals(this.lineItems, transactionCompletion.lineItems) &&
+        Objects.equals(this.linkedSpaceId, transactionCompletion.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionCompletion.linkedTransaction) &&
         Objects.equals(this.mode, transactionCompletion.mode) &&
         Objects.equals(this.nextUpdateOn, transactionCompletion.nextUpdateOn) &&
         Objects.equals(this.paymentInformation, transactionCompletion.paymentInformation) &&
@@ -480,13 +521,12 @@ public class TransactionCompletion extends TransactionAwareEntity {
         Objects.equals(this.taxAmount, transactionCompletion.taxAmount) &&
         Objects.equals(this.timeZone, transactionCompletion.timeZone) &&
         Objects.equals(this.timeoutOn, transactionCompletion.timeoutOn) &&
-        Objects.equals(this.version, transactionCompletion.version) &&
-        super.equals(o);
+        Objects.equals(this.version, transactionCompletion.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, statementDescriptor, succeededOn, taxAmount, timeZone, timeoutOn, version, super.hashCode());
+    return Objects.hash(amount, baseLineItems, createdBy, createdOn, externalId, failedOn, failureReason, id, invoiceMerchantReference, labels, language, lastCompletion, lineItemVersion, lineItems, linkedSpaceId, linkedTransaction, mode, nextUpdateOn, paymentInformation, plannedPurgeDate, processingOn, processorReference, remainingLineItems, spaceViewId, state, statementDescriptor, succeededOn, taxAmount, timeZone, timeoutOn, version);
   }
 
 
@@ -494,10 +534,7 @@ public class TransactionCompletion extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionCompletion {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    baseLineItems: ").append(toIndentedString(baseLineItems)).append("\n");
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
@@ -505,12 +542,15 @@ public class TransactionCompletion extends TransactionAwareEntity {
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
     sb.append("    lineItemVersion: ").append(toIndentedString(lineItemVersion)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    paymentInformation: ").append(toIndentedString(paymentInformation)).append("\n");

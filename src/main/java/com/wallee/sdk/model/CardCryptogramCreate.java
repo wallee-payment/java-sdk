@@ -24,21 +24,20 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.CardCryptogramType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * This model holds the additional card authentication.
+ * 
  */
-@ApiModel(description = "This model holds the additional card authentication.")
+@ApiModel(description = "")
 
 public class CardCryptogramCreate {
   
-  @JsonProperty("type")
-  protected CardCryptogramType type = null;
+  @JsonProperty("eci")
+  protected String eci = null;
 
   
   @JsonProperty("value")
@@ -46,22 +45,22 @@ public class CardCryptogramCreate {
 
   
   
-  public CardCryptogramCreate type(CardCryptogramType type) {
-    this.type = type;
+  public CardCryptogramCreate eci(String eci) {
+    this.eci = eci;
     return this;
   }
 
    /**
-   * 
-   * @return type
+   * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
+   * @return eci
   **/
-  @ApiModelProperty(required = true, value = "")
-  public CardCryptogramType getType() {
-    return type;
+  @ApiModelProperty(value = "The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.")
+  public String getEci() {
+    return eci;
   }
 
-  public void setType(CardCryptogramType type) {
-    this.type = type;
+  public void setEci(String eci) {
+    this.eci = eci;
   }
 
   
@@ -71,10 +70,10 @@ public class CardCryptogramCreate {
   }
 
    /**
-   * 
+   * The cryptogram value used for securing card transactions, format varying based on the PAN type.
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = true, value = "The cryptogram value used for securing card transactions, format varying based on the PAN type.")
   public String getValue() {
     return value;
   }
@@ -94,13 +93,13 @@ public class CardCryptogramCreate {
       return false;
     }
     CardCryptogramCreate cardCryptogramCreate = (CardCryptogramCreate) o;
-    return Objects.equals(this.type, cardCryptogramCreate.type) &&
+    return Objects.equals(this.eci, cardCryptogramCreate.eci) &&
         Objects.equals(this.value, cardCryptogramCreate.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, value);
+    return Objects.hash(eci, value);
   }
 
 
@@ -109,7 +108,7 @@ public class CardCryptogramCreate {
     StringBuilder sb = new StringBuilder();
     sb.append("class CardCryptogramCreate {\n");
     
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    eci: ").append(toIndentedString(eci)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
     return sb.toString();

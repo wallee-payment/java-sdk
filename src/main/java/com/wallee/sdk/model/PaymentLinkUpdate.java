@@ -36,9 +36,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The payment link defines an URL to automatically create transactions.
+ * 
  */
-@ApiModel(description = "The payment link defines an URL to automatically create transactions.")
+@ApiModel(description = "")
 
 public class PaymentLinkUpdate {
   
@@ -147,10 +147,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The allowed payment method configurations restrict the payment methods which can be used with this payment link.
+   * The payment method configurations that customers can use for making payments.
    * @return allowedPaymentMethodConfigurations
   **/
-  @ApiModelProperty(value = "The allowed payment method configurations restrict the payment methods which can be used with this payment link.")
+  @ApiModelProperty(value = "The payment method configurations that customers can use for making payments.")
   public List<PaymentMethodConfiguration> getAllowedPaymentMethodConfigurations() {
     return allowedPaymentMethodConfigurations;
   }
@@ -166,10 +166,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The payment link can be conducted in a specific space view. The space view may apply a specific design to the payment page.
+   * The payment link can be used within a specific space view, which may apply a customized design to the payment page.
    * @return appliedSpaceView
   **/
-  @ApiModelProperty(value = "The payment link can be conducted in a specific space view. The space view may apply a specific design to the payment page.")
+  @ApiModelProperty(value = "The payment link can be used within a specific space view, which may apply a customized design to the payment page.")
   public Long getAppliedSpaceView() {
     return appliedSpaceView;
   }
@@ -185,10 +185,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The available from date defines the earliest date on which the payment link can be used. When no date is specified there will be no restriction.
+   * The earliest date the payment link can be used to initiate a transaction. If no date is provided, the link will be available immediately.
    * @return availableFrom
   **/
-  @ApiModelProperty(value = "The available from date defines the earliest date on which the payment link can be used. When no date is specified there will be no restriction.")
+  @ApiModelProperty(value = "The earliest date the payment link can be used to initiate a transaction. If no date is provided, the link will be available immediately.")
   public OffsetDateTime getAvailableFrom() {
     return availableFrom;
   }
@@ -204,10 +204,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The available from date defines the latest date on which the payment link can be used to initialize a transaction. When no date is specified there will be no restriction.
+   * The latest date the payment link can be used to initiate a transaction. If no date is provided, the link will remain available indefinitely.
    * @return availableUntil
   **/
-  @ApiModelProperty(value = "The available from date defines the latest date on which the payment link can be used to initialize a transaction. When no date is specified there will be no restriction.")
+  @ApiModelProperty(value = "The latest date the payment link can be used to initiate a transaction. If no date is provided, the link will remain available indefinitely.")
   public OffsetDateTime getAvailableUntil() {
     return availableUntil;
   }
@@ -223,10 +223,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The billing address handling mode controls if the address is collected or not and how it is collected.
+   * The handling mode defines whether a billing address is required and specifies how it should be provided.
    * @return billingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "The billing address handling mode controls if the address is collected or not and how it is collected.")
+  @ApiModelProperty(value = "The handling mode defines whether a billing address is required and specifies how it should be provided.")
   public PaymentLinkAddressHandlingMode getBillingAddressHandlingMode() {
     return billingAddressHandlingMode;
   }
@@ -242,10 +242,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The currency defines in which currency the payment is executed in. If no currency is defined it has to be specified within the request parameter &#39;currency&#39;.
+   * The three-letter currency code (ISO 4217). If not specified, it must be provided in the &#39;currency&#39; request parameter.
    * @return currency
   **/
-  @ApiModelProperty(value = "The currency defines in which currency the payment is executed in. If no currency is defined it has to be specified within the request parameter 'currency'.")
+  @ApiModelProperty(value = "The three-letter currency code (ISO 4217). If not specified, it must be provided in the 'currency' request parameter.")
   public String getCurrency() {
     return currency;
   }
@@ -261,10 +261,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The language defines the language of the payment page. If no language is provided it can be provided through the request parameter.
+   * The language for displaying the payment page. If not specified, it can be supplied via the &#39;language&#39; request parameter.
    * @return language
   **/
-  @ApiModelProperty(value = "The language defines the language of the payment page. If no language is provided it can be provided through the request parameter.")
+  @ApiModelProperty(value = "The language for displaying the payment page. If not specified, it can be supplied via the 'language' request parameter.")
   public String getLanguage() {
     return language;
   }
@@ -288,10 +288,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The line items allows to define the line items for this payment link. When the line items are defined they cannot be overridden through the request parameters. If no amount for the payment link is defined, the additional checkout page to enter the amount is shown to the consumer.
+   * The line items representing what is being sold. If not specified, they can be supplied via request parameters.
    * @return lineItems
   **/
-  @ApiModelProperty(value = "The line items allows to define the line items for this payment link. When the line items are defined they cannot be overridden through the request parameters. If no amount for the payment link is defined, the additional checkout page to enter the amount is shown to the consumer.")
+  @ApiModelProperty(value = "The line items representing what is being sold. If not specified, they can be supplied via request parameters.")
   public List<LineItemCreate> getLineItems() {
     return lineItems;
   }
@@ -307,10 +307,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The maximal number of transactions limits the number of transactions which can be created with this payment link.
+   * The maximum number of transactions that can be initiated using the payment link.
    * @return maximalNumberOfTransactions
   **/
-  @ApiModelProperty(value = "The maximal number of transactions limits the number of transactions which can be created with this payment link.")
+  @ApiModelProperty(value = "The maximum number of transactions that can be initiated using the payment link.")
   public Integer getMaximalNumberOfTransactions() {
     return maximalNumberOfTransactions;
   }
@@ -326,10 +326,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The payment link name is used internally to identify the payment link. For example the name is used within search fields and hence it should be distinct and descriptive.
+   * The name used to identify the payment link.
    * @return name
   **/
-  @ApiModelProperty(value = "The payment link name is used internally to identify the payment link. For example the name is used within search fields and hence it should be distinct and descriptive.")
+  @ApiModelProperty(value = "The name used to identify the payment link.")
   public String getName() {
     return name;
   }
@@ -345,10 +345,10 @@ public class PaymentLinkUpdate {
   }
 
    /**
-   * The shipping address handling mode controls if the address is collected or not and how it is collected.
+   * The handling mode defines whether a shipping address is required and specifies how it should be provided.
    * @return shippingAddressHandlingMode
   **/
-  @ApiModelProperty(value = "The shipping address handling mode controls if the address is collected or not and how it is collected.")
+  @ApiModelProperty(value = "The handling mode defines whether a shipping address is required and specifies how it should be provided.")
   public PaymentLinkAddressHandlingMode getShippingAddressHandlingMode() {
     return shippingAddressHandlingMode;
   }

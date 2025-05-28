@@ -98,6 +98,10 @@ public class ShopifySubscriptionProduct {
   protected String productId = null;
 
   
+  @JsonProperty("productLegacyId")
+  protected String productLegacyId = null;
+
+  
   @JsonProperty("productName")
   protected String productName = null;
 
@@ -112,6 +116,10 @@ public class ShopifySubscriptionProduct {
   
   @JsonProperty("productVariantId")
   protected String productVariantId = null;
+
+  
+  @JsonProperty("productVariantLegacyId")
+  protected String productVariantLegacyId = null;
 
   
   @JsonProperty("productVariantName")
@@ -300,6 +308,16 @@ public class ShopifySubscriptionProduct {
 
   
    /**
+   * The legacy ID of the Shopify product that is enabled to be ordered as subscription.
+   * @return productLegacyId
+  **/
+  @ApiModelProperty(value = "The legacy ID of the Shopify product that is enabled to be ordered as subscription.")
+  public String getProductLegacyId() {
+    return productLegacyId;
+  }
+
+  
+   /**
    * 
    * @return productName
   **/
@@ -336,6 +354,16 @@ public class ShopifySubscriptionProduct {
   @ApiModelProperty(value = "")
   public String getProductVariantId() {
     return productVariantId;
+  }
+
+  
+   /**
+   * 
+   * @return productVariantLegacyId
+  **/
+  @ApiModelProperty(value = "")
+  public String getProductVariantLegacyId() {
+    return productVariantLegacyId;
   }
 
   
@@ -473,10 +501,12 @@ public class ShopifySubscriptionProduct {
         Objects.equals(this.plannedPurgeDate, shopifySubscriptionProduct.plannedPurgeDate) &&
         Objects.equals(this.pricingOption, shopifySubscriptionProduct.pricingOption) &&
         Objects.equals(this.productId, shopifySubscriptionProduct.productId) &&
+        Objects.equals(this.productLegacyId, shopifySubscriptionProduct.productLegacyId) &&
         Objects.equals(this.productName, shopifySubscriptionProduct.productName) &&
         Objects.equals(this.productPrice, shopifySubscriptionProduct.productPrice) &&
         Objects.equals(this.productSku, shopifySubscriptionProduct.productSku) &&
         Objects.equals(this.productVariantId, shopifySubscriptionProduct.productVariantId) &&
+        Objects.equals(this.productVariantLegacyId, shopifySubscriptionProduct.productVariantLegacyId) &&
         Objects.equals(this.productVariantName, shopifySubscriptionProduct.productVariantName) &&
         Objects.equals(this.relativePriceAdjustment, shopifySubscriptionProduct.relativePriceAdjustment) &&
         Objects.equals(this.shippingRequired, shopifySubscriptionProduct.shippingRequired) &&
@@ -492,7 +522,7 @@ public class ShopifySubscriptionProduct {
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, id, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, plannedPurgeDate, pricingOption, productId, productName, productPrice, productSku, productVariantId, productVariantName, relativePriceAdjustment, shippingRequired, shop, state, stockCheckRequired, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, updatedAt, version);
+    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, id, linkedSpaceId, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, plannedPurgeDate, pricingOption, productId, productLegacyId, productName, productPrice, productSku, productVariantId, productVariantLegacyId, productVariantName, relativePriceAdjustment, shippingRequired, shop, state, stockCheckRequired, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, updatedAt, version);
   }
 
 
@@ -515,10 +545,12 @@ public class ShopifySubscriptionProduct {
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    pricingOption: ").append(toIndentedString(pricingOption)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
+    sb.append("    productLegacyId: ").append(toIndentedString(productLegacyId)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    productPrice: ").append(toIndentedString(productPrice)).append("\n");
     sb.append("    productSku: ").append(toIndentedString(productSku)).append("\n");
     sb.append("    productVariantId: ").append(toIndentedString(productVariantId)).append("\n");
+    sb.append("    productVariantLegacyId: ").append(toIndentedString(productVariantLegacyId)).append("\n");
     sb.append("    productVariantName: ").append(toIndentedString(productVariantName)).append("\n");
     sb.append("    relativePriceAdjustment: ").append(toIndentedString(relativePriceAdjustment)).append("\n");
     sb.append("    shippingRequired: ").append(toIndentedString(shippingRequired)).append("\n");

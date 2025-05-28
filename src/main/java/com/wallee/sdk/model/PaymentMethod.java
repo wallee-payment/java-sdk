@@ -71,10 +71,10 @@ public class PaymentMethod {
   
   
    /**
-   * The data collection types that are supported by the payment method.
+   * The data collection types that payment method supports.
    * @return dataCollectionTypes
   **/
-  @ApiModelProperty(value = "The data collection types that are supported by the payment method.")
+  @ApiModelProperty(value = "The data collection types that payment method supports.")
   public List<DataCollectionType> getDataCollectionTypes() {
     return dataCollectionTypes;
   }
@@ -101,20 +101,20 @@ public class PaymentMethod {
 
   
    /**
-   * The path to the payment method&#39;s image which is displayed to the customer.
+   * The path to the payment method&#39;s image.
    * @return imagePath
   **/
-  @ApiModelProperty(value = "The path to the payment method's image which is displayed to the customer.")
+  @ApiModelProperty(value = "The path to the payment method's image.")
   public String getImagePath() {
     return imagePath;
   }
 
   
    /**
-   * 
+   * A merchant-focused, localized description of the payment method, providing its purpose and details.
    * @return merchantDescription
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "A merchant-focused, localized description of the payment method, providing its purpose and details.")
   public Map<String, String> getMerchantDescription() {
     return merchantDescription;
   }
@@ -131,10 +131,10 @@ public class PaymentMethod {
 
   
    /**
-   * The currencies that are supported by the payment method.
+   * The currencies that the payment method supports.
    * @return supportedCurrencies
   **/
-  @ApiModelProperty(value = "The currencies that are supported by the payment method.")
+  @ApiModelProperty(value = "The currencies that the payment method supports.")
   public List<String> getSupportedCurrencies() {
     return supportedCurrencies;
   }

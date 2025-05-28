@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.BankTransaction;
 import com.wallee.sdk.model.Refund;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.math.BigDecimal;
@@ -38,14 +37,26 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class RefundBankTransaction extends TransactionAwareEntity {
+public class RefundBankTransaction {
   
   @JsonProperty("bankTransaction")
   protected BankTransaction bankTransaction = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("refund")
@@ -70,12 +81,22 @@ public class RefundBankTransaction extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * Provides general information about the bank transaction.
    * @return bankTransaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Provides general information about the bank transaction.")
   public BankTransaction getBankTransaction() {
     return bankTransaction;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -90,30 +111,50 @@ public class RefundBankTransaction extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The refund this bank transaction belongs to.
    * @return refund
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The refund this bank transaction belongs to.")
   public Refund getRefund() {
     return refund;
   }
 
   
    /**
-   * Specify the posting amount in the refund&#39;s currency.
+   * The posting amount represents the monetary value of the bank transaction, recorded in the refund&#39;s currency, before applying any adjustments.
    * @return refundCurrencyAmount
   **/
-  @ApiModelProperty(value = "Specify the posting amount in the refund's currency.")
+  @ApiModelProperty(value = "The posting amount represents the monetary value of the bank transaction, recorded in the refund's currency, before applying any adjustments.")
   public BigDecimal getRefundCurrencyAmount() {
     return refundCurrencyAmount;
   }
 
   
    /**
-   * 
+   * The value amount represents the net monetary value of the bank transaction, recorded in the refund&#39;s currency, after applicable deductions.
    * @return refundCurrencyValueAmount
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The value amount represents the net monetary value of the bank transaction, recorded in the refund's currency, after applicable deductions.")
   public BigDecimal getRefundCurrencyValueAmount() {
     return refundCurrencyValueAmount;
   }
@@ -149,22 +190,21 @@ public class RefundBankTransaction extends TransactionAwareEntity {
       return false;
     }
     RefundBankTransaction refundBankTransaction = (RefundBankTransaction) o;
-    return Objects.equals(this.id, refundBankTransaction.id) &&
+    return Objects.equals(this.bankTransaction, refundBankTransaction.bankTransaction) &&
+        Objects.equals(this.id, refundBankTransaction.id) &&
+        Objects.equals(this.language, refundBankTransaction.language) &&
         Objects.equals(this.linkedSpaceId, refundBankTransaction.linkedSpaceId) &&
         Objects.equals(this.linkedTransaction, refundBankTransaction.linkedTransaction) &&
-        Objects.equals(this.bankTransaction, refundBankTransaction.bankTransaction) &&
-        Objects.equals(this.language, refundBankTransaction.language) &&
         Objects.equals(this.refund, refundBankTransaction.refund) &&
         Objects.equals(this.refundCurrencyAmount, refundBankTransaction.refundCurrencyAmount) &&
         Objects.equals(this.refundCurrencyValueAmount, refundBankTransaction.refundCurrencyValueAmount) &&
         Objects.equals(this.spaceViewId, refundBankTransaction.spaceViewId) &&
-        Objects.equals(this.version, refundBankTransaction.version) &&
-        super.equals(o);
+        Objects.equals(this.version, refundBankTransaction.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, bankTransaction, language, refund, refundCurrencyAmount, refundCurrencyValueAmount, spaceViewId, version, super.hashCode());
+    return Objects.hash(bankTransaction, id, language, linkedSpaceId, linkedTransaction, refund, refundCurrencyAmount, refundCurrencyValueAmount, spaceViewId, version);
   }
 
 
@@ -172,12 +212,12 @@ public class RefundBankTransaction extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundBankTransaction {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    
+    sb.append("    bankTransaction: ").append(toIndentedString(bankTransaction)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
-    sb.append("    bankTransaction: ").append(toIndentedString(bankTransaction)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
     sb.append("    refundCurrencyAmount: ").append(toIndentedString(refundCurrencyAmount)).append("\n");
     sb.append("    refundCurrencyValueAmount: ").append(toIndentedString(refundCurrencyValueAmount)).append("\n");

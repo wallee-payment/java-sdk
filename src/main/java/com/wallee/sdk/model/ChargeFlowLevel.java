@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.ChargeFlowLevelConfiguration;
 import com.wallee.sdk.model.ChargeFlowLevelState;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -39,7 +38,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class ChargeFlowLevel extends TransactionAwareEntity {
+public class ChargeFlowLevel {
   
   @JsonProperty("asynchronousCharge")
   protected Long asynchronousCharge = null;
@@ -51,6 +50,18 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
   
   @JsonProperty("createdOn")
   protected OffsetDateTime createdOn = null;
+
+  
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("plannedPurgeDate")
@@ -83,20 +94,20 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The charge to process the payment asynchronously.
    * @return asynchronousCharge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The charge to process the payment asynchronously.")
   public Long getAsynchronousCharge() {
     return asynchronousCharge;
   }
 
   
    /**
-   * 
+   * The configuration that was used for this charge flow level.
    * @return _configuration
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The configuration that was used for this charge flow level.")
   public ChargeFlowLevelConfiguration getConfiguration() {
     return _configuration;
   }
@@ -109,6 +120,36 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
   @ApiModelProperty(value = "The date and time when the object was created.")
   public OffsetDateTime getCreatedOn() {
     return createdOn;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
+  }
+
+  
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
   }
 
   
@@ -133,40 +174,40 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The charge to process the payment synchronously.
    * @return synchronousCharge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The charge to process the payment synchronously.")
   public Long getSynchronousCharge() {
     return synchronousCharge;
   }
 
   
    /**
-   * 
+   * The date and time when the charge flow level will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the charge flow level will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The charge to process the payment using a token.
    * @return tokenCharge
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The charge to process the payment using a token.")
   public Long getTokenCharge() {
     return tokenCharge;
   }
 
   
    /**
-   * 
+   * The transaction that the charge flow level belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the charge flow level belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
@@ -192,25 +233,24 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
       return false;
     }
     ChargeFlowLevel chargeFlowLevel = (ChargeFlowLevel) o;
-    return Objects.equals(this.id, chargeFlowLevel.id) &&
-        Objects.equals(this.linkedSpaceId, chargeFlowLevel.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, chargeFlowLevel.linkedTransaction) &&
-        Objects.equals(this.asynchronousCharge, chargeFlowLevel.asynchronousCharge) &&
+    return Objects.equals(this.asynchronousCharge, chargeFlowLevel.asynchronousCharge) &&
         Objects.equals(this._configuration, chargeFlowLevel._configuration) &&
         Objects.equals(this.createdOn, chargeFlowLevel.createdOn) &&
+        Objects.equals(this.id, chargeFlowLevel.id) &&
+        Objects.equals(this.linkedSpaceId, chargeFlowLevel.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, chargeFlowLevel.linkedTransaction) &&
         Objects.equals(this.plannedPurgeDate, chargeFlowLevel.plannedPurgeDate) &&
         Objects.equals(this.state, chargeFlowLevel.state) &&
         Objects.equals(this.synchronousCharge, chargeFlowLevel.synchronousCharge) &&
         Objects.equals(this.timeoutOn, chargeFlowLevel.timeoutOn) &&
         Objects.equals(this.tokenCharge, chargeFlowLevel.tokenCharge) &&
         Objects.equals(this.transaction, chargeFlowLevel.transaction) &&
-        Objects.equals(this.version, chargeFlowLevel.version) &&
-        super.equals(o);
+        Objects.equals(this.version, chargeFlowLevel.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, asynchronousCharge, _configuration, createdOn, plannedPurgeDate, state, synchronousCharge, timeoutOn, tokenCharge, transaction, version, super.hashCode());
+    return Objects.hash(asynchronousCharge, _configuration, createdOn, id, linkedSpaceId, linkedTransaction, plannedPurgeDate, state, synchronousCharge, timeoutOn, tokenCharge, transaction, version);
   }
 
 
@@ -218,13 +258,13 @@ public class ChargeFlowLevel extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ChargeFlowLevel {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    asynchronousCharge: ").append(toIndentedString(asynchronousCharge)).append("\n");
     sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    synchronousCharge: ").append(toIndentedString(synchronousCharge)).append("\n");

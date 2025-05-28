@@ -41,8 +41,16 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
   protected String productId = null;
 
   
+  @JsonProperty("productLegacyId")
+  protected String productLegacyId = null;
+
+  
   @JsonProperty("productVariantId")
   protected String productVariantId = null;
+
+  
+  @JsonProperty("productVariantLegacyId")
+  protected String productVariantLegacyId = null;
 
   
   @JsonProperty("shop")
@@ -59,13 +67,32 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
    * The ID of the Shopify product that is enabled to be ordered as subscription.
    * @return productId
   **/
-  @ApiModelProperty(required = true, value = "The ID of the Shopify product that is enabled to be ordered as subscription.")
+  @ApiModelProperty(value = "The ID of the Shopify product that is enabled to be ordered as subscription.")
   public String getProductId() {
     return productId;
   }
 
   public void setProductId(String productId) {
     this.productId = productId;
+  }
+
+  
+  public ShopifySubscriptionProductCreate productLegacyId(String productLegacyId) {
+    this.productLegacyId = productLegacyId;
+    return this;
+  }
+
+   /**
+   * The legacy ID of the Shopify product that is enabled to be ordered as subscription.
+   * @return productLegacyId
+  **/
+  @ApiModelProperty(required = true, value = "The legacy ID of the Shopify product that is enabled to be ordered as subscription.")
+  public String getProductLegacyId() {
+    return productLegacyId;
+  }
+
+  public void setProductLegacyId(String productLegacyId) {
+    this.productLegacyId = productLegacyId;
   }
 
   
@@ -78,13 +105,32 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
    * 
    * @return productVariantId
   **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(value = "")
   public String getProductVariantId() {
     return productVariantId;
   }
 
   public void setProductVariantId(String productVariantId) {
     this.productVariantId = productVariantId;
+  }
+
+  
+  public ShopifySubscriptionProductCreate productVariantLegacyId(String productVariantLegacyId) {
+    this.productVariantLegacyId = productVariantLegacyId;
+    return this;
+  }
+
+   /**
+   * 
+   * @return productVariantLegacyId
+  **/
+  @ApiModelProperty(required = true, value = "")
+  public String getProductVariantLegacyId() {
+    return productVariantLegacyId;
+  }
+
+  public void setProductVariantLegacyId(String productVariantLegacyId) {
+    this.productVariantLegacyId = productVariantLegacyId;
   }
 
   
@@ -132,14 +178,16 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
         Objects.equals(this.subscriberSuspensionAllowed, shopifySubscriptionProductCreate.subscriberSuspensionAllowed) &&
         Objects.equals(this.terminationBillingCycles, shopifySubscriptionProductCreate.terminationBillingCycles) &&
         Objects.equals(this.productId, shopifySubscriptionProductCreate.productId) &&
+        Objects.equals(this.productLegacyId, shopifySubscriptionProductCreate.productLegacyId) &&
         Objects.equals(this.productVariantId, shopifySubscriptionProductCreate.productVariantId) &&
+        Objects.equals(this.productVariantLegacyId, shopifySubscriptionProductCreate.productVariantLegacyId) &&
         Objects.equals(this.shop, shopifySubscriptionProductCreate.shop) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, pricingOption, relativePriceAdjustment, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, productId, productVariantId, shop, super.hashCode());
+    return Objects.hash(absolutePriceAdjustment, billingDayOfMonth, billingIntervalAmount, billingIntervalUnit, billingWeekday, fixedPrice, maximalBillingCycles, maximalSuspendableCycles, minimalBillingCycles, pricingOption, relativePriceAdjustment, storeOrderConfirmationEmailEnabled, subscriberSuspensionAllowed, terminationBillingCycles, productId, productLegacyId, productVariantId, productVariantLegacyId, shop, super.hashCode());
   }
 
 
@@ -163,7 +211,9 @@ public class ShopifySubscriptionProductCreate extends AbstractShopifySubscriptio
     sb.append("    subscriberSuspensionAllowed: ").append(toIndentedString(subscriberSuspensionAllowed)).append("\n");
     sb.append("    terminationBillingCycles: ").append(toIndentedString(terminationBillingCycles)).append("\n");
     sb.append("    productId: ").append(toIndentedString(productId)).append("\n");
+    sb.append("    productLegacyId: ").append(toIndentedString(productLegacyId)).append("\n");
     sb.append("    productVariantId: ").append(toIndentedString(productVariantId)).append("\n");
+    sb.append("    productVariantLegacyId: ").append(toIndentedString(productVariantLegacyId)).append("\n");
     sb.append("    shop: ").append(toIndentedString(shop)).append("\n");
     sb.append("}");
     return sb.toString();

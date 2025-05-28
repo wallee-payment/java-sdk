@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.BillingCycleModel;
 import com.wallee.sdk.model.SubscriptionProduct;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
 import com.wallee.sdk.model.TaxCalculation;
@@ -50,6 +51,10 @@ public class SubscriptionProductVersion {
   
   @JsonProperty("billingCycle")
   protected String billingCycle = null;
+
+  
+  @JsonProperty("billingCycleModel")
+  protected BillingCycleModel billingCycleModel = null;
 
   
   @JsonProperty("comment")
@@ -146,6 +151,16 @@ public class SubscriptionProductVersion {
   @ApiModelProperty(value = "The recurring period of time, typically monthly or annually, for which a subscriber is charged.")
   public String getBillingCycle() {
     return billingCycle;
+  }
+
+  
+   /**
+   * 
+   * @return billingCycleModel
+  **/
+  @ApiModelProperty(value = "")
+  public BillingCycleModel getBillingCycleModel() {
+    return billingCycleModel;
   }
 
   
@@ -351,6 +366,7 @@ public class SubscriptionProductVersion {
     SubscriptionProductVersion subscriptionProductVersion = (SubscriptionProductVersion) o;
     return Objects.equals(this.activatedOn, subscriptionProductVersion.activatedOn) &&
         Objects.equals(this.billingCycle, subscriptionProductVersion.billingCycle) &&
+        Objects.equals(this.billingCycleModel, subscriptionProductVersion.billingCycleModel) &&
         Objects.equals(this.comment, subscriptionProductVersion.comment) &&
         Objects.equals(this.createdOn, subscriptionProductVersion.createdOn) &&
         Objects.equals(this.defaultCurrency, subscriptionProductVersion.defaultCurrency) &&
@@ -374,7 +390,7 @@ public class SubscriptionProductVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activatedOn, billingCycle, comment, createdOn, defaultCurrency, enabledCurrencies, id, incrementNumber, linkedSpaceId, minimalNumberOfPeriods, name, numberOfNoticePeriods, obsoletedOn, plannedPurgeDate, product, reference, retiringFinishedOn, retiringStartedOn, state, taxCalculation, version);
+    return Objects.hash(activatedOn, billingCycle, billingCycleModel, comment, createdOn, defaultCurrency, enabledCurrencies, id, incrementNumber, linkedSpaceId, minimalNumberOfPeriods, name, numberOfNoticePeriods, obsoletedOn, plannedPurgeDate, product, reference, retiringFinishedOn, retiringStartedOn, state, taxCalculation, version);
   }
 
 
@@ -385,6 +401,7 @@ public class SubscriptionProductVersion {
     
     sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
     sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
+    sb.append("    billingCycleModel: ").append(toIndentedString(billingCycleModel)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");

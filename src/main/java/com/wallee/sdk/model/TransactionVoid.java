@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.Transaction;
-import com.wallee.sdk.model.TransactionAwareEntity;
 import com.wallee.sdk.model.TransactionVoidMode;
 import com.wallee.sdk.model.TransactionVoidState;
 import io.swagger.annotations.ApiModel;
@@ -43,7 +42,7 @@ import java.time.OffsetDateTime;
  */
 @ApiModel(description = "")
 
-public class TransactionVoid extends TransactionAwareEntity {
+public class TransactionVoid {
   
   @JsonProperty("createdBy")
   protected Long createdBy = null;
@@ -61,12 +60,24 @@ public class TransactionVoid extends TransactionAwareEntity {
   protected FailureReason failureReason = null;
 
   
+  @JsonProperty("id")
+  protected Long id = null;
+
+  
   @JsonProperty("labels")
   protected List<Label> labels = null;
 
   
   @JsonProperty("language")
   protected String language = null;
+
+  
+  @JsonProperty("linkedSpaceId")
+  protected Long linkedSpaceId = null;
+
+  
+  @JsonProperty("linkedTransaction")
+  protected Long linkedTransaction = null;
 
   
   @JsonProperty("mode")
@@ -111,10 +122,10 @@ public class TransactionVoid extends TransactionAwareEntity {
   
   
    /**
-   * 
+   * The ID of the user the transaction void was created by.
    * @return createdBy
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the user the transaction void was created by.")
   public Long getCreatedBy() {
     return createdBy;
   }
@@ -131,22 +142,32 @@ public class TransactionVoid extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the transaction void failed.
    * @return failedOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction void failed.")
   public OffsetDateTime getFailedOn() {
     return failedOn;
   }
 
   
    /**
-   * 
+   * The reason for the failure of the transaction void.
    * @return failureReason
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reason for the failure of the transaction void.")
   public FailureReason getFailureReason() {
     return failureReason;
+  }
+
+  
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @ApiModelProperty(value = "A unique identifier for the object.")
+  public Long getId() {
+    return id;
   }
 
   
@@ -171,20 +192,40 @@ public class TransactionVoid extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+  
+   /**
+   * The payment transaction this object is linked to.
+   * @return linkedTransaction
+  **/
+  @ApiModelProperty(value = "The payment transaction this object is linked to.")
+  public Long getLinkedTransaction() {
+    return linkedTransaction;
+  }
+
+  
+   /**
+   * The mode of transaction void, such as online or offline, determining how the void process is executed.
    * @return mode
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The mode of transaction void, such as online or offline, determining how the void process is executed.")
   public TransactionVoidMode getMode() {
     return mode;
   }
 
   
    /**
-   * 
+   * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the next update of the object's state is planned.")
   public OffsetDateTime getNextUpdateOn() {
     return nextUpdateOn;
   }
@@ -201,10 +242,10 @@ public class TransactionVoid extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The reference ID provided by the payment processor, used to trace the void through the external payment system.
    * @return processorReference
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The reference ID provided by the payment processor, used to trace the void through the external payment system.")
   public String getProcessorReference() {
     return processorReference;
   }
@@ -231,30 +272,30 @@ public class TransactionVoid extends TransactionAwareEntity {
 
   
    /**
-   * 
+   * The date and time when the transaction void succeeded.
    * @return succeededOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the transaction void succeeded.")
   public OffsetDateTime getSucceededOn() {
     return succeededOn;
   }
 
   
    /**
-   * 
+   * The date and time when the object will expire.
    * @return timeoutOn
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The date and time when the object will expire.")
   public OffsetDateTime getTimeoutOn() {
     return timeoutOn;
   }
 
   
    /**
-   * 
+   * The transaction that the void belongs to.
    * @return transaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The transaction that the void belongs to.")
   public Transaction getTransaction() {
     return transaction;
   }
@@ -280,15 +321,15 @@ public class TransactionVoid extends TransactionAwareEntity {
       return false;
     }
     TransactionVoid transactionVoid = (TransactionVoid) o;
-    return Objects.equals(this.id, transactionVoid.id) &&
-        Objects.equals(this.linkedSpaceId, transactionVoid.linkedSpaceId) &&
-        Objects.equals(this.linkedTransaction, transactionVoid.linkedTransaction) &&
-        Objects.equals(this.createdBy, transactionVoid.createdBy) &&
+    return Objects.equals(this.createdBy, transactionVoid.createdBy) &&
         Objects.equals(this.createdOn, transactionVoid.createdOn) &&
         Objects.equals(this.failedOn, transactionVoid.failedOn) &&
         Objects.equals(this.failureReason, transactionVoid.failureReason) &&
+        Objects.equals(this.id, transactionVoid.id) &&
         Objects.equals(this.labels, transactionVoid.labels) &&
         Objects.equals(this.language, transactionVoid.language) &&
+        Objects.equals(this.linkedSpaceId, transactionVoid.linkedSpaceId) &&
+        Objects.equals(this.linkedTransaction, transactionVoid.linkedTransaction) &&
         Objects.equals(this.mode, transactionVoid.mode) &&
         Objects.equals(this.nextUpdateOn, transactionVoid.nextUpdateOn) &&
         Objects.equals(this.plannedPurgeDate, transactionVoid.plannedPurgeDate) &&
@@ -298,13 +339,12 @@ public class TransactionVoid extends TransactionAwareEntity {
         Objects.equals(this.succeededOn, transactionVoid.succeededOn) &&
         Objects.equals(this.timeoutOn, transactionVoid.timeoutOn) &&
         Objects.equals(this.transaction, transactionVoid.transaction) &&
-        Objects.equals(this.version, transactionVoid.version) &&
-        super.equals(o);
+        Objects.equals(this.version, transactionVoid.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, linkedSpaceId, linkedTransaction, createdBy, createdOn, failedOn, failureReason, labels, language, mode, nextUpdateOn, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeoutOn, transaction, version, super.hashCode());
+    return Objects.hash(createdBy, createdOn, failedOn, failureReason, id, labels, language, linkedSpaceId, linkedTransaction, mode, nextUpdateOn, plannedPurgeDate, processorReference, spaceViewId, state, succeededOn, timeoutOn, transaction, version);
   }
 
 
@@ -312,16 +352,16 @@ public class TransactionVoid extends TransactionAwareEntity {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionVoid {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
-    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
+    
     sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    linkedTransaction: ").append(toIndentedString(linkedTransaction)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    nextUpdateOn: ").append(toIndentedString(nextUpdateOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");

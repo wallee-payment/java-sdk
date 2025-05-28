@@ -75,10 +75,10 @@ public class PaymentMethodBrand {
 
   
    /**
-   * 
+   * The path to the payment method brand&#39;s grayscale image.
    * @return grayImagePath
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The path to the payment method brand's grayscale image.")
   public String getGrayImagePath() {
     return grayImagePath;
   }
@@ -95,10 +95,10 @@ public class PaymentMethodBrand {
 
   
    /**
-   * The path to the payment brand&#39;s image which is displayed to the customer.
+   * The path to the payment method brand&#39;s image.
    * @return imagePath
   **/
-  @ApiModelProperty(value = "The path to the payment brand's image which is displayed to the customer.")
+  @ApiModelProperty(value = "The path to the payment method brand's image.")
   public String getImagePath() {
     return imagePath;
   }

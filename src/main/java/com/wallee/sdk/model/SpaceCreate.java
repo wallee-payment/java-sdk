@@ -42,6 +42,10 @@ public class SpaceCreate extends AbstractSpaceUpdate {
   protected Long account = null;
 
   
+  @JsonProperty("database")
+  protected Long database = null;
+
+  
   
   public SpaceCreate account(Long account) {
     this.account = account;
@@ -59,6 +63,25 @@ public class SpaceCreate extends AbstractSpaceUpdate {
 
   public void setAccount(Long account) {
     this.account = account;
+  }
+
+  
+  public SpaceCreate database(Long database) {
+    this.database = database;
+    return this;
+  }
+
+   /**
+   * The database the space is connected to and that holds the space&#39;s data.
+   * @return database
+  **/
+  @ApiModelProperty(value = "The database the space is connected to and that holds the space's data.")
+  public Long getDatabase() {
+    return database;
+  }
+
+  public void setDatabase(Long database) {
+    this.database = database;
   }
 
   
@@ -81,12 +104,13 @@ public class SpaceCreate extends AbstractSpaceUpdate {
         Objects.equals(this.technicalContactAddresses, spaceCreate.technicalContactAddresses) &&
         Objects.equals(this.timeZone, spaceCreate.timeZone) &&
         Objects.equals(this.account, spaceCreate.account) &&
+        Objects.equals(this.database, spaceCreate.database) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, account, super.hashCode());
+    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, account, database, super.hashCode());
   }
 
 
@@ -104,6 +128,7 @@ public class SpaceCreate extends AbstractSpaceUpdate {
     sb.append("    technicalContactAddresses: ").append(toIndentedString(technicalContactAddresses)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    database: ").append(toIndentedString(database)).append("\n");
     sb.append("}");
     return sb.toString();
   }

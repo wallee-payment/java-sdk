@@ -79,20 +79,20 @@ public class InternalTransferBankTransaction {
 
   
    /**
-   * 
+   * The bank transaction from which funds are being transferred out.
    * @return sourceBankTransaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank transaction from which funds are being transferred out.")
   public BankTransaction getSourceBankTransaction() {
     return sourceBankTransaction;
   }
 
   
    /**
-   * 
+   * The bank transaction to which funds are being transferred in.
    * @return targetBankTransaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The bank transaction to which funds are being transferred in.")
   public BankTransaction getTargetBankTransaction() {
     return targetBankTransaction;
   }

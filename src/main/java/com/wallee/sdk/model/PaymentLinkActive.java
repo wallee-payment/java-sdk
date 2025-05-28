@@ -33,9 +33,9 @@ import java.util.*;
 import java.time.OffsetDateTime;
 
 /**
- * The payment link defines an URL to automatically create transactions.
+ * 
  */
-@ApiModel(description = "The payment link defines an URL to automatically create transactions.")
+@ApiModel(description = "")
 
 public class PaymentLinkActive extends PaymentLinkUpdate {
   

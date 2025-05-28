@@ -67,40 +67,40 @@ public class ExternalTransferBankTransaction {
   
   
    /**
-   * 
+   * Provides general information about the bank transaction.
    * @return bankTransaction
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "Provides general information about the bank transaction.")
   public BankTransaction getBankTransaction() {
     return bankTransaction;
   }
 
   
    /**
-   * 
+   * The identifier is used to uniquely identify the external bank account.
    * @return externalAccountIdentifier
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The identifier is used to uniquely identify the external bank account.")
   public String getExternalAccountIdentifier() {
     return externalAccountIdentifier;
   }
 
   
    /**
-   * 
+   * The external bank account&#39;s type.
    * @return externalAccountType
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The external bank account's type.")
   public String getExternalAccountType() {
     return externalAccountType;
   }
 
   
    /**
-   * 
+   * The external bank account&#39;s name.
    * @return externalBankName
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The external bank account's name.")
   public String getExternalBankName() {
     return externalBankName;
   }

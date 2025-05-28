@@ -24,11 +24,9 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Account;
 import com.wallee.sdk.model.FailureReason;
 import com.wallee.sdk.model.PaymentContractState;
 import com.wallee.sdk.model.PaymentContractType;
-import com.wallee.sdk.model.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -43,7 +41,7 @@ import java.time.OffsetDateTime;
 public class PaymentContract {
   
   @JsonProperty("account")
-  protected Account account = null;
+  protected Long account = null;
 
   
   @JsonProperty("activatedOn")
@@ -59,7 +57,7 @@ public class PaymentContract {
 
   
   @JsonProperty("createdBy")
-  protected User createdBy = null;
+  protected Long createdBy = null;
 
   
   @JsonProperty("createdOn")
@@ -95,7 +93,7 @@ public class PaymentContract {
 
   
   @JsonProperty("terminatedBy")
-  protected User terminatedBy = null;
+  protected Long terminatedBy = null;
 
   
   @JsonProperty("terminatedOn")
@@ -112,7 +110,7 @@ public class PaymentContract {
    * @return account
   **/
   @ApiModelProperty(value = "This account that the contract belongs to.")
-  public Account getAccount() {
+  public Long getAccount() {
     return account;
   }
 
@@ -152,7 +150,7 @@ public class PaymentContract {
    * @return createdBy
   **/
   @ApiModelProperty(value = "The ID of the user the contract was created by.")
-  public User getCreatedBy() {
+  public Long getCreatedBy() {
     return createdBy;
   }
 
@@ -168,10 +166,10 @@ public class PaymentContract {
 
   
    /**
-   * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
   **/
-  @ApiModelProperty(value = "A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.")
+  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
   public String getExternalId() {
     return externalId;
   }
@@ -242,7 +240,7 @@ public class PaymentContract {
    * @return terminatedBy
   **/
   @ApiModelProperty(value = "The ID of the user the contract was terminated by.")
-  public User getTerminatedBy() {
+  public Long getTerminatedBy() {
     return terminatedBy;
   }
 
