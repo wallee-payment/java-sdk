@@ -58,7 +58,7 @@ public class TransactionVoidService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -86,7 +86,7 @@ public class TransactionVoidService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -192,7 +192,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--read">Read Documentation</a>
 
     **/
     public TransactionVoid read(Long spaceId, Long id) throws IOException {
@@ -221,7 +221,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--read">Read Documentation</a>
 
     **/
     public TransactionVoid read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -318,7 +318,7 @@ public class TransactionVoidService {
     * @return List&lt;TransactionVoid&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--search">Search Documentation</a>
 
     **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query) throws IOException {
@@ -347,7 +347,7 @@ public class TransactionVoidService {
     * @return List&lt;TransactionVoid&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--search">Search Documentation</a>
 
     **/
     public List<TransactionVoid> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -465,7 +465,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--void-offline">voidOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--void-offline">voidOffline Documentation</a>
 
     **/
     public TransactionVoid voidOffline(Long spaceId, Long id) throws IOException {
@@ -494,7 +494,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--void-offline">voidOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--void-offline">voidOffline Documentation</a>
 
     **/
     public TransactionVoid voidOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -591,7 +591,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--void-online">voidOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--void-online">voidOnline Documentation</a>
 
     **/
     public TransactionVoid voidOnline(Long spaceId, Long id) throws IOException {
@@ -620,7 +620,7 @@ public class TransactionVoidService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-void-service--void-online">voidOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-void-service--void-online">voidOnline Documentation</a>
 
     **/
     public TransactionVoid voidOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {

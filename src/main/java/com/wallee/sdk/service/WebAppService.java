@@ -56,7 +56,7 @@ public class WebAppService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--check-installation">Check Installation Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--check-installation">Check Installation Documentation</a>
 
     **/
     public Boolean checkInstallation(Long spaceId) throws IOException {
@@ -84,7 +84,7 @@ public class WebAppService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--check-installation">Check Installation Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--check-installation">Check Installation Documentation</a>
 
     **/
     public Boolean checkInstallation(Long spaceId, Map<String, Object> params) throws IOException {
@@ -165,7 +165,7 @@ public class WebAppService {
     * @return WebAppConfirmationResponse
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--confirm">Confirm Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--confirm">Confirm Documentation</a>
 
     **/
     public WebAppConfirmationResponse confirm(WebAppConfirmationRequest request) throws IOException {
@@ -193,7 +193,7 @@ public class WebAppService {
     * @return WebAppConfirmationResponse
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--confirm">Confirm Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--confirm">Confirm Documentation</a>
 
     **/
     public WebAppConfirmationResponse confirm(WebAppConfirmationRequest request, Map<String, Object> params) throws IOException {
@@ -284,7 +284,7 @@ public class WebAppService {
     * @param spaceId This parameter identifies the space within which the web app should be uninstalled.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--uninstall">Uninstall Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--uninstall">Uninstall Documentation</a>
 
     **/
     public void uninstall(Long spaceId) throws IOException {
@@ -301,7 +301,7 @@ public class WebAppService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#web-app-service--uninstall">Uninstall Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#web-app-service--uninstall">Uninstall Documentation</a>
 
     **/
     public void uninstall(Long spaceId, Map<String, Object> params) throws IOException {

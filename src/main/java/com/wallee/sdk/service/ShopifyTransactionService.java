@@ -58,7 +58,7 @@ public class ShopifyTransactionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -86,7 +86,7 @@ public class ShopifyTransactionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -192,7 +192,7 @@ public class ShopifyTransactionService {
     * @return ShopifyTransaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--read">Read Documentation</a>
 
     **/
     public ShopifyTransaction read(Long spaceId, Long id) throws IOException {
@@ -221,7 +221,7 @@ public class ShopifyTransactionService {
     * @return ShopifyTransaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--read">Read Documentation</a>
 
     **/
     public ShopifyTransaction read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -318,7 +318,7 @@ public class ShopifyTransactionService {
     * @return List&lt;ShopifyTransaction&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--search">Search Documentation</a>
 
     **/
     public List<ShopifyTransaction> search(Long spaceId, EntityQuery query) throws IOException {
@@ -347,7 +347,7 @@ public class ShopifyTransactionService {
     * @return List&lt;ShopifyTransaction&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-transaction-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-transaction-service--search">Search Documentation</a>
 
     **/
     public List<ShopifyTransaction> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

@@ -69,6 +69,14 @@ public class Scope {
   protected Integer port = null;
 
   
+  @JsonProperty("preprodDomainName")
+  protected String preprodDomainName = null;
+
+  
+  @JsonProperty("sandboxDomainName")
+  protected String sandboxDomainName = null;
+
+  
   @JsonProperty("sslActive")
   protected Boolean sslActive = null;
 
@@ -161,6 +169,26 @@ public class Scope {
 
   
    /**
+   * The preprod domain name that belongs to the scope.
+   * @return preprodDomainName
+  **/
+  @ApiModelProperty(value = "The preprod domain name that belongs to the scope.")
+  public String getPreprodDomainName() {
+    return preprodDomainName;
+  }
+
+  
+   /**
+   * The sandbox domain name that belongs to the scope.
+   * @return sandboxDomainName
+  **/
+  @ApiModelProperty(value = "The sandbox domain name that belongs to the scope.")
+  public String getSandboxDomainName() {
+    return sandboxDomainName;
+  }
+
+  
+   /**
    * Whether the scope supports SSL.
    * @return sslActive
   **/
@@ -227,6 +255,8 @@ public class Scope {
         Objects.equals(this.name, scope.name) &&
         Objects.equals(this.plannedPurgeDate, scope.plannedPurgeDate) &&
         Objects.equals(this.port, scope.port) &&
+        Objects.equals(this.preprodDomainName, scope.preprodDomainName) &&
+        Objects.equals(this.sandboxDomainName, scope.sandboxDomainName) &&
         Objects.equals(this.sslActive, scope.sslActive) &&
         Objects.equals(this.state, scope.state) &&
         Objects.equals(this.themes, scope.themes) &&
@@ -236,7 +266,7 @@ public class Scope {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainName, features, id, machineName, name, plannedPurgeDate, port, sslActive, state, themes, url, version);
+    return Objects.hash(domainName, features, id, machineName, name, plannedPurgeDate, port, preprodDomainName, sandboxDomainName, sslActive, state, themes, url, version);
   }
 
 
@@ -252,6 +282,8 @@ public class Scope {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    preprodDomainName: ").append(toIndentedString(preprodDomainName)).append("\n");
+    sb.append("    sandboxDomainName: ").append(toIndentedString(sandboxDomainName)).append("\n");
     sb.append("    sslActive: ").append(toIndentedString(sslActive)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    themes: ").append(toIndentedString(themes)).append("\n");

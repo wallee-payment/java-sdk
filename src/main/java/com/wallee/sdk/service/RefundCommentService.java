@@ -58,7 +58,7 @@ public class RefundCommentService {
     * @return List&lt;RefundComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--all">Find by refund Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--all">Find by refund Documentation</a>
 
     **/
     public List<RefundComment> all(Long spaceId, Long refundId) throws IOException {
@@ -87,7 +87,7 @@ public class RefundCommentService {
     * @return List&lt;RefundComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--all">Find by refund Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--all">Find by refund Documentation</a>
 
     **/
     public List<RefundComment> all(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
@@ -184,7 +184,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--create">Create Documentation</a>
 
     **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity) throws IOException {
@@ -213,7 +213,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--create">Create Documentation</a>
 
     **/
     public RefundComment create(Long spaceId, RefundCommentCreate entity, Map<String, Object> params) throws IOException {
@@ -330,7 +330,7 @@ public class RefundCommentService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -349,7 +349,7 @@ public class RefundCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -457,7 +457,7 @@ public class RefundCommentService {
     * @param id The id of the comment to pin to the top.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--pin">Pin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--pin">Pin Documentation</a>
 
     **/
     public void pin(Long spaceId, Long id) throws IOException {
@@ -476,7 +476,7 @@ public class RefundCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--pin">Pin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--pin">Pin Documentation</a>
 
     **/
     public void pin(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -564,7 +564,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--read">Read Documentation</a>
 
     **/
     public RefundComment read(Long spaceId, Long id) throws IOException {
@@ -593,7 +593,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--read">Read Documentation</a>
 
     **/
     public RefundComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -689,7 +689,7 @@ public class RefundCommentService {
     * @param id The id of the comment to unpin.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--unpin">Unpin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--unpin">Unpin Documentation</a>
 
     **/
     public void unpin(Long spaceId, Long id) throws IOException {
@@ -708,7 +708,7 @@ public class RefundCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--unpin">Unpin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--unpin">Unpin Documentation</a>
 
     **/
     public void unpin(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -797,7 +797,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--update">Update Documentation</a>
 
     **/
     public RefundComment update(Long spaceId, RefundCommentActive entity) throws IOException {
@@ -827,7 +827,7 @@ public class RefundCommentService {
     * @return RefundComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-comment-service--update">Update Documentation</a>
 
     **/
     public RefundComment update(Long spaceId, RefundCommentActive entity, Map<String, Object> params) throws IOException {

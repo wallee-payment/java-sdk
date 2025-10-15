@@ -60,7 +60,7 @@ public class SubscriptionProductService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class SubscriptionProductService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--create">Create Documentation</a>
 
     **/
     public SubscriptionProduct create(Long spaceId, SubscriptionProductCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--create">Create Documentation</a>
 
     **/
     public SubscriptionProduct create(Long spaceId, SubscriptionProductCreate entity, Map<String, Object> params) throws IOException {
@@ -341,7 +341,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--read">Read Documentation</a>
 
     **/
     public SubscriptionProduct read(Long spaceId, Long id) throws IOException {
@@ -370,7 +370,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--read">Read Documentation</a>
 
     **/
     public SubscriptionProduct read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class SubscriptionProductService {
     * @return List&lt;SubscriptionProduct&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionProduct> search(Long spaceId, EntityQuery query) throws IOException {
@@ -496,7 +496,7 @@ public class SubscriptionProductService {
     * @return List&lt;SubscriptionProduct&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionProduct> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -615,7 +615,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--update">Update Documentation</a>
 
     **/
     public SubscriptionProduct update(Long spaceId, SubscriptionProductActive entity) throws IOException {
@@ -645,7 +645,7 @@ public class SubscriptionProductService {
     * @return SubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-service--update">Update Documentation</a>
 
     **/
     public SubscriptionProduct update(Long spaceId, SubscriptionProductActive entity, Map<String, Object> params) throws IOException {

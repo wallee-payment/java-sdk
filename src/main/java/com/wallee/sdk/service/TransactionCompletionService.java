@@ -59,7 +59,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-offline">completeOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-offline">completeOffline Documentation</a>
 
     **/
     public TransactionCompletion completeOffline(Long spaceId, Long id) throws IOException {
@@ -88,7 +88,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-offline">completeOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-offline">completeOffline Documentation</a>
 
     **/
     public TransactionCompletion completeOffline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -185,7 +185,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-online">completeOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-online">completeOnline Documentation</a>
 
     **/
     public TransactionCompletion completeOnline(Long spaceId, Long id) throws IOException {
@@ -214,7 +214,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-online">completeOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-online">completeOnline Documentation</a>
 
     **/
     public TransactionCompletion completeOnline(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -311,7 +311,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-partially-offline">completePartiallyOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-partially-offline">completePartiallyOffline Documentation</a>
 
     **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
@@ -340,7 +340,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-partially-offline">completePartiallyOffline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-partially-offline">completePartiallyOffline Documentation</a>
 
     **/
     public TransactionCompletion completePartiallyOffline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
@@ -458,7 +458,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-partially-online">completePartiallyOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-partially-online">completePartiallyOnline Documentation</a>
 
     **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion) throws IOException {
@@ -487,7 +487,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--complete-partially-online">completePartiallyOnline Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--complete-partially-online">completePartiallyOnline Documentation</a>
 
     **/
     public TransactionCompletion completePartiallyOnline(Long spaceId, TransactionCompletionRequest completion, Map<String, Object> params) throws IOException {
@@ -605,7 +605,7 @@ public class TransactionCompletionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -633,7 +633,7 @@ public class TransactionCompletionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -739,7 +739,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--read">Read Documentation</a>
 
     **/
     public TransactionCompletion read(Long spaceId, Long id) throws IOException {
@@ -768,7 +768,7 @@ public class TransactionCompletionService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--read">Read Documentation</a>
 
     **/
     public TransactionCompletion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -865,7 +865,7 @@ public class TransactionCompletionService {
     * @return List&lt;TransactionCompletion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--search">Search Documentation</a>
 
     **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query) throws IOException {
@@ -894,7 +894,7 @@ public class TransactionCompletionService {
     * @return List&lt;TransactionCompletion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-completion-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-completion-service--search">Search Documentation</a>
 
     **/
     public List<TransactionCompletion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

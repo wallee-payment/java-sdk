@@ -60,7 +60,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return RenderedTerminalTransactionSummary
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--fetch-receipt">Fetch Receipt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--fetch-receipt">Fetch Receipt Documentation</a>
 
     **/
     public RenderedTerminalTransactionSummary fetchReceipt(Long spaceId, PaymentTerminalTransactionSummaryFetchRequest request) throws IOException {
@@ -223,7 +223,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return RenderedTerminalTransactionSummary
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--fetch-receipt">Fetch Receipt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--fetch-receipt">Fetch Receipt Documentation</a>
 
     **/
     public RenderedTerminalTransactionSummary fetchReceipt(Long spaceId, PaymentTerminalTransactionSummaryFetchRequest request, Map<String, Object> params) throws IOException {
@@ -341,7 +341,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return PaymentTerminalTransactionSummary
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--read">Read Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummary read(Long spaceId, Long id) throws IOException {
@@ -370,7 +370,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return PaymentTerminalTransactionSummary
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--read">Read Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummary read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return List&lt;PaymentTerminalTransactionSummary&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--search">Search Documentation</a>
 
     **/
     public List<PaymentTerminalTransactionSummary> search(Long spaceId, EntityQuery query) throws IOException {
@@ -496,7 +496,7 @@ public class PaymentTerminalTransactionSummaryService {
     * @return List&lt;PaymentTerminalTransactionSummary&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-transaction-summary-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-transaction-summary-service--search">Search Documentation</a>
 
     **/
     public List<PaymentTerminalTransactionSummary> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

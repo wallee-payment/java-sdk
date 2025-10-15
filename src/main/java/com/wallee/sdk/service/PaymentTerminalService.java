@@ -59,7 +59,7 @@ public class PaymentTerminalService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class PaymentTerminalService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -193,7 +193,7 @@ public class PaymentTerminalService {
     * @param serialNumber 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--link">Link Device With Terminal Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--link">Link Device With Terminal Documentation</a>
 
     **/
     public void link(Long spaceId, Long terminalId, String serialNumber) throws IOException {
@@ -213,7 +213,7 @@ public class PaymentTerminalService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--link">Link Device With Terminal Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--link">Link Device With Terminal Documentation</a>
 
     **/
     public void link(Long spaceId, Long terminalId, String serialNumber, Map<String, Object> params) throws IOException {
@@ -316,7 +316,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminal
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--read">Read Documentation</a>
 
     **/
     public PaymentTerminal read(Long spaceId, Long id) throws IOException {
@@ -345,7 +345,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminal
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--read">Read Documentation</a>
 
     **/
     public PaymentTerminal read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -442,7 +442,7 @@ public class PaymentTerminalService {
     * @return List&lt;PaymentTerminal&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--search">Search Documentation</a>
 
     **/
     public List<PaymentTerminal> search(Long spaceId, EntityQuery query) throws IOException {
@@ -471,7 +471,7 @@ public class PaymentTerminalService {
     * @return List&lt;PaymentTerminal&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--search">Search Documentation</a>
 
     **/
     public List<PaymentTerminal> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -590,7 +590,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummaryReference triggerFinalBalance(Long spaceId, Long terminalId) throws IOException {
@@ -620,7 +620,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--trigger-final-balance">Remotely Trigger Final Balance Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummaryReference triggerFinalBalance(Long spaceId, Long terminalId, Map<String, Object> params) throws IOException {
@@ -718,7 +718,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummaryReference triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier) throws IOException {
@@ -748,7 +748,7 @@ public class PaymentTerminalService {
     * @return PaymentTerminalTransactionSummaryReference
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--trigger-final-balance-by-identifier">Remotely Trigger Final Balance By Identifier Documentation</a>
 
     **/
     public PaymentTerminalTransactionSummaryReference triggerFinalBalanceByIdentifier(Long spaceId, String terminalIdentifier, Map<String, Object> params) throws IOException {
@@ -844,7 +844,7 @@ public class PaymentTerminalService {
     * @param terminalId 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--unlink">Unlink Device With Terminal Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--unlink">Unlink Device With Terminal Documentation</a>
 
     **/
     public void unlink(Long spaceId, Long terminalId) throws IOException {
@@ -863,7 +863,7 @@ public class PaymentTerminalService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-service--unlink">Unlink Device With Terminal Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-service--unlink">Unlink Device With Terminal Documentation</a>
 
     **/
     public void unlink(Long spaceId, Long terminalId, Map<String, Object> params) throws IOException {

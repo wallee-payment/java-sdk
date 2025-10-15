@@ -54,7 +54,7 @@ public class PaymentMethodBrandService {
     * @return List&lt;PaymentMethodBrand&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-method-brand-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-method-brand-service--all">All Documentation</a>
 
     **/
     public List<PaymentMethodBrand> all() throws IOException {
@@ -81,7 +81,7 @@ public class PaymentMethodBrandService {
     * @return List&lt;PaymentMethodBrand&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-method-brand-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-method-brand-service--all">All Documentation</a>
 
     **/
     public List<PaymentMethodBrand> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class PaymentMethodBrandService {
     * @return PaymentMethodBrand
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-method-brand-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-method-brand-service--read">Read Documentation</a>
 
     **/
     public PaymentMethodBrand read(Long id) throws IOException {
@@ -175,7 +175,7 @@ public class PaymentMethodBrandService {
     * @return PaymentMethodBrand
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-method-brand-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-method-brand-service--read">Read Documentation</a>
 
     **/
     public PaymentMethodBrand read(Long id, Map<String, Object> params) throws IOException {

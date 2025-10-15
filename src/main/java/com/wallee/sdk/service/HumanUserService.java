@@ -60,7 +60,7 @@ public class HumanUserService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class HumanUserService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -168,7 +168,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--create">Create Documentation</a>
 
     **/
     public HumanUser create(HumanUserCreate entity) throws IOException {
@@ -196,7 +196,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--create">Create Documentation</a>
 
     **/
     public HumanUser create(HumanUserCreate entity, Map<String, Object> params) throws IOException {
@@ -288,7 +288,7 @@ public class HumanUserService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id) throws IOException {
@@ -306,7 +306,7 @@ public class HumanUserService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id, Map<String, Object> params) throws IOException {
@@ -390,7 +390,7 @@ public class HumanUserService {
     * @return byte[]
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--export">Export Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--export">Export Documentation</a>
 
     **/
     public byte[] export(EntityExportRequest request) throws IOException {
@@ -418,7 +418,7 @@ public class HumanUserService {
     * @return byte[]
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--export">Export Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--export">Export Documentation</a>
 
     **/
     public byte[] export(EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -511,7 +511,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--read">Read Documentation</a>
 
     **/
     public HumanUser read(Long id) throws IOException {
@@ -539,7 +539,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--read">Read Documentation</a>
 
     **/
     public HumanUser read(Long id, Map<String, Object> params) throws IOException {
@@ -620,7 +620,7 @@ public class HumanUserService {
     * @return List&lt;HumanUser&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--search">Search Documentation</a>
 
     **/
     public List<HumanUser> search(EntityQuery query) throws IOException {
@@ -648,7 +648,7 @@ public class HumanUserService {
     * @return List&lt;HumanUser&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--search">Search Documentation</a>
 
     **/
     public List<HumanUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -742,7 +742,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--update">Update Documentation</a>
 
     **/
     public HumanUser update(HumanUserUpdate entity) throws IOException {
@@ -771,7 +771,7 @@ public class HumanUserService {
     * @return HumanUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#human-user-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#human-user-service--update">Update Documentation</a>
 
     **/
     public HumanUser update(HumanUserUpdate entity, Map<String, Object> params) throws IOException {

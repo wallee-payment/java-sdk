@@ -59,7 +59,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--activate">activate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--activate">activate Documentation</a>
 
     **/
     public SubscriptionProductVersion activate(Long spaceId, Long productVersionId) throws IOException {
@@ -88,7 +88,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--activate">activate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--activate">activate Documentation</a>
 
     **/
     public SubscriptionProductVersion activate(Long spaceId, Long productVersionId, Map<String, Object> params) throws IOException {
@@ -185,7 +185,7 @@ public class SubscriptionProductVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -213,7 +213,7 @@ public class SubscriptionProductVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -319,7 +319,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--create">Create Documentation</a>
 
     **/
     public SubscriptionProductVersion create(Long spaceId, SubscriptionProductVersionPending entity) throws IOException {
@@ -348,7 +348,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--create">Create Documentation</a>
 
     **/
     public SubscriptionProductVersion create(Long spaceId, SubscriptionProductVersionPending entity, Map<String, Object> params) throws IOException {
@@ -466,7 +466,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--read">Read Documentation</a>
 
     **/
     public SubscriptionProductVersion read(Long spaceId, Long id) throws IOException {
@@ -495,7 +495,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--read">Read Documentation</a>
 
     **/
     public SubscriptionProductVersion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -592,7 +592,7 @@ public class SubscriptionProductVersionService {
     * @return List&lt;SubscriptionProductVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionProductVersion> search(Long spaceId, EntityQuery query) throws IOException {
@@ -621,7 +621,7 @@ public class SubscriptionProductVersionService {
     * @return List&lt;SubscriptionProductVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionProductVersion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -740,7 +740,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--update">Update Documentation</a>
 
     **/
     public SubscriptionProductVersion update(Long spaceId, SubscriptionProductVersionPending entity) throws IOException {
@@ -770,7 +770,7 @@ public class SubscriptionProductVersionService {
     * @return SubscriptionProductVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-version-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-version-service--update">Update Documentation</a>
 
     **/
     public SubscriptionProductVersion update(Long spaceId, SubscriptionProductVersionPending entity, Map<String, Object> params) throws IOException {

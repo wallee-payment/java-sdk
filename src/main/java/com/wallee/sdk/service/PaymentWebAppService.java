@@ -67,7 +67,7 @@ public class PaymentWebAppService {
     * @return PaymentAppProcessor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--activate-processor-for-production">Activate Processor for Production Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--activate-processor-for-production">Activate Processor for Production Documentation</a>
 
     **/
     public PaymentAppProcessor activateProcessorForProduction(Long spaceId, String externalId) throws IOException {
@@ -96,7 +96,7 @@ public class PaymentWebAppService {
     * @return PaymentAppProcessor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--activate-processor-for-production">Activate Processor for Production Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--activate-processor-for-production">Activate Processor for Production Documentation</a>
 
     **/
     public PaymentAppProcessor activateProcessorForProduction(Long spaceId, String externalId, Map<String, Object> params) throws IOException {
@@ -191,7 +191,7 @@ public class PaymentWebAppService {
     * @param externalId The external ID identifies the connector. The external ID corresponds to the ID provided during inserting of the connector.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--delete-connector">Delete Connector Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--delete-connector">Delete Connector Documentation</a>
 
     **/
     public void deleteConnector(Long spaceId, String externalId) throws IOException {
@@ -209,7 +209,7 @@ public class PaymentWebAppService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--delete-connector">Delete Connector Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--delete-connector">Delete Connector Documentation</a>
 
     **/
     public void deleteConnector(Long spaceId, String externalId, Map<String, Object> params) throws IOException {
@@ -295,7 +295,7 @@ public class PaymentWebAppService {
     * @param externalId The external ID identifies the processor. The external ID corresponds to the ID provided during inserting of the processor.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--delete-processor">Delete Processor Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--delete-processor">Delete Processor Documentation</a>
 
     **/
     public void deleteProcessor(Long spaceId, String externalId) throws IOException {
@@ -313,7 +313,7 @@ public class PaymentWebAppService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--delete-processor">Delete Processor Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--delete-processor">Delete Processor Documentation</a>
 
     **/
     public void deleteProcessor(Long spaceId, String externalId, Map<String, Object> params) throws IOException {
@@ -401,7 +401,7 @@ public class PaymentWebAppService {
     * @return PaymentAppConnector
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--insert-or-update-connector">Insert or Update Connector Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--insert-or-update-connector">Insert or Update Connector Documentation</a>
 
     **/
     public PaymentAppConnector insertOrUpdateConnector(Long spaceId, PaymentAppConnectorCreationRequest request) throws IOException {
@@ -430,7 +430,7 @@ public class PaymentWebAppService {
     * @return PaymentAppConnector
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--insert-or-update-connector">Insert or Update Connector Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--insert-or-update-connector">Insert or Update Connector Documentation</a>
 
     **/
     public PaymentAppConnector insertOrUpdateConnector(Long spaceId, PaymentAppConnectorCreationRequest request, Map<String, Object> params) throws IOException {
@@ -548,7 +548,7 @@ public class PaymentWebAppService {
     * @return PaymentAppProcessor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--insert-or-update-processor">Insert or Update Processor Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--insert-or-update-processor">Insert or Update Processor Documentation</a>
 
     **/
     public PaymentAppProcessor insertOrUpdateProcessor(Long spaceId, PaymentAppProcessorCreationRequest request) throws IOException {
@@ -577,7 +577,7 @@ public class PaymentWebAppService {
     * @return PaymentAppProcessor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--insert-or-update-processor">Insert or Update Processor Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--insert-or-update-processor">Insert or Update Processor Documentation</a>
 
     **/
     public PaymentAppProcessor insertOrUpdateProcessor(Long spaceId, PaymentAppProcessorCreationRequest request, Map<String, Object> params) throws IOException {
@@ -695,7 +695,7 @@ public class PaymentWebAppService {
     * @return ChargeAttempt
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-charge-attempt">Update Charge Attempt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-charge-attempt">Update Charge Attempt Documentation</a>
 
     **/
     public ChargeAttempt updateChargeAttempt(Long spaceId, PaymentAppChargeAttemptUpdateRequest request) throws IOException {
@@ -724,7 +724,7 @@ public class PaymentWebAppService {
     * @return ChargeAttempt
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-charge-attempt">Update Charge Attempt Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-charge-attempt">Update Charge Attempt Documentation</a>
 
     **/
     public ChargeAttempt updateChargeAttempt(Long spaceId, PaymentAppChargeAttemptUpdateRequest request, Map<String, Object> params) throws IOException {
@@ -842,7 +842,7 @@ public class PaymentWebAppService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-completion">Update Completion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-completion">Update Completion Documentation</a>
 
     **/
     public TransactionCompletion updateCompletion(Long spaceId, PaymentAppCompletionUpdateRequest request) throws IOException {
@@ -871,7 +871,7 @@ public class PaymentWebAppService {
     * @return TransactionCompletion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-completion">Update Completion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-completion">Update Completion Documentation</a>
 
     **/
     public TransactionCompletion updateCompletion(Long spaceId, PaymentAppCompletionUpdateRequest request, Map<String, Object> params) throws IOException {
@@ -989,7 +989,7 @@ public class PaymentWebAppService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-refund">Update Refund Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-refund">Update Refund Documentation</a>
 
     **/
     public Refund updateRefund(Long spaceId, PaymentAppRefundUpdateRequest request) throws IOException {
@@ -1018,7 +1018,7 @@ public class PaymentWebAppService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-refund">Update Refund Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-refund">Update Refund Documentation</a>
 
     **/
     public Refund updateRefund(Long spaceId, PaymentAppRefundUpdateRequest request, Map<String, Object> params) throws IOException {
@@ -1136,7 +1136,7 @@ public class PaymentWebAppService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-void">Update Void Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-void">Update Void Documentation</a>
 
     **/
     public TransactionVoid updateVoid(Long spaceId, PaymentAppVoidUpdateRequest request) throws IOException {
@@ -1165,7 +1165,7 @@ public class PaymentWebAppService {
     * @return TransactionVoid
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-web-app-service--update-void">Update Void Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-web-app-service--update-void">Update Void Documentation</a>
 
     **/
     public TransactionVoid updateVoid(Long spaceId, PaymentAppVoidUpdateRequest request, Map<String, Object> params) throws IOException {

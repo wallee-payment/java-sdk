@@ -59,7 +59,7 @@ public class InvoiceReconciliationRecordService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class InvoiceReconciliationRecordService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -192,7 +192,7 @@ public class InvoiceReconciliationRecordService {
     * @param id The ID of the invoice reconciliation record which should be discarded.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--discard">Discard Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--discard">Discard Documentation</a>
 
     **/
     public void discard(Long spaceId, Long id) throws IOException {
@@ -211,7 +211,7 @@ public class InvoiceReconciliationRecordService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--discard">Discard Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--discard">Discard Documentation</a>
 
     **/
     public void discard(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -299,7 +299,7 @@ public class InvoiceReconciliationRecordService {
     * @return InvoiceReconciliationRecord
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--read">Read Documentation</a>
 
     **/
     public InvoiceReconciliationRecord read(Long spaceId, Long id) throws IOException {
@@ -328,7 +328,7 @@ public class InvoiceReconciliationRecordService {
     * @return InvoiceReconciliationRecord
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--read">Read Documentation</a>
 
     **/
     public InvoiceReconciliationRecord read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -424,7 +424,7 @@ public class InvoiceReconciliationRecordService {
     * @param id The ID of the invoice reconciliation record which should be resolved.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--resolve">Resolve Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--resolve">Resolve Documentation</a>
 
     **/
     public void resolve(Long spaceId, Long id) throws IOException {
@@ -443,7 +443,7 @@ public class InvoiceReconciliationRecordService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--resolve">Resolve Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--resolve">Resolve Documentation</a>
 
     **/
     public void resolve(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -531,7 +531,7 @@ public class InvoiceReconciliationRecordService {
     * @return List&lt;InvoiceReconciliationRecord&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--search">Search Documentation</a>
 
     **/
     public List<InvoiceReconciliationRecord> search(Long spaceId, EntityQuery query) throws IOException {
@@ -560,7 +560,7 @@ public class InvoiceReconciliationRecordService {
     * @return List&lt;InvoiceReconciliationRecord&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--search">Search Documentation</a>
 
     **/
     public List<InvoiceReconciliationRecord> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -679,7 +679,7 @@ public class InvoiceReconciliationRecordService {
     * @return List&lt;TransactionInvoice&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--search-for-invoices-by-query">Search for matchable invoices by query Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--search-for-invoices-by-query">Search for matchable invoices by query Documentation</a>
 
     **/
     public List<TransactionInvoice> searchForInvoicesByQuery(Long spaceId, EntityQuery query) throws IOException {
@@ -709,7 +709,7 @@ public class InvoiceReconciliationRecordService {
     * @return List&lt;TransactionInvoice&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reconciliation-record-service--search-for-invoices-by-query">Search for matchable invoices by query Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reconciliation-record-service--search-for-invoices-by-query">Search for matchable invoices by query Documentation</a>
 
     **/
     public List<TransactionInvoice> searchForInvoicesByQuery(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

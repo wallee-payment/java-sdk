@@ -66,7 +66,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionReceipt
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--add-collected-amount">Add Collected Amount Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--add-collected-amount">Add Collected Amount Documentation</a>
 
     **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId) throws IOException {
@@ -98,7 +98,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionReceipt
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--add-collected-amount">Add Collected Amount Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--add-collected-amount">Add Collected Amount Documentation</a>
 
     **/
     public DebtCollectionReceipt addCollectedAmount(Long spaceId, Long id, BigDecimal collectedAmount, String externalId, Map<String, Object> params) throws IOException {
@@ -228,7 +228,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCaseDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--attach-document">Attach Document Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--attach-document">Attach Document Documentation</a>
 
     **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64) throws IOException {
@@ -260,7 +260,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCaseDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--attach-document">Attach Document Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--attach-document">Attach Document Documentation</a>
 
     **/
     public DebtCollectionCaseDocument attachDocument(Long spaceId, Long id, String fileName, String contentBase64, Map<String, Object> params) throws IOException {
@@ -388,7 +388,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--close">Close Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--close">Close Documentation</a>
 
     **/
     public DebtCollectionCase close(Long spaceId, Long id) throws IOException {
@@ -418,7 +418,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--close">Close Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--close">Close Documentation</a>
 
     **/
     public DebtCollectionCase close(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -515,7 +515,7 @@ public class DebtCollectionCaseService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -543,7 +543,7 @@ public class DebtCollectionCaseService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -649,7 +649,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--create">Create Documentation</a>
 
     **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity) throws IOException {
@@ -678,7 +678,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--create">Create Documentation</a>
 
     **/
     public DebtCollectionCase create(Long spaceId, DebtCollectionCaseCreate entity, Map<String, Object> params) throws IOException {
@@ -795,7 +795,7 @@ public class DebtCollectionCaseService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -814,7 +814,7 @@ public class DebtCollectionCaseService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -924,7 +924,7 @@ public class DebtCollectionCaseService {
     * @return List&lt;DebtCollectionCaseDocument&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--documents">Documents Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--documents">Documents Documentation</a>
 
     **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id) throws IOException {
@@ -954,7 +954,7 @@ public class DebtCollectionCaseService {
     * @return List&lt;DebtCollectionCaseDocument&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--documents">Documents Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--documents">Documents Documentation</a>
 
     **/
     public List<DebtCollectionCaseDocument> documents(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1052,7 +1052,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--mark-as-prepared">Mark Case As Prepared Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--mark-as-prepared">Mark Case As Prepared Documentation</a>
 
     **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id) throws IOException {
@@ -1082,7 +1082,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--mark-as-prepared">Mark Case As Prepared Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--mark-as-prepared">Mark Case As Prepared Documentation</a>
 
     **/
     public DebtCollectionCase markAsPrepared(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1180,7 +1180,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--mark-as-reviewed">Mark Case As Reviewed Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--mark-as-reviewed">Mark Case As Reviewed Documentation</a>
 
     **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id) throws IOException {
@@ -1210,7 +1210,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--mark-as-reviewed">Mark Case As Reviewed Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--mark-as-reviewed">Mark Case As Reviewed Documentation</a>
 
     **/
     public DebtCollectionCase markAsReviewed(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1307,7 +1307,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--read">Read Documentation</a>
 
     **/
     public DebtCollectionCase read(Long spaceId, Long id) throws IOException {
@@ -1336,7 +1336,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--read">Read Documentation</a>
 
     **/
     public DebtCollectionCase read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1433,7 +1433,7 @@ public class DebtCollectionCaseService {
     * @return List&lt;DebtCollectionCase&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--search">Search Documentation</a>
 
     **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query) throws IOException {
@@ -1462,7 +1462,7 @@ public class DebtCollectionCaseService {
     * @return List&lt;DebtCollectionCase&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--search">Search Documentation</a>
 
     **/
     public List<DebtCollectionCase> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1581,7 +1581,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--update">Update Documentation</a>
 
     **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity) throws IOException {
@@ -1611,7 +1611,7 @@ public class DebtCollectionCaseService {
     * @return DebtCollectionCase
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collection-case-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collection-case-service--update">Update Documentation</a>
 
     **/
     public DebtCollectionCase update(Long spaceId, DebtCollectionCaseUpdate entity, Map<String, Object> params) throws IOException {

@@ -59,7 +59,7 @@ public class AccountService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter) throws IOException {
@@ -86,7 +86,7 @@ public class AccountService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -167,7 +167,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--create">Create Documentation</a>
 
     **/
     public Account create(AccountCreate entity) throws IOException {
@@ -195,7 +195,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--create">Create Documentation</a>
 
     **/
     public Account create(AccountCreate entity, Map<String, Object> params) throws IOException {
@@ -287,7 +287,7 @@ public class AccountService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id) throws IOException {
@@ -305,7 +305,7 @@ public class AccountService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id, Map<String, Object> params) throws IOException {
@@ -389,7 +389,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--read">Read Documentation</a>
 
     **/
     public Account read(Long id) throws IOException {
@@ -417,7 +417,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--read">Read Documentation</a>
 
     **/
     public Account read(Long id, Map<String, Object> params) throws IOException {
@@ -498,7 +498,7 @@ public class AccountService {
     * @return List&lt;Account&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--search">Search Documentation</a>
 
     **/
     public List<Account> search(EntityQuery query) throws IOException {
@@ -526,7 +526,7 @@ public class AccountService {
     * @return List&lt;Account&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--search">Search Documentation</a>
 
     **/
     public List<Account> search(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -620,7 +620,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--update">Update Documentation</a>
 
     **/
     public Account update(AccountUpdate entity) throws IOException {
@@ -649,7 +649,7 @@ public class AccountService {
     * @return Account
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#account-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#account-service--update">Update Documentation</a>
 
     **/
     public Account update(AccountUpdate entity, Map<String, Object> params) throws IOException {

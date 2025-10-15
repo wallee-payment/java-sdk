@@ -60,7 +60,7 @@ public class PaymentTerminalTillService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-till-service--perform-transaction">Perform Payment Terminal Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-till-service--perform-transaction">Perform Payment Terminal Transaction Documentation</a>
 
     **/
     public Transaction performTransaction(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
@@ -92,7 +92,7 @@ public class PaymentTerminalTillService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-till-service--perform-transaction">Perform Payment Terminal Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-till-service--perform-transaction">Perform Payment Terminal Transaction Documentation</a>
 
     **/
     public Transaction performTransaction(Long spaceId, Long transactionId, Long terminalId, Map<String, Object> params) throws IOException {
@@ -213,7 +213,7 @@ public class PaymentTerminalTillService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-till-service--perform-transaction-by-identifier">Perform Payment Terminal Transaction (using TID) Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-till-service--perform-transaction-by-identifier">Perform Payment Terminal Transaction (using TID) Documentation</a>
 
     **/
     public Transaction performTransactionByIdentifier(Long spaceId, Long transactionId, String terminalIdentifier, String language) throws IOException {
@@ -245,7 +245,7 @@ public class PaymentTerminalTillService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#payment-terminal-till-service--perform-transaction-by-identifier">Perform Payment Terminal Transaction (using TID) Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#payment-terminal-till-service--perform-transaction-by-identifier">Perform Payment Terminal Transaction (using TID) Documentation</a>
 
     **/
     public Transaction performTransactionByIdentifier(Long spaceId, Long transactionId, String terminalIdentifier, Map<String, Object> params) throws IOException {

@@ -54,7 +54,7 @@ public class CountryStateService {
     * @return List&lt;RestCountryState&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#country-state-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#country-state-service--all">All Documentation</a>
 
     **/
     public List<RestCountryState> all() throws IOException {
@@ -81,7 +81,7 @@ public class CountryStateService {
     * @return List&lt;RestCountryState&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#country-state-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#country-state-service--all">All Documentation</a>
 
     **/
     public List<RestCountryState> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class CountryStateService {
     * @return List&lt;RestCountryState&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#country-state-service--country">Find by Country Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#country-state-service--country">Find by Country Documentation</a>
 
     **/
     public List<RestCountryState> country(String code) throws IOException {
@@ -175,7 +175,7 @@ public class CountryStateService {
     * @return List&lt;RestCountryState&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#country-state-service--country">Find by Country Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#country-state-service--country">Find by Country Documentation</a>
 
     **/
     public List<RestCountryState> country(String code, Map<String, Object> params) throws IOException {

@@ -60,7 +60,7 @@ public class ShopifySubscriptionProductService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class ShopifySubscriptionProductService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--create">Create Documentation</a>
 
     **/
     public ShopifySubscriptionProduct create(Long spaceId, ShopifySubscriptionProductCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--create">Create Documentation</a>
 
     **/
     public ShopifySubscriptionProduct create(Long spaceId, ShopifySubscriptionProductCreate entity, Map<String, Object> params) throws IOException {
@@ -341,7 +341,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriptionProduct read(Long spaceId, Long id) throws IOException {
@@ -370,7 +370,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriptionProduct read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class ShopifySubscriptionProductService {
     * @return List&lt;ShopifySubscriptionProduct&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriptionProduct> search(Long spaceId, EntityQuery query) throws IOException {
@@ -496,7 +496,7 @@ public class ShopifySubscriptionProductService {
     * @return List&lt;ShopifySubscriptionProduct&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriptionProduct> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -615,7 +615,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--update">Update Documentation</a>
 
     **/
     public ShopifySubscriptionProduct update(Long spaceId, ShopifySubscriptionProductUpdate entity) throws IOException {
@@ -645,7 +645,7 @@ public class ShopifySubscriptionProductService {
     * @return ShopifySubscriptionProduct
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-product-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-product-service--update">Update Documentation</a>
 
     **/
     public ShopifySubscriptionProduct update(Long spaceId, ShopifySubscriptionProductUpdate entity, Map<String, Object> params) throws IOException {

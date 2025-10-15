@@ -60,7 +60,7 @@ public class TransactionInvoiceService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class TransactionInvoiceService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class TransactionInvoiceService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
@@ -223,7 +223,7 @@ public class TransactionInvoiceService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--get-invoice-document">getInvoiceDocument Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -321,7 +321,7 @@ public class TransactionInvoiceService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -351,7 +351,7 @@ public class TransactionInvoiceService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--get-invoice-document-with-target-media-type">getInvoiceDocumentWithTargetMediaType Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
@@ -463,7 +463,7 @@ public class TransactionInvoiceService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
 
     **/
     public Boolean isReplacementPossible(Long spaceId, Long id) throws IOException {
@@ -492,7 +492,7 @@ public class TransactionInvoiceService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--is-replacement-possible">isReplacementPossible Documentation</a>
 
     **/
     public Boolean isReplacementPossible(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -589,7 +589,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
 
     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id) throws IOException {
@@ -618,7 +618,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--mark-as-derecognized">Mark as Derecognized Documentation</a>
 
     **/
     public TransactionInvoice markAsDerecognized(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -715,7 +715,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
 
     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id) throws IOException {
@@ -744,7 +744,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--mark-as-paid">Mark as Paid Documentation</a>
 
     **/
     public TransactionInvoice markAsPaid(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -841,7 +841,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--read">Read Documentation</a>
 
     **/
     public TransactionInvoice read(Long spaceId, Long id) throws IOException {
@@ -870,7 +870,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--read">Read Documentation</a>
 
     **/
     public TransactionInvoice read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -968,7 +968,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--replace">replace Documentation</a>
 
     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement) throws IOException {
@@ -998,7 +998,7 @@ public class TransactionInvoiceService {
     * @return TransactionInvoice
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--replace">replace Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--replace">replace Documentation</a>
 
     **/
     public TransactionInvoice replace(Long spaceId, Long id, TransactionInvoiceReplacement replacement, Map<String, Object> params) throws IOException {
@@ -1140,7 +1140,7 @@ public class TransactionInvoiceService {
     * @return List&lt;TransactionInvoice&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--search">Search Documentation</a>
 
     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query) throws IOException {
@@ -1169,7 +1169,7 @@ public class TransactionInvoiceService {
     * @return List&lt;TransactionInvoice&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-service--search">Search Documentation</a>
 
     **/
     public List<TransactionInvoice> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

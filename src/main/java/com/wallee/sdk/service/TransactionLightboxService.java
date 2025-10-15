@@ -56,7 +56,7 @@ public class TransactionLightboxService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-lightbox-service--javascript-url">Build JavaScript URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-lightbox-service--javascript-url">Build JavaScript URL Documentation</a>
 
     **/
     public String javascriptUrl(Long spaceId, Long id) throws IOException {
@@ -86,7 +86,7 @@ public class TransactionLightboxService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-lightbox-service--javascript-url">Build JavaScript URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-lightbox-service--javascript-url">Build JavaScript URL Documentation</a>
 
     **/
     public String javascriptUrl(Long spaceId, Long id, Map<String, Object> params) throws IOException {

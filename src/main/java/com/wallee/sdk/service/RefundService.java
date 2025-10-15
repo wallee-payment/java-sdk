@@ -60,7 +60,7 @@ public class RefundService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class RefundService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--fail">fail Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--fail">fail Documentation</a>
 
     **/
     public Refund fail(Long spaceId, Long refundId) throws IOException {
@@ -223,7 +223,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--fail">fail Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--fail">fail Documentation</a>
 
     **/
     public Refund fail(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {
@@ -320,7 +320,7 @@ public class RefundService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--get-refund-document">getRefundDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--get-refund-document">getRefundDocument Documentation</a>
 
     **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id) throws IOException {
@@ -349,7 +349,7 @@ public class RefundService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--get-refund-document">getRefundDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--get-refund-document">getRefundDocument Documentation</a>
 
     **/
     public RenderedDocument getRefundDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -447,7 +447,7 @@ public class RefundService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--get-refund-document-with-target-media-type">getRefundDocumentWithTargetMediaType Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--get-refund-document-with-target-media-type">getRefundDocumentWithTargetMediaType Documentation</a>
 
     **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId) throws IOException {
@@ -477,7 +477,7 @@ public class RefundService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--get-refund-document-with-target-media-type">getRefundDocumentWithTargetMediaType Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--get-refund-document-with-target-media-type">getRefundDocumentWithTargetMediaType Documentation</a>
 
     **/
     public RenderedDocument getRefundDocumentWithTargetMediaType(Long spaceId, Long id, Long targetMediaTypeId, Map<String, Object> params) throws IOException {
@@ -589,7 +589,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--read">Read Documentation</a>
 
     **/
     public Refund read(Long spaceId, Long id) throws IOException {
@@ -618,7 +618,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--read">Read Documentation</a>
 
     **/
     public Refund read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -715,7 +715,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--refund">create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--refund">create Documentation</a>
 
     **/
     public Refund refund(Long spaceId, RefundCreate refund) throws IOException {
@@ -744,7 +744,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--refund">create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--refund">create Documentation</a>
 
     **/
     public Refund refund(Long spaceId, RefundCreate refund, Map<String, Object> params) throws IOException {
@@ -862,7 +862,7 @@ public class RefundService {
     * @return List&lt;Refund&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--search">Search Documentation</a>
 
     **/
     public List<Refund> search(Long spaceId, EntityQuery query) throws IOException {
@@ -891,7 +891,7 @@ public class RefundService {
     * @return List&lt;Refund&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--search">Search Documentation</a>
 
     **/
     public List<Refund> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1009,7 +1009,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--succeed">succeed Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--succeed">succeed Documentation</a>
 
     **/
     public Refund succeed(Long spaceId, Long refundId) throws IOException {
@@ -1038,7 +1038,7 @@ public class RefundService {
     * @return Refund
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#refund-service--succeed">succeed Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#refund-service--succeed">succeed Documentation</a>
 
     **/
     public Refund succeed(Long spaceId, Long refundId, Map<String, Object> params) throws IOException {

@@ -60,7 +60,7 @@ public class ApplicationUserService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class ApplicationUserService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -168,7 +168,7 @@ public class ApplicationUserService {
     * @return ApplicationUserCreateWithMacKey
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--create">Create Documentation</a>
 
     **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity) throws IOException {
@@ -196,7 +196,7 @@ public class ApplicationUserService {
     * @return ApplicationUserCreateWithMacKey
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--create">Create Documentation</a>
 
     **/
     public ApplicationUserCreateWithMacKey create(ApplicationUserCreate entity, Map<String, Object> params) throws IOException {
@@ -288,7 +288,7 @@ public class ApplicationUserService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id) throws IOException {
@@ -306,7 +306,7 @@ public class ApplicationUserService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long id, Map<String, Object> params) throws IOException {
@@ -390,7 +390,7 @@ public class ApplicationUserService {
     * @return ApplicationUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--read">Read Documentation</a>
 
     **/
     public ApplicationUser read(Long id) throws IOException {
@@ -418,7 +418,7 @@ public class ApplicationUserService {
     * @return ApplicationUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--read">Read Documentation</a>
 
     **/
     public ApplicationUser read(Long id, Map<String, Object> params) throws IOException {
@@ -499,7 +499,7 @@ public class ApplicationUserService {
     * @return List&lt;ApplicationUser&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--search">Search Documentation</a>
 
     **/
     public List<ApplicationUser> search(EntityQuery query) throws IOException {
@@ -527,7 +527,7 @@ public class ApplicationUserService {
     * @return List&lt;ApplicationUser&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--search">Search Documentation</a>
 
     **/
     public List<ApplicationUser> search(EntityQuery query, Map<String, Object> params) throws IOException {
@@ -621,7 +621,7 @@ public class ApplicationUserService {
     * @return ApplicationUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--update">Update Documentation</a>
 
     **/
     public ApplicationUser update(ApplicationUserUpdate entity) throws IOException {
@@ -650,7 +650,7 @@ public class ApplicationUserService {
     * @return ApplicationUser
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#application-user-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#application-user-service--update">Update Documentation</a>
 
     **/
     public ApplicationUser update(ApplicationUserUpdate entity, Map<String, Object> params) throws IOException {

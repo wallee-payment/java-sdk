@@ -58,7 +58,7 @@ public class TransactionInvoiceCommentService {
     * @return List&lt;TransactionInvoiceComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--all">Find by invoice Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--all">Find by invoice Documentation</a>
 
     **/
     public List<TransactionInvoiceComment> all(Long spaceId, Long invoiceId) throws IOException {
@@ -87,7 +87,7 @@ public class TransactionInvoiceCommentService {
     * @return List&lt;TransactionInvoiceComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--all">Find by invoice Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--all">Find by invoice Documentation</a>
 
     **/
     public List<TransactionInvoiceComment> all(Long spaceId, Long invoiceId, Map<String, Object> params) throws IOException {
@@ -184,7 +184,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--create">Create Documentation</a>
 
     **/
     public TransactionInvoiceComment create(Long spaceId, TransactionInvoiceCommentCreate entity) throws IOException {
@@ -213,7 +213,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--create">Create Documentation</a>
 
     **/
     public TransactionInvoiceComment create(Long spaceId, TransactionInvoiceCommentCreate entity, Map<String, Object> params) throws IOException {
@@ -330,7 +330,7 @@ public class TransactionInvoiceCommentService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -349,7 +349,7 @@ public class TransactionInvoiceCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -457,7 +457,7 @@ public class TransactionInvoiceCommentService {
     * @param id The id of the comment to pin to the top.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--pin">Pin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--pin">Pin Documentation</a>
 
     **/
     public void pin(Long spaceId, Long id) throws IOException {
@@ -476,7 +476,7 @@ public class TransactionInvoiceCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--pin">Pin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--pin">Pin Documentation</a>
 
     **/
     public void pin(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -564,7 +564,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--read">Read Documentation</a>
 
     **/
     public TransactionInvoiceComment read(Long spaceId, Long id) throws IOException {
@@ -593,7 +593,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--read">Read Documentation</a>
 
     **/
     public TransactionInvoiceComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -689,7 +689,7 @@ public class TransactionInvoiceCommentService {
     * @param id The id of the comment to unpin.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--unpin">Unpin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--unpin">Unpin Documentation</a>
 
     **/
     public void unpin(Long spaceId, Long id) throws IOException {
@@ -708,7 +708,7 @@ public class TransactionInvoiceCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--unpin">Unpin Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--unpin">Unpin Documentation</a>
 
     **/
     public void unpin(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -797,7 +797,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--update">Update Documentation</a>
 
     **/
     public TransactionInvoiceComment update(Long spaceId, TransactionInvoiceCommentActive entity) throws IOException {
@@ -827,7 +827,7 @@ public class TransactionInvoiceCommentService {
     * @return TransactionInvoiceComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-invoice-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-invoice-comment-service--update">Update Documentation</a>
 
     **/
     public TransactionInvoiceComment update(Long spaceId, TransactionInvoiceCommentActive entity, Map<String, Object> params) throws IOException {

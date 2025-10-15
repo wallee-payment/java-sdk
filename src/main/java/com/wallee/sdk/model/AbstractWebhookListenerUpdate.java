@@ -38,10 +38,6 @@ import java.time.OffsetDateTime;
 
 public class AbstractWebhookListenerUpdate {
   
-  @JsonProperty("enablePayloadSignatureAndState")
-  protected Boolean enablePayloadSignatureAndState = null;
-
-  
   @JsonProperty("entityStates")
   protected List<String> entityStates = null;
 
@@ -58,25 +54,6 @@ public class AbstractWebhookListenerUpdate {
   protected CreationEntityState state = null;
 
   
-  
-  public AbstractWebhookListenerUpdate enablePayloadSignatureAndState(Boolean enablePayloadSignatureAndState) {
-    this.enablePayloadSignatureAndState = enablePayloadSignatureAndState;
-    return this;
-  }
-
-   /**
-   * Whether signature header and &#39;state&#39; property are enabled in webhook payload.
-   * @return enablePayloadSignatureAndState
-  **/
-  @ApiModelProperty(value = "Whether signature header and 'state' property are enabled in webhook payload.")
-  public Boolean isEnablePayloadSignatureAndState() {
-    return enablePayloadSignatureAndState;
-  }
-
-  public void setEnablePayloadSignatureAndState(Boolean enablePayloadSignatureAndState) {
-    this.enablePayloadSignatureAndState = enablePayloadSignatureAndState;
-  }
-
   
   public AbstractWebhookListenerUpdate entityStates(List<String> entityStates) {
     this.entityStates = entityStates;
@@ -172,8 +149,7 @@ public class AbstractWebhookListenerUpdate {
       return false;
     }
     AbstractWebhookListenerUpdate abstractWebhookListenerUpdate = (AbstractWebhookListenerUpdate) o;
-    return Objects.equals(this.enablePayloadSignatureAndState, abstractWebhookListenerUpdate.enablePayloadSignatureAndState) &&
-        Objects.equals(this.entityStates, abstractWebhookListenerUpdate.entityStates) &&
+    return Objects.equals(this.entityStates, abstractWebhookListenerUpdate.entityStates) &&
         Objects.equals(this.name, abstractWebhookListenerUpdate.name) &&
         Objects.equals(this.notifyEveryChange, abstractWebhookListenerUpdate.notifyEveryChange) &&
         Objects.equals(this.state, abstractWebhookListenerUpdate.state);
@@ -181,7 +157,7 @@ public class AbstractWebhookListenerUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePayloadSignatureAndState, entityStates, name, notifyEveryChange, state);
+    return Objects.hash(entityStates, name, notifyEveryChange, state);
   }
 
 
@@ -190,7 +166,6 @@ public class AbstractWebhookListenerUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class AbstractWebhookListenerUpdate {\n");
     
-    sb.append("    enablePayloadSignatureAndState: ").append(toIndentedString(enablePayloadSignatureAndState)).append("\n");
     sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");

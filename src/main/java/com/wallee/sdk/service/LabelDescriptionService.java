@@ -54,7 +54,7 @@ public class LabelDescriptionService {
     * @return List&lt;LabelDescriptor&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#label-description-service--all">All Documentation</a>
 
     **/
     public List<LabelDescriptor> all() throws IOException {
@@ -81,7 +81,7 @@ public class LabelDescriptionService {
     * @return List&lt;LabelDescriptor&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#label-description-service--all">All Documentation</a>
 
     **/
     public List<LabelDescriptor> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class LabelDescriptionService {
     * @return LabelDescriptor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#label-description-service--read">Read Documentation</a>
 
     **/
     public LabelDescriptor read(Long id) throws IOException {
@@ -175,7 +175,7 @@ public class LabelDescriptionService {
     * @return LabelDescriptor
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#label-description-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#label-description-service--read">Read Documentation</a>
 
     **/
     public LabelDescriptor read(Long id, Map<String, Object> params) throws IOException {

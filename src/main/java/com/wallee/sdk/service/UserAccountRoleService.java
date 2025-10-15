@@ -58,7 +58,7 @@ public class UserAccountRoleService {
     * @return UserAccountRole
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--add-role">Add Role Documentation</a>
 
     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Boolean appliesOnSubaccount) throws IOException {
@@ -88,7 +88,7 @@ public class UserAccountRoleService {
     * @return UserAccountRole
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--add-role">Add Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--add-role">Add Role Documentation</a>
 
     **/
     public UserAccountRole addRole(Long userId, Long accountId, Long roleId, Map<String, Object> params) throws IOException {
@@ -205,7 +205,7 @@ public class UserAccountRoleService {
     * @return List&lt;UserAccountRole&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--list">List Roles Documentation</a>
 
     **/
     public List<UserAccountRole> list(Long userId, Long accountId) throws IOException {
@@ -234,7 +234,7 @@ public class UserAccountRoleService {
     * @return List&lt;UserAccountRole&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--list">List Roles Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--list">List Roles Documentation</a>
 
     **/
     public List<UserAccountRole> list(Long userId, Long accountId, Map<String, Object> params) throws IOException {
@@ -328,7 +328,7 @@ public class UserAccountRoleService {
     * @param id The id of user account role which should be removed
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--remove-role">Remove Role Documentation</a>
 
     **/
     public void removeRole(Long id) throws IOException {
@@ -345,7 +345,7 @@ public class UserAccountRoleService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-account-role-service--remove-role">Remove Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-account-role-service--remove-role">Remove Role Documentation</a>
 
     **/
     public void removeRole(Long id, Map<String, Object> params) throws IOException {

@@ -55,7 +55,7 @@ public class TransactionMobileSdkService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-mobile-sdk-service--payment-form-url">Build Mobile SDK URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-mobile-sdk-service--payment-form-url">Build Mobile SDK URL Documentation</a>
 
     **/
     public String paymentFormUrl(String credentials) throws IOException {
@@ -84,7 +84,7 @@ public class TransactionMobileSdkService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-mobile-sdk-service--payment-form-url">Build Mobile SDK URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-mobile-sdk-service--payment-form-url">Build Mobile SDK URL Documentation</a>
 
     **/
     public String paymentFormUrl(String credentials, Map<String, Object> params) throws IOException {

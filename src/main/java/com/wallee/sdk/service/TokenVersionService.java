@@ -58,7 +58,7 @@ public class TokenVersionService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--active-version">Active Version Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--active-version">Active Version Documentation</a>
 
     **/
     public TokenVersion activeVersion(Long spaceId, Long id) throws IOException {
@@ -87,7 +87,7 @@ public class TokenVersionService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--active-version">Active Version Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--active-version">Active Version Documentation</a>
 
     **/
     public TokenVersion activeVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -184,7 +184,7 @@ public class TokenVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -212,7 +212,7 @@ public class TokenVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -318,7 +318,7 @@ public class TokenVersionService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--read">Read Documentation</a>
 
     **/
     public TokenVersion read(Long spaceId, Long id) throws IOException {
@@ -347,7 +347,7 @@ public class TokenVersionService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--read">Read Documentation</a>
 
     **/
     public TokenVersion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -444,7 +444,7 @@ public class TokenVersionService {
     * @return List&lt;TokenVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--search">Search Documentation</a>
 
     **/
     public List<TokenVersion> search(Long spaceId, EntityQuery query) throws IOException {
@@ -473,7 +473,7 @@ public class TokenVersionService {
     * @return List&lt;TokenVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-version-service--search">Search Documentation</a>
 
     **/
     public List<TokenVersion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

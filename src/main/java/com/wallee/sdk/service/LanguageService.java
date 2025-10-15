@@ -54,7 +54,7 @@ public class LanguageService {
     * @return List&lt;RestLanguage&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#language-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#language-service--all">All Documentation</a>
 
     **/
     public List<RestLanguage> all() throws IOException {
@@ -81,7 +81,7 @@ public class LanguageService {
     * @return List&lt;RestLanguage&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#language-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#language-service--all">All Documentation</a>
 
     **/
     public List<RestLanguage> all(Map<String, Object> params) throws IOException {

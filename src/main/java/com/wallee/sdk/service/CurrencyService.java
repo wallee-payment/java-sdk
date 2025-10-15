@@ -54,7 +54,7 @@ public class CurrencyService {
     * @return List&lt;RestCurrency&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#currency-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#currency-service--all">All Documentation</a>
 
     **/
     public List<RestCurrency> all() throws IOException {
@@ -81,7 +81,7 @@ public class CurrencyService {
     * @return List&lt;RestCurrency&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#currency-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#currency-service--all">All Documentation</a>
 
     **/
     public List<RestCurrency> all(Map<String, Object> params) throws IOException {

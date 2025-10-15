@@ -58,7 +58,7 @@ public class InstallmentPaymentService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class InstallmentPaymentService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -206,7 +206,7 @@ public class InstallmentPaymentService {
     * @return InstallmentPayment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--create-installment-payment">Create Installment Payment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--create-installment-payment">Create Installment Payment Documentation</a>
 
     **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration) throws IOException {
@@ -236,7 +236,7 @@ public class InstallmentPaymentService {
     * @return InstallmentPayment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--create-installment-payment">Create Installment Payment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--create-installment-payment">Create Installment Payment Documentation</a>
 
     **/
     public InstallmentPayment createInstallmentPayment(Long spaceId, Long transactionId, Long installmentPlanConfiguration, Map<String, Object> params) throws IOException {
@@ -348,7 +348,7 @@ public class InstallmentPaymentService {
     * @return InstallmentPayment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--read">Read Documentation</a>
 
     **/
     public InstallmentPayment read(Long spaceId, Long id) throws IOException {
@@ -377,7 +377,7 @@ public class InstallmentPaymentService {
     * @return InstallmentPayment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--read">Read Documentation</a>
 
     **/
     public InstallmentPayment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -474,7 +474,7 @@ public class InstallmentPaymentService {
     * @return List&lt;InstallmentPayment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--search">Search Documentation</a>
 
     **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query) throws IOException {
@@ -503,7 +503,7 @@ public class InstallmentPaymentService {
     * @return List&lt;InstallmentPayment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-payment-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-payment-service--search">Search Documentation</a>
 
     **/
     public List<InstallmentPayment> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

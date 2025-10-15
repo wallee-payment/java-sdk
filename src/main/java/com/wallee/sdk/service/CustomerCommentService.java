@@ -60,7 +60,7 @@ public class CustomerCommentService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class CustomerCommentService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--create">Create Documentation</a>
 
     **/
     public CustomerComment create(Long spaceId, CustomerCommentCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--create">Create Documentation</a>
 
     **/
     public CustomerComment create(Long spaceId, CustomerCommentCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class CustomerCommentService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class CustomerCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class CustomerCommentService {
     * @param id The id of the customer comment to pin to the top.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--pin-comment">pinComment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--pin-comment">pinComment Documentation</a>
 
     **/
     public void pinComment(Long spaceId, Long id) throws IOException {
@@ -486,7 +486,7 @@ public class CustomerCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--pin-comment">pinComment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--pin-comment">pinComment Documentation</a>
 
     **/
     public void pinComment(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -574,7 +574,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--read">Read Documentation</a>
 
     **/
     public CustomerComment read(Long spaceId, Long id) throws IOException {
@@ -603,7 +603,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--read">Read Documentation</a>
 
     **/
     public CustomerComment read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -700,7 +700,7 @@ public class CustomerCommentService {
     * @return List&lt;CustomerComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--search">Search Documentation</a>
 
     **/
     public List<CustomerComment> search(Long spaceId, EntityQuery query) throws IOException {
@@ -729,7 +729,7 @@ public class CustomerCommentService {
     * @return List&lt;CustomerComment&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--search">Search Documentation</a>
 
     **/
     public List<CustomerComment> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -846,7 +846,7 @@ public class CustomerCommentService {
     * @param id The id of the customer comment to unpin.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--unpin-comment">unpinComment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--unpin-comment">unpinComment Documentation</a>
 
     **/
     public void unpinComment(Long spaceId, Long id) throws IOException {
@@ -865,7 +865,7 @@ public class CustomerCommentService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--unpin-comment">unpinComment Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--unpin-comment">unpinComment Documentation</a>
 
     **/
     public void unpinComment(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -954,7 +954,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--update">Update Documentation</a>
 
     **/
     public CustomerComment update(Long spaceId, CustomerCommentActive entity) throws IOException {
@@ -984,7 +984,7 @@ public class CustomerCommentService {
     * @return CustomerComment
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-comment-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-comment-service--update">Update Documentation</a>
 
     **/
     public CustomerComment update(Long spaceId, CustomerCommentActive entity, Map<String, Object> params) throws IOException {

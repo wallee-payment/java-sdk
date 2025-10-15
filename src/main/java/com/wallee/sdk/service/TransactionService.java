@@ -66,7 +66,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--confirm">Confirm Documentation</a>
 
     **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel) throws IOException {
@@ -96,7 +96,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--confirm">Confirm Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--confirm">Confirm Documentation</a>
 
     **/
     public Transaction confirm(Long spaceId, TransactionPending transactionModel, Map<String, Object> params) throws IOException {
@@ -214,7 +214,7 @@ public class TransactionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -242,7 +242,7 @@ public class TransactionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -348,7 +348,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--create">Create Documentation</a>
 
     **/
     public Transaction create(Long spaceId, TransactionCreate transaction) throws IOException {
@@ -377,7 +377,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--create">Create Documentation</a>
 
     **/
     public Transaction create(Long spaceId, TransactionCreate transaction, Map<String, Object> params) throws IOException {
@@ -495,7 +495,7 @@ public class TransactionService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
 
     **/
     public String createTransactionCredentials(Long spaceId, Long id) throws IOException {
@@ -524,7 +524,7 @@ public class TransactionService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--create-transaction-credentials">Create Transaction Credentials Documentation</a>
 
     **/
     public String createTransactionCredentials(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -619,7 +619,7 @@ public class TransactionService {
     * @param tokenId The token ID will be used to find the token which should be removed.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
 
     **/
     public void deleteOneClickTokenWithCredentials(String credentials, Long tokenId) throws IOException {
@@ -637,7 +637,7 @@ public class TransactionService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--delete-one-click-token-with-credentials">Delete One-Click Token with Credentials Documentation</a>
 
     **/
     public void deleteOneClickTokenWithCredentials(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
@@ -725,7 +725,7 @@ public class TransactionService {
     * @return byte[]
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--export">Export Documentation</a>
 
     **/
     public byte[] export(Long spaceId, EntityExportRequest request) throws IOException {
@@ -754,7 +754,7 @@ public class TransactionService {
     * @return byte[]
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--export">Export Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--export">Export Documentation</a>
 
     **/
     public byte[] export(Long spaceId, EntityExportRequest request, Map<String, Object> params) throws IOException {
@@ -871,7 +871,7 @@ public class TransactionService {
     * @return List&lt;TokenVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
 
     **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials) throws IOException {
@@ -899,7 +899,7 @@ public class TransactionService {
     * @return List&lt;TokenVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-one-click-tokens-with-credentials">Fetch One Click Tokens with Credentials Documentation</a>
 
     **/
     public List<TokenVersion> fetchOneClickTokensWithCredentials(String credentials, Map<String, Object> params) throws IOException {
@@ -982,7 +982,7 @@ public class TransactionService {
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
 
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode) throws IOException {
@@ -1012,7 +1012,7 @@ public class TransactionService {
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-payment-methods">Fetch Possible Payment Methods Documentation</a>
 
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethods(Long spaceId, Long id, String integrationMode, Map<String, Object> params) throws IOException {
@@ -1124,7 +1124,7 @@ public class TransactionService {
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
 
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode) throws IOException {
@@ -1153,7 +1153,7 @@ public class TransactionService {
     * @return List&lt;PaymentMethodConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--fetch-payment-methods-with-credentials">Fetch Possible Payment Methods with Credentials Documentation</a>
 
     **/
     public List<PaymentMethodConfiguration> fetchPaymentMethodsWithCredentials(String credentials, String integrationMode, Map<String, Object> params) throws IOException {
@@ -1250,7 +1250,7 @@ public class TransactionService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id) throws IOException {
@@ -1279,7 +1279,7 @@ public class TransactionService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-invoice-document">getInvoiceDocument Documentation</a>
 
     **/
     public RenderedDocument getInvoiceDocument(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1376,7 +1376,7 @@ public class TransactionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
 
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id) throws IOException {
@@ -1405,7 +1405,7 @@ public class TransactionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-latest-transaction-line-item-version">getLatestSuccessfulTransactionLineItemVersion Documentation</a>
 
     **/
     public TransactionLineItemVersion getLatestTransactionLineItemVersion(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1502,7 +1502,7 @@ public class TransactionService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
 
     **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id) throws IOException {
@@ -1531,7 +1531,7 @@ public class TransactionService {
     * @return RenderedDocument
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--get-packing-slip">getPackingSlip Documentation</a>
 
     **/
     public RenderedDocument getPackingSlip(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1628,7 +1628,7 @@ public class TransactionService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
 
     **/
     public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId) throws IOException {
@@ -1657,7 +1657,7 @@ public class TransactionService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--process-one-click-token-and-redirect-with-credentials">Process One-Click Token with Credentials Documentation</a>
 
     **/
     public String processOneClickTokenAndRedirectWithCredentials(String credentials, Long tokenId, Map<String, Object> params) throws IOException {
@@ -1754,7 +1754,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
 
     **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id) throws IOException {
@@ -1783,7 +1783,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--process-without-user-interaction">Process Without User Interaction Documentation</a>
 
     **/
     public Transaction processWithoutUserInteraction(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1880,7 +1880,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--read">Read Documentation</a>
 
     **/
     public Transaction read(Long spaceId, Long id) throws IOException {
@@ -1909,7 +1909,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--read">Read Documentation</a>
 
     **/
     public Transaction read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -2005,7 +2005,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
 
     **/
     public Transaction readWithCredentials(String credentials) throws IOException {
@@ -2033,7 +2033,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--read-with-credentials">Read With Credentials Documentation</a>
 
     **/
     public Transaction readWithCredentials(String credentials, Map<String, Object> params) throws IOException {
@@ -2115,7 +2115,7 @@ public class TransactionService {
     * @return List&lt;Transaction&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--search">Search Documentation</a>
 
     **/
     public List<Transaction> search(Long spaceId, EntityQuery query) throws IOException {
@@ -2144,7 +2144,7 @@ public class TransactionService {
     * @return List&lt;Transaction&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--search">Search Documentation</a>
 
     **/
     public List<Transaction> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -2263,7 +2263,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--update">Update Documentation</a>
 
     **/
     public Transaction update(Long spaceId, TransactionPending entity) throws IOException {
@@ -2293,7 +2293,7 @@ public class TransactionService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-service--update">Update Documentation</a>
 
     **/
     public Transaction update(Long spaceId, TransactionPending entity, Map<String, Object> params) throws IOException {

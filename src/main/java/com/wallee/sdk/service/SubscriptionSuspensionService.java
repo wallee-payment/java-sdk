@@ -59,7 +59,7 @@ public class SubscriptionSuspensionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class SubscriptionSuspensionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -188,16 +188,15 @@ public class SubscriptionSuspensionService {
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
     * @param suspension 
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--create">Create Documentation</a>
 
     **/
-    public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
-        HttpResponse response = createForHttpResponse(spaceId, suspension);
+    public SubscriptionSuspension create(SubscriptionSuspensionCreate suspension) throws IOException {
+        HttpResponse response = createForHttpResponse(suspension);
         String returnType = "SubscriptionSuspension";
         if(returnType.equals("String")){
           return (SubscriptionSuspension) (Object) response.parseAsString();
@@ -216,17 +215,16 @@ public class SubscriptionSuspensionService {
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
     * @param suspension 
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--create">Create Documentation</a>
 
     **/
-    public SubscriptionSuspension create(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
-        HttpResponse response = createForHttpResponse(spaceId, suspension, params);
+    public SubscriptionSuspension create(SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
+        HttpResponse response = createForHttpResponse(suspension, params);
         String returnType = "SubscriptionSuspension";
         if(returnType.equals("String")){
             return (SubscriptionSuspension) (Object) response.parseAsString();
@@ -238,21 +236,12 @@ public class SubscriptionSuspensionService {
         return (SubscriptionSuspension)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-        }
+    public HttpResponse createForHttpResponse(SubscriptionSuspensionCreate suspension) throws IOException {
         // verify the required parameter 'suspension' is set
         if (suspension == null) {
             throw new IllegalArgumentException("Missing the required parameter 'suspension' when calling create");
         }
         URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/subscription-suspension/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
-        }
 
         GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
@@ -265,21 +254,12 @@ public class SubscriptionSuspensionService {
         return httpRequest.execute();
     }
 
-    public HttpResponse createForHttpResponse(Long spaceId, java.io.InputStream suspension, String mediaType) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-        }
+    public HttpResponse createForHttpResponse(java.io.InputStream suspension, String mediaType) throws IOException {
         // verify the required parameter 'suspension' is set
         if (suspension == null) {
             throw new IllegalArgumentException("Missing the required parameter 'suspension' when calling create");
         }
         URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/subscription-suspension/create");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
-        }
 
         GenericUrl genericUrl = new GenericUrl(URIBuilderUtil.build(uriBuilder));
 
@@ -293,11 +273,7 @@ public class SubscriptionSuspensionService {
         return httpRequest.execute();
       }
 
-    public HttpResponse createForHttpResponse(Long spaceId, SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling create");
-        }
+    public HttpResponse createForHttpResponse(SubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {
         // verify the required parameter 'suspension' is set
         if (suspension == null) {
             throw new IllegalArgumentException("Missing the required parameter 'suspension' when calling create");
@@ -306,8 +282,6 @@ public class SubscriptionSuspensionService {
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
-        // Add the required query param 'spaceId' to the map of query params
-        allParams.put("spaceId", spaceId);
 
         for (Map.Entry<String, Object> entryMap: allParams.entrySet()) {
             String key = entryMap.getKey();
@@ -340,7 +314,7 @@ public class SubscriptionSuspensionService {
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--read">Read Documentation</a>
 
     **/
     public SubscriptionSuspension read(Long spaceId, Long id) throws IOException {
@@ -369,7 +343,7 @@ public class SubscriptionSuspensionService {
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--read">Read Documentation</a>
 
     **/
     public SubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -466,7 +440,7 @@ public class SubscriptionSuspensionService {
     * @return List&lt;SubscriptionSuspension&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
@@ -495,7 +469,7 @@ public class SubscriptionSuspensionService {
     * @return List&lt;SubscriptionSuspension&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -604,20 +578,19 @@ public class SubscriptionSuspensionService {
   /**
     * terminate
     
-    * The create operation creates a new subscription suspension.
+    * Terminates an existing subscription suspension.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
     * @param suspensionId 
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--terminate">terminate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--terminate">terminate Documentation</a>
 
     **/
-    public SubscriptionSuspension terminate(Long spaceId, Long suspensionId) throws IOException {
-        HttpResponse response = terminateForHttpResponse(spaceId, suspensionId);
+    public SubscriptionSuspension terminate(Long suspensionId) throws IOException {
+        HttpResponse response = terminateForHttpResponse(suspensionId);
         String returnType = "SubscriptionSuspension";
         if(returnType.equals("String")){
           return (SubscriptionSuspension) (Object) response.parseAsString();
@@ -632,21 +605,20 @@ public class SubscriptionSuspensionService {
   /**
     * terminate
     
-    * The create operation creates a new subscription suspension.
+    * Terminates an existing subscription suspension.
     * <p><b>200</b> - This status code indicates that a client request was successfully received, understood, and accepted.
     * <p><b>442</b> - This status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error.
     * <p><b>542</b> - This status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the client request.
-    * @param spaceId 
     * @param suspensionId 
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @return SubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-suspension-service--terminate">terminate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-suspension-service--terminate">terminate Documentation</a>
 
     **/
-    public SubscriptionSuspension terminate(Long spaceId, Long suspensionId, Map<String, Object> params) throws IOException {
-        HttpResponse response = terminateForHttpResponse(spaceId, suspensionId, params);
+    public SubscriptionSuspension terminate(Long suspensionId, Map<String, Object> params) throws IOException {
+        HttpResponse response = terminateForHttpResponse(suspensionId, params);
         String returnType = "SubscriptionSuspension";
         if(returnType.equals("String")){
             return (SubscriptionSuspension) (Object) response.parseAsString();
@@ -658,21 +630,12 @@ public class SubscriptionSuspensionService {
         return (SubscriptionSuspension)apiClient.getObjectMapper().readValue(response.getContent(), typeRef);
     }
 
-    public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
-        }
+    public HttpResponse terminateForHttpResponse(Long suspensionId) throws IOException {
         // verify the required parameter 'suspensionId' is set
         if (suspensionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'suspensionId' when calling terminate");
         }
         URIBuilder uriBuilder = URIBuilderUtil.create(apiClient.getBasePath() + "/subscription-suspension/terminate");
-        if (spaceId != null) {
-            String key = "spaceId";
-            Object value = spaceId;
-            uriBuilder = URIBuilderUtil.applyQueryParam(uriBuilder, key, value);
-        }
         if (suspensionId != null) {
             String key = "suspensionId";
             Object value = suspensionId;
@@ -690,11 +653,7 @@ public class SubscriptionSuspensionService {
         return httpRequest.execute();
     }
 
-    public HttpResponse terminateForHttpResponse(Long spaceId, Long suspensionId, Map<String, Object> params) throws IOException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new IllegalArgumentException("Missing the required parameter 'spaceId' when calling terminate");
-        }
+    public HttpResponse terminateForHttpResponse(Long suspensionId, Map<String, Object> params) throws IOException {
         // verify the required parameter 'suspensionId' is set
         if (suspensionId == null) {
             throw new IllegalArgumentException("Missing the required parameter 'suspensionId' when calling terminate");
@@ -703,8 +662,6 @@ public class SubscriptionSuspensionService {
 
         // Copy the params argument if present, to allow passing in immutable maps
         Map<String, Object> allParams = params == null ? new HashMap<String, Object>() : new HashMap<String, Object>(params);
-        // Add the required query param 'spaceId' to the map of query params
-        allParams.put("spaceId", spaceId);
         // Add the required query param 'suspensionId' to the map of query params
         allParams.put("suspensionId", suspensionId);
 

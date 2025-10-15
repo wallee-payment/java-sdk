@@ -59,7 +59,7 @@ public class InvoiceReimbursementService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class InvoiceReimbursementService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -193,7 +193,7 @@ public class InvoiceReimbursementService {
     * @return InvoiceReimbursement
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--read">Read Documentation</a>
 
     **/
     public InvoiceReimbursement read(Long spaceId, Long id) throws IOException {
@@ -222,7 +222,7 @@ public class InvoiceReimbursementService {
     * @return InvoiceReimbursement
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--read">Read Documentation</a>
 
     **/
     public InvoiceReimbursement read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -319,7 +319,7 @@ public class InvoiceReimbursementService {
     * @return List&lt;InvoiceReimbursementWithRefundReference&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--search">Search Documentation</a>
 
     **/
     public List<InvoiceReimbursementWithRefundReference> search(Long spaceId, EntityQuery query) throws IOException {
@@ -348,7 +348,7 @@ public class InvoiceReimbursementService {
     * @return List&lt;InvoiceReimbursementWithRefundReference&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--search">Search Documentation</a>
 
     **/
     public List<InvoiceReimbursementWithRefundReference> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -466,7 +466,7 @@ public class InvoiceReimbursementService {
     * @param paymentConnectorConfigurationId 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--update-connector">Update payment connector configuration Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--update-connector">Update payment connector configuration Documentation</a>
 
     **/
     public void updateConnector(Long spaceId, Long id, Long paymentConnectorConfigurationId) throws IOException {
@@ -486,7 +486,7 @@ public class InvoiceReimbursementService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--update-connector">Update payment connector configuration Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--update-connector">Update payment connector configuration Documentation</a>
 
     **/
     public void updateConnector(Long spaceId, Long id, Long paymentConnectorConfigurationId, Map<String, Object> params) throws IOException {
@@ -590,7 +590,7 @@ public class InvoiceReimbursementService {
     * @param senderIban 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--update-iban">Update IBAN Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--update-iban">Update IBAN Documentation</a>
 
     **/
     public void updateIban(Long spaceId, Long id, String recipientIban, String senderIban) throws IOException {
@@ -609,7 +609,7 @@ public class InvoiceReimbursementService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#invoice-reimbursement-service--update-iban">Update IBAN Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#invoice-reimbursement-service--update-iban">Update IBAN Documentation</a>
 
     **/
     public void updateIban(Long spaceId, Long id, Map<String, Object> params) throws IOException {

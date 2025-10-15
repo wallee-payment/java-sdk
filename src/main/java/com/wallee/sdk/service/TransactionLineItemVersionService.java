@@ -59,7 +59,7 @@ public class TransactionLineItemVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class TransactionLineItemVersionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -193,7 +193,7 @@ public class TransactionLineItemVersionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--create">create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--create">create Documentation</a>
 
     **/
     public TransactionLineItemVersion create(Long spaceId, TransactionLineItemVersionCreate lineItemVersion) throws IOException {
@@ -222,7 +222,7 @@ public class TransactionLineItemVersionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--create">create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--create">create Documentation</a>
 
     **/
     public TransactionLineItemVersion create(Long spaceId, TransactionLineItemVersionCreate lineItemVersion, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class TransactionLineItemVersionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--read">Read Documentation</a>
 
     **/
     public TransactionLineItemVersion read(Long spaceId, Long id) throws IOException {
@@ -369,7 +369,7 @@ public class TransactionLineItemVersionService {
     * @return TransactionLineItemVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--read">Read Documentation</a>
 
     **/
     public TransactionLineItemVersion read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -466,7 +466,7 @@ public class TransactionLineItemVersionService {
     * @return List&lt;TransactionLineItemVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--search">Search Documentation</a>
 
     **/
     public List<TransactionLineItemVersion> search(Long spaceId, EntityQuery query) throws IOException {
@@ -495,7 +495,7 @@ public class TransactionLineItemVersionService {
     * @return List&lt;TransactionLineItemVersion&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-line-item-version-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-line-item-version-service--search">Search Documentation</a>
 
     **/
     public List<TransactionLineItemVersion> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

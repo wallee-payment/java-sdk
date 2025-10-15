@@ -61,7 +61,7 @@ public class CardProcessingService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#card-processing-service--process">Process Documentation</a>
 
     **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData) throws IOException {
@@ -93,7 +93,7 @@ public class CardProcessingService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process">Process Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#card-processing-service--process">Process Documentation</a>
 
     **/
     public Transaction process(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, AuthenticatedCardDataCreate cardData, Map<String, Object> params) throws IOException {
@@ -262,7 +262,7 @@ public class CardProcessingService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
 
     **/
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData) throws IOException {
@@ -294,7 +294,7 @@ public class CardProcessingService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#card-processing-service--process-with3-d-secure">Process With 3-D Secure Documentation</a>
 
     **/
     public String processWith3DSecure(Long spaceId, Long transactionId, Long paymentMethodConfigurationId, TokenizedCardDataCreate cardData, Map<String, Object> params) throws IOException {

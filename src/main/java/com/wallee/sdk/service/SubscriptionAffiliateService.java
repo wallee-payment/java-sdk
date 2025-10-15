@@ -60,7 +60,7 @@ public class SubscriptionAffiliateService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class SubscriptionAffiliateService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--create">Create Documentation</a>
 
     **/
     public SubscriptionAffiliate create(Long spaceId, SubscriptionAffiliateCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--create">Create Documentation</a>
 
     **/
     public SubscriptionAffiliate create(Long spaceId, SubscriptionAffiliateCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class SubscriptionAffiliateService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class SubscriptionAffiliateService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -468,7 +468,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--read">Read Documentation</a>
 
     **/
     public SubscriptionAffiliate read(Long spaceId, Long id) throws IOException {
@@ -497,7 +497,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--read">Read Documentation</a>
 
     **/
     public SubscriptionAffiliate read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -594,7 +594,7 @@ public class SubscriptionAffiliateService {
     * @return List&lt;SubscriptionAffiliate&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionAffiliate> search(Long spaceId, EntityQuery query) throws IOException {
@@ -623,7 +623,7 @@ public class SubscriptionAffiliateService {
     * @return List&lt;SubscriptionAffiliate&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionAffiliate> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -742,7 +742,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--update">Update Documentation</a>
 
     **/
     public SubscriptionAffiliate update(Long spaceId, SubscriptionAffiliateUpdate entity) throws IOException {
@@ -772,7 +772,7 @@ public class SubscriptionAffiliateService {
     * @return SubscriptionAffiliate
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-affiliate-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-affiliate-service--update">Update Documentation</a>
 
     **/
     public SubscriptionAffiliate update(Long spaceId, SubscriptionAffiliateUpdate entity, Map<String, Object> params) throws IOException {

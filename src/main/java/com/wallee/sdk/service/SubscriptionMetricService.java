@@ -60,7 +60,7 @@ public class SubscriptionMetricService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class SubscriptionMetricService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--create">Create Documentation</a>
 
     **/
     public SubscriptionMetric create(Long spaceId, SubscriptionMetricCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--create">Create Documentation</a>
 
     **/
     public SubscriptionMetric create(Long spaceId, SubscriptionMetricCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class SubscriptionMetricService {
     * @param id The id of the metric which should be deleted.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class SubscriptionMetricService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -468,7 +468,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--read">Read Documentation</a>
 
     **/
     public SubscriptionMetric read(Long spaceId, Long id) throws IOException {
@@ -497,7 +497,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--read">Read Documentation</a>
 
     **/
     public SubscriptionMetric read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -594,7 +594,7 @@ public class SubscriptionMetricService {
     * @return List&lt;SubscriptionMetric&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionMetric> search(Long spaceId, EntityQuery query) throws IOException {
@@ -623,7 +623,7 @@ public class SubscriptionMetricService {
     * @return List&lt;SubscriptionMetric&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionMetric> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -742,7 +742,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--update">Update Documentation</a>
 
     **/
     public SubscriptionMetric update(Long spaceId, SubscriptionMetricActive entity) throws IOException {
@@ -772,7 +772,7 @@ public class SubscriptionMetricService {
     * @return SubscriptionMetric
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-metric-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-metric-service--update">Update Documentation</a>
 
     **/
     public SubscriptionMetric update(Long spaceId, SubscriptionMetricActive entity, Map<String, Object> params) throws IOException {

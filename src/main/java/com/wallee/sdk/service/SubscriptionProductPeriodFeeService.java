@@ -59,7 +59,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -193,7 +193,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--create">Create Documentation</a>
 
     **/
     public ProductPeriodFee create(Long spaceId, ProductPeriodFeeUpdate entity) throws IOException {
@@ -222,7 +222,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--create">Create Documentation</a>
 
     **/
     public ProductPeriodFee create(Long spaceId, ProductPeriodFeeUpdate entity, Map<String, Object> params) throws IOException {
@@ -339,7 +339,7 @@ public class SubscriptionProductPeriodFeeService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -358,7 +358,7 @@ public class SubscriptionProductPeriodFeeService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--read">Read Documentation</a>
 
     **/
     public ProductPeriodFee read(Long spaceId, Long id) throws IOException {
@@ -496,7 +496,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--read">Read Documentation</a>
 
     **/
     public ProductPeriodFee read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -593,7 +593,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return List&lt;ProductPeriodFee&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--search">Search Documentation</a>
 
     **/
     public List<ProductPeriodFee> search(Long spaceId, EntityQuery query) throws IOException {
@@ -622,7 +622,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return List&lt;ProductPeriodFee&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--search">Search Documentation</a>
 
     **/
     public List<ProductPeriodFee> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -741,7 +741,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--update">Update Documentation</a>
 
     **/
     public ProductPeriodFee update(Long spaceId, ProductPeriodFeeUpdate entity) throws IOException {
@@ -771,7 +771,7 @@ public class SubscriptionProductPeriodFeeService {
     * @return ProductPeriodFee
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-product-period-fee-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-product-period-fee-service--update">Update Documentation</a>
 
     **/
     public ProductPeriodFee update(Long spaceId, ProductPeriodFeeUpdate entity, Map<String, Object> params) throws IOException {

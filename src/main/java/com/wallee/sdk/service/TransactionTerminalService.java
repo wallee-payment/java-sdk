@@ -57,7 +57,7 @@ public class TransactionTerminalService {
     * @return List&lt;RenderedTerminalReceipt&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
 
     **/
     public List<RenderedTerminalReceipt> fetchReceipts(Long spaceId, TerminalReceiptFetchRequest request) throws IOException {
@@ -86,7 +86,7 @@ public class TransactionTerminalService {
     * @return List&lt;RenderedTerminalReceipt&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-terminal-service--fetch-receipts">Fetch Receipts Documentation</a>
 
     **/
     public List<RenderedTerminalReceipt> fetchReceipts(Long spaceId, TerminalReceiptFetchRequest request, Map<String, Object> params) throws IOException {
@@ -206,7 +206,7 @@ public class TransactionTerminalService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--till-connection-credentials">Create Till Connection Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-terminal-service--till-connection-credentials">Create Till Connection Credentials Documentation</a>
 
     **/
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, String language) throws IOException {
@@ -236,7 +236,7 @@ public class TransactionTerminalService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-terminal-service--till-connection-credentials">Create Till Connection Credentials Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-terminal-service--till-connection-credentials">Create Till Connection Credentials Documentation</a>
 
     **/
     public String tillConnectionCredentials(Long spaceId, Long transactionId, Long terminalId, Map<String, Object> params) throws IOException {

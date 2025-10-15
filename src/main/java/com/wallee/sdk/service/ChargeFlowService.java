@@ -59,7 +59,7 @@ public class ChargeFlowService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--apply-flow">applyFlow Documentation</a>
 
     **/
     public Transaction applyFlow(Long spaceId, Long id) throws IOException {
@@ -88,7 +88,7 @@ public class ChargeFlowService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--apply-flow">applyFlow Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--apply-flow">applyFlow Documentation</a>
 
     **/
     public Transaction applyFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -185,7 +185,7 @@ public class ChargeFlowService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--cancel-charge-flow">Cancel Charge Flow Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--cancel-charge-flow">Cancel Charge Flow Documentation</a>
 
     **/
     public Transaction cancelChargeFlow(Long spaceId, Long id) throws IOException {
@@ -214,7 +214,7 @@ public class ChargeFlowService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--cancel-charge-flow">Cancel Charge Flow Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--cancel-charge-flow">Cancel Charge Flow Documentation</a>
 
     **/
     public Transaction cancelChargeFlow(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -311,7 +311,7 @@ public class ChargeFlowService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -339,7 +339,7 @@ public class ChargeFlowService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -445,7 +445,7 @@ public class ChargeFlowService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--fetch-charge-flow-payment-page-url">Fetch Charge Flow Payment Page URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--fetch-charge-flow-payment-page-url">Fetch Charge Flow Payment Page URL Documentation</a>
 
     **/
     public String fetchChargeFlowPaymentPageUrl(Long spaceId, Long id) throws IOException {
@@ -474,7 +474,7 @@ public class ChargeFlowService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--fetch-charge-flow-payment-page-url">Fetch Charge Flow Payment Page URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--fetch-charge-flow-payment-page-url">Fetch Charge Flow Payment Page URL Documentation</a>
 
     **/
     public String fetchChargeFlowPaymentPageUrl(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -571,7 +571,7 @@ public class ChargeFlowService {
     * @return ChargeFlow
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--read">Read Documentation</a>
 
     **/
     public ChargeFlow read(Long spaceId, Long id) throws IOException {
@@ -600,7 +600,7 @@ public class ChargeFlowService {
     * @return ChargeFlow
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--read">Read Documentation</a>
 
     **/
     public ChargeFlow read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -697,7 +697,7 @@ public class ChargeFlowService {
     * @return List&lt;ChargeFlow&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--search">Search Documentation</a>
 
     **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query) throws IOException {
@@ -726,7 +726,7 @@ public class ChargeFlowService {
     * @return List&lt;ChargeFlow&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--search">Search Documentation</a>
 
     **/
     public List<ChargeFlow> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -845,7 +845,7 @@ public class ChargeFlowService {
     * @param recipient The recipient address that should be used to send the payment URL.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--update-recipient">updateRecipient Documentation</a>
 
     **/
     public void updateRecipient(Long spaceId, Long transactionId, Long type, String recipient) throws IOException {
@@ -866,7 +866,7 @@ public class ChargeFlowService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#charge-flow-service--update-recipient">updateRecipient Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#charge-flow-service--update-recipient">updateRecipient Documentation</a>
 
     **/
     public void updateRecipient(Long spaceId, Long transactionId, Long type, String recipient, Map<String, Object> params) throws IOException {

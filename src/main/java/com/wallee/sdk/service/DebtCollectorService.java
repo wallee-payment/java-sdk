@@ -54,7 +54,7 @@ public class DebtCollectorService {
     * @return List&lt;DebtCollector&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collector-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collector-service--all">All Documentation</a>
 
     **/
     public List<DebtCollector> all() throws IOException {
@@ -81,7 +81,7 @@ public class DebtCollectorService {
     * @return List&lt;DebtCollector&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collector-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collector-service--all">All Documentation</a>
 
     **/
     public List<DebtCollector> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class DebtCollectorService {
     * @return DebtCollector
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collector-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collector-service--read">Read Documentation</a>
 
     **/
     public DebtCollector read(Long id) throws IOException {
@@ -175,7 +175,7 @@ public class DebtCollectorService {
     * @return DebtCollector
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#debt-collector-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#debt-collector-service--read">Read Documentation</a>
 
     **/
     public DebtCollector read(Long id, Map<String, Object> params) throws IOException {

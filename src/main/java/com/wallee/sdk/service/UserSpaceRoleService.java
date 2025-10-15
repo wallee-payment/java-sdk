@@ -57,7 +57,7 @@ public class UserSpaceRoleService {
     * @return UserSpaceRole
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--add-role">Add Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--add-role">Add Role Documentation</a>
 
     **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId) throws IOException {
@@ -87,7 +87,7 @@ public class UserSpaceRoleService {
     * @return UserSpaceRole
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--add-role">Add Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--add-role">Add Role Documentation</a>
 
     **/
     public UserSpaceRole addRole(Long userId, Long spaceId, Long roleId, Map<String, Object> params) throws IOException {
@@ -200,7 +200,7 @@ public class UserSpaceRoleService {
     * @return List&lt;UserSpaceRole&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--list">List Roles Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--list">List Roles Documentation</a>
 
     **/
     public List<UserSpaceRole> list(Long userId, Long spaceId) throws IOException {
@@ -230,7 +230,7 @@ public class UserSpaceRoleService {
     * @return List&lt;UserSpaceRole&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--list">List Roles Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--list">List Roles Documentation</a>
 
     **/
     public List<UserSpaceRole> list(Long userId, Long spaceId, Map<String, Object> params) throws IOException {
@@ -324,7 +324,7 @@ public class UserSpaceRoleService {
     * @param id The id of user space role which should be removed
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--remove-role">Remove Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--remove-role">Remove Role Documentation</a>
 
     **/
     public void removeRole(Long id) throws IOException {
@@ -341,7 +341,7 @@ public class UserSpaceRoleService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#user-space-role-service--remove-role">Remove Role Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#user-space-role-service--remove-role">Remove Role Documentation</a>
 
     **/
     public void removeRole(Long id, Map<String, Object> params) throws IOException {

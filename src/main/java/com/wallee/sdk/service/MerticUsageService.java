@@ -58,7 +58,7 @@ public class MerticUsageService {
     * @return List&lt;MetricUsage&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#mertic-usage-service--calculate">Calculate Documentation</a>
 
     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end) throws IOException {
@@ -88,7 +88,7 @@ public class MerticUsageService {
     * @return List&lt;MetricUsage&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#mertic-usage-service--calculate">Calculate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#mertic-usage-service--calculate">Calculate Documentation</a>
 
     **/
     public List<MetricUsage> calculate(Long spaceId, OffsetDateTime start, OffsetDateTime end, Map<String, Object> params) throws IOException {

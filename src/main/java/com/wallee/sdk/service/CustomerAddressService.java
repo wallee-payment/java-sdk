@@ -60,7 +60,7 @@ public class CustomerAddressService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class CustomerAddressService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--create">Create Documentation</a>
 
     **/
     public CustomerAddress create(Long spaceId, CustomerAddressCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--create">Create Documentation</a>
 
     **/
     public CustomerAddress create(Long spaceId, CustomerAddressCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class CustomerAddressService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class CustomerAddressService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -468,7 +468,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--read">Read Documentation</a>
 
     **/
     public CustomerAddress read(Long spaceId, Long id) throws IOException {
@@ -497,7 +497,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--read">Read Documentation</a>
 
     **/
     public CustomerAddress read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -594,7 +594,7 @@ public class CustomerAddressService {
     * @return List&lt;CustomerAddress&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--search">Search Documentation</a>
 
     **/
     public List<CustomerAddress> search(Long spaceId, EntityQuery query) throws IOException {
@@ -623,7 +623,7 @@ public class CustomerAddressService {
     * @return List&lt;CustomerAddress&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--search">Search Documentation</a>
 
     **/
     public List<CustomerAddress> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -740,7 +740,7 @@ public class CustomerAddressService {
     * @param id The id of the customer address to set as default.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--select-default-address">selectDefaultAddress Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--select-default-address">selectDefaultAddress Documentation</a>
 
     **/
     public void selectDefaultAddress(Long spaceId, Long id) throws IOException {
@@ -759,7 +759,7 @@ public class CustomerAddressService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--select-default-address">selectDefaultAddress Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--select-default-address">selectDefaultAddress Documentation</a>
 
     **/
     public void selectDefaultAddress(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -848,7 +848,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--update">Update Documentation</a>
 
     **/
     public CustomerAddress update(Long spaceId, CustomerAddressActive entity) throws IOException {
@@ -878,7 +878,7 @@ public class CustomerAddressService {
     * @return CustomerAddress
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-address-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-address-service--update">Update Documentation</a>
 
     **/
     public CustomerAddress update(Long spaceId, CustomerAddressActive entity, Map<String, Object> params) throws IOException {

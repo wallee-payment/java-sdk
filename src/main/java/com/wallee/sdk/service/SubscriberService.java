@@ -60,7 +60,7 @@ public class SubscriberService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class SubscriberService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--create">Create Documentation</a>
 
     **/
     public Subscriber create(Long spaceId, SubscriberCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--create">Create Documentation</a>
 
     **/
     public Subscriber create(Long spaceId, SubscriberCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class SubscriberService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class SubscriberService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -468,7 +468,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--read">Read Documentation</a>
 
     **/
     public Subscriber read(Long spaceId, Long id) throws IOException {
@@ -497,7 +497,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--read">Read Documentation</a>
 
     **/
     public Subscriber read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -594,7 +594,7 @@ public class SubscriberService {
     * @return List&lt;Subscriber&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--search">Search Documentation</a>
 
     **/
     public List<Subscriber> search(Long spaceId, EntityQuery query) throws IOException {
@@ -623,7 +623,7 @@ public class SubscriberService {
     * @return List&lt;Subscriber&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--search">Search Documentation</a>
 
     **/
     public List<Subscriber> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -742,7 +742,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--update">Update Documentation</a>
 
     **/
     public Subscriber update(Long spaceId, SubscriberUpdate entity) throws IOException {
@@ -772,7 +772,7 @@ public class SubscriberService {
     * @return Subscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscriber-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscriber-service--update">Update Documentation</a>
 
     **/
     public Subscriber update(Long spaceId, SubscriberUpdate entity, Map<String, Object> params) throws IOException {

@@ -4,7 +4,7 @@
 name: Release to Maven Central
 on:
   release:
-    types: [published]
+    types: [ published ]
 
 permissions:
   contents: read
@@ -12,58 +12,62 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build wallee
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        java: [ 8 ]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - uses: actions/setup-java@v3
-      with:
-        distribution: 'temurin' # See 'Supported distributions' for available options
-        java-version: '8'
-        server-id: 'central'
-        server-username: OSSRH_USERNAME
-        server-password: OSSRH_PASSWORD
-        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-        gpg-passphrase : SIGN_KEY_PASS
+      - uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin' # The default temurin is a robust choice for most use cases and aligns with OpenJDK standards.
+          server-id: 'central'
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: SIGN_KEY_PASS
 
-    # Install Maven 3.9.9 if it's not already installed
-    - name: Install Maven (specific version 3.9.9)
-      run: |
-        # Check if Maven is already installed
-        if ! mvn -version &>/dev/null; then
-          echo "Maven not found. Installing Maven 3.9.9..."
-        
-          # Update package list and install required dependencies
-          sudo apt-get update
-          sudo apt-get install -y wget
+      # Install Maven 3.9.9 if it's not already installed (instead of default Ubuntu Maven 3.8.7)
+      - name: Install Maven (specific version 3.9.9)
+        run: |
+          # Check if Maven is already installed
+          if ! mvn -version &>/dev/null; then
+            echo "Maven not found. Installing Maven 3.9.9..."
 
-          # Download Maven 3.9.9 tar.gz
-          wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+            # Update package list and install required dependencies
+            sudo apt-get update
+            sudo apt-get install -y wget
 
-          # Extract and move Maven to /opt
-          sudo tar -xvzf apache-maven-3.9.9-bin.tar.gz -C /opt
+            # Download Maven 3.9.9 tar.gz
+            wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
 
-          # Set up environment variables for Maven
-          sudo ln -s /opt/apache-maven-3.9.9 /opt/maven
-          sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn
+            # Extract and move Maven to /opt
+            sudo tar -xvzf apache-maven-3.9.9-bin.tar.gz -C /opt
 
-          # Clean up the downloaded tar.gz file
-          rm apache-maven-3.9.9-bin.tar.gz
+            # Set up environment variables for Maven
+            sudo ln -s /opt/apache-maven-3.9.9 /opt/maven
+            sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn
 
-          echo "Maven 3.9.9 installed successfully!"
-        else
-          echo "Maven is already installed."
-        fi
+            # Clean up the downloaded tar.gz file
+            rm apache-maven-3.9.9-bin.tar.gz
 
-    - name: Build with Maven
-      id: build
-      run: mvn -B package --file pom.xml
-    
-    - name: Publish to Maven Central
-      id: deploy
-      env:
-        SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
-        OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-        OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-      run: mvn -U -B clean deploy -P release -DskipTests=true
+            echo "Maven 3.9.9 installed successfully!"
+          else
+            echo "Maven is already installed."
+          fi
+
+      - name: Build with Maven
+        id: build
+        run: mvn clean -B package --no-transfer-progress --file pom.xml
+
+      - name: Publish to Maven Central
+        id: deploy
+        env:
+          SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        run: mvn -U -B clean deploy -P release -DskipTests=true

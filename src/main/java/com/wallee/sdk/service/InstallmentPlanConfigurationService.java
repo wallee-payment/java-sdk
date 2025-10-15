@@ -58,7 +58,7 @@ public class InstallmentPlanConfigurationService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class InstallmentPlanConfigurationService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter, Map<String, Object> params) throws IOException {
@@ -205,7 +205,7 @@ public class InstallmentPlanConfigurationService {
     * @return InstallmentPlanConfiguration
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--read">Read Documentation</a>
 
     **/
     public InstallmentPlanConfiguration read(Long spaceId, Long id) throws IOException {
@@ -234,7 +234,7 @@ public class InstallmentPlanConfigurationService {
     * @return InstallmentPlanConfiguration
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--read">Read Documentation</a>
 
     **/
     public InstallmentPlanConfiguration read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -331,7 +331,7 @@ public class InstallmentPlanConfigurationService {
     * @return List&lt;InstallmentPlanConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--search">Search Documentation</a>
 
     **/
     public List<InstallmentPlanConfiguration> search(Long spaceId, EntityQuery query) throws IOException {
@@ -360,7 +360,7 @@ public class InstallmentPlanConfigurationService {
     * @return List&lt;InstallmentPlanConfiguration&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-configuration-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-configuration-service--search">Search Documentation</a>
 
     **/
     public List<InstallmentPlanConfiguration> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

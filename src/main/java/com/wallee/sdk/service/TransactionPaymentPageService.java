@@ -56,7 +56,7 @@ public class TransactionPaymentPageService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-payment-page-service--payment-page-url">Build Payment Page URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-payment-page-service--payment-page-url">Build Payment Page URL Documentation</a>
 
     **/
     public String paymentPageUrl(Long spaceId, Long id) throws IOException {
@@ -86,7 +86,7 @@ public class TransactionPaymentPageService {
     * @return String
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#transaction-payment-page-service--payment-page-url">Build Payment Page URL Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#transaction-payment-page-service--payment-page-url">Build Payment Page URL Documentation</a>
 
     **/
     public String paymentPageUrl(Long spaceId, Long id, Map<String, Object> params) throws IOException {

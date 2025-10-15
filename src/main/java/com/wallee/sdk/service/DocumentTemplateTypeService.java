@@ -54,7 +54,7 @@ public class DocumentTemplateTypeService {
     * @return List&lt;DocumentTemplateType&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#document-template-type-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#document-template-type-service--all">All Documentation</a>
 
     **/
     public List<DocumentTemplateType> all() throws IOException {
@@ -81,7 +81,7 @@ public class DocumentTemplateTypeService {
     * @return List&lt;DocumentTemplateType&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#document-template-type-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#document-template-type-service--all">All Documentation</a>
 
     **/
     public List<DocumentTemplateType> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class DocumentTemplateTypeService {
     * @return DocumentTemplateType
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#document-template-type-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#document-template-type-service--read">Read Documentation</a>
 
     **/
     public DocumentTemplateType read(Long id) throws IOException {
@@ -175,7 +175,7 @@ public class DocumentTemplateTypeService {
     * @return DocumentTemplateType
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#document-template-type-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#document-template-type-service--read">Read Documentation</a>
 
     **/
     public DocumentTemplateType read(Long id, Map<String, Object> params) throws IOException {

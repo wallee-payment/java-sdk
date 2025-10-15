@@ -24,6 +24,7 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.Feature;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
@@ -43,12 +44,24 @@ public class WalletType {
   protected Map<String, String> description = null;
 
   
+  @JsonProperty("feature")
+  protected Feature feature = null;
+
+  
   @JsonProperty("id")
   protected Long id = null;
 
   
   @JsonProperty("name")
   protected Map<String, String> name = null;
+
+  
+  @JsonProperty("navigationPath")
+  protected String navigationPath = null;
+
+  
+  @JsonProperty("sortOrder")
+  protected Integer sortOrder = null;
 
   
   
@@ -59,6 +72,16 @@ public class WalletType {
   @ApiModelProperty(value = "The localized description of the object.")
   public Map<String, String> getDescription() {
     return description;
+  }
+
+  
+   /**
+   * 
+   * @return feature
+  **/
+  @ApiModelProperty(value = "")
+  public Feature getFeature() {
+    return feature;
   }
 
   
@@ -82,6 +105,26 @@ public class WalletType {
   }
 
   
+   /**
+   * 
+   * @return navigationPath
+  **/
+  @ApiModelProperty(value = "")
+  public String getNavigationPath() {
+    return navigationPath;
+  }
+
+  
+   /**
+   * 
+   * @return sortOrder
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getSortOrder() {
+    return sortOrder;
+  }
+
+  
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,13 +136,16 @@ public class WalletType {
     }
     WalletType walletType = (WalletType) o;
     return Objects.equals(this.description, walletType.description) &&
+        Objects.equals(this.feature, walletType.feature) &&
         Objects.equals(this.id, walletType.id) &&
-        Objects.equals(this.name, walletType.name);
+        Objects.equals(this.name, walletType.name) &&
+        Objects.equals(this.navigationPath, walletType.navigationPath) &&
+        Objects.equals(this.sortOrder, walletType.sortOrder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name);
+    return Objects.hash(description, feature, id, name, navigationPath, sortOrder);
   }
 
 
@@ -109,8 +155,11 @@ public class WalletType {
     sb.append("class WalletType {\n");
     
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    navigationPath: ").append(toIndentedString(navigationPath)).append("\n");
+    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("}");
     return sb.toString();
   }

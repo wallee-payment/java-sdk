@@ -56,7 +56,7 @@ public class InstallmentPlanCalculationService {
     * @return List&lt;InstallmentCalculatedPlan&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
 
     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId) throws IOException {
@@ -85,7 +85,7 @@ public class InstallmentPlanCalculationService {
     * @return List&lt;InstallmentCalculatedPlan&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#installment-plan-calculation-service--calculate-plans">Calculate Plans Documentation</a>
 
     **/
     public List<InstallmentCalculatedPlan> calculatePlans(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {

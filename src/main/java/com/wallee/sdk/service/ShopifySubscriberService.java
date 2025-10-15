@@ -59,7 +59,7 @@ public class ShopifySubscriberService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class ShopifySubscriberService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -193,7 +193,7 @@ public class ShopifySubscriberService {
     * @return ShopifySubscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriber read(Long spaceId, Long id) throws IOException {
@@ -222,7 +222,7 @@ public class ShopifySubscriberService {
     * @return ShopifySubscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriber read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -319,7 +319,7 @@ public class ShopifySubscriberService {
     * @return List&lt;ShopifySubscriber&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriber> search(Long spaceId, EntityQuery query) throws IOException {
@@ -348,7 +348,7 @@ public class ShopifySubscriberService {
     * @return List&lt;ShopifySubscriber&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriber> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -467,7 +467,7 @@ public class ShopifySubscriberService {
     * @return ShopifySubscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--update">Update Documentation</a>
 
     **/
     public ShopifySubscriber update(Long spaceId, ShopifySubscriberActive query) throws IOException {
@@ -497,7 +497,7 @@ public class ShopifySubscriberService {
     * @return ShopifySubscriber
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscriber-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscriber-service--update">Update Documentation</a>
 
     **/
     public ShopifySubscriber update(Long spaceId, ShopifySubscriberActive query, Map<String, Object> params) throws IOException {

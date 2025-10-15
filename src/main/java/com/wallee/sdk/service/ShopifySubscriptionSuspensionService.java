@@ -59,7 +59,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -87,7 +87,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -191,7 +191,7 @@ public class ShopifySubscriptionSuspensionService {
     * @param subscriptionId The ID identifies the suspended Shopify subscription which should be reactivated.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--reactivate">Reactivate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--reactivate">Reactivate Documentation</a>
 
     **/
     public void reactivate(Long spaceId, Long subscriptionId) throws IOException {
@@ -209,7 +209,7 @@ public class ShopifySubscriptionSuspensionService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--reactivate">Reactivate Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--reactivate">Reactivate Documentation</a>
 
     **/
     public void reactivate(Long spaceId, Long subscriptionId, Map<String, Object> params) throws IOException {
@@ -297,7 +297,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return ShopifySubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id) throws IOException {
@@ -326,7 +326,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return ShopifySubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--read">Read Documentation</a>
 
     **/
     public ShopifySubscriptionSuspension read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -423,7 +423,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return List&lt;ShopifySubscriptionSuspension&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query) throws IOException {
@@ -452,7 +452,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return List&lt;ShopifySubscriptionSuspension&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--search">Search Documentation</a>
 
     **/
     public List<ShopifySubscriptionSuspension> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -570,7 +570,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return ShopifySubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--suspend">Suspend Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--suspend">Suspend Documentation</a>
 
     **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension) throws IOException {
@@ -599,7 +599,7 @@ public class ShopifySubscriptionSuspensionService {
     * @return ShopifySubscriptionSuspension
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#shopify-subscription-suspension-service--suspend">Suspend Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#shopify-subscription-suspension-service--suspend">Suspend Documentation</a>
 
     **/
     public ShopifySubscriptionSuspension suspend(Long spaceId, ShopifySubscriptionSuspensionCreate suspension, Map<String, Object> params) throws IOException {

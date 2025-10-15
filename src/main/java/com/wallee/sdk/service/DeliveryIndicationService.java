@@ -58,7 +58,7 @@ public class DeliveryIndicationService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -86,7 +86,7 @@ public class DeliveryIndicationService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -192,7 +192,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--mark-as-not-suitable">markAsNotSuitable Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--mark-as-not-suitable">markAsNotSuitable Documentation</a>
 
     **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
@@ -221,7 +221,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--mark-as-not-suitable">markAsNotSuitable Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--mark-as-not-suitable">markAsNotSuitable Documentation</a>
 
     **/
     public DeliveryIndication markAsNotSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
@@ -339,7 +339,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--mark-as-suitable">markAsSuitable Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--mark-as-suitable">markAsSuitable Documentation</a>
 
     **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId) throws IOException {
@@ -368,7 +368,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--mark-as-suitable">markAsSuitable Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--mark-as-suitable">markAsSuitable Documentation</a>
 
     **/
     public DeliveryIndication markAsSuitable(Long spaceId, Long deliveryIndicationId, Map<String, Object> params) throws IOException {
@@ -486,7 +486,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--read">Read Documentation</a>
 
     **/
     public DeliveryIndication read(Long spaceId, Long id) throws IOException {
@@ -515,7 +515,7 @@ public class DeliveryIndicationService {
     * @return DeliveryIndication
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--read">Read Documentation</a>
 
     **/
     public DeliveryIndication read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -612,7 +612,7 @@ public class DeliveryIndicationService {
     * @return List&lt;DeliveryIndication&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--search">Search Documentation</a>
 
     **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query) throws IOException {
@@ -641,7 +641,7 @@ public class DeliveryIndicationService {
     * @return List&lt;DeliveryIndication&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#delivery-indication-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#delivery-indication-service--search">Search Documentation</a>
 
     **/
     public List<DeliveryIndication> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

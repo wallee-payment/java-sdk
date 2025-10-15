@@ -63,7 +63,7 @@ public class TokenService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--check-token-creation-possible">Check If Token Creation Is Possible Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--check-token-creation-possible">Check If Token Creation Is Possible Documentation</a>
 
     **/
     public Boolean checkTokenCreationPossible(Long spaceId, Long transactionId) throws IOException {
@@ -92,7 +92,7 @@ public class TokenService {
     * @return Boolean
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--check-token-creation-possible">Check If Token Creation Is Possible Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--check-token-creation-possible">Check If Token Creation Is Possible Documentation</a>
 
     **/
     public Boolean checkTokenCreationPossible(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
@@ -189,7 +189,7 @@ public class TokenService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -217,7 +217,7 @@ public class TokenService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -323,7 +323,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create">Create Documentation</a>
 
     **/
     public Token create(Long spaceId, TokenCreate entity) throws IOException {
@@ -352,7 +352,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create">Create Documentation</a>
 
     **/
     public Token create(Long spaceId, TokenCreate entity, Map<String, Object> params) throws IOException {
@@ -470,7 +470,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token">Create Token Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-token">Create Token Documentation</a>
 
     **/
     public Token createToken(Long spaceId, Long transactionId) throws IOException {
@@ -499,7 +499,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token">Create Token Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-token">Create Token Documentation</a>
 
     **/
     public Token createToken(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
@@ -596,7 +596,7 @@ public class TokenService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
 
     **/
     public TokenVersion createTokenBasedOnTransaction(Long spaceId, Long transactionId) throws IOException {
@@ -625,7 +625,7 @@ public class TokenService {
     * @return TokenVersion
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-token-based-on-transaction">Create Token Based On Transaction And Fill It With Stored Payment Information Documentation</a>
 
     **/
     public TokenVersion createTokenBasedOnTransaction(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
@@ -722,7 +722,7 @@ public class TokenService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-transaction-for-token-update">Create Transaction for Token Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-transaction-for-token-update">Create Transaction for Token Update Documentation</a>
 
     **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId) throws IOException {
@@ -751,7 +751,7 @@ public class TokenService {
     * @return Transaction
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--create-transaction-for-token-update">Create Transaction for Token Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--create-transaction-for-token-update">Create Transaction for Token Update Documentation</a>
 
     **/
     public Transaction createTransactionForTokenUpdate(Long spaceId, Long tokenId, Map<String, Object> params) throws IOException {
@@ -847,7 +847,7 @@ public class TokenService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -866,7 +866,7 @@ public class TokenService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -975,7 +975,7 @@ public class TokenService {
     * @return Charge
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--process-transaction">Process Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--process-transaction">Process Transaction Documentation</a>
 
     **/
     public Charge processTransaction(Long spaceId, Long transactionId) throws IOException {
@@ -1004,7 +1004,7 @@ public class TokenService {
     * @return Charge
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--process-transaction">Process Transaction Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--process-transaction">Process Transaction Documentation</a>
 
     **/
     public Charge processTransaction(Long spaceId, Long transactionId, Map<String, Object> params) throws IOException {
@@ -1101,7 +1101,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--read">Read Documentation</a>
 
     **/
     public Token read(Long spaceId, Long id) throws IOException {
@@ -1130,7 +1130,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--read">Read Documentation</a>
 
     **/
     public Token read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -1227,7 +1227,7 @@ public class TokenService {
     * @return List&lt;Token&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--search">Search Documentation</a>
 
     **/
     public List<Token> search(Long spaceId, EntityQuery query) throws IOException {
@@ -1256,7 +1256,7 @@ public class TokenService {
     * @return List&lt;Token&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--search">Search Documentation</a>
 
     **/
     public List<Token> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -1375,7 +1375,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--update">Update Documentation</a>
 
     **/
     public Token update(Long spaceId, TokenUpdate entity) throws IOException {
@@ -1405,7 +1405,7 @@ public class TokenService {
     * @return Token
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#token-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#token-service--update">Update Documentation</a>
 
     **/
     public Token update(Long spaceId, TokenUpdate entity, Map<String, Object> params) throws IOException {

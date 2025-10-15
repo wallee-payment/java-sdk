@@ -54,6 +54,10 @@ public class PaymentLinkUpdate {
   protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
 
   
+  @JsonProperty("allowedRedirectionDomains")
+  protected List<String> allowedRedirectionDomains = null;
+
+  
   @JsonProperty("appliedSpaceView")
   protected Long appliedSpaceView = null;
 
@@ -157,6 +161,33 @@ public class PaymentLinkUpdate {
 
   public void setAllowedPaymentMethodConfigurations(List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations) {
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
+  }
+
+  
+  public PaymentLinkUpdate allowedRedirectionDomains(List<String> allowedRedirectionDomains) {
+    this.allowedRedirectionDomains = allowedRedirectionDomains;
+    return this;
+  }
+
+  public PaymentLinkUpdate addAllowedRedirectionDomainsItem(String allowedRedirectionDomainsItem) {
+    if (this.allowedRedirectionDomains == null) {
+      this.allowedRedirectionDomains = new ArrayList<>();
+    }
+    this.allowedRedirectionDomains.add(allowedRedirectionDomainsItem);
+    return this;
+  }
+
+   /**
+   * The domains to which the user is allowed to be redirected after the payment is completed. The following options can be configured: Exact domain: enter a full domain, e.g. (https://example.com). Wildcard domain: use to allow subdomains, e.g. (https://_*.example.com). All domains: use (ALL) to allow redirection to any domain (not recommended for security reasons). No domains : use (NONE) to disallow any redirection. Only one option per line is allowed. Invalid entries will be rejected. 
+   * @return allowedRedirectionDomains
+  **/
+  @ApiModelProperty(value = "The domains to which the user is allowed to be redirected after the payment is completed. The following options can be configured: Exact domain: enter a full domain, e.g. (https://example.com). Wildcard domain: use to allow subdomains, e.g. (https://_*.example.com). All domains: use (ALL) to allow redirection to any domain (not recommended for security reasons). No domains : use (NONE) to disallow any redirection. Only one option per line is allowed. Invalid entries will be rejected. ")
+  public List<String> getAllowedRedirectionDomains() {
+    return allowedRedirectionDomains;
+  }
+
+  public void setAllowedRedirectionDomains(List<String> allowedRedirectionDomains) {
+    this.allowedRedirectionDomains = allowedRedirectionDomains;
   }
 
   
@@ -371,6 +402,7 @@ public class PaymentLinkUpdate {
     return Objects.equals(this.id, paymentLinkUpdate.id) &&
         Objects.equals(this.version, paymentLinkUpdate.version) &&
         Objects.equals(this.allowedPaymentMethodConfigurations, paymentLinkUpdate.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.allowedRedirectionDomains, paymentLinkUpdate.allowedRedirectionDomains) &&
         Objects.equals(this.appliedSpaceView, paymentLinkUpdate.appliedSpaceView) &&
         Objects.equals(this.availableFrom, paymentLinkUpdate.availableFrom) &&
         Objects.equals(this.availableUntil, paymentLinkUpdate.availableUntil) &&
@@ -385,7 +417,7 @@ public class PaymentLinkUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode);
+    return Objects.hash(id, version, allowedPaymentMethodConfigurations, allowedRedirectionDomains, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode);
   }
 
 
@@ -397,6 +429,7 @@ public class PaymentLinkUpdate {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    allowedRedirectionDomains: ").append(toIndentedString(allowedRedirectionDomains)).append("\n");
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");

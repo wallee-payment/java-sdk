@@ -63,7 +63,7 @@ public class WebhookEncryptionService {
     * @return WebhookEncryptionPublicKey
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#webhook-encryption-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#webhook-encryption-service--read">Read Documentation</a>
 
     **/
     public WebhookEncryptionPublicKey read(String id) throws IOException {
@@ -91,7 +91,7 @@ public class WebhookEncryptionService {
     * @return WebhookEncryptionPublicKey
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#webhook-encryption-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#webhook-encryption-service--read">Read Documentation</a>
 
     **/
     public WebhookEncryptionPublicKey read(String id, Map<String, Object> params) throws IOException {

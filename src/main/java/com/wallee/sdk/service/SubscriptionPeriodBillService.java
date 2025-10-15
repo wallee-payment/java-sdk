@@ -58,7 +58,7 @@ public class SubscriptionPeriodBillService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -86,7 +86,7 @@ public class SubscriptionPeriodBillService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -192,7 +192,7 @@ public class SubscriptionPeriodBillService {
     * @return SubscriptionPeriodBill
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--read">Read Documentation</a>
 
     **/
     public SubscriptionPeriodBill read(Long spaceId, Long id) throws IOException {
@@ -221,7 +221,7 @@ public class SubscriptionPeriodBillService {
     * @return SubscriptionPeriodBill
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--read">Read Documentation</a>
 
     **/
     public SubscriptionPeriodBill read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -318,7 +318,7 @@ public class SubscriptionPeriodBillService {
     * @return List&lt;SubscriptionPeriodBill&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionPeriodBill> search(Long spaceId, EntityQuery query) throws IOException {
@@ -347,7 +347,7 @@ public class SubscriptionPeriodBillService {
     * @return List&lt;SubscriptionPeriodBill&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#subscription-period-bill-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#subscription-period-bill-service--search">Search Documentation</a>
 
     **/
     public List<SubscriptionPeriodBill> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {

@@ -95,8 +95,7 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
       return false;
     }
     WebhookListenerUpdate webhookListenerUpdate = (WebhookListenerUpdate) o;
-    return Objects.equals(this.enablePayloadSignatureAndState, webhookListenerUpdate.enablePayloadSignatureAndState) &&
-        Objects.equals(this.entityStates, webhookListenerUpdate.entityStates) &&
+    return Objects.equals(this.entityStates, webhookListenerUpdate.entityStates) &&
         Objects.equals(this.name, webhookListenerUpdate.name) &&
         Objects.equals(this.notifyEveryChange, webhookListenerUpdate.notifyEveryChange) &&
         Objects.equals(this.state, webhookListenerUpdate.state) &&
@@ -107,7 +106,7 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePayloadSignatureAndState, entityStates, name, notifyEveryChange, state, id, version, super.hashCode());
+    return Objects.hash(entityStates, name, notifyEveryChange, state, id, version, super.hashCode());
   }
 
 
@@ -116,7 +115,6 @@ public class WebhookListenerUpdate extends AbstractWebhookListenerUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookListenerUpdate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    enablePayloadSignatureAndState: ").append(toIndentedString(enablePayloadSignatureAndState)).append("\n");
     sb.append("    entityStates: ").append(toIndentedString(entityStates)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifyEveryChange: ").append(toIndentedString(notifyEveryChange)).append("\n");

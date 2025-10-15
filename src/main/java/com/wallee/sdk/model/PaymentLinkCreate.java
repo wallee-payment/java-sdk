@@ -121,6 +121,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
     }
     PaymentLinkCreate paymentLinkCreate = (PaymentLinkCreate) o;
     return Objects.equals(this.allowedPaymentMethodConfigurations, paymentLinkCreate.allowedPaymentMethodConfigurations) &&
+        Objects.equals(this.allowedRedirectionDomains, paymentLinkCreate.allowedRedirectionDomains) &&
         Objects.equals(this.appliedSpaceView, paymentLinkCreate.appliedSpaceView) &&
         Objects.equals(this.availableFrom, paymentLinkCreate.availableFrom) &&
         Objects.equals(this.availableUntil, paymentLinkCreate.availableUntil) &&
@@ -139,7 +140,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedPaymentMethodConfigurations, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode, state, externalId, protectionMode, super.hashCode());
+    return Objects.hash(allowedPaymentMethodConfigurations, allowedRedirectionDomains, appliedSpaceView, availableFrom, availableUntil, billingAddressHandlingMode, currency, language, lineItems, maximalNumberOfTransactions, name, shippingAddressHandlingMode, state, externalId, protectionMode, super.hashCode());
   }
 
 
@@ -149,6 +150,7 @@ public class PaymentLinkCreate extends AbstractPaymentLinkUpdate {
     sb.append("class PaymentLinkCreate {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
+    sb.append("    allowedRedirectionDomains: ").append(toIndentedString(allowedRedirectionDomains)).append("\n");
     sb.append("    appliedSpaceView: ").append(toIndentedString(appliedSpaceView)).append("\n");
     sb.append("    availableFrom: ").append(toIndentedString(availableFrom)).append("\n");
     sb.append("    availableUntil: ").append(toIndentedString(availableUntil)).append("\n");

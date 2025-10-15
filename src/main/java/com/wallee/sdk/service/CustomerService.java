@@ -60,7 +60,7 @@ public class CustomerService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--count">Count Documentation</a>
 
     **/
     public Long count(Long spaceId, EntityQueryFilter filter) throws IOException {
@@ -88,7 +88,7 @@ public class CustomerService {
     * @return Long
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--count">Count Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--count">Count Documentation</a>
 
     **/
     public Long count(EntityQueryFilter filter, Long spaceId, Map<String, Object> params) throws IOException {
@@ -194,7 +194,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--create">Create Documentation</a>
 
     **/
     public Customer create(Long spaceId, CustomerCreate entity) throws IOException {
@@ -223,7 +223,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--create">Create Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--create">Create Documentation</a>
 
     **/
     public Customer create(Long spaceId, CustomerCreate entity, Map<String, Object> params) throws IOException {
@@ -340,7 +340,7 @@ public class CustomerService {
     * @param id 
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id) throws IOException {
@@ -359,7 +359,7 @@ public class CustomerService {
     * @param params Map of query params. A collection will be interpreted as passing in multiple instances of the same query param.
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--delete">Delete Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--delete">Delete Documentation</a>
 
     **/
     public void delete(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -468,7 +468,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--read">Read Documentation</a>
 
     **/
     public Customer read(Long spaceId, Long id) throws IOException {
@@ -497,7 +497,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--read">Read Documentation</a>
 
     **/
     public Customer read(Long spaceId, Long id, Map<String, Object> params) throws IOException {
@@ -594,7 +594,7 @@ public class CustomerService {
     * @return List&lt;Customer&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--search">Search Documentation</a>
 
     **/
     public List<Customer> search(Long spaceId, EntityQuery query) throws IOException {
@@ -623,7 +623,7 @@ public class CustomerService {
     * @return List&lt;Customer&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--search">Search Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--search">Search Documentation</a>
 
     **/
     public List<Customer> search(Long spaceId, EntityQuery query, Map<String, Object> params) throws IOException {
@@ -742,7 +742,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--update">Update Documentation</a>
 
     **/
     public Customer update(Long spaceId, CustomerActive entity) throws IOException {
@@ -772,7 +772,7 @@ public class CustomerService {
     * @return Customer
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#customer-service--update">Update Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#customer-service--update">Update Documentation</a>
 
     **/
     public Customer update(Long spaceId, CustomerActive entity, Map<String, Object> params) throws IOException {

@@ -396,6 +396,38 @@ public class ApiClient {
         return this.documentTemplateTypeService;
     }
     
+    private DunningCaseLevelService dunningCaseLevelService;
+    public DunningCaseLevelService getDunningCaseLevelService() {
+        if (this.dunningCaseLevelService == null) {
+            this.dunningCaseLevelService = new DunningCaseLevelService(this);
+        }
+        return this.dunningCaseLevelService;
+    }
+    
+    private DunningCaseService dunningCaseService;
+    public DunningCaseService getDunningCaseService() {
+        if (this.dunningCaseService == null) {
+            this.dunningCaseService = new DunningCaseService(this);
+        }
+        return this.dunningCaseService;
+    }
+    
+    private DunningFlowLevelService dunningFlowLevelService;
+    public DunningFlowLevelService getDunningFlowLevelService() {
+        if (this.dunningFlowLevelService == null) {
+            this.dunningFlowLevelService = new DunningFlowLevelService(this);
+        }
+        return this.dunningFlowLevelService;
+    }
+    
+    private DunningFlowService dunningFlowService;
+    public DunningFlowService getDunningFlowService() {
+        if (this.dunningFlowService == null) {
+            this.dunningFlowService = new DunningFlowService(this);
+        }
+        return this.dunningFlowService;
+    }
+    
     private ExternalTransferBankTransactionService externalTransferBankTransactionService;
     public ExternalTransferBankTransactionService getExternalTransferBankTransactionService() {
         if (this.externalTransferBankTransactionService == null) {

@@ -54,7 +54,7 @@ public class StaticValueService {
     * @return List&lt;StaticValue&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#static-value-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#static-value-service--all">All Documentation</a>
 
     **/
     public List<StaticValue> all() throws IOException {
@@ -81,7 +81,7 @@ public class StaticValueService {
     * @return List&lt;StaticValue&gt;
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#static-value-service--all">All Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#static-value-service--all">All Documentation</a>
 
     **/
     public List<StaticValue> all(Map<String, Object> params) throws IOException {
@@ -147,7 +147,7 @@ public class StaticValueService {
     * @return StaticValue
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#static-value-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#static-value-service--read">Read Documentation</a>
 
     **/
     public StaticValue read(Long id) throws IOException {
@@ -175,7 +175,7 @@ public class StaticValueService {
     * @return StaticValue
     * @throws IOException if an error occurs while attempting to invoke the API
     * For more information visit this link.
-    * @see <a href="https://app-wallee.com/doc/api/web-service#static-value-service--read">Read Documentation</a>
+    * @see <a href="https://app-wallee.com/doc/api/web-service/v1#static-value-service--read">Read Documentation</a>
 
     **/
     public StaticValue read(Long id, Map<String, Object> params) throws IOException {

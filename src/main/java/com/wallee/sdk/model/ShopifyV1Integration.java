@@ -52,6 +52,10 @@ public class ShopifyV1Integration {
   protected Boolean allowInvoiceDownload = null;
 
   
+  @JsonProperty("allowPaymentWithTaxDiscrepancy")
+  protected Boolean allowPaymentWithTaxDiscrepancy = null;
+
+  
   @JsonProperty("allowedPaymentMethodConfigurations")
   protected List<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = null;
 
@@ -158,6 +162,16 @@ public class ShopifyV1Integration {
   @ApiModelProperty(value = "")
   public Boolean isAllowInvoiceDownload() {
     return allowInvoiceDownload;
+  }
+
+  
+   /**
+   * If in the merchant Shopify store is used legacy tax service, rounding discrepancies in line item tax amounts may occur. When this check is enabled, such discrepancies are tolerated, allowing the payment to proceed without raising an exception.
+   * @return allowPaymentWithTaxDiscrepancy
+  **/
+  @ApiModelProperty(value = "If in the merchant Shopify store is used legacy tax service, rounding discrepancies in line item tax amounts may occur. When this check is enabled, such discrepancies are tolerated, allowing the payment to proceed without raising an exception.")
+  public Boolean isAllowPaymentWithTaxDiscrepancy() {
+    return allowPaymentWithTaxDiscrepancy;
   }
 
   
@@ -393,6 +407,7 @@ public class ShopifyV1Integration {
     ShopifyV1Integration shopifyV1Integration = (ShopifyV1Integration) o;
     return Objects.equals(this.additionalLineItemData, shopifyV1Integration.additionalLineItemData) &&
         Objects.equals(this.allowInvoiceDownload, shopifyV1Integration.allowInvoiceDownload) &&
+        Objects.equals(this.allowPaymentWithTaxDiscrepancy, shopifyV1Integration.allowPaymentWithTaxDiscrepancy) &&
         Objects.equals(this.allowedPaymentMethodConfigurations, shopifyV1Integration.allowedPaymentMethodConfigurations) &&
         Objects.equals(this.currency, shopifyV1Integration.currency) &&
         Objects.equals(this.id, shopifyV1Integration.id) &&
@@ -419,7 +434,7 @@ public class ShopifyV1Integration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalLineItemData, allowInvoiceDownload, allowedPaymentMethodConfigurations, currency, id, integratedPaymentFormEnabled, language, loginName, name, paymentAppVersion, paymentInstalled, paymentProxyPath, plannedPurgeDate, replacePaymentMethodImage, shopName, showPaymentInformation, showSubscriptionInformation, spaceId, spaceViewId, state, subscriptionAppVersion, subscriptionInstalled, subscriptionProxyPath, version);
+    return Objects.hash(additionalLineItemData, allowInvoiceDownload, allowPaymentWithTaxDiscrepancy, allowedPaymentMethodConfigurations, currency, id, integratedPaymentFormEnabled, language, loginName, name, paymentAppVersion, paymentInstalled, paymentProxyPath, plannedPurgeDate, replacePaymentMethodImage, shopName, showPaymentInformation, showSubscriptionInformation, spaceId, spaceViewId, state, subscriptionAppVersion, subscriptionInstalled, subscriptionProxyPath, version);
   }
 
 
@@ -430,6 +445,7 @@ public class ShopifyV1Integration {
     
     sb.append("    additionalLineItemData: ").append(toIndentedString(additionalLineItemData)).append("\n");
     sb.append("    allowInvoiceDownload: ").append(toIndentedString(allowInvoiceDownload)).append("\n");
+    sb.append("    allowPaymentWithTaxDiscrepancy: ").append(toIndentedString(allowPaymentWithTaxDiscrepancy)).append("\n");
     sb.append("    allowedPaymentMethodConfigurations: ").append(toIndentedString(allowedPaymentMethodConfigurations)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
