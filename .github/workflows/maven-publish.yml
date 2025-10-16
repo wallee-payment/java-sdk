@@ -17,12 +17,6 @@ jobs:
     strategy:
       matrix: { java: [ 8 ] }
 
-    env:
-      # map secrets to env vars that setup-java & maven will use
-      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-      OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-      SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
-
     steps:
       - uses: actions/checkout@v4
 
@@ -78,4 +72,8 @@ jobs:
 
       - name: Publish to Maven Central
         id: deploy
+        env:
+          SIGN_KEY_PASS: ${{ secrets.SIGN_KEY_PASS }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
         run: mvn -U -B clean deploy -P release -DskipTests=true
