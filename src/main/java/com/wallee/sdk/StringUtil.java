@@ -1,23 +1,30 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk;
+
+import java.util.Collection;
+import java.util.Iterator;
+
 
 public class StringUtil {
   /**
@@ -29,8 +36,12 @@ public class StringUtil {
    */
   public static boolean containsIgnoreCase(String[] array, String value) {
     for (String str : array) {
-      if (value == null && str == null) return true;
-      if (value != null && value.equalsIgnoreCase(str)) return true;
+      if (value == null && str == null) {
+        return true;
+      }
+      if (value != null && value.equalsIgnoreCase(str)) {
+        return true;
+      }
     }
     return false;
   }
@@ -48,7 +59,9 @@ public class StringUtil {
    */
   public static String join(String[] array, String separator) {
     int len = array.length;
-    if (len == 0) return "";
+    if (len == 0) {
+      return "";
+    }
 
     StringBuilder out = new StringBuilder();
     out.append(array[0]);
@@ -59,20 +72,21 @@ public class StringUtil {
   }
 
   /**
-   * Trim string to null
-   * @param str string to trim
-   * @return trimmed string
+   * Join a list of strings with the given separator.
+   *
+   * @param list      The list of strings
+   * @param separator The separator
+   * @return the resulting string
    */
-  public static String trimToNull(final String str) {
-    final String ts = trim(str);
-    return isEmpty(ts) ? null : ts;
-  }
-
-  private static String trim(final String str) {
-    return str == null ? null : str.trim();
-  }
-
-  private static boolean isEmpty(final CharSequence cs) {
-    return cs == null || cs.length() == 0;
+  public static String join(Collection<String> list, String separator) {
+    Iterator<String> iterator = list.iterator();
+    StringBuilder out = new StringBuilder();
+    if (iterator.hasNext()) {
+      out.append(iterator.next());
+    }
+    while (iterator.hasNext()) {
+      out.append(separator).append(iterator.next());
+    }
+    return out.toString();
   }
 }

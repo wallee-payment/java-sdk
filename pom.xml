@@ -8,9 +8,9 @@
     <artifactId>wallee-java-sdk</artifactId>
     <packaging>jar</packaging>
     <name>wallee-java-sdk</name>
-    <version>8.8.3</version>
+    <version>9.0.0</version>
     <url>https://www.wallee.com</url>
-    <description>The SDK for simplifying the integration with wallee API.</description>
+    <description>The SDK for simplifying the integration with wallee AG API</description>
 
     <scm>
         <connection>scm:git:git@github.com:wallee-payment/java-sdk.git</connection>
@@ -20,7 +20,7 @@
 
     <licenses>
         <license>
-            <name>Apache-2.0</name>
+            <name>The Apache License, Version 2.0</name>
             <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
@@ -28,7 +28,6 @@
 
     <developers>
         <developer>
-            <id>wallee</id>
             <name>Wallee Ecosystem Team</name>
             <email>ecosystem-team@wallee.com</email>
             <organization>Wallee Group</organization>
@@ -38,14 +37,13 @@
 
     <build>
         <plugins>
-            <!-- Enforce Maven >= 3.2 and Java >= 8 (no upper bound on Maven) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <version>3.4.1</version>
                 <executions>
                     <execution>
-                        <id>enforce-maven-and-java</id>
+                        <id>enforce-maven</id>
                         <goals>
                             <goal>enforce</goal>
                         </goals>
@@ -58,50 +56,51 @@
                                     <version>[1.8,)</version>
                                 </requireJavaVersion>
                             </rules>
-                            <failFast>true</failFast>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12</version>
+                <version>3.2.5</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <property>
-                            <name>loggerPath</name>
-                            <value>conf/log4j.properties</value>
-                        </property>
+                        <loggerPath>conf/log4j.properties</loggerPath>
                     </systemPropertyVariables>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                     <parallel>methods</parallel>
-                    <forkMode>pertest</forkMode>
+                    <threadCount>10</threadCount>
                 </configuration>
             </plugin>
-
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
+                        <id>copy-dependencies</id>
                         <phase>package</phase>
-                        <goals><goal>copy-dependencies</goal></goals>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
                         <configuration>
                             <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                            <includeScope>runtime</includeScope>
+                            <stripVersion>true</stripVersion>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
+            <!-- attach test jar -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.2</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>jar</goal>
                             <goal>test-jar</goal>
                         </goals>
                     </execution>
@@ -111,62 +110,80 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.10</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>add_sources</id>
                         <phase>generate-sources</phase>
-                        <goals><goal>add-source</goal></goals>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
                         <configuration>
-                            <sources> <source>src/main/java</source> </sources>
+                            <sources>
+                                <source>src/main/java</source>
+                            </sources>
                         </configuration>
                     </execution>
                     <execution>
                         <id>add_test_sources</id>
                         <phase>generate-test-sources</phase>
-                        <goals><goal>add-test-source</goal></goals>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
                         <configuration>
-                            <sources> <source>src/test/java</source> </sources>
+                            <sources>
+                                <source>src/test/java</source>
+                            </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.10.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <encoding>UTF-8</encoding>
+                    <fork>true</fork>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>-J-Xss4m</arg>
+                        <!-- Compiling the generated JSON.java file may require larger stack size. -->
+                    </compilerArgs>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.4.1</version>
                 <configuration>
-                    <additionalparam>-Xdoclint:-missing</additionalparam>
-                    <quiet>true</quiet>
+                    <doclint>none</doclint>
+                    <source>1.8</source>
+                    <encoding>UTF-8</encoding>
                 </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
-                        <goals><goal>jar</goal></goals>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
-                        <goals><goal>jar-no-fork</goal></goals>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -197,7 +214,9 @@
                                 <execution>
                                     <id>sign-artifacts</id>
                                     <phase>verify</phase>
-                                    <goals><goal>sign</goal></goals>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
                                     <configuration>
                                         <!-- This is required to make sure the plugin does not stop asking for -->
                                         <!-- user input on the passphrase -->
@@ -208,6 +227,11 @@
                                     </configuration>
                                 </execution>
                             </executions>
+                            <configuration>
+                                <keyname>${gpg.keyname}</keyname>
+                                <passphrase>${gpg.passphrase}</passphrase>
+                                <useAgent>false</useAgent>
+                            </configuration>
                         </plugin>
 
                         <!-- Sonatype Central Publishing Plugin -->
@@ -234,7 +258,9 @@
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
-                                <goals><goal>jar-no-fork</goal></goals>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -243,11 +269,18 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
+                        <version>3.4.1</version>
+                        <configuration>
+                            <doclint>none</doclint> <!-- suppress doclint warnings for legacy code -->
+                            <source>1.8</source>
+                            <quiet>true</quiet>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
-                                <goals><goal>jar</goal></goals>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
                             </execution>
                         </executions>
                     </plugin>
@@ -271,42 +304,26 @@
     </profiles>
 
     <dependencies>
+
+        <!-- @Nullable annotation -->
         <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>${swagger-annotations-version}</version>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
         </dependency>
 
-        <!-- HTTP client: google-api-client -->
+        <!-- BouncyCastle cryptography provider -->
         <dependency>
-            <groupId>com.google.api-client</groupId>
-            <artifactId>google-api-client</artifactId>
-            <version>${google-api-client-version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bouncycastle-version}</version>
         </dependency>
 
+        <!-- HTTP client: apache client -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava-version}</version>
-        </dependency>
-
-        <!-- Apache HttpClient for building URLs from templates -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>${apache-httpclient-version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-codec</groupId>
-                    <artifactId>commons-codec</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>org.apache.httpcomponents.client5</groupId>
+            <artifactId>httpclient5</artifactId>
+            <version>${httpclient-version}</version>
         </dependency>
 
         <!-- JSON processing: jackson -->
@@ -323,27 +340,50 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-
-
         <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk18on</artifactId>
-            <version>${bouncycastle_version}</version>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson-databind-nullable-version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta-annotation-version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jsonwebtoken-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>${jsonwebtoken-version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jsonwebtoken-version}</version>
+            <scope>runtime</scope>
+        </dependency>
         <!-- test dependencies -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
@@ -351,13 +391,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <swagger-annotations-version>1.5.17</swagger-annotations-version>
-        <google-api-client-version>2.2.0</google-api-client-version>
-        <guava-version>31.1-jre</guava-version>
-        <jackson-version>2.14.1</jackson-version>
-        <apache-httpclient-version>4.5.14</apache-httpclient-version>
-        <maven-plugin-version>1.0.0</maven-plugin-version>
-        <junit-version>4.13.2</junit-version>
-        <bouncycastle_version>1.77</bouncycastle_version>
+        <httpclient-version>5.2.1</httpclient-version>
+        <jackson-version>2.19.1</jackson-version>
+        <jackson-databind-version>2.19.1</jackson-databind-version>
+        <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
+        <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
+        <junit-version>5.10.2</junit-version>
+        <jsonwebtoken-version>0.12.5</jsonwebtoken-version>
+        <bouncycastle-version>1.81</bouncycastle-version>
     </properties>
 </project>

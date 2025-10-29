@@ -1,163 +1,97 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CardCryptogramCreate;
 import com.wallee.sdk.model.CardholderAuthenticationCreate;
 import com.wallee.sdk.model.PanType;
 import com.wallee.sdk.model.RecurringIndicator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * AuthenticatedCardDataCreate
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  AuthenticatedCardDataCreate.JSON_PROPERTY_EXPIRY_DATE,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_PAN_TYPE,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_CARD_HOLDER_NAME,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_CARD_VERIFICATION_CODE,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_RECURRING_INDICATOR,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_CARDHOLDER_AUTHENTICATION,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_TOKEN_REQUESTOR_ID,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_CRYPTOGRAM
+})
+@JsonTypeName("AuthenticatedCardData.Create")
 
 public class AuthenticatedCardDataCreate {
-  
-  @JsonProperty("cardHolderName")
-  protected String cardHolderName = null;
+  public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
+  private String expiryDate;
 
-  
-  @JsonProperty("cardVerificationCode")
-  protected String cardVerificationCode = null;
+  public static final String JSON_PROPERTY_PAN_TYPE = "panType";
+  private PanType panType;
 
-  
-  @JsonProperty("cardholderAuthentication")
-  protected CardholderAuthenticationCreate cardholderAuthentication = null;
+  public static final String JSON_PROPERTY_CARD_HOLDER_NAME = "cardHolderName";
+  private String cardHolderName;
 
-  
-  @JsonProperty("cryptogram")
-  protected CardCryptogramCreate cryptogram = null;
+  public static final String JSON_PROPERTY_CARD_VERIFICATION_CODE = "cardVerificationCode";
+  private String cardVerificationCode;
 
-  
-  @JsonProperty("expiryDate")
-  protected String expiryDate = null;
+  public static final String JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER = "primaryAccountNumber";
+  private String primaryAccountNumber;
 
-  
-  @JsonProperty("panType")
-  protected PanType panType = null;
+  public static final String JSON_PROPERTY_RECURRING_INDICATOR = "recurringIndicator";
+  private RecurringIndicator recurringIndicator;
 
-  
-  @JsonProperty("primaryAccountNumber")
-  protected String primaryAccountNumber = null;
+  public static final String JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE = "schemeTransactionReference";
+  private String schemeTransactionReference;
 
-  
-  @JsonProperty("recurringIndicator")
-  protected RecurringIndicator recurringIndicator = null;
+  public static final String JSON_PROPERTY_CARDHOLDER_AUTHENTICATION = "cardholderAuthentication";
+  private CardholderAuthenticationCreate cardholderAuthentication;
 
-  
-  @JsonProperty("schemeTransactionReference")
-  protected String schemeTransactionReference = null;
+  public static final String JSON_PROPERTY_TOKEN_REQUESTOR_ID = "tokenRequestorId";
+  private String tokenRequestorId;
 
-  
-  @JsonProperty("tokenRequestorId")
-  protected String tokenRequestorId = null;
+  public static final String JSON_PROPERTY_CRYPTOGRAM = "cryptogram";
+  private CardCryptogramCreate cryptogram;
 
-  
-  
-  public AuthenticatedCardDataCreate cardHolderName(String cardHolderName) {
-    this.cardHolderName = cardHolderName;
-    return this;
+  public AuthenticatedCardDataCreate() {
   }
 
-   /**
-   * The name of the cardholder, as printed on the card, identifying the card owner.
-   * @return cardHolderName
-  **/
-  @ApiModelProperty(value = "The name of the cardholder, as printed on the card, identifying the card owner.")
-  public String getCardHolderName() {
-    return cardHolderName;
-  }
-
-  public void setCardHolderName(String cardHolderName) {
-    this.cardHolderName = cardHolderName;
-  }
-
-  
-  public AuthenticatedCardDataCreate cardVerificationCode(String cardVerificationCode) {
-    this.cardVerificationCode = cardVerificationCode;
-    return this;
-  }
-
-   /**
-   * The security code used to validate the card during transactions.
-   * @return cardVerificationCode
-  **/
-  @ApiModelProperty(value = "The security code used to validate the card during transactions.")
-  public String getCardVerificationCode() {
-    return cardVerificationCode;
-  }
-
-  public void setCardVerificationCode(String cardVerificationCode) {
-    this.cardVerificationCode = cardVerificationCode;
-  }
-
-  
-  public AuthenticatedCardDataCreate cardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
-    this.cardholderAuthentication = cardholderAuthentication;
-    return this;
-  }
-
-   /**
-   * Optional authentication details for the cardholder, such as 3D Secure authentication, used when the cardholder has already been verified during the transaction for added security.
-   * @return cardholderAuthentication
-  **/
-  @ApiModelProperty(value = "Optional authentication details for the cardholder, such as 3D Secure authentication, used when the cardholder has already been verified during the transaction for added security.")
-  public CardholderAuthenticationCreate getCardholderAuthentication() {
-    return cardholderAuthentication;
-  }
-
-  public void setCardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
-    this.cardholderAuthentication = cardholderAuthentication;
-  }
-
-  
-  public AuthenticatedCardDataCreate cryptogram(CardCryptogramCreate cryptogram) {
-    this.cryptogram = cryptogram;
-    return this;
-  }
-
-   /**
-   * An additional authentication value that enhances the security of tokenized card transactions.
-   * @return cryptogram
-  **/
-  @ApiModelProperty(value = "An additional authentication value that enhances the security of tokenized card transactions.")
-  public CardCryptogramCreate getCryptogram() {
-    return cryptogram;
-  }
-
-  public void setCryptogram(CardCryptogramCreate cryptogram) {
-    this.cryptogram = cryptogram;
-  }
-
-  
   public AuthenticatedCardDataCreate expiryDate(String expiryDate) {
+    
     this.expiryDate = expiryDate;
     return this;
   }
@@ -166,36 +100,98 @@ public class AuthenticatedCardDataCreate {
    * The expiry date of the card, indicating its validity period in yyyy-mm format (e.g., 2023-09).
    * @return expiryDate
   **/
-  @ApiModelProperty(value = "The expiry date of the card, indicating its validity period in yyyy-mm format (e.g., 2023-09).")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getExpiryDate() {
     return expiryDate;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setExpiryDate(String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
-  
   public AuthenticatedCardDataCreate panType(PanType panType) {
+    
     this.panType = panType;
     return this;
   }
 
    /**
-   * The type of PAN or token, indicating the source or security method of the card information.
+   * Get panType
    * @return panType
   **/
-  @ApiModelProperty(value = "The type of PAN or token, indicating the source or security method of the card information.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PAN_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public PanType getPanType() {
     return panType;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PAN_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPanType(PanType panType) {
     this.panType = panType;
   }
 
-  
+  public AuthenticatedCardDataCreate cardHolderName(String cardHolderName) {
+    
+    this.cardHolderName = cardHolderName;
+    return this;
+  }
+
+   /**
+   * The name of the cardholder, as printed on the card, identifying the card owner.
+   * @return cardHolderName
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCardHolderName() {
+    return cardHolderName;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardHolderName(String cardHolderName) {
+    this.cardHolderName = cardHolderName;
+  }
+
+  public AuthenticatedCardDataCreate cardVerificationCode(String cardVerificationCode) {
+    
+    this.cardVerificationCode = cardVerificationCode;
+    return this;
+  }
+
+   /**
+   * The security code used to validate the card during transactions.
+   * @return cardVerificationCode
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CARD_VERIFICATION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCardVerificationCode() {
+    return cardVerificationCode;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CARD_VERIFICATION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardVerificationCode(String cardVerificationCode) {
+    this.cardVerificationCode = cardVerificationCode;
+  }
+
   public AuthenticatedCardDataCreate primaryAccountNumber(String primaryAccountNumber) {
+    
     this.primaryAccountNumber = primaryAccountNumber;
     return this;
   }
@@ -204,36 +200,48 @@ public class AuthenticatedCardDataCreate {
    * The card&#39;s primary account number (PAN), the unique identifier of the card.
    * @return primaryAccountNumber
   **/
-  @ApiModelProperty(required = true, value = "The card's primary account number (PAN), the unique identifier of the card.")
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getPrimaryAccountNumber() {
     return primaryAccountNumber;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPrimaryAccountNumber(String primaryAccountNumber) {
     this.primaryAccountNumber = primaryAccountNumber;
   }
 
-  
   public AuthenticatedCardDataCreate recurringIndicator(RecurringIndicator recurringIndicator) {
+    
     this.recurringIndicator = recurringIndicator;
     return this;
   }
 
    /**
-   * The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction&#39;s properties.
+   * Get recurringIndicator
    * @return recurringIndicator
   **/
-  @ApiModelProperty(value = "The indicator used to distinguish between recurring and one-time transactions. If omitted, it will be automatically determined based on the transaction's properties.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RecurringIndicator getRecurringIndicator() {
     return recurringIndicator;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRecurringIndicator(RecurringIndicator recurringIndicator) {
     this.recurringIndicator = recurringIndicator;
   }
 
-  
   public AuthenticatedCardDataCreate schemeTransactionReference(String schemeTransactionReference) {
+    
     this.schemeTransactionReference = schemeTransactionReference;
     return this;
   }
@@ -242,17 +250,48 @@ public class AuthenticatedCardDataCreate {
    * A reference specific to the card&#39;s transaction within its payment scheme.
    * @return schemeTransactionReference
   **/
-  @ApiModelProperty(value = "A reference specific to the card's transaction within its payment scheme.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSchemeTransactionReference() {
     return schemeTransactionReference;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSchemeTransactionReference(String schemeTransactionReference) {
     this.schemeTransactionReference = schemeTransactionReference;
   }
 
-  
+  public AuthenticatedCardDataCreate cardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
+    
+    this.cardholderAuthentication = cardholderAuthentication;
+    return this;
+  }
+
+   /**
+   * Get cardholderAuthentication
+   * @return cardholderAuthentication
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CARDHOLDER_AUTHENTICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CardholderAuthenticationCreate getCardholderAuthentication() {
+    return cardholderAuthentication;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CARDHOLDER_AUTHENTICATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
+    this.cardholderAuthentication = cardholderAuthentication;
+  }
+
   public AuthenticatedCardDataCreate tokenRequestorId(String tokenRequestorId) {
+    
     this.tokenRequestorId = tokenRequestorId;
     return this;
   }
@@ -261,19 +300,48 @@ public class AuthenticatedCardDataCreate {
    * The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.
    * @return tokenRequestorId
   **/
-  @ApiModelProperty(value = "The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTokenRequestorId() {
     return tokenRequestorId;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTokenRequestorId(String tokenRequestorId) {
     this.tokenRequestorId = tokenRequestorId;
   }
 
-  
+  public AuthenticatedCardDataCreate cryptogram(CardCryptogramCreate cryptogram) {
+    
+    this.cryptogram = cryptogram;
+    return this;
+  }
+
+   /**
+   * Get cryptogram
+   * @return cryptogram
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CardCryptogramCreate getCryptogram() {
+    return cryptogram;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCryptogram(CardCryptogramCreate cryptogram) {
+    this.cryptogram = cryptogram;
+  }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -281,39 +349,37 @@ public class AuthenticatedCardDataCreate {
       return false;
     }
     AuthenticatedCardDataCreate authenticatedCardDataCreate = (AuthenticatedCardDataCreate) o;
-    return Objects.equals(this.cardHolderName, authenticatedCardDataCreate.cardHolderName) &&
-        Objects.equals(this.cardVerificationCode, authenticatedCardDataCreate.cardVerificationCode) &&
-        Objects.equals(this.cardholderAuthentication, authenticatedCardDataCreate.cardholderAuthentication) &&
-        Objects.equals(this.cryptogram, authenticatedCardDataCreate.cryptogram) &&
-        Objects.equals(this.expiryDate, authenticatedCardDataCreate.expiryDate) &&
+    return Objects.equals(this.expiryDate, authenticatedCardDataCreate.expiryDate) &&
         Objects.equals(this.panType, authenticatedCardDataCreate.panType) &&
+        Objects.equals(this.cardHolderName, authenticatedCardDataCreate.cardHolderName) &&
+        Objects.equals(this.cardVerificationCode, authenticatedCardDataCreate.cardVerificationCode) &&
         Objects.equals(this.primaryAccountNumber, authenticatedCardDataCreate.primaryAccountNumber) &&
         Objects.equals(this.recurringIndicator, authenticatedCardDataCreate.recurringIndicator) &&
         Objects.equals(this.schemeTransactionReference, authenticatedCardDataCreate.schemeTransactionReference) &&
-        Objects.equals(this.tokenRequestorId, authenticatedCardDataCreate.tokenRequestorId);
+        Objects.equals(this.cardholderAuthentication, authenticatedCardDataCreate.cardholderAuthentication) &&
+        Objects.equals(this.tokenRequestorId, authenticatedCardDataCreate.tokenRequestorId) &&
+        Objects.equals(this.cryptogram, authenticatedCardDataCreate.cryptogram);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cardHolderName, cardVerificationCode, cardholderAuthentication, cryptogram, expiryDate, panType, primaryAccountNumber, recurringIndicator, schemeTransactionReference, tokenRequestorId);
+    return Objects.hash(expiryDate, panType, cardHolderName, cardVerificationCode, primaryAccountNumber, recurringIndicator, schemeTransactionReference, cardholderAuthentication, tokenRequestorId, cryptogram);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthenticatedCardDataCreate {\n");
-    
-    sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
-    sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
-    sb.append("    cardholderAuthentication: ").append(toIndentedString(cardholderAuthentication)).append("\n");
-    sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
     sb.append("    expiryDate: ").append(toIndentedString(expiryDate)).append("\n");
     sb.append("    panType: ").append(toIndentedString(panType)).append("\n");
+    sb.append("    cardHolderName: ").append(toIndentedString(cardHolderName)).append("\n");
+    sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
     sb.append("    schemeTransactionReference: ").append(toIndentedString(schemeTransactionReference)).append("\n");
+    sb.append("    cardholderAuthentication: ").append(toIndentedString(cardholderAuthentication)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
+    sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -322,11 +388,136 @@ public class AuthenticatedCardDataCreate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `expiryDate` to the URL query string
+    if (getExpiryDate() != null) {
+      try {
+        joiner.add(String.format("%sexpiryDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpiryDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `panType` to the URL query string
+    if (getPanType() != null) {
+      try {
+        joiner.add(String.format("%spanType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPanType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cardHolderName` to the URL query string
+    if (getCardHolderName() != null) {
+      try {
+        joiner.add(String.format("%scardHolderName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardHolderName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cardVerificationCode` to the URL query string
+    if (getCardVerificationCode() != null) {
+      try {
+        joiner.add(String.format("%scardVerificationCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCardVerificationCode()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `primaryAccountNumber` to the URL query string
+    if (getPrimaryAccountNumber() != null) {
+      try {
+        joiner.add(String.format("%sprimaryAccountNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrimaryAccountNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `recurringIndicator` to the URL query string
+    if (getRecurringIndicator() != null) {
+      try {
+        joiner.add(String.format("%srecurringIndicator%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecurringIndicator()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `schemeTransactionReference` to the URL query string
+    if (getSchemeTransactionReference() != null) {
+      try {
+        joiner.add(String.format("%sschemeTransactionReference%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSchemeTransactionReference()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cardholderAuthentication` to the URL query string
+    if (getCardholderAuthentication() != null) {
+      joiner.add(getCardholderAuthentication().toUrlQueryString(prefix + "cardholderAuthentication" + suffix));
+    }
+
+    // add `tokenRequestorId` to the URL query string
+    if (getTokenRequestorId() != null) {
+      try {
+        joiner.add(String.format("%stokenRequestorId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTokenRequestorId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `cryptogram` to the URL query string
+    if (getCryptogram() != null) {
+      joiner.add(getCryptogram().toUrlQueryString(prefix + "cryptogram" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

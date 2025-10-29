@@ -1,1095 +1,1013 @@
+/**
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.wallee.sdk;
 
-import com.wallee.sdk.service.*;
-
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.google.api.client.http.AbstractHttpContent;
-import com.google.api.client.http.HttpRequestFactory;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.Json;
+import com.wallee.sdk.auth.Authentication;
+import com.wallee.sdk.auth.HttpBearerAuth;
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.cookie.BasicCookieStore;
+import org.apache.hc.client5.http.cookie.Cookie;
+import org.apache.hc.client5.http.entity.UrlEncodedFormEntity;
+import org.apache.hc.client5.http.entity.mime.MultipartEntityBuilder;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.cookie.BasicClientCookie;
+import org.apache.hc.client5.http.protocol.HttpClientContext;
+import org.apache.hc.core5.http.*;
+import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.io.entity.FileEntity;
+import org.apache.hc.core5.http.io.entity.StringEntity;
+import org.apache.hc.core5.http.io.support.ClassicRequestBuilder;
+import org.apache.hc.core5.http.message.BasicNameValuePair;
+import org.apache.hc.core5.util.Timeout;
+import org.openapitools.jackson.nullable.JsonNullableModule;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.charset.UnsupportedCharsetException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.time.OffsetDateTime;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
-* The ApiClient class is responsible for setting up and maintaining the state and configuration
-* necessary to interact with a remote API service.
-*/
 
-public class ApiClient {
+public class ApiClient extends JavaTimeFormatter {
+    public static final String VERSION = "9.0.0";
+    private Map<String, String> defaultHeaderMap = new HashMap<>();
+    private Map<String, String> defaultCookieMap = new HashMap<>();
+    private String basePath = "https://app-wallee.com/api/v2.0";
+    protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Collections.singletonList(
+        new ServerConfiguration(
+        "https://app-wallee.com/api/v2.0",
+        "No description provided",
+        new HashMap<String, ServerVariable>()
+        )
+            ));
+    protected Integer serverIndex = 0;
+    protected Map<String, String> serverVariables = null;
+    private boolean debugging = false;
+    private int requestTimeout = 25;
 
-    private static final String DEFAULT_BASE_PATH = "https://app-wallee.com:443/api";
-
-    // Configuration fields
-    private int readTimeOut = 25;
-    private String basePath;
-    private HttpRequestFactory httpRequestFactory;
+    private CloseableHttpClient httpClient;
     private ObjectMapper objectMapper;
-    private long userId;
-    private String applicationKey;
-    private Map<String, String> defaultHeaders = new HashMap<>();
+    protected String tempFolderPath = null;
 
-    // Proxy settings
-    private String proxyHostname;
-    private int proxyPort;
+    private Map<String, Authentication> authentications;
+
+    private int statusCode;
+    private Map<String, List<String>> responseHeaders;
+
+    private DateFormat dateFormat;
+
+    // Methods that can have a request body
+    private static final List<String> bodyMethods = Arrays.asList("POST", "PUT", "DELETE", "PATCH");
+
+    public ApiClient(Long userId, String authenticationKey, CloseableHttpClient httpClient) {
+        objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.FAIL_ON_INVALID_SUBTYPE, false);
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        objectMapper.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
+        objectMapper.enable(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
+        objectMapper.registerModule(new JavaTimeModule());
+        objectMapper.registerModule(new JsonNullableModule());
+        objectMapper.setDateFormat(ApiClient.buildDefaultDateFormat());
+
+        dateFormat = ApiClient.buildDefaultDateFormat();
+
+        // Set default User-Agent.
+        setUserAgent("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36");
+
+        // Setup authentications (key: authentication name, value: authentication).
+        authentications = new HashMap<>();
+        authentications.put("jwt", new HttpBearerAuth(userId, authenticationKey));
+        // Prevent the authentications from being modified.
+        authentications = Collections.unmodifiableMap(authentications);
+
+        this.httpClient = httpClient;
+    }
+
+    public ApiClient(Long userId, String authenticationKey) {
+        this(userId, authenticationKey, HttpClients.createDefault());
+    }
+
+    public static DateFormat buildDefaultDateFormat() {
+        return new RFC3339DateFormat();
+    }
 
     /**
-    * Creates a default ObjectMapper for JSON serialization/deserialization.
-    * This mapper will ignore unknown properties and set proper date formats among other configurations.
-    */
-    private static ObjectMapper createDefaultObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper()
-            .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
-            .setDateFormat(new RFC3339DateFormat())
-            .setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        objectMapper.registerModule(new JavaTimeModule());
+     * Returns the current object mapper used for JSON serialization/deserialization.
+     * <p>
+     * Note: If you make changes to the object mapper, remember to set it back via
+     * <code>setObjectMapper</code> in order to trigger HTTP client rebuilding.
+     * </p>
+     *
+     * @return Object mapper
+     */
+    public ObjectMapper getObjectMapper() {
         return objectMapper;
     }
 
     /**
-    * Validates the primary inputs required for establishing a connection with the API.
-    *
-    * @param userId         The user ID that will be authenticated.
-    * @param applicationKey The application key corresponding to the user's account, used for authentication.
-    * @param basePath       The base URL for the API against which all the requests would be made.
-    * @throws IllegalArgumentException if any argument does not meet the criteria.
-    */
-    private void validateInputs(long userId, String applicationKey, String basePath) {
-        if (applicationKey == null || applicationKey.trim().isEmpty()) {
-            throw new IllegalArgumentException("Application key cannot be null or empty.");
-        }
-        if (userId < 1) {
-            throw new IllegalArgumentException("User ID must be positive.");
-        }
-        if (basePath == null || basePath.trim().isEmpty()) {
-            throw new IllegalArgumentException("Base path cannot be null or empty.");
-        }
-    }
-
-    /**
-    * Initializes common properties for the API client.
-    */
-    private void initializeBaseProperties(long userId, String applicationKey, String basePath) {
-        validateInputs(userId, applicationKey, basePath);
-        this.basePath = basePath;
-        this.userId = userId;
-        this.applicationKey = applicationKey;
-        this.objectMapper = createDefaultObjectMapper();
-    }
-
-    /**
-    * Sets up the proxy properties for the API client.
-    */
-    private void initializeProxyProperties(String proxyHostname, int proxyPort) {
-        this.proxyHostname = proxyHostname;
-        this.proxyPort = proxyPort;
-    }
-
-    /**
-    * Constructs an ApiClient with the default base path.
-    */
-    public ApiClient(long userId, String applicationKey) {
-        this(userId, applicationKey, DEFAULT_BASE_PATH);
-	}
-
-    /**
-    * Constructs an ApiClient with a custom base path.
-    */
-    public ApiClient(long userId, String applicationKey, String basePath) {
-        initializeBaseProperties(userId, applicationKey, basePath);
-        this.httpRequestFactory = createRequestFactory();
-    }
-
-    /**
-    * Constructor for ApiClient specifying user credentials, proxy details, and base path.
-    *
-    * @param userId user identifier for authentication.
-    * @param applicationKey unique application key for user authentication.
-    * @param basePath the base URL for API requests.
-    * @param proxyHostname the hostname of the proxy server.
-    * @param proxyPort the port of the proxy server.
-    */
-    public ApiClient(long userId, String applicationKey, String basePath, String proxyHostname, int proxyPort) {
-        initializeBaseProperties(userId, applicationKey, basePath);
-        initializeProxyProperties(proxyHostname, proxyPort);
-        this.httpRequestFactory = createRequestFactory();
-    }
-
-    /**
-    * Constructor for ApiClient specifying user credentials with the default base path and proxy details.
-    *
-    * @param userId user identifier for authentication.
-    * @param applicationKey unique application key for user authentication.
-    * @param proxyHostname the hostname of the proxy server.
-    * @param proxyPort the port of the proxy server.
-    */
-    public ApiClient(long userId, String applicationKey, String proxyHostname, int proxyPort) {
-        this(userId, applicationKey, DEFAULT_BASE_PATH, proxyHostname, proxyPort);
-    }
-
-    /**
-     * Creates an HttpRequestFactory configured for making HTTP requests. The method initializes a transport builder
-     * and potentially sets a proxy for it.
+     * Sets the object mapper.
      *
-     * @return HttpRequestFactory This factory is configured with the built transport and the interceptor.
-     *                            It is ready for making HTTP requests, handling the details of connection
-     *                            and protocol, allowing for high configurability and ease of modifications.
+     * @param objectMapper object mapper
+     * @return API client
      */
-    private HttpRequestFactory createRequestFactory() {
-        final RequestInterceptor interceptor = new RequestInterceptor(this.userId, this.applicationKey, this.defaultHeaders);
-        NetHttpTransport.Builder builder = new NetHttpTransport.Builder();
+    public ApiClient setObjectMapper(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+        return this;
+    }
 
-        if (proxyHostname != null && !proxyHostname.isEmpty()) {
-            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHostname, proxyPort));
-            builder.setProxy(proxy);
-        }
-
-        NetHttpTransport transport = builder.build();
-
-        return transport.createRequestFactory(request -> request.setInterceptor(interceptor));
+    public CloseableHttpClient getHttpClient() {
+        return httpClient;
     }
 
     /**
-    * Allows the addition of default headers that will be sent with each request.
-    */
-    public void addDefaultHeader (String key, String value) {
-        this.defaultHeaders.put(key, value);
-    }
-
-    // Standard getters and setters
-    public HttpRequestFactory getHttpRequestFactory() {
-        return httpRequestFactory;
+     * Sets the HTTP client.
+     *
+     * @param httpClient HTTP client
+     * @return API client
+     */
+    public ApiClient setHttpClient(CloseableHttpClient httpClient) {
+        this.httpClient = httpClient;
+        return this;
     }
 
     public String getBasePath() {
         return basePath;
     }
 
-    public ObjectMapper getObjectMapper() {
-        return objectMapper;
+    /**
+     * Sets the base path.
+     *
+     * @param basePath base path
+     * @return API client
+     */
+    public ApiClient setBasePath(String basePath) {
+        this.basePath = basePath;
+        this.serverIndex = null;
+        return this;
     }
 
-    public int getReadTimeOut() {
-        return readTimeOut;
+    public List<ServerConfiguration> getServers() {
+        return servers;
     }
 
-    public void setReadTimeOut(int readTimeOut) {
-        this.readTimeOut = readTimeOut;
+    /**
+     * Sets the server.
+     *
+     * @param servers a list of server configuration
+     * @return API client
+     */
+    public ApiClient setServers(List<ServerConfiguration> servers) {
+        this.servers = servers;
+        return this;
     }
 
-    public class JacksonJsonHttpContent extends AbstractHttpContent {
-        /* A POJO that can be serialized with a com.fasterxml Jackson ObjectMapper */
-        private final Object data;
-
-        public JacksonJsonHttpContent(Object data) {
-            super(Json.MEDIA_TYPE);
-            this.data = data;
-        }
-
-        @Override
-        public void writeTo(OutputStream out) throws IOException {
-            objectMapper.writeValue(out, data);
-        }
+    public Integer getServerIndex() {
+        return serverIndex;
     }
 
-    // Builder pattern to get API instances for this client.
-    
-    private AccountService accountService;
-    public AccountService getAccountService() {
-        if (this.accountService == null) {
-            this.accountService = new AccountService(this);
-        }
-        return this.accountService;
-    }
-    
-    private ApplicationUserService applicationUserService;
-    public ApplicationUserService getApplicationUserService() {
-        if (this.applicationUserService == null) {
-            this.applicationUserService = new ApplicationUserService(this);
-        }
-        return this.applicationUserService;
-    }
-    
-    private BankAccountService bankAccountService;
-    public BankAccountService getBankAccountService() {
-        if (this.bankAccountService == null) {
-            this.bankAccountService = new BankAccountService(this);
-        }
-        return this.bankAccountService;
-    }
-    
-    private BankTransactionService bankTransactionService;
-    public BankTransactionService getBankTransactionService() {
-        if (this.bankTransactionService == null) {
-            this.bankTransactionService = new BankTransactionService(this);
-        }
-        return this.bankTransactionService;
-    }
-    
-    private CardProcessingService cardProcessingService;
-    public CardProcessingService getCardProcessingService() {
-        if (this.cardProcessingService == null) {
-            this.cardProcessingService = new CardProcessingService(this);
-        }
-        return this.cardProcessingService;
-    }
-    
-    private ChargeAttemptService chargeAttemptService;
-    public ChargeAttemptService getChargeAttemptService() {
-        if (this.chargeAttemptService == null) {
-            this.chargeAttemptService = new ChargeAttemptService(this);
-        }
-        return this.chargeAttemptService;
-    }
-    
-    private ChargeBankTransactionService chargeBankTransactionService;
-    public ChargeBankTransactionService getChargeBankTransactionService() {
-        if (this.chargeBankTransactionService == null) {
-            this.chargeBankTransactionService = new ChargeBankTransactionService(this);
-        }
-        return this.chargeBankTransactionService;
-    }
-    
-    private ChargeFlowLevelPaymentLinkService chargeFlowLevelPaymentLinkService;
-    public ChargeFlowLevelPaymentLinkService getChargeFlowLevelPaymentLinkService() {
-        if (this.chargeFlowLevelPaymentLinkService == null) {
-            this.chargeFlowLevelPaymentLinkService = new ChargeFlowLevelPaymentLinkService(this);
-        }
-        return this.chargeFlowLevelPaymentLinkService;
-    }
-    
-    private ChargeFlowLevelService chargeFlowLevelService;
-    public ChargeFlowLevelService getChargeFlowLevelService() {
-        if (this.chargeFlowLevelService == null) {
-            this.chargeFlowLevelService = new ChargeFlowLevelService(this);
-        }
-        return this.chargeFlowLevelService;
-    }
-    
-    private ChargeFlowService chargeFlowService;
-    public ChargeFlowService getChargeFlowService() {
-        if (this.chargeFlowService == null) {
-            this.chargeFlowService = new ChargeFlowService(this);
-        }
-        return this.chargeFlowService;
-    }
-    
-    private ConditionTypeService conditionTypeService;
-    public ConditionTypeService getConditionTypeService() {
-        if (this.conditionTypeService == null) {
-            this.conditionTypeService = new ConditionTypeService(this);
-        }
-        return this.conditionTypeService;
-    }
-    
-    private CountryService countryService;
-    public CountryService getCountryService() {
-        if (this.countryService == null) {
-            this.countryService = new CountryService(this);
-        }
-        return this.countryService;
-    }
-    
-    private CountryStateService countryStateService;
-    public CountryStateService getCountryStateService() {
-        if (this.countryStateService == null) {
-            this.countryStateService = new CountryStateService(this);
-        }
-        return this.countryStateService;
-    }
-    
-    private CurrencyBankAccountService currencyBankAccountService;
-    public CurrencyBankAccountService getCurrencyBankAccountService() {
-        if (this.currencyBankAccountService == null) {
-            this.currencyBankAccountService = new CurrencyBankAccountService(this);
-        }
-        return this.currencyBankAccountService;
-    }
-    
-    private CurrencyService currencyService;
-    public CurrencyService getCurrencyService() {
-        if (this.currencyService == null) {
-            this.currencyService = new CurrencyService(this);
-        }
-        return this.currencyService;
-    }
-    
-    private CustomerAddressService customerAddressService;
-    public CustomerAddressService getCustomerAddressService() {
-        if (this.customerAddressService == null) {
-            this.customerAddressService = new CustomerAddressService(this);
-        }
-        return this.customerAddressService;
-    }
-    
-    private CustomerCommentService customerCommentService;
-    public CustomerCommentService getCustomerCommentService() {
-        if (this.customerCommentService == null) {
-            this.customerCommentService = new CustomerCommentService(this);
-        }
-        return this.customerCommentService;
-    }
-    
-    private CustomerService customerService;
-    public CustomerService getCustomerService() {
-        if (this.customerService == null) {
-            this.customerService = new CustomerService(this);
-        }
-        return this.customerService;
-    }
-    
-    private DebtCollectionCaseService debtCollectionCaseService;
-    public DebtCollectionCaseService getDebtCollectionCaseService() {
-        if (this.debtCollectionCaseService == null) {
-            this.debtCollectionCaseService = new DebtCollectionCaseService(this);
-        }
-        return this.debtCollectionCaseService;
-    }
-    
-    private DebtCollectorConfigurationService debtCollectorConfigurationService;
-    public DebtCollectorConfigurationService getDebtCollectorConfigurationService() {
-        if (this.debtCollectorConfigurationService == null) {
-            this.debtCollectorConfigurationService = new DebtCollectorConfigurationService(this);
-        }
-        return this.debtCollectorConfigurationService;
-    }
-    
-    private DebtCollectorService debtCollectorService;
-    public DebtCollectorService getDebtCollectorService() {
-        if (this.debtCollectorService == null) {
-            this.debtCollectorService = new DebtCollectorService(this);
-        }
-        return this.debtCollectorService;
-    }
-    
-    private DeliveryIndicationService deliveryIndicationService;
-    public DeliveryIndicationService getDeliveryIndicationService() {
-        if (this.deliveryIndicationService == null) {
-            this.deliveryIndicationService = new DeliveryIndicationService(this);
-        }
-        return this.deliveryIndicationService;
-    }
-    
-    private DocumentTemplateService documentTemplateService;
-    public DocumentTemplateService getDocumentTemplateService() {
-        if (this.documentTemplateService == null) {
-            this.documentTemplateService = new DocumentTemplateService(this);
-        }
-        return this.documentTemplateService;
-    }
-    
-    private DocumentTemplateTypeService documentTemplateTypeService;
-    public DocumentTemplateTypeService getDocumentTemplateTypeService() {
-        if (this.documentTemplateTypeService == null) {
-            this.documentTemplateTypeService = new DocumentTemplateTypeService(this);
-        }
-        return this.documentTemplateTypeService;
-    }
-    
-    private DunningCaseLevelService dunningCaseLevelService;
-    public DunningCaseLevelService getDunningCaseLevelService() {
-        if (this.dunningCaseLevelService == null) {
-            this.dunningCaseLevelService = new DunningCaseLevelService(this);
-        }
-        return this.dunningCaseLevelService;
-    }
-    
-    private DunningCaseService dunningCaseService;
-    public DunningCaseService getDunningCaseService() {
-        if (this.dunningCaseService == null) {
-            this.dunningCaseService = new DunningCaseService(this);
-        }
-        return this.dunningCaseService;
-    }
-    
-    private DunningFlowLevelService dunningFlowLevelService;
-    public DunningFlowLevelService getDunningFlowLevelService() {
-        if (this.dunningFlowLevelService == null) {
-            this.dunningFlowLevelService = new DunningFlowLevelService(this);
-        }
-        return this.dunningFlowLevelService;
-    }
-    
-    private DunningFlowService dunningFlowService;
-    public DunningFlowService getDunningFlowService() {
-        if (this.dunningFlowService == null) {
-            this.dunningFlowService = new DunningFlowService(this);
-        }
-        return this.dunningFlowService;
-    }
-    
-    private ExternalTransferBankTransactionService externalTransferBankTransactionService;
-    public ExternalTransferBankTransactionService getExternalTransferBankTransactionService() {
-        if (this.externalTransferBankTransactionService == null) {
-            this.externalTransferBankTransactionService = new ExternalTransferBankTransactionService(this);
-        }
-        return this.externalTransferBankTransactionService;
-    }
-    
-    private HumanUserService humanUserService;
-    public HumanUserService getHumanUserService() {
-        if (this.humanUserService == null) {
-            this.humanUserService = new HumanUserService(this);
-        }
-        return this.humanUserService;
-    }
-    
-    private InstallmentPaymentService installmentPaymentService;
-    public InstallmentPaymentService getInstallmentPaymentService() {
-        if (this.installmentPaymentService == null) {
-            this.installmentPaymentService = new InstallmentPaymentService(this);
-        }
-        return this.installmentPaymentService;
-    }
-    
-    private InstallmentPaymentSliceService installmentPaymentSliceService;
-    public InstallmentPaymentSliceService getInstallmentPaymentSliceService() {
-        if (this.installmentPaymentSliceService == null) {
-            this.installmentPaymentSliceService = new InstallmentPaymentSliceService(this);
-        }
-        return this.installmentPaymentSliceService;
-    }
-    
-    private InstallmentPlanCalculationService installmentPlanCalculationService;
-    public InstallmentPlanCalculationService getInstallmentPlanCalculationService() {
-        if (this.installmentPlanCalculationService == null) {
-            this.installmentPlanCalculationService = new InstallmentPlanCalculationService(this);
-        }
-        return this.installmentPlanCalculationService;
-    }
-    
-    private InstallmentPlanConfigurationService installmentPlanConfigurationService;
-    public InstallmentPlanConfigurationService getInstallmentPlanConfigurationService() {
-        if (this.installmentPlanConfigurationService == null) {
-            this.installmentPlanConfigurationService = new InstallmentPlanConfigurationService(this);
-        }
-        return this.installmentPlanConfigurationService;
-    }
-    
-    private InstallmentPlanSliceConfigurationService installmentPlanSliceConfigurationService;
-    public InstallmentPlanSliceConfigurationService getInstallmentPlanSliceConfigurationService() {
-        if (this.installmentPlanSliceConfigurationService == null) {
-            this.installmentPlanSliceConfigurationService = new InstallmentPlanSliceConfigurationService(this);
-        }
-        return this.installmentPlanSliceConfigurationService;
-    }
-    
-    private InternalTransferBankTransactionService internalTransferBankTransactionService;
-    public InternalTransferBankTransactionService getInternalTransferBankTransactionService() {
-        if (this.internalTransferBankTransactionService == null) {
-            this.internalTransferBankTransactionService = new InternalTransferBankTransactionService(this);
-        }
-        return this.internalTransferBankTransactionService;
-    }
-    
-    private InvoiceReconciliationRecordInvoiceLinkService invoiceReconciliationRecordInvoiceLinkService;
-    public InvoiceReconciliationRecordInvoiceLinkService getInvoiceReconciliationRecordInvoiceLinkService() {
-        if (this.invoiceReconciliationRecordInvoiceLinkService == null) {
-            this.invoiceReconciliationRecordInvoiceLinkService = new InvoiceReconciliationRecordInvoiceLinkService(this);
-        }
-        return this.invoiceReconciliationRecordInvoiceLinkService;
-    }
-    
-    private InvoiceReconciliationRecordService invoiceReconciliationRecordService;
-    public InvoiceReconciliationRecordService getInvoiceReconciliationRecordService() {
-        if (this.invoiceReconciliationRecordService == null) {
-            this.invoiceReconciliationRecordService = new InvoiceReconciliationRecordService(this);
-        }
-        return this.invoiceReconciliationRecordService;
-    }
-    
-    private InvoiceReimbursementService invoiceReimbursementService;
-    public InvoiceReimbursementService getInvoiceReimbursementService() {
-        if (this.invoiceReimbursementService == null) {
-            this.invoiceReimbursementService = new InvoiceReimbursementService(this);
-        }
-        return this.invoiceReimbursementService;
-    }
-    
-    private LabelDescriptionGroupService labelDescriptionGroupService;
-    public LabelDescriptionGroupService getLabelDescriptionGroupService() {
-        if (this.labelDescriptionGroupService == null) {
-            this.labelDescriptionGroupService = new LabelDescriptionGroupService(this);
-        }
-        return this.labelDescriptionGroupService;
-    }
-    
-    private LabelDescriptionService labelDescriptionService;
-    public LabelDescriptionService getLabelDescriptionService() {
-        if (this.labelDescriptionService == null) {
-            this.labelDescriptionService = new LabelDescriptionService(this);
-        }
-        return this.labelDescriptionService;
-    }
-    
-    private LanguageService languageService;
-    public LanguageService getLanguageService() {
-        if (this.languageService == null) {
-            this.languageService = new LanguageService(this);
-        }
-        return this.languageService;
-    }
-    
-    private LegalOrganizationFormService legalOrganizationFormService;
-    public LegalOrganizationFormService getLegalOrganizationFormService() {
-        if (this.legalOrganizationFormService == null) {
-            this.legalOrganizationFormService = new LegalOrganizationFormService(this);
-        }
-        return this.legalOrganizationFormService;
-    }
-    
-    private ManualTaskService manualTaskService;
-    public ManualTaskService getManualTaskService() {
-        if (this.manualTaskService == null) {
-            this.manualTaskService = new ManualTaskService(this);
-        }
-        return this.manualTaskService;
-    }
-    
-    private MerticUsageService merticUsageService;
-    public MerticUsageService getMerticUsageService() {
-        if (this.merticUsageService == null) {
-            this.merticUsageService = new MerticUsageService(this);
-        }
-        return this.merticUsageService;
-    }
-    
-    private PaymentConnectorConfigurationService paymentConnectorConfigurationService;
-    public PaymentConnectorConfigurationService getPaymentConnectorConfigurationService() {
-        if (this.paymentConnectorConfigurationService == null) {
-            this.paymentConnectorConfigurationService = new PaymentConnectorConfigurationService(this);
-        }
-        return this.paymentConnectorConfigurationService;
-    }
-    
-    private PaymentConnectorService paymentConnectorService;
-    public PaymentConnectorService getPaymentConnectorService() {
-        if (this.paymentConnectorService == null) {
-            this.paymentConnectorService = new PaymentConnectorService(this);
-        }
-        return this.paymentConnectorService;
-    }
-    
-    private PaymentLinkService paymentLinkService;
-    public PaymentLinkService getPaymentLinkService() {
-        if (this.paymentLinkService == null) {
-            this.paymentLinkService = new PaymentLinkService(this);
-        }
-        return this.paymentLinkService;
-    }
-    
-    private PaymentMethodBrandService paymentMethodBrandService;
-    public PaymentMethodBrandService getPaymentMethodBrandService() {
-        if (this.paymentMethodBrandService == null) {
-            this.paymentMethodBrandService = new PaymentMethodBrandService(this);
-        }
-        return this.paymentMethodBrandService;
-    }
-    
-    private PaymentMethodConfigurationService paymentMethodConfigurationService;
-    public PaymentMethodConfigurationService getPaymentMethodConfigurationService() {
-        if (this.paymentMethodConfigurationService == null) {
-            this.paymentMethodConfigurationService = new PaymentMethodConfigurationService(this);
-        }
-        return this.paymentMethodConfigurationService;
-    }
-    
-    private PaymentMethodService paymentMethodService;
-    public PaymentMethodService getPaymentMethodService() {
-        if (this.paymentMethodService == null) {
-            this.paymentMethodService = new PaymentMethodService(this);
-        }
-        return this.paymentMethodService;
-    }
-    
-    private PaymentProcessorConfigurationService paymentProcessorConfigurationService;
-    public PaymentProcessorConfigurationService getPaymentProcessorConfigurationService() {
-        if (this.paymentProcessorConfigurationService == null) {
-            this.paymentProcessorConfigurationService = new PaymentProcessorConfigurationService(this);
-        }
-        return this.paymentProcessorConfigurationService;
-    }
-    
-    private PaymentProcessorService paymentProcessorService;
-    public PaymentProcessorService getPaymentProcessorService() {
-        if (this.paymentProcessorService == null) {
-            this.paymentProcessorService = new PaymentProcessorService(this);
-        }
-        return this.paymentProcessorService;
-    }
-    
-    private PaymentTerminalService paymentTerminalService;
-    public PaymentTerminalService getPaymentTerminalService() {
-        if (this.paymentTerminalService == null) {
-            this.paymentTerminalService = new PaymentTerminalService(this);
-        }
-        return this.paymentTerminalService;
-    }
-    
-    private PaymentTerminalTillService paymentTerminalTillService;
-    public PaymentTerminalTillService getPaymentTerminalTillService() {
-        if (this.paymentTerminalTillService == null) {
-            this.paymentTerminalTillService = new PaymentTerminalTillService(this);
-        }
-        return this.paymentTerminalTillService;
-    }
-    
-    private PaymentTerminalTransactionSummaryService paymentTerminalTransactionSummaryService;
-    public PaymentTerminalTransactionSummaryService getPaymentTerminalTransactionSummaryService() {
-        if (this.paymentTerminalTransactionSummaryService == null) {
-            this.paymentTerminalTransactionSummaryService = new PaymentTerminalTransactionSummaryService(this);
-        }
-        return this.paymentTerminalTransactionSummaryService;
-    }
-    
-    private PaymentWebAppService paymentWebAppService;
-    public PaymentWebAppService getPaymentWebAppService() {
-        if (this.paymentWebAppService == null) {
-            this.paymentWebAppService = new PaymentWebAppService(this);
-        }
-        return this.paymentWebAppService;
-    }
-    
-    private PermissionService permissionService;
-    public PermissionService getPermissionService() {
-        if (this.permissionService == null) {
-            this.permissionService = new PermissionService(this);
-        }
-        return this.permissionService;
-    }
-    
-    private RefundBankTransactionService refundBankTransactionService;
-    public RefundBankTransactionService getRefundBankTransactionService() {
-        if (this.refundBankTransactionService == null) {
-            this.refundBankTransactionService = new RefundBankTransactionService(this);
-        }
-        return this.refundBankTransactionService;
-    }
-    
-    private RefundCommentService refundCommentService;
-    public RefundCommentService getRefundCommentService() {
-        if (this.refundCommentService == null) {
-            this.refundCommentService = new RefundCommentService(this);
-        }
-        return this.refundCommentService;
-    }
-    
-    private RefundRecoveryBankTransactionService refundRecoveryBankTransactionService;
-    public RefundRecoveryBankTransactionService getRefundRecoveryBankTransactionService() {
-        if (this.refundRecoveryBankTransactionService == null) {
-            this.refundRecoveryBankTransactionService = new RefundRecoveryBankTransactionService(this);
-        }
-        return this.refundRecoveryBankTransactionService;
-    }
-    
-    private RefundService refundService;
-    public RefundService getRefundService() {
-        if (this.refundService == null) {
-            this.refundService = new RefundService(this);
-        }
-        return this.refundService;
-    }
-    
-    private ShopifyRecurringOrderService shopifyRecurringOrderService;
-    public ShopifyRecurringOrderService getShopifyRecurringOrderService() {
-        if (this.shopifyRecurringOrderService == null) {
-            this.shopifyRecurringOrderService = new ShopifyRecurringOrderService(this);
-        }
-        return this.shopifyRecurringOrderService;
-    }
-    
-    private ShopifySubscriberService shopifySubscriberService;
-    public ShopifySubscriberService getShopifySubscriberService() {
-        if (this.shopifySubscriberService == null) {
-            this.shopifySubscriberService = new ShopifySubscriberService(this);
-        }
-        return this.shopifySubscriberService;
-    }
-    
-    private ShopifySubscriptionProductService shopifySubscriptionProductService;
-    public ShopifySubscriptionProductService getShopifySubscriptionProductService() {
-        if (this.shopifySubscriptionProductService == null) {
-            this.shopifySubscriptionProductService = new ShopifySubscriptionProductService(this);
-        }
-        return this.shopifySubscriptionProductService;
-    }
-    
-    private ShopifySubscriptionService shopifySubscriptionService;
-    public ShopifySubscriptionService getShopifySubscriptionService() {
-        if (this.shopifySubscriptionService == null) {
-            this.shopifySubscriptionService = new ShopifySubscriptionService(this);
-        }
-        return this.shopifySubscriptionService;
-    }
-    
-    private ShopifySubscriptionSuspensionService shopifySubscriptionSuspensionService;
-    public ShopifySubscriptionSuspensionService getShopifySubscriptionSuspensionService() {
-        if (this.shopifySubscriptionSuspensionService == null) {
-            this.shopifySubscriptionSuspensionService = new ShopifySubscriptionSuspensionService(this);
-        }
-        return this.shopifySubscriptionSuspensionService;
-    }
-    
-    private ShopifySubscriptionVersionService shopifySubscriptionVersionService;
-    public ShopifySubscriptionVersionService getShopifySubscriptionVersionService() {
-        if (this.shopifySubscriptionVersionService == null) {
-            this.shopifySubscriptionVersionService = new ShopifySubscriptionVersionService(this);
-        }
-        return this.shopifySubscriptionVersionService;
-    }
-    
-    private ShopifyTransactionService shopifyTransactionService;
-    public ShopifyTransactionService getShopifyTransactionService() {
-        if (this.shopifyTransactionService == null) {
-            this.shopifyTransactionService = new ShopifyTransactionService(this);
-        }
-        return this.shopifyTransactionService;
-    }
-    
-    private SpaceService spaceService;
-    public SpaceService getSpaceService() {
-        if (this.spaceService == null) {
-            this.spaceService = new SpaceService(this);
-        }
-        return this.spaceService;
-    }
-    
-    private StaticValueService staticValueService;
-    public StaticValueService getStaticValueService() {
-        if (this.staticValueService == null) {
-            this.staticValueService = new StaticValueService(this);
-        }
-        return this.staticValueService;
-    }
-    
-    private SubscriberService subscriberService;
-    public SubscriberService getSubscriberService() {
-        if (this.subscriberService == null) {
-            this.subscriberService = new SubscriberService(this);
-        }
-        return this.subscriberService;
-    }
-    
-    private SubscriptionAffiliateService subscriptionAffiliateService;
-    public SubscriptionAffiliateService getSubscriptionAffiliateService() {
-        if (this.subscriptionAffiliateService == null) {
-            this.subscriptionAffiliateService = new SubscriptionAffiliateService(this);
-        }
-        return this.subscriptionAffiliateService;
-    }
-    
-    private SubscriptionChargeService subscriptionChargeService;
-    public SubscriptionChargeService getSubscriptionChargeService() {
-        if (this.subscriptionChargeService == null) {
-            this.subscriptionChargeService = new SubscriptionChargeService(this);
-        }
-        return this.subscriptionChargeService;
-    }
-    
-    private SubscriptionLedgerEntryService subscriptionLedgerEntryService;
-    public SubscriptionLedgerEntryService getSubscriptionLedgerEntryService() {
-        if (this.subscriptionLedgerEntryService == null) {
-            this.subscriptionLedgerEntryService = new SubscriptionLedgerEntryService(this);
-        }
-        return this.subscriptionLedgerEntryService;
-    }
-    
-    private SubscriptionMetricService subscriptionMetricService;
-    public SubscriptionMetricService getSubscriptionMetricService() {
-        if (this.subscriptionMetricService == null) {
-            this.subscriptionMetricService = new SubscriptionMetricService(this);
-        }
-        return this.subscriptionMetricService;
-    }
-    
-    private SubscriptionMetricUsageService subscriptionMetricUsageService;
-    public SubscriptionMetricUsageService getSubscriptionMetricUsageService() {
-        if (this.subscriptionMetricUsageService == null) {
-            this.subscriptionMetricUsageService = new SubscriptionMetricUsageService(this);
-        }
-        return this.subscriptionMetricUsageService;
-    }
-    
-    private SubscriptionPeriodBillService subscriptionPeriodBillService;
-    public SubscriptionPeriodBillService getSubscriptionPeriodBillService() {
-        if (this.subscriptionPeriodBillService == null) {
-            this.subscriptionPeriodBillService = new SubscriptionPeriodBillService(this);
-        }
-        return this.subscriptionPeriodBillService;
-    }
-    
-    private SubscriptionProductComponentGroupService subscriptionProductComponentGroupService;
-    public SubscriptionProductComponentGroupService getSubscriptionProductComponentGroupService() {
-        if (this.subscriptionProductComponentGroupService == null) {
-            this.subscriptionProductComponentGroupService = new SubscriptionProductComponentGroupService(this);
-        }
-        return this.subscriptionProductComponentGroupService;
-    }
-    
-    private SubscriptionProductComponentService subscriptionProductComponentService;
-    public SubscriptionProductComponentService getSubscriptionProductComponentService() {
-        if (this.subscriptionProductComponentService == null) {
-            this.subscriptionProductComponentService = new SubscriptionProductComponentService(this);
-        }
-        return this.subscriptionProductComponentService;
-    }
-    
-    private SubscriptionProductFeeTierService subscriptionProductFeeTierService;
-    public SubscriptionProductFeeTierService getSubscriptionProductFeeTierService() {
-        if (this.subscriptionProductFeeTierService == null) {
-            this.subscriptionProductFeeTierService = new SubscriptionProductFeeTierService(this);
-        }
-        return this.subscriptionProductFeeTierService;
-    }
-    
-    private SubscriptionProductMeteredFeeService subscriptionProductMeteredFeeService;
-    public SubscriptionProductMeteredFeeService getSubscriptionProductMeteredFeeService() {
-        if (this.subscriptionProductMeteredFeeService == null) {
-            this.subscriptionProductMeteredFeeService = new SubscriptionProductMeteredFeeService(this);
-        }
-        return this.subscriptionProductMeteredFeeService;
-    }
-    
-    private SubscriptionProductPeriodFeeService subscriptionProductPeriodFeeService;
-    public SubscriptionProductPeriodFeeService getSubscriptionProductPeriodFeeService() {
-        if (this.subscriptionProductPeriodFeeService == null) {
-            this.subscriptionProductPeriodFeeService = new SubscriptionProductPeriodFeeService(this);
-        }
-        return this.subscriptionProductPeriodFeeService;
-    }
-    
-    private SubscriptionProductRetirementService subscriptionProductRetirementService;
-    public SubscriptionProductRetirementService getSubscriptionProductRetirementService() {
-        if (this.subscriptionProductRetirementService == null) {
-            this.subscriptionProductRetirementService = new SubscriptionProductRetirementService(this);
-        }
-        return this.subscriptionProductRetirementService;
-    }
-    
-    private SubscriptionProductService subscriptionProductService;
-    public SubscriptionProductService getSubscriptionProductService() {
-        if (this.subscriptionProductService == null) {
-            this.subscriptionProductService = new SubscriptionProductService(this);
-        }
-        return this.subscriptionProductService;
-    }
-    
-    private SubscriptionProductSetupFeeService subscriptionProductSetupFeeService;
-    public SubscriptionProductSetupFeeService getSubscriptionProductSetupFeeService() {
-        if (this.subscriptionProductSetupFeeService == null) {
-            this.subscriptionProductSetupFeeService = new SubscriptionProductSetupFeeService(this);
-        }
-        return this.subscriptionProductSetupFeeService;
-    }
-    
-    private SubscriptionProductVersionRetirementService subscriptionProductVersionRetirementService;
-    public SubscriptionProductVersionRetirementService getSubscriptionProductVersionRetirementService() {
-        if (this.subscriptionProductVersionRetirementService == null) {
-            this.subscriptionProductVersionRetirementService = new SubscriptionProductVersionRetirementService(this);
-        }
-        return this.subscriptionProductVersionRetirementService;
-    }
-    
-    private SubscriptionProductVersionService subscriptionProductVersionService;
-    public SubscriptionProductVersionService getSubscriptionProductVersionService() {
-        if (this.subscriptionProductVersionService == null) {
-            this.subscriptionProductVersionService = new SubscriptionProductVersionService(this);
-        }
-        return this.subscriptionProductVersionService;
-    }
-    
-    private SubscriptionService subscriptionService;
-    public SubscriptionService getSubscriptionService() {
-        if (this.subscriptionService == null) {
-            this.subscriptionService = new SubscriptionService(this);
-        }
-        return this.subscriptionService;
-    }
-    
-    private SubscriptionSuspensionService subscriptionSuspensionService;
-    public SubscriptionSuspensionService getSubscriptionSuspensionService() {
-        if (this.subscriptionSuspensionService == null) {
-            this.subscriptionSuspensionService = new SubscriptionSuspensionService(this);
-        }
-        return this.subscriptionSuspensionService;
-    }
-    
-    private SubscriptionVersionService subscriptionVersionService;
-    public SubscriptionVersionService getSubscriptionVersionService() {
-        if (this.subscriptionVersionService == null) {
-            this.subscriptionVersionService = new SubscriptionVersionService(this);
-        }
-        return this.subscriptionVersionService;
-    }
-    
-    private TokenService tokenService;
-    public TokenService getTokenService() {
-        if (this.tokenService == null) {
-            this.tokenService = new TokenService(this);
-        }
-        return this.tokenService;
-    }
-    
-    private TokenVersionService tokenVersionService;
-    public TokenVersionService getTokenVersionService() {
-        if (this.tokenVersionService == null) {
-            this.tokenVersionService = new TokenVersionService(this);
-        }
-        return this.tokenVersionService;
-    }
-    
-    private TransactionCommentService transactionCommentService;
-    public TransactionCommentService getTransactionCommentService() {
-        if (this.transactionCommentService == null) {
-            this.transactionCommentService = new TransactionCommentService(this);
-        }
-        return this.transactionCommentService;
-    }
-    
-    private TransactionCompletionService transactionCompletionService;
-    public TransactionCompletionService getTransactionCompletionService() {
-        if (this.transactionCompletionService == null) {
-            this.transactionCompletionService = new TransactionCompletionService(this);
-        }
-        return this.transactionCompletionService;
-    }
-    
-    private TransactionIframeService transactionIframeService;
-    public TransactionIframeService getTransactionIframeService() {
-        if (this.transactionIframeService == null) {
-            this.transactionIframeService = new TransactionIframeService(this);
-        }
-        return this.transactionIframeService;
-    }
-    
-    private TransactionInvoiceCommentService transactionInvoiceCommentService;
-    public TransactionInvoiceCommentService getTransactionInvoiceCommentService() {
-        if (this.transactionInvoiceCommentService == null) {
-            this.transactionInvoiceCommentService = new TransactionInvoiceCommentService(this);
-        }
-        return this.transactionInvoiceCommentService;
-    }
-    
-    private TransactionInvoiceService transactionInvoiceService;
-    public TransactionInvoiceService getTransactionInvoiceService() {
-        if (this.transactionInvoiceService == null) {
-            this.transactionInvoiceService = new TransactionInvoiceService(this);
-        }
-        return this.transactionInvoiceService;
-    }
-    
-    private TransactionLightboxService transactionLightboxService;
-    public TransactionLightboxService getTransactionLightboxService() {
-        if (this.transactionLightboxService == null) {
-            this.transactionLightboxService = new TransactionLightboxService(this);
-        }
-        return this.transactionLightboxService;
-    }
-    
-    private TransactionLineItemVersionService transactionLineItemVersionService;
-    public TransactionLineItemVersionService getTransactionLineItemVersionService() {
-        if (this.transactionLineItemVersionService == null) {
-            this.transactionLineItemVersionService = new TransactionLineItemVersionService(this);
-        }
-        return this.transactionLineItemVersionService;
-    }
-    
-    private TransactionMobileSdkService transactionMobileSdkService;
-    public TransactionMobileSdkService getTransactionMobileSdkService() {
-        if (this.transactionMobileSdkService == null) {
-            this.transactionMobileSdkService = new TransactionMobileSdkService(this);
-        }
-        return this.transactionMobileSdkService;
-    }
-    
-    private TransactionPaymentPageService transactionPaymentPageService;
-    public TransactionPaymentPageService getTransactionPaymentPageService() {
-        if (this.transactionPaymentPageService == null) {
-            this.transactionPaymentPageService = new TransactionPaymentPageService(this);
-        }
-        return this.transactionPaymentPageService;
-    }
-    
-    private TransactionService transactionService;
-    public TransactionService getTransactionService() {
-        if (this.transactionService == null) {
-            this.transactionService = new TransactionService(this);
-        }
-        return this.transactionService;
-    }
-    
-    private TransactionTerminalService transactionTerminalService;
-    public TransactionTerminalService getTransactionTerminalService() {
-        if (this.transactionTerminalService == null) {
-            this.transactionTerminalService = new TransactionTerminalService(this);
-        }
-        return this.transactionTerminalService;
-    }
-    
-    private TransactionVoidService transactionVoidService;
-    public TransactionVoidService getTransactionVoidService() {
-        if (this.transactionVoidService == null) {
-            this.transactionVoidService = new TransactionVoidService(this);
-        }
-        return this.transactionVoidService;
-    }
-    
-    private UserAccountRoleService userAccountRoleService;
-    public UserAccountRoleService getUserAccountRoleService() {
-        if (this.userAccountRoleService == null) {
-            this.userAccountRoleService = new UserAccountRoleService(this);
-        }
-        return this.userAccountRoleService;
-    }
-    
-    private UserSpaceRoleService userSpaceRoleService;
-    public UserSpaceRoleService getUserSpaceRoleService() {
-        if (this.userSpaceRoleService == null) {
-            this.userSpaceRoleService = new UserSpaceRoleService(this);
-        }
-        return this.userSpaceRoleService;
-    }
-    
-    private WebAppService webAppService;
-    public WebAppService getWebAppService() {
-        if (this.webAppService == null) {
-            this.webAppService = new WebAppService(this);
-        }
-        return this.webAppService;
-    }
-    
-    private WebhookEncryptionService webhookEncryptionService;
-    public WebhookEncryptionService getWebhookEncryptionService() {
-        if (this.webhookEncryptionService == null) {
-            this.webhookEncryptionService = new WebhookEncryptionService(this);
-        }
-        return this.webhookEncryptionService;
-    }
-    
-    private WebhookListenerService webhookListenerService;
-    public WebhookListenerService getWebhookListenerService() {
-        if (this.webhookListenerService == null) {
-            this.webhookListenerService = new WebhookListenerService(this);
-        }
-        return this.webhookListenerService;
-    }
-    
-    private WebhookUrlService webhookUrlService;
-    public WebhookUrlService getWebhookUrlService() {
-        if (this.webhookUrlService == null) {
-            this.webhookUrlService = new WebhookUrlService(this);
-        }
-        return this.webhookUrlService;
+    /**
+     * Sets the server index.
+     *
+     * @param serverIndex server index
+     * @return API client
+     */
+    public ApiClient setServerIndex(Integer serverIndex) {
+        this.serverIndex = serverIndex;
+        return this;
+    }
+
+    public Map<String, String> getServerVariables() {
+        return serverVariables;
+    }
+
+    /**
+     * Sets the server variables.
+     *
+     * @param serverVariables server variables
+     * @return API client
+     */
+    public ApiClient setServerVariables(Map<String, String> serverVariables) {
+        this.serverVariables = serverVariables;
+        return this;
+    }
+
+    /**
+     * Gets the status code of the previous request
+     *
+     * @return Status code
+     */
+    public int getStatusCode() {
+        return statusCode;
+    }
+
+    /**
+     * Gets the response headers of the previous request
+     *
+     * @return Response headers
+     */
+    public Map<String, List<String>> getResponseHeaders() {
+        return responseHeaders;
+    }
+
+    /**
+     * Get authentications (key: authentication name, value: authentication).
+     *
+     * @return Map of authentication
+     */
+    public Map<String, Authentication> getAuthentications() {
+        return authentications;
+    }
+
+    /**
+     * Get authentication for the given name.
+     *
+     * @param authName The authentication name
+     * @return The authentication, null if not found
+     */
+    public Authentication getAuthentication(String authName) {
+        return authentications.get(authName);
+    }
+
+    /**
+     * The path of temporary folder used to store downloaded files from endpoints
+     * with file response. The default value is <code>null</code>, i.e. using
+     * the system's default temporary folder.
+     *
+     * @return Temp folder path
+     */
+    public String getTempFolderPath() {
+        return tempFolderPath;
+    }
+
+    /**
+     * Set the User-Agent header's value (by adding to the default header map).
+     *
+     * @param userAgent User agent
+     * @return API client
+     */
+    public ApiClient setUserAgent(String userAgent) {
+        addDefaultHeader("User-Agent", userAgent);
+        return this;
+    }
+
+    /**
+     * Set temp folder path
+     *
+     * @param tempFolderPath Temp folder path
+     * @return API client
+     */
+    public ApiClient setTempFolderPath(String tempFolderPath) {
+        this.tempFolderPath = tempFolderPath;
+        return this;
+    }
+
+    /**
+     * Add a default header.
+     *
+     * @param key The header's key
+     * @param value The header's value
+     * @return API client
+     */
+    public ApiClient addDefaultHeader(String key, String value) {
+        defaultHeaderMap.put(key, value);
+        return this;
+    }
+
+    /**
+     * Add a default cookie.
+     *
+     * @param key The cookie's key
+     * @param value The cookie's value
+     * @return API client
+     */
+    public ApiClient addDefaultCookie(String key, String value) {
+        defaultCookieMap.put(key, value);
+        return this;
+    }
+
+    /**
+     * Check that whether debugging is enabled for this API client.
+     *
+     * @return True if debugging is on
+     */
+    public boolean isDebugging() {
+        return debugging;
+    }
+
+    /**
+     * Enable/disable debugging for this API client.
+     *
+     * @param debugging To enable (true) or disable (false) debugging
+     * @return API client
+     */
+    public ApiClient setDebugging(boolean debugging) {
+        // TODO: implement debugging mode
+        this.debugging = debugging;
+        return this;
+    }
+
+    /**
+     * Request read timeout (in seconds).
+     *
+     * @return Request read timeout
+     */
+    public int getRequestTimeout() {
+        return requestTimeout;
+    }
+
+    /**
+     * Set the request (read) timeout (in seconds).
+     * A value of 0 means no timeout, otherwise values must be between 1 and 60.
+     * Otherwise, the default timeout is set: 25 seconds.
+     *
+     * @param requestTimeout Request read timeout in seconds
+     * @return API client
+     */
+    public ApiClient setRequestTimeout(int requestTimeout) {
+        this.requestTimeout = requestTimeout;
+        return this;
+    }
+
+    /**
+     * Get the date format used to parse/format date parameters.
+     *
+     * @return Date format
+     */
+    public DateFormat getDateFormat() {
+        return dateFormat;
+    }
+
+    /**
+     * Set the date format used to parse/format date parameters.
+     *
+     * @param dateFormat Date format
+     * @return API client
+     */
+    public ApiClient setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
+        // Also set the date format for model (de)serialization with Date properties.
+        this.objectMapper.setDateFormat((DateFormat) dateFormat.clone());
+        return this;
+    }
+
+    /**
+     * Parse the given string into Date object.
+     *
+     * @param str String
+     * @return Date
+     */
+    public Date parseDate(String str) {
+        try {
+            return dateFormat.parse(str);
+        } catch (java.text.ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Format the given Date object into string.
+     *
+     * @param date Date
+     * @return Date in string format
+     */
+    public String formatDate(Date date) {
+        return dateFormat.format(date);
+    }
+
+    /**
+     * Format the given parameter object into string.
+     *
+     * @param param Object
+     * @return Object in string format
+     */
+    public String parameterToString(Object param) {
+        if (param == null) {
+            return "";
+        } else if (param instanceof Date) {
+            return formatDate((Date) param);
+        } else if (param instanceof OffsetDateTime) {
+            return formatOffsetDateTime((OffsetDateTime) param);
+        } else if (param instanceof Collection) {
+            StringBuilder b = new StringBuilder();
+            for (Object o : (Collection<?>) param) {
+                if (b.length() > 0) {
+                    b.append(',');
+                }
+                b.append(String.valueOf(o));
+            }
+            return b.toString();
+        } else {
+            return String.valueOf(param);
+        }
+    }
+
+    /**
+     * Formats the specified query parameter to a list containing a single {@code Pair} object.
+     *
+     * Note that {@code value} must not be a collection.
+     *
+     * @param name The name of the parameter.
+     * @param value The value of the parameter.
+     * @return A list containing a single {@code Pair} object.
+     */
+    public List<Pair> parameterToPair(String name, Object value) {
+        List<Pair> params = new ArrayList<>();
+
+        // preconditions
+        if (name == null || name.isEmpty() || value == null || value instanceof Collection) {
+            return params;
+        }
+
+        params.add(new Pair(name, escapeString(parameterToString(value))));
+        return params;
+    }
+
+    /**
+     * Formats the specified collection query parameters to a list of {@code Pair} objects.
+     *
+     * Note that the values of each of the returned Pair objects are percent-encoded.
+     *
+     * @param collectionFormat The collection format of the parameter.
+     * @param name The name of the parameter.
+     * @param value The value of the parameter.
+     * @return A list of {@code Pair} objects.
+     */
+    public List<Pair> parameterToPairs(String collectionFormat, String name, Collection value) {
+        List<Pair> params = new ArrayList<>();
+
+        // preconditions
+        if (name == null || name.isEmpty() || value == null || value.isEmpty()) {
+            return params;
+        }
+
+        // create the params based on the collection format
+        if ("multi".equals(collectionFormat)) {
+            for (Object item : value) {
+                params.add(new Pair(name, escapeString(parameterToString(item))));
+            }
+            return params;
+        }
+
+        // collectionFormat is assumed to be "csv" by default
+        String delimiter = ",";
+
+        // escape all delimiters except commas, which are URI reserved
+        // characters
+        if ("ssv".equals(collectionFormat)) {
+            delimiter = escapeString(" ");
+        } else if ("tsv".equals(collectionFormat)) {
+            delimiter = escapeString("\t");
+        } else if ("pipes".equals(collectionFormat)) {
+            delimiter = escapeString("|");
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Object item : value) {
+            sb.append(delimiter);
+            sb.append(escapeString(parameterToString(item)));
+        }
+
+        params.add(new Pair(name, sb.substring(delimiter.length())));
+
+        return params;
+    }
+
+    /**
+     * Check if the given MIME is a JSON MIME.
+     * JSON MIME examples:
+     * application/json
+     * application/json; charset=UTF8
+     * APPLICATION/JSON
+     * application/vnd.company+json
+     *
+     * @param mime MIME
+     * @return True if MIME type is boolean
+     */
+    public boolean isJsonMime(String mime) {
+        String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
+        return mime != null && (mime.matches(jsonMime) || mime.equals("*/*"));
+    }
+
+    /**
+     * Select the Accept header's value from the given accepts array:
+     * if JSON exists in the given array, use it;
+     * otherwise use all of them (joining into a string)
+     *
+     * @param accepts The accepts array to select from
+     * @return The Accept header to use. If the given array is empty,
+     * null will be returned (not to set the Accept header explicitly).
+     */
+    public String selectHeaderAccept(String[] accepts) {
+        if (accepts.length == 0) {
+            return null;
+        }
+
+        return StringUtil.join(accepts, ",");
+    }
+
+    /**
+     * Select the Content-Type header's value from the given array:
+     * if JSON exists in the given array, use it;
+     * otherwise use the first one of the array.
+     *
+     * @param contentTypes The Content-Type array to select from
+     * @return The Content-Type header to use. If the given array is empty,
+     * or matches "any", JSON will be used.
+     */
+    public String selectHeaderContentType(String[] contentTypes) {
+        if (contentTypes.length == 0 || contentTypes[0].equals("*/*")) {
+            return "application/json";
+        }
+        for (String contentType : contentTypes) {
+            if (isJsonMime(contentType)) {
+                return contentType;
+            }
+        }
+        return contentTypes[0];
+    }
+
+    /**
+     * Escape the given string to be used as URL query value.
+     *
+     * @param str String
+     * @return Escaped string
+     */
+    public String escapeString(String str) {
+        try {
+            return URLEncoder.encode(str, "utf8").replaceAll("\\+", "%20");
+        } catch (UnsupportedEncodingException e) {
+            return str;
+        }
+    }
+
+    /**
+     * Transforms response headers into map.
+     *
+     * @param headers HTTP headers
+     * @return a map of string array
+     */
+    protected Map<String, List<String>> transformResponseHeaders(Header[] headers) {
+        Map<String, List<String>> headersMap = new HashMap<>();
+        for (Header header : headers) {
+            List<String> valuesList = headersMap.get(header.getName());
+            if (valuesList != null) {
+                valuesList.add(header.getValue());
+            } else {
+                valuesList = new ArrayList<>();
+                valuesList.add(header.getValue());
+                headersMap.put(header.getName(), valuesList);
+            }
+        }
+        return headersMap;
+    }
+
+    /**
+     * Parse content type object from header value
+     */
+    private ContentType getContentType(String headerValue) throws ApiException {
+        try {
+            return ContentType.parse(headerValue);
+        } catch (UnsupportedCharsetException e) {
+            throw new ApiException("Could not parse content type " + headerValue);
+        }
+    }
+
+    /**
+     * Get content type of a response or null if one was not provided
+     */
+    private String getResponseMimeType(HttpResponse response) throws ApiException {
+        Header contentTypeHeader = response.getFirstHeader("Content-Type");
+        if (contentTypeHeader != null) {
+            return getContentType(contentTypeHeader.getValue()).getMimeType();
+        }
+        return null;
+    }
+
+    /**
+     * Serialize the given Java object into string according the given
+     * Content-Type (only JSON is supported for now).
+     *
+     * @param obj         Object
+     * @param contentType Content type
+     * @param formParams  Form parameters
+     * @return Object
+     * @throws ApiException API exception
+     */
+    public HttpEntity serialize(Object obj, Map<String, Object> formParams, ContentType contentType) throws ApiException {
+        String mimeType = contentType.getMimeType();
+        if (isJsonMime(mimeType)) {
+            try {
+                return new StringEntity(objectMapper.writeValueAsString(obj), contentType.withCharset(StandardCharsets.UTF_8));
+            } catch (JsonProcessingException e) {
+                throw new ApiException(e);
+            }
+        } else if (mimeType.equals(ContentType.MULTIPART_FORM_DATA.getMimeType())) {
+            MultipartEntityBuilder multiPartBuilder = MultipartEntityBuilder.create();
+            for (Entry<String, Object> paramEntry : formParams.entrySet()) {
+                Object value = paramEntry.getValue();
+                if (value instanceof File) {
+                    multiPartBuilder.addBinaryBody(paramEntry.getKey(), (File) value);
+                } else if (value instanceof byte[]) {
+                    multiPartBuilder.addBinaryBody(paramEntry.getKey(), (byte[]) value);
+                } else {
+                    Charset charset = contentType.getCharset();
+                    if (charset != null) {
+                        ContentType customContentType = ContentType.create(ContentType.TEXT_PLAIN.getMimeType(), charset);
+                        multiPartBuilder.addTextBody(paramEntry.getKey(), parameterToString(paramEntry.getValue()), customContentType);
+                    } else {
+                        multiPartBuilder.addTextBody(paramEntry.getKey(), parameterToString(paramEntry.getValue()));
+                    }
+                }
+            }
+            return multiPartBuilder.build();
+        } else if (mimeType.equals(ContentType.APPLICATION_FORM_URLENCODED.getMimeType())) {
+            List<NameValuePair> formValues = new ArrayList<>();
+            for (Entry<String, Object> paramEntry : formParams.entrySet()) {
+                formValues.add(new BasicNameValuePair(paramEntry.getKey(), parameterToString(paramEntry.getValue())));
+            }
+            return new UrlEncodedFormEntity(formValues, contentType.getCharset());
+        } else {
+            // Handle files with unknown content type
+            if (obj instanceof File) {
+                return new FileEntity((File) obj, contentType);
+            } else if (obj instanceof byte[]) {
+                return new ByteArrayEntity((byte[]) obj, contentType);
+            }
+            throw new ApiException("Serialization for content type '" + contentType + "' not supported");
+        }
+    }
+
+    /**
+     * Deserialize response body to Java object according to the Content-Type.
+     *
+     * @param <T> Type
+     * @param response Response
+     * @param valueType Return type
+     * @return Deserialized object
+     * @throws ApiException API exception
+     * @throws IOException IO exception
+     */
+    @SuppressWarnings("unchecked")
+    public <T> T deserialize(CloseableHttpResponse response, TypeReference<T> valueType) throws ApiException, IOException, ParseException {
+        if (valueType == null) {
+            return null;
+        }
+        HttpEntity entity = response.getEntity();
+        Type valueRawType = valueType.getType();
+        if (valueRawType.equals(byte[].class)) {
+            return (T) EntityUtils.toByteArray(entity);
+        } else if (valueRawType.equals(File.class)) {
+            return (T) downloadFileFromResponse(response);
+        }
+        String mimeType = getResponseMimeType(response);
+        if (mimeType == null || isJsonMime(mimeType)) {
+            // Assume json if no mime type
+            // convert input stream to string
+            String content = EntityUtils.toString(entity);
+
+            if ("".equals(content)) { // returns null for empty body
+                return null;
+            }
+
+            return objectMapper.readValue(content, valueType);
+        } else if ("text/plain".equalsIgnoreCase(mimeType)) {
+            // convert input stream to string
+            return (T) EntityUtils.toString(entity);
+        } else {
+          throw new ApiException(
+                    "Deserialization for content type '" + mimeType + "' not supported for type '" + valueType + "'",
+                    response.getCode(),
+                    responseHeaders,
+                    EntityUtils.toString(entity)
+          );
+        }
+    }
+
+    private File downloadFileFromResponse(CloseableHttpResponse response) throws IOException {
+        Header contentDispositionHeader = response.getFirstHeader("Content-Disposition");
+        String contentDisposition = contentDispositionHeader == null ? null : contentDispositionHeader.getValue();
+        File file = prepareDownloadFile(contentDisposition);
+        Files.copy(response.getEntity().getContent(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        return file;
+    }
+
+    protected File prepareDownloadFile(String contentDisposition) throws IOException {
+        String filename = null;
+        if (contentDisposition != null && !"".equals(contentDisposition)) {
+            // Get filename from the Content-Disposition header.
+            Pattern pattern = Pattern.compile("filename=['\"]?([^'\"\\s]+)['\"]?");
+            Matcher matcher = pattern.matcher(contentDisposition);
+            if (matcher.find())
+                filename = matcher.group(1);
+        }
+
+        String prefix;
+        String suffix = null;
+        if (filename == null) {
+            prefix = "download-";
+            suffix = "";
+        } else {
+            int pos = filename.lastIndexOf('.');
+            if (pos == -1) {
+                prefix = filename + "-";
+            } else {
+                prefix = filename.substring(0, pos) + "-";
+                suffix = filename.substring(pos);
+            }
+            // Files.createTempFile requires the prefix to be at least three characters long
+            if (prefix.length() < 3)
+                prefix = "download-";
+        }
+
+        if (tempFolderPath == null)
+            return Files.createTempFile(prefix, suffix).toFile();
+        else
+            return Files.createTempFile(Paths.get(tempFolderPath), prefix, suffix).toFile();
+    }
+
+    /**
+     * Returns the URL of the client as defined by the server (if exists) or the base path.
+     *
+     * @return The URL for the client.
+     */
+    public String getBaseURL() {
+        String baseURL;
+        if (serverIndex != null) {
+            if (serverIndex < 0 || serverIndex >= servers.size()) {
+                throw new ArrayIndexOutOfBoundsException(String.format(
+                        "Invalid index %d when selecting the host settings. Must be less than %d",
+                        serverIndex,
+                        servers.size()
+                ));
+            }
+            baseURL = servers.get(serverIndex).URL(serverVariables);
+        } else {
+            baseURL = basePath;
+        }
+        return baseURL;
+    }
+
+    /**
+     * Build full URL by concatenating base URL, the given sub path and query parameters.
+     *
+     * @param path The sub path
+     * @param queryParams The query parameters
+     * @param collectionQueryParams The collection query parameters
+     * @param urlQueryDeepObject URL query string of the deep object parameters
+     * @return The full URL
+     */
+    private String buildUrl(String path, List<Pair> queryParams, List<Pair> collectionQueryParams, String urlQueryDeepObject) {
+        String baseURL = getBaseURL();
+
+        final StringBuilder url = new StringBuilder();
+        url.append(baseURL).append(path);
+
+        if (queryParams != null && !queryParams.isEmpty()) {
+            // support (constant) query string in `path`, e.g. "/posts?draft=1"
+            String prefix = path.contains("?") ? "&" : "?";
+            for (Pair param : queryParams) {
+                if (param.getValue() != null) {
+                    if (prefix != null) {
+                        url.append(prefix);
+                        prefix = null;
+                    } else {
+                        url.append("&");
+                    }
+                    String value = parameterToString(param.getValue());
+                    // query parameter value already escaped as part of parameterToPair
+                    url.append(escapeString(param.getName())).append("=").append(value);
+                }
+            }
+        }
+
+        if (collectionQueryParams != null && !collectionQueryParams.isEmpty()) {
+            String prefix = url.toString().contains("?") ? "&" : "?";
+            for (Pair param : collectionQueryParams) {
+                if (param.getValue() != null) {
+                    if (prefix != null) {
+                        url.append(prefix);
+                        prefix = null;
+                    } else {
+                        url.append("&");
+                    }
+                    String value = parameterToString(param.getValue());
+                    // collection query parameter value already escaped as part of parameterToPairs
+                    url.append(escapeString(param.getName())).append("=").append(value);
+                }
+            }
+        }
+
+        if (urlQueryDeepObject != null && urlQueryDeepObject.length() > 0) {
+            url.append(url.toString().contains("?") ? "&" : "?");
+            url.append(urlQueryDeepObject);
+        }
+
+        return url.toString();
+    }
+
+    protected boolean isSuccessfulStatus(int statusCode) {
+        return statusCode >= 200 && statusCode < 300;
+    }
+
+    protected boolean isBodyAllowed(String method) {
+        return bodyMethods.contains(method);
+    }
+
+    protected Cookie buildCookie(String key, String value, URI uri) {
+        BasicClientCookie cookie = new BasicClientCookie(key, value);
+        cookie.setDomain(uri.getHost());
+        cookie.setPath("/");
+        return cookie;
+    }
+
+    protected <T> T processResponse(CloseableHttpResponse response, TypeReference<T> returnType) throws ApiException, IOException, ParseException {
+        statusCode = response.getCode();
+        if (statusCode == HttpStatus.SC_NO_CONTENT) {
+            return null;
+        }
+
+        responseHeaders = transformResponseHeaders(response.getHeaders());
+        if (isSuccessfulStatus(statusCode)) {
+            return this.deserialize(response, returnType);
+        } else {
+            String message = EntityUtils.toString(response.getEntity());
+            throw new ApiException(message, statusCode, responseHeaders, message);
+        }
+    }
+
+    /**
+     * Invoke API by sending HTTP request with the given options.
+     *
+     * @param <T>                   Type
+     * @param path                  The sub-path of the HTTP URL
+     * @param method                The request method, one of "GET", "POST", "PUT", and "DELETE"
+     * @param queryParams           The query parameters
+     * @param collectionQueryParams The collection query parameters
+     * @param urlQueryDeepObject    A URL query string for deep object parameters
+     * @param body                  The request body object - if it is not binary, otherwise null
+     * @param headerParams          The header parameters
+     * @param cookieParams          The cookie parameters
+     * @param formParams            The form parameters
+     * @param accept                The request's Accept header
+     * @param contentType           The request's Content-Type header
+     * @param returnType            Return type
+     * @param incomingRequestTimeout        The request (connection) timeout (in seconds)
+     * @return The response body in type of string
+     * @throws ApiException API exception
+     */
+    public <T> T invokeAPI(
+            String path,
+            String method,
+            List<Pair> queryParams,
+            List<Pair> collectionQueryParams,
+            String urlQueryDeepObject,
+            Object body,
+            Map<String, String> headerParams,
+            Map<String, String> cookieParams,
+            Map<String, Object> formParams,
+            String accept,
+            String contentType,
+            TypeReference<T> returnType,
+            int incomingRequestTimeout) throws ApiException {
+        if (body != null && !formParams.isEmpty()) {
+            throw new ApiException("Cannot have body and form params");
+        }
+
+        final String url = buildUrl(path, queryParams, collectionQueryParams, urlQueryDeepObject);
+
+        updateParamsForAuth(url, path, method, queryParams, headerParams, cookieParams);
+
+        ClassicRequestBuilder builder = ClassicRequestBuilder.create(method);
+        builder.setUri(url);
+
+        addMetaHeaders(builder);
+
+        if (accept != null) {
+            builder.addHeader("Accept", accept);
+        }
+        for (Entry<String, String> keyValue : headerParams.entrySet()) {
+            builder.addHeader(keyValue.getKey(), keyValue.getValue());
+        }
+        for (Map.Entry<String, String> keyValue : defaultHeaderMap.entrySet()) {
+            if (!headerParams.containsKey(keyValue.getKey())) {
+                builder.addHeader(keyValue.getKey(), keyValue.getValue());
+            }
+        }
+
+        BasicCookieStore store = new BasicCookieStore();
+        for (Entry<String, String> keyValue : cookieParams.entrySet()) {
+            store.addCookie(buildCookie(keyValue.getKey(), keyValue.getValue(), builder.getUri()));
+        }
+        for (Entry<String, String> keyValue : defaultCookieMap.entrySet()) {
+            if (!cookieParams.containsKey(keyValue.getKey())) {
+                store.addCookie(buildCookie(keyValue.getKey(), keyValue.getValue(), builder.getUri()));
+            }
+        }
+
+        // Prioritizes the request timeout specified by the API service,
+        // falling back to the configuration as a secondary option.
+        int resolvedTimeout = incomingRequestTimeout > 0 ? incomingRequestTimeout : this.requestTimeout;
+
+        HttpClientContext context = HttpClientContext.create();
+        context.setCookieStore(store);
+        // Set up a request timeout in seconds
+        RequestConfig requestConfig =
+                RequestConfig.custom()
+                .setResponseTimeout(Timeout.ofSeconds(resolvedTimeout))
+                .build();
+        context.setRequestConfig(requestConfig);
+
+        ContentType contentTypeObj = getContentType(contentType);
+        if (body != null || !formParams.isEmpty()) {
+            if (isBodyAllowed(method)) {
+                // Add entity if we have content and a valid method
+                builder.setEntity(serialize(body, formParams, contentTypeObj));
+            } else {
+                throw new ApiException("method " + method + " does not support a request body");
+            }
+        } else {
+            // for empty body
+            builder.setEntity(new StringEntity("", contentTypeObj));
+        }
+
+        try (CloseableHttpResponse response = httpClient.execute(builder.build(), context)) {
+            return processResponse(response, returnType);
+        } catch (IOException | ParseException e) {
+            throw new ApiException(e);
+        }
+    }
+
+    /**
+    * Update query and header parameters based on authentication settings.
+    *
+    * @param url The url
+    * @param path The path
+    * @param method The method
+    * @param queryParams Query parameters
+    * @param headerParams Header parameters
+    * @param cookieParams Cookie parameters
+    */
+    private void updateParamsForAuth(
+            String url,
+            String path,
+            String method,
+            List<Pair> queryParams,
+            Map<String, String> headerParams,
+            Map<String, String> cookieParams) {
+        authentications
+                .values()
+                .forEach(auth ->
+                        auth.applyToParams(url, getBaseURL(), path, method, queryParams, headerParams, cookieParams));
+    }
+
+    private void addMetaHeaders(ClassicRequestBuilder builder) {
+        builder.addHeader("x-meta-sdk-version", "9.0.0");
+        builder.addHeader("x-meta-sdk-language", "java");
+        builder.addHeader("x-meta-sdk-provider", "wallee");
+        builder.addHeader("x-meta-sdk-language-version", System.getProperty("java.version"));
     }
-    
 }

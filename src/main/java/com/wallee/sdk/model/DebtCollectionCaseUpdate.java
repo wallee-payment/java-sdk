@@ -1,72 +1,304 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.AbstractDebtCollectionCaseUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.*;
+import com.wallee.sdk.model.AddressCreate;
+import com.wallee.sdk.model.DebtCollectionEnvironment;
+import com.wallee.sdk.model.LineItemCreate;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * The debt collection case represents a try to collect the money from the debtor.
  */
-@ApiModel(description = "The debt collection case represents a try to collect the money from the debtor.")
+@JsonPropertyOrder({
+  DebtCollectionCaseUpdate.JSON_PROPERTY_LINE_ITEMS,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_CONTRACT_DATE,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_ENVIRONMENT,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_DUE_DATE,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_CURRENCY,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_LANGUAGE,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_BILLING_ADDRESS,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_SPACE_VIEW_ID,
+  DebtCollectionCaseUpdate.JSON_PROPERTY_VERSION
+})
+@JsonTypeName("DebtCollectionCase.Update")
 
-public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
-  
-  @JsonProperty("id")
-  protected Long id = null;
+public class DebtCollectionCaseUpdate {
+  public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  private List<LineItemCreate> lineItems = new ArrayList<>();
 
-  
-  @JsonProperty("version")
-  protected Long version = null;
+  public static final String JSON_PROPERTY_CONTRACT_DATE = "contractDate";
+  private OffsetDateTime contractDate;
 
-  
-  
-  public DebtCollectionCaseUpdate id(Long id) {
-    this.id = id;
+  public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  private DebtCollectionEnvironment environment;
+
+  public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
+  private OffsetDateTime dueDate;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  private String currency;
+
+  public static final String JSON_PROPERTY_LANGUAGE = "language";
+  private String language;
+
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  private AddressCreate billingAddress;
+
+  public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  private Long spaceViewId;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
+
+  public DebtCollectionCaseUpdate() {
+  }
+
+  public DebtCollectionCaseUpdate lineItems(List<LineItemCreate> lineItems) {
+    
+    this.lineItems = lineItems;
+    return this;
+  }
+
+  public DebtCollectionCaseUpdate addLineItemsItem(LineItemCreate lineItemsItem) {
+    if (this.lineItems == null) {
+      this.lineItems = new ArrayList<>();
+    }
+    this.lineItems.add(lineItemsItem);
     return this;
   }
 
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
+   * The line items that are subject of this debt collection case.
+   * @return lineItems
   **/
-  @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<LineItemCreate> getLineItems() {
+    return lineItems;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+
+  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLineItems(List<LineItemCreate> lineItems) {
+    this.lineItems = lineItems;
   }
 
-  
-  public DebtCollectionCaseUpdate version(Long version) {
+  public DebtCollectionCaseUpdate contractDate(OffsetDateTime contractDate) {
+    
+    this.contractDate = contractDate;
+    return this;
+  }
+
+   /**
+   * The date and time when the contract with the debtor was signed.
+   * @return contractDate
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getContractDate() {
+    return contractDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContractDate(OffsetDateTime contractDate) {
+    this.contractDate = contractDate;
+  }
+
+  public DebtCollectionCaseUpdate environment(DebtCollectionEnvironment environment) {
+    
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Get environment
+   * @return environment
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public DebtCollectionEnvironment getEnvironment() {
+    return environment;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnvironment(DebtCollectionEnvironment environment) {
+    this.environment = environment;
+  }
+
+  public DebtCollectionCaseUpdate dueDate(OffsetDateTime dueDate) {
+    
+    this.dueDate = dueDate;
+    return this;
+  }
+
+   /**
+   * The date and time when the claim was due.
+   * @return dueDate
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getDueDate() {
+    return dueDate;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DUE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDueDate(OffsetDateTime dueDate) {
+    this.dueDate = dueDate;
+  }
+
+  public DebtCollectionCaseUpdate currency(String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+   /**
+   * The three-letter code (ISO 4217 format) of the case&#39;s currency.
+   * @return currency
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(String currency) {
+    this.currency = currency;
+  }
+
+  public DebtCollectionCaseUpdate language(String language) {
+    
+    this.language = language;
+    return this;
+  }
+
+   /**
+   * The language that is linked to the object.
+   * @return language
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLanguage() {
+    return language;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+  public DebtCollectionCaseUpdate billingAddress(AddressCreate billingAddress) {
+    
+    this.billingAddress = billingAddress;
+    return this;
+  }
+
+   /**
+   * Get billingAddress
+   * @return billingAddress
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public AddressCreate getBillingAddress() {
+    return billingAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingAddress(AddressCreate billingAddress) {
+    this.billingAddress = billingAddress;
+  }
+
+  public DebtCollectionCaseUpdate spaceViewId(Long spaceViewId) {
+    
+    this.spaceViewId = spaceViewId;
+    return this;
+  }
+
+   /**
+   * The ID of the space view this object is linked to.
+   * @return spaceViewId
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getSpaceViewId() {
+    return spaceViewId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSpaceViewId(Long spaceViewId) {
+    this.spaceViewId = spaceViewId;
+  }
+
+  public DebtCollectionCaseUpdate version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -75,19 +307,23 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
   **/
-  @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
-  public Long getVersion() {
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getVersion() {
     return version;
   }
 
-  public void setVersion(Long version) {
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVersion(Integer version) {
     this.version = version;
   }
 
-  
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -95,39 +331,34 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
       return false;
     }
     DebtCollectionCaseUpdate debtCollectionCaseUpdate = (DebtCollectionCaseUpdate) o;
-    return Objects.equals(this.billingAddress, debtCollectionCaseUpdate.billingAddress) &&
+    return Objects.equals(this.lineItems, debtCollectionCaseUpdate.lineItems) &&
         Objects.equals(this.contractDate, debtCollectionCaseUpdate.contractDate) &&
-        Objects.equals(this.currency, debtCollectionCaseUpdate.currency) &&
-        Objects.equals(this.dueDate, debtCollectionCaseUpdate.dueDate) &&
         Objects.equals(this.environment, debtCollectionCaseUpdate.environment) &&
+        Objects.equals(this.dueDate, debtCollectionCaseUpdate.dueDate) &&
+        Objects.equals(this.currency, debtCollectionCaseUpdate.currency) &&
         Objects.equals(this.language, debtCollectionCaseUpdate.language) &&
-        Objects.equals(this.lineItems, debtCollectionCaseUpdate.lineItems) &&
+        Objects.equals(this.billingAddress, debtCollectionCaseUpdate.billingAddress) &&
         Objects.equals(this.spaceViewId, debtCollectionCaseUpdate.spaceViewId) &&
-        Objects.equals(this.id, debtCollectionCaseUpdate.id) &&
-        Objects.equals(this.version, debtCollectionCaseUpdate.version) &&
-        super.equals(o);
+        Objects.equals(this.version, debtCollectionCaseUpdate.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(billingAddress, contractDate, currency, dueDate, environment, language, lineItems, spaceViewId, id, version, super.hashCode());
+    return Objects.hash(lineItems, contractDate, environment, dueDate, currency, language, billingAddress, spaceViewId, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DebtCollectionCaseUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
-    sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
-    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
-    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
-    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    contractDate: ").append(toIndentedString(contractDate)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    dueDate: ").append(toIndentedString(dueDate)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    spaceViewId: ").append(toIndentedString(spaceViewId)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -137,11 +368,131 @@ public class DebtCollectionCaseUpdate extends AbstractDebtCollectionCaseUpdate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `lineItems` to the URL query string
+    if (getLineItems() != null) {
+      for (int i = 0; i < getLineItems().size(); i++) {
+        if (getLineItems().get(i) != null) {
+          joiner.add(getLineItems().get(i).toUrlQueryString(String.format("%slineItems%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `contractDate` to the URL query string
+    if (getContractDate() != null) {
+      try {
+        joiner.add(String.format("%scontractDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContractDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `environment` to the URL query string
+    if (getEnvironment() != null) {
+      try {
+        joiner.add(String.format("%senvironment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEnvironment()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `dueDate` to the URL query string
+    if (getDueDate() != null) {
+      try {
+        joiner.add(String.format("%sdueDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDueDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `language` to the URL query string
+    if (getLanguage() != null) {
+      try {
+        joiner.add(String.format("%slanguage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLanguage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `billingAddress` to the URL query string
+    if (getBillingAddress() != null) {
+      joiner.add(getBillingAddress().toUrlQueryString(prefix + "billingAddress" + suffix));
+    }
+
+    // add `spaceViewId` to the URL query string
+    if (getSpaceViewId() != null) {
+      try {
+        joiner.add(String.format("%sspaceViewId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSpaceViewId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

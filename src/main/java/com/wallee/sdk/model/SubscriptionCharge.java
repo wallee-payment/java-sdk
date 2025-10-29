@@ -1,348 +1,535 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.wallee.sdk.model.Subscription;
 import com.wallee.sdk.model.SubscriptionChargeProcessingType;
 import com.wallee.sdk.model.SubscriptionChargeState;
 import com.wallee.sdk.model.SubscriptionChargeType;
 import com.wallee.sdk.model.SubscriptionLedgerEntry;
 import com.wallee.sdk.model.Transaction;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
  * The subscription charge represents a single charge carried out for a particular subscription.
  */
-@ApiModel(description = "The subscription charge represents a single charge carried out for a particular subscription.")
+@JsonPropertyOrder({
+  SubscriptionCharge.JSON_PROPERTY_DISCARDED_ON,
+  SubscriptionCharge.JSON_PROPERTY_PLANNED_EXECUTION_DATE,
+  SubscriptionCharge.JSON_PROPERTY_PROCESSING_TYPE,
+  SubscriptionCharge.JSON_PROPERTY_LEDGER_ENTRIES,
+  SubscriptionCharge.JSON_PROPERTY_DISCARDED_BY,
+  SubscriptionCharge.JSON_PROPERTY_PLANNED_PURGE_DATE,
+  SubscriptionCharge.JSON_PROPERTY_EXTERNAL_ID,
+  SubscriptionCharge.JSON_PROPERTY_SUCCESS_URL,
+  SubscriptionCharge.JSON_PROPERTY_LANGUAGE,
+  SubscriptionCharge.JSON_PROPERTY_SUBSCRIPTION,
+  SubscriptionCharge.JSON_PROPERTY_TYPE,
+  SubscriptionCharge.JSON_PROPERTY_CREATED_ON,
+  SubscriptionCharge.JSON_PROPERTY_VERSION,
+  SubscriptionCharge.JSON_PROPERTY_REFERENCE,
+  SubscriptionCharge.JSON_PROPERTY_LINKED_SPACE_ID,
+  SubscriptionCharge.JSON_PROPERTY_ID,
+  SubscriptionCharge.JSON_PROPERTY_STATE,
+  SubscriptionCharge.JSON_PROPERTY_FAILED_ON,
+  SubscriptionCharge.JSON_PROPERTY_TRANSACTION,
+  SubscriptionCharge.JSON_PROPERTY_FAILED_URL,
+  SubscriptionCharge.JSON_PROPERTY_SUCCEED_ON
+})
 
 public class SubscriptionCharge {
-  
-  @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  public static final String JSON_PROPERTY_DISCARDED_ON = "discardedOn";
+  private OffsetDateTime discardedOn;
 
-  
-  @JsonProperty("discardedBy")
-  protected Long discardedBy = null;
+  public static final String JSON_PROPERTY_PLANNED_EXECUTION_DATE = "plannedExecutionDate";
+  private OffsetDateTime plannedExecutionDate;
 
-  
-  @JsonProperty("discardedOn")
-  protected OffsetDateTime discardedOn = null;
+  public static final String JSON_PROPERTY_PROCESSING_TYPE = "processingType";
+  private SubscriptionChargeProcessingType processingType;
 
-  
-  @JsonProperty("externalId")
-  protected String externalId = null;
+  public static final String JSON_PROPERTY_LEDGER_ENTRIES = "ledgerEntries";
+  private Set<SubscriptionLedgerEntry> ledgerEntries = new LinkedHashSet<>();
 
-  
-  @JsonProperty("failedOn")
-  protected OffsetDateTime failedOn = null;
+  public static final String JSON_PROPERTY_DISCARDED_BY = "discardedBy";
+  private Long discardedBy;
 
-  
-  @JsonProperty("failedUrl")
-  protected String failedUrl = null;
+  public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  private OffsetDateTime plannedPurgeDate;
 
-  
-  @JsonProperty("id")
-  protected Long id = null;
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  private String externalId;
 
-  
-  @JsonProperty("language")
-  protected String language = null;
+  public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  private String successUrl;
 
-  
-  @JsonProperty("ledgerEntries")
-  protected List<SubscriptionLedgerEntry> ledgerEntries = null;
+  public static final String JSON_PROPERTY_LANGUAGE = "language";
+  private String language;
 
-  
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  private Subscription subscription;
 
-  
-  @JsonProperty("plannedExecutionDate")
-  protected OffsetDateTime plannedExecutionDate = null;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SubscriptionChargeType type;
 
-  
-  @JsonProperty("plannedPurgeDate")
-  protected OffsetDateTime plannedPurgeDate = null;
+  public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  private OffsetDateTime createdOn;
 
-  
-  @JsonProperty("processingType")
-  protected SubscriptionChargeProcessingType processingType = null;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
-  
-  @JsonProperty("reference")
-  protected String reference = null;
+  public static final String JSON_PROPERTY_REFERENCE = "reference";
+  private String reference;
 
-  
-  @JsonProperty("state")
-  protected SubscriptionChargeState state = null;
+  public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  private Long linkedSpaceId;
 
-  
-  @JsonProperty("subscription")
-  protected Subscription subscription = null;
+  public static final String JSON_PROPERTY_ID = "id";
+  private Long id;
 
-  
-  @JsonProperty("succeedOn")
-  protected OffsetDateTime succeedOn = null;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private SubscriptionChargeState state;
 
-  
-  @JsonProperty("successUrl")
-  protected String successUrl = null;
+  public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  private OffsetDateTime failedOn;
 
-  
-  @JsonProperty("transaction")
-  protected Transaction transaction = null;
+  public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  private Transaction transaction;
 
-  
-  @JsonProperty("type")
-  protected SubscriptionChargeType type = null;
+  public static final String JSON_PROPERTY_FAILED_URL = "failedUrl";
+  private String failedUrl;
 
-  
-  @JsonProperty("version")
-  protected Integer version = null;
+  public static final String JSON_PROPERTY_SUCCEED_ON = "succeedOn";
+  private OffsetDateTime succeedOn;
 
-  
-  
-   /**
-   * The date and time when the charge was created.
-   * @return createdOn
-  **/
-  @ApiModelProperty(value = "The date and time when the charge was created.")
-  public OffsetDateTime getCreatedOn() {
-    return createdOn;
+  public SubscriptionCharge() {
+  }
+  /**
+  * Constructor with only readonly parameters
+  */
+  @JsonCreator
+  public SubscriptionCharge(
+    @JsonProperty(JSON_PROPERTY_DISCARDED_ON) OffsetDateTime discardedOn, 
+    @JsonProperty(JSON_PROPERTY_PLANNED_EXECUTION_DATE) OffsetDateTime plannedExecutionDate, 
+    @JsonProperty(JSON_PROPERTY_LEDGER_ENTRIES) Set<SubscriptionLedgerEntry> ledgerEntries, 
+    @JsonProperty(JSON_PROPERTY_DISCARDED_BY) Long discardedBy, 
+    @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
+    @JsonProperty(JSON_PROPERTY_EXTERNAL_ID) String externalId, 
+    @JsonProperty(JSON_PROPERTY_SUCCESS_URL) String successUrl, 
+    @JsonProperty(JSON_PROPERTY_LANGUAGE) String language, 
+    @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
+    @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
+    @JsonProperty(JSON_PROPERTY_REFERENCE) String reference, 
+    @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id, 
+    @JsonProperty(JSON_PROPERTY_FAILED_ON) OffsetDateTime failedOn, 
+    @JsonProperty(JSON_PROPERTY_FAILED_URL) String failedUrl, 
+    @JsonProperty(JSON_PROPERTY_SUCCEED_ON) OffsetDateTime succeedOn
+  ) {
+    this();
+    this.discardedOn = discardedOn;
+    this.plannedExecutionDate = plannedExecutionDate;
+    this.ledgerEntries = ledgerEntries;
+    this.discardedBy = discardedBy;
+    this.plannedPurgeDate = plannedPurgeDate;
+    this.externalId = externalId;
+    this.successUrl = successUrl;
+    this.language = language;
+    this.createdOn = createdOn;
+    this.version = version;
+    this.reference = reference;
+    this.linkedSpaceId = linkedSpaceId;
+    this.id = id;
+    this.failedOn = failedOn;
+    this.failedUrl = failedUrl;
+    this.succeedOn = succeedOn;
   }
 
-  
-   /**
-   * The ID of the user the charge was discarded by.
-   * @return discardedBy
-  **/
-  @ApiModelProperty(value = "The ID of the user the charge was discarded by.")
-  public Long getDiscardedBy() {
-    return discardedBy;
-  }
-
-  
    /**
    * The date and time when the charge was discarded.
    * @return discardedOn
   **/
-  @ApiModelProperty(value = "The date and time when the charge was discarded.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISCARDED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getDiscardedOn() {
     return discardedOn;
   }
 
-  
-   /**
-   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
-   * @return externalId
-  **/
-  @ApiModelProperty(value = "A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.")
-  public String getExternalId() {
-    return externalId;
-  }
 
-  
-   /**
-   * The date and time when the charge failed.
-   * @return failedOn
-  **/
-  @ApiModelProperty(value = "The date and time when the charge failed.")
-  public OffsetDateTime getFailedOn() {
-    return failedOn;
-  }
 
-  
-   /**
-   * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
-   * @return failedUrl
-  **/
-  @ApiModelProperty(value = "The URL to redirect the customer back to after they canceled or failed to authenticated their payment.")
-  public String getFailedUrl() {
-    return failedUrl;
-  }
-
-  
-   /**
-   * A unique identifier for the object.
-   * @return id
-  **/
-  @ApiModelProperty(value = "A unique identifier for the object.")
-  public Long getId() {
-    return id;
-  }
-
-  
-   /**
-   * The language that is linked to the object.
-   * @return language
-  **/
-  @ApiModelProperty(value = "The language that is linked to the object.")
-  public String getLanguage() {
-    return language;
-  }
-
-  
-   /**
-   * The ledger entries that belong to the charge.
-   * @return ledgerEntries
-  **/
-  @ApiModelProperty(value = "The ledger entries that belong to the charge.")
-  public List<SubscriptionLedgerEntry> getLedgerEntries() {
-    return ledgerEntries;
-  }
-
-  
-   /**
-   * The ID of the space this object belongs to.
-   * @return linkedSpaceId
-  **/
-  @ApiModelProperty(value = "The ID of the space this object belongs to.")
-  public Long getLinkedSpaceId() {
-    return linkedSpaceId;
-  }
-
-  
    /**
    * The date and time when the execution of the charge is planned.
    * @return plannedExecutionDate
   **/
-  @ApiModelProperty(value = "The date and time when the execution of the charge is planned.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLANNED_EXECUTION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getPlannedExecutionDate() {
     return plannedExecutionDate;
   }
 
-  
-   /**
-   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
-   * @return plannedPurgeDate
-  **/
-  @ApiModelProperty(value = "The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.")
-  public OffsetDateTime getPlannedPurgeDate() {
-    return plannedPurgeDate;
+
+
+  public SubscriptionCharge processingType(SubscriptionChargeProcessingType processingType) {
+    
+    this.processingType = processingType;
+    return this;
   }
 
-  
    /**
-   * The processing type specifies how the charge is to be processed.
+   * Get processingType
    * @return processingType
   **/
-  @ApiModelProperty(value = "The processing type specifies how the charge is to be processed.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SubscriptionChargeProcessingType getProcessingType() {
     return processingType;
   }
 
-  
-   /**
-   * The merchant&#39;s reference used to identify the charge.
-   * @return reference
-  **/
-  @ApiModelProperty(value = "The merchant's reference used to identify the charge.")
-  public String getReference() {
-    return reference;
+
+  @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProcessingType(SubscriptionChargeProcessingType processingType) {
+    this.processingType = processingType;
   }
 
-  
    /**
-   * The object&#39;s current state.
-   * @return state
+   * The ledger entries that belong to the charge.
+   * @return ledgerEntries
   **/
-  @ApiModelProperty(value = "The object's current state.")
-  public SubscriptionChargeState getState() {
-    return state;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEDGER_ENTRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<SubscriptionLedgerEntry> getLedgerEntries() {
+    return ledgerEntries;
   }
 
-  
+
+
    /**
-   * The subscription that the charge belongs to.
-   * @return subscription
+   * The ID of the user the charge was discarded by.
+   * @return discardedBy
   **/
-  @ApiModelProperty(value = "The subscription that the charge belongs to.")
-  public Subscription getSubscription() {
-    return subscription;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DISCARDED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getDiscardedBy() {
+    return discardedBy;
   }
 
-  
+
+
    /**
-   * The date and time when the charge succeeded.
-   * @return succeedOn
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
+   * @return plannedPurgeDate
   **/
-  @ApiModelProperty(value = "The date and time when the charge succeeded.")
-  public OffsetDateTime getSucceedOn() {
-    return succeedOn;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getPlannedPurgeDate() {
+    return plannedPurgeDate;
   }
 
-  
+
+
+   /**
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
+   * @return externalId
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+
    /**
    * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
   **/
-  @ApiModelProperty(value = "The URL to redirect the customer back to after they successfully authenticated their payment.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSuccessUrl() {
     return successUrl;
   }
 
-  
+
+
    /**
-   * The transaction used to process the charge.
-   * @return transaction
+   * The language that is linked to the object.
+   * @return language
   **/
-  @ApiModelProperty(value = "The transaction used to process the charge.")
-  public Transaction getTransaction() {
-    return transaction;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLanguage() {
+    return language;
   }
 
-  
+
+
+  public SubscriptionCharge subscription(Subscription subscription) {
+    
+    this.subscription = subscription;
+    return this;
+  }
+
    /**
-   * The type specified how the charge was initiated.
+   * Get subscription
+   * @return subscription
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Subscription getSubscription() {
+    return subscription;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSubscription(Subscription subscription) {
+    this.subscription = subscription;
+  }
+
+  public SubscriptionCharge type(SubscriptionChargeType type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
    * @return type
   **/
-  @ApiModelProperty(value = "The type specified how the charge was initiated.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SubscriptionChargeType getType() {
     return type;
   }
 
-  
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setType(SubscriptionChargeType type) {
+    this.type = type;
+  }
+
+   /**
+   * The date and time when the charge was created.
+   * @return createdOn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedOn() {
+    return createdOn;
+  }
+
+
+
    /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getVersion() {
     return version;
   }
 
-  
+
+
+   /**
+   * The merchant&#39;s reference used to identify the charge.
+   * @return reference
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REFERENCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getReference() {
+    return reference;
+  }
+
+
+
+   /**
+   * The ID of the space this object belongs to.
+   * @return linkedSpaceId
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getLinkedSpaceId() {
+    return linkedSpaceId;
+  }
+
+
+
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getId() {
+    return id;
+  }
+
+
+
+  public SubscriptionCharge state(SubscriptionChargeState state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubscriptionChargeState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(SubscriptionChargeState state) {
+    this.state = state;
+  }
+
+   /**
+   * The date and time when the charge failed.
+   * @return failedOn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getFailedOn() {
+    return failedOn;
+  }
+
+
+
+  public SubscriptionCharge transaction(Transaction transaction) {
+    
+    this.transaction = transaction;
+    return this;
+  }
+
+   /**
+   * Get transaction
+   * @return transaction
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRANSACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Transaction getTransaction() {
+    return transaction;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransaction(Transaction transaction) {
+    this.transaction = transaction;
+  }
+
+   /**
+   * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
+   * @return failedUrl
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAILED_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFailedUrl() {
+    return failedUrl;
+  }
+
+
+
+   /**
+   * The date and time when the charge succeeded.
+   * @return succeedOn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SUCCEED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getSucceedOn() {
+    return succeedOn;
+  }
+
+
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -350,61 +537,59 @@ public class SubscriptionCharge {
       return false;
     }
     SubscriptionCharge subscriptionCharge = (SubscriptionCharge) o;
-    return Objects.equals(this.createdOn, subscriptionCharge.createdOn) &&
-        Objects.equals(this.discardedBy, subscriptionCharge.discardedBy) &&
-        Objects.equals(this.discardedOn, subscriptionCharge.discardedOn) &&
-        Objects.equals(this.externalId, subscriptionCharge.externalId) &&
-        Objects.equals(this.failedOn, subscriptionCharge.failedOn) &&
-        Objects.equals(this.failedUrl, subscriptionCharge.failedUrl) &&
-        Objects.equals(this.id, subscriptionCharge.id) &&
-        Objects.equals(this.language, subscriptionCharge.language) &&
-        Objects.equals(this.ledgerEntries, subscriptionCharge.ledgerEntries) &&
-        Objects.equals(this.linkedSpaceId, subscriptionCharge.linkedSpaceId) &&
+    return Objects.equals(this.discardedOn, subscriptionCharge.discardedOn) &&
         Objects.equals(this.plannedExecutionDate, subscriptionCharge.plannedExecutionDate) &&
-        Objects.equals(this.plannedPurgeDate, subscriptionCharge.plannedPurgeDate) &&
         Objects.equals(this.processingType, subscriptionCharge.processingType) &&
-        Objects.equals(this.reference, subscriptionCharge.reference) &&
-        Objects.equals(this.state, subscriptionCharge.state) &&
-        Objects.equals(this.subscription, subscriptionCharge.subscription) &&
-        Objects.equals(this.succeedOn, subscriptionCharge.succeedOn) &&
+        Objects.equals(this.ledgerEntries, subscriptionCharge.ledgerEntries) &&
+        Objects.equals(this.discardedBy, subscriptionCharge.discardedBy) &&
+        Objects.equals(this.plannedPurgeDate, subscriptionCharge.plannedPurgeDate) &&
+        Objects.equals(this.externalId, subscriptionCharge.externalId) &&
         Objects.equals(this.successUrl, subscriptionCharge.successUrl) &&
-        Objects.equals(this.transaction, subscriptionCharge.transaction) &&
+        Objects.equals(this.language, subscriptionCharge.language) &&
+        Objects.equals(this.subscription, subscriptionCharge.subscription) &&
         Objects.equals(this.type, subscriptionCharge.type) &&
-        Objects.equals(this.version, subscriptionCharge.version);
+        Objects.equals(this.createdOn, subscriptionCharge.createdOn) &&
+        Objects.equals(this.version, subscriptionCharge.version) &&
+        Objects.equals(this.reference, subscriptionCharge.reference) &&
+        Objects.equals(this.linkedSpaceId, subscriptionCharge.linkedSpaceId) &&
+        Objects.equals(this.id, subscriptionCharge.id) &&
+        Objects.equals(this.state, subscriptionCharge.state) &&
+        Objects.equals(this.failedOn, subscriptionCharge.failedOn) &&
+        Objects.equals(this.transaction, subscriptionCharge.transaction) &&
+        Objects.equals(this.failedUrl, subscriptionCharge.failedUrl) &&
+        Objects.equals(this.succeedOn, subscriptionCharge.succeedOn);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdOn, discardedBy, discardedOn, externalId, failedOn, failedUrl, id, language, ledgerEntries, linkedSpaceId, plannedExecutionDate, plannedPurgeDate, processingType, reference, state, subscription, succeedOn, successUrl, transaction, type, version);
+    return Objects.hash(discardedOn, plannedExecutionDate, processingType, ledgerEntries, discardedBy, plannedPurgeDate, externalId, successUrl, language, subscription, type, createdOn, version, reference, linkedSpaceId, id, state, failedOn, transaction, failedUrl, succeedOn);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionCharge {\n");
-    
-    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-    sb.append("    discardedBy: ").append(toIndentedString(discardedBy)).append("\n");
     sb.append("    discardedOn: ").append(toIndentedString(discardedOn)).append("\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
-    sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
-    sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
-    sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
-    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    plannedExecutionDate: ").append(toIndentedString(plannedExecutionDate)).append("\n");
-    sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    processingType: ").append(toIndentedString(processingType)).append("\n");
-    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
-    sb.append("    succeedOn: ").append(toIndentedString(succeedOn)).append("\n");
+    sb.append("    ledgerEntries: ").append(toIndentedString(ledgerEntries)).append("\n");
+    sb.append("    discardedBy: ").append(toIndentedString(discardedBy)).append("\n");
+    sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    successUrl: ").append(toIndentedString(successUrl)).append("\n");
-    sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
+    sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    reference: ").append(toIndentedString(reference)).append("\n");
+    sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
+    sb.append("    transaction: ").append(toIndentedString(transaction)).append("\n");
+    sb.append("    failedUrl: ").append(toIndentedString(failedUrl)).append("\n");
+    sb.append("    succeedOn: ").append(toIndentedString(succeedOn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -413,11 +598,248 @@ public class SubscriptionCharge {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `discardedOn` to the URL query string
+    if (getDiscardedOn() != null) {
+      try {
+        joiner.add(String.format("%sdiscardedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiscardedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `plannedExecutionDate` to the URL query string
+    if (getPlannedExecutionDate() != null) {
+      try {
+        joiner.add(String.format("%splannedExecutionDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlannedExecutionDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `processingType` to the URL query string
+    if (getProcessingType() != null) {
+      try {
+        joiner.add(String.format("%sprocessingType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProcessingType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `ledgerEntries` to the URL query string
+    if (getLedgerEntries() != null) {
+      int i = 0;
+      for (SubscriptionLedgerEntry _item : getLedgerEntries()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%sledgerEntries%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+      i++;
+    }
+
+    // add `discardedBy` to the URL query string
+    if (getDiscardedBy() != null) {
+      try {
+        joiner.add(String.format("%sdiscardedBy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDiscardedBy()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `plannedPurgeDate` to the URL query string
+    if (getPlannedPurgeDate() != null) {
+      try {
+        joiner.add(String.format("%splannedPurgeDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlannedPurgeDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalId` to the URL query string
+    if (getExternalId() != null) {
+      try {
+        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `successUrl` to the URL query string
+    if (getSuccessUrl() != null) {
+      try {
+        joiner.add(String.format("%ssuccessUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSuccessUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `language` to the URL query string
+    if (getLanguage() != null) {
+      try {
+        joiner.add(String.format("%slanguage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLanguage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `subscription` to the URL query string
+    if (getSubscription() != null) {
+      joiner.add(getSubscription().toUrlQueryString(prefix + "subscription" + suffix));
+    }
+
+    // add `type` to the URL query string
+    if (getType() != null) {
+      try {
+        joiner.add(String.format("%stype%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdOn` to the URL query string
+    if (getCreatedOn() != null) {
+      try {
+        joiner.add(String.format("%screatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `reference` to the URL query string
+    if (getReference() != null) {
+      try {
+        joiner.add(String.format("%sreference%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getReference()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `linkedSpaceId` to the URL query string
+    if (getLinkedSpaceId() != null) {
+      try {
+        joiner.add(String.format("%slinkedSpaceId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLinkedSpaceId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `failedOn` to the URL query string
+    if (getFailedOn() != null) {
+      try {
+        joiner.add(String.format("%sfailedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFailedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `transaction` to the URL query string
+    if (getTransaction() != null) {
+      joiner.add(getTransaction().toUrlQueryString(prefix + "transaction" + suffix));
+    }
+
+    // add `failedUrl` to the URL query string
+    if (getFailedUrl() != null) {
+      try {
+        joiner.add(String.format("%sfailedUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFailedUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `succeedOn` to the URL query string
+    if (getSucceedOn() != null) {
+      try {
+        joiner.add(String.format("%ssucceedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSucceedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

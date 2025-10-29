@@ -1,72 +1,278 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.AbstractSpaceUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.wallee.sdk.model.CreationEntityState;
+import com.wallee.sdk.model.SpaceAddressCreate;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * SpaceCreate
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  SpaceCreate.JSON_PROPERTY_REQUEST_LIMIT,
+  SpaceCreate.JSON_PROPERTY_POSTAL_ADDRESS,
+  SpaceCreate.JSON_PROPERTY_NAME,
+  SpaceCreate.JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES,
+  SpaceCreate.JSON_PROPERTY_TIME_ZONE,
+  SpaceCreate.JSON_PROPERTY_STATE,
+  SpaceCreate.JSON_PROPERTY_PRIMARY_CURRENCY,
+  SpaceCreate.JSON_PROPERTY_DATABASE,
+  SpaceCreate.JSON_PROPERTY_ACCOUNT
+})
+@JsonTypeName("Space.Create")
 
-public class SpaceCreate extends AbstractSpaceUpdate {
-  
-  @JsonProperty("account")
-  protected Long account = null;
+public class SpaceCreate {
+  public static final String JSON_PROPERTY_REQUEST_LIMIT = "requestLimit";
+  private Long requestLimit;
 
-  
-  @JsonProperty("database")
-  protected Long database = null;
+  public static final String JSON_PROPERTY_POSTAL_ADDRESS = "postalAddress";
+  private SpaceAddressCreate postalAddress;
 
-  
-  
-  public SpaceCreate account(Long account) {
-    this.account = account;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
+
+  public static final String JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES = "technicalContactAddresses";
+  private Set<String> technicalContactAddresses = new LinkedHashSet<>();
+
+  public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  private String timeZone;
+
+  public static final String JSON_PROPERTY_STATE = "state";
+  private CreationEntityState state;
+
+  public static final String JSON_PROPERTY_PRIMARY_CURRENCY = "primaryCurrency";
+  private String primaryCurrency;
+
+  public static final String JSON_PROPERTY_DATABASE = "database";
+  private Long database;
+
+  public static final String JSON_PROPERTY_ACCOUNT = "account";
+  private Long account;
+
+  public SpaceCreate() {
+  }
+
+  public SpaceCreate requestLimit(Long requestLimit) {
+    
+    this.requestLimit = requestLimit;
     return this;
   }
 
    /**
-   * The account that the space belongs to.
-   * @return account
+   * The maximum number of API requests that are accepted within two minutes. This limit can only be changed with special privileges.
+   * @return requestLimit
   **/
-  @ApiModelProperty(required = true, value = "The account that the space belongs to.")
-  public Long getAccount() {
-    return account;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getRequestLimit() {
+    return requestLimit;
   }
 
-  public void setAccount(Long account) {
-    this.account = account;
+
+  @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRequestLimit(Long requestLimit) {
+    this.requestLimit = requestLimit;
   }
 
-  
+  public SpaceCreate postalAddress(SpaceAddressCreate postalAddress) {
+    
+    this.postalAddress = postalAddress;
+    return this;
+  }
+
+   /**
+   * Get postalAddress
+   * @return postalAddress
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SpaceAddressCreate getPostalAddress() {
+    return postalAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPostalAddress(SpaceAddressCreate postalAddress) {
+    this.postalAddress = postalAddress;
+  }
+
+  public SpaceCreate name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * The name used to identify the space.
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SpaceCreate technicalContactAddresses(Set<String> technicalContactAddresses) {
+    
+    this.technicalContactAddresses = technicalContactAddresses;
+    return this;
+  }
+
+  public SpaceCreate addTechnicalContactAddressesItem(String technicalContactAddressesItem) {
+    if (this.technicalContactAddresses == null) {
+      this.technicalContactAddresses = new LinkedHashSet<>();
+    }
+    this.technicalContactAddresses.add(technicalContactAddressesItem);
+    return this;
+  }
+
+   /**
+   * The email address that will receive messages about technical issues and errors that occur in the space.
+   * @return technicalContactAddresses
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getTechnicalContactAddresses() {
+    return technicalContactAddresses;
+  }
+
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTechnicalContactAddresses(Set<String> technicalContactAddresses) {
+    this.technicalContactAddresses = technicalContactAddresses;
+  }
+
+  public SpaceCreate timeZone(String timeZone) {
+    
+    this.timeZone = timeZone;
+    return this;
+  }
+
+   /**
+   * The time zone that is used to schedule and run background processes. This does not affect the formatting of dates in the user interface.
+   * @return timeZone
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTimeZone() {
+    return timeZone;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimeZone(String timeZone) {
+    this.timeZone = timeZone;
+  }
+
+  public SpaceCreate state(CreationEntityState state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CreationEntityState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(CreationEntityState state) {
+    this.state = state;
+  }
+
+  public SpaceCreate primaryCurrency(String primaryCurrency) {
+    
+    this.primaryCurrency = primaryCurrency;
+    return this;
+  }
+
+   /**
+   * The currency that is used to display aggregated amounts in the space.
+   * @return primaryCurrency
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRIMARY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPrimaryCurrency() {
+    return primaryCurrency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PRIMARY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPrimaryCurrency(String primaryCurrency) {
+    this.primaryCurrency = primaryCurrency;
+  }
+
   public SpaceCreate database(Long database) {
+    
     this.database = database;
     return this;
   }
@@ -75,19 +281,48 @@ public class SpaceCreate extends AbstractSpaceUpdate {
    * The database the space is connected to and that holds the space&#39;s data.
    * @return database
   **/
-  @ApiModelProperty(value = "The database the space is connected to and that holds the space's data.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATABASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getDatabase() {
     return database;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_DATABASE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDatabase(Long database) {
     this.database = database;
   }
 
-  
+  public SpaceCreate account(Long account) {
+    
+    this.account = account;
+    return this;
+  }
+
+   /**
+   * The account that the space belongs to.
+   * @return account
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Long getAccount() {
+    return account;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAccount(Long account) {
+    this.account = account;
+  }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -95,40 +330,35 @@ public class SpaceCreate extends AbstractSpaceUpdate {
       return false;
     }
     SpaceCreate spaceCreate = (SpaceCreate) o;
-    return Objects.equals(this.lastModifiedDate, spaceCreate.lastModifiedDate) &&
-        Objects.equals(this.name, spaceCreate.name) &&
+    return Objects.equals(this.requestLimit, spaceCreate.requestLimit) &&
         Objects.equals(this.postalAddress, spaceCreate.postalAddress) &&
-        Objects.equals(this.primaryCurrency, spaceCreate.primaryCurrency) &&
-        Objects.equals(this.requestLimit, spaceCreate.requestLimit) &&
-        Objects.equals(this.state, spaceCreate.state) &&
+        Objects.equals(this.name, spaceCreate.name) &&
         Objects.equals(this.technicalContactAddresses, spaceCreate.technicalContactAddresses) &&
         Objects.equals(this.timeZone, spaceCreate.timeZone) &&
-        Objects.equals(this.account, spaceCreate.account) &&
+        Objects.equals(this.state, spaceCreate.state) &&
+        Objects.equals(this.primaryCurrency, spaceCreate.primaryCurrency) &&
         Objects.equals(this.database, spaceCreate.database) &&
-        super.equals(o);
+        Objects.equals(this.account, spaceCreate.account);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lastModifiedDate, name, postalAddress, primaryCurrency, requestLimit, state, technicalContactAddresses, timeZone, account, database, super.hashCode());
+    return Objects.hash(requestLimit, postalAddress, name, technicalContactAddresses, timeZone, state, primaryCurrency, database, account);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpaceCreate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    lastModifiedDate: ").append(toIndentedString(lastModifiedDate)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
-    sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
     sb.append("    requestLimit: ").append(toIndentedString(requestLimit)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    postalAddress: ").append(toIndentedString(postalAddress)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    technicalContactAddresses: ").append(toIndentedString(technicalContactAddresses)).append("\n");
     sb.append("    timeZone: ").append(toIndentedString(timeZone)).append("\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    primaryCurrency: ").append(toIndentedString(primaryCurrency)).append("\n");
     sb.append("    database: ").append(toIndentedString(database)).append("\n");
+    sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,11 +367,137 @@ public class SpaceCreate extends AbstractSpaceUpdate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `requestLimit` to the URL query string
+    if (getRequestLimit() != null) {
+      try {
+        joiner.add(String.format("%srequestLimit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRequestLimit()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `postalAddress` to the URL query string
+    if (getPostalAddress() != null) {
+      joiner.add(getPostalAddress().toUrlQueryString(prefix + "postalAddress" + suffix));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `technicalContactAddresses` to the URL query string
+    if (getTechnicalContactAddresses() != null) {
+      int i = 0;
+      for (String _item : getTechnicalContactAddresses()) {
+        try {
+          joiner.add(String.format("%stechnicalContactAddresses%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(_item), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+      i++;
+    }
+
+    // add `timeZone` to the URL query string
+    if (getTimeZone() != null) {
+      try {
+        joiner.add(String.format("%stimeZone%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimeZone()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `primaryCurrency` to the URL query string
+    if (getPrimaryCurrency() != null) {
+      try {
+        joiner.add(String.format("%sprimaryCurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPrimaryCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `database` to the URL query string
+    if (getDatabase() != null) {
+      try {
+        joiner.add(String.format("%sdatabase%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDatabase()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `account` to the URL query string
+    if (getAccount() != null) {
+      try {
+        joiner.add(String.format("%saccount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

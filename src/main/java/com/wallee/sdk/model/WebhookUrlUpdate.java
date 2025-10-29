@@ -1,71 +1,145 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.AbstractWebhookUrlUpdate;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.wallee.sdk.model.CreationEntityState;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * WebhookUrlUpdate
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  WebhookUrlUpdate.JSON_PROPERTY_NAME,
+  WebhookUrlUpdate.JSON_PROPERTY_STATE,
+  WebhookUrlUpdate.JSON_PROPERTY_URL,
+  WebhookUrlUpdate.JSON_PROPERTY_VERSION
+})
+@JsonTypeName("WebhookUrl.Update")
 
-public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
-  
-  @JsonProperty("id")
-  protected Long id = null;
+public class WebhookUrlUpdate {
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  
-  @JsonProperty("version")
-  protected Long version = null;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private CreationEntityState state;
 
-  
-  
-  public WebhookUrlUpdate id(Long id) {
-    this.id = id;
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
+
+  public WebhookUrlUpdate() {
+  }
+
+  public WebhookUrlUpdate name(String name) {
+    
+    this.name = name;
     return this;
   }
 
    /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
+   * The name used to identify the webhook URL.
+   * @return name
   **/
-  @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
   }
 
-  public void setId(Long id) {
-    this.id = id;
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setName(String name) {
+    this.name = name;
   }
 
-  
-  public WebhookUrlUpdate version(Long version) {
+  public WebhookUrlUpdate state(CreationEntityState state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public CreationEntityState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(CreationEntityState state) {
+    this.state = state;
+  }
+
+  public WebhookUrlUpdate url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The actual URL where notifications about entity changes are sent to.
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUrl() {
+    return url;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public WebhookUrlUpdate version(Integer version) {
+    
     this.version = version;
     return this;
   }
@@ -74,19 +148,23 @@ public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
   **/
-  @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
-  public Long getVersion() {
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getVersion() {
     return version;
   }
 
-  public void setVersion(Long version) {
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVersion(Integer version) {
     this.version = version;
   }
 
-  
-
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -97,26 +175,21 @@ public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
     return Objects.equals(this.name, webhookUrlUpdate.name) &&
         Objects.equals(this.state, webhookUrlUpdate.state) &&
         Objects.equals(this.url, webhookUrlUpdate.url) &&
-        Objects.equals(this.id, webhookUrlUpdate.id) &&
-        Objects.equals(this.version, webhookUrlUpdate.version) &&
-        super.equals(o);
+        Objects.equals(this.version, webhookUrlUpdate.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, state, url, id, version, super.hashCode());
+    return Objects.hash(name, state, url, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WebhookUrlUpdate {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -126,11 +199,86 @@ public class WebhookUrlUpdate extends AbstractWebhookUrlUpdate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `url` to the URL query string
+    if (getUrl() != null) {
+      try {
+        joiner.add(String.format("%surl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

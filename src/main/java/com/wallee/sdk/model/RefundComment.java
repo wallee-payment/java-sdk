@@ -1,186 +1,271 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.wallee.sdk.model.Refund;
 import java.time.OffsetDateTime;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * RefundComment
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  RefundComment.JSON_PROPERTY_LINKED_SPACE_ID,
+  RefundComment.JSON_PROPERTY_PINNED,
+  RefundComment.JSON_PROPERTY_EDITED_BY,
+  RefundComment.JSON_PROPERTY_CREATED_BY,
+  RefundComment.JSON_PROPERTY_ID,
+  RefundComment.JSON_PROPERTY_EDITED_ON,
+  RefundComment.JSON_PROPERTY_CREATED_ON,
+  RefundComment.JSON_PROPERTY_VERSION,
+  RefundComment.JSON_PROPERTY_CONTENT,
+  RefundComment.JSON_PROPERTY_REFUND
+})
 
 public class RefundComment {
-  
-  @JsonProperty("content")
-  protected String content = null;
+  public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  private Long linkedSpaceId;
 
-  
-  @JsonProperty("createdBy")
-  protected Long createdBy = null;
+  public static final String JSON_PROPERTY_PINNED = "pinned";
+  private Boolean pinned;
 
-  
-  @JsonProperty("createdOn")
-  protected OffsetDateTime createdOn = null;
+  public static final String JSON_PROPERTY_EDITED_BY = "editedBy";
+  private Long editedBy;
 
-  
-  @JsonProperty("editedBy")
-  protected Long editedBy = null;
+  public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  private Long createdBy;
 
-  
-  @JsonProperty("editedOn")
-  protected OffsetDateTime editedOn = null;
+  public static final String JSON_PROPERTY_ID = "id";
+  private Long id;
 
-  
-  @JsonProperty("id")
-  protected Long id = null;
+  public static final String JSON_PROPERTY_EDITED_ON = "editedOn";
+  private OffsetDateTime editedOn;
 
-  
-  @JsonProperty("linkedSpaceId")
-  protected Long linkedSpaceId = null;
+  public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  private OffsetDateTime createdOn;
 
-  
-  @JsonProperty("pinned")
-  protected Boolean pinned = null;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
-  
-  @JsonProperty("refund")
-  protected Long refund = null;
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  private String content;
 
-  
-  @JsonProperty("version")
-  protected Integer version = null;
+  public static final String JSON_PROPERTY_REFUND = "refund";
+  private Refund refund;
 
-  
-  
-   /**
-   * The comment&#39;s actual content.
-   * @return content
-  **/
-  @ApiModelProperty(value = "The comment's actual content.")
-  public String getContent() {
-    return content;
+  public RefundComment() {
+  }
+  /**
+  * Constructor with only readonly parameters
+  */
+  @JsonCreator
+  public RefundComment(
+    @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
+    @JsonProperty(JSON_PROPERTY_PINNED) Boolean pinned, 
+    @JsonProperty(JSON_PROPERTY_EDITED_BY) Long editedBy, 
+    @JsonProperty(JSON_PROPERTY_CREATED_BY) Long createdBy, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id, 
+    @JsonProperty(JSON_PROPERTY_EDITED_ON) OffsetDateTime editedOn, 
+    @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
+    @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
+    @JsonProperty(JSON_PROPERTY_CONTENT) String content
+  ) {
+    this();
+    this.linkedSpaceId = linkedSpaceId;
+    this.pinned = pinned;
+    this.editedBy = editedBy;
+    this.createdBy = createdBy;
+    this.id = id;
+    this.editedOn = editedOn;
+    this.createdOn = createdOn;
+    this.version = version;
+    this.content = content;
   }
 
-  
-   /**
-   * The ID of the user the comment was created by.
-   * @return createdBy
-  **/
-  @ApiModelProperty(value = "The ID of the user the comment was created by.")
-  public Long getCreatedBy() {
-    return createdBy;
-  }
-
-  
-   /**
-   * The date and time when the object was created.
-   * @return createdOn
-  **/
-  @ApiModelProperty(value = "The date and time when the object was created.")
-  public OffsetDateTime getCreatedOn() {
-    return createdOn;
-  }
-
-  
-   /**
-   * The ID of the user the comment was last updated by.
-   * @return editedBy
-  **/
-  @ApiModelProperty(value = "The ID of the user the comment was last updated by.")
-  public Long getEditedBy() {
-    return editedBy;
-  }
-
-  
-   /**
-   * The date and time when the comment was last updated.
-   * @return editedOn
-  **/
-  @ApiModelProperty(value = "The date and time when the comment was last updated.")
-  public OffsetDateTime getEditedOn() {
-    return editedOn;
-  }
-
-  
-   /**
-   * A unique identifier for the object.
-   * @return id
-  **/
-  @ApiModelProperty(value = "A unique identifier for the object.")
-  public Long getId() {
-    return id;
-  }
-
-  
    /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
   **/
-  @ApiModelProperty(value = "The ID of the space this object belongs to.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLinkedSpaceId() {
     return linkedSpaceId;
   }
 
-  
+
+
    /**
    * Whether the comment is pinned to the top.
    * @return pinned
   **/
-  @ApiModelProperty(value = "Whether the comment is pinned to the top.")
-  public Boolean isPinned() {
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PINNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPinned() {
     return pinned;
   }
 
-  
+
+
    /**
-   * The refund that the comment belongs to.
-   * @return refund
+   * The ID of the user the comment was last updated by.
+   * @return editedBy
   **/
-  @ApiModelProperty(value = "The refund that the comment belongs to.")
-  public Long getRefund() {
-    return refund;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getEditedBy() {
+    return editedBy;
   }
 
-  
+
+
+   /**
+   * The ID of the user the comment was created by.
+   * @return createdBy
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getCreatedBy() {
+    return createdBy;
+  }
+
+
+
+   /**
+   * A unique identifier for the object.
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getId() {
+    return id;
+  }
+
+
+
+   /**
+   * The date and time when the comment was last updated.
+   * @return editedOn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EDITED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getEditedOn() {
+    return editedOn;
+  }
+
+
+
+   /**
+   * The date and time when the object was created.
+   * @return createdOn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedOn() {
+    return createdOn;
+  }
+
+
+
    /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
   **/
-  @ApiModelProperty(value = "The version is used for optimistic locking and incremented whenever the object is updated.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getVersion() {
     return version;
   }
 
-  
+
+
+   /**
+   * The comment&#39;s actual content.
+   * @return content
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getContent() {
+    return content;
+  }
+
+
+
+  public RefundComment refund(Refund refund) {
+    
+    this.refund = refund;
+    return this;
+  }
+
+   /**
+   * Get refund
+   * @return refund
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REFUND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Refund getRefund() {
+    return refund;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_REFUND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setRefund(Refund refund) {
+    this.refund = refund;
+  }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -188,39 +273,37 @@ public class RefundComment {
       return false;
     }
     RefundComment refundComment = (RefundComment) o;
-    return Objects.equals(this.content, refundComment.content) &&
-        Objects.equals(this.createdBy, refundComment.createdBy) &&
-        Objects.equals(this.createdOn, refundComment.createdOn) &&
-        Objects.equals(this.editedBy, refundComment.editedBy) &&
-        Objects.equals(this.editedOn, refundComment.editedOn) &&
-        Objects.equals(this.id, refundComment.id) &&
-        Objects.equals(this.linkedSpaceId, refundComment.linkedSpaceId) &&
+    return Objects.equals(this.linkedSpaceId, refundComment.linkedSpaceId) &&
         Objects.equals(this.pinned, refundComment.pinned) &&
-        Objects.equals(this.refund, refundComment.refund) &&
-        Objects.equals(this.version, refundComment.version);
+        Objects.equals(this.editedBy, refundComment.editedBy) &&
+        Objects.equals(this.createdBy, refundComment.createdBy) &&
+        Objects.equals(this.id, refundComment.id) &&
+        Objects.equals(this.editedOn, refundComment.editedOn) &&
+        Objects.equals(this.createdOn, refundComment.createdOn) &&
+        Objects.equals(this.version, refundComment.version) &&
+        Objects.equals(this.content, refundComment.content) &&
+        Objects.equals(this.refund, refundComment.refund);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(content, createdBy, createdOn, editedBy, editedOn, id, linkedSpaceId, pinned, refund, version);
+    return Objects.hash(linkedSpaceId, pinned, editedBy, createdBy, id, editedOn, createdOn, version, content, refund);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundComment {\n");
-    
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
-    sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
-    sb.append("    editedOn: ").append(toIndentedString(editedOn)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    pinned: ").append(toIndentedString(pinned)).append("\n");
-    sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
+    sb.append("    editedBy: ").append(toIndentedString(editedBy)).append("\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    editedOn: ").append(toIndentedString(editedOn)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    refund: ").append(toIndentedString(refund)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -229,11 +312,141 @@ public class RefundComment {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `linkedSpaceId` to the URL query string
+    if (getLinkedSpaceId() != null) {
+      try {
+        joiner.add(String.format("%slinkedSpaceId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLinkedSpaceId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `pinned` to the URL query string
+    if (getPinned() != null) {
+      try {
+        joiner.add(String.format("%spinned%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPinned()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `editedBy` to the URL query string
+    if (getEditedBy() != null) {
+      try {
+        joiner.add(String.format("%seditedBy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditedBy()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdBy` to the URL query string
+    if (getCreatedBy() != null) {
+      try {
+        joiner.add(String.format("%screatedBy%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedBy()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `editedOn` to the URL query string
+    if (getEditedOn() != null) {
+      try {
+        joiner.add(String.format("%seditedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEditedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdOn` to the URL query string
+    if (getCreatedOn() != null) {
+      try {
+        joiner.add(String.format("%screatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `content` to the URL query string
+    if (getContent() != null) {
+      try {
+        joiner.add(String.format("%scontent%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getContent()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `refund` to the URL query string
+    if (getRefund() != null) {
+      joiner.add(getRefund().toUrlQueryString(prefix + "refund" + suffix));
+    }
+
+    return joiner.toString();
   }
 
 }

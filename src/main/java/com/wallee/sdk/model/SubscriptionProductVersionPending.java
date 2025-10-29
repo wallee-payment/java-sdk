@@ -1,199 +1,111 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.wallee.sdk.model.SubscriptionProductVersionState;
 import com.wallee.sdk.model.TaxCalculation;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.*;
-import java.time.OffsetDateTime;
+import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * SubscriptionProductVersionPending
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  SubscriptionProductVersionPending.JSON_PROPERTY_ENABLED_CURRENCIES,
+  SubscriptionProductVersionPending.JSON_PROPERTY_PRODUCT,
+  SubscriptionProductVersionPending.JSON_PROPERTY_TAX_CALCULATION,
+  SubscriptionProductVersionPending.JSON_PROPERTY_BILLING_CYCLE,
+  SubscriptionProductVersionPending.JSON_PROPERTY_DEFAULT_CURRENCY,
+  SubscriptionProductVersionPending.JSON_PROPERTY_NAME,
+  SubscriptionProductVersionPending.JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS,
+  SubscriptionProductVersionPending.JSON_PROPERTY_COMMENT,
+  SubscriptionProductVersionPending.JSON_PROPERTY_STATE,
+  SubscriptionProductVersionPending.JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS,
+  SubscriptionProductVersionPending.JSON_PROPERTY_VERSION
+})
+@JsonTypeName("SubscriptionProductVersion.Pending")
 
 public class SubscriptionProductVersionPending {
-  
-  @JsonProperty("id")
-  protected Long id = null;
+  public static final String JSON_PROPERTY_ENABLED_CURRENCIES = "enabledCurrencies";
+  private Set<String> enabledCurrencies = new LinkedHashSet<>();
 
-  
-  @JsonProperty("version")
-  protected Long version = null;
+  public static final String JSON_PROPERTY_PRODUCT = "product";
+  private Long product;
 
-  
-  @JsonProperty("billingCycle")
-  protected String billingCycle = null;
+  public static final String JSON_PROPERTY_TAX_CALCULATION = "taxCalculation";
+  private TaxCalculation taxCalculation;
 
-  
-  @JsonProperty("comment")
-  protected String comment = null;
+  public static final String JSON_PROPERTY_BILLING_CYCLE = "billingCycle";
+  private String billingCycle;
 
-  
-  @JsonProperty("defaultCurrency")
-  protected String defaultCurrency = null;
+  public static final String JSON_PROPERTY_DEFAULT_CURRENCY = "defaultCurrency";
+  private String defaultCurrency;
 
-  
-  @JsonProperty("enabledCurrencies")
-  protected List<String> enabledCurrencies = null;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private Map<String, String> name = new HashMap<>();
 
-  
-  @JsonProperty("minimalNumberOfPeriods")
-  protected Integer minimalNumberOfPeriods = null;
+  public static final String JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS = "minimalNumberOfPeriods";
+  private Integer minimalNumberOfPeriods;
 
-  
-  @JsonProperty("name")
-  protected Map<String, String> name = null;
+  public static final String JSON_PROPERTY_COMMENT = "comment";
+  private String comment;
 
-  
-  @JsonProperty("numberOfNoticePeriods")
-  protected Integer numberOfNoticePeriods = null;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private SubscriptionProductVersionState state;
 
-  
-  @JsonProperty("product")
-  protected Long product = null;
+  public static final String JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS = "numberOfNoticePeriods";
+  private Integer numberOfNoticePeriods;
 
-  
-  @JsonProperty("state")
-  protected SubscriptionProductVersionState state = null;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
-  
-  @JsonProperty("taxCalculation")
-  protected TaxCalculation taxCalculation = null;
-
-  
-  
-  public SubscriptionProductVersionPending id(Long id) {
-    this.id = id;
-    return this;
+  public SubscriptionProductVersionPending() {
   }
 
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  
-  public SubscriptionProductVersionPending version(Long version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
-   * @return version
-  **/
-  @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
-  public Long getVersion() {
-    return version;
-  }
-
-  public void setVersion(Long version) {
-    this.version = version;
-  }
-
-  
-  public SubscriptionProductVersionPending billingCycle(String billingCycle) {
-    this.billingCycle = billingCycle;
-    return this;
-  }
-
-   /**
-   * The recurring period of time, typically monthly or annually, for which a subscriber is charged.
-   * @return billingCycle
-  **/
-  @ApiModelProperty(value = "The recurring period of time, typically monthly or annually, for which a subscriber is charged.")
-  public String getBillingCycle() {
-    return billingCycle;
-  }
-
-  public void setBillingCycle(String billingCycle) {
-    this.billingCycle = billingCycle;
-  }
-
-  
-  public SubscriptionProductVersionPending comment(String comment) {
-    this.comment = comment;
-    return this;
-  }
-
-   /**
-   * A comment that describes the product version and why it was created. It is not disclosed to the subscriber.
-   * @return comment
-  **/
-  @ApiModelProperty(value = "A comment that describes the product version and why it was created. It is not disclosed to the subscriber.")
-  public String getComment() {
-    return comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  
-  public SubscriptionProductVersionPending defaultCurrency(String defaultCurrency) {
-    this.defaultCurrency = defaultCurrency;
-    return this;
-  }
-
-   /**
-   * The three-letter code (ISO 4217 format) of the product version&#39;s default currency.
-   * @return defaultCurrency
-  **/
-  @ApiModelProperty(value = "The three-letter code (ISO 4217 format) of the product version's default currency.")
-  public String getDefaultCurrency() {
-    return defaultCurrency;
-  }
-
-  public void setDefaultCurrency(String defaultCurrency) {
-    this.defaultCurrency = defaultCurrency;
-  }
-
-  
-  public SubscriptionProductVersionPending enabledCurrencies(List<String> enabledCurrencies) {
+  public SubscriptionProductVersionPending enabledCurrencies(Set<String> enabledCurrencies) {
+    
     this.enabledCurrencies = enabledCurrencies;
     return this;
   }
 
   public SubscriptionProductVersionPending addEnabledCurrenciesItem(String enabledCurrenciesItem) {
     if (this.enabledCurrencies == null) {
-      this.enabledCurrencies = new ArrayList<>();
+      this.enabledCurrencies = new LinkedHashSet<>();
     }
     this.enabledCurrencies.add(enabledCurrenciesItem);
     return this;
@@ -203,36 +115,124 @@ public class SubscriptionProductVersionPending {
    * The three-letter codes (ISO 4217 format) of the currencies that the product version supports.
    * @return enabledCurrencies
   **/
-  @ApiModelProperty(value = "The three-letter codes (ISO 4217 format) of the currencies that the product version supports.")
-  public List<String> getEnabledCurrencies() {
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ENABLED_CURRENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<String> getEnabledCurrencies() {
     return enabledCurrencies;
   }
 
-  public void setEnabledCurrencies(List<String> enabledCurrencies) {
+
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_ENABLED_CURRENCIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setEnabledCurrencies(Set<String> enabledCurrencies) {
     this.enabledCurrencies = enabledCurrencies;
   }
 
-  
-  public SubscriptionProductVersionPending minimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
-    this.minimalNumberOfPeriods = minimalNumberOfPeriods;
+  public SubscriptionProductVersionPending product(Long product) {
+    
+    this.product = product;
     return this;
   }
 
    /**
-   * The minimum number of periods the subscription will run before it can be terminated.
-   * @return minimalNumberOfPeriods
+   * The product that the version belongs to.
+   * @return product
   **/
-  @ApiModelProperty(value = "The minimum number of periods the subscription will run before it can be terminated.")
-  public Integer getMinimalNumberOfPeriods() {
-    return minimalNumberOfPeriods;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getProduct() {
+    return product;
   }
 
-  public void setMinimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
-    this.minimalNumberOfPeriods = minimalNumberOfPeriods;
+
+  @JsonProperty(JSON_PROPERTY_PRODUCT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setProduct(Long product) {
+    this.product = product;
   }
 
-  
+  public SubscriptionProductVersionPending taxCalculation(TaxCalculation taxCalculation) {
+    
+    this.taxCalculation = taxCalculation;
+    return this;
+  }
+
+   /**
+   * Get taxCalculation
+   * @return taxCalculation
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TaxCalculation getTaxCalculation() {
+    return taxCalculation;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTaxCalculation(TaxCalculation taxCalculation) {
+    this.taxCalculation = taxCalculation;
+  }
+
+  public SubscriptionProductVersionPending billingCycle(String billingCycle) {
+    
+    this.billingCycle = billingCycle;
+    return this;
+  }
+
+   /**
+   * The recurring period of time, typically monthly or annually, for which a subscriber is charged.
+   * @return billingCycle
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BILLING_CYCLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBillingCycle() {
+    return billingCycle;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BILLING_CYCLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingCycle(String billingCycle) {
+    this.billingCycle = billingCycle;
+  }
+
+  public SubscriptionProductVersionPending defaultCurrency(String defaultCurrency) {
+    
+    this.defaultCurrency = defaultCurrency;
+    return this;
+  }
+
+   /**
+   * The three-letter code (ISO 4217 format) of the product version&#39;s default currency.
+   * @return defaultCurrency
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDefaultCurrency() {
+    return defaultCurrency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDefaultCurrency(String defaultCurrency) {
+    this.defaultCurrency = defaultCurrency;
+  }
+
   public SubscriptionProductVersionPending name(Map<String, String> name) {
+    
     this.name = name;
     return this;
   }
@@ -249,17 +249,98 @@ public class SubscriptionProductVersionPending {
    * The localized name of the product that is displayed to the customer.
    * @return name
   **/
-  @ApiModelProperty(value = "The localized name of the product that is displayed to the customer.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, String> getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Map<String, String> name) {
     this.name = name;
   }
 
-  
+  public SubscriptionProductVersionPending minimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
+    
+    this.minimalNumberOfPeriods = minimalNumberOfPeriods;
+    return this;
+  }
+
+   /**
+   * The minimum number of periods the subscription will run before it can be terminated.
+   * @return minimalNumberOfPeriods
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getMinimalNumberOfPeriods() {
+    return minimalNumberOfPeriods;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMinimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
+    this.minimalNumberOfPeriods = minimalNumberOfPeriods;
+  }
+
+  public SubscriptionProductVersionPending comment(String comment) {
+    
+    this.comment = comment;
+    return this;
+  }
+
+   /**
+   * A comment that describes the product version and why it was created. It is not disclosed to the subscriber.
+   * @return comment
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getComment() {
+    return comment;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setComment(String comment) {
+    this.comment = comment;
+  }
+
+  public SubscriptionProductVersionPending state(SubscriptionProductVersionState state) {
+    
+    this.state = state;
+    return this;
+  }
+
+   /**
+   * Get state
+   * @return state
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SubscriptionProductVersionState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(SubscriptionProductVersionState state) {
+    this.state = state;
+  }
+
   public SubscriptionProductVersionPending numberOfNoticePeriods(Integer numberOfNoticePeriods) {
+    
     this.numberOfNoticePeriods = numberOfNoticePeriods;
     return this;
   }
@@ -268,76 +349,48 @@ public class SubscriptionProductVersionPending {
    * The number of periods the subscription will keep running after its termination was requested.
    * @return numberOfNoticePeriods
   **/
-  @ApiModelProperty(value = "The number of periods the subscription will keep running after its termination was requested.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getNumberOfNoticePeriods() {
     return numberOfNoticePeriods;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNumberOfNoticePeriods(Integer numberOfNoticePeriods) {
     this.numberOfNoticePeriods = numberOfNoticePeriods;
   }
 
-  
-  public SubscriptionProductVersionPending product(Long product) {
-    this.product = product;
+  public SubscriptionProductVersionPending version(Integer version) {
+    
+    this.version = version;
     return this;
   }
 
    /**
-   * The product that the version belongs to.
-   * @return product
+   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * @return version
   **/
-  @ApiModelProperty(value = "The product that the version belongs to.")
-  public Long getProduct() {
-    return product;
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getVersion() {
+    return version;
   }
 
-  public void setProduct(Long product) {
-    this.product = product;
-  }
 
-  
-  public SubscriptionProductVersionPending state(SubscriptionProductVersionState state) {
-    this.state = state;
-    return this;
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVersion(Integer version) {
+    this.version = version;
   }
-
-   /**
-   * The object&#39;s current state.
-   * @return state
-  **/
-  @ApiModelProperty(value = "The object's current state.")
-  public SubscriptionProductVersionState getState() {
-    return state;
-  }
-
-  public void setState(SubscriptionProductVersionState state) {
-    this.state = state;
-  }
-
-  
-  public SubscriptionProductVersionPending taxCalculation(TaxCalculation taxCalculation) {
-    this.taxCalculation = taxCalculation;
-    return this;
-  }
-
-   /**
-   * The way taxes are calculated for fees.
-   * @return taxCalculation
-  **/
-  @ApiModelProperty(value = "The way taxes are calculated for fees.")
-  public TaxCalculation getTaxCalculation() {
-    return taxCalculation;
-  }
-
-  public void setTaxCalculation(TaxCalculation taxCalculation) {
-    this.taxCalculation = taxCalculation;
-  }
-
-  
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -345,43 +398,39 @@ public class SubscriptionProductVersionPending {
       return false;
     }
     SubscriptionProductVersionPending subscriptionProductVersionPending = (SubscriptionProductVersionPending) o;
-    return Objects.equals(this.id, subscriptionProductVersionPending.id) &&
-        Objects.equals(this.version, subscriptionProductVersionPending.version) &&
-        Objects.equals(this.billingCycle, subscriptionProductVersionPending.billingCycle) &&
-        Objects.equals(this.comment, subscriptionProductVersionPending.comment) &&
-        Objects.equals(this.defaultCurrency, subscriptionProductVersionPending.defaultCurrency) &&
-        Objects.equals(this.enabledCurrencies, subscriptionProductVersionPending.enabledCurrencies) &&
-        Objects.equals(this.minimalNumberOfPeriods, subscriptionProductVersionPending.minimalNumberOfPeriods) &&
-        Objects.equals(this.name, subscriptionProductVersionPending.name) &&
-        Objects.equals(this.numberOfNoticePeriods, subscriptionProductVersionPending.numberOfNoticePeriods) &&
+    return Objects.equals(this.enabledCurrencies, subscriptionProductVersionPending.enabledCurrencies) &&
         Objects.equals(this.product, subscriptionProductVersionPending.product) &&
+        Objects.equals(this.taxCalculation, subscriptionProductVersionPending.taxCalculation) &&
+        Objects.equals(this.billingCycle, subscriptionProductVersionPending.billingCycle) &&
+        Objects.equals(this.defaultCurrency, subscriptionProductVersionPending.defaultCurrency) &&
+        Objects.equals(this.name, subscriptionProductVersionPending.name) &&
+        Objects.equals(this.minimalNumberOfPeriods, subscriptionProductVersionPending.minimalNumberOfPeriods) &&
+        Objects.equals(this.comment, subscriptionProductVersionPending.comment) &&
         Objects.equals(this.state, subscriptionProductVersionPending.state) &&
-        Objects.equals(this.taxCalculation, subscriptionProductVersionPending.taxCalculation);
+        Objects.equals(this.numberOfNoticePeriods, subscriptionProductVersionPending.numberOfNoticePeriods) &&
+        Objects.equals(this.version, subscriptionProductVersionPending.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, billingCycle, comment, defaultCurrency, enabledCurrencies, minimalNumberOfPeriods, name, numberOfNoticePeriods, product, state, taxCalculation);
+    return Objects.hash(enabledCurrencies, product, taxCalculation, billingCycle, defaultCurrency, name, minimalNumberOfPeriods, comment, state, numberOfNoticePeriods, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionProductVersionPending {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
-    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
-    sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
     sb.append("    enabledCurrencies: ").append(toIndentedString(enabledCurrencies)).append("\n");
-    sb.append("    minimalNumberOfPeriods: ").append(toIndentedString(minimalNumberOfPeriods)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    numberOfNoticePeriods: ").append(toIndentedString(numberOfNoticePeriods)).append("\n");
     sb.append("    product: ").append(toIndentedString(product)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    taxCalculation: ").append(toIndentedString(taxCalculation)).append("\n");
+    sb.append("    billingCycle: ").append(toIndentedString(billingCycle)).append("\n");
+    sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    minimalNumberOfPeriods: ").append(toIndentedString(minimalNumberOfPeriods)).append("\n");
+    sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    numberOfNoticePeriods: ").append(toIndentedString(numberOfNoticePeriods)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -390,11 +439,166 @@ public class SubscriptionProductVersionPending {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `enabledCurrencies` to the URL query string
+    if (getEnabledCurrencies() != null) {
+      int i = 0;
+      for (String _item : getEnabledCurrencies()) {
+        try {
+          joiner.add(String.format("%senabledCurrencies%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(_item), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+      i++;
+    }
+
+    // add `product` to the URL query string
+    if (getProduct() != null) {
+      try {
+        joiner.add(String.format("%sproduct%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProduct()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `taxCalculation` to the URL query string
+    if (getTaxCalculation() != null) {
+      try {
+        joiner.add(String.format("%staxCalculation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTaxCalculation()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `billingCycle` to the URL query string
+    if (getBillingCycle() != null) {
+      try {
+        joiner.add(String.format("%sbillingCycle%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getBillingCycle()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `defaultCurrency` to the URL query string
+    if (getDefaultCurrency() != null) {
+      try {
+        joiner.add(String.format("%sdefaultCurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDefaultCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      for (String _key : getName().keySet()) {
+        try {
+          joiner.add(String.format("%sname%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getName().get(_key), URLEncoder.encode(String.valueOf(getName().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `minimalNumberOfPeriods` to the URL query string
+    if (getMinimalNumberOfPeriods() != null) {
+      try {
+        joiner.add(String.format("%sminimalNumberOfPeriods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMinimalNumberOfPeriods()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `comment` to the URL query string
+    if (getComment() != null) {
+      try {
+        joiner.add(String.format("%scomment%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getComment()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `numberOfNoticePeriods` to the URL query string
+    if (getNumberOfNoticePeriods() != null) {
+      try {
+        joiner.add(String.format("%snumberOfNoticePeriods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfNoticePeriods()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

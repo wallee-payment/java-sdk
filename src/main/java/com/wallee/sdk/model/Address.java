@@ -1,328 +1,481 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.Gender;
 import com.wallee.sdk.model.LegalOrganizationForm;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDate;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * Address
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  Address.JSON_PROPERTY_COUNTRY,
+  Address.JSON_PROPERTY_MOBILE_PHONE_NUMBER,
+  Address.JSON_PROPERTY_GENDER,
+  Address.JSON_PROPERTY_ORGANIZATION_NAME,
+  Address.JSON_PROPERTY_CITY,
+  Address.JSON_PROPERTY_COMMERCIAL_REGISTER_NUMBER,
+  Address.JSON_PROPERTY_SOCIAL_SECURITY_NUMBER,
+  Address.JSON_PROPERTY_GIVEN_NAME,
+  Address.JSON_PROPERTY_POSTCODE,
+  Address.JSON_PROPERTY_LEGAL_ORGANIZATION_FORM,
+  Address.JSON_PROPERTY_SALES_TAX_NUMBER,
+  Address.JSON_PROPERTY_DATE_OF_BIRTH,
+  Address.JSON_PROPERTY_DEPENDENT_LOCALITY,
+  Address.JSON_PROPERTY_EMAIL_ADDRESS,
+  Address.JSON_PROPERTY_PHONE_NUMBER,
+  Address.JSON_PROPERTY_SORTING_CODE,
+  Address.JSON_PROPERTY_STREET,
+  Address.JSON_PROPERTY_FAMILY_NAME,
+  Address.JSON_PROPERTY_POSTAL_STATE,
+  Address.JSON_PROPERTY_SALUTATION
+})
 
 public class Address {
-  
-  @JsonProperty("city")
-  protected String city = null;
+  public static final String JSON_PROPERTY_COUNTRY = "country";
+  private String country;
 
-  
-  @JsonProperty("commercialRegisterNumber")
-  protected String commercialRegisterNumber = null;
+  public static final String JSON_PROPERTY_MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
+  private String mobilePhoneNumber;
 
-  
-  @JsonProperty("country")
-  protected String country = null;
+  public static final String JSON_PROPERTY_GENDER = "gender";
+  private Gender gender;
 
-  
-  @JsonProperty("dateOfBirth")
-  protected LocalDate dateOfBirth = null;
+  public static final String JSON_PROPERTY_ORGANIZATION_NAME = "organizationName";
+  private String organizationName;
 
-  
-  @JsonProperty("dependentLocality")
-  protected String dependentLocality = null;
+  public static final String JSON_PROPERTY_CITY = "city";
+  private String city;
 
-  
-  @JsonProperty("emailAddress")
-  protected String emailAddress = null;
+  public static final String JSON_PROPERTY_COMMERCIAL_REGISTER_NUMBER = "commercialRegisterNumber";
+  private String commercialRegisterNumber;
 
-  
-  @JsonProperty("familyName")
-  protected String familyName = null;
+  public static final String JSON_PROPERTY_SOCIAL_SECURITY_NUMBER = "socialSecurityNumber";
+  private String socialSecurityNumber;
 
-  
-  @JsonProperty("gender")
-  protected Gender gender = null;
+  public static final String JSON_PROPERTY_GIVEN_NAME = "givenName";
+  private String givenName;
 
-  
-  @JsonProperty("givenName")
-  protected String givenName = null;
+  public static final String JSON_PROPERTY_POSTCODE = "postcode";
+  private String postcode;
 
-  
-  @JsonProperty("legalOrganizationForm")
-  protected LegalOrganizationForm legalOrganizationForm = null;
+  public static final String JSON_PROPERTY_LEGAL_ORGANIZATION_FORM = "legalOrganizationForm";
+  private LegalOrganizationForm legalOrganizationForm;
 
-  
-  @JsonProperty("mobilePhoneNumber")
-  protected String mobilePhoneNumber = null;
+  public static final String JSON_PROPERTY_SALES_TAX_NUMBER = "salesTaxNumber";
+  private String salesTaxNumber;
 
-  
-  @JsonProperty("organizationName")
-  protected String organizationName = null;
+  public static final String JSON_PROPERTY_DATE_OF_BIRTH = "dateOfBirth";
+  private LocalDate dateOfBirth;
 
-  
-  @JsonProperty("phoneNumber")
-  protected String phoneNumber = null;
+  public static final String JSON_PROPERTY_DEPENDENT_LOCALITY = "dependentLocality";
+  private String dependentLocality;
 
-  
-  @JsonProperty("postalState")
-  protected String postalState = null;
+  public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  private String emailAddress;
 
-  
-  @JsonProperty("postcode")
-  protected String postcode = null;
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
+  private String phoneNumber;
 
-  
-  @JsonProperty("salesTaxNumber")
-  protected String salesTaxNumber = null;
+  public static final String JSON_PROPERTY_SORTING_CODE = "sortingCode";
+  private String sortingCode;
 
-  
-  @JsonProperty("salutation")
-  protected String salutation = null;
+  public static final String JSON_PROPERTY_STREET = "street";
+  private String street;
 
-  
-  @JsonProperty("socialSecurityNumber")
-  protected String socialSecurityNumber = null;
+  public static final String JSON_PROPERTY_FAMILY_NAME = "familyName";
+  private String familyName;
 
-  
-  @JsonProperty("sortingCode")
-  protected String sortingCode = null;
+  public static final String JSON_PROPERTY_POSTAL_STATE = "postalState";
+  private String postalState;
 
-  
-  @JsonProperty("street")
-  protected String street = null;
+  public static final String JSON_PROPERTY_SALUTATION = "salutation";
+  private String salutation;
 
-  
-  
-   /**
-   * The city, town or village.
-   * @return city
-  **/
-  @ApiModelProperty(value = "The city, town or village.")
-  public String getCity() {
-    return city;
+  public Address() {
+  }
+  /**
+  * Constructor with only readonly parameters
+  */
+  @JsonCreator
+  public Address(
+    @JsonProperty(JSON_PROPERTY_COUNTRY) String country, 
+    @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER) String mobilePhoneNumber, 
+    @JsonProperty(JSON_PROPERTY_ORGANIZATION_NAME) String organizationName, 
+    @JsonProperty(JSON_PROPERTY_CITY) String city, 
+    @JsonProperty(JSON_PROPERTY_COMMERCIAL_REGISTER_NUMBER) String commercialRegisterNumber, 
+    @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER) String socialSecurityNumber, 
+    @JsonProperty(JSON_PROPERTY_GIVEN_NAME) String givenName, 
+    @JsonProperty(JSON_PROPERTY_POSTCODE) String postcode, 
+    @JsonProperty(JSON_PROPERTY_SALES_TAX_NUMBER) String salesTaxNumber, 
+    @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH) LocalDate dateOfBirth, 
+    @JsonProperty(JSON_PROPERTY_DEPENDENT_LOCALITY) String dependentLocality, 
+    @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS) String emailAddress, 
+    @JsonProperty(JSON_PROPERTY_PHONE_NUMBER) String phoneNumber, 
+    @JsonProperty(JSON_PROPERTY_SORTING_CODE) String sortingCode, 
+    @JsonProperty(JSON_PROPERTY_STREET) String street, 
+    @JsonProperty(JSON_PROPERTY_FAMILY_NAME) String familyName, 
+    @JsonProperty(JSON_PROPERTY_POSTAL_STATE) String postalState, 
+    @JsonProperty(JSON_PROPERTY_SALUTATION) String salutation
+  ) {
+    this();
+    this.country = country;
+    this.mobilePhoneNumber = mobilePhoneNumber;
+    this.organizationName = organizationName;
+    this.city = city;
+    this.commercialRegisterNumber = commercialRegisterNumber;
+    this.socialSecurityNumber = socialSecurityNumber;
+    this.givenName = givenName;
+    this.postcode = postcode;
+    this.salesTaxNumber = salesTaxNumber;
+    this.dateOfBirth = dateOfBirth;
+    this.dependentLocality = dependentLocality;
+    this.emailAddress = emailAddress;
+    this.phoneNumber = phoneNumber;
+    this.sortingCode = sortingCode;
+    this.street = street;
+    this.familyName = familyName;
+    this.postalState = postalState;
+    this.salutation = salutation;
   }
 
-  
-   /**
-   * The commercial registration number of the organization.
-   * @return commercialRegisterNumber
-  **/
-  @ApiModelProperty(value = "The commercial registration number of the organization.")
-  public String getCommercialRegisterNumber() {
-    return commercialRegisterNumber;
-  }
-
-  
    /**
    * The two-letter country code (ISO 3166 format).
    * @return country
   **/
-  @ApiModelProperty(value = "The two-letter country code (ISO 3166 format).")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCountry() {
     return country;
   }
 
-  
-   /**
-   * The date of birth.
-   * @return dateOfBirth
-  **/
-  @ApiModelProperty(value = "The date of birth.")
-  public LocalDate getDateOfBirth() {
-    return dateOfBirth;
-  }
 
-  
-   /**
-   * The dependent locality which is a sub-division of the state.
-   * @return dependentLocality
-  **/
-  @ApiModelProperty(value = "The dependent locality which is a sub-division of the state.")
-  public String getDependentLocality() {
-    return dependentLocality;
-  }
 
-  
-   /**
-   * The email address.
-   * @return emailAddress
-  **/
-  @ApiModelProperty(value = "The email address.")
-  public String getEmailAddress() {
-    return emailAddress;
-  }
-
-  
-   /**
-   * The family or last name.
-   * @return familyName
-  **/
-  @ApiModelProperty(value = "The family or last name.")
-  public String getFamilyName() {
-    return familyName;
-  }
-
-  
-   /**
-   * The gender.
-   * @return gender
-  **/
-  @ApiModelProperty(value = "The gender.")
-  public Gender getGender() {
-    return gender;
-  }
-
-  
-   /**
-   * The given or first name.
-   * @return givenName
-  **/
-  @ApiModelProperty(value = "The given or first name.")
-  public String getGivenName() {
-    return givenName;
-  }
-
-  
-   /**
-   * The legal form of the organization.
-   * @return legalOrganizationForm
-  **/
-  @ApiModelProperty(value = "The legal form of the organization.")
-  public LegalOrganizationForm getLegalOrganizationForm() {
-    return legalOrganizationForm;
-  }
-
-  
    /**
    * The phone number of a mobile phone.
    * @return mobilePhoneNumber
   **/
-  @ApiModelProperty(value = "The phone number of a mobile phone.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMobilePhoneNumber() {
     return mobilePhoneNumber;
   }
 
-  
+
+
+  public Address gender(Gender gender) {
+    
+    this.gender = gender;
+    return this;
+  }
+
+   /**
+   * Get gender
+   * @return gender
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GENDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Gender getGender() {
+    return gender;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_GENDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setGender(Gender gender) {
+    this.gender = gender;
+  }
+
    /**
    * The organization&#39;s name.
    * @return organizationName
   **/
-  @ApiModelProperty(value = "The organization's name.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ORGANIZATION_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOrganizationName() {
     return organizationName;
   }
 
-  
+
+
    /**
-   * The phone number.
-   * @return phoneNumber
+   * The city, town or village.
+   * @return city
   **/
-  @ApiModelProperty(value = "The phone number.")
-  public String getPhoneNumber() {
-    return phoneNumber;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCity() {
+    return city;
   }
 
-  
+
+
    /**
-   * The name of the region, typically a state, county, province or prefecture.
-   * @return postalState
+   * The commercial registration number of the organization.
+   * @return commercialRegisterNumber
   **/
-  @ApiModelProperty(value = "The name of the region, typically a state, county, province or prefecture.")
-  public String getPostalState() {
-    return postalState;
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_COMMERCIAL_REGISTER_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCommercialRegisterNumber() {
+    return commercialRegisterNumber;
   }
 
-  
-   /**
-   * The postal code, also known as ZIP, postcode, etc.
-   * @return postcode
-  **/
-  @ApiModelProperty(value = "The postal code, also known as ZIP, postcode, etc.")
-  public String getPostcode() {
-    return postcode;
-  }
 
-  
-   /**
-   * The sales tax number of the organization.
-   * @return salesTaxNumber
-  **/
-  @ApiModelProperty(value = "The sales tax number of the organization.")
-  public String getSalesTaxNumber() {
-    return salesTaxNumber;
-  }
 
-  
-   /**
-   * The salutation e.g. Mrs, Mr, Dr.
-   * @return salutation
-  **/
-  @ApiModelProperty(value = "The salutation e.g. Mrs, Mr, Dr.")
-  public String getSalutation() {
-    return salutation;
-  }
-
-  
    /**
    * The social security number.
    * @return socialSecurityNumber
   **/
-  @ApiModelProperty(value = "The social security number.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOCIAL_SECURITY_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSocialSecurityNumber() {
     return socialSecurityNumber;
   }
 
-  
+
+
+   /**
+   * The given or first name.
+   * @return givenName
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GIVEN_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getGivenName() {
+    return givenName;
+  }
+
+
+
+   /**
+   * The postal code, also known as ZIP, postcode, etc.
+   * @return postcode
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSTCODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPostcode() {
+    return postcode;
+  }
+
+
+
+  public Address legalOrganizationForm(LegalOrganizationForm legalOrganizationForm) {
+    
+    this.legalOrganizationForm = legalOrganizationForm;
+    return this;
+  }
+
+   /**
+   * Get legalOrganizationForm
+   * @return legalOrganizationForm
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LEGAL_ORGANIZATION_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LegalOrganizationForm getLegalOrganizationForm() {
+    return legalOrganizationForm;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LEGAL_ORGANIZATION_FORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLegalOrganizationForm(LegalOrganizationForm legalOrganizationForm) {
+    this.legalOrganizationForm = legalOrganizationForm;
+  }
+
+   /**
+   * The sales tax number of the organization.
+   * @return salesTaxNumber
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SALES_TAX_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSalesTaxNumber() {
+    return salesTaxNumber;
+  }
+
+
+
+   /**
+   * The date of birth.
+   * @return dateOfBirth
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DATE_OF_BIRTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+
+
+   /**
+   * The dependent locality which is a sub-division of the state.
+   * @return dependentLocality
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEPENDENT_LOCALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDependentLocality() {
+    return dependentLocality;
+  }
+
+
+
+   /**
+   * The email address.
+   * @return emailAddress
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+
+
+   /**
+   * The phone number.
+   * @return phoneNumber
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+
+
    /**
    * The sorting code identifying the post office where the PO Box is located.
    * @return sortingCode
   **/
-  @ApiModelProperty(value = "The sorting code identifying the post office where the PO Box is located.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SORTING_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSortingCode() {
     return sortingCode;
   }
 
-  
+
+
    /**
    * The street or PO Box.
    * @return street
   **/
-  @ApiModelProperty(value = "The street or PO Box.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STREET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getStreet() {
     return street;
   }
 
-  
+
+
+   /**
+   * The family or last name.
+   * @return familyName
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_FAMILY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getFamilyName() {
+    return familyName;
+  }
+
+
+
+   /**
+   * The name of the region, typically a state, county, province or prefecture.
+   * @return postalState
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_POSTAL_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPostalState() {
+    return postalState;
+  }
+
+
+
+   /**
+   * The salutation e.g. Mrs, Mr, Dr.
+   * @return salutation
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SALUTATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSalutation() {
+    return salutation;
+  }
+
+
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -330,59 +483,57 @@ public class Address {
       return false;
     }
     Address address = (Address) o;
-    return Objects.equals(this.city, address.city) &&
+    return Objects.equals(this.country, address.country) &&
+        Objects.equals(this.mobilePhoneNumber, address.mobilePhoneNumber) &&
+        Objects.equals(this.gender, address.gender) &&
+        Objects.equals(this.organizationName, address.organizationName) &&
+        Objects.equals(this.city, address.city) &&
         Objects.equals(this.commercialRegisterNumber, address.commercialRegisterNumber) &&
-        Objects.equals(this.country, address.country) &&
+        Objects.equals(this.socialSecurityNumber, address.socialSecurityNumber) &&
+        Objects.equals(this.givenName, address.givenName) &&
+        Objects.equals(this.postcode, address.postcode) &&
+        Objects.equals(this.legalOrganizationForm, address.legalOrganizationForm) &&
+        Objects.equals(this.salesTaxNumber, address.salesTaxNumber) &&
         Objects.equals(this.dateOfBirth, address.dateOfBirth) &&
         Objects.equals(this.dependentLocality, address.dependentLocality) &&
         Objects.equals(this.emailAddress, address.emailAddress) &&
-        Objects.equals(this.familyName, address.familyName) &&
-        Objects.equals(this.gender, address.gender) &&
-        Objects.equals(this.givenName, address.givenName) &&
-        Objects.equals(this.legalOrganizationForm, address.legalOrganizationForm) &&
-        Objects.equals(this.mobilePhoneNumber, address.mobilePhoneNumber) &&
-        Objects.equals(this.organizationName, address.organizationName) &&
         Objects.equals(this.phoneNumber, address.phoneNumber) &&
-        Objects.equals(this.postalState, address.postalState) &&
-        Objects.equals(this.postcode, address.postcode) &&
-        Objects.equals(this.salesTaxNumber, address.salesTaxNumber) &&
-        Objects.equals(this.salutation, address.salutation) &&
-        Objects.equals(this.socialSecurityNumber, address.socialSecurityNumber) &&
         Objects.equals(this.sortingCode, address.sortingCode) &&
-        Objects.equals(this.street, address.street);
+        Objects.equals(this.street, address.street) &&
+        Objects.equals(this.familyName, address.familyName) &&
+        Objects.equals(this.postalState, address.postalState) &&
+        Objects.equals(this.salutation, address.salutation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(city, commercialRegisterNumber, country, dateOfBirth, dependentLocality, emailAddress, familyName, gender, givenName, legalOrganizationForm, mobilePhoneNumber, organizationName, phoneNumber, postalState, postcode, salesTaxNumber, salutation, socialSecurityNumber, sortingCode, street);
+    return Objects.hash(country, mobilePhoneNumber, gender, organizationName, city, commercialRegisterNumber, socialSecurityNumber, givenName, postcode, legalOrganizationForm, salesTaxNumber, dateOfBirth, dependentLocality, emailAddress, phoneNumber, sortingCode, street, familyName, postalState, salutation);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Address {\n");
-    
+    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
+    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
+    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    commercialRegisterNumber: ").append(toIndentedString(commercialRegisterNumber)).append("\n");
-    sb.append("    country: ").append(toIndentedString(country)).append("\n");
+    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
+    sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
+    sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
+    sb.append("    legalOrganizationForm: ").append(toIndentedString(legalOrganizationForm)).append("\n");
+    sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");
     sb.append("    dateOfBirth: ").append(toIndentedString(dateOfBirth)).append("\n");
     sb.append("    dependentLocality: ").append(toIndentedString(dependentLocality)).append("\n");
     sb.append("    emailAddress: ").append(toIndentedString(emailAddress)).append("\n");
-    sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
-    sb.append("    gender: ").append(toIndentedString(gender)).append("\n");
-    sb.append("    givenName: ").append(toIndentedString(givenName)).append("\n");
-    sb.append("    legalOrganizationForm: ").append(toIndentedString(legalOrganizationForm)).append("\n");
-    sb.append("    mobilePhoneNumber: ").append(toIndentedString(mobilePhoneNumber)).append("\n");
-    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
     sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
-    sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
-    sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
-    sb.append("    salesTaxNumber: ").append(toIndentedString(salesTaxNumber)).append("\n");
-    sb.append("    salutation: ").append(toIndentedString(salutation)).append("\n");
-    sb.append("    socialSecurityNumber: ").append(toIndentedString(socialSecurityNumber)).append("\n");
     sb.append("    sortingCode: ").append(toIndentedString(sortingCode)).append("\n");
     sb.append("    street: ").append(toIndentedString(street)).append("\n");
+    sb.append("    familyName: ").append(toIndentedString(familyName)).append("\n");
+    sb.append("    postalState: ").append(toIndentedString(postalState)).append("\n");
+    sb.append("    salutation: ").append(toIndentedString(salutation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -391,11 +542,241 @@ public class Address {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `country` to the URL query string
+    if (getCountry() != null) {
+      try {
+        joiner.add(String.format("%scountry%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCountry()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `mobilePhoneNumber` to the URL query string
+    if (getMobilePhoneNumber() != null) {
+      try {
+        joiner.add(String.format("%smobilePhoneNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMobilePhoneNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `gender` to the URL query string
+    if (getGender() != null) {
+      try {
+        joiner.add(String.format("%sgender%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGender()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `organizationName` to the URL query string
+    if (getOrganizationName() != null) {
+      try {
+        joiner.add(String.format("%sorganizationName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrganizationName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `city` to the URL query string
+    if (getCity() != null) {
+      try {
+        joiner.add(String.format("%scity%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCity()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `commercialRegisterNumber` to the URL query string
+    if (getCommercialRegisterNumber() != null) {
+      try {
+        joiner.add(String.format("%scommercialRegisterNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCommercialRegisterNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `socialSecurityNumber` to the URL query string
+    if (getSocialSecurityNumber() != null) {
+      try {
+        joiner.add(String.format("%ssocialSecurityNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSocialSecurityNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `givenName` to the URL query string
+    if (getGivenName() != null) {
+      try {
+        joiner.add(String.format("%sgivenName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGivenName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `postcode` to the URL query string
+    if (getPostcode() != null) {
+      try {
+        joiner.add(String.format("%spostcode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPostcode()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `legalOrganizationForm` to the URL query string
+    if (getLegalOrganizationForm() != null) {
+      joiner.add(getLegalOrganizationForm().toUrlQueryString(prefix + "legalOrganizationForm" + suffix));
+    }
+
+    // add `salesTaxNumber` to the URL query string
+    if (getSalesTaxNumber() != null) {
+      try {
+        joiner.add(String.format("%ssalesTaxNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSalesTaxNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `dateOfBirth` to the URL query string
+    if (getDateOfBirth() != null) {
+      try {
+        joiner.add(String.format("%sdateOfBirth%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDateOfBirth()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `dependentLocality` to the URL query string
+    if (getDependentLocality() != null) {
+      try {
+        joiner.add(String.format("%sdependentLocality%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDependentLocality()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `emailAddress` to the URL query string
+    if (getEmailAddress() != null) {
+      try {
+        joiner.add(String.format("%semailAddress%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getEmailAddress()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `phoneNumber` to the URL query string
+    if (getPhoneNumber() != null) {
+      try {
+        joiner.add(String.format("%sphoneNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPhoneNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sortingCode` to the URL query string
+    if (getSortingCode() != null) {
+      try {
+        joiner.add(String.format("%ssortingCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSortingCode()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `street` to the URL query string
+    if (getStreet() != null) {
+      try {
+        joiner.add(String.format("%sstreet%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStreet()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `familyName` to the URL query string
+    if (getFamilyName() != null) {
+      try {
+        joiner.add(String.format("%sfamilyName%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getFamilyName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `postalState` to the URL query string
+    if (getPostalState() != null) {
+      try {
+        joiner.add(String.format("%spostalState%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPostalState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `salutation` to the URL query string
+    if (getSalutation() != null) {
+      try {
+        joiner.add(String.format("%ssalutation%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSalutation()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }

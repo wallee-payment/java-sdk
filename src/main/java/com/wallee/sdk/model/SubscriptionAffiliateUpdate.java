@@ -1,128 +1,76 @@
 /**
-* wallee SDK
-*
-* This library allows to interact with the wallee payment service.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*      http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CreationEntityState;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.*;
-import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
 
 /**
- * 
+ * SubscriptionAffiliateUpdate
  */
-@ApiModel(description = "")
+@JsonPropertyOrder({
+  SubscriptionAffiliateUpdate.JSON_PROPERTY_META_DATA,
+  SubscriptionAffiliateUpdate.JSON_PROPERTY_NAME,
+  SubscriptionAffiliateUpdate.JSON_PROPERTY_LANGUAGE,
+  SubscriptionAffiliateUpdate.JSON_PROPERTY_STATE,
+  SubscriptionAffiliateUpdate.JSON_PROPERTY_VERSION
+})
+@JsonTypeName("SubscriptionAffiliate.Update")
 
 public class SubscriptionAffiliateUpdate {
-  
-  @JsonProperty("id")
-  protected Long id = null;
+  public static final String JSON_PROPERTY_META_DATA = "metaData";
+  private Map<String, String> metaData = new HashMap<>();
 
-  
-  @JsonProperty("version")
-  protected Long version = null;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-  
-  @JsonProperty("language")
-  protected String language = null;
+  public static final String JSON_PROPERTY_LANGUAGE = "language";
+  private String language;
 
-  
-  @JsonProperty("metaData")
-  protected Map<String, String> metaData = null;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private CreationEntityState state;
 
-  
-  @JsonProperty("name")
-  protected String name = null;
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
-  
-  @JsonProperty("state")
-  protected CreationEntityState state = null;
-
-  
-  
-  public SubscriptionAffiliateUpdate id(Long id) {
-    this.id = id;
-    return this;
+  public SubscriptionAffiliateUpdate() {
   }
 
-   /**
-   * The ID is the primary key of the entity. The ID identifies the entity uniquely.
-   * @return id
-  **/
-  @ApiModelProperty(required = true, value = "The ID is the primary key of the entity. The ID identifies the entity uniquely.")
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  
-  public SubscriptionAffiliateUpdate version(Long version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
-   * @return version
-  **/
-  @ApiModelProperty(required = true, value = "The version number indicates the version of the entity. The version is incremented whenever the entity is changed.")
-  public Long getVersion() {
-    return version;
-  }
-
-  public void setVersion(Long version) {
-    this.version = version;
-  }
-
-  
-  public SubscriptionAffiliateUpdate language(String language) {
-    this.language = language;
-    return this;
-  }
-
-   /**
-   * The language that is linked to the object.
-   * @return language
-  **/
-  @ApiModelProperty(value = "The language that is linked to the object.")
-  public String getLanguage() {
-    return language;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
-
-  
   public SubscriptionAffiliateUpdate metaData(Map<String, String> metaData) {
+    
     this.metaData = metaData;
     return this;
   }
@@ -139,17 +87,23 @@ public class SubscriptionAffiliateUpdate {
    * Allow to store additional information about the object.
    * @return metaData
   **/
-  @ApiModelProperty(value = "Allow to store additional information about the object.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, String> getMetaData() {
     return metaData;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetaData(Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  
   public SubscriptionAffiliateUpdate name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -158,38 +112,98 @@ public class SubscriptionAffiliateUpdate {
    * The name used to identify the affiliate.
    * @return name
   **/
-  @ApiModelProperty(value = "The name used to identify the affiliate.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(String name) {
     this.name = name;
   }
 
-  
+  public SubscriptionAffiliateUpdate language(String language) {
+    
+    this.language = language;
+    return this;
+  }
+
+   /**
+   * The language that is linked to the object.
+   * @return language
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getLanguage() {
+    return language;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_LANGUAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
   public SubscriptionAffiliateUpdate state(CreationEntityState state) {
+    
     this.state = state;
     return this;
   }
 
    /**
-   * The object&#39;s current state.
+   * Get state
    * @return state
   **/
-  @ApiModelProperty(value = "The object's current state.")
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public CreationEntityState getState() {
     return state;
   }
 
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setState(CreationEntityState state) {
     this.state = state;
   }
 
-  
+  public SubscriptionAffiliateUpdate version(Integer version) {
+    
+    this.version = version;
+    return this;
+  }
+
+   /**
+   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
+   * @return version
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -197,31 +211,27 @@ public class SubscriptionAffiliateUpdate {
       return false;
     }
     SubscriptionAffiliateUpdate subscriptionAffiliateUpdate = (SubscriptionAffiliateUpdate) o;
-    return Objects.equals(this.id, subscriptionAffiliateUpdate.id) &&
-        Objects.equals(this.version, subscriptionAffiliateUpdate.version) &&
-        Objects.equals(this.language, subscriptionAffiliateUpdate.language) &&
-        Objects.equals(this.metaData, subscriptionAffiliateUpdate.metaData) &&
+    return Objects.equals(this.metaData, subscriptionAffiliateUpdate.metaData) &&
         Objects.equals(this.name, subscriptionAffiliateUpdate.name) &&
-        Objects.equals(this.state, subscriptionAffiliateUpdate.state);
+        Objects.equals(this.language, subscriptionAffiliateUpdate.language) &&
+        Objects.equals(this.state, subscriptionAffiliateUpdate.state) &&
+        Objects.equals(this.version, subscriptionAffiliateUpdate.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, version, language, metaData, name, state);
+    return Objects.hash(metaData, name, language, state, version);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubscriptionAffiliateUpdate {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    language: ").append(toIndentedString(language)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -230,11 +240,100 @@ public class SubscriptionAffiliateUpdate {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `metaData` to the URL query string
+    if (getMetaData() != null) {
+      for (String _key : getMetaData().keySet()) {
+        try {
+          joiner.add(String.format("%smetaData%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetaData().get(_key), URLEncoder.encode(String.valueOf(getMetaData().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `language` to the URL query string
+    if (getLanguage() != null) {
+      try {
+        joiner.add(String.format("%slanguage%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLanguage()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
   }
 
 }
