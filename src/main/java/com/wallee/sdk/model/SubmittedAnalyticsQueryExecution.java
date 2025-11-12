@@ -41,6 +41,7 @@ import java.util.StringJoiner;
  * SubmittedAnalyticsQueryExecution
  */
 @JsonPropertyOrder({
+  SubmittedAnalyticsQueryExecution.JSON_PROPERTY_QUERY_EXTERNAL_ID,
   SubmittedAnalyticsQueryExecution.JSON_PROPERTY_ACCOUNT_ID,
   SubmittedAnalyticsQueryExecution.JSON_PROPERTY_TOTAL_BILLED_EXECUTION_TIME_MS,
   SubmittedAnalyticsQueryExecution.JSON_PROPERTY_CREATED_TIMESTAMP,
@@ -53,6 +54,9 @@ import java.util.StringJoiner;
 })
 
 public class SubmittedAnalyticsQueryExecution {
+  public static final String JSON_PROPERTY_QUERY_EXTERNAL_ID = "queryExternalId";
+  private String queryExternalId;
+
   public static final String JSON_PROPERTY_ACCOUNT_ID = "accountId";
   private Long accountId;
 
@@ -87,6 +91,7 @@ public class SubmittedAnalyticsQueryExecution {
   */
   @JsonCreator
   public SubmittedAnalyticsQueryExecution(
+    @JsonProperty(JSON_PROPERTY_QUERY_EXTERNAL_ID) String queryExternalId, 
     @JsonProperty(JSON_PROPERTY_ACCOUNT_ID) Long accountId, 
     @JsonProperty(JSON_PROPERTY_TOTAL_BILLED_EXECUTION_TIME_MS) Integer totalBilledExecutionTimeMs, 
     @JsonProperty(JSON_PROPERTY_CREATED_TIMESTAMP) OffsetDateTime createdTimestamp, 
@@ -97,6 +102,7 @@ public class SubmittedAnalyticsQueryExecution {
     @JsonProperty(JSON_PROPERTY_RESULT_FILE_BYTES) Integer resultFileBytes
   ) {
     this();
+    this.queryExternalId = queryExternalId;
     this.accountId = accountId;
     this.totalBilledExecutionTimeMs = totalBilledExecutionTimeMs;
     this.createdTimestamp = createdTimestamp;
@@ -106,6 +112,20 @@ public class SubmittedAnalyticsQueryExecution {
     this.portalQueryToken = portalQueryToken;
     this.resultFileBytes = resultFileBytes;
   }
+
+   /**
+   * The external id associated with this query, if any.
+   * @return queryExternalId
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_QUERY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getQueryExternalId() {
+    return queryExternalId;
+  }
+
+
 
    /**
    * The ID of the target account for which the analytics query will be executed, determining the data scope for the request.
@@ -253,7 +273,8 @@ public class SubmittedAnalyticsQueryExecution {
       return false;
     }
     SubmittedAnalyticsQueryExecution submittedAnalyticsQueryExecution = (SubmittedAnalyticsQueryExecution) o;
-    return Objects.equals(this.accountId, submittedAnalyticsQueryExecution.accountId) &&
+    return Objects.equals(this.queryExternalId, submittedAnalyticsQueryExecution.queryExternalId) &&
+        Objects.equals(this.accountId, submittedAnalyticsQueryExecution.accountId) &&
         Objects.equals(this.totalBilledExecutionTimeMs, submittedAnalyticsQueryExecution.totalBilledExecutionTimeMs) &&
         Objects.equals(this.createdTimestamp, submittedAnalyticsQueryExecution.createdTimestamp) &&
         Objects.equals(this.downloadRequests, submittedAnalyticsQueryExecution.downloadRequests) &&
@@ -266,13 +287,14 @@ public class SubmittedAnalyticsQueryExecution {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, totalBilledExecutionTimeMs, createdTimestamp, downloadRequests, originalQuery, scannedBytes, portalQueryToken, resultFileBytes, status);
+    return Objects.hash(queryExternalId, accountId, totalBilledExecutionTimeMs, createdTimestamp, downloadRequests, originalQuery, scannedBytes, portalQueryToken, resultFileBytes, status);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmittedAnalyticsQueryExecution {\n");
+    sb.append("    queryExternalId: ").append(toIndentedString(queryExternalId)).append("\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    totalBilledExecutionTimeMs: ").append(toIndentedString(totalBilledExecutionTimeMs)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
@@ -328,6 +350,16 @@ public class SubmittedAnalyticsQueryExecution {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `queryExternalId` to the URL query string
+    if (getQueryExternalId() != null) {
+      try {
+        joiner.add(String.format("%squeryExternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getQueryExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
 
     // add `accountId` to the URL query string
     if (getAccountId() != null) {

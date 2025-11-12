@@ -64,7 +64,7 @@ public class AnalyticsQueryExecutionRequest {
   }
 
    /**
-   * Optional. Active SFTP Dispatch connection settings ID (dispatch settings ID) associated with the target account. Only required if the Analytics query result file is scheduled for delivery to a remote SFTP server.
+   * Optional. ID of the active SFTP configuration to use (associated with the target account). This is only required if the result file is scheduled for delivery to a remote SFTP server.
    * @return sftpDispatchSettingsId
   **/
   @javax.annotation.Nullable
@@ -89,7 +89,7 @@ public class AnalyticsQueryExecutionRequest {
   }
 
    /**
-   * Optional. Renaming pattern for Analytics query result file (may be used when Analytics query results file is scheduled for SFTP delivery). Pattern may look like Latin alphabet string with some timestamp placeholder: \&quot;transaction_report_{YYYMMDD_hhmmss}\&quot;. Supported placeholder formats are just these: DDMMYY , MMDDYY , YYYYMMDD , DD_MM_YY , DD-MM-YY , YYYY-MM-DD , YYYY_MM_DD , YYYYMMDD_hhmmss , YYYY-MM-DD_hh-mm-ss
+   * Optional. Renaming pattern used for the result file during SFTP delivery. You can use a combination of fixed Latin text and timestamp variables (e.g., \&quot;transaction_report_{YYYMMDD_hhmmss}\&quot;). Supported variable formats: DDMMYY, MMDDYY, YYYYMMDD, DD_MM_YY, DD-MM-YY, YYYY-MM-DD, YYYY_MM_DD, YYYYMMDD_hhmmss, YYYY-MM-DD_hh-mm-ss.
    * @return sftpDispatchResultFileRenamePattern
   **/
   @javax.annotation.Nullable
@@ -114,7 +114,7 @@ public class AnalyticsQueryExecutionRequest {
   }
 
    /**
-   * The SQL query (in PrestoDB dialect) to be executed against the analytics database. This query defines the data retrieval operation.
+   * The SQL query (in PrestoDB dialect) to execute on the analytics database. This query defines exactly which data should be retrieved.
    * @return sql
   **/
   @javax.annotation.Nullable

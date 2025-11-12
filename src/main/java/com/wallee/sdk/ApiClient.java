@@ -71,7 +71,7 @@ import java.util.regex.Pattern;
 
 
 public class ApiClient extends JavaTimeFormatter {
-    public static final String VERSION = "9.0.0";
+    public static final String VERSION = "9.1.0";
     private Map<String, String> defaultHeaderMap = new HashMap<>();
     private Map<String, String> defaultCookieMap = new HashMap<>();
     private String basePath = "https://app-wallee.com/api/v2.0";
@@ -1005,7 +1005,7 @@ public class ApiClient extends JavaTimeFormatter {
     }
 
     private void addMetaHeaders(ClassicRequestBuilder builder) {
-        builder.addHeader("x-meta-sdk-version", "9.0.0");
+        builder.addHeader("x-meta-sdk-version", "9.1.0");
         builder.addHeader("x-meta-sdk-language", "java");
         builder.addHeader("x-meta-sdk-provider", "wallee");
         builder.addHeader("x-meta-sdk-language-version", System.getProperty("java.version"));
