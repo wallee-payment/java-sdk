@@ -51,15 +51,17 @@ import java.util.StringJoiner;
 
 public class ExpressCheckoutSessionCreate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SHIPPING_OPTIONS = "shippingOptions";
+  @javax.annotation.Nullable
   private List<ExpressCheckoutShippingOption> shippingOptions = new ArrayList<>();
 
   public ExpressCheckoutSessionCreate() {
   }
 
-  public ExpressCheckoutSessionCreate lineItems(List<LineItem> lineItems) {
+  public ExpressCheckoutSessionCreate lineItems(@javax.annotation.Nullable List<LineItem> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -73,10 +75,10 @@ public class ExpressCheckoutSessionCreate {
     return this;
   }
 
-   /**
+  /**
    * Get lineItems
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,11 +90,11 @@ public class ExpressCheckoutSessionCreate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItem> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<LineItem> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public ExpressCheckoutSessionCreate shippingOptions(List<ExpressCheckoutShippingOption> shippingOptions) {
+  public ExpressCheckoutSessionCreate shippingOptions(@javax.annotation.Nullable List<ExpressCheckoutShippingOption> shippingOptions) {
     
     this.shippingOptions = shippingOptions;
     return this;
@@ -106,10 +108,10 @@ public class ExpressCheckoutSessionCreate {
     return this;
   }
 
-   /**
+  /**
    * Get shippingOptions
    * @return shippingOptions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,7 +123,7 @@ public class ExpressCheckoutSessionCreate {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingOptions(List<ExpressCheckoutShippingOption> shippingOptions) {
+  public void setShippingOptions(@javax.annotation.Nullable List<ExpressCheckoutShippingOption> shippingOptions) {
     this.shippingOptions = shippingOptions;
   }
 

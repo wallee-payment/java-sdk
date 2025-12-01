@@ -62,52 +62,66 @@ import java.util.StringJoiner;
 
 public class PaymentTerminal {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  @javax.annotation.Nullable
   private String identifier;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private PaymentTerminalType type;
 
   public static final String JSON_PROPERTY_DEVICE_NAME = "deviceName";
+  @javax.annotation.Nullable
   private String deviceName;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_DEVICE_SERIAL_NUMBER = "deviceSerialNumber";
+  @javax.annotation.Nullable
   private String deviceSerialNumber;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_CONFIGURATION_VERSION = "configurationVersion";
+  @javax.annotation.Nullable
   private PaymentTerminalConfigurationVersion configurationVersion;
 
   public static final String JSON_PROPERTY_LOCATION_VERSION = "locationVersion";
+  @javax.annotation.Nullable
   private PaymentTerminalLocationVersion locationVersion;
 
   public static final String JSON_PROPERTY_DEFAULT_CURRENCY = "defaultCurrency";
+  @javax.annotation.Nullable
   private String defaultCurrency;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentTerminalState state;
 
   public PaymentTerminal() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentTerminal(
     @JsonProperty(JSON_PROPERTY_IDENTIFIER) String identifier, 
@@ -134,10 +148,10 @@ public class PaymentTerminal {
     this.id = id;
   }
 
-   /**
+  /**
    * The unique identifier of the terminal, that is displayed on the device.
    * @return identifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,10 +162,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,10 +176,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,16 +190,16 @@ public class PaymentTerminal {
 
 
 
-  public PaymentTerminal type(PaymentTerminalType type) {
+  public PaymentTerminal type(@javax.annotation.Nullable PaymentTerminalType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,14 +211,14 @@ public class PaymentTerminal {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(PaymentTerminalType type) {
+  public void setType(@javax.annotation.Nullable PaymentTerminalType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The name of the device that is currently linked to the payment terminal.
    * @return deviceName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,10 +229,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,10 +243,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * The serial number of the device that is currently linked to the payment terminal.
    * @return deviceSerialNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,10 +257,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,16 +271,16 @@ public class PaymentTerminal {
 
 
 
-  public PaymentTerminal configurationVersion(PaymentTerminalConfigurationVersion configurationVersion) {
+  public PaymentTerminal configurationVersion(@javax.annotation.Nullable PaymentTerminalConfigurationVersion configurationVersion) {
     
     this.configurationVersion = configurationVersion;
     return this;
   }
 
-   /**
+  /**
    * Get configurationVersion
    * @return configurationVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,20 +292,20 @@ public class PaymentTerminal {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfigurationVersion(PaymentTerminalConfigurationVersion configurationVersion) {
+  public void setConfigurationVersion(@javax.annotation.Nullable PaymentTerminalConfigurationVersion configurationVersion) {
     this.configurationVersion = configurationVersion;
   }
 
-  public PaymentTerminal locationVersion(PaymentTerminalLocationVersion locationVersion) {
+  public PaymentTerminal locationVersion(@javax.annotation.Nullable PaymentTerminalLocationVersion locationVersion) {
     
     this.locationVersion = locationVersion;
     return this;
   }
 
-   /**
+  /**
    * Get locationVersion
    * @return locationVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,14 +317,14 @@ public class PaymentTerminal {
 
   @JsonProperty(JSON_PROPERTY_LOCATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocationVersion(PaymentTerminalLocationVersion locationVersion) {
+  public void setLocationVersion(@javax.annotation.Nullable PaymentTerminalLocationVersion locationVersion) {
     this.locationVersion = locationVersion;
   }
 
-   /**
+  /**
    * The default currency of the terminal.
    * @return defaultCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,10 +335,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * The name used to identify the payment terminal.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,10 +349,10 @@ public class PaymentTerminal {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,16 +363,16 @@ public class PaymentTerminal {
 
 
 
-  public PaymentTerminal state(PaymentTerminalState state) {
+  public PaymentTerminal state(@javax.annotation.Nullable PaymentTerminalState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +384,7 @@ public class PaymentTerminal {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentTerminalState state) {
+  public void setState(@javax.annotation.Nullable PaymentTerminalState state) {
     this.state = state;
   }
 

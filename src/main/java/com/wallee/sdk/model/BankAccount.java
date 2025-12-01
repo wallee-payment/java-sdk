@@ -53,34 +53,42 @@ import java.util.StringJoiner;
 
 public class BankAccount {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  @javax.annotation.Nullable
   private String identifier;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private BankAccountState state;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public BankAccount() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public BankAccount(
     @JsonProperty(JSON_PROPERTY_IDENTIFIER) String identifier, 
@@ -101,10 +109,10 @@ public class BankAccount {
     this.version = version;
   }
 
-   /**
+  /**
    * The identifier is used to uniquely identify the bank account.
    * @return identifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +123,10 @@ public class BankAccount {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +137,10 @@ public class BankAccount {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +151,10 @@ public class BankAccount {
 
 
 
-   /**
+  /**
    * The description serves as an alternative name for the bank account.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +165,10 @@ public class BankAccount {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,16 +179,16 @@ public class BankAccount {
 
 
 
-  public BankAccount state(BankAccountState state) {
+  public BankAccount state(@javax.annotation.Nullable BankAccountState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,14 +200,14 @@ public class BankAccount {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(BankAccountState state) {
+  public void setState(@javax.annotation.Nullable BankAccountState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The bank account&#39;s type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,10 +218,10 @@ public class BankAccount {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

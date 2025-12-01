@@ -74,73 +74,94 @@ import java.util.StringJoiner;
 
 public class SubscriptionCharge {
   public static final String JSON_PROPERTY_DISCARDED_ON = "discardedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime discardedOn;
 
   public static final String JSON_PROPERTY_PLANNED_EXECUTION_DATE = "plannedExecutionDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedExecutionDate;
 
   public static final String JSON_PROPERTY_PROCESSING_TYPE = "processingType";
+  @javax.annotation.Nullable
   private SubscriptionChargeProcessingType processingType;
 
   public static final String JSON_PROPERTY_LEDGER_ENTRIES = "ledgerEntries";
+  @javax.annotation.Nullable
   private Set<SubscriptionLedgerEntry> ledgerEntries = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_DISCARDED_BY = "discardedBy";
+  @javax.annotation.Nullable
   private Long discardedBy;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nullable
   private String successUrl;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nullable
   private Subscription subscription;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private SubscriptionChargeType type;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionChargeState state;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public static final String JSON_PROPERTY_FAILED_URL = "failedUrl";
+  @javax.annotation.Nullable
   private String failedUrl;
 
   public static final String JSON_PROPERTY_SUCCEED_ON = "succeedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeedOn;
 
   public SubscriptionCharge() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionCharge(
     @JsonProperty(JSON_PROPERTY_DISCARDED_ON) OffsetDateTime discardedOn, 
@@ -179,10 +200,10 @@ public class SubscriptionCharge {
     this.succeedOn = succeedOn;
   }
 
-   /**
+  /**
    * The date and time when the charge was discarded.
    * @return discardedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCARDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,10 +214,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The date and time when the execution of the charge is planned.
    * @return plannedExecutionDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_EXECUTION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,16 +228,16 @@ public class SubscriptionCharge {
 
 
 
-  public SubscriptionCharge processingType(SubscriptionChargeProcessingType processingType) {
+  public SubscriptionCharge processingType(@javax.annotation.Nullable SubscriptionChargeProcessingType processingType) {
     
     this.processingType = processingType;
     return this;
   }
 
-   /**
+  /**
    * Get processingType
    * @return processingType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,14 +249,14 @@ public class SubscriptionCharge {
 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessingType(SubscriptionChargeProcessingType processingType) {
+  public void setProcessingType(@javax.annotation.Nullable SubscriptionChargeProcessingType processingType) {
     this.processingType = processingType;
   }
 
-   /**
+  /**
    * The ledger entries that belong to the charge.
    * @return ledgerEntries
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEDGER_ENTRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,10 +267,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The ID of the user the charge was discarded by.
    * @return discardedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCARDED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,10 +281,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,10 +295,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,10 +309,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,10 +323,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,16 +337,16 @@ public class SubscriptionCharge {
 
 
 
-  public SubscriptionCharge subscription(Subscription subscription) {
+  public SubscriptionCharge subscription(@javax.annotation.Nullable Subscription subscription) {
     
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * Get subscription
    * @return subscription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,20 +358,20 @@ public class SubscriptionCharge {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscription(Subscription subscription) {
+  public void setSubscription(@javax.annotation.Nullable Subscription subscription) {
     this.subscription = subscription;
   }
 
-  public SubscriptionCharge type(SubscriptionChargeType type) {
+  public SubscriptionCharge type(@javax.annotation.Nullable SubscriptionChargeType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -362,14 +383,14 @@ public class SubscriptionCharge {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(SubscriptionChargeType type) {
+  public void setType(@javax.annotation.Nullable SubscriptionChargeType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The date and time when the charge was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,10 +401,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,10 +415,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the charge.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,10 +429,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -422,10 +443,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -436,16 +457,16 @@ public class SubscriptionCharge {
 
 
 
-  public SubscriptionCharge state(SubscriptionChargeState state) {
+  public SubscriptionCharge state(@javax.annotation.Nullable SubscriptionChargeState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -457,14 +478,14 @@ public class SubscriptionCharge {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionChargeState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionChargeState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The date and time when the charge failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,16 +496,16 @@ public class SubscriptionCharge {
 
 
 
-  public SubscriptionCharge transaction(Transaction transaction) {
+  public SubscriptionCharge transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -496,14 +517,14 @@ public class SubscriptionCharge {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,10 +535,10 @@ public class SubscriptionCharge {
 
 
 
-   /**
+  /**
    * The date and time when the charge succeeded.
    * @return succeedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

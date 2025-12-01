@@ -63,52 +63,66 @@ import java.util.StringJoiner;
 
 public class PaymentAppConnector {
   public static final String JSON_PROPERTY_PAYMENT_PAGE_ENDPOINT = "paymentPageEndpoint";
+  @javax.annotation.Nullable
   private String paymentPageEndpoint;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_UPDATED_ON = "updatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime updatedOn;
 
   public static final String JSON_PROPERTY_COMPLETION_CONFIGURATION = "completionConfiguration";
+  @javax.annotation.Nullable
   private PaymentAppCompletionConfiguration completionConfiguration;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_PROCESSOR = "processor";
+  @javax.annotation.Nullable
   private PaymentAppProcessor processor;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_CONNECTOR_CONFIGURATION = "connectorConfiguration";
+  @javax.annotation.Nullable
   private PaymentConnectorConfiguration connectorConfiguration;
 
   public static final String JSON_PROPERTY_AUTHORIZATION_TIMEOUT = "authorizationTimeout";
+  @javax.annotation.Nullable
   private String authorizationTimeout;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentAppConnectorState state;
 
   public static final String JSON_PROPERTY_REFUND_CONFIGURATION = "refundConfiguration";
+  @javax.annotation.Nullable
   private PaymentAppRefundConfiguration refundConfiguration;
 
   public PaymentAppConnector() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentAppConnector(
     @JsonProperty(JSON_PROPERTY_PAYMENT_PAGE_ENDPOINT) String paymentPageEndpoint, 
@@ -133,10 +147,10 @@ public class PaymentAppConnector {
     this.id = id;
   }
 
-   /**
+  /**
    * The URL where the user is redirected to process a payment. This endpoint is provided by the external service provider.
    * @return paymentPageEndpoint
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_PAGE_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,10 +161,10 @@ public class PaymentAppConnector {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,10 +175,10 @@ public class PaymentAppConnector {
 
 
 
-   /**
+  /**
    * The date and time when the connector was last updated.
    * @return updatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,16 +189,16 @@ public class PaymentAppConnector {
 
 
 
-  public PaymentAppConnector completionConfiguration(PaymentAppCompletionConfiguration completionConfiguration) {
+  public PaymentAppConnector completionConfiguration(@javax.annotation.Nullable PaymentAppCompletionConfiguration completionConfiguration) {
     
     this.completionConfiguration = completionConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get completionConfiguration
    * @return completionConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,14 +210,14 @@ public class PaymentAppConnector {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletionConfiguration(PaymentAppCompletionConfiguration completionConfiguration) {
+  public void setCompletionConfiguration(@javax.annotation.Nullable PaymentAppCompletionConfiguration completionConfiguration) {
     this.completionConfiguration = completionConfiguration;
   }
 
-   /**
+  /**
    * The date and time when the connector was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,16 +228,16 @@ public class PaymentAppConnector {
 
 
 
-  public PaymentAppConnector processor(PaymentAppProcessor processor) {
+  public PaymentAppConnector processor(@javax.annotation.Nullable PaymentAppProcessor processor) {
     
     this.processor = processor;
     return this;
   }
 
-   /**
+  /**
    * Get processor
    * @return processor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,14 +249,14 @@ public class PaymentAppConnector {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessor(PaymentAppProcessor processor) {
+  public void setProcessor(@javax.annotation.Nullable PaymentAppProcessor processor) {
     this.processor = processor;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,10 +267,10 @@ public class PaymentAppConnector {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,16 +281,16 @@ public class PaymentAppConnector {
 
 
 
-  public PaymentAppConnector connectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
+  public PaymentAppConnector connectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration connectorConfiguration) {
     
     this.connectorConfiguration = connectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get connectorConfiguration
    * @return connectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,14 +302,14 @@ public class PaymentAppConnector {
 
   @JsonProperty(JSON_PROPERTY_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConnectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
+  public void setConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration connectorConfiguration) {
     this.connectorConfiguration = connectorConfiguration;
   }
 
-   /**
+  /**
    * The duration within which the authorization process for a payment should complete.
    * @return authorizationTimeout
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_TIMEOUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,10 +320,10 @@ public class PaymentAppConnector {
 
 
 
-   /**
+  /**
    * The name used to identify the connector.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,10 +334,10 @@ public class PaymentAppConnector {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,16 +348,16 @@ public class PaymentAppConnector {
 
 
 
-  public PaymentAppConnector state(PaymentAppConnectorState state) {
+  public PaymentAppConnector state(@javax.annotation.Nullable PaymentAppConnectorState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -355,20 +369,20 @@ public class PaymentAppConnector {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentAppConnectorState state) {
+  public void setState(@javax.annotation.Nullable PaymentAppConnectorState state) {
     this.state = state;
   }
 
-  public PaymentAppConnector refundConfiguration(PaymentAppRefundConfiguration refundConfiguration) {
+  public PaymentAppConnector refundConfiguration(@javax.annotation.Nullable PaymentAppRefundConfiguration refundConfiguration) {
     
     this.refundConfiguration = refundConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get refundConfiguration
    * @return refundConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,7 +394,7 @@ public class PaymentAppConnector {
 
   @JsonProperty(JSON_PROPERTY_REFUND_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRefundConfiguration(PaymentAppRefundConfiguration refundConfiguration) {
+  public void setRefundConfiguration(@javax.annotation.Nullable PaymentAppRefundConfiguration refundConfiguration) {
     this.refundConfiguration = refundConfiguration;
   }
 

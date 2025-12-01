@@ -45,16 +45,18 @@ import java.util.StringJoiner;
 
 public class PaymentConnectorFeature {
   public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
+  @javax.annotation.Nullable
   private String displayName;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public PaymentConnectorFeature() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentConnectorFeature(
     @JsonProperty(JSON_PROPERTY_DISPLAY_NAME) String displayName, 
@@ -65,10 +67,10 @@ public class PaymentConnectorFeature {
     this.id = id;
   }
 
-   /**
+  /**
    * The localized name of the feature.
    * @return displayName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISPLAY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,10 +81,10 @@ public class PaymentConnectorFeature {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

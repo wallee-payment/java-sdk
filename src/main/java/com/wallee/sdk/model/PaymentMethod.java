@@ -56,31 +56,38 @@ import java.util.StringJoiner;
 
 public class PaymentMethod {
   public static final String JSON_PROPERTY_SUPPORTED_CURRENCIES = "supportedCurrencies";
+  @javax.annotation.Nullable
   private Set<String> supportedCurrencies = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_DATA_COLLECTION_TYPES = "dataCollectionTypes";
+  @javax.annotation.Nullable
   private Set<DataCollectionType> dataCollectionTypes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_IMAGE_PATH = "imagePath";
+  @javax.annotation.Nullable
   private String imagePath;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_MERCHANT_DESCRIPTION = "merchantDescription";
+  @javax.annotation.Nullable
   private Map<String, String> merchantDescription = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public PaymentMethod() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentMethod(
     @JsonProperty(JSON_PROPERTY_SUPPORTED_CURRENCIES) Set<String> supportedCurrencies, 
@@ -101,10 +108,10 @@ public class PaymentMethod {
     this.id = id;
   }
 
-   /**
+  /**
    * The currencies that the payment method supports.
    * @return supportedCurrencies
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +122,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * The data collection types that payment method supports.
    * @return dataCollectionTypes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA_COLLECTION_TYPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +136,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * The path to the payment method&#39;s image.
    * @return imagePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +150,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +164,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +178,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * A merchant-focused, localized description of the payment method, providing its purpose and details.
    * @return merchantDescription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,10 +192,10 @@ public class PaymentMethod {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

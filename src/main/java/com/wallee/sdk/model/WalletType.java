@@ -52,28 +52,34 @@ import java.util.StringJoiner;
 
 public class WalletType {
   public static final String JSON_PROPERTY_FEATURE = "feature";
+  @javax.annotation.Nullable
   private Feature feature;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAVIGATION_PATH = "navigationPath";
+  @javax.annotation.Nullable
   private String navigationPath;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public WalletType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public WalletType(
     @JsonProperty(JSON_PROPERTY_SORT_ORDER) Integer sortOrder, 
@@ -90,16 +96,16 @@ public class WalletType {
     this.id = id;
   }
 
-  public WalletType feature(Feature feature) {
+  public WalletType feature(@javax.annotation.Nullable Feature feature) {
     
     this.feature = feature;
     return this;
   }
 
-   /**
+  /**
    * Get feature
    * @return feature
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,14 +117,14 @@ public class WalletType {
 
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeature(Feature feature) {
+  public void setFeature(@javax.annotation.Nullable Feature feature) {
     this.feature = feature;
   }
 
-   /**
+  /**
    * Get sortOrder
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +135,10 @@ public class WalletType {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +149,10 @@ public class WalletType {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +163,10 @@ public class WalletType {
 
 
 
-   /**
+  /**
    * Get navigationPath
    * @return navigationPath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVIGATION_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +177,10 @@ public class WalletType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

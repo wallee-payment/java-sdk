@@ -38,6 +38,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +68,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptors">List all label descriptors Documentation</a>
    */
-  public LabelDescriptorListResponse getLabelDescriptors(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public LabelDescriptorListResponse getLabelDescriptors(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getLabelDescriptors(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptors">List all label descriptors Documentation</a>
    */
-  public LabelDescriptorListResponse getLabelDescriptors(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptorListResponse getLabelDescriptors(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -136,8 +137,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -155,7 +156,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroups">List all label descriptor groups Documentation</a>
    */
-  public LabelDescriptorGroupListResponse getLabelDescriptorsGroups(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public LabelDescriptorGroupListResponse getLabelDescriptorsGroups(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getLabelDescriptorsGroups(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -175,7 +176,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroups">List all label descriptor groups Documentation</a>
    */
-  public LabelDescriptorGroupListResponse getLabelDescriptorsGroups(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptorGroupListResponse getLabelDescriptorsGroups(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -224,8 +225,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -240,7 +241,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroupsId">Retrieve a label descriptor group Documentation</a>
    */
-  public LabelDescriptorGroup getLabelDescriptorsGroupsId(Long id, Set<String> expand) throws ApiException {
+  public LabelDescriptorGroup getLabelDescriptorsGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getLabelDescriptorsGroupsId(id, expand, Collections.emptyMap());
   }
 
@@ -257,7 +258,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroupsId">Retrieve a label descriptor group Documentation</a>
    */
-  public LabelDescriptorGroup getLabelDescriptorsGroupsId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptorGroup getLabelDescriptorsGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -267,7 +268,7 @@ public class LabelDescriptorsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/label-descriptors/groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -308,8 +309,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -327,7 +328,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroupsSearch">Search label descriptor groups Documentation</a>
    */
-  public LabelDescriptorGroupSearchResponse getLabelDescriptorsGroupsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public LabelDescriptorGroupSearchResponse getLabelDescriptorsGroupsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getLabelDescriptorsGroupsSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -347,7 +348,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsGroupsSearch">Search label descriptor groups Documentation</a>
    */
-  public LabelDescriptorGroupSearchResponse getLabelDescriptorsGroupsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptorGroupSearchResponse getLabelDescriptorsGroupsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -396,8 +397,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -412,7 +413,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsId">Retrieve a label descriptor Documentation</a>
    */
-  public LabelDescriptor getLabelDescriptorsId(Long id, Set<String> expand) throws ApiException {
+  public LabelDescriptor getLabelDescriptorsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getLabelDescriptorsId(id, expand, Collections.emptyMap());
   }
 
@@ -429,7 +430,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsId">Retrieve a label descriptor Documentation</a>
    */
-  public LabelDescriptor getLabelDescriptorsId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptor getLabelDescriptorsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -439,7 +440,7 @@ public class LabelDescriptorsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/label-descriptors/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -480,8 +481,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -499,7 +500,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsSearch">Search label descriptors Documentation</a>
    */
-  public LabelDescriptorSearchResponse getLabelDescriptorsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public LabelDescriptorSearchResponse getLabelDescriptorsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getLabelDescriptorsSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -519,7 +520,7 @@ public class LabelDescriptorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getLabelDescriptorsSearch">Search label descriptors Documentation</a>
    */
-  public LabelDescriptorSearchResponse getLabelDescriptorsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public LabelDescriptorSearchResponse getLabelDescriptorsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -568,8 +569,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -609,8 +610,8 @@ public class LabelDescriptorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -90,103 +90,134 @@ import java.util.StringJoiner;
 
 public class DebtCollectionCase {
   public static final String JSON_PROPERTY_CONTRACT_DATE = "contractDate";
+  @javax.annotation.Nullable
   private OffsetDateTime contractDate;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
+  @javax.annotation.Nullable
   private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_CLOSED_ON = "closedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime closedOn;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
+  @javax.annotation.Nullable
   private DebtCollectionCaseSource source;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private DebtCollectionCaseState state;
 
   public static final String JSON_PROPERTY_PROCESSING_TIMEOUT_ON = "processingTimeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingTimeoutOn;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
+  @javax.annotation.Nullable
   private Long creator;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_COLLECTOR_CONFIGURATION = "collectorConfiguration";
+  @javax.annotation.Nullable
   private DebtCollectorConfiguration collectorConfiguration;
 
   public static final String JSON_PROPERTY_REVIEWER = "reviewer";
+  @javax.annotation.Nullable
   private Long reviewer;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_REVIEW_STARTED_ON = "reviewStartedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime reviewStartedOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_PROCESSING_STARTED_ON = "processingStartedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingStartedOn;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private DebtCollectionEnvironment environment;
 
   public static final String JSON_PROPERTY_REVIEWED_ON = "reviewedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime reviewedOn;
 
   public static final String JSON_PROPERTY_SOURCE_ENTITY_ID = "sourceEntityId";
+  @javax.annotation.Nullable
   private Long sourceEntityId;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private Address billingAddress;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_NEXT_ATTEMPT_ON = "nextAttemptOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextAttemptOn;
 
   public DebtCollectionCase() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DebtCollectionCase(
     @JsonProperty(JSON_PROPERTY_CONTRACT_DATE) OffsetDateTime contractDate, 
@@ -243,10 +274,10 @@ public class DebtCollectionCase {
     this.nextAttemptOn = nextAttemptOn;
   }
 
-   /**
+  /**
    * The date and time when the contract with the debtor was signed.
    * @return contractDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,10 +288,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the claim was due.
    * @return dueDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,10 +302,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the case was closed.
    * @return closedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CLOSED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,10 +316,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,16 +330,16 @@ public class DebtCollectionCase {
 
 
 
-  public DebtCollectionCase source(DebtCollectionCaseSource source) {
+  public DebtCollectionCase source(@javax.annotation.Nullable DebtCollectionCaseSource source) {
     
     this.source = source;
     return this;
   }
 
-   /**
+  /**
    * Get source
    * @return source
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,14 +351,14 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSource(DebtCollectionCaseSource source) {
+  public void setSource(@javax.annotation.Nullable DebtCollectionCaseSource source) {
     this.source = source;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,10 +369,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The line items that are subject of this debt collection case.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,10 +383,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * A unique reference to identify the debt collection case in communication with the debtor.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,10 +397,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the case&#39;s currency.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -380,10 +411,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,16 +425,16 @@ public class DebtCollectionCase {
 
 
 
-  public DebtCollectionCase state(DebtCollectionCaseState state) {
+  public DebtCollectionCase state(@javax.annotation.Nullable DebtCollectionCaseState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -415,14 +446,14 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(DebtCollectionCaseState state) {
+  public void setState(@javax.annotation.Nullable DebtCollectionCaseState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The date and time when the processing of the case times out.
    * @return processingTimeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,10 +464,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The sum of all unpaid item prices in the case&#39;s currency. The amount can no longer be changed once the case has been reviewed.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,10 +478,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The ID of the user the case was created by.
    * @return creator
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,10 +492,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,10 +506,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -489,16 +520,16 @@ public class DebtCollectionCase {
 
 
 
-  public DebtCollectionCase collectorConfiguration(DebtCollectorConfiguration collectorConfiguration) {
+  public DebtCollectionCase collectorConfiguration(@javax.annotation.Nullable DebtCollectorConfiguration collectorConfiguration) {
     
     this.collectorConfiguration = collectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get collectorConfiguration
    * @return collectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLLECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -510,14 +541,14 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_COLLECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCollectorConfiguration(DebtCollectorConfiguration collectorConfiguration) {
+  public void setCollectorConfiguration(@javax.annotation.Nullable DebtCollectorConfiguration collectorConfiguration) {
     this.collectorConfiguration = collectorConfiguration;
   }
 
-   /**
+  /**
    * The ID of the user the case was reviewed by.
    * @return reviewer
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REVIEWER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -528,10 +559,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -542,10 +573,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the review of the case was started.
    * @return reviewStartedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REVIEW_STARTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -556,10 +587,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -570,10 +601,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -584,10 +615,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the case was started.
    * @return processingStartedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_STARTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -598,10 +629,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -612,16 +643,16 @@ public class DebtCollectionCase {
 
 
 
-  public DebtCollectionCase environment(DebtCollectionEnvironment environment) {
+  public DebtCollectionCase environment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -633,14 +664,14 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(DebtCollectionEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The date and time when the case was reviewed.
    * @return reviewedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REVIEWED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -651,10 +682,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The ID of the object that is the source of the case. Only defined if the case was created by an internal process.
    * @return sourceEntityId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -665,16 +696,16 @@ public class DebtCollectionCase {
 
 
 
-  public DebtCollectionCase failureReason(FailureReason failureReason) {
+  public DebtCollectionCase failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -686,20 +717,20 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-  public DebtCollectionCase billingAddress(Address billingAddress) {
+  public DebtCollectionCase billingAddress(@javax.annotation.Nullable Address billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -711,14 +742,14 @@ public class DebtCollectionCase {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-   /**
+  /**
    * The date and time when the case failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -729,10 +760,10 @@ public class DebtCollectionCase {
 
 
 
-   /**
+  /**
    * The date and time when the next attempt at processing the case will be made.
    * @return nextAttemptOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_ATTEMPT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

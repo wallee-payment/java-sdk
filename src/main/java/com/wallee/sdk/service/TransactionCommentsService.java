@@ -37,6 +37,7 @@ import com.wallee.sdk.model.TransactionCommentCreate;
 import com.wallee.sdk.model.TransactionCommentListResponse;
 import com.wallee.sdk.model.TransactionCommentSearchResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsTransactionIdCommentsId">Delete a transaction comment Documentation</a>
    */
-  public void deletePaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space) throws ApiException {
+  public void deletePaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentTransactionsTransactionIdCommentsId(transactionId, id, space, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsTransactionIdCommentsId">Delete a transaction comment Documentation</a>
    */
-  public void deletePaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -100,8 +101,8 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/{id}"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -142,8 +143,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -163,7 +164,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdComments">List all transaction comments Documentation</a>
    */
-  public TransactionCommentListResponse getPaymentTransactionsTransactionIdComments(Long transactionId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public TransactionCommentListResponse getPaymentTransactionsTransactionIdComments(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentTransactionsTransactionIdComments(transactionId, space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -185,7 +186,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdComments">List all transaction comments Documentation</a>
    */
-  public TransactionCommentListResponse getPaymentTransactionsTransactionIdComments(Long transactionId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCommentListResponse getPaymentTransactionsTransactionIdComments(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -200,7 +201,7 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -247,8 +248,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -265,7 +266,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdCommentsId">Retrieve a transaction comment Documentation</a>
    */
-  public TransactionComment getPaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionComment getPaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsTransactionIdCommentsId(transactionId, id, space, expand, Collections.emptyMap());
   }
 
@@ -284,7 +285,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdCommentsId">Retrieve a transaction comment Documentation</a>
    */
-  public TransactionComment getPaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionComment getPaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -304,8 +305,8 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/{id}"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -348,8 +349,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -369,7 +370,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdCommentsSearch">Search transaction comments Documentation</a>
    */
-  public TransactionCommentSearchResponse getPaymentTransactionsTransactionIdCommentsSearch(Long transactionId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public TransactionCommentSearchResponse getPaymentTransactionsTransactionIdCommentsSearch(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTransactionsTransactionIdCommentsSearch(transactionId, space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -391,7 +392,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsTransactionIdCommentsSearch">Search transaction comments Documentation</a>
    */
-  public TransactionCommentSearchResponse getPaymentTransactionsTransactionIdCommentsSearch(Long transactionId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCommentSearchResponse getPaymentTransactionsTransactionIdCommentsSearch(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -406,7 +407,7 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/search"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -453,8 +454,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -472,7 +473,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsTransactionIdCommentsId">Update a transaction comment Documentation</a>
    */
-  public TransactionComment patchPaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space, TransactionCommentActive transactionCommentActive, Set<String> expand) throws ApiException {
+  public TransactionComment patchPaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCommentActive transactionCommentActive, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentTransactionsTransactionIdCommentsId(transactionId, id, space, transactionCommentActive, expand, Collections.emptyMap());
   }
 
@@ -492,7 +493,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsTransactionIdCommentsId">Update a transaction comment Documentation</a>
    */
-  public TransactionComment patchPaymentTransactionsTransactionIdCommentsId(Long transactionId, Long id, Long space, TransactionCommentActive transactionCommentActive, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionComment patchPaymentTransactionsTransactionIdCommentsId(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCommentActive transactionCommentActive, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionCommentActive;
     
     // verify the required parameter 'transactionId' is set
@@ -517,8 +518,8 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/{id}"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -561,8 +562,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -579,7 +580,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdComments">Create a transaction comment Documentation</a>
    */
-  public TransactionComment postPaymentTransactionsTransactionIdComments(Long transactionId, Long space, TransactionCommentCreate transactionCommentCreate, Set<String> expand) throws ApiException {
+  public TransactionComment postPaymentTransactionsTransactionIdComments(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCommentCreate transactionCommentCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsTransactionIdComments(transactionId, space, transactionCommentCreate, expand, Collections.emptyMap());
   }
 
@@ -598,7 +599,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdComments">Create a transaction comment Documentation</a>
    */
-  public TransactionComment postPaymentTransactionsTransactionIdComments(Long transactionId, Long space, TransactionCommentCreate transactionCommentCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionComment postPaymentTransactionsTransactionIdComments(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCommentCreate transactionCommentCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionCommentCreate;
     
     // verify the required parameter 'transactionId' is set
@@ -618,7 +619,7 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -661,8 +662,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -677,7 +678,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentTransactionsTransactionIdCommentsIdPin(Long transactionId, Long id, Long space) throws ApiException {
+  public void postPaymentTransactionsTransactionIdCommentsIdPin(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentTransactionsTransactionIdCommentsIdPin(transactionId, id, space, Collections.emptyMap());
   }
 
@@ -694,7 +695,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentTransactionsTransactionIdCommentsIdPin(Long transactionId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentTransactionsTransactionIdCommentsIdPin(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -714,8 +715,8 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/{id}/pin"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -756,8 +757,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -772,7 +773,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentTransactionsTransactionIdCommentsIdUnpin(Long transactionId, Long id, Long space) throws ApiException {
+  public void postPaymentTransactionsTransactionIdCommentsIdUnpin(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentTransactionsTransactionIdCommentsIdUnpin(transactionId, id, space, Collections.emptyMap());
   }
 
@@ -789,7 +790,7 @@ public class TransactionCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsTransactionIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentTransactionsTransactionIdCommentsIdUnpin(Long transactionId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentTransactionsTransactionIdCommentsIdUnpin(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'transactionId' is set
@@ -809,8 +810,8 @@ public class TransactionCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{transactionId}/comments/{id}/unpin"
-      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(transactionId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -851,8 +852,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -892,8 +893,8 @@ public class TransactionCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

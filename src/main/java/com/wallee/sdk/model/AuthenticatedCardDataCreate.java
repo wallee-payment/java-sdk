@@ -58,48 +58,58 @@ import java.util.StringJoiner;
 
 public class AuthenticatedCardDataCreate {
   public static final String JSON_PROPERTY_EXPIRY_DATE = "expiryDate";
+  @javax.annotation.Nullable
   private String expiryDate;
 
   public static final String JSON_PROPERTY_PAN_TYPE = "panType";
+  @javax.annotation.Nullable
   private PanType panType;
 
   public static final String JSON_PROPERTY_CARD_HOLDER_NAME = "cardHolderName";
+  @javax.annotation.Nullable
   private String cardHolderName;
 
   public static final String JSON_PROPERTY_CARD_VERIFICATION_CODE = "cardVerificationCode";
+  @javax.annotation.Nullable
   private String cardVerificationCode;
 
   public static final String JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER = "primaryAccountNumber";
+  @javax.annotation.Nonnull
   private String primaryAccountNumber;
 
   public static final String JSON_PROPERTY_RECURRING_INDICATOR = "recurringIndicator";
+  @javax.annotation.Nullable
   private RecurringIndicator recurringIndicator;
 
   public static final String JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE = "schemeTransactionReference";
+  @javax.annotation.Nullable
   private String schemeTransactionReference;
 
   public static final String JSON_PROPERTY_CARDHOLDER_AUTHENTICATION = "cardholderAuthentication";
+  @javax.annotation.Nullable
   private CardholderAuthenticationCreate cardholderAuthentication;
 
   public static final String JSON_PROPERTY_TOKEN_REQUESTOR_ID = "tokenRequestorId";
+  @javax.annotation.Nullable
   private String tokenRequestorId;
 
   public static final String JSON_PROPERTY_CRYPTOGRAM = "cryptogram";
+  @javax.annotation.Nullable
   private CardCryptogramCreate cryptogram;
 
   public AuthenticatedCardDataCreate() {
   }
 
-  public AuthenticatedCardDataCreate expiryDate(String expiryDate) {
+  public AuthenticatedCardDataCreate expiryDate(@javax.annotation.Nullable String expiryDate) {
     
     this.expiryDate = expiryDate;
     return this;
   }
 
-   /**
+  /**
    * The expiry date of the card, indicating its validity period in yyyy-mm format (e.g., 2023-09).
    * @return expiryDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,20 +121,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_EXPIRY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExpiryDate(String expiryDate) {
+  public void setExpiryDate(@javax.annotation.Nullable String expiryDate) {
     this.expiryDate = expiryDate;
   }
 
-  public AuthenticatedCardDataCreate panType(PanType panType) {
+  public AuthenticatedCardDataCreate panType(@javax.annotation.Nullable PanType panType) {
     
     this.panType = panType;
     return this;
   }
 
-   /**
+  /**
    * Get panType
    * @return panType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,20 +146,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_PAN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPanType(PanType panType) {
+  public void setPanType(@javax.annotation.Nullable PanType panType) {
     this.panType = panType;
   }
 
-  public AuthenticatedCardDataCreate cardHolderName(String cardHolderName) {
+  public AuthenticatedCardDataCreate cardHolderName(@javax.annotation.Nullable String cardHolderName) {
     
     this.cardHolderName = cardHolderName;
     return this;
   }
 
-   /**
+  /**
    * The name of the cardholder, as printed on the card, identifying the card owner.
    * @return cardHolderName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,20 +171,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_CARD_HOLDER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardHolderName(String cardHolderName) {
+  public void setCardHolderName(@javax.annotation.Nullable String cardHolderName) {
     this.cardHolderName = cardHolderName;
   }
 
-  public AuthenticatedCardDataCreate cardVerificationCode(String cardVerificationCode) {
+  public AuthenticatedCardDataCreate cardVerificationCode(@javax.annotation.Nullable String cardVerificationCode) {
     
     this.cardVerificationCode = cardVerificationCode;
     return this;
   }
 
-   /**
+  /**
    * The security code used to validate the card during transactions.
    * @return cardVerificationCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_VERIFICATION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,20 +196,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_CARD_VERIFICATION_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardVerificationCode(String cardVerificationCode) {
+  public void setCardVerificationCode(@javax.annotation.Nullable String cardVerificationCode) {
     this.cardVerificationCode = cardVerificationCode;
   }
 
-  public AuthenticatedCardDataCreate primaryAccountNumber(String primaryAccountNumber) {
+  public AuthenticatedCardDataCreate primaryAccountNumber(@javax.annotation.Nonnull String primaryAccountNumber) {
     
     this.primaryAccountNumber = primaryAccountNumber;
     return this;
   }
 
-   /**
+  /**
    * The card&#39;s primary account number (PAN), the unique identifier of the card.
    * @return primaryAccountNumber
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -211,20 +221,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrimaryAccountNumber(String primaryAccountNumber) {
+  public void setPrimaryAccountNumber(@javax.annotation.Nonnull String primaryAccountNumber) {
     this.primaryAccountNumber = primaryAccountNumber;
   }
 
-  public AuthenticatedCardDataCreate recurringIndicator(RecurringIndicator recurringIndicator) {
+  public AuthenticatedCardDataCreate recurringIndicator(@javax.annotation.Nullable RecurringIndicator recurringIndicator) {
     
     this.recurringIndicator = recurringIndicator;
     return this;
   }
 
-   /**
+  /**
    * Get recurringIndicator
    * @return recurringIndicator
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,20 +246,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecurringIndicator(RecurringIndicator recurringIndicator) {
+  public void setRecurringIndicator(@javax.annotation.Nullable RecurringIndicator recurringIndicator) {
     this.recurringIndicator = recurringIndicator;
   }
 
-  public AuthenticatedCardDataCreate schemeTransactionReference(String schemeTransactionReference) {
+  public AuthenticatedCardDataCreate schemeTransactionReference(@javax.annotation.Nullable String schemeTransactionReference) {
     
     this.schemeTransactionReference = schemeTransactionReference;
     return this;
   }
 
-   /**
+  /**
    * A reference specific to the card&#39;s transaction within its payment scheme.
    * @return schemeTransactionReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,20 +271,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSchemeTransactionReference(String schemeTransactionReference) {
+  public void setSchemeTransactionReference(@javax.annotation.Nullable String schemeTransactionReference) {
     this.schemeTransactionReference = schemeTransactionReference;
   }
 
-  public AuthenticatedCardDataCreate cardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
+  public AuthenticatedCardDataCreate cardholderAuthentication(@javax.annotation.Nullable CardholderAuthenticationCreate cardholderAuthentication) {
     
     this.cardholderAuthentication = cardholderAuthentication;
     return this;
   }
 
-   /**
+  /**
    * Get cardholderAuthentication
    * @return cardholderAuthentication
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,20 +296,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_CARDHOLDER_AUTHENTICATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardholderAuthentication(CardholderAuthenticationCreate cardholderAuthentication) {
+  public void setCardholderAuthentication(@javax.annotation.Nullable CardholderAuthenticationCreate cardholderAuthentication) {
     this.cardholderAuthentication = cardholderAuthentication;
   }
 
-  public AuthenticatedCardDataCreate tokenRequestorId(String tokenRequestorId) {
+  public AuthenticatedCardDataCreate tokenRequestorId(@javax.annotation.Nullable String tokenRequestorId) {
     
     this.tokenRequestorId = tokenRequestorId;
     return this;
   }
 
-   /**
+  /**
    * The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.
    * @return tokenRequestorId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,20 +321,20 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenRequestorId(String tokenRequestorId) {
+  public void setTokenRequestorId(@javax.annotation.Nullable String tokenRequestorId) {
     this.tokenRequestorId = tokenRequestorId;
   }
 
-  public AuthenticatedCardDataCreate cryptogram(CardCryptogramCreate cryptogram) {
+  public AuthenticatedCardDataCreate cryptogram(@javax.annotation.Nullable CardCryptogramCreate cryptogram) {
     
     this.cryptogram = cryptogram;
     return this;
   }
 
-   /**
+  /**
    * Get cryptogram
    * @return cryptogram
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,7 +346,7 @@ public class AuthenticatedCardDataCreate {
 
   @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCryptogram(CardCryptogramCreate cryptogram) {
+  public void setCryptogram(@javax.annotation.Nullable CardCryptogramCreate cryptogram) {
     this.cryptogram = cryptogram;
   }
 

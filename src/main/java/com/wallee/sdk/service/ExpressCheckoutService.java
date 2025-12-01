@@ -32,6 +32,7 @@ import com.wallee.sdk.model.ExpressCheckoutCreateResponse;
 import com.wallee.sdk.model.ExpressCheckoutSessionCreate;
 import com.wallee.sdk.model.RestApiErrorResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -58,7 +59,7 @@ public class ExpressCheckoutService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postExpressCheckoutCreateSession">Create a new Express Checkout Session Documentation</a>
    */
-  public ExpressCheckoutCreateResponse postExpressCheckoutCreateSession(Long space, ExpressCheckoutSessionCreate expressCheckoutSessionCreate) throws ApiException {
+  public ExpressCheckoutCreateResponse postExpressCheckoutCreateSession(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutSessionCreate expressCheckoutSessionCreate) throws ApiException {
     return this.postExpressCheckoutCreateSession(space, expressCheckoutSessionCreate, Collections.emptyMap());
   }
 
@@ -75,7 +76,7 @@ public class ExpressCheckoutService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postExpressCheckoutCreateSession">Create a new Express Checkout Session Documentation</a>
    */
-  public ExpressCheckoutCreateResponse postExpressCheckoutCreateSession(Long space, ExpressCheckoutSessionCreate expressCheckoutSessionCreate, Map<String, String> additionalHeaders) throws ApiException {
+  public ExpressCheckoutCreateResponse postExpressCheckoutCreateSession(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutSessionCreate expressCheckoutSessionCreate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = expressCheckoutSessionCreate;
     
     // verify the required parameter 'space' is set
@@ -131,8 +132,8 @@ public class ExpressCheckoutService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -172,8 +173,8 @@ public class ExpressCheckoutService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

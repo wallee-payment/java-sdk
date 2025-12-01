@@ -50,25 +50,30 @@ import java.util.StringJoiner;
 
 public class CardholderAuthentication {
   public static final String JSON_PROPERTY_AUTHENTICATION_IDENTIFIER = "authenticationIdentifier";
+  @javax.annotation.Nullable
   private String authenticationIdentifier;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_RESPONSE = "authenticationResponse";
+  @javax.annotation.Nullable
   private CardAuthenticationResponse authenticationResponse;
 
   public static final String JSON_PROPERTY_ELECTRONIC_COMMERCE_INDICATOR = "electronicCommerceIndicator";
+  @javax.annotation.Nullable
   private String electronicCommerceIndicator;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_VALUE = "authenticationValue";
+  @javax.annotation.Nullable
   private String authenticationValue;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private CardAuthenticationVersion version;
 
   public CardholderAuthentication() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public CardholderAuthentication(
     @JsonProperty(JSON_PROPERTY_AUTHENTICATION_IDENTIFIER) String authenticationIdentifier, 
@@ -81,10 +86,10 @@ public class CardholderAuthentication {
     this.authenticationValue = authenticationValue;
   }
 
-   /**
+  /**
    * The identifier (e.g., XID or DSTransactionID) assigned by the authentication system for tracking and verification.
    * @return authenticationIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -95,16 +100,16 @@ public class CardholderAuthentication {
 
 
 
-  public CardholderAuthentication authenticationResponse(CardAuthenticationResponse authenticationResponse) {
+  public CardholderAuthentication authenticationResponse(@javax.annotation.Nullable CardAuthenticationResponse authenticationResponse) {
     
     this.authenticationResponse = authenticationResponse;
     return this;
   }
 
-   /**
+  /**
    * Get authenticationResponse
    * @return authenticationResponse
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,14 +121,14 @@ public class CardholderAuthentication {
 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAuthenticationResponse(CardAuthenticationResponse authenticationResponse) {
+  public void setAuthenticationResponse(@javax.annotation.Nullable CardAuthenticationResponse authenticationResponse) {
     this.authenticationResponse = authenticationResponse;
   }
 
-   /**
+  /**
    * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
    * @return electronicCommerceIndicator
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ELECTRONIC_COMMERCE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,10 +139,10 @@ public class CardholderAuthentication {
 
 
 
-   /**
+  /**
    * The cryptographic token (CAVV/AAV) generated during the authentication process to validate the cardholder&#39;s identity.
    * @return authenticationValue
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,16 +153,16 @@ public class CardholderAuthentication {
 
 
 
-  public CardholderAuthentication version(CardAuthenticationVersion version) {
+  public CardholderAuthentication version(@javax.annotation.Nullable CardAuthenticationVersion version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +174,7 @@ public class CardholderAuthentication {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVersion(CardAuthenticationVersion version) {
+  public void setVersion(@javax.annotation.Nullable CardAuthenticationVersion version) {
     this.version = version;
   }
 

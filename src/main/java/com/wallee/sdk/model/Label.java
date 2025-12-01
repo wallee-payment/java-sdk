@@ -51,19 +51,22 @@ import java.util.StringJoiner;
 
 public class Label {
   public static final String JSON_PROPERTY_CONTENT_AS_STRING = "contentAsString";
+  @javax.annotation.Nullable
   private String contentAsString;
 
   public static final String JSON_PROPERTY_DESCRIPTOR = "descriptor";
+  @javax.annotation.Nullable
   private LabelDescriptor descriptor;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private JsonNullable<Object> content = JsonNullable.<Object>of(null);
 
   public Label() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Label(
     @JsonProperty(JSON_PROPERTY_CONTENT_AS_STRING) String contentAsString, 
@@ -74,10 +77,10 @@ public class Label {
     this.content = content == null ? JsonNullable.<Object>undefined() : JsonNullable.of(content);
   }
 
-   /**
+  /**
    * The label&#39;s content formatted as string.
    * @return contentAsString
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT_AS_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,16 +91,16 @@ public class Label {
 
 
 
-  public Label descriptor(LabelDescriptor descriptor) {
+  public Label descriptor(@javax.annotation.Nullable LabelDescriptor descriptor) {
     
     this.descriptor = descriptor;
     return this;
   }
 
-   /**
+  /**
    * Get descriptor
    * @return descriptor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,14 +112,14 @@ public class Label {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescriptor(LabelDescriptor descriptor) {
+  public void setDescriptor(@javax.annotation.Nullable LabelDescriptor descriptor) {
     this.descriptor = descriptor;
   }
 
-   /**
+  /**
    * The label&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonIgnore
 

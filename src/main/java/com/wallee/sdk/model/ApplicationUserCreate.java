@@ -49,30 +49,34 @@ import java.util.StringJoiner;
 
 public class ApplicationUserCreate {
   public static final String JSON_PROPERTY_REQUEST_LIMIT = "requestLimit";
+  @javax.annotation.Nullable
   private Long requestLimit;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_PRIMARY_ACCOUNT = "primaryAccount";
+  @javax.annotation.Nonnull
   private Long primaryAccount;
 
   public ApplicationUserCreate() {
   }
 
-  public ApplicationUserCreate requestLimit(Long requestLimit) {
+  public ApplicationUserCreate requestLimit(@javax.annotation.Nullable Long requestLimit) {
     
     this.requestLimit = requestLimit;
     return this;
   }
 
-   /**
+  /**
    * The maximum number of API requests that are accepted every 2 minutes.
    * @return requestLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,20 +88,20 @@ public class ApplicationUserCreate {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestLimit(Long requestLimit) {
+  public void setRequestLimit(@javax.annotation.Nullable Long requestLimit) {
     this.requestLimit = requestLimit;
   }
 
-  public ApplicationUserCreate name(String name) {
+  public ApplicationUserCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the application user.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,20 +113,20 @@ public class ApplicationUserCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public ApplicationUserCreate state(CreationEntityState state) {
+  public ApplicationUserCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,20 +138,20 @@ public class ApplicationUserCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public ApplicationUserCreate primaryAccount(Long primaryAccount) {
+  public ApplicationUserCreate primaryAccount(@javax.annotation.Nonnull Long primaryAccount) {
     
     this.primaryAccount = primaryAccount;
     return this;
   }
 
-   /**
+  /**
    * The primary account that the user belongs to.
    * @return primaryAccount
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -159,7 +163,7 @@ public class ApplicationUserCreate {
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrimaryAccount(Long primaryAccount) {
+  public void setPrimaryAccount(@javax.annotation.Nonnull Long primaryAccount) {
     this.primaryAccount = primaryAccount;
   }
 

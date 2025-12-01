@@ -47,25 +47,27 @@ import java.util.StringJoiner;
 
 public class TaxCreate {
   public static final String JSON_PROPERTY_RATE = "rate";
+  @javax.annotation.Nonnull
   private BigDecimal rate;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nonnull
   private String title;
 
   public TaxCreate() {
   }
 
-  public TaxCreate rate(BigDecimal rate) {
+  public TaxCreate rate(@javax.annotation.Nonnull BigDecimal rate) {
     
     this.rate = rate;
     return this;
   }
 
-   /**
+  /**
    * The tax rate to be applied.
    * maximum: 100
    * @return rate
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -77,20 +79,20 @@ public class TaxCreate {
 
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRate(BigDecimal rate) {
+  public void setRate(@javax.annotation.Nonnull BigDecimal rate) {
     this.rate = rate;
   }
 
-  public TaxCreate title(String title) {
+  public TaxCreate title(@javax.annotation.Nonnull String title) {
     
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The name of the tax.
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -102,7 +104,7 @@ public class TaxCreate {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
   }
 

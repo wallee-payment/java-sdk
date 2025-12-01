@@ -53,36 +53,42 @@ import java.util.StringJoiner;
 
 public class AbstractPaymentMethodConfigurationUpdate {
   public static final String JSON_PROPERTY_IMAGE_RESOURCE_PATH = "imageResourcePath";
+  @javax.annotation.Nullable
   private String imageResourcePath;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE = "oneClickPaymentMode";
+  @javax.annotation.Nullable
   private OneClickPaymentMode oneClickPaymentMode;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public AbstractPaymentMethodConfigurationUpdate() {
   }
 
-  public AbstractPaymentMethodConfigurationUpdate imageResourcePath(String imageResourcePath) {
+  public AbstractPaymentMethodConfigurationUpdate imageResourcePath(@javax.annotation.Nullable String imageResourcePath) {
     
     this.imageResourcePath = imageResourcePath;
     return this;
   }
 
-   /**
+  /**
    * The resource path to a custom image for the payment method, displayed to the customer for visual identification.
    * @return imageResourcePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_RESOURCE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,20 +100,20 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_IMAGE_RESOURCE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setImageResourcePath(String imageResourcePath) {
+  public void setImageResourcePath(@javax.annotation.Nullable String imageResourcePath) {
     this.imageResourcePath = imageResourcePath;
   }
 
-  public AbstractPaymentMethodConfigurationUpdate sortOrder(Integer sortOrder) {
+  public AbstractPaymentMethodConfigurationUpdate sortOrder(@javax.annotation.Nullable Integer sortOrder) {
     
     this.sortOrder = sortOrder;
     return this;
   }
 
-   /**
+  /**
    * When listing payment methods, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,20 +125,20 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSortOrder(Integer sortOrder) {
+  public void setSortOrder(@javax.annotation.Nullable Integer sortOrder) {
     this.sortOrder = sortOrder;
   }
 
-  public AbstractPaymentMethodConfigurationUpdate name(String name) {
+  public AbstractPaymentMethodConfigurationUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the payment method configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,11 +150,11 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AbstractPaymentMethodConfigurationUpdate description(Map<String, String> description) {
+  public AbstractPaymentMethodConfigurationUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -162,10 +168,10 @@ public class AbstractPaymentMethodConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * A customer-facing custom description for the payment method.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,20 +183,20 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public AbstractPaymentMethodConfigurationUpdate oneClickPaymentMode(OneClickPaymentMode oneClickPaymentMode) {
+  public AbstractPaymentMethodConfigurationUpdate oneClickPaymentMode(@javax.annotation.Nullable OneClickPaymentMode oneClickPaymentMode) {
     
     this.oneClickPaymentMode = oneClickPaymentMode;
     return this;
   }
 
-   /**
+  /**
    * Get oneClickPaymentMode
    * @return oneClickPaymentMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,11 +208,11 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOneClickPaymentMode(OneClickPaymentMode oneClickPaymentMode) {
+  public void setOneClickPaymentMode(@javax.annotation.Nullable OneClickPaymentMode oneClickPaymentMode) {
     this.oneClickPaymentMode = oneClickPaymentMode;
   }
 
-  public AbstractPaymentMethodConfigurationUpdate title(Map<String, String> title) {
+  public AbstractPaymentMethodConfigurationUpdate title(@javax.annotation.Nullable Map<String, String> title) {
     
     this.title = title;
     return this;
@@ -220,10 +226,10 @@ public class AbstractPaymentMethodConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * A customer-facing custom title for the payment method.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +241,7 @@ public class AbstractPaymentMethodConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(Map<String, String> title) {
+  public void setTitle(@javax.annotation.Nullable Map<String, String> title) {
     this.title = title;
   }
 

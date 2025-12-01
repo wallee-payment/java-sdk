@@ -135,220 +135,290 @@ import java.util.StringJoiner;
 
 public class Transaction {
   public static final String JSON_PROPERTY_PARENT = "parent";
+  @javax.annotation.Nullable
   private Transaction parent;
 
   public static final String JSON_PROPERTY_TOTAL_SETTLED_AMOUNT = "totalSettledAmount";
+  @javax.annotation.Nullable
   private BigDecimal totalSettledAmount;
 
   public static final String JSON_PROPERTY_DEVICE_SESSION_IDENTIFIER = "deviceSessionIdentifier";
+  @javax.annotation.Nullable
   private String deviceSessionIdentifier;
 
   public static final String JSON_PROPERTY_PROCESSING_ON = "processingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingOn;
 
   public static final String JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE = "invoiceMerchantReference";
+  @javax.annotation.Nullable
   private String invoiceMerchantReference;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_CONFIRMED_ON = "confirmedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime confirmedOn;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ACCEPT_LANGUAGE_HEADER = "acceptLanguageHeader";
+  @javax.annotation.Nullable
   private String acceptLanguageHeader;
 
   public static final String JSON_PROPERTY_JAVA_ENABLED = "javaEnabled";
+  @javax.annotation.Nullable
   private Boolean javaEnabled;
 
   public static final String JSON_PROPERTY_CONFIRMED_BY = "confirmedBy";
+  @javax.annotation.Nullable
   private Long confirmedBy;
 
   public static final String JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION = "paymentConnectorConfiguration";
+  @javax.annotation.Nullable
   private PaymentConnectorConfiguration paymentConnectorConfiguration;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionState state;
 
   public static final String JSON_PROPERTY_WINDOW_WIDTH = "windowWidth";
+  @javax.annotation.Nullable
   private String windowWidth;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "allowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @javax.annotation.Nullable
   private TransactionGroup group;
 
   public static final String JSON_PROPERTY_CHARGE_RETRY_ENABLED = "chargeRetryEnabled";
+  @javax.annotation.Nullable
   private Boolean chargeRetryEnabled;
 
   public static final String JSON_PROPERTY_ACCEPT_HEADER = "acceptHeader";
+  @javax.annotation.Nullable
   private String acceptHeader;
 
   public static final String JSON_PROPERTY_USER_AGENT_HEADER = "userAgentHeader";
+  @javax.annotation.Nullable
   private String userAgentHeader;
 
   public static final String JSON_PROPERTY_SHIPPING_METHOD = "shippingMethod";
+  @javax.annotation.Nullable
   private String shippingMethod;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nullable
   private String successUrl;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_USER_FAILURE_MESSAGE = "userFailureMessage";
+  @javax.annotation.Nullable
   private String userFailureMessage;
 
   public static final String JSON_PROPERTY_COMPLETION_BEHAVIOR = "completionBehavior";
+  @javax.annotation.Nullable
   private TransactionCompletionBehavior completionBehavior;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_INTERNET_PROTOCOL_ADDRESS_COUNTRY = "internetProtocolAddressCountry";
+  @javax.annotation.Nullable
   private String internetProtocolAddressCountry;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_DELIVERY_DECISION_MADE_ON = "deliveryDecisionMadeOn";
+  @javax.annotation.Nullable
   private OffsetDateTime deliveryDecisionMadeOn;
 
   public static final String JSON_PROPERTY_AUTHORIZATION_ENVIRONMENT = "authorizationEnvironment";
+  @javax.annotation.Nullable
   private ChargeAttemptEnvironment authorizationEnvironment;
 
   public static final String JSON_PROPERTY_AUTO_CONFIRMATION_ENABLED = "autoConfirmationEnabled";
+  @javax.annotation.Nullable
   private Boolean autoConfirmationEnabled;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_TOTAL_APPLIED_FEES = "totalAppliedFees";
+  @javax.annotation.Nullable
   private BigDecimal totalAppliedFees;
 
   public static final String JSON_PROPERTY_CUSTOMERS_PRESENCE = "customersPresence";
+  @javax.annotation.Nullable
   private CustomersPresence customersPresence;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_REFUNDED_AMOUNT = "refundedAmount";
+  @javax.annotation.Nullable
   private BigDecimal refundedAmount;
 
   public static final String JSON_PROPERTY_AUTHORIZATION_AMOUNT = "authorizationAmount";
+  @javax.annotation.Nullable
   private BigDecimal authorizationAmount;
 
   public static final String JSON_PROPERTY_SCREEN_WIDTH = "screenWidth";
+  @javax.annotation.Nullable
   private String screenWidth;
 
   public static final String JSON_PROPERTY_ENVIRONMENT_SELECTION_STRATEGY = "environmentSelectionStrategy";
+  @javax.annotation.Nullable
   private TransactionEnvironmentSelectionStrategy environmentSelectionStrategy;
 
   public static final String JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS = "customerEmailAddress";
+  @javax.annotation.Nullable
   private String customerEmailAddress;
 
   public static final String JSON_PROPERTY_WINDOW_HEIGHT = "windowHeight";
+  @javax.annotation.Nullable
   private String windowHeight;
 
   public static final String JSON_PROPERTY_TOKENIZATION_MODE = "tokenizationMode";
+  @javax.annotation.Nullable
   private TokenizationMode tokenizationMode;
 
   public static final String JSON_PROPERTY_AUTHORIZATION_TIMEOUT_ON = "authorizationTimeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime authorizationTimeoutOn;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_BRANDS = "allowedPaymentMethodBrands";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodBrands = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_EMAILS_DISABLED = "emailsDisabled";
+  @javax.annotation.Nullable
   private Boolean emailsDisabled;
 
   public static final String JSON_PROPERTY_USER_INTERFACE_TYPE = "userInterfaceType";
+  @javax.annotation.Nullable
   private TransactionUserInterfaceType userInterfaceType;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
+  @javax.annotation.Nullable
   private String customerId;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public static final String JSON_PROPERTY_AUTHORIZATION_SALES_CHANNEL = "authorizationSalesChannel";
+  @javax.annotation.Nullable
   private Long authorizationSalesChannel;
 
   public static final String JSON_PROPERTY_YEARS_TO_KEEP = "yearsToKeep";
+  @javax.annotation.Nullable
   private Integer yearsToKeep;
 
   public static final String JSON_PROPERTY_COMPLETED_AMOUNT = "completedAmount";
+  @javax.annotation.Nullable
   private BigDecimal completedAmount;
 
   public static final String JSON_PROPERTY_SCREEN_HEIGHT = "screenHeight";
+  @javax.annotation.Nullable
   private String screenHeight;
 
   public static final String JSON_PROPERTY_INTERNET_PROTOCOL_ADDRESS = "internetProtocolAddress";
+  @javax.annotation.Nullable
   private String internetProtocolAddress;
 
   public static final String JSON_PROPERTY_TERMINAL = "terminal";
+  @javax.annotation.Nullable
   private PaymentTerminal terminal;
 
   public static final String JSON_PROPERTY_END_OF_LIFE = "endOfLife";
+  @javax.annotation.Nullable
   private OffsetDateTime endOfLife;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
+  @javax.annotation.Nullable
   private Token token;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private Environment environment;
 
   public static final String JSON_PROPERTY_SCREEN_COLOR_DEPTH = "screenColorDepth";
+  @javax.annotation.Nullable
   private String screenColorDepth;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_COMPLETED_ON = "completedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime completedOn;
 
   public static final String JSON_PROPERTY_COMPLETION_TIMEOUT_ON = "completionTimeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime completionTimeoutOn;
 
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+  @javax.annotation.Nullable
   private Address shippingAddress;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private Address billingAddress;
 
   public static final String JSON_PROPERTY_AUTHORIZED_ON = "authorizedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime authorizedOn;
 
   public static final String JSON_PROPERTY_FAILED_URL = "failedUrl";
+  @javax.annotation.Nullable
   private String failedUrl;
 
   public Transaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Transaction(
     @JsonProperty(JSON_PROPERTY_TOTAL_SETTLED_AMOUNT) BigDecimal totalSettledAmount, 
@@ -463,16 +533,16 @@ public class Transaction {
     this.failedUrl = failedUrl;
   }
 
-  public Transaction parent(Transaction parent) {
+  public Transaction parent(@javax.annotation.Nullable Transaction parent) {
     
     this.parent = parent;
     return this;
   }
 
-   /**
+  /**
    * Get parent
    * @return parent
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,14 +554,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParent(Transaction parent) {
+  public void setParent(@javax.annotation.Nullable Transaction parent) {
     this.parent = parent;
   }
 
-   /**
+  /**
    * The total amount that was settled, in the transaction&#39;s currency.
    * @return totalSettledAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_SETTLED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -502,10 +572,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * Allows to link the transaction to the data collected from the customer&#39;s device.
    * @return deviceSessionIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEVICE_SESSION_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,10 +586,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the transaction was started.
    * @return processingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -530,10 +600,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,10 +614,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -558,10 +628,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the transaction was created.
    * @return confirmedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIRMED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -572,10 +642,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The line items purchased by the customer.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -586,10 +656,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The &#39;Accept Language&#39; header of the customer&#39;s web browser.
    * @return acceptLanguageHeader
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCEPT_LANGUAGE_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -600,10 +670,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * Whether Java is enabled on the customer&#39;s web browser.
    * @return javaEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_JAVA_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -614,10 +684,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The ID of the user the transaction was confirmed by.
    * @return confirmedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIRMED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -628,16 +698,16 @@ public class Transaction {
 
 
 
-  public Transaction paymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
+  public Transaction paymentConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration paymentConnectorConfiguration) {
     
     this.paymentConnectorConfiguration = paymentConnectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get paymentConnectorConfiguration
    * @return paymentConnectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -649,14 +719,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
+  public void setPaymentConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration paymentConnectorConfiguration) {
     this.paymentConnectorConfiguration = paymentConnectorConfiguration;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -667,16 +737,16 @@ public class Transaction {
 
 
 
-  public Transaction state(TransactionState state) {
+  public Transaction state(@javax.annotation.Nullable TransactionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -688,14 +758,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionState state) {
+  public void setState(@javax.annotation.Nullable TransactionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The window width of the customer&#39;s web browser.
    * @return windowWidth
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WINDOW_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -706,10 +776,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The payment method configurations that can be used to authorize the transaction.
    * @return allowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -720,16 +790,16 @@ public class Transaction {
 
 
 
-  public Transaction group(TransactionGroup group) {
+  public Transaction group(@javax.annotation.Nullable TransactionGroup group) {
     
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Get group
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -741,14 +811,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(TransactionGroup group) {
+  public void setGroup(@javax.annotation.Nullable TransactionGroup group) {
     this.group = group;
   }
 
-   /**
+  /**
    * Whether the customer can make further payment attempts if the first one has failed. Default is true.
    * @return chargeRetryEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHARGE_RETRY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -759,10 +829,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The &#39;Accept&#39; header of the customer&#39;s web browser.
    * @return acceptHeader
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCEPT_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -773,10 +843,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The &#39;User Agent&#39; header of the customer&#39;s web browser.
    * @return userAgentHeader
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_AGENT_HEADER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -787,10 +857,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The name of the shipping method used to ship the products.
    * @return shippingMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -801,10 +871,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -815,10 +885,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -829,10 +899,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -843,10 +913,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -857,10 +927,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The message that can be displayed to the customer explaining why the transaction failed, in the customer&#39;s language.
    * @return userFailureMessage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_FAILURE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -871,16 +941,16 @@ public class Transaction {
 
 
 
-  public Transaction completionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public Transaction completionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     
     this.completionBehavior = completionBehavior;
     return this;
   }
 
-   /**
+  /**
    * Get completionBehavior
    * @return completionBehavior
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -892,14 +962,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public void setCompletionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     this.completionBehavior = completionBehavior;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -910,10 +980,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The country determined from the IP address of the customer&#39;s device.
    * @return internetProtocolAddressCountry
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERNET_PROTOCOL_ADDRESS_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -924,10 +994,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -938,10 +1008,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * This date and time when the decision was made as to whether the order should be shipped.
    * @return deliveryDecisionMadeOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELIVERY_DECISION_MADE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -952,16 +1022,16 @@ public class Transaction {
 
 
 
-  public Transaction authorizationEnvironment(ChargeAttemptEnvironment authorizationEnvironment) {
+  public Transaction authorizationEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment authorizationEnvironment) {
     
     this.authorizationEnvironment = authorizationEnvironment;
     return this;
   }
 
-   /**
+  /**
    * Get authorizationEnvironment
    * @return authorizationEnvironment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -973,14 +1043,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAuthorizationEnvironment(ChargeAttemptEnvironment authorizationEnvironment) {
+  public void setAuthorizationEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment authorizationEnvironment) {
     this.authorizationEnvironment = authorizationEnvironment;
   }
 
-   /**
+  /**
    * Whether the transaction can be confirmed automatically or whether this must be done explicitly via the API. Default is true.
    * @return autoConfirmationEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTO_CONFIRMATION_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -991,16 +1061,16 @@ public class Transaction {
 
 
 
-  public Transaction failureReason(FailureReason failureReason) {
+  public Transaction failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1012,14 +1082,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * The total of all fees charged, in the transaction&#39;s currency.
    * @return totalAppliedFees
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_APPLIED_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1030,16 +1100,16 @@ public class Transaction {
 
 
 
-  public Transaction customersPresence(CustomersPresence customersPresence) {
+  public Transaction customersPresence(@javax.annotation.Nullable CustomersPresence customersPresence) {
     
     this.customersPresence = customersPresence;
     return this;
   }
 
-   /**
+  /**
    * Get customersPresence
    * @return customersPresence
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS_PRESENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1051,14 +1121,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMERS_PRESENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomersPresence(CustomersPresence customersPresence) {
+  public void setCustomersPresence(@javax.annotation.Nullable CustomersPresence customersPresence) {
     this.customersPresence = customersPresence;
   }
 
-   /**
+  /**
    * The date and time when the transaction failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1069,10 +1139,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The total amount that was refunded, in the transaction&#39;s currency.
    * @return refundedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUNDED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1083,10 +1153,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The sum of all line item prices including taxes in the transaction&#39;s currency.
    * @return authorizationAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1097,10 +1167,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The screen width of the customer&#39;s web browser.
    * @return screenWidth
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCREEN_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1111,16 +1181,16 @@ public class Transaction {
 
 
 
-  public Transaction environmentSelectionStrategy(TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
+  public Transaction environmentSelectionStrategy(@javax.annotation.Nullable TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
     
     this.environmentSelectionStrategy = environmentSelectionStrategy;
     return this;
   }
 
-   /**
+  /**
    * Get environmentSelectionStrategy
    * @return environmentSelectionStrategy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT_SELECTION_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1132,14 +1202,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT_SELECTION_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironmentSelectionStrategy(TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
+  public void setEnvironmentSelectionStrategy(@javax.annotation.Nullable TransactionEnvironmentSelectionStrategy environmentSelectionStrategy) {
     this.environmentSelectionStrategy = environmentSelectionStrategy;
   }
 
-   /**
+  /**
    * The customer&#39;s email address.
    * @return customerEmailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1150,10 +1220,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The window height of the customer&#39;s web browser.
    * @return windowHeight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WINDOW_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1164,16 +1234,16 @@ public class Transaction {
 
 
 
-  public Transaction tokenizationMode(TokenizationMode tokenizationMode) {
+  public Transaction tokenizationMode(@javax.annotation.Nullable TokenizationMode tokenizationMode) {
     
     this.tokenizationMode = tokenizationMode;
     return this;
   }
 
-   /**
+  /**
    * Get tokenizationMode
    * @return tokenizationMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1185,14 +1255,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenizationMode(TokenizationMode tokenizationMode) {
+  public void setTokenizationMode(@javax.annotation.Nullable TokenizationMode tokenizationMode) {
     this.tokenizationMode = tokenizationMode;
   }
 
-   /**
+  /**
    * The date and time when the transaction must be authorized, otherwise it will canceled.
    * @return authorizationTimeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1203,10 +1273,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The payment method brands that can be used to authorize the transaction.
    * @return allowedPaymentMethodBrands
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1217,10 +1287,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1231,10 +1301,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1245,10 +1315,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * Whether email sending is deactivated for the transaction. Default is false.
    * @return emailsDisabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAILS_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1259,16 +1329,16 @@ public class Transaction {
 
 
 
-  public Transaction userInterfaceType(TransactionUserInterfaceType userInterfaceType) {
+  public Transaction userInterfaceType(@javax.annotation.Nullable TransactionUserInterfaceType userInterfaceType) {
     
     this.userInterfaceType = userInterfaceType;
     return this;
   }
 
-   /**
+  /**
    * Get userInterfaceType
    * @return userInterfaceType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_INTERFACE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1280,14 +1350,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_USER_INTERFACE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setUserInterfaceType(TransactionUserInterfaceType userInterfaceType) {
+  public void setUserInterfaceType(@javax.annotation.Nullable TransactionUserInterfaceType userInterfaceType) {
     this.userInterfaceType = userInterfaceType;
   }
 
-   /**
+  /**
    * The unique identifier of the customer in the external system.
    * @return customerId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1298,10 +1368,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the transaction&#39;s currency.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1312,10 +1382,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the transaction.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1326,10 +1396,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The sales channel through which the transaction was placed.
    * @return authorizationSalesChannel
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZATION_SALES_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1340,10 +1410,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The number of years the transaction is kept after its authorization.
    * @return yearsToKeep
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_YEARS_TO_KEEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1354,10 +1424,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The total amount that was completed, in the transaction&#39;s currency.
    * @return completedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1368,10 +1438,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The screen height of the customer&#39;s web browser.
    * @return screenHeight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCREEN_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1382,10 +1452,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The IP address of the customer&#39;s device.
    * @return internetProtocolAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTERNET_PROTOCOL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1396,16 +1466,16 @@ public class Transaction {
 
 
 
-  public Transaction terminal(PaymentTerminal terminal) {
+  public Transaction terminal(@javax.annotation.Nullable PaymentTerminal terminal) {
     
     this.terminal = terminal;
     return this;
   }
 
-   /**
+  /**
    * Get terminal
    * @return terminal
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1417,14 +1487,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTerminal(PaymentTerminal terminal) {
+  public void setTerminal(@javax.annotation.Nullable PaymentTerminal terminal) {
     this.terminal = terminal;
   }
 
-   /**
+  /**
    * The date and time when the transaction reaches its end of live. No further actions can be carried out at this time.
    * @return endOfLife
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_OF_LIFE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1435,16 +1505,16 @@ public class Transaction {
 
 
 
-  public Transaction token(Token token) {
+  public Transaction token(@javax.annotation.Nullable Token token) {
     
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * Get token
    * @return token
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1456,20 +1526,20 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToken(Token token) {
+  public void setToken(@javax.annotation.Nullable Token token) {
     this.token = token;
   }
 
-  public Transaction environment(Environment environment) {
+  public Transaction environment(@javax.annotation.Nullable Environment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1481,14 +1551,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(Environment environment) {
+  public void setEnvironment(@javax.annotation.Nullable Environment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The screen color depth of the customer&#39;s web browser.
    * @return screenColorDepth
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCREEN_COLOR_DEPTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1499,10 +1569,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The ID of the user the transaction was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1513,10 +1583,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the transaction was completed.
    * @return completedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1527,10 +1597,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The date and time when the transaction is completed automatically.
    * @return completionTimeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1541,16 +1611,16 @@ public class Transaction {
 
 
 
-  public Transaction shippingAddress(Address shippingAddress) {
+  public Transaction shippingAddress(@javax.annotation.Nullable Address shippingAddress) {
     
     this.shippingAddress = shippingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1562,20 +1632,20 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddress(Address shippingAddress) {
+  public void setShippingAddress(@javax.annotation.Nullable Address shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
 
-  public Transaction billingAddress(Address billingAddress) {
+  public Transaction billingAddress(@javax.annotation.Nullable Address billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1587,14 +1657,14 @@ public class Transaction {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-   /**
+  /**
    * The date and time when the transaction was authorized.
    * @return authorizedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHORIZED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -1605,10 +1675,10 @@ public class Transaction {
 
 
 
-   /**
+  /**
    * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

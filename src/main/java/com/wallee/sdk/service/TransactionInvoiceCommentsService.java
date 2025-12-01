@@ -37,6 +37,7 @@ import com.wallee.sdk.model.TransactionInvoiceComment;
 import com.wallee.sdk.model.TransactionInvoiceCommentActive;
 import com.wallee.sdk.model.TransactionInvoiceCommentCreate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsInvoicesInvoiceIdCommentsId">Delete a transaction comment Documentation</a>
    */
-  public void deletePaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space) throws ApiException {
+  public void deletePaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentTransactionsInvoicesInvoiceIdCommentsId(invoiceId, id, space, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsInvoicesInvoiceIdCommentsId">Delete a transaction comment Documentation</a>
    */
-  public void deletePaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -100,8 +101,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/{id}"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -142,8 +143,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -163,7 +164,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdComments">List all transaction invoice comments Documentation</a>
    */
-  public InvoiceCommentListResponse getPaymentTransactionsInvoicesInvoiceIdComments(Long invoiceId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public InvoiceCommentListResponse getPaymentTransactionsInvoicesInvoiceIdComments(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentTransactionsInvoicesInvoiceIdComments(invoiceId, space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -185,7 +186,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdComments">List all transaction invoice comments Documentation</a>
    */
-  public InvoiceCommentListResponse getPaymentTransactionsInvoicesInvoiceIdComments(Long invoiceId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public InvoiceCommentListResponse getPaymentTransactionsInvoicesInvoiceIdComments(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -200,7 +201,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -247,8 +248,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -265,7 +266,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdCommentsId">Retrieve a transaction invoice comment Documentation</a>
    */
-  public TransactionInvoiceComment getPaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionInvoiceComment getPaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsInvoicesInvoiceIdCommentsId(invoiceId, id, space, expand, Collections.emptyMap());
   }
 
@@ -284,7 +285,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdCommentsId">Retrieve a transaction invoice comment Documentation</a>
    */
-  public TransactionInvoiceComment getPaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionInvoiceComment getPaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -304,8 +305,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/{id}"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -348,8 +349,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -369,7 +370,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdCommentsSearch">Search transaction invoice comments Documentation</a>
    */
-  public InvoiceCommentSearchResponse getPaymentTransactionsInvoicesInvoiceIdCommentsSearch(Long invoiceId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public InvoiceCommentSearchResponse getPaymentTransactionsInvoicesInvoiceIdCommentsSearch(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTransactionsInvoicesInvoiceIdCommentsSearch(invoiceId, space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -391,7 +392,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsInvoicesInvoiceIdCommentsSearch">Search transaction invoice comments Documentation</a>
    */
-  public InvoiceCommentSearchResponse getPaymentTransactionsInvoicesInvoiceIdCommentsSearch(Long invoiceId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public InvoiceCommentSearchResponse getPaymentTransactionsInvoicesInvoiceIdCommentsSearch(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -406,7 +407,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/search"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -453,8 +454,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -472,7 +473,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsInvoicesInvoiceIdCommentsId">Update a transaction comment Documentation</a>
    */
-  public TransactionInvoiceComment patchPaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space, TransactionInvoiceCommentActive transactionInvoiceCommentActive, Set<String> expand) throws ApiException {
+  public TransactionInvoiceComment patchPaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionInvoiceCommentActive transactionInvoiceCommentActive, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentTransactionsInvoicesInvoiceIdCommentsId(invoiceId, id, space, transactionInvoiceCommentActive, expand, Collections.emptyMap());
   }
 
@@ -492,7 +493,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsInvoicesInvoiceIdCommentsId">Update a transaction comment Documentation</a>
    */
-  public TransactionInvoiceComment patchPaymentTransactionsInvoicesInvoiceIdCommentsId(Long invoiceId, Long id, Long space, TransactionInvoiceCommentActive transactionInvoiceCommentActive, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionInvoiceComment patchPaymentTransactionsInvoicesInvoiceIdCommentsId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionInvoiceCommentActive transactionInvoiceCommentActive, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionInvoiceCommentActive;
     
     // verify the required parameter 'invoiceId' is set
@@ -517,8 +518,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/{id}"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -561,8 +562,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -579,7 +580,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdComments">Create a transaction invoice comment Documentation</a>
    */
-  public TransactionInvoiceComment postPaymentTransactionsInvoicesInvoiceIdComments(Long invoiceId, Long space, TransactionInvoiceCommentCreate transactionInvoiceCommentCreate, Set<String> expand) throws ApiException {
+  public TransactionInvoiceComment postPaymentTransactionsInvoicesInvoiceIdComments(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionInvoiceCommentCreate transactionInvoiceCommentCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsInvoicesInvoiceIdComments(invoiceId, space, transactionInvoiceCommentCreate, expand, Collections.emptyMap());
   }
 
@@ -598,7 +599,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdComments">Create a transaction invoice comment Documentation</a>
    */
-  public TransactionInvoiceComment postPaymentTransactionsInvoicesInvoiceIdComments(Long invoiceId, Long space, TransactionInvoiceCommentCreate transactionInvoiceCommentCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionInvoiceComment postPaymentTransactionsInvoicesInvoiceIdComments(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionInvoiceCommentCreate transactionInvoiceCommentCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionInvoiceCommentCreate;
     
     // verify the required parameter 'invoiceId' is set
@@ -618,7 +619,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -661,8 +662,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -677,7 +678,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin(Long invoiceId, Long id, Long space) throws ApiException {
+  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin(invoiceId, id, space, Collections.emptyMap());
   }
 
@@ -694,7 +695,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin(Long invoiceId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdPin(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -714,8 +715,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/{id}/pin"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -756,8 +757,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -772,7 +773,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin(Long invoiceId, Long id, Long space) throws ApiException {
+  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin(invoiceId, id, space, Collections.emptyMap());
   }
 
@@ -789,7 +790,7 @@ public class TransactionInvoiceCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin(Long invoiceId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentTransactionsInvoicesInvoiceIdCommentsIdUnpin(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -809,8 +810,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/invoices/{invoiceId}/comments/{id}/unpin"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -851,8 +852,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -892,8 +893,8 @@ public class TransactionInvoiceCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

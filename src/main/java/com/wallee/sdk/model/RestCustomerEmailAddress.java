@@ -46,16 +46,18 @@ import java.util.StringJoiner;
 
 public class RestCustomerEmailAddress {
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public RestCustomerEmailAddress() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestCustomerEmailAddress(
     @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS) String emailAddress, 
@@ -66,10 +68,10 @@ public class RestCustomerEmailAddress {
     this.createdOn = createdOn;
   }
 
-   /**
+  /**
    * An email address associated with a customer.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,10 +82,10 @@ public class RestCustomerEmailAddress {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

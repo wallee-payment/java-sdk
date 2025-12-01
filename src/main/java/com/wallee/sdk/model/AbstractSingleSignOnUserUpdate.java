@@ -50,33 +50,38 @@ import java.util.StringJoiner;
 
 public class AbstractSingleSignOnUserUpdate {
   public static final String JSON_PROPERTY_FIRSTNAME = "firstname";
+  @javax.annotation.Nullable
   private String firstname;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_LASTNAME = "lastname";
+  @javax.annotation.Nullable
   private String lastname;
 
   public AbstractSingleSignOnUserUpdate() {
   }
 
-  public AbstractSingleSignOnUserUpdate firstname(String firstname) {
+  public AbstractSingleSignOnUserUpdate firstname(@javax.annotation.Nullable String firstname) {
     
     this.firstname = firstname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s first name.
    * @return firstname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,20 +93,20 @@ public class AbstractSingleSignOnUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstname(String firstname) {
+  public void setFirstname(@javax.annotation.Nullable String firstname) {
     this.firstname = firstname;
   }
 
-  public AbstractSingleSignOnUserUpdate timeZone(String timeZone) {
+  public AbstractSingleSignOnUserUpdate timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,20 +118,20 @@ public class AbstractSingleSignOnUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public AbstractSingleSignOnUserUpdate language(String language) {
+  public AbstractSingleSignOnUserUpdate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s preferred language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,20 +143,20 @@ public class AbstractSingleSignOnUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractSingleSignOnUserUpdate state(CreationEntityState state) {
+  public AbstractSingleSignOnUserUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,20 +168,20 @@ public class AbstractSingleSignOnUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public AbstractSingleSignOnUserUpdate lastname(String lastname) {
+  public AbstractSingleSignOnUserUpdate lastname(@javax.annotation.Nullable String lastname) {
     
     this.lastname = lastname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s last name.
    * @return lastname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,7 +193,7 @@ public class AbstractSingleSignOnUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastname(String lastname) {
+  public void setLastname(@javax.annotation.Nullable String lastname) {
     this.lastname = lastname;
   }
 

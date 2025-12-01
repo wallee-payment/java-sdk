@@ -47,22 +47,26 @@ import java.util.StringJoiner;
 
 public class PaymentTerminalTransactionSummaryReference {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_TERMINAL_ID = "terminalId";
+  @javax.annotation.Nullable
   private Long terminalId;
 
   public static final String JSON_PROPERTY_TERMINAL_IDENTIFIER = "terminalIdentifier";
+  @javax.annotation.Nullable
   private String terminalIdentifier;
 
   public PaymentTerminalTransactionSummaryReference() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentTerminalTransactionSummaryReference(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -77,10 +81,10 @@ public class PaymentTerminalTransactionSummaryReference {
     this.terminalIdentifier = terminalIdentifier;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,10 +95,10 @@ public class PaymentTerminalTransactionSummaryReference {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,10 +109,10 @@ public class PaymentTerminalTransactionSummaryReference {
 
 
 
-   /**
+  /**
    * The unique identifier of the terminal.
    * @return terminalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +123,10 @@ public class PaymentTerminalTransactionSummaryReference {
 
 
 
-   /**
+  /**
    * The unique identifier of the terminal, that is displayed on the device.
    * @return terminalIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINAL_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -34,6 +34,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import com.wallee.sdk.model.ResultPortionModel;
 import com.wallee.sdk.model.SubmittedAnalyticsQueryExecution;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -59,7 +60,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAnalyticsQueriesQueryExternalIdQueryExternalId">Cancel a query execution, identifying it by its external id. Documentation</a>
    */
-  public void deleteAnalyticsQueriesQueryExternalIdQueryExternalId(String queryExternalId, Long account) throws ApiException {
+  public void deleteAnalyticsQueriesQueryExternalIdQueryExternalId(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account) throws ApiException {
     this.deleteAnalyticsQueriesQueryExternalIdQueryExternalId(queryExternalId, account, Collections.emptyMap());
   }
 
@@ -75,7 +76,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAnalyticsQueriesQueryExternalIdQueryExternalId">Cancel a query execution, identifying it by its external id. Documentation</a>
    */
-  public void deleteAnalyticsQueriesQueryExternalIdQueryExternalId(String queryExternalId, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteAnalyticsQueriesQueryExternalIdQueryExternalId(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryExternalId' is set
@@ -90,7 +91,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryExternalId/{queryExternalId}"
-      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(queryExternalId.toString()));
+      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryExternalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -131,8 +132,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -146,7 +147,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAnalyticsQueriesQueryTokenQueryToken">Cancel a query execution, identifying it by its query token. Documentation</a>
    */
-  public void deleteAnalyticsQueriesQueryTokenQueryToken(String queryToken, Long account) throws ApiException {
+  public void deleteAnalyticsQueriesQueryTokenQueryToken(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account) throws ApiException {
     this.deleteAnalyticsQueriesQueryTokenQueryToken(queryToken, account, Collections.emptyMap());
   }
 
@@ -162,7 +163,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAnalyticsQueriesQueryTokenQueryToken">Cancel a query execution, identifying it by its query token. Documentation</a>
    */
-  public void deleteAnalyticsQueriesQueryTokenQueryToken(String queryToken, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteAnalyticsQueriesQueryTokenQueryToken(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryToken' is set
@@ -177,7 +178,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryToken/{queryToken}"
-      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(queryToken.toString()));
+      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryToken)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -218,8 +219,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -235,7 +236,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueries">Get portion of query executions for account Documentation</a>
    */
-  public ResultPortionModel getAnalyticsQueries(Integer offset, Integer limit, Long account) throws ApiException {
+  public ResultPortionModel getAnalyticsQueries(@javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getAnalyticsQueries(offset, limit, account, Collections.emptyMap());
   }
 
@@ -253,7 +254,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueries">Get portion of query executions for account Documentation</a>
    */
-  public ResultPortionModel getAnalyticsQueries(Integer offset, Integer limit, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public ResultPortionModel getAnalyticsQueries(@javax.annotation.Nonnull Integer offset, @javax.annotation.Nonnull Integer limit, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'offset' is set
@@ -316,8 +317,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -332,7 +333,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryExternalIdQueryExternalId">Retrieve a query execution information by its external id Documentation</a>
    */
-  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryExternalIdQueryExternalId(String queryExternalId, Long account) throws ApiException {
+  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryExternalIdQueryExternalId(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getAnalyticsQueriesQueryExternalIdQueryExternalId(queryExternalId, account, Collections.emptyMap());
   }
 
@@ -349,7 +350,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryExternalIdQueryExternalId">Retrieve a query execution information by its external id Documentation</a>
    */
-  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryExternalIdQueryExternalId(String queryExternalId, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryExternalIdQueryExternalId(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryExternalId' is set
@@ -364,7 +365,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryExternalId/{queryExternalId}"
-      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(queryExternalId.toString()));
+      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryExternalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -407,8 +408,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -423,7 +424,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryExternalIdQueryExternalIdResult">Generate a temporary URL to download the query result. It retrieves the query by its external id Documentation</a>
    */
-  public String getAnalyticsQueriesQueryExternalIdQueryExternalIdResult(String queryExternalId, Long account) throws ApiException {
+  public String getAnalyticsQueriesQueryExternalIdQueryExternalIdResult(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getAnalyticsQueriesQueryExternalIdQueryExternalIdResult(queryExternalId, account, Collections.emptyMap());
   }
 
@@ -440,7 +441,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryExternalIdQueryExternalIdResult">Generate a temporary URL to download the query result. It retrieves the query by its external id Documentation</a>
    */
-  public String getAnalyticsQueriesQueryExternalIdQueryExternalIdResult(String queryExternalId, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public String getAnalyticsQueriesQueryExternalIdQueryExternalIdResult(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryExternalId' is set
@@ -455,7 +456,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryExternalId/{queryExternalId}/result"
-      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(queryExternalId.toString()));
+      .replaceAll("\\{" + "queryExternalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryExternalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -497,8 +498,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -513,7 +514,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryTokenQueryToken">Retrieve a query execution information by its query token Documentation</a>
    */
-  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryTokenQueryToken(String queryToken, Long account) throws ApiException {
+  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryTokenQueryToken(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getAnalyticsQueriesQueryTokenQueryToken(queryToken, account, Collections.emptyMap());
   }
 
@@ -530,7 +531,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryTokenQueryToken">Retrieve a query execution information by its query token Documentation</a>
    */
-  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryTokenQueryToken(String queryToken, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public SubmittedAnalyticsQueryExecution getAnalyticsQueriesQueryTokenQueryToken(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryToken' is set
@@ -545,7 +546,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryToken/{queryToken}"
-      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(queryToken.toString()));
+      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryToken)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -588,8 +589,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -604,7 +605,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryTokenQueryTokenResult">Generate a temporary URL to download the query result. It retrieves the query by its query token Documentation</a>
    */
-  public String getAnalyticsQueriesQueryTokenQueryTokenResult(String queryToken, Long account) throws ApiException {
+  public String getAnalyticsQueriesQueryTokenQueryTokenResult(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getAnalyticsQueriesQueryTokenQueryTokenResult(queryToken, account, Collections.emptyMap());
   }
 
@@ -621,7 +622,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAnalyticsQueriesQueryTokenQueryTokenResult">Generate a temporary URL to download the query result. It retrieves the query by its query token Documentation</a>
    */
-  public String getAnalyticsQueriesQueryTokenQueryTokenResult(String queryToken, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public String getAnalyticsQueriesQueryTokenQueryTokenResult(@javax.annotation.Nonnull String queryToken, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'queryToken' is set
@@ -636,7 +637,7 @@ public class AnalyticsQueriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/analytics/queries/queryToken/{queryToken}/result"
-      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(queryToken.toString()));
+      .replaceAll("\\{" + "queryToken" + "\\}", apiClient.escapeString(apiClient.parameterToString(queryToken)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -678,8 +679,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -695,7 +696,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAnalyticsQueriesSubmit">Submit a query execution Documentation</a>
    */
-  public AnalyticsQueryExecutionResponse postAnalyticsQueriesSubmit(String queryExternalId, Long account, AnalyticsQueryExecutionRequest analyticsQueryExecutionRequest) throws ApiException {
+  public AnalyticsQueryExecutionResponse postAnalyticsQueriesSubmit(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account, @javax.annotation.Nonnull AnalyticsQueryExecutionRequest analyticsQueryExecutionRequest) throws ApiException {
     return this.postAnalyticsQueriesSubmit(queryExternalId, account, analyticsQueryExecutionRequest, Collections.emptyMap());
   }
 
@@ -713,7 +714,7 @@ public class AnalyticsQueriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAnalyticsQueriesSubmit">Submit a query execution Documentation</a>
    */
-  public AnalyticsQueryExecutionResponse postAnalyticsQueriesSubmit(String queryExternalId, Long account, AnalyticsQueryExecutionRequest analyticsQueryExecutionRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public AnalyticsQueryExecutionResponse postAnalyticsQueriesSubmit(@javax.annotation.Nonnull String queryExternalId, @javax.annotation.Nonnull Long account, @javax.annotation.Nonnull AnalyticsQueryExecutionRequest analyticsQueryExecutionRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = analyticsQueryExecutionRequest;
     
     // verify the required parameter 'queryExternalId' is set
@@ -775,8 +776,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -816,8 +817,8 @@ public class AnalyticsQueriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

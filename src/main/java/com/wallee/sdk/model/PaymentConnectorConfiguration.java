@@ -71,55 +71,70 @@ import java.util.StringJoiner;
 
 public class PaymentConnectorConfiguration {
   public static final String JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION = "paymentMethodConfiguration";
+  @javax.annotation.Nullable
   private PaymentMethodConfiguration paymentMethodConfiguration;
 
   public static final String JSON_PROPERTY_IMAGE_PATH = "imagePath";
+  @javax.annotation.Nullable
   private String imagePath;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_ENABLED_SALES_CHANNELS = "enabledSalesChannels";
+  @javax.annotation.Nullable
   private Set<SalesChannel> enabledSalesChannels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_PROCESSOR_CONFIGURATION = "processorConfiguration";
+  @javax.annotation.Nullable
   private PaymentProcessorConfiguration processorConfiguration;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_CONNECTOR = "connector";
+  @javax.annotation.Nullable
   private PaymentConnector connector;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ENABLED_SPACE_VIEWS = "enabledSpaceViews";
+  @javax.annotation.Nullable
   private Set<Long> enabledSpaceViews = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_APPLICABLE_FOR_TRANSACTION_PROCESSING = "applicableForTransactionProcessing";
+  @javax.annotation.Nullable
   private Boolean applicableForTransactionProcessing;
 
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
+  @javax.annotation.Nullable
   private List<Condition> conditions = new ArrayList<>();
 
   public PaymentConnectorConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentConnectorConfiguration(
     @JsonProperty(JSON_PROPERTY_IMAGE_PATH) String imagePath, 
@@ -148,16 +163,16 @@ public class PaymentConnectorConfiguration {
     this.conditions = conditions;
   }
 
-  public PaymentConnectorConfiguration paymentMethodConfiguration(PaymentMethodConfiguration paymentMethodConfiguration) {
+  public PaymentConnectorConfiguration paymentMethodConfiguration(@javax.annotation.Nullable PaymentMethodConfiguration paymentMethodConfiguration) {
     
     this.paymentMethodConfiguration = paymentMethodConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethodConfiguration
    * @return paymentMethodConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,14 +184,14 @@ public class PaymentConnectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethodConfiguration(PaymentMethodConfiguration paymentMethodConfiguration) {
+  public void setPaymentMethodConfiguration(@javax.annotation.Nullable PaymentMethodConfiguration paymentMethodConfiguration) {
     this.paymentMethodConfiguration = paymentMethodConfiguration;
   }
 
-   /**
+  /**
    * The URL to the connector&#39;s image.
    * @return imagePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,10 +202,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,10 +216,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * The priority that determines the order in which connector configurations are taken into account when processing a payment. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,10 +230,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * The sales channels for which the connector configuration is enabled. If empty, it is enabled for all sales channels.
    * @return enabledSalesChannels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,10 +244,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,16 +258,16 @@ public class PaymentConnectorConfiguration {
 
 
 
-  public PaymentConnectorConfiguration processorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
+  public PaymentConnectorConfiguration processorConfiguration(@javax.annotation.Nullable PaymentProcessorConfiguration processorConfiguration) {
     
     this.processorConfiguration = processorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get processorConfiguration
    * @return processorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,14 +279,14 @@ public class PaymentConnectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
+  public void setProcessorConfiguration(@javax.annotation.Nullable PaymentProcessorConfiguration processorConfiguration) {
     this.processorConfiguration = processorConfiguration;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,16 +297,16 @@ public class PaymentConnectorConfiguration {
 
 
 
-  public PaymentConnectorConfiguration connector(PaymentConnector connector) {
+  public PaymentConnectorConfiguration connector(@javax.annotation.Nullable PaymentConnector connector) {
     
     this.connector = connector;
     return this;
   }
 
-   /**
+  /**
    * Get connector
    * @return connector
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONNECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,14 +318,14 @@ public class PaymentConnectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_CONNECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConnector(PaymentConnector connector) {
+  public void setConnector(@javax.annotation.Nullable PaymentConnector connector) {
     this.connector = connector;
   }
 
-   /**
+  /**
    * The name used to identify the connector configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,10 +336,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * The space views for which the connector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,10 +350,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,16 +364,16 @@ public class PaymentConnectorConfiguration {
 
 
 
-  public PaymentConnectorConfiguration state(CreationEntityState state) {
+  public PaymentConnectorConfiguration state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,14 +385,14 @@ public class PaymentConnectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * Whether this connector configuration is enabled for processing payments, taking into account the state of the processor and payment method configurations.
    * @return applicableForTransactionProcessing
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLICABLE_FOR_TRANSACTION_PROCESSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,10 +403,10 @@ public class PaymentConnectorConfiguration {
 
 
 
-   /**
+  /**
    * Conditions allow to define criteria that a transaction must fulfill in order for the connector configuration to be considered for processing the payment.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

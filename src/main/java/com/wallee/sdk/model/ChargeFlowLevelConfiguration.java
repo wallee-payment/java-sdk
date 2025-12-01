@@ -56,40 +56,50 @@ import java.util.StringJoiner;
 
 public class ChargeFlowLevelConfiguration {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PERIOD = "period";
+  @javax.annotation.Nullable
   private String period;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_FLOW = "flow";
+  @javax.annotation.Nullable
   private ChargeFlow flow;
 
   public ChargeFlowLevelConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ChargeFlowLevelConfiguration(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -112,10 +122,10 @@ public class ChargeFlowLevelConfiguration {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,10 +136,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * The duration specifies how long the level remains active before transitioning to the next one.
    * @return period
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,10 +150,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * The name used to identify the charge flow level configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,10 +164,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,10 +178,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,16 +192,16 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-  public ChargeFlowLevelConfiguration state(CreationEntityState state) {
+  public ChargeFlowLevelConfiguration state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,14 +213,14 @@ public class ChargeFlowLevelConfiguration {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The priority that determines the order in which level configurations are taken into account when processing a charge flow. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,10 +231,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * The type defines the method of delivering the payment link to the customer.
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,10 +245,10 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,16 +259,16 @@ public class ChargeFlowLevelConfiguration {
 
 
 
-  public ChargeFlowLevelConfiguration flow(ChargeFlow flow) {
+  public ChargeFlowLevelConfiguration flow(@javax.annotation.Nullable ChargeFlow flow) {
     
     this.flow = flow;
     return this;
   }
 
-   /**
+  /**
    * Get flow
    * @return flow
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,7 +280,7 @@ public class ChargeFlowLevelConfiguration {
 
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlow(ChargeFlow flow) {
+  public void setFlow(@javax.annotation.Nullable ChargeFlow flow) {
     this.flow = flow;
   }
 

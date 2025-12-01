@@ -57,42 +57,50 @@ import java.util.StringJoiner;
 
 public class SubscriptionLedgerEntryCreate {
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nonnull
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_VERSION = "subscriptionVersion";
+  @javax.annotation.Nonnull
   private Long subscriptionVersion;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_TAXES = "taxes";
+  @javax.annotation.Nullable
   private Set<TaxCreate> taxes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
+  @javax.annotation.Nonnull
   private BigDecimal amountIncludingTax;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String JSON_PROPERTY_COMPONENT_REFERENCE_NAME = "componentReferenceName";
+  @javax.annotation.Nullable
   private String componentReferenceName;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_METRIC_ID = "subscriptionMetricId";
+  @javax.annotation.Nullable
   private Long subscriptionMetricId;
 
   public SubscriptionLedgerEntryCreate() {
   }
 
-  public SubscriptionLedgerEntryCreate quantity(BigDecimal quantity) {
+  public SubscriptionLedgerEntryCreate quantity(@javax.annotation.Nonnull BigDecimal quantity) {
     
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * The number of items that were consumed.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,20 +112,20 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuantity(BigDecimal quantity) {
+  public void setQuantity(@javax.annotation.Nonnull BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public SubscriptionLedgerEntryCreate subscriptionVersion(Long subscriptionVersion) {
+  public SubscriptionLedgerEntryCreate subscriptionVersion(@javax.annotation.Nonnull Long subscriptionVersion) {
     
     this.subscriptionVersion = subscriptionVersion;
     return this;
   }
 
-   /**
+  /**
    * The subscription version that the ledger entry belongs to.
    * @return subscriptionVersion
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -129,20 +137,20 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSubscriptionVersion(Long subscriptionVersion) {
+  public void setSubscriptionVersion(@javax.annotation.Nonnull Long subscriptionVersion) {
     this.subscriptionVersion = subscriptionVersion;
   }
 
-  public SubscriptionLedgerEntryCreate externalId(String externalId) {
+  public SubscriptionLedgerEntryCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -154,11 +162,11 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public SubscriptionLedgerEntryCreate taxes(Set<TaxCreate> taxes) {
+  public SubscriptionLedgerEntryCreate taxes(@javax.annotation.Nullable Set<TaxCreate> taxes) {
     
     this.taxes = taxes;
     return this;
@@ -172,10 +180,10 @@ public class SubscriptionLedgerEntryCreate {
     return this;
   }
 
-   /**
+  /**
    * A set of tax lines, each of which specifies a tax applied to the ledger entry.
    * @return taxes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,20 +196,20 @@ public class SubscriptionLedgerEntryCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxes(Set<TaxCreate> taxes) {
+  public void setTaxes(@javax.annotation.Nullable Set<TaxCreate> taxes) {
     this.taxes = taxes;
   }
 
-  public SubscriptionLedgerEntryCreate amountIncludingTax(BigDecimal amountIncludingTax) {
+  public SubscriptionLedgerEntryCreate amountIncludingTax(@javax.annotation.Nonnull BigDecimal amountIncludingTax) {
     
     this.amountIncludingTax = amountIncludingTax;
     return this;
   }
 
-   /**
+  /**
    * The leger entry&#39;s amount with discounts applied, including taxes.
    * @return amountIncludingTax
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -213,20 +221,20 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAmountIncludingTax(BigDecimal amountIncludingTax) {
+  public void setAmountIncludingTax(@javax.annotation.Nonnull BigDecimal amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
   }
 
-  public SubscriptionLedgerEntryCreate title(String title) {
+  public SubscriptionLedgerEntryCreate title(@javax.annotation.Nonnull String title) {
     
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * The title that indicates what the ledger entry is about.
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -238,20 +246,20 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
   }
 
-  public SubscriptionLedgerEntryCreate componentReferenceName(String componentReferenceName) {
+  public SubscriptionLedgerEntryCreate componentReferenceName(@javax.annotation.Nullable String componentReferenceName) {
     
     this.componentReferenceName = componentReferenceName;
     return this;
   }
 
-   /**
+  /**
    * Get componentReferenceName
    * @return componentReferenceName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_REFERENCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,20 +271,20 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT_REFERENCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponentReferenceName(String componentReferenceName) {
+  public void setComponentReferenceName(@javax.annotation.Nullable String componentReferenceName) {
     this.componentReferenceName = componentReferenceName;
   }
 
-  public SubscriptionLedgerEntryCreate subscriptionMetricId(Long subscriptionMetricId) {
+  public SubscriptionLedgerEntryCreate subscriptionMetricId(@javax.annotation.Nullable Long subscriptionMetricId) {
     
     this.subscriptionMetricId = subscriptionMetricId;
     return this;
   }
 
-   /**
+  /**
    * Get subscriptionMetricId
    * @return subscriptionMetricId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_METRIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,7 +296,7 @@ public class SubscriptionLedgerEntryCreate {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_METRIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscriptionMetricId(Long subscriptionMetricId) {
+  public void setSubscriptionMetricId(@javax.annotation.Nullable Long subscriptionMetricId) {
     this.subscriptionMetricId = subscriptionMetricId;
   }
 

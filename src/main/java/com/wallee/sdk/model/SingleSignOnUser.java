@@ -50,31 +50,38 @@ import java.util.StringJoiner;
 
 public class SingleSignOnUser {
   public static final String JSON_PROPERTY_FIRSTNAME = "firstname";
+  @javax.annotation.Nullable
   private String firstname;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
+  @javax.annotation.Nullable
   private Long provider;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable
   private Long scope;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_PRIMARY_ACCOUNT = "primaryAccount";
+  @javax.annotation.Nullable
   private Long primaryAccount;
 
   public static final String JSON_PROPERTY_LASTNAME = "lastname";
+  @javax.annotation.Nullable
   private String lastname;
 
   public SingleSignOnUser() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SingleSignOnUser(
     @JsonProperty(JSON_PROPERTY_FIRSTNAME) String firstname, 
@@ -95,10 +102,10 @@ public class SingleSignOnUser {
     this.lastname = lastname;
   }
 
-   /**
+  /**
    * The user&#39;s first name.
    * @return firstname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,10 +116,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The single sign-on provider that this user belongs to.
    * @return provider
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,10 +130,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The scope that the user belongs to.
    * @return scope
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,10 +144,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,10 +158,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The user&#39;s preferred language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,10 +172,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The primary account that the user belongs to.
    * @return primaryAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,10 +186,10 @@ public class SingleSignOnUser {
 
 
 
-   /**
+  /**
    * The user&#39;s last name.
    * @return lastname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

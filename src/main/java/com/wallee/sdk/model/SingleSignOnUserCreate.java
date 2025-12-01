@@ -52,39 +52,46 @@ import java.util.StringJoiner;
 
 public class SingleSignOnUserCreate {
   public static final String JSON_PROPERTY_FIRSTNAME = "firstname";
+  @javax.annotation.Nullable
   private String firstname;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_LASTNAME = "lastname";
+  @javax.annotation.Nullable
   private String lastname;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
+  @javax.annotation.Nonnull
   private Long provider;
 
   public static final String JSON_PROPERTY_PRIMARY_ACCOUNT = "primaryAccount";
+  @javax.annotation.Nullable
   private Long primaryAccount;
 
   public SingleSignOnUserCreate() {
   }
 
-  public SingleSignOnUserCreate firstname(String firstname) {
+  public SingleSignOnUserCreate firstname(@javax.annotation.Nullable String firstname) {
     
     this.firstname = firstname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s first name.
    * @return firstname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,20 +103,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstname(String firstname) {
+  public void setFirstname(@javax.annotation.Nullable String firstname) {
     this.firstname = firstname;
   }
 
-  public SingleSignOnUserCreate timeZone(String timeZone) {
+  public SingleSignOnUserCreate timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,20 +128,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public SingleSignOnUserCreate language(String language) {
+  public SingleSignOnUserCreate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s preferred language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,20 +153,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public SingleSignOnUserCreate state(CreationEntityState state) {
+  public SingleSignOnUserCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,20 +178,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public SingleSignOnUserCreate lastname(String lastname) {
+  public SingleSignOnUserCreate lastname(@javax.annotation.Nullable String lastname) {
     
     this.lastname = lastname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s last name.
    * @return lastname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,20 +203,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastname(String lastname) {
+  public void setLastname(@javax.annotation.Nullable String lastname) {
     this.lastname = lastname;
   }
 
-  public SingleSignOnUserCreate provider(Long provider) {
+  public SingleSignOnUserCreate provider(@javax.annotation.Nonnull Long provider) {
     
     this.provider = provider;
     return this;
   }
 
-   /**
+  /**
    * The single sign-on provider that this user belongs to.
    * @return provider
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -221,20 +228,20 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProvider(Long provider) {
+  public void setProvider(@javax.annotation.Nonnull Long provider) {
     this.provider = provider;
   }
 
-  public SingleSignOnUserCreate primaryAccount(Long primaryAccount) {
+  public SingleSignOnUserCreate primaryAccount(@javax.annotation.Nullable Long primaryAccount) {
     
     this.primaryAccount = primaryAccount;
     return this;
   }
 
-   /**
+  /**
    * The primary account that the user belongs to.
    * @return primaryAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +253,7 @@ public class SingleSignOnUserCreate {
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrimaryAccount(Long primaryAccount) {
+  public void setPrimaryAccount(@javax.annotation.Nullable Long primaryAccount) {
     this.primaryAccount = primaryAccount;
   }
 

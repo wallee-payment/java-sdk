@@ -51,28 +51,34 @@ import java.util.StringJoiner;
 
 public class PaymentAdjustment {
   public static final String JSON_PROPERTY_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountExcludingTax;
 
   public static final String JSON_PROPERTY_RATE_IN_PERCENTAGE = "rateInPercentage";
+  @javax.annotation.Nullable
   private BigDecimal rateInPercentage;
 
   public static final String JSON_PROPERTY_TAX = "tax";
+  @javax.annotation.Nullable
   private Tax tax;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountIncludingTax;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public PaymentAdjustment() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentAdjustment(
     @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX) BigDecimal amountExcludingTax, 
@@ -89,10 +95,10 @@ public class PaymentAdjustment {
     this.type = type;
   }
 
-   /**
+  /**
    * The adjustment&#39;s amount, excluding taxes.
    * @return amountExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,11 +109,11 @@ public class PaymentAdjustment {
 
 
 
-   /**
+  /**
    * The percentage rate used to calculate the adjustment amount.
    * maximum: 100
    * @return rateInPercentage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RATE_IN_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,16 +124,16 @@ public class PaymentAdjustment {
 
 
 
-  public PaymentAdjustment tax(Tax tax) {
+  public PaymentAdjustment tax(@javax.annotation.Nullable Tax tax) {
     
     this.tax = tax;
     return this;
   }
 
-   /**
+  /**
    * Get tax
    * @return tax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,14 +145,14 @@ public class PaymentAdjustment {
 
   @JsonProperty(JSON_PROPERTY_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTax(Tax tax) {
+  public void setTax(@javax.annotation.Nullable Tax tax) {
     this.tax = tax;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +163,10 @@ public class PaymentAdjustment {
 
 
 
-   /**
+  /**
    * The adjustment&#39;s amount, including taxes.
    * @return amountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +177,10 @@ public class PaymentAdjustment {
 
 
 
-   /**
+  /**
    * The type of the adjustment.
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

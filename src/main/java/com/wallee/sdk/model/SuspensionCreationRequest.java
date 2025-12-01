@@ -48,27 +48,30 @@ import java.util.StringJoiner;
 
 public class SuspensionCreationRequest {
   public static final String JSON_PROPERTY_NOTE = "note";
+  @javax.annotation.Nullable
   private String note;
 
   public static final String JSON_PROPERTY_END_ACTION = "endAction";
+  @javax.annotation.Nullable
   private SubscriptionSuspensionAction endAction;
 
   public static final String JSON_PROPERTY_PLANNED_END_DATE = "plannedEndDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedEndDate;
 
   public SuspensionCreationRequest() {
   }
 
-  public SuspensionCreationRequest note(String note) {
+  public SuspensionCreationRequest note(@javax.annotation.Nullable String note) {
     
     this.note = note;
     return this;
   }
 
-   /**
+  /**
    * A note that contains details about the suspension. It is not disclosed to the subscriber.
    * @return note
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,20 +83,20 @@ public class SuspensionCreationRequest {
 
   @JsonProperty(JSON_PROPERTY_NOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNote(String note) {
+  public void setNote(@javax.annotation.Nullable String note) {
     this.note = note;
   }
 
-  public SuspensionCreationRequest endAction(SubscriptionSuspensionAction endAction) {
+  public SuspensionCreationRequest endAction(@javax.annotation.Nullable SubscriptionSuspensionAction endAction) {
     
     this.endAction = endAction;
     return this;
   }
 
-   /**
+  /**
    * Get endAction
    * @return endAction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,20 +108,20 @@ public class SuspensionCreationRequest {
 
   @JsonProperty(JSON_PROPERTY_END_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndAction(SubscriptionSuspensionAction endAction) {
+  public void setEndAction(@javax.annotation.Nullable SubscriptionSuspensionAction endAction) {
     this.endAction = endAction;
   }
 
-  public SuspensionCreationRequest plannedEndDate(OffsetDateTime plannedEndDate) {
+  public SuspensionCreationRequest plannedEndDate(@javax.annotation.Nullable OffsetDateTime plannedEndDate) {
     
     this.plannedEndDate = plannedEndDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the suspension is planned to end.
    * @return plannedEndDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -130,7 +133,7 @@ public class SuspensionCreationRequest {
 
   @JsonProperty(JSON_PROPERTY_PLANNED_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlannedEndDate(OffsetDateTime plannedEndDate) {
+  public void setPlannedEndDate(@javax.annotation.Nullable OffsetDateTime plannedEndDate) {
     this.plannedEndDate = plannedEndDate;
   }
 

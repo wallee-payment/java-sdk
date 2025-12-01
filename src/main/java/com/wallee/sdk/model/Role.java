@@ -60,34 +60,42 @@ import java.util.StringJoiner;
 
 public class Role {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+  @javax.annotation.Nullable
   private Set<Permission> permissions = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private RoleState state;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @javax.annotation.Nullable
   private Account account;
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
+  @javax.annotation.Nullable
   private Boolean twoFactorRequired;
 
   public Role() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Role(
     @JsonProperty(JSON_PROPERTY_PERMISSIONS) Set<Permission> permissions, 
@@ -106,10 +114,10 @@ public class Role {
     this.twoFactorRequired = twoFactorRequired;
   }
 
-   /**
+  /**
    * The permissions granted to users with this role.
    * @return permissions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,10 +128,10 @@ public class Role {
 
 
 
-   /**
+  /**
    * The name used to identify the role.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,10 +142,10 @@ public class Role {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,10 +156,10 @@ public class Role {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,16 +170,16 @@ public class Role {
 
 
 
-  public Role state(RoleState state) {
+  public Role state(@javax.annotation.Nullable RoleState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,14 +191,14 @@ public class Role {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(RoleState state) {
+  public void setState(@javax.annotation.Nullable RoleState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,16 +209,16 @@ public class Role {
 
 
 
-  public Role account(Account account) {
+  public Role account(@javax.annotation.Nullable Account account) {
     
     this.account = account;
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,14 +230,14 @@ public class Role {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccount(Account account) {
+  public void setAccount(@javax.annotation.Nullable Account account) {
     this.account = account;
   }
 
-   /**
+  /**
    * Whether users with this role are required to use two-factor authentication.
    * @return twoFactorRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

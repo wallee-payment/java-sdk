@@ -54,25 +54,30 @@ import java.util.StringJoiner;
 
 public class ProductMeteredTierFee {
   public static final String JSON_PROPERTY_START_RANGE = "startRange";
+  @javax.annotation.Nullable
   private BigDecimal startRange;
 
   public static final String JSON_PROPERTY_METERED_FEE = "meteredFee";
+  @javax.annotation.Nullable
   private ProductMeteredFee meteredFee;
 
   public static final String JSON_PROPERTY_FEE = "fee";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmount> fee = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public ProductMeteredTierFee() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ProductMeteredTierFee(
     @JsonProperty(JSON_PROPERTY_START_RANGE) BigDecimal startRange, 
@@ -87,10 +92,10 @@ public class ProductMeteredTierFee {
     this.version = version;
   }
 
-   /**
+  /**
    * Starting from and including this quantity is contained in the tier.
    * @return startRange
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,16 +106,16 @@ public class ProductMeteredTierFee {
 
 
 
-  public ProductMeteredTierFee meteredFee(ProductMeteredFee meteredFee) {
+  public ProductMeteredTierFee meteredFee(@javax.annotation.Nullable ProductMeteredFee meteredFee) {
     
     this.meteredFee = meteredFee;
     return this;
   }
 
-   /**
+  /**
    * Get meteredFee
    * @return meteredFee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METERED_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,14 +127,14 @@ public class ProductMeteredTierFee {
 
   @JsonProperty(JSON_PROPERTY_METERED_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeteredFee(ProductMeteredFee meteredFee) {
+  public void setMeteredFee(@javax.annotation.Nullable ProductMeteredFee meteredFee) {
     this.meteredFee = meteredFee;
   }
 
-   /**
+  /**
    * The amount charged to the customer for each consumed unit at the end of a billing cycle.
    * @return fee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,10 +145,10 @@ public class ProductMeteredTierFee {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,10 +159,10 @@ public class ProductMeteredTierFee {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

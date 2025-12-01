@@ -45,6 +45,7 @@ import java.util.Set;
 import com.wallee.sdk.model.TransactionCompletion;
 import com.wallee.sdk.model.TransactionVoid;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -70,7 +71,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentWebAppsConnectorsConnectorExternalId">Delete a connector Documentation</a>
    */
-  public void deletePaymentWebAppsConnectorsConnectorExternalId(String connectorExternalId, Long space) throws ApiException {
+  public void deletePaymentWebAppsConnectorsConnectorExternalId(@javax.annotation.Nonnull String connectorExternalId, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentWebAppsConnectorsConnectorExternalId(connectorExternalId, space, Collections.emptyMap());
   }
 
@@ -86,7 +87,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentWebAppsConnectorsConnectorExternalId">Delete a connector Documentation</a>
    */
-  public void deletePaymentWebAppsConnectorsConnectorExternalId(String connectorExternalId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentWebAppsConnectorsConnectorExternalId(@javax.annotation.Nonnull String connectorExternalId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'connectorExternalId' is set
@@ -101,7 +102,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/connectors/{connectorExternalId}"
-      .replaceAll("\\{" + "connectorExternalId" + "\\}", apiClient.escapeString(connectorExternalId.toString()));
+      .replaceAll("\\{" + "connectorExternalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(connectorExternalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -142,8 +143,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -157,7 +158,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentWebAppsProcessorsExternalId">Delete a processor Documentation</a>
    */
-  public void deletePaymentWebAppsProcessorsExternalId(String externalId, Long space) throws ApiException {
+  public void deletePaymentWebAppsProcessorsExternalId(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentWebAppsProcessorsExternalId(externalId, space, Collections.emptyMap());
   }
 
@@ -173,7 +174,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentWebAppsProcessorsExternalId">Delete a processor Documentation</a>
    */
-  public void deletePaymentWebAppsProcessorsExternalId(String externalId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentWebAppsProcessorsExternalId(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'externalId' is set
@@ -188,7 +189,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/processors/{externalId}"
-      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(externalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -229,8 +230,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -247,7 +248,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsChargeAttemptsId">Update a charge attempt Documentation</a>
    */
-  public ChargeAttempt patchPaymentWebAppsChargeAttemptsId(Long id, Long space, PaymentAppChargeAttemptUpdate paymentAppChargeAttemptUpdate, Set<String> expand) throws ApiException {
+  public ChargeAttempt patchPaymentWebAppsChargeAttemptsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppChargeAttemptUpdate paymentAppChargeAttemptUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsChargeAttemptsId(id, space, paymentAppChargeAttemptUpdate, expand, Collections.emptyMap());
   }
 
@@ -266,7 +267,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsChargeAttemptsId">Update a charge attempt Documentation</a>
    */
-  public ChargeAttempt patchPaymentWebAppsChargeAttemptsId(Long id, Long space, PaymentAppChargeAttemptUpdate paymentAppChargeAttemptUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ChargeAttempt patchPaymentWebAppsChargeAttemptsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppChargeAttemptUpdate paymentAppChargeAttemptUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppChargeAttemptUpdate;
     
     // verify the required parameter 'id' is set
@@ -286,7 +287,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/charge-attempts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -329,8 +330,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -347,7 +348,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsCompletionsId">Update a completion Documentation</a>
    */
-  public TransactionCompletion patchPaymentWebAppsCompletionsId(Long id, Long space, PaymentAppCompletionUpdate paymentAppCompletionUpdate, Set<String> expand) throws ApiException {
+  public TransactionCompletion patchPaymentWebAppsCompletionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppCompletionUpdate paymentAppCompletionUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsCompletionsId(id, space, paymentAppCompletionUpdate, expand, Collections.emptyMap());
   }
 
@@ -366,7 +367,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsCompletionsId">Update a completion Documentation</a>
    */
-  public TransactionCompletion patchPaymentWebAppsCompletionsId(Long id, Long space, PaymentAppCompletionUpdate paymentAppCompletionUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCompletion patchPaymentWebAppsCompletionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppCompletionUpdate paymentAppCompletionUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppCompletionUpdate;
     
     // verify the required parameter 'id' is set
@@ -386,7 +387,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/completions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -429,8 +430,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -447,7 +448,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsConnectorsConnectorExternalId">Update a connector Documentation</a>
    */
-  public PaymentAppConnector patchPaymentWebAppsConnectorsConnectorExternalId(String connectorExternalId, Long space, PaymentAppConnectorDetails paymentAppConnectorDetails, Set<String> expand) throws ApiException {
+  public PaymentAppConnector patchPaymentWebAppsConnectorsConnectorExternalId(@javax.annotation.Nonnull String connectorExternalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppConnectorDetails paymentAppConnectorDetails, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsConnectorsConnectorExternalId(connectorExternalId, space, paymentAppConnectorDetails, expand, Collections.emptyMap());
   }
 
@@ -466,7 +467,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsConnectorsConnectorExternalId">Update a connector Documentation</a>
    */
-  public PaymentAppConnector patchPaymentWebAppsConnectorsConnectorExternalId(String connectorExternalId, Long space, PaymentAppConnectorDetails paymentAppConnectorDetails, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentAppConnector patchPaymentWebAppsConnectorsConnectorExternalId(@javax.annotation.Nonnull String connectorExternalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppConnectorDetails paymentAppConnectorDetails, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppConnectorDetails;
     
     // verify the required parameter 'connectorExternalId' is set
@@ -486,7 +487,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/connectors/{connectorExternalId}"
-      .replaceAll("\\{" + "connectorExternalId" + "\\}", apiClient.escapeString(connectorExternalId.toString()));
+      .replaceAll("\\{" + "connectorExternalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(connectorExternalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -529,8 +530,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -547,7 +548,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsProcessorsExternalId">Update a processor Documentation</a>
    */
-  public PaymentAppProcessor patchPaymentWebAppsProcessorsExternalId(String externalId, Long space, PaymentAppProcessorDetails paymentAppProcessorDetails, Set<String> expand) throws ApiException {
+  public PaymentAppProcessor patchPaymentWebAppsProcessorsExternalId(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppProcessorDetails paymentAppProcessorDetails, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsProcessorsExternalId(externalId, space, paymentAppProcessorDetails, expand, Collections.emptyMap());
   }
 
@@ -566,7 +567,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsProcessorsExternalId">Update a processor Documentation</a>
    */
-  public PaymentAppProcessor patchPaymentWebAppsProcessorsExternalId(String externalId, Long space, PaymentAppProcessorDetails paymentAppProcessorDetails, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentAppProcessor patchPaymentWebAppsProcessorsExternalId(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppProcessorDetails paymentAppProcessorDetails, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppProcessorDetails;
     
     // verify the required parameter 'externalId' is set
@@ -586,7 +587,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/processors/{externalId}"
-      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(externalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -629,8 +630,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -647,7 +648,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsRefundsId">Update a refund Documentation</a>
    */
-  public Refund patchPaymentWebAppsRefundsId(Long id, Long space, PaymentAppRefundUpdate paymentAppRefundUpdate, Set<String> expand) throws ApiException {
+  public Refund patchPaymentWebAppsRefundsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppRefundUpdate paymentAppRefundUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsRefundsId(id, space, paymentAppRefundUpdate, expand, Collections.emptyMap());
   }
 
@@ -666,7 +667,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsRefundsId">Update a refund Documentation</a>
    */
-  public Refund patchPaymentWebAppsRefundsId(Long id, Long space, PaymentAppRefundUpdate paymentAppRefundUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Refund patchPaymentWebAppsRefundsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppRefundUpdate paymentAppRefundUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppRefundUpdate;
     
     // verify the required parameter 'id' is set
@@ -686,7 +687,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/refunds/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -729,8 +730,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -747,7 +748,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsVoidsId">Update a void Documentation</a>
    */
-  public TransactionVoid patchPaymentWebAppsVoidsId(Long id, Long space, PaymentAppVoidUpdate paymentAppVoidUpdate, Set<String> expand) throws ApiException {
+  public TransactionVoid patchPaymentWebAppsVoidsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppVoidUpdate paymentAppVoidUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentWebAppsVoidsId(id, space, paymentAppVoidUpdate, expand, Collections.emptyMap());
   }
 
@@ -766,7 +767,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentWebAppsVoidsId">Update a void Documentation</a>
    */
-  public TransactionVoid patchPaymentWebAppsVoidsId(Long id, Long space, PaymentAppVoidUpdate paymentAppVoidUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionVoid patchPaymentWebAppsVoidsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppVoidUpdate paymentAppVoidUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppVoidUpdate;
     
     // verify the required parameter 'id' is set
@@ -786,7 +787,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/voids/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -829,8 +830,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -846,7 +847,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessors">Create a processor Documentation</a>
    */
-  public PaymentAppProcessor postPaymentWebAppsProcessors(Long space, PaymentAppProcessorDetailsCreate paymentAppProcessorDetailsCreate, Set<String> expand) throws ApiException {
+  public PaymentAppProcessor postPaymentWebAppsProcessors(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppProcessorDetailsCreate paymentAppProcessorDetailsCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentWebAppsProcessors(space, paymentAppProcessorDetailsCreate, expand, Collections.emptyMap());
   }
 
@@ -864,7 +865,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessors">Create a processor Documentation</a>
    */
-  public PaymentAppProcessor postPaymentWebAppsProcessors(Long space, PaymentAppProcessorDetailsCreate paymentAppProcessorDetailsCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentAppProcessor postPaymentWebAppsProcessors(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppProcessorDetailsCreate paymentAppProcessorDetailsCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppProcessorDetailsCreate;
     
     // verify the required parameter 'space' is set
@@ -921,8 +922,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -938,7 +939,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessorsExternalIdActivateForProduction">Activate a processor for production Documentation</a>
    */
-  public PaymentAppProcessor postPaymentWebAppsProcessorsExternalIdActivateForProduction(String externalId, Long space, Set<String> expand) throws ApiException {
+  public PaymentAppProcessor postPaymentWebAppsProcessorsExternalIdActivateForProduction(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentWebAppsProcessorsExternalIdActivateForProduction(externalId, space, expand, Collections.emptyMap());
   }
 
@@ -956,7 +957,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessorsExternalIdActivateForProduction">Activate a processor for production Documentation</a>
    */
-  public PaymentAppProcessor postPaymentWebAppsProcessorsExternalIdActivateForProduction(String externalId, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentAppProcessor postPaymentWebAppsProcessorsExternalIdActivateForProduction(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'externalId' is set
@@ -971,7 +972,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/processors/{externalId}/activate-for-production"
-      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(externalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1014,8 +1015,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1032,7 +1033,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessorsExternalIdConnectors">Create a connector Documentation</a>
    */
-  public PaymentAppConnector postPaymentWebAppsProcessorsExternalIdConnectors(String externalId, Long space, PaymentAppConnectorDetailsCreate paymentAppConnectorDetailsCreate, Set<String> expand) throws ApiException {
+  public PaymentAppConnector postPaymentWebAppsProcessorsExternalIdConnectors(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppConnectorDetailsCreate paymentAppConnectorDetailsCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentWebAppsProcessorsExternalIdConnectors(externalId, space, paymentAppConnectorDetailsCreate, expand, Collections.emptyMap());
   }
 
@@ -1051,7 +1052,7 @@ public class PaymentWebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentWebAppsProcessorsExternalIdConnectors">Create a connector Documentation</a>
    */
-  public PaymentAppConnector postPaymentWebAppsProcessorsExternalIdConnectors(String externalId, Long space, PaymentAppConnectorDetailsCreate paymentAppConnectorDetailsCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentAppConnector postPaymentWebAppsProcessorsExternalIdConnectors(@javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentAppConnectorDetailsCreate paymentAppConnectorDetailsCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentAppConnectorDetailsCreate;
     
     // verify the required parameter 'externalId' is set
@@ -1071,7 +1072,7 @@ public class PaymentWebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/web-apps/processors/{externalId}/connectors"
-      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(externalId.toString()));
+      .replaceAll("\\{" + "externalId" + "\\}", apiClient.escapeString(apiClient.parameterToString(externalId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1114,8 +1115,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1155,8 +1156,8 @@ public class PaymentWebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

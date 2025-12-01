@@ -47,27 +47,30 @@ import java.util.StringJoiner;
 
 public class PaymentAppVoidUpdate {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_TARGET_STATE = "targetState";
+  @javax.annotation.Nullable
   private PaymentAppVoidTargetState targetState;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private Long failureReason;
 
   public PaymentAppVoidUpdate() {
   }
 
-  public PaymentAppVoidUpdate reference(String reference) {
+  public PaymentAppVoidUpdate reference(@javax.annotation.Nullable String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A unique identifier for the void within the systems of the external service provider. This field is mandatory when the target state is set to &#39;SUCCESSFUL&#39;.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,20 +82,20 @@ public class PaymentAppVoidUpdate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
-  public PaymentAppVoidUpdate targetState(PaymentAppVoidTargetState targetState) {
+  public PaymentAppVoidUpdate targetState(@javax.annotation.Nullable PaymentAppVoidTargetState targetState) {
     
     this.targetState = targetState;
     return this;
   }
 
-   /**
+  /**
    * Get targetState
    * @return targetState
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,20 +107,20 @@ public class PaymentAppVoidUpdate {
 
   @JsonProperty(JSON_PROPERTY_TARGET_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetState(PaymentAppVoidTargetState targetState) {
+  public void setTargetState(@javax.annotation.Nullable PaymentAppVoidTargetState targetState) {
     this.targetState = targetState;
   }
 
-  public PaymentAppVoidUpdate failureReason(Long failureReason) {
+  public PaymentAppVoidUpdate failureReason(@javax.annotation.Nullable Long failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * The reason for the void&#39;s failure. This field is mandatory when the target state is set to &#39;FAILED&#39;.
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,7 +132,7 @@ public class PaymentAppVoidUpdate {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(Long failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable Long failureReason) {
     this.failureReason = failureReason;
   }
 

@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class AbstractAccountUpdate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_SUBACCOUNT_LIMIT = "subaccountLimit";
+  @javax.annotation.Nullable
   private Long subaccountLimit;
 
   public AbstractAccountUpdate() {
   }
 
-  public AbstractAccountUpdate name(String name) {
+  public AbstractAccountUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the account.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class AbstractAccountUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AbstractAccountUpdate subaccountLimit(Long subaccountLimit) {
+  public AbstractAccountUpdate subaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     
     this.subaccountLimit = subaccountLimit;
     return this;
   }
 
-   /**
+  /**
    * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +102,7 @@ public class AbstractAccountUpdate {
 
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubaccountLimit(Long subaccountLimit) {
+  public void setSubaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     this.subaccountLimit = subaccountLimit;
   }
 

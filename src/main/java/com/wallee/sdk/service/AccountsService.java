@@ -37,6 +37,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAccountsId">Delete an account Documentation</a>
    */
-  public void deleteAccountsId(Long id) throws ApiException {
+  public void deleteAccountsId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteAccountsId(id, Collections.emptyMap());
   }
 
@@ -76,7 +77,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteAccountsId">Delete an account Documentation</a>
    */
-  public void deleteAccountsId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteAccountsId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -86,7 +87,7 @@ public class AccountsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/accounts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -125,8 +126,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -144,7 +145,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccounts">List all accounts Documentation</a>
    */
-  public AccountListResponse getAccounts(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public AccountListResponse getAccounts(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getAccounts(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -164,7 +165,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccounts">List all accounts Documentation</a>
    */
-  public AccountListResponse getAccounts(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountListResponse getAccounts(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -213,8 +214,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -229,7 +230,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccountsId">Retrieve an account Documentation</a>
    */
-  public Account getAccountsId(Long id, Set<String> expand) throws ApiException {
+  public Account getAccountsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getAccountsId(id, expand, Collections.emptyMap());
   }
 
@@ -246,7 +247,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccountsId">Retrieve an account Documentation</a>
    */
-  public Account getAccountsId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Account getAccountsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -256,7 +257,7 @@ public class AccountsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/accounts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -297,8 +298,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -316,7 +317,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccountsSearch">Search accounts Documentation</a>
    */
-  public AccountSearchResponse getAccountsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public AccountSearchResponse getAccountsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getAccountsSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -336,7 +337,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getAccountsSearch">Search accounts Documentation</a>
    */
-  public AccountSearchResponse getAccountsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public AccountSearchResponse getAccountsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,8 +386,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -402,7 +403,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchAccountsId">Update an account Documentation</a>
    */
-  public Account patchAccountsId(Long id, AccountUpdate accountUpdate, Set<String> expand) throws ApiException {
+  public Account patchAccountsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull AccountUpdate accountUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchAccountsId(id, accountUpdate, expand, Collections.emptyMap());
   }
 
@@ -420,7 +421,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchAccountsId">Update an account Documentation</a>
    */
-  public Account patchAccountsId(Long id, AccountUpdate accountUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Account patchAccountsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull AccountUpdate accountUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = accountUpdate;
     
     // verify the required parameter 'id' is set
@@ -435,7 +436,7 @@ public class AccountsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/accounts/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -476,8 +477,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -492,7 +493,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccounts">Create an account Documentation</a>
    */
-  public Account postAccounts(AccountCreate accountCreate, Set<String> expand) throws ApiException {
+  public Account postAccounts(@javax.annotation.Nonnull AccountCreate accountCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postAccounts(accountCreate, expand, Collections.emptyMap());
   }
 
@@ -509,7 +510,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccounts">Create an account Documentation</a>
    */
-  public Account postAccounts(AccountCreate accountCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Account postAccounts(@javax.annotation.Nonnull AccountCreate accountCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = accountCreate;
     
     // verify the required parameter 'accountCreate' is set
@@ -559,8 +560,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -573,7 +574,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccountsIdActivate">Activate an account Documentation</a>
    */
-  public void postAccountsIdActivate(Long id) throws ApiException {
+  public void postAccountsIdActivate(@javax.annotation.Nonnull Long id) throws ApiException {
     this.postAccountsIdActivate(id, Collections.emptyMap());
   }
 
@@ -588,7 +589,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccountsIdActivate">Activate an account Documentation</a>
    */
-  public void postAccountsIdActivate(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void postAccountsIdActivate(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -598,7 +599,7 @@ public class AccountsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/accounts/{id}/activate"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -637,8 +638,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -651,7 +652,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccountsIdDeactivate">Deactivate an account Documentation</a>
    */
-  public void postAccountsIdDeactivate(Long id) throws ApiException {
+  public void postAccountsIdDeactivate(@javax.annotation.Nonnull Long id) throws ApiException {
     this.postAccountsIdDeactivate(id, Collections.emptyMap());
   }
 
@@ -666,7 +667,7 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccountsIdDeactivate">Deactivate an account Documentation</a>
    */
-  public void postAccountsIdDeactivate(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void postAccountsIdDeactivate(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -676,7 +677,7 @@ public class AccountsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/accounts/{id}/deactivate"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -715,8 +716,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -756,8 +757,8 @@ public class AccountsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

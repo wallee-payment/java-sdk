@@ -59,34 +59,42 @@ import java.util.StringJoiner;
 
 public class LabelDescriptor {
   public static final String JSON_PROPERTY_FEATURES = "features";
+  @javax.annotation.Nullable
   private Set<Feature> features = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_WEIGHT = "weight";
+  @javax.annotation.Nullable
   private Integer weight;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
+  @javax.annotation.Nullable
   private LabelDescriptorCategory category;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @javax.annotation.Nullable
   private LabelDescriptorGroup group;
 
   public LabelDescriptor() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LabelDescriptor(
     @JsonProperty(JSON_PROPERTY_FEATURES) Set<Feature> features, 
@@ -105,10 +113,10 @@ public class LabelDescriptor {
     this.type = type;
   }
 
-   /**
+  /**
    * The features that this label belongs to.
    * @return features
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +127,10 @@ public class LabelDescriptor {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,10 +141,10 @@ public class LabelDescriptor {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,10 +155,10 @@ public class LabelDescriptor {
 
 
 
-   /**
+  /**
    * When listing labels, they can be sorted by this number.
    * @return weight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,10 +169,10 @@ public class LabelDescriptor {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,16 +183,16 @@ public class LabelDescriptor {
 
 
 
-  public LabelDescriptor category(LabelDescriptorCategory category) {
+  public LabelDescriptor category(@javax.annotation.Nullable LabelDescriptorCategory category) {
     
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    * Get category
    * @return category
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,14 +204,14 @@ public class LabelDescriptor {
 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCategory(LabelDescriptorCategory category) {
+  public void setCategory(@javax.annotation.Nullable LabelDescriptorCategory category) {
     this.category = category;
   }
 
-   /**
+  /**
    * The type of the label&#39;s value.
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,16 +222,16 @@ public class LabelDescriptor {
 
 
 
-  public LabelDescriptor group(LabelDescriptorGroup group) {
+  public LabelDescriptor group(@javax.annotation.Nullable LabelDescriptorGroup group) {
     
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Get group
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,7 +243,7 @@ public class LabelDescriptor {
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(LabelDescriptorGroup group) {
+  public void setGroup(@javax.annotation.Nullable LabelDescriptorGroup group) {
     this.group = group;
   }
 

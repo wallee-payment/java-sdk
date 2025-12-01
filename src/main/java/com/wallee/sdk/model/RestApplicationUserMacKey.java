@@ -48,19 +48,22 @@ import java.util.StringJoiner;
 
 public class RestApplicationUserMacKey {
   public static final String JSON_PROPERTY_CREATION_TIME = "creationTime";
+  @javax.annotation.Nullable
   private OffsetDateTime creationTime;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ApplicationKeyState state;
 
   public RestApplicationUserMacKey() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestApplicationUserMacKey(
     @JsonProperty(JSON_PROPERTY_CREATION_TIME) OffsetDateTime creationTime, 
@@ -71,10 +74,10 @@ public class RestApplicationUserMacKey {
     this.id = id;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return creationTime
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATION_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,10 +88,10 @@ public class RestApplicationUserMacKey {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,16 +102,16 @@ public class RestApplicationUserMacKey {
 
 
 
-  public RestApplicationUserMacKey state(ApplicationKeyState state) {
+  public RestApplicationUserMacKey state(@javax.annotation.Nullable ApplicationKeyState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,7 +123,7 @@ public class RestApplicationUserMacKey {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ApplicationKeyState state) {
+  public void setState(@javax.annotation.Nullable ApplicationKeyState state) {
     this.state = state;
   }
 

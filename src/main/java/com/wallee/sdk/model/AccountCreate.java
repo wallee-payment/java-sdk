@@ -48,30 +48,34 @@ import java.util.StringJoiner;
 
 public class AccountCreate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_SUBACCOUNT_LIMIT = "subaccountLimit";
+  @javax.annotation.Nullable
   private Long subaccountLimit;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nonnull
   private Long scope;
 
   public static final String JSON_PROPERTY_PARENT_ACCOUNT = "parentAccount";
+  @javax.annotation.Nullable
   private Long parentAccount;
 
   public AccountCreate() {
   }
 
-  public AccountCreate name(String name) {
+  public AccountCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the account.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,20 +87,20 @@ public class AccountCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AccountCreate subaccountLimit(Long subaccountLimit) {
+  public AccountCreate subaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     
     this.subaccountLimit = subaccountLimit;
     return this;
   }
 
-   /**
+  /**
    * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,20 +112,20 @@ public class AccountCreate {
 
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubaccountLimit(Long subaccountLimit) {
+  public void setSubaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     this.subaccountLimit = subaccountLimit;
   }
 
-  public AccountCreate scope(Long scope) {
+  public AccountCreate scope(@javax.annotation.Nonnull Long scope) {
     
     this.scope = scope;
     return this;
   }
 
-   /**
+  /**
    * The scope that the account belongs to.
    * @return scope
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -133,20 +137,20 @@ public class AccountCreate {
 
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setScope(Long scope) {
+  public void setScope(@javax.annotation.Nonnull Long scope) {
     this.scope = scope;
   }
 
-  public AccountCreate parentAccount(Long parentAccount) {
+  public AccountCreate parentAccount(@javax.annotation.Nullable Long parentAccount) {
     
     this.parentAccount = parentAccount;
     return this;
   }
 
-   /**
+  /**
    * The parent account responsible for administering this account.
    * @return parentAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARENT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +162,7 @@ public class AccountCreate {
 
   @JsonProperty(JSON_PROPERTY_PARENT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentAccount(Long parentAccount) {
+  public void setParentAccount(@javax.annotation.Nullable Long parentAccount) {
     this.parentAccount = parentAccount;
   }
 

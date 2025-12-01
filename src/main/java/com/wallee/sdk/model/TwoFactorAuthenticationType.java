@@ -50,25 +50,30 @@ import java.util.StringJoiner;
 
 public class TwoFactorAuthenticationType {
   public static final String JSON_PROPERTY_FEATURE = "feature";
+  @javax.annotation.Nullable
   private Long feature;
 
   public static final String JSON_PROPERTY_ICON = "icon";
+  @javax.annotation.Nullable
   private String icon;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public TwoFactorAuthenticationType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TwoFactorAuthenticationType(
     @JsonProperty(JSON_PROPERTY_FEATURE) Long feature, 
@@ -85,10 +90,10 @@ public class TwoFactorAuthenticationType {
     this.id = id;
   }
 
-   /**
+  /**
    * The feature that this type belongs to.
    * @return feature
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,10 +104,10 @@ public class TwoFactorAuthenticationType {
 
 
 
-   /**
+  /**
    * The identifier of the icon representing this type.
    * @return icon
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,10 +118,10 @@ public class TwoFactorAuthenticationType {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,10 +132,10 @@ public class TwoFactorAuthenticationType {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,10 +146,10 @@ public class TwoFactorAuthenticationType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

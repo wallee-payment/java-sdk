@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class FailureReason {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
+  @javax.annotation.Nullable
   private FailureCategory category;
 
   public FailureReason() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public FailureReason(
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
@@ -78,10 +82,10 @@ public class FailureReason {
     this.id = id;
   }
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,10 +96,10 @@ public class FailureReason {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,10 +110,10 @@ public class FailureReason {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -120,16 +124,16 @@ public class FailureReason {
 
 
 
-  public FailureReason category(FailureCategory category) {
+  public FailureReason category(@javax.annotation.Nullable FailureCategory category) {
     
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    * Get category
    * @return category
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,7 +145,7 @@ public class FailureReason {
 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCategory(FailureCategory category) {
+  public void setCategory(@javax.annotation.Nullable FailureCategory category) {
     this.category = category;
   }
 

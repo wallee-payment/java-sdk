@@ -55,39 +55,46 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductActive {
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PRODUCT_LOCKED = "productLocked";
+  @javax.annotation.Nullable
   private Boolean productLocked;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionProductState state;
 
   public static final String JSON_PROPERTY_FAILED_PAYMENT_SUSPENSION_PERIOD = "failedPaymentSuspensionPeriod";
+  @javax.annotation.Nullable
   private String failedPaymentSuspensionPeriod;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "allowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public SubscriptionProductActive() {
   }
 
-  public SubscriptionProductActive sortOrder(Integer sortOrder) {
+  public SubscriptionProductActive sortOrder(@javax.annotation.Nullable Integer sortOrder) {
     
     this.sortOrder = sortOrder;
     return this;
   }
 
-   /**
+  /**
    * When listing products, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,20 +106,20 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSortOrder(Integer sortOrder) {
+  public void setSortOrder(@javax.annotation.Nullable Integer sortOrder) {
     this.sortOrder = sortOrder;
   }
 
-  public SubscriptionProductActive name(String name) {
+  public SubscriptionProductActive name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the product.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,20 +131,20 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public SubscriptionProductActive productLocked(Boolean productLocked) {
+  public SubscriptionProductActive productLocked(@javax.annotation.Nullable Boolean productLocked) {
     
     this.productLocked = productLocked;
     return this;
   }
 
-   /**
+  /**
    * Whether subscriptions can be switched to or from this product, or whether they are locked in.
    * @return productLocked
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,20 +156,20 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProductLocked(Boolean productLocked) {
+  public void setProductLocked(@javax.annotation.Nullable Boolean productLocked) {
     this.productLocked = productLocked;
   }
 
-  public SubscriptionProductActive state(SubscriptionProductState state) {
+  public SubscriptionProductActive state(@javax.annotation.Nullable SubscriptionProductState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,20 +181,20 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionProductState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionProductState state) {
     this.state = state;
   }
 
-  public SubscriptionProductActive failedPaymentSuspensionPeriod(String failedPaymentSuspensionPeriod) {
+  public SubscriptionProductActive failedPaymentSuspensionPeriod(@javax.annotation.Nullable String failedPaymentSuspensionPeriod) {
     
     this.failedPaymentSuspensionPeriod = failedPaymentSuspensionPeriod;
     return this;
   }
 
-   /**
+  /**
    * The period after which a subscription that has been suspended due to a failed payment is terminated.
    * @return failedPaymentSuspensionPeriod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_PAYMENT_SUSPENSION_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,11 +206,11 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_FAILED_PAYMENT_SUSPENSION_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailedPaymentSuspensionPeriod(String failedPaymentSuspensionPeriod) {
+  public void setFailedPaymentSuspensionPeriod(@javax.annotation.Nullable String failedPaymentSuspensionPeriod) {
     this.failedPaymentSuspensionPeriod = failedPaymentSuspensionPeriod;
   }
 
-  public SubscriptionProductActive allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+  public SubscriptionProductActive allowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> allowedPaymentMethodConfigurations) {
     
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
     return this;
@@ -217,10 +224,10 @@ public class SubscriptionProductActive {
     return this;
   }
 
-   /**
+  /**
    * The payment methods that can be used to subscribe to this product. If none are selected, no restriction is applied.
    * @return allowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,20 +239,20 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+  public void setAllowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> allowedPaymentMethodConfigurations) {
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
   }
 
-  public SubscriptionProductActive version(Integer version) {
+  public SubscriptionProductActive version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -257,7 +264,7 @@ public class SubscriptionProductActive {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

@@ -46,16 +46,18 @@ import java.util.StringJoiner;
 
 public class PersistableCurrencyAmount {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public PersistableCurrencyAmount() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PersistableCurrencyAmount(
     @JsonProperty(JSON_PROPERTY_AMOUNT) BigDecimal amount, 
@@ -66,10 +68,10 @@ public class PersistableCurrencyAmount {
     this.currency = currency;
   }
 
-   /**
+  /**
    * Get amount
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,10 +82,10 @@ public class PersistableCurrencyAmount {
 
 
 
-   /**
+  /**
    * Get currency
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

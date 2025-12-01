@@ -58,43 +58,54 @@ import java.util.StringJoiner;
 
 public class PaymentTerminalLocationVersion {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
   private PaymentTerminalAddress address;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_CONTACT_ADDRESS = "contactAddress";
+  @javax.annotation.Nullable
   private PaymentTerminalAddress contactAddress;
 
   public static final String JSON_PROPERTY_LOCATION = "location";
+  @javax.annotation.Nullable
   private PaymentTerminalLocation location;
 
   public static final String JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY = "versionAppliedImmediately";
+  @javax.annotation.Nullable
   private Boolean versionAppliedImmediately;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentTerminalLocationVersionState state;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public PaymentTerminalLocationVersion() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentTerminalLocationVersion(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -115,10 +126,10 @@ public class PaymentTerminalLocationVersion {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,16 +140,16 @@ public class PaymentTerminalLocationVersion {
 
 
 
-  public PaymentTerminalLocationVersion address(PaymentTerminalAddress address) {
+  public PaymentTerminalLocationVersion address(@javax.annotation.Nullable PaymentTerminalAddress address) {
     
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,14 +161,14 @@ public class PaymentTerminalLocationVersion {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(PaymentTerminalAddress address) {
+  public void setAddress(@javax.annotation.Nullable PaymentTerminalAddress address) {
     this.address = address;
   }
 
-   /**
+  /**
    * The ID of the user the payment terminal location version was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,10 +179,10 @@ public class PaymentTerminalLocationVersion {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,16 +193,16 @@ public class PaymentTerminalLocationVersion {
 
 
 
-  public PaymentTerminalLocationVersion contactAddress(PaymentTerminalAddress contactAddress) {
+  public PaymentTerminalLocationVersion contactAddress(@javax.annotation.Nullable PaymentTerminalAddress contactAddress) {
     
     this.contactAddress = contactAddress;
     return this;
   }
 
-   /**
+  /**
    * Get contactAddress
    * @return contactAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTACT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,20 +214,20 @@ public class PaymentTerminalLocationVersion {
 
   @JsonProperty(JSON_PROPERTY_CONTACT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContactAddress(PaymentTerminalAddress contactAddress) {
+  public void setContactAddress(@javax.annotation.Nullable PaymentTerminalAddress contactAddress) {
     this.contactAddress = contactAddress;
   }
 
-  public PaymentTerminalLocationVersion location(PaymentTerminalLocation location) {
+  public PaymentTerminalLocationVersion location(@javax.annotation.Nullable PaymentTerminalLocation location) {
     
     this.location = location;
     return this;
   }
 
-   /**
+  /**
    * Get location
    * @return location
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,14 +239,14 @@ public class PaymentTerminalLocationVersion {
 
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocation(PaymentTerminalLocation location) {
+  public void setLocation(@javax.annotation.Nullable PaymentTerminalLocation location) {
     this.location = location;
   }
 
-   /**
+  /**
    * Whether payment terminals are immediately updated to this configuration version. If not, it will be applied during the maintenance window.
    * @return versionAppliedImmediately
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,10 +257,10 @@ public class PaymentTerminalLocationVersion {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,16 +271,16 @@ public class PaymentTerminalLocationVersion {
 
 
 
-  public PaymentTerminalLocationVersion state(PaymentTerminalLocationVersionState state) {
+  public PaymentTerminalLocationVersion state(@javax.annotation.Nullable PaymentTerminalLocationVersionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -281,14 +292,14 @@ public class PaymentTerminalLocationVersion {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentTerminalLocationVersionState state) {
+  public void setState(@javax.annotation.Nullable PaymentTerminalLocationVersionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,10 +310,10 @@ public class PaymentTerminalLocationVersion {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -67,61 +67,78 @@ import java.util.StringJoiner;
 
 public class PaymentMethodConfiguration {
   public static final String JSON_PROPERTY_DATA_COLLECTION_TYPE = "dataCollectionType";
+  @javax.annotation.Nullable
   private DataCollectionType dataCollectionType;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_RESOLVED_IMAGE_URL = "resolvedImageUrl";
+  @javax.annotation.Nullable
   private String resolvedImageUrl;
 
   public static final String JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE = "oneClickPaymentMode";
+  @javax.annotation.Nullable
   private OneClickPaymentMode oneClickPaymentMode;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_SPACE_ID = "spaceId";
+  @javax.annotation.Nullable
   private Long spaceId;
 
   public static final String JSON_PROPERTY_IMAGE_RESOURCE_PATH = "imageResourcePath";
+  @javax.annotation.Nullable
   private String imageResourcePath;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_RESOLVED_DESCRIPTION = "resolvedDescription";
+  @javax.annotation.Nullable
   private Map<String, String> resolvedDescription = new HashMap<>();
 
   public static final String JSON_PROPERTY_RESOLVED_TITLE = "resolvedTitle";
+  @javax.annotation.Nullable
   private Map<String, String> resolvedTitle = new HashMap<>();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  @javax.annotation.Nullable
   private PaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public PaymentMethodConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentMethodConfiguration(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -154,16 +171,16 @@ public class PaymentMethodConfiguration {
     this.id = id;
   }
 
-  public PaymentMethodConfiguration dataCollectionType(DataCollectionType dataCollectionType) {
+  public PaymentMethodConfiguration dataCollectionType(@javax.annotation.Nullable DataCollectionType dataCollectionType) {
     
     this.dataCollectionType = dataCollectionType;
     return this;
   }
 
-   /**
+  /**
    * Get dataCollectionType
    * @return dataCollectionType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA_COLLECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,14 +192,14 @@ public class PaymentMethodConfiguration {
 
   @JsonProperty(JSON_PROPERTY_DATA_COLLECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDataCollectionType(DataCollectionType dataCollectionType) {
+  public void setDataCollectionType(@javax.annotation.Nullable DataCollectionType dataCollectionType) {
     this.dataCollectionType = dataCollectionType;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,10 +210,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * A customer-facing custom description for the payment method.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,10 +224,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The URL to the image of the payment method displayed to the customer. If a custom image is defined, it will be used; otherwise, the default image of the payment method will be shown.
    * @return resolvedImageUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOLVED_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,16 +238,16 @@ public class PaymentMethodConfiguration {
 
 
 
-  public PaymentMethodConfiguration oneClickPaymentMode(OneClickPaymentMode oneClickPaymentMode) {
+  public PaymentMethodConfiguration oneClickPaymentMode(@javax.annotation.Nullable OneClickPaymentMode oneClickPaymentMode) {
     
     this.oneClickPaymentMode = oneClickPaymentMode;
     return this;
   }
 
-   /**
+  /**
    * Get oneClickPaymentMode
    * @return oneClickPaymentMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,14 +259,14 @@ public class PaymentMethodConfiguration {
 
   @JsonProperty(JSON_PROPERTY_ONE_CLICK_PAYMENT_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOneClickPaymentMode(OneClickPaymentMode oneClickPaymentMode) {
+  public void setOneClickPaymentMode(@javax.annotation.Nullable OneClickPaymentMode oneClickPaymentMode) {
     this.oneClickPaymentMode = oneClickPaymentMode;
   }
 
-   /**
+  /**
    * A customer-facing custom title for the payment method.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,10 +277,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,10 +291,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,11 +305,11 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * minimum: 1
    * @return spaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,10 +320,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The resource path to a custom image for the payment method, displayed to the customer for visual identification.
    * @return imageResourcePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_RESOURCE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,10 +334,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * When listing payment methods, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,10 +348,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The name used to identify the payment method configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,10 +362,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The description of the payment method displayed to the customer. If a custom description is defined, it will be used; otherwise, the default description of the payment method will be shown.
    * @return resolvedDescription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOLVED_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,10 +376,10 @@ public class PaymentMethodConfiguration {
 
 
 
-   /**
+  /**
    * The title of the payment method displayed to the customer. If a custom title is defined, it will be used; otherwise, the default title of the payment method will be shown.
    * @return resolvedTitle
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESOLVED_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,16 +390,16 @@ public class PaymentMethodConfiguration {
 
 
 
-  public PaymentMethodConfiguration paymentMethod(PaymentMethod paymentMethod) {
+  public PaymentMethodConfiguration paymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethod
    * @return paymentMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -394,14 +411,14 @@ public class PaymentMethodConfiguration {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(PaymentMethod paymentMethod) {
+  public void setPaymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -412,16 +429,16 @@ public class PaymentMethodConfiguration {
 
 
 
-  public PaymentMethodConfiguration state(CreationEntityState state) {
+  public PaymentMethodConfiguration state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,7 +450,7 @@ public class PaymentMethodConfiguration {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 

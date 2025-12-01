@@ -53,22 +53,26 @@ import java.util.StringJoiner;
 
 public class ManualTaskType {
   public static final String JSON_PROPERTY_FEATURES = "features";
+  @javax.annotation.Nullable
   private Set<Feature> features = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public ManualTaskType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ManualTaskType(
     @JsonProperty(JSON_PROPERTY_FEATURES) Set<Feature> features, 
@@ -83,10 +87,10 @@ public class ManualTaskType {
     this.id = id;
   }
 
-   /**
+  /**
    * The features that this type belongs to.
    * @return features
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,10 +101,10 @@ public class ManualTaskType {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,10 +115,10 @@ public class ManualTaskType {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +129,10 @@ public class ManualTaskType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

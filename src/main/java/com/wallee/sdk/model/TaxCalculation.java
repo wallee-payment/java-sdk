@@ -38,9 +38,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum TaxCalculation {
   
-  INCLUDED("TAX_INCLUDED"),
+  TAX_INCLUDED("TAX_INCLUDED"),
   
-  NOT_INCLUDED("TAX_NOT_INCLUDED");
+  TAX_NOT_INCLUDED("TAX_NOT_INCLUDED");
 
   private String value;
 

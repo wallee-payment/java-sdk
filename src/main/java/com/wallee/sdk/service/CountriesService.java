@@ -35,6 +35,7 @@ import com.wallee.sdk.model.RestCountry;
 import com.wallee.sdk.model.RestCountryState;
 import java.util.Set;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -60,7 +61,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountries">List all countries Documentation</a>
    */
-  public CountryListResponse getCountries(Set<String> expand) throws ApiException {
+  public CountryListResponse getCountries(@javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getCountries(expand, Collections.emptyMap());
   }
 
@@ -76,7 +77,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountries">List all countries Documentation</a>
    */
-  public CountryListResponse getCountries(Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public CountryListResponse getCountries(@javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -121,8 +122,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -137,7 +138,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCode">Retrieve a country Documentation</a>
    */
-  public RestCountry getCountriesCode(String code, Set<String> expand) throws ApiException {
+  public RestCountry getCountriesCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getCountriesCode(code, expand, Collections.emptyMap());
   }
 
@@ -154,7 +155,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCode">Retrieve a country Documentation</a>
    */
-  public RestCountry getCountriesCode(String code, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public RestCountry getCountriesCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'code' is set
@@ -164,7 +165,7 @@ public class CountriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/countries/{code}"
-      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(code.toString()));
+      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(apiClient.parameterToString(code)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -205,8 +206,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -220,7 +221,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCountryCodeStates">List all states for a country Documentation</a>
    */
-  public List<RestCountryState> getCountriesCountryCodeStates(String countryCode) throws ApiException {
+  public List<RestCountryState> getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode) throws ApiException {
     return this.getCountriesCountryCodeStates(countryCode, Collections.emptyMap());
   }
 
@@ -236,7 +237,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCountryCodeStates">List all states for a country Documentation</a>
    */
-  public List<RestCountryState> getCountriesCountryCodeStates(String countryCode, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestCountryState> getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'countryCode' is set
@@ -246,7 +247,7 @@ public class CountriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/countries/{countryCode}/states"
-      .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
+      .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(apiClient.parameterToString(countryCode)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -286,8 +287,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -305,7 +306,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesSearch">Search countries Documentation</a>
    */
-  public CountrySearchResponse getCountriesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public CountrySearchResponse getCountriesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getCountriesSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -325,7 +326,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesSearch">Search countries Documentation</a>
    */
-  public CountrySearchResponse getCountriesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public CountrySearchResponse getCountriesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -374,8 +375,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -447,8 +448,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -462,7 +463,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStatesId">Retrieve a country state Documentation</a>
    */
-  public RestCountryState getCountriesStatesId(String id) throws ApiException {
+  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id) throws ApiException {
     return this.getCountriesStatesId(id, Collections.emptyMap());
   }
 
@@ -478,7 +479,7 @@ public class CountriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStatesId">Retrieve a country state Documentation</a>
    */
-  public RestCountryState getCountriesStatesId(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -488,7 +489,7 @@ public class CountriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/countries/states/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -528,8 +529,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -569,8 +570,8 @@ public class CountriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

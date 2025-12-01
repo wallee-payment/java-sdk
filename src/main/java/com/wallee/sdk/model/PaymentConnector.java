@@ -68,49 +68,62 @@ import java.util.StringJoiner;
 
 public class PaymentConnector {
   public static final String JSON_PROPERTY_SUPPORTED_FEATURES = "supportedFeatures";
+  @javax.annotation.Nullable
   private Set<PaymentConnectorFeature> supportedFeatures = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_SUPPORTED_CUSTOMERS_PRESENCES = "supportedCustomersPresences";
+  @javax.annotation.Nullable
   private Set<CustomersPresence> supportedCustomersPresences = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_DATA_COLLECTION_TYPE = "dataCollectionType";
+  @javax.annotation.Nullable
   private DataCollectionType dataCollectionType;
 
   public static final String JSON_PROPERTY_DEPRECATED = "deprecated";
+  @javax.annotation.Nullable
   private Boolean deprecated;
 
   public static final String JSON_PROPERTY_PRIMARY_RISK_TAKER = "primaryRiskTaker";
+  @javax.annotation.Nullable
   private PaymentPrimaryRiskTaker primaryRiskTaker;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_BRAND = "paymentMethodBrand";
+  @javax.annotation.Nullable
   private PaymentMethodBrand paymentMethodBrand;
 
   public static final String JSON_PROPERTY_PROCESSOR = "processor";
+  @javax.annotation.Nullable
   private PaymentProcessor processor;
 
   public static final String JSON_PROPERTY_DEPRECATION_REASON = "deprecationReason";
+  @javax.annotation.Nullable
   private Map<String, String> deprecationReason = new HashMap<>();
 
   public static final String JSON_PROPERTY_SUPPORTED_CURRENCIES = "supportedCurrencies";
+  @javax.annotation.Nullable
   private Set<String> supportedCurrencies = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  @javax.annotation.Nullable
   private PaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public PaymentConnector() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentConnector(
     @JsonProperty(JSON_PROPERTY_SUPPORTED_FEATURES) Set<PaymentConnectorFeature> supportedFeatures, 
@@ -133,10 +146,10 @@ public class PaymentConnector {
     this.id = id;
   }
 
-   /**
+  /**
    * The features that are supported by the connector.
    * @return supportedFeatures
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORTED_FEATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,10 +160,10 @@ public class PaymentConnector {
 
 
 
-   /**
+  /**
    * The types of customer&#39;s presence that are supported by the connector.
    * @return supportedCustomersPresences
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CUSTOMERS_PRESENCES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,16 +174,16 @@ public class PaymentConnector {
 
 
 
-  public PaymentConnector dataCollectionType(DataCollectionType dataCollectionType) {
+  public PaymentConnector dataCollectionType(@javax.annotation.Nullable DataCollectionType dataCollectionType) {
     
     this.dataCollectionType = dataCollectionType;
     return this;
   }
 
-   /**
+  /**
    * Get dataCollectionType
    * @return dataCollectionType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA_COLLECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,14 +195,14 @@ public class PaymentConnector {
 
   @JsonProperty(JSON_PROPERTY_DATA_COLLECTION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDataCollectionType(DataCollectionType dataCollectionType) {
+  public void setDataCollectionType(@javax.annotation.Nullable DataCollectionType dataCollectionType) {
     this.dataCollectionType = dataCollectionType;
   }
 
-   /**
+  /**
    * Whether the object was deprecated.
    * @return deprecated
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEPRECATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,16 +213,16 @@ public class PaymentConnector {
 
 
 
-  public PaymentConnector primaryRiskTaker(PaymentPrimaryRiskTaker primaryRiskTaker) {
+  public PaymentConnector primaryRiskTaker(@javax.annotation.Nullable PaymentPrimaryRiskTaker primaryRiskTaker) {
     
     this.primaryRiskTaker = primaryRiskTaker;
     return this;
   }
 
-   /**
+  /**
    * Get primaryRiskTaker
    * @return primaryRiskTaker
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_RISK_TAKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,14 +234,14 @@ public class PaymentConnector {
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_RISK_TAKER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrimaryRiskTaker(PaymentPrimaryRiskTaker primaryRiskTaker) {
+  public void setPrimaryRiskTaker(@javax.annotation.Nullable PaymentPrimaryRiskTaker primaryRiskTaker) {
     this.primaryRiskTaker = primaryRiskTaker;
   }
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,16 +252,16 @@ public class PaymentConnector {
 
 
 
-  public PaymentConnector paymentMethodBrand(PaymentMethodBrand paymentMethodBrand) {
+  public PaymentConnector paymentMethodBrand(@javax.annotation.Nullable PaymentMethodBrand paymentMethodBrand) {
     
     this.paymentMethodBrand = paymentMethodBrand;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethodBrand
    * @return paymentMethodBrand
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,20 +273,20 @@ public class PaymentConnector {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethodBrand(PaymentMethodBrand paymentMethodBrand) {
+  public void setPaymentMethodBrand(@javax.annotation.Nullable PaymentMethodBrand paymentMethodBrand) {
     this.paymentMethodBrand = paymentMethodBrand;
   }
 
-  public PaymentConnector processor(PaymentProcessor processor) {
+  public PaymentConnector processor(@javax.annotation.Nullable PaymentProcessor processor) {
     
     this.processor = processor;
     return this;
   }
 
-   /**
+  /**
    * Get processor
    * @return processor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,14 +298,14 @@ public class PaymentConnector {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessor(PaymentProcessor processor) {
+  public void setProcessor(@javax.annotation.Nullable PaymentProcessor processor) {
     this.processor = processor;
   }
 
-   /**
+  /**
    * The deprecation reason describes why the object was deprecated.
    * @return deprecationReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEPRECATION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -303,10 +316,10 @@ public class PaymentConnector {
 
 
 
-   /**
+  /**
    * The currencies that are supported by the connector.
    * @return supportedCurrencies
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUPPORTED_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,10 +330,10 @@ public class PaymentConnector {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,16 +344,16 @@ public class PaymentConnector {
 
 
 
-  public PaymentConnector paymentMethod(PaymentMethod paymentMethod) {
+  public PaymentConnector paymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethod
    * @return paymentMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,14 +365,14 @@ public class PaymentConnector {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(PaymentMethod paymentMethod) {
+  public void setPaymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

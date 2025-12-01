@@ -48,27 +48,30 @@ import java.util.StringJoiner;
 
 public class LineItemReductionCreate {
   public static final String JSON_PROPERTY_QUANTITY_REDUCTION = "quantityReduction";
+  @javax.annotation.Nonnull
   private BigDecimal quantityReduction;
 
   public static final String JSON_PROPERTY_UNIT_PRICE_REDUCTION = "unitPriceReduction";
+  @javax.annotation.Nonnull
   private BigDecimal unitPriceReduction;
 
   public static final String JSON_PROPERTY_LINE_ITEM_UNIQUE_ID = "lineItemUniqueId";
+  @javax.annotation.Nonnull
   private String lineItemUniqueId;
 
   public LineItemReductionCreate() {
   }
 
-  public LineItemReductionCreate quantityReduction(BigDecimal quantityReduction) {
+  public LineItemReductionCreate quantityReduction(@javax.annotation.Nonnull BigDecimal quantityReduction) {
     
     this.quantityReduction = quantityReduction;
     return this;
   }
 
-   /**
+  /**
    * The quantity removed or reduced from the line item. This value reflects the decrease in the item count due to the reduction.
    * @return quantityReduction
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUANTITY_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -80,20 +83,20 @@ public class LineItemReductionCreate {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuantityReduction(BigDecimal quantityReduction) {
+  public void setQuantityReduction(@javax.annotation.Nonnull BigDecimal quantityReduction) {
     this.quantityReduction = quantityReduction;
   }
 
-  public LineItemReductionCreate unitPriceReduction(BigDecimal unitPriceReduction) {
+  public LineItemReductionCreate unitPriceReduction(@javax.annotation.Nonnull BigDecimal unitPriceReduction) {
     
     this.unitPriceReduction = unitPriceReduction;
     return this;
   }
 
-   /**
+  /**
    * The monetary amount by which the line item&#39;s unit price is discounted. This reduction adjusts the price without altering the quantity.
    * @return unitPriceReduction
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,20 +108,20 @@ public class LineItemReductionCreate {
 
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUnitPriceReduction(BigDecimal unitPriceReduction) {
+  public void setUnitPriceReduction(@javax.annotation.Nonnull BigDecimal unitPriceReduction) {
     this.unitPriceReduction = unitPriceReduction;
   }
 
-  public LineItemReductionCreate lineItemUniqueId(String lineItemUniqueId) {
+  public LineItemReductionCreate lineItemUniqueId(@javax.annotation.Nonnull String lineItemUniqueId) {
     
     this.lineItemUniqueId = lineItemUniqueId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the line item to which the reduction is applied. This ID ensures the reduction is accurately associated with the correct item.
    * @return lineItemUniqueId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LINE_ITEM_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +133,7 @@ public class LineItemReductionCreate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEM_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLineItemUniqueId(String lineItemUniqueId) {
+  public void setLineItemUniqueId(@javax.annotation.Nonnull String lineItemUniqueId) {
     this.lineItemUniqueId = lineItemUniqueId;
   }
 

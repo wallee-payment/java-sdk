@@ -53,31 +53,38 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductComponentGroup {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PRODUCT_VERSION = "productVersion";
+  @javax.annotation.Nullable
   private SubscriptionProductVersion productVersion;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_OPTIONAL = "optional";
+  @javax.annotation.Nullable
   private Boolean optional;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public SubscriptionProductComponentGroup() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionProductComponentGroup(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -96,10 +103,10 @@ public class SubscriptionProductComponentGroup {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,16 +117,16 @@ public class SubscriptionProductComponentGroup {
 
 
 
-  public SubscriptionProductComponentGroup productVersion(SubscriptionProductVersion productVersion) {
+  public SubscriptionProductComponentGroup productVersion(@javax.annotation.Nullable SubscriptionProductVersion productVersion) {
     
     this.productVersion = productVersion;
     return this;
   }
 
-   /**
+  /**
    * Get productVersion
    * @return productVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,14 +138,14 @@ public class SubscriptionProductComponentGroup {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProductVersion(SubscriptionProductVersion productVersion) {
+  public void setProductVersion(@javax.annotation.Nullable SubscriptionProductVersion productVersion) {
     this.productVersion = productVersion;
   }
 
-   /**
+  /**
    * When listing component groups, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,10 +156,10 @@ public class SubscriptionProductComponentGroup {
 
 
 
-   /**
+  /**
    * The localized name of the component group that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,10 +170,10 @@ public class SubscriptionProductComponentGroup {
 
 
 
-   /**
+  /**
    * Whether the component group is optional, i.e. the customer does not have to select any component.
    * @return optional
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,10 +184,10 @@ public class SubscriptionProductComponentGroup {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,10 +198,10 @@ public class SubscriptionProductComponentGroup {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

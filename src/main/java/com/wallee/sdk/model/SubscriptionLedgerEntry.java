@@ -73,76 +73,98 @@ import java.util.StringJoiner;
 
 public class SubscriptionLedgerEntry {
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nullable
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountExcludingTax;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_VERSION = "subscriptionVersion";
+  @javax.annotation.Nullable
   private Long subscriptionVersion;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_TAXES = "taxes";
+  @javax.annotation.Nullable
   private Set<Tax> taxes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_FEE_TYPE = "feeType";
+  @javax.annotation.Nullable
   private ProductFeeType feeType;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private String title;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_COMPONENT_REFERENCE_NAME = "componentReferenceName";
+  @javax.annotation.Nullable
   private String componentReferenceName;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_METRIC_ID = "subscriptionMetricId";
+  @javax.annotation.Nullable
   private Long subscriptionMetricId;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PRO_RATA_CALCULATED = "proRataCalculated";
+  @javax.annotation.Nullable
   private Boolean proRataCalculated;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_COMPONENT_REFERENCE_SKU = "componentReferenceSku";
+  @javax.annotation.Nullable
   private String componentReferenceSku;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionLedgerEntryState state;
 
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountIncludingTax;
 
   public static final String JSON_PROPERTY_DISCOUNT_INCLUDING_TAX = "discountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal discountIncludingTax;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_AGGREGATED_TAX_RATE = "aggregatedTaxRate";
+  @javax.annotation.Nullable
   private BigDecimal aggregatedTaxRate;
 
   public SubscriptionLedgerEntry() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionLedgerEntry(
     @JsonProperty(JSON_PROPERTY_QUANTITY) BigDecimal quantity, 
@@ -189,10 +211,10 @@ public class SubscriptionLedgerEntry {
     this.aggregatedTaxRate = aggregatedTaxRate;
   }
 
-   /**
+  /**
    * The number of items that were consumed.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -203,10 +225,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The leger entry&#39;s amount with discounts applied, excluding taxes.
    * @return amountExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -217,10 +239,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -231,10 +253,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The subscription version that the ledger entry belongs to.
    * @return subscriptionVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -245,10 +267,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,10 +281,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * A set of tax lines, each of which specifies a tax applied to the ledger entry.
    * @return taxes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,16 +295,16 @@ public class SubscriptionLedgerEntry {
 
 
 
-  public SubscriptionLedgerEntry feeType(ProductFeeType feeType) {
+  public SubscriptionLedgerEntry feeType(@javax.annotation.Nullable ProductFeeType feeType) {
     
     this.feeType = feeType;
     return this;
   }
 
-   /**
+  /**
    * Get feeType
    * @return feeType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,14 +316,14 @@ public class SubscriptionLedgerEntry {
 
   @JsonProperty(JSON_PROPERTY_FEE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeeType(ProductFeeType feeType) {
+  public void setFeeType(@javax.annotation.Nullable ProductFeeType feeType) {
     this.feeType = feeType;
   }
 
-   /**
+  /**
    * The title that indicates what the ledger entry is about.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,10 +334,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,10 +348,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,10 +362,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * Get componentReferenceName
    * @return componentReferenceName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_REFERENCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,10 +376,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * Get subscriptionMetricId
    * @return subscriptionMetricId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_METRIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,10 +390,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,10 +404,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * Get proRataCalculated
    * @return proRataCalculated
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRO_RATA_CALCULATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -396,10 +418,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The ID of the user the ledger entry was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -410,10 +432,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * Get componentReferenceSku
    * @return componentReferenceSku
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_REFERENCE_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -424,10 +446,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -438,16 +460,16 @@ public class SubscriptionLedgerEntry {
 
 
 
-  public SubscriptionLedgerEntry state(SubscriptionLedgerEntryState state) {
+  public SubscriptionLedgerEntry state(@javax.annotation.Nullable SubscriptionLedgerEntryState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -459,14 +481,14 @@ public class SubscriptionLedgerEntry {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionLedgerEntryState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionLedgerEntryState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The leger entry&#39;s amount with discounts applied, including taxes.
    * @return amountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -477,10 +499,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The discount allocated to the ledger entry, including taxes.
    * @return discountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -491,10 +513,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The sum of all taxes applied to the ledger entry.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -505,10 +527,10 @@ public class SubscriptionLedgerEntry {
 
 
 
-   /**
+  /**
    * The total tax rate applied to the ledger entry, calculated from the rates of all tax lines.
    * @return aggregatedTaxRate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATED_TAX_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

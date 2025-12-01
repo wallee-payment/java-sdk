@@ -49,18 +49,21 @@ import java.util.StringJoiner;
 
 public class SubscriptionMetricCreate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nonnull
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private Long type;
 
   public SubscriptionMetricCreate() {
   }
 
-  public SubscriptionMetricCreate name(Map<String, String> name) {
+  public SubscriptionMetricCreate name(@javax.annotation.Nonnull Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -71,10 +74,10 @@ public class SubscriptionMetricCreate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the metric that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -86,11 +89,11 @@ public class SubscriptionMetricCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nonnull Map<String, String> name) {
     this.name = name;
   }
 
-  public SubscriptionMetricCreate description(Map<String, String> description) {
+  public SubscriptionMetricCreate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -104,10 +107,10 @@ public class SubscriptionMetricCreate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the metric that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,20 +122,20 @@ public class SubscriptionMetricCreate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public SubscriptionMetricCreate type(Long type) {
+  public SubscriptionMetricCreate type(@javax.annotation.Nonnull Long type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the metric.
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -144,7 +147,7 @@ public class SubscriptionMetricCreate {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(Long type) {
+  public void setType(@javax.annotation.Nonnull Long type) {
     this.type = type;
   }
 

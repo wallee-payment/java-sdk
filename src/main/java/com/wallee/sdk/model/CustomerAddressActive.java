@@ -49,27 +49,30 @@ import java.util.StringJoiner;
 
 public class CustomerAddressActive {
   public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
   private CustomerPostalAddressCreate address;
 
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "addressType";
+  @javax.annotation.Nullable
   private CustomerAddressType addressType;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public CustomerAddressActive() {
   }
 
-  public CustomerAddressActive address(CustomerPostalAddressCreate address) {
+  public CustomerAddressActive address(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,20 +84,20 @@ public class CustomerAddressActive {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(CustomerPostalAddressCreate address) {
+  public void setAddress(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     this.address = address;
   }
 
-  public CustomerAddressActive addressType(CustomerAddressType addressType) {
+  public CustomerAddressActive addressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     
     this.addressType = addressType;
     return this;
   }
 
-   /**
+  /**
    * Get addressType
    * @return addressType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,20 +109,20 @@ public class CustomerAddressActive {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddressType(CustomerAddressType addressType) {
+  public void setAddressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     this.addressType = addressType;
   }
 
-  public CustomerAddressActive version(Integer version) {
+  public CustomerAddressActive version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +134,7 @@ public class CustomerAddressActive {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

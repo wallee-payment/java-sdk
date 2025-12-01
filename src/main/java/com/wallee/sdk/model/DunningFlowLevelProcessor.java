@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class DunningFlowLevelProcessor {
   public static final String JSON_PROPERTY_FEATURE = "feature";
+  @javax.annotation.Nullable
   private Feature feature;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public DunningFlowLevelProcessor() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DunningFlowLevelProcessor(
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
@@ -78,16 +82,16 @@ public class DunningFlowLevelProcessor {
     this.id = id;
   }
 
-  public DunningFlowLevelProcessor feature(Feature feature) {
+  public DunningFlowLevelProcessor feature(@javax.annotation.Nullable Feature feature) {
     
     this.feature = feature;
     return this;
   }
 
-   /**
+  /**
    * Get feature
    * @return feature
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,14 +103,14 @@ public class DunningFlowLevelProcessor {
 
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeature(Feature feature) {
+  public void setFeature(@javax.annotation.Nullable Feature feature) {
     this.feature = feature;
   }
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,10 +121,10 @@ public class DunningFlowLevelProcessor {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,10 +135,10 @@ public class DunningFlowLevelProcessor {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

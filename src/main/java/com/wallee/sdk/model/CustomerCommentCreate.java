@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class CustomerCommentCreate {
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
+  @javax.annotation.Nonnull
   private Long customer;
 
   public CustomerCommentCreate() {
   }
 
-  public CustomerCommentCreate content(String content) {
+  public CustomerCommentCreate content(@javax.annotation.Nullable String content) {
     
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class CustomerCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@javax.annotation.Nullable String content) {
     this.content = content;
   }
 
-  public CustomerCommentCreate customer(Long customer) {
+  public CustomerCommentCreate customer(@javax.annotation.Nonnull Long customer) {
     
     this.customer = customer;
     return this;
   }
 
-   /**
+  /**
    * The customer that the object belongs to.
    * @return customer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class CustomerCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCustomer(Long customer) {
+  public void setCustomer(@javax.annotation.Nonnull Long customer) {
     this.customer = customer;
   }
 

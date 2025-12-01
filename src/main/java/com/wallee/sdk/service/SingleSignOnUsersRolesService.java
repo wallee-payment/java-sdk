@@ -34,6 +34,7 @@ import com.wallee.sdk.model.UserAccountRoleListResponse;
 import com.wallee.sdk.model.UserSpaceRole;
 import com.wallee.sdk.model.UserSpaceRoleListResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -60,7 +61,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersUserIdAccountRoles">Unassign a role from a single sign-on user for an account Documentation</a>
    */
-  public void deleteSingleSignOnUsersUserIdAccountRoles(Long userId, Long roleId, Long account) throws ApiException {
+  public void deleteSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long account) throws ApiException {
     this.deleteSingleSignOnUsersUserIdAccountRoles(userId, roleId, account, Collections.emptyMap());
   }
 
@@ -77,7 +78,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersUserIdAccountRoles">Unassign a role from a single sign-on user for an account Documentation</a>
    */
-  public void deleteSingleSignOnUsersUserIdAccountRoles(Long userId, Long roleId, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -97,7 +98,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/account-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -139,8 +140,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -155,7 +156,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersUserIdSpaceRoles">Unassign a role from a single sign-on user for a space Documentation</a>
    */
-  public void deleteSingleSignOnUsersUserIdSpaceRoles(Long userId, Long roleId, Long space) throws ApiException {
+  public void deleteSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteSingleSignOnUsersUserIdSpaceRoles(userId, roleId, space, Collections.emptyMap());
   }
 
@@ -172,7 +173,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersUserIdSpaceRoles">Unassign a role from a single sign-on user for a space Documentation</a>
    */
-  public void deleteSingleSignOnUsersUserIdSpaceRoles(Long userId, Long roleId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -192,7 +193,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/space-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -234,8 +235,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -250,7 +251,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersUserIdAccountRoles">List all roles of a single sign-on user for an account Documentation</a>
    */
-  public UserAccountRoleListResponse getSingleSignOnUsersUserIdAccountRoles(Long userId, Long account) throws ApiException {
+  public UserAccountRoleListResponse getSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long account) throws ApiException {
     return this.getSingleSignOnUsersUserIdAccountRoles(userId, account, Collections.emptyMap());
   }
 
@@ -267,7 +268,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersUserIdAccountRoles">List all roles of a single sign-on user for an account Documentation</a>
    */
-  public UserAccountRoleListResponse getSingleSignOnUsersUserIdAccountRoles(Long userId, Long account, Map<String, String> additionalHeaders) throws ApiException {
+  public UserAccountRoleListResponse getSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long account, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -282,7 +283,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/account-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -324,8 +325,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -340,7 +341,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersUserIdSpaceRoles">List all roles of a single sign-on user for a space Documentation</a>
    */
-  public UserSpaceRoleListResponse getSingleSignOnUsersUserIdSpaceRoles(Long userId, Long space) throws ApiException {
+  public UserSpaceRoleListResponse getSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getSingleSignOnUsersUserIdSpaceRoles(userId, space, Collections.emptyMap());
   }
 
@@ -357,7 +358,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersUserIdSpaceRoles">List all roles of a single sign-on user for a space Documentation</a>
    */
-  public UserSpaceRoleListResponse getSingleSignOnUsersUserIdSpaceRoles(Long userId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public UserSpaceRoleListResponse getSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -372,7 +373,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/space-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -414,8 +415,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -432,7 +433,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsersUserIdAccountRoles">Assign a role to a single sign-on user for an account Documentation</a>
    */
-  public UserAccountRole postSingleSignOnUsersUserIdAccountRoles(Long userId, Long roleId, Long account, Boolean appliesOnSubAccount) throws ApiException {
+  public UserAccountRole postSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long account, @javax.annotation.Nullable Boolean appliesOnSubAccount) throws ApiException {
     return this.postSingleSignOnUsersUserIdAccountRoles(userId, roleId, account, appliesOnSubAccount, Collections.emptyMap());
   }
 
@@ -451,7 +452,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsersUserIdAccountRoles">Assign a role to a single sign-on user for an account Documentation</a>
    */
-  public UserAccountRole postSingleSignOnUsersUserIdAccountRoles(Long userId, Long roleId, Long account, Boolean appliesOnSubAccount, Map<String, String> additionalHeaders) throws ApiException {
+  public UserAccountRole postSingleSignOnUsersUserIdAccountRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long account, @javax.annotation.Nullable Boolean appliesOnSubAccount, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -471,7 +472,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/account-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -515,8 +516,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -532,7 +533,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsersUserIdSpaceRoles">Assign a role to a single sign-on user for a space Documentation</a>
    */
-  public UserSpaceRole postSingleSignOnUsersUserIdSpaceRoles(Long userId, Long roleId, Long space) throws ApiException {
+  public UserSpaceRole postSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.postSingleSignOnUsersUserIdSpaceRoles(userId, roleId, space, Collections.emptyMap());
   }
 
@@ -550,7 +551,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsersUserIdSpaceRoles">Assign a role to a single sign-on user for a space Documentation</a>
    */
-  public UserSpaceRole postSingleSignOnUsersUserIdSpaceRoles(Long userId, Long roleId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public UserSpaceRole postSingleSignOnUsersUserIdSpaceRoles(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long roleId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -570,7 +571,7 @@ public class SingleSignOnUsersRolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{userId}/space-roles"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -613,8 +614,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -654,8 +655,8 @@ public class SingleSignOnUsersRolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

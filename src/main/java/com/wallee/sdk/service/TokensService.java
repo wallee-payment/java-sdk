@@ -39,6 +39,7 @@ import com.wallee.sdk.model.TokenUpdate;
 import com.wallee.sdk.model.TokenVersion;
 import com.wallee.sdk.model.Transaction;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTokensId">Delete a token Documentation</a>
    */
-  public void deletePaymentTokensId(Long id, Long space) throws ApiException {
+  public void deletePaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentTokensId(id, space, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTokensId">Delete a token Documentation</a>
    */
-  public void deletePaymentTokensId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -95,7 +96,7 @@ public class TokensService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/tokens/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -136,8 +137,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -156,7 +157,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokens">List all tokens Documentation</a>
    */
-  public TokenListResponse getPaymentTokens(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public TokenListResponse getPaymentTokens(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentTokens(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -177,7 +178,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokens">List all tokens Documentation</a>
    */
-  public TokenListResponse getPaymentTokens(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public TokenListResponse getPaymentTokens(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -233,8 +234,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -250,7 +251,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensId">Retrieve a token Documentation</a>
    */
-  public Token getPaymentTokensId(Long id, Long space, Set<String> expand) throws ApiException {
+  public Token getPaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTokensId(id, space, expand, Collections.emptyMap());
   }
 
@@ -268,7 +269,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensId">Retrieve a token Documentation</a>
    */
-  public Token getPaymentTokensId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Token getPaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -283,7 +284,7 @@ public class TokensService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/tokens/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -326,8 +327,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -343,7 +344,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensIdActiveVersion">Retrieve the active token version Documentation</a>
    */
-  public TokenVersion getPaymentTokensIdActiveVersion(Long id, Long space, Set<String> expand) throws ApiException {
+  public TokenVersion getPaymentTokensIdActiveVersion(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTokensIdActiveVersion(id, space, expand, Collections.emptyMap());
   }
 
@@ -361,7 +362,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensIdActiveVersion">Retrieve the active token version Documentation</a>
    */
-  public TokenVersion getPaymentTokensIdActiveVersion(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TokenVersion getPaymentTokensIdActiveVersion(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -376,7 +377,7 @@ public class TokensService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/tokens/{id}/active-version"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -419,8 +420,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -439,7 +440,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensSearch">Search tokens Documentation</a>
    */
-  public TokenSearchResponse getPaymentTokensSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public TokenSearchResponse getPaymentTokensSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTokensSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -460,7 +461,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTokensSearch">Search tokens Documentation</a>
    */
-  public TokenSearchResponse getPaymentTokensSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public TokenSearchResponse getPaymentTokensSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -516,8 +517,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -534,7 +535,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTokensId">Update a token Documentation</a>
    */
-  public Token patchPaymentTokensId(Long id, Long space, TokenUpdate tokenUpdate, Set<String> expand) throws ApiException {
+  public Token patchPaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenUpdate tokenUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentTokensId(id, space, tokenUpdate, expand, Collections.emptyMap());
   }
 
@@ -553,7 +554,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTokensId">Update a token Documentation</a>
    */
-  public Token patchPaymentTokensId(Long id, Long space, TokenUpdate tokenUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Token patchPaymentTokensId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenUpdate tokenUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tokenUpdate;
     
     // verify the required parameter 'id' is set
@@ -573,7 +574,7 @@ public class TokensService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/tokens/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -616,8 +617,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -633,7 +634,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTokens">Create a token Documentation</a>
    */
-  public Token postPaymentTokens(Long space, TokenCreate tokenCreate, Set<String> expand) throws ApiException {
+  public Token postPaymentTokens(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenCreate tokenCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTokens(space, tokenCreate, expand, Collections.emptyMap());
   }
 
@@ -651,7 +652,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTokens">Create a token Documentation</a>
    */
-  public Token postPaymentTokens(Long space, TokenCreate tokenCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Token postPaymentTokens(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenCreate tokenCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tokenCreate;
     
     // verify the required parameter 'space' is set
@@ -708,8 +709,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -725,7 +726,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTokensIdCreateTransactionForTokenUpdate">Create a transaction for token update Documentation</a>
    */
-  public Transaction postPaymentTokensIdCreateTransactionForTokenUpdate(Long id, Long space, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTokensIdCreateTransactionForTokenUpdate(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTokensIdCreateTransactionForTokenUpdate(id, space, expand, Collections.emptyMap());
   }
 
@@ -743,7 +744,7 @@ public class TokensService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTokensIdCreateTransactionForTokenUpdate">Create a transaction for token update Documentation</a>
    */
-  public Transaction postPaymentTokensIdCreateTransactionForTokenUpdate(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTokensIdCreateTransactionForTokenUpdate(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -758,7 +759,7 @@ public class TokensService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/tokens/{id}/create-transaction-for-token-update"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -801,8 +802,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -842,8 +843,8 @@ public class TokensService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

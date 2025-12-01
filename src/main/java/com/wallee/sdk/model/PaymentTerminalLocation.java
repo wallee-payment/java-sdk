@@ -42,6 +42,7 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   PaymentTerminalLocation.JSON_PROPERTY_LINKED_SPACE_ID,
+  PaymentTerminalLocation.JSON_PROPERTY_PRODUCTION_MERCHANT_ID,
   PaymentTerminalLocation.JSON_PROPERTY_NAME,
   PaymentTerminalLocation.JSON_PROPERTY_PLANNED_PURGE_DATE,
   PaymentTerminalLocation.JSON_PROPERTY_EXTERNAL_ID,
@@ -52,34 +53,46 @@ import java.util.StringJoiner;
 
 public class PaymentTerminalLocation {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
+  public static final String JSON_PROPERTY_PRODUCTION_MERCHANT_ID = "productionMerchantId";
+  @javax.annotation.Nullable
+  private String productionMerchantId;
+
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentTerminalLocationState state;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public PaymentTerminalLocation() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentTerminalLocation(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
+    @JsonProperty(JSON_PROPERTY_PRODUCTION_MERCHANT_ID) String productionMerchantId, 
     @JsonProperty(JSON_PROPERTY_NAME) String name, 
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
     @JsonProperty(JSON_PROPERTY_EXTERNAL_ID) String externalId, 
@@ -88,6 +101,7 @@ public class PaymentTerminalLocation {
   ) {
     this();
     this.linkedSpaceId = linkedSpaceId;
+    this.productionMerchantId = productionMerchantId;
     this.name = name;
     this.plannedPurgeDate = plannedPurgeDate;
     this.externalId = externalId;
@@ -95,10 +109,10 @@ public class PaymentTerminalLocation {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,10 +123,24 @@ public class PaymentTerminalLocation {
 
 
 
-   /**
+  /**
+   * Get productionMerchantId
+   * @return productionMerchantId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCTION_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getProductionMerchantId() {
+    return productionMerchantId;
+  }
+
+
+
+  /**
    * The name used to identify the payment terminal location.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,10 +151,10 @@ public class PaymentTerminalLocation {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,10 +165,10 @@ public class PaymentTerminalLocation {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,10 +179,10 @@ public class PaymentTerminalLocation {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,16 +193,16 @@ public class PaymentTerminalLocation {
 
 
 
-  public PaymentTerminalLocation state(PaymentTerminalLocationState state) {
+  public PaymentTerminalLocation state(@javax.annotation.Nullable PaymentTerminalLocationState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,14 +214,14 @@ public class PaymentTerminalLocation {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentTerminalLocationState state) {
+  public void setState(@javax.annotation.Nullable PaymentTerminalLocationState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,6 +242,7 @@ public class PaymentTerminalLocation {
     }
     PaymentTerminalLocation paymentTerminalLocation = (PaymentTerminalLocation) o;
     return Objects.equals(this.linkedSpaceId, paymentTerminalLocation.linkedSpaceId) &&
+        Objects.equals(this.productionMerchantId, paymentTerminalLocation.productionMerchantId) &&
         Objects.equals(this.name, paymentTerminalLocation.name) &&
         Objects.equals(this.plannedPurgeDate, paymentTerminalLocation.plannedPurgeDate) &&
         Objects.equals(this.externalId, paymentTerminalLocation.externalId) &&
@@ -224,7 +253,7 @@ public class PaymentTerminalLocation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkedSpaceId, name, plannedPurgeDate, externalId, id, state, version);
+    return Objects.hash(linkedSpaceId, productionMerchantId, name, plannedPurgeDate, externalId, id, state, version);
   }
 
   @Override
@@ -232,6 +261,7 @@ public class PaymentTerminalLocation {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminalLocation {\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
+    sb.append("    productionMerchantId: ").append(toIndentedString(productionMerchantId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
@@ -289,6 +319,16 @@ public class PaymentTerminalLocation {
     if (getLinkedSpaceId() != null) {
       try {
         joiner.add(String.format("%slinkedSpaceId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLinkedSpaceId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `productionMerchantId` to the URL query string
+    if (getProductionMerchantId() != null) {
+      try {
+        joiner.add(String.format("%sproductionMerchantId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProductionMerchantId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

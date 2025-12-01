@@ -49,28 +49,34 @@ import java.util.StringJoiner;
 
 public class UserAccountRole {
   public static final String JSON_PROPERTY_ROLE = "role";
+  @javax.annotation.Nullable
   private Long role;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT = "appliesOnSubAccount";
+  @javax.annotation.Nullable
   private Boolean appliesOnSubAccount;
 
   public static final String JSON_PROPERTY_USER = "user";
+  @javax.annotation.Nullable
   private Long user;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @javax.annotation.Nullable
   private Long account;
 
   public UserAccountRole() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public UserAccountRole(
     @JsonProperty(JSON_PROPERTY_ROLE) Long role, 
@@ -89,10 +95,10 @@ public class UserAccountRole {
     this.account = account;
   }
 
-   /**
+  /**
    * The role that is assigned to the user.
    * @return role
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,10 +109,10 @@ public class UserAccountRole {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -117,10 +123,10 @@ public class UserAccountRole {
 
 
 
-   /**
+  /**
    * Whether the role is assigned to the user in subaccounts only.
    * @return appliesOnSubAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,10 +137,10 @@ public class UserAccountRole {
 
 
 
-   /**
+  /**
    * The user whose role this defines.
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,10 +151,10 @@ public class UserAccountRole {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,10 +165,10 @@ public class UserAccountRole {
 
 
 
-   /**
+  /**
    * The account in which the role is assigned to the user.
    * @return account
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

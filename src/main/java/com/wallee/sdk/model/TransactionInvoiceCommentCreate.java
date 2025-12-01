@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class TransactionInvoiceCommentCreate {
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public static final String JSON_PROPERTY_TRANSACTION_INVOICE = "transactionInvoice";
+  @javax.annotation.Nonnull
   private Long transactionInvoice;
 
   public TransactionInvoiceCommentCreate() {
   }
 
-  public TransactionInvoiceCommentCreate content(String content) {
+  public TransactionInvoiceCommentCreate content(@javax.annotation.Nullable String content) {
     
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class TransactionInvoiceCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@javax.annotation.Nullable String content) {
     this.content = content;
   }
 
-  public TransactionInvoiceCommentCreate transactionInvoice(Long transactionInvoice) {
+  public TransactionInvoiceCommentCreate transactionInvoice(@javax.annotation.Nonnull Long transactionInvoice) {
     
     this.transactionInvoice = transactionInvoice;
     return this;
   }
 
-   /**
+  /**
    * The transaction invoice that the comment belongs to.
    * @return transactionInvoice
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION_INVOICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class TransactionInvoiceCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_INVOICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTransactionInvoice(Long transactionInvoice) {
+  public void setTransactionInvoice(@javax.annotation.Nonnull Long transactionInvoice) {
     this.transactionInvoice = transactionInvoice;
   }
 

@@ -49,27 +49,30 @@ import java.util.StringJoiner;
 
 public class CustomerAddressCreate {
   public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
   private CustomerPostalAddressCreate address;
 
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "addressType";
+  @javax.annotation.Nullable
   private CustomerAddressType addressType;
 
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
+  @javax.annotation.Nonnull
   private Long customer;
 
   public CustomerAddressCreate() {
   }
 
-  public CustomerAddressCreate address(CustomerPostalAddressCreate address) {
+  public CustomerAddressCreate address(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,20 +84,20 @@ public class CustomerAddressCreate {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(CustomerPostalAddressCreate address) {
+  public void setAddress(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     this.address = address;
   }
 
-  public CustomerAddressCreate addressType(CustomerAddressType addressType) {
+  public CustomerAddressCreate addressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     
     this.addressType = addressType;
     return this;
   }
 
-   /**
+  /**
    * Get addressType
    * @return addressType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,20 +109,20 @@ public class CustomerAddressCreate {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddressType(CustomerAddressType addressType) {
+  public void setAddressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     this.addressType = addressType;
   }
 
-  public CustomerAddressCreate customer(Long customer) {
+  public CustomerAddressCreate customer(@javax.annotation.Nonnull Long customer) {
     
     this.customer = customer;
     return this;
   }
 
-   /**
+  /**
    * The customer that the object belongs to.
    * @return customer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -131,7 +134,7 @@ public class CustomerAddressCreate {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setCustomer(Long customer) {
+  public void setCustomer(@javax.annotation.Nonnull Long customer) {
     this.customer = customer;
   }
 

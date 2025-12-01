@@ -48,22 +48,26 @@ import java.util.StringJoiner;
 
 public class RestApiBulkOperationResult {
   public static final String JSON_PROPERTY_LINK = "link";
+  @javax.annotation.Nullable
   private String link;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_ERROR = "error";
+  @javax.annotation.Nullable
   private RestApiErrorResponse error;
 
   public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
+  @javax.annotation.Nullable
   private Integer statusCode;
 
   public RestApiBulkOperationResult() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestApiBulkOperationResult(
     @JsonProperty(JSON_PROPERTY_LINK) String link, 
@@ -76,10 +80,10 @@ public class RestApiBulkOperationResult {
     this.statusCode = statusCode;
   }
 
-   /**
+  /**
    * The API path to call to get the processed object.
    * @return link
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,10 +94,10 @@ public class RestApiBulkOperationResult {
 
 
 
-   /**
+  /**
    * The ID of the processed object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,16 +108,16 @@ public class RestApiBulkOperationResult {
 
 
 
-  public RestApiBulkOperationResult error(RestApiErrorResponse error) {
+  public RestApiBulkOperationResult error(@javax.annotation.Nullable RestApiErrorResponse error) {
     
     this.error = error;
     return this;
   }
 
-   /**
+  /**
    * Get error
    * @return error
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,14 +129,14 @@ public class RestApiBulkOperationResult {
 
   @JsonProperty(JSON_PROPERTY_ERROR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setError(RestApiErrorResponse error) {
+  public void setError(@javax.annotation.Nullable RestApiErrorResponse error) {
     this.error = error;
   }
 
-   /**
+  /**
    * The resulting HTTP status code of the single operation.
    * @return statusCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

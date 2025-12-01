@@ -50,6 +50,7 @@ import com.wallee.sdk.model.TransactionPending;
 import com.wallee.sdk.model.TransactionSearchResponse;
 import com.wallee.sdk.model.TransactionVoid;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -76,7 +77,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId">Delete a one-click token by credentials Documentation</a>
    */
-  public void deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId(String credentials, Long id, Long space) throws ApiException {
+  public void deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId(credentials, id, space, Collections.emptyMap());
   }
 
@@ -93,7 +94,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId">Delete a one-click token by credentials Documentation</a>
    */
-  public void deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId(String credentials, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentTransactionsByCredentialsCredentialsOneClickTokensId(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -113,8 +114,8 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}/one-click-tokens/{id}"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -155,8 +156,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -175,7 +176,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactions">List all transactions Documentation</a>
    */
-  public TransactionListResponse getPaymentTransactions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public TransactionListResponse getPaymentTransactions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentTransactions(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -196,7 +197,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactions">List all transactions Documentation</a>
    */
-  public TransactionListResponse getPaymentTransactions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionListResponse getPaymentTransactions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -252,8 +253,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -269,7 +270,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentials">Retrieve a transaction by credentials Documentation</a>
    */
-  public Transaction getPaymentTransactionsByCredentialsCredentials(String credentials, Long space, Set<String> expand) throws ApiException {
+  public Transaction getPaymentTransactionsByCredentialsCredentials(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsByCredentialsCredentials(credentials, space, expand, Collections.emptyMap());
   }
 
@@ -287,7 +288,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentials">Retrieve a transaction by credentials Documentation</a>
    */
-  public Transaction getPaymentTransactionsByCredentialsCredentials(String credentials, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction getPaymentTransactionsByCredentialsCredentials(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -302,7 +303,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -345,8 +346,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -361,7 +362,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl">Retrieve a Mobile SDK URL by credentials Documentation</a>
    */
-  public String getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl(String credentials, Long space) throws ApiException {
+  public String getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl(credentials, space, Collections.emptyMap());
   }
 
@@ -378,7 +379,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl">Retrieve a Mobile SDK URL by credentials Documentation</a>
    */
-  public String getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl(String credentials, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsByCredentialsCredentialsMobileSdkUrl(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -393,7 +394,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}/mobile-sdk-url"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -435,8 +436,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -452,7 +453,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsOneClickTokens">List one-click tokens by credentials Documentation</a>
    */
-  public TokenVersionListResponse getPaymentTransactionsByCredentialsCredentialsOneClickTokens(String credentials, Long space, Set<String> expand) throws ApiException {
+  public TokenVersionListResponse getPaymentTransactionsByCredentialsCredentialsOneClickTokens(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsByCredentialsCredentialsOneClickTokens(credentials, space, expand, Collections.emptyMap());
   }
 
@@ -470,7 +471,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsOneClickTokens">List one-click tokens by credentials Documentation</a>
    */
-  public TokenVersionListResponse getPaymentTransactionsByCredentialsCredentialsOneClickTokens(String credentials, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TokenVersionListResponse getPaymentTransactionsByCredentialsCredentialsOneClickTokens(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -485,7 +486,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}/one-click-tokens"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -528,8 +529,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -546,7 +547,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations">List available payment method configurations by credentials Documentation</a>
    */
-  public PaymentMethodConfigurationListResponse getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations(String credentials, String integrationMode, Long space, Set<String> expand) throws ApiException {
+  public PaymentMethodConfigurationListResponse getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull String integrationMode, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations(credentials, integrationMode, space, expand, Collections.emptyMap());
   }
 
@@ -565,7 +566,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations">List available payment method configurations by credentials Documentation</a>
    */
-  public PaymentMethodConfigurationListResponse getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations(String credentials, String integrationMode, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentMethodConfigurationListResponse getPaymentTransactionsByCredentialsCredentialsPaymentMethodConfigurations(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull String integrationMode, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -585,7 +586,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}/payment-method-configurations"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -629,8 +630,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -649,7 +650,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsExport">Export transactions Documentation</a>
    */
-  public File getPaymentTransactionsExport(Long space, Set<String> fields, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public File getPaymentTransactionsExport(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> fields, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTransactionsExport(space, fields, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -670,7 +671,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsExport">Export transactions Documentation</a>
    */
-  public File getPaymentTransactionsExport(Long space, Set<String> fields, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public File getPaymentTransactionsExport(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> fields, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -727,8 +728,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -744,7 +745,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsId">Retrieve a transaction Documentation</a>
    */
-  public Transaction getPaymentTransactionsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public Transaction getPaymentTransactionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -762,7 +763,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsId">Retrieve a transaction Documentation</a>
    */
-  public Transaction getPaymentTransactionsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction getPaymentTransactionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -777,7 +778,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -820,8 +821,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -836,7 +837,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdChargeFlowPaymentPageUrl">Retrieve a charge flow payment page URL Documentation</a>
    */
-  public String getPaymentTransactionsIdChargeFlowPaymentPageUrl(Long id, Long space) throws ApiException {
+  public String getPaymentTransactionsIdChargeFlowPaymentPageUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdChargeFlowPaymentPageUrl(id, space, Collections.emptyMap());
   }
 
@@ -853,7 +854,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdChargeFlowPaymentPageUrl">Retrieve a charge flow payment page URL Documentation</a>
    */
-  public String getPaymentTransactionsIdChargeFlowPaymentPageUrl(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsIdChargeFlowPaymentPageUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -868,7 +869,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/charge-flow/payment-page-url"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -910,8 +911,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -926,7 +927,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdCheckTokenCreationPossible">Check if token can be created Documentation</a>
    */
-  public Boolean getPaymentTransactionsIdCheckTokenCreationPossible(Long id, Long space) throws ApiException {
+  public Boolean getPaymentTransactionsIdCheckTokenCreationPossible(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdCheckTokenCreationPossible(id, space, Collections.emptyMap());
   }
 
@@ -943,7 +944,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdCheckTokenCreationPossible">Check if token can be created Documentation</a>
    */
-  public Boolean getPaymentTransactionsIdCheckTokenCreationPossible(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean getPaymentTransactionsIdCheckTokenCreationPossible(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -958,7 +959,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/check-token-creation-possible"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1000,8 +1001,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1016,7 +1017,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdCredentials">Retrieve transaction credentials Documentation</a>
    */
-  public String getPaymentTransactionsIdCredentials(Long id, Long space) throws ApiException {
+  public String getPaymentTransactionsIdCredentials(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdCredentials(id, space, Collections.emptyMap());
   }
 
@@ -1033,7 +1034,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdCredentials">Retrieve transaction credentials Documentation</a>
    */
-  public String getPaymentTransactionsIdCredentials(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsIdCredentials(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1048,7 +1049,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/credentials"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1090,8 +1091,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1106,7 +1107,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdIframeJavascriptUrl">Retrieve an iFrame JavaScript URL Documentation</a>
    */
-  public String getPaymentTransactionsIdIframeJavascriptUrl(Long id, Long space) throws ApiException {
+  public String getPaymentTransactionsIdIframeJavascriptUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdIframeJavascriptUrl(id, space, Collections.emptyMap());
   }
 
@@ -1123,7 +1124,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdIframeJavascriptUrl">Retrieve an iFrame JavaScript URL Documentation</a>
    */
-  public String getPaymentTransactionsIdIframeJavascriptUrl(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsIdIframeJavascriptUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1138,7 +1139,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/iframe-javascript-url"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1180,8 +1181,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1196,7 +1197,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdInvoiceDocument">Retrieve an invoice document Documentation</a>
    */
-  public RenderedDocument getPaymentTransactionsIdInvoiceDocument(Long id, Long space) throws ApiException {
+  public RenderedDocument getPaymentTransactionsIdInvoiceDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdInvoiceDocument(id, space, Collections.emptyMap());
   }
 
@@ -1213,7 +1214,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdInvoiceDocument">Retrieve an invoice document Documentation</a>
    */
-  public RenderedDocument getPaymentTransactionsIdInvoiceDocument(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public RenderedDocument getPaymentTransactionsIdInvoiceDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1228,7 +1229,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/invoice-document"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1270,8 +1271,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1287,7 +1288,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdLatestLineItemVersion">Retrieve the latest line item version Documentation</a>
    */
-  public TransactionLineItemVersion getPaymentTransactionsIdLatestLineItemVersion(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionLineItemVersion getPaymentTransactionsIdLatestLineItemVersion(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsIdLatestLineItemVersion(id, space, expand, Collections.emptyMap());
   }
 
@@ -1305,7 +1306,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdLatestLineItemVersion">Retrieve the latest line item version Documentation</a>
    */
-  public TransactionLineItemVersion getPaymentTransactionsIdLatestLineItemVersion(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionLineItemVersion getPaymentTransactionsIdLatestLineItemVersion(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1320,7 +1321,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/latest-line-item-version"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1363,8 +1364,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1379,7 +1380,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdLightboxJavascriptUrl">Retrieve a Lightbox JavaScript URL Documentation</a>
    */
-  public String getPaymentTransactionsIdLightboxJavascriptUrl(Long id, Long space) throws ApiException {
+  public String getPaymentTransactionsIdLightboxJavascriptUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdLightboxJavascriptUrl(id, space, Collections.emptyMap());
   }
 
@@ -1396,7 +1397,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdLightboxJavascriptUrl">Retrieve a Lightbox JavaScript URL Documentation</a>
    */
-  public String getPaymentTransactionsIdLightboxJavascriptUrl(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsIdLightboxJavascriptUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1411,7 +1412,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/lightbox-javascript-url"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1453,8 +1454,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1469,7 +1470,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPackingSlipDocument">Retrieve a packing slip document Documentation</a>
    */
-  public RenderedDocument getPaymentTransactionsIdPackingSlipDocument(Long id, Long space) throws ApiException {
+  public RenderedDocument getPaymentTransactionsIdPackingSlipDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdPackingSlipDocument(id, space, Collections.emptyMap());
   }
 
@@ -1486,7 +1487,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPackingSlipDocument">Retrieve a packing slip document Documentation</a>
    */
-  public RenderedDocument getPaymentTransactionsIdPackingSlipDocument(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public RenderedDocument getPaymentTransactionsIdPackingSlipDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1501,7 +1502,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/packing-slip-document"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1543,8 +1544,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1561,7 +1562,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPaymentMethodConfigurations">List available payment method configurations Documentation</a>
    */
-  public PaymentMethodConfigurationListResponse getPaymentTransactionsIdPaymentMethodConfigurations(Long id, String integrationMode, Long space, Set<String> expand) throws ApiException {
+  public PaymentMethodConfigurationListResponse getPaymentTransactionsIdPaymentMethodConfigurations(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String integrationMode, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsIdPaymentMethodConfigurations(id, integrationMode, space, expand, Collections.emptyMap());
   }
 
@@ -1580,7 +1581,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPaymentMethodConfigurations">List available payment method configurations Documentation</a>
    */
-  public PaymentMethodConfigurationListResponse getPaymentTransactionsIdPaymentMethodConfigurations(Long id, String integrationMode, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentMethodConfigurationListResponse getPaymentTransactionsIdPaymentMethodConfigurations(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String integrationMode, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1600,7 +1601,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/payment-method-configurations"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1644,8 +1645,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1660,7 +1661,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPaymentPageUrl">Retrieve a payment page URL Documentation</a>
    */
-  public String getPaymentTransactionsIdPaymentPageUrl(Long id, Long space) throws ApiException {
+  public String getPaymentTransactionsIdPaymentPageUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdPaymentPageUrl(id, space, Collections.emptyMap());
   }
 
@@ -1677,7 +1678,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdPaymentPageUrl">Retrieve a payment page URL Documentation</a>
    */
-  public String getPaymentTransactionsIdPaymentPageUrl(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getPaymentTransactionsIdPaymentPageUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1692,7 +1693,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/payment-page-url"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1734,8 +1735,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1752,7 +1753,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdTerminalReceipts">List terminal receipts Documentation</a>
    */
-  public RenderedTerminalReceiptListResponse getPaymentTransactionsIdTerminalReceipts(Long id, TerminalReceiptFormat format, Integer width, Long space) throws ApiException {
+  public RenderedTerminalReceiptListResponse getPaymentTransactionsIdTerminalReceipts(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull TerminalReceiptFormat format, @javax.annotation.Nonnull Integer width, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentTransactionsIdTerminalReceipts(id, format, width, space, Collections.emptyMap());
   }
 
@@ -1771,7 +1772,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdTerminalReceipts">List terminal receipts Documentation</a>
    */
-  public RenderedTerminalReceiptListResponse getPaymentTransactionsIdTerminalReceipts(Long id, TerminalReceiptFormat format, Integer width, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public RenderedTerminalReceiptListResponse getPaymentTransactionsIdTerminalReceipts(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull TerminalReceiptFormat format, @javax.annotation.Nonnull Integer width, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1796,7 +1797,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/terminal-receipts"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1840,8 +1841,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1860,7 +1861,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsSearch">Search transactions Documentation</a>
    */
-  public TransactionSearchResponse getPaymentTransactionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public TransactionSearchResponse getPaymentTransactionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTransactionsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -1881,7 +1882,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsSearch">Search transactions Documentation</a>
    */
-  public TransactionSearchResponse getPaymentTransactionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionSearchResponse getPaymentTransactionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -1937,8 +1938,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1955,7 +1956,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsId">Update a transaction Documentation</a>
    */
-  public Transaction patchPaymentTransactionsId(Long id, Long space, TransactionPending transactionPending, Set<String> expand) throws ApiException {
+  public Transaction patchPaymentTransactionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionPending transactionPending, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentTransactionsId(id, space, transactionPending, expand, Collections.emptyMap());
   }
 
@@ -1974,7 +1975,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentTransactionsId">Update a transaction Documentation</a>
    */
-  public Transaction patchPaymentTransactionsId(Long id, Long space, TransactionPending transactionPending, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction patchPaymentTransactionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionPending transactionPending, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionPending;
     
     // verify the required parameter 'id' is set
@@ -1994,7 +1995,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2037,8 +2038,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2054,7 +2055,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactions">Create a transaction Documentation</a>
    */
-  public Transaction postPaymentTransactions(Long space, TransactionCreate transactionCreate, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCreate transactionCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactions(space, transactionCreate, expand, Collections.emptyMap());
   }
 
@@ -2072,7 +2073,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactions">Create a transaction Documentation</a>
    */
-  public Transaction postPaymentTransactions(Long space, TransactionCreate transactionCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCreate transactionCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionCreate;
     
     // verify the required parameter 'space' is set
@@ -2129,8 +2130,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2146,7 +2147,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess">Process via one-click token by credentials Documentation</a>
    */
-  public String postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess(String credentials, Long id, Long space) throws ApiException {
+  public String postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess(credentials, id, space, Collections.emptyMap());
   }
 
@@ -2164,7 +2165,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess">Process via one-click token by credentials Documentation</a>
    */
-  public String postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess(String credentials, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String postPaymentTransactionsByCredentialsCredentialsOneClickTokensIdProcess(@javax.annotation.Nonnull String credentials, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'credentials' is set
@@ -2184,8 +2185,8 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/by-credentials/{credentials}/one-click-tokens/{id}/process"
-      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(credentials.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "credentials" + "\\}", apiClient.escapeString(apiClient.parameterToString(credentials)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2227,8 +2228,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2244,7 +2245,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowApply">Process a transaction via charge flow Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdChargeFlowApply(Long id, Long space, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactionsIdChargeFlowApply(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdChargeFlowApply(id, space, expand, Collections.emptyMap());
   }
 
@@ -2262,7 +2263,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowApply">Process a transaction via charge flow Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdChargeFlowApply(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactionsIdChargeFlowApply(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -2277,7 +2278,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/charge-flow/apply"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2320,8 +2321,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2337,7 +2338,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowCancel">Cancel a charge flow Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdChargeFlowCancel(Long id, Long space, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactionsIdChargeFlowCancel(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdChargeFlowCancel(id, space, expand, Collections.emptyMap());
   }
 
@@ -2355,7 +2356,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowCancel">Cancel a charge flow Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdChargeFlowCancel(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactionsIdChargeFlowCancel(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -2370,7 +2371,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/charge-flow/cancel"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2413,8 +2414,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2430,7 +2431,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowUpdateRecipient">Update a charge flow recipient Documentation</a>
    */
-  public void postPaymentTransactionsIdChargeFlowUpdateRecipient(Long id, Long type, String recipient, Long space) throws ApiException {
+  public void postPaymentTransactionsIdChargeFlowUpdateRecipient(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long type, @javax.annotation.Nonnull String recipient, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentTransactionsIdChargeFlowUpdateRecipient(id, type, recipient, space, Collections.emptyMap());
   }
 
@@ -2448,7 +2449,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdChargeFlowUpdateRecipient">Update a charge flow recipient Documentation</a>
    */
-  public void postPaymentTransactionsIdChargeFlowUpdateRecipient(Long id, Long type, String recipient, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentTransactionsIdChargeFlowUpdateRecipient(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long type, @javax.annotation.Nonnull String recipient, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -2473,7 +2474,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/charge-flow/update-recipient"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2516,8 +2517,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -2533,7 +2534,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompleteOffline">Complete a transaction offline Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompleteOffline(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompleteOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdCompleteOffline(id, space, expand, Collections.emptyMap());
   }
 
@@ -2551,7 +2552,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompleteOffline">Complete a transaction offline Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompleteOffline(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompleteOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -2566,7 +2567,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/complete-offline"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2609,8 +2610,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2626,7 +2627,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompleteOnline">Complete a transaction online Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompleteOnline(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompleteOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdCompleteOnline(id, space, expand, Collections.emptyMap());
   }
 
@@ -2644,7 +2645,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompleteOnline">Complete a transaction online Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompleteOnline(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompleteOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -2659,7 +2660,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/complete-online"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2702,8 +2703,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2720,7 +2721,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompletePartiallyOffline">Complete a transaction offline partially Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOffline(Long id, Long space, TransactionCompletionDetails transactionCompletionDetails, Set<String> expand) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCompletionDetails transactionCompletionDetails, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdCompletePartiallyOffline(id, space, transactionCompletionDetails, expand, Collections.emptyMap());
   }
 
@@ -2739,7 +2740,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompletePartiallyOffline">Complete a transaction offline partially Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOffline(Long id, Long space, TransactionCompletionDetails transactionCompletionDetails, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCompletionDetails transactionCompletionDetails, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionCompletionDetails;
     
     // verify the required parameter 'id' is set
@@ -2759,7 +2760,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/complete-partially-offline"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2802,8 +2803,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2820,7 +2821,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompletePartiallyOnline">Complete a transaction online partially Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOnline(Long id, Long space, TransactionCompletionDetails transactionCompletionDetails, Set<String> expand) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCompletionDetails transactionCompletionDetails, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdCompletePartiallyOnline(id, space, transactionCompletionDetails, expand, Collections.emptyMap());
   }
 
@@ -2839,7 +2840,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdCompletePartiallyOnline">Complete a transaction online partially Documentation</a>
    */
-  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOnline(Long id, Long space, TransactionCompletionDetails transactionCompletionDetails, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionCompletion postPaymentTransactionsIdCompletePartiallyOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionCompletionDetails transactionCompletionDetails, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionCompletionDetails;
     
     // verify the required parameter 'id' is set
@@ -2859,7 +2860,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/complete-partially-online"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -2902,8 +2903,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -2920,7 +2921,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdConfirm">Confirm a transaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdConfirm(Long id, Long space, TransactionPending transactionPending, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactionsIdConfirm(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionPending transactionPending, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdConfirm(id, space, transactionPending, expand, Collections.emptyMap());
   }
 
@@ -2939,7 +2940,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdConfirm">Confirm a transaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdConfirm(Long id, Long space, TransactionPending transactionPending, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactionsIdConfirm(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionPending transactionPending, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionPending;
     
     // verify the required parameter 'id' is set
@@ -2959,7 +2960,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/confirm"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3002,8 +3003,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3020,7 +3021,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessCardDetails">Process a card transaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdProcessCardDetails(Long id, Long space, AuthenticatedCardRequest authenticatedCardRequest, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactionsIdProcessCardDetails(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull AuthenticatedCardRequest authenticatedCardRequest, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdProcessCardDetails(id, space, authenticatedCardRequest, expand, Collections.emptyMap());
   }
 
@@ -3039,7 +3040,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessCardDetails">Process a card transaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdProcessCardDetails(Long id, Long space, AuthenticatedCardRequest authenticatedCardRequest, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactionsIdProcessCardDetails(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull AuthenticatedCardRequest authenticatedCardRequest, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = authenticatedCardRequest;
     
     // verify the required parameter 'id' is set
@@ -3059,7 +3060,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/process-card-details"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3102,8 +3103,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3119,7 +3120,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessCardDetailsThreed">Process a card transaction with 3-D Secure Documentation</a>
    */
-  public String postPaymentTransactionsIdProcessCardDetailsThreed(Long id, Long space, TokenizedCardRequest tokenizedCardRequest) throws ApiException {
+  public String postPaymentTransactionsIdProcessCardDetailsThreed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenizedCardRequest tokenizedCardRequest) throws ApiException {
     return this.postPaymentTransactionsIdProcessCardDetailsThreed(id, space, tokenizedCardRequest, Collections.emptyMap());
   }
 
@@ -3137,7 +3138,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessCardDetailsThreed">Process a card transaction with 3-D Secure Documentation</a>
    */
-  public String postPaymentTransactionsIdProcessCardDetailsThreed(Long id, Long space, TokenizedCardRequest tokenizedCardRequest, Map<String, String> additionalHeaders) throws ApiException {
+  public String postPaymentTransactionsIdProcessCardDetailsThreed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TokenizedCardRequest tokenizedCardRequest, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = tokenizedCardRequest;
     
     // verify the required parameter 'id' is set
@@ -3157,7 +3158,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/process-card-details-threed"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3199,8 +3200,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3216,7 +3217,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessWithToken">Process a transaction via token Documentation</a>
    */
-  public Charge postPaymentTransactionsIdProcessWithToken(Long id, Long space, Set<String> expand) throws ApiException {
+  public Charge postPaymentTransactionsIdProcessWithToken(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdProcessWithToken(id, space, expand, Collections.emptyMap());
   }
 
@@ -3234,7 +3235,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessWithToken">Process a transaction via token Documentation</a>
    */
-  public Charge postPaymentTransactionsIdProcessWithToken(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Charge postPaymentTransactionsIdProcessWithToken(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -3249,7 +3250,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/process-with-token"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3292,8 +3293,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3309,7 +3310,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessWithoutInteraction">Process a transaction without user-interaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdProcessWithoutInteraction(Long id, Long space, Set<String> expand) throws ApiException {
+  public Transaction postPaymentTransactionsIdProcessWithoutInteraction(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdProcessWithoutInteraction(id, space, expand, Collections.emptyMap());
   }
 
@@ -3327,7 +3328,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdProcessWithoutInteraction">Process a transaction without user-interaction Documentation</a>
    */
-  public Transaction postPaymentTransactionsIdProcessWithoutInteraction(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Transaction postPaymentTransactionsIdProcessWithoutInteraction(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -3342,7 +3343,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/process-without-interaction"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3385,8 +3386,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3402,7 +3403,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdVoidOffline">Void a transaction offline Documentation</a>
    */
-  public TransactionVoid postPaymentTransactionsIdVoidOffline(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionVoid postPaymentTransactionsIdVoidOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdVoidOffline(id, space, expand, Collections.emptyMap());
   }
 
@@ -3420,7 +3421,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdVoidOffline">Void a transaction offline Documentation</a>
    */
-  public TransactionVoid postPaymentTransactionsIdVoidOffline(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionVoid postPaymentTransactionsIdVoidOffline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -3435,7 +3436,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/void-offline"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3478,8 +3479,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3495,7 +3496,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdVoidOnline">Void a transaction online Documentation</a>
    */
-  public TransactionVoid postPaymentTransactionsIdVoidOnline(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionVoid postPaymentTransactionsIdVoidOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsIdVoidOnline(id, space, expand, Collections.emptyMap());
   }
 
@@ -3513,7 +3514,7 @@ public class TransactionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsIdVoidOnline">Void a transaction online Documentation</a>
    */
-  public TransactionVoid postPaymentTransactionsIdVoidOnline(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionVoid postPaymentTransactionsIdVoidOnline(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -3528,7 +3529,7 @@ public class TransactionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/{id}/void-online"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -3571,8 +3572,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -3612,8 +3613,8 @@ public class TransactionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -55,40 +55,50 @@ import java.util.StringJoiner;
 
 public class DebtCollectionReceipt {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_DEBT_COLLECTION_CASE = "debtCollectionCase";
+  @javax.annotation.Nullable
   private Long debtCollectionCase;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
+  @javax.annotation.Nullable
   private Long source;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public DebtCollectionReceipt() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DebtCollectionReceipt(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -115,10 +125,10 @@ public class DebtCollectionReceipt {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +139,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The amount that was collected.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +153,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The ID of the user the receipt was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +167,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +181,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies the receipt.Subsequent requests with the same external ID do not lead to the creation of another receipt, but return the original one.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,10 +195,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The debt collection case that this document belongs to.
    * @return debtCollectionCase
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEBT_COLLECTION_CASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,10 +209,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,10 +223,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The source stating where the receipt is coming from.
    * @return source
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,10 +237,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,10 +251,10 @@ public class DebtCollectionReceipt {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

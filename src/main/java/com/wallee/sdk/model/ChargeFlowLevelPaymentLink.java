@@ -48,22 +48,26 @@ import java.util.StringJoiner;
 
 public class ChargeFlowLevelPaymentLink {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_CHARGE_FLOW_LEVEL = "chargeFlowLevel";
+  @javax.annotation.Nullable
   private ChargeFlowLevel chargeFlowLevel;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_PAYMENT_LINK = "paymentLink";
+  @javax.annotation.Nullable
   private String paymentLink;
 
   public ChargeFlowLevelPaymentLink() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ChargeFlowLevelPaymentLink(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -76,10 +80,10 @@ public class ChargeFlowLevelPaymentLink {
     this.paymentLink = paymentLink;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,16 +94,16 @@ public class ChargeFlowLevelPaymentLink {
 
 
 
-  public ChargeFlowLevelPaymentLink chargeFlowLevel(ChargeFlowLevel chargeFlowLevel) {
+  public ChargeFlowLevelPaymentLink chargeFlowLevel(@javax.annotation.Nullable ChargeFlowLevel chargeFlowLevel) {
     
     this.chargeFlowLevel = chargeFlowLevel;
     return this;
   }
 
-   /**
+  /**
    * Get chargeFlowLevel
    * @return chargeFlowLevel
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHARGE_FLOW_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,14 +115,14 @@ public class ChargeFlowLevelPaymentLink {
 
   @JsonProperty(JSON_PROPERTY_CHARGE_FLOW_LEVEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setChargeFlowLevel(ChargeFlowLevel chargeFlowLevel) {
+  public void setChargeFlowLevel(@javax.annotation.Nullable ChargeFlowLevel chargeFlowLevel) {
     this.chargeFlowLevel = chargeFlowLevel;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +133,10 @@ public class ChargeFlowLevelPaymentLink {
 
 
 
-   /**
+  /**
    * The URL provided to the customer for entering their payment details and completing the transaction.
    * @return paymentLink
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_LINK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SortingOrder;
 import com.wallee.sdk.model.SubscriptionProductComponentGroup;
 import com.wallee.sdk.model.SubscriptionProductComponentGroupUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsProductsComponentGroupsId">Delete a component group Documentation</a>
    */
-  public void deleteSubscriptionsProductsComponentGroupsId(Long id, Long space) throws ApiException {
+  public void deleteSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteSubscriptionsProductsComponentGroupsId(id, space, Collections.emptyMap());
   }
 
@@ -77,7 +78,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsProductsComponentGroupsId">Delete a component group Documentation</a>
    */
-  public void deleteSubscriptionsProductsComponentGroupsId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -92,7 +93,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/component-groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -133,8 +134,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -153,7 +154,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroups">List all component groups Documentation</a>
    */
-  public ProductComponentGroupListResponse getSubscriptionsProductsComponentGroups(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ProductComponentGroupListResponse getSubscriptionsProductsComponentGroups(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsProductsComponentGroups(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -174,7 +175,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroups">List all component groups Documentation</a>
    */
-  public ProductComponentGroupListResponse getSubscriptionsProductsComponentGroups(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductComponentGroupListResponse getSubscriptionsProductsComponentGroups(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -230,8 +231,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -247,7 +248,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroupsId">Retrieve a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup getSubscriptionsProductsComponentGroupsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionProductComponentGroup getSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsProductsComponentGroupsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -265,7 +266,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroupsId">Retrieve a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup getSubscriptionsProductsComponentGroupsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductComponentGroup getSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -280,7 +281,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/component-groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -323,8 +324,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -343,7 +344,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroupsSearch">Search component groups Documentation</a>
    */
-  public ProductComponentGroupSearchResponse getSubscriptionsProductsComponentGroupsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ProductComponentGroupSearchResponse getSubscriptionsProductsComponentGroupsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsProductsComponentGroupsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -364,7 +365,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsComponentGroupsSearch">Search component groups Documentation</a>
    */
-  public ProductComponentGroupSearchResponse getSubscriptionsProductsComponentGroupsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductComponentGroupSearchResponse getSubscriptionsProductsComponentGroupsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -420,8 +421,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -438,7 +439,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsComponentGroupsId">Update a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup patchSubscriptionsProductsComponentGroupsId(Long id, Long space, SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, Set<String> expand) throws ApiException {
+  public SubscriptionProductComponentGroup patchSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSubscriptionsProductsComponentGroupsId(id, space, subscriptionProductComponentGroupUpdate, expand, Collections.emptyMap());
   }
 
@@ -457,7 +458,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsComponentGroupsId">Update a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup patchSubscriptionsProductsComponentGroupsId(Long id, Long space, SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductComponentGroup patchSubscriptionsProductsComponentGroupsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionProductComponentGroupUpdate;
     
     // verify the required parameter 'id' is set
@@ -477,7 +478,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/component-groups/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -520,8 +521,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -537,7 +538,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsComponentGroups">Create a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup postSubscriptionsProductsComponentGroups(Long space, SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, Set<String> expand) throws ApiException {
+  public SubscriptionProductComponentGroup postSubscriptionsProductsComponentGroups(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsProductsComponentGroups(space, subscriptionProductComponentGroupUpdate, expand, Collections.emptyMap());
   }
 
@@ -555,7 +556,7 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsComponentGroups">Create a component group Documentation</a>
    */
-  public SubscriptionProductComponentGroup postSubscriptionsProductsComponentGroups(Long space, SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductComponentGroup postSubscriptionsProductsComponentGroups(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductComponentGroupUpdate subscriptionProductComponentGroupUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionProductComponentGroupUpdate;
     
     // verify the required parameter 'space' is set
@@ -612,8 +613,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -653,8 +654,8 @@ public class SubscriptionProductComponentGroupsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

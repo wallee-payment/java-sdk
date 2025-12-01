@@ -58,37 +58,46 @@ import java.util.StringJoiner;
 
 public class Feature {
   public static final String JSON_PROPERTY_REQUIRED_FEATURES = "requiredFeatures";
+  @javax.annotation.Nullable
   private List<Long> requiredFeatures = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VISIBLE = "visible";
+  @javax.annotation.Nullable
   private Boolean visible;
 
   public static final String JSON_PROPERTY_LOGO_PATH = "logoPath";
+  @javax.annotation.Nullable
   private String logoPath;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CATEGORY = "category";
+  @javax.annotation.Nullable
   private FeatureCategory category;
 
   public static final String JSON_PROPERTY_BETA = "beta";
+  @javax.annotation.Nullable
   private Boolean beta;
 
   public Feature() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Feature(
     @JsonProperty(JSON_PROPERTY_REQUIRED_FEATURES) List<Long> requiredFeatures, 
@@ -111,10 +120,10 @@ public class Feature {
     this.beta = beta;
   }
 
-   /**
+  /**
    * The features that must be enabled for this feature to work properly.
    * @return requiredFeatures
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUIRED_FEATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +134,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * Whether the feature is visible to the user.
    * @return visible
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VISIBLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +148,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * The path to the feature&#39;s logo image.
    * @return logoPath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGO_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,10 +162,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * When listing features, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,10 +176,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,10 +190,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,10 +204,10 @@ public class Feature {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,16 +218,16 @@ public class Feature {
 
 
 
-  public Feature category(FeatureCategory category) {
+  public Feature category(@javax.annotation.Nullable FeatureCategory category) {
     
     this.category = category;
     return this;
   }
 
-   /**
+  /**
    * Get category
    * @return category
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,14 +239,14 @@ public class Feature {
 
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCategory(FeatureCategory category) {
+  public void setCategory(@javax.annotation.Nullable FeatureCategory category) {
     this.category = category;
   }
 
-   /**
+  /**
    * Whether the feature is in beta stage and there may still be some issues.
    * @return beta
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BETA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

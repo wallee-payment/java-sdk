@@ -63,58 +63,74 @@ import java.util.StringJoiner;
 
 public class Account {
   public static final String JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE = "activeOrRestrictedActive";
+  @javax.annotation.Nullable
   private Boolean activeOrRestrictedActive;
 
   public static final String JSON_PROPERTY_DELETED_ON = "deletedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime deletedOn;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
+  @javax.annotation.Nullable
   private Boolean active;
 
   public static final String JSON_PROPERTY_PARENT_ACCOUNT = "parentAccount";
+  @javax.annotation.Nullable
   private Account parentAccount;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private AccountType type;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_DELETED_BY = "deletedBy";
+  @javax.annotation.Nullable
   private Long deletedBy;
 
   public static final String JSON_PROPERTY_RESTRICTED_ACTIVE = "restrictedActive";
+  @javax.annotation.Nullable
   private Boolean restrictedActive;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable
   private Scope scope;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private AccountState state;
 
   public static final String JSON_PROPERTY_SUBACCOUNT_LIMIT = "subaccountLimit";
+  @javax.annotation.Nullable
   private Long subaccountLimit;
 
   public Account() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Account(
     @JsonProperty(JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE) Boolean activeOrRestrictedActive, 
@@ -145,10 +161,10 @@ public class Account {
     this.subaccountLimit = subaccountLimit;
   }
 
-   /**
+  /**
    * Whether this account and all its parent accounts are active or restricted active.
    * @return activeOrRestrictedActive
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,10 +175,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * The date and time when the account was deleted.
    * @return deletedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,10 +189,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -187,10 +203,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * Whether this account and all its parent accounts are active.
    * @return active
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,16 +217,16 @@ public class Account {
 
 
 
-  public Account parentAccount(Account parentAccount) {
+  public Account parentAccount(@javax.annotation.Nullable Account parentAccount) {
     
     this.parentAccount = parentAccount;
     return this;
   }
 
-   /**
+  /**
    * Get parentAccount
    * @return parentAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARENT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,20 +238,20 @@ public class Account {
 
   @JsonProperty(JSON_PROPERTY_PARENT_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setParentAccount(Account parentAccount) {
+  public void setParentAccount(@javax.annotation.Nullable Account parentAccount) {
     this.parentAccount = parentAccount;
   }
 
-  public Account type(AccountType type) {
+  public Account type(@javax.annotation.Nullable AccountType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,14 +263,14 @@ public class Account {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(AccountType type) {
+  public void setType(@javax.annotation.Nullable AccountType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The date and time when the account was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,10 +281,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,10 +295,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * The ID of a user the account was deleted by.
    * @return deletedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,10 +309,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * Whether this account and all its parent accounts are active or restricted active. There is at least one account that is restricted active.
    * @return restrictedActive
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,10 +323,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * The ID of the user the account was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,16 +337,16 @@ public class Account {
 
 
 
-  public Account scope(Scope scope) {
+  public Account scope(@javax.annotation.Nullable Scope scope) {
     
     this.scope = scope;
     return this;
   }
 
-   /**
+  /**
    * Get scope
    * @return scope
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,14 +358,14 @@ public class Account {
 
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setScope(Scope scope) {
+  public void setScope(@javax.annotation.Nullable Scope scope) {
     this.scope = scope;
   }
 
-   /**
+  /**
    * The name used to identify the account.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,10 +376,10 @@ public class Account {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -374,16 +390,16 @@ public class Account {
 
 
 
-  public Account state(AccountState state) {
+  public Account state(@javax.annotation.Nullable AccountState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -395,14 +411,14 @@ public class Account {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(AccountState state) {
+  public void setState(@javax.annotation.Nullable AccountState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

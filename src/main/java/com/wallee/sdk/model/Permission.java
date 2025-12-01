@@ -60,43 +60,54 @@ import java.util.StringJoiner;
 
 public class Permission {
   public static final String JSON_PROPERTY_PARENT = "parent";
+  @javax.annotation.Nullable
   private Long parent;
 
   public static final String JSON_PROPERTY_FEATURE = "feature";
+  @javax.annotation.Nullable
   private Feature feature;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_PATH_TO_ROOT = "pathToRoot";
+  @javax.annotation.Nullable
   private List<Long> pathToRoot = new ArrayList<>();
 
   public static final String JSON_PROPERTY_WEB_APP_ENABLED = "webAppEnabled";
+  @javax.annotation.Nullable
   private Boolean webAppEnabled;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_LEAF = "leaf";
+  @javax.annotation.Nullable
   private Boolean leaf;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @javax.annotation.Nullable
   private Boolean group;
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
+  @javax.annotation.Nullable
   private Boolean twoFactorRequired;
 
   public Permission() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Permission(
     @JsonProperty(JSON_PROPERTY_PARENT) Long parent, 
@@ -123,10 +134,10 @@ public class Permission {
     this.twoFactorRequired = twoFactorRequired;
   }
 
-   /**
+  /**
    * The group that this permission belongs to.
    * @return parent
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PARENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,16 +148,16 @@ public class Permission {
 
 
 
-  public Permission feature(Feature feature) {
+  public Permission feature(@javax.annotation.Nullable Feature feature) {
     
     this.feature = feature;
     return this;
   }
 
-   /**
+  /**
    * Get feature
    * @return feature
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,14 +169,14 @@ public class Permission {
 
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeature(Feature feature) {
+  public void setFeature(@javax.annotation.Nullable Feature feature) {
     this.feature = feature;
   }
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,10 +187,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * All parents of this permission up to the root of the permission tree.
    * @return pathToRoot
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PATH_TO_ROOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,10 +201,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * Get webAppEnabled
    * @return webAppEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEB_APP_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,10 +215,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,10 +229,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,10 +243,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * Whether this is a leaf in the tree of permissions, and not a group.
    * @return leaf
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEAF)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,10 +257,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,10 +271,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * Whether this is a permission group.
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,10 +285,10 @@ public class Permission {
 
 
 
-   /**
+  /**
    * Whether users with this permission are required to enable two-factor authentication.
    * @return twoFactorRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

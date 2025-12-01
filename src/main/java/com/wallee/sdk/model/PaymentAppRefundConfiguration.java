@@ -46,19 +46,22 @@ import java.util.StringJoiner;
 
 public class PaymentAppRefundConfiguration {
   public static final String JSON_PROPERTY_REFUND_TIMEOUT_IN_MINUTES = "refundTimeoutInMinutes";
+  @javax.annotation.Nullable
   private Integer refundTimeoutInMinutes;
 
   public static final String JSON_PROPERTY_MULTIPLE_REFUNDS_SUPPORTED = "multipleRefundsSupported";
+  @javax.annotation.Nullable
   private Boolean multipleRefundsSupported;
 
   public static final String JSON_PROPERTY_REFUND_ENDPOINT = "refundEndpoint";
+  @javax.annotation.Nullable
   private String refundEndpoint;
 
   public PaymentAppRefundConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentAppRefundConfiguration(
     @JsonProperty(JSON_PROPERTY_REFUND_TIMEOUT_IN_MINUTES) Integer refundTimeoutInMinutes, 
@@ -71,10 +74,10 @@ public class PaymentAppRefundConfiguration {
     this.refundEndpoint = refundEndpoint;
   }
 
-   /**
+  /**
    * The maximum time (in minutes) to wait for a response from the payment service provider after a refund request is triggered. If no feedback or final status is received within this period, the refund is considered failed.
    * @return refundTimeoutInMinutes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND_TIMEOUT_IN_MINUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,10 +88,10 @@ public class PaymentAppRefundConfiguration {
 
 
 
-   /**
+  /**
    * Whether the payment connector can process multiple refunds for a single transaction.
    * @return multipleRefundsSupported
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTIPLE_REFUNDS_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,10 +102,10 @@ public class PaymentAppRefundConfiguration {
 
 
 
-   /**
+  /**
    * The URL that the payment service provider will invoke to process a refund request. This endpoint handles communication with the provider for initiating and managing refunds.
    * @return refundEndpoint
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

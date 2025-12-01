@@ -53,27 +53,33 @@ import java.util.StringJoiner;
 
 public class SubscriptionAffiliateCreate {
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nonnull
   private String reference;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public SubscriptionAffiliateCreate() {
   }
 
-  public SubscriptionAffiliateCreate metaData(Map<String, String> metaData) {
+  public SubscriptionAffiliateCreate metaData(@javax.annotation.Nullable Map<String, String> metaData) {
     
     this.metaData = metaData;
     return this;
@@ -87,10 +93,10 @@ public class SubscriptionAffiliateCreate {
     return this;
   }
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,20 +108,20 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetaData(Map<String, String> metaData) {
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  public SubscriptionAffiliateCreate name(String name) {
+  public SubscriptionAffiliateCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the affiliate.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,20 +133,20 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public SubscriptionAffiliateCreate language(String language) {
+  public SubscriptionAffiliateCreate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,20 +158,20 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public SubscriptionAffiliateCreate state(CreationEntityState state) {
+  public SubscriptionAffiliateCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,20 +183,20 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public SubscriptionAffiliateCreate reference(String reference) {
+  public SubscriptionAffiliateCreate reference(@javax.annotation.Nonnull String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference used to identify the affiliate.
    * @return reference
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -202,20 +208,20 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nonnull String reference) {
     this.reference = reference;
   }
 
-  public SubscriptionAffiliateCreate externalId(String externalId) {
+  public SubscriptionAffiliateCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -227,7 +233,7 @@ public class SubscriptionAffiliateCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 

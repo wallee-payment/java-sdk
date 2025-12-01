@@ -58,43 +58,54 @@ import java.util.StringJoiner;
 
 public class ChargeBankTransaction {
   public static final String JSON_PROPERTY_TRANSACTION_CURRENCY_AMOUNT = "transactionCurrencyAmount";
+  @javax.annotation.Nullable
   private BigDecimal transactionCurrencyAmount;
 
   public static final String JSON_PROPERTY_COMPLETION = "completion";
+  @javax.annotation.Nullable
   private TransactionCompletion completion;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_BANK_TRANSACTION = "bankTransaction";
+  @javax.annotation.Nullable
   private BankTransaction bankTransaction;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public static final String JSON_PROPERTY_TRANSACTION_CURRENCY_VALUE_AMOUNT = "transactionCurrencyValueAmount";
+  @javax.annotation.Nullable
   private BigDecimal transactionCurrencyValueAmount;
 
   public ChargeBankTransaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ChargeBankTransaction(
     @JsonProperty(JSON_PROPERTY_TRANSACTION_CURRENCY_AMOUNT) BigDecimal transactionCurrencyAmount, 
@@ -117,10 +128,10 @@ public class ChargeBankTransaction {
     this.transactionCurrencyValueAmount = transactionCurrencyValueAmount;
   }
 
-   /**
+  /**
    * The posting amount represents the monetary value of the bank transaction, recorded in the payment transaction&#39;s currency, before applying any adjustments.
    * @return transactionCurrencyAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION_CURRENCY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,16 +142,16 @@ public class ChargeBankTransaction {
 
 
 
-  public ChargeBankTransaction completion(TransactionCompletion completion) {
+  public ChargeBankTransaction completion(@javax.annotation.Nullable TransactionCompletion completion) {
     
     this.completion = completion;
     return this;
   }
 
-   /**
+  /**
    * Get completion
    * @return completion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,14 +163,14 @@ public class ChargeBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletion(TransactionCompletion completion) {
+  public void setCompletion(@javax.annotation.Nullable TransactionCompletion completion) {
     this.completion = completion;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,10 +181,10 @@ public class ChargeBankTransaction {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,10 +195,10 @@ public class ChargeBankTransaction {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,10 +209,10 @@ public class ChargeBankTransaction {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,10 +223,10 @@ public class ChargeBankTransaction {
 
 
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,16 +237,16 @@ public class ChargeBankTransaction {
 
 
 
-  public ChargeBankTransaction bankTransaction(BankTransaction bankTransaction) {
+  public ChargeBankTransaction bankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     
     this.bankTransaction = bankTransaction;
     return this;
   }
 
-   /**
+  /**
    * Get bankTransaction
    * @return bankTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,14 +258,14 @@ public class ChargeBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankTransaction(BankTransaction bankTransaction) {
+  public void setBankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     this.bankTransaction = bankTransaction;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,16 +276,16 @@ public class ChargeBankTransaction {
 
 
 
-  public ChargeBankTransaction transaction(Transaction transaction) {
+  public ChargeBankTransaction transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -286,14 +297,14 @@ public class ChargeBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The value amount represents the net monetary value of the bank transaction, recorded in the payment transaction&#39;s currency, after applicable deductions.
    * @return transactionCurrencyValueAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION_CURRENCY_VALUE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

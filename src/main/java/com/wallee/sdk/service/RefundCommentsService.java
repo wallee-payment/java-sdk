@@ -37,6 +37,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -63,7 +64,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentRefundsRefundIdCommentsId">Delete a refund comment Documentation</a>
    */
-  public void deletePaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space) throws ApiException {
+  public void deletePaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentRefundsRefundIdCommentsId(refundId, id, space, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentRefundsRefundIdCommentsId">Delete a refund comment Documentation</a>
    */
-  public void deletePaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -100,8 +101,8 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/{id}"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -142,8 +143,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -163,7 +164,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdComments">List all refund comments Documentation</a>
    */
-  public RefundCommentListResponse getPaymentRefundsRefundIdComments(Long refundId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public RefundCommentListResponse getPaymentRefundsRefundIdComments(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentRefundsRefundIdComments(refundId, space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -185,7 +186,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdComments">List all refund comments Documentation</a>
    */
-  public RefundCommentListResponse getPaymentRefundsRefundIdComments(Long refundId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundCommentListResponse getPaymentRefundsRefundIdComments(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -200,7 +201,7 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -247,8 +248,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -265,7 +266,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdCommentsId">Retrieve a refund comment Documentation</a>
    */
-  public RefundComment getPaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space, Set<String> expand) throws ApiException {
+  public RefundComment getPaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentRefundsRefundIdCommentsId(refundId, id, space, expand, Collections.emptyMap());
   }
 
@@ -284,7 +285,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdCommentsId">Retrieve a refund comment Documentation</a>
    */
-  public RefundComment getPaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundComment getPaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -304,8 +305,8 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/{id}"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -348,8 +349,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -369,7 +370,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdCommentsSearch">Search refund comments Documentation</a>
    */
-  public RefundCommentSearchResponse getPaymentRefundsRefundIdCommentsSearch(Long refundId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public RefundCommentSearchResponse getPaymentRefundsRefundIdCommentsSearch(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentRefundsRefundIdCommentsSearch(refundId, space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -391,7 +392,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsRefundIdCommentsSearch">Search refund comments Documentation</a>
    */
-  public RefundCommentSearchResponse getPaymentRefundsRefundIdCommentsSearch(Long refundId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundCommentSearchResponse getPaymentRefundsRefundIdCommentsSearch(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -406,7 +407,7 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/search"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -453,8 +454,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -472,7 +473,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentRefundsRefundIdCommentsId">Update a refund comment Documentation</a>
    */
-  public RefundComment patchPaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space, RefundCommentActive refundCommentActive, Set<String> expand) throws ApiException {
+  public RefundComment patchPaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCommentActive refundCommentActive, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentRefundsRefundIdCommentsId(refundId, id, space, refundCommentActive, expand, Collections.emptyMap());
   }
 
@@ -492,7 +493,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentRefundsRefundIdCommentsId">Update a refund comment Documentation</a>
    */
-  public RefundComment patchPaymentRefundsRefundIdCommentsId(Long refundId, Long id, Long space, RefundCommentActive refundCommentActive, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundComment patchPaymentRefundsRefundIdCommentsId(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCommentActive refundCommentActive, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = refundCommentActive;
     
     // verify the required parameter 'refundId' is set
@@ -517,8 +518,8 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/{id}"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -561,8 +562,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -579,7 +580,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdComments">Create a refund comment Documentation</a>
    */
-  public RefundComment postPaymentRefundsRefundIdComments(Long refundId, Long space, RefundCommentCreate refundCommentCreate, Set<String> expand) throws ApiException {
+  public RefundComment postPaymentRefundsRefundIdComments(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCommentCreate refundCommentCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentRefundsRefundIdComments(refundId, space, refundCommentCreate, expand, Collections.emptyMap());
   }
 
@@ -598,7 +599,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdComments">Create a refund comment Documentation</a>
    */
-  public RefundComment postPaymentRefundsRefundIdComments(Long refundId, Long space, RefundCommentCreate refundCommentCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundComment postPaymentRefundsRefundIdComments(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCommentCreate refundCommentCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = refundCommentCreate;
     
     // verify the required parameter 'refundId' is set
@@ -618,7 +619,7 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -661,8 +662,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -677,7 +678,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentRefundsRefundIdCommentsIdPin(Long refundId, Long id, Long space) throws ApiException {
+  public void postPaymentRefundsRefundIdCommentsIdPin(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentRefundsRefundIdCommentsIdPin(refundId, id, space, Collections.emptyMap());
   }
 
@@ -694,7 +695,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdCommentsIdPin">Pin a comment to the top Documentation</a>
    */
-  public void postPaymentRefundsRefundIdCommentsIdPin(Long refundId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentRefundsRefundIdCommentsIdPin(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -714,8 +715,8 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/{id}/pin"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -756,8 +757,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -772,7 +773,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentRefundsRefundIdCommentsIdUnpin(Long refundId, Long id, Long space) throws ApiException {
+  public void postPaymentRefundsRefundIdCommentsIdUnpin(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentRefundsRefundIdCommentsIdUnpin(refundId, id, space, Collections.emptyMap());
   }
 
@@ -789,7 +790,7 @@ public class RefundCommentsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsRefundIdCommentsIdUnpin">Remove the pinned comment from the top Documentation</a>
    */
-  public void postPaymentRefundsRefundIdCommentsIdUnpin(Long refundId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentRefundsRefundIdCommentsIdUnpin(@javax.annotation.Nonnull Long refundId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'refundId' is set
@@ -809,8 +810,8 @@ public class RefundCommentsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{refundId}/comments/{id}/unpin"
-      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(refundId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "refundId" + "\\}", apiClient.escapeString(apiClient.parameterToString(refundId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -851,8 +852,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -892,8 +893,8 @@ public class RefundCommentsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

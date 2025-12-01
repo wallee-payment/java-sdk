@@ -47,22 +47,26 @@ import java.util.StringJoiner;
 
 public class RenderedDocument {
   public static final String JSON_PROPERTY_DOCUMENT_TEMPLATE_TYPE = "documentTemplateType";
+  @javax.annotation.Nullable
   private Long documentTemplateType;
 
   public static final String JSON_PROPERTY_DATA = "data";
+  @javax.annotation.Nullable
   private byte[] data;
 
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
+  @javax.annotation.Nullable
   private String mimeType;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private String title;
 
   public RenderedDocument() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RenderedDocument(
     @JsonProperty(JSON_PROPERTY_DOCUMENT_TEMPLATE_TYPE) Long documentTemplateType, 
@@ -77,10 +81,10 @@ public class RenderedDocument {
     this.title = title;
   }
 
-   /**
+  /**
    * The document&#39;s template type
    * @return documentTemplateType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOCUMENT_TEMPLATE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,10 +95,10 @@ public class RenderedDocument {
 
 
 
-   /**
+  /**
    * The binary data of the document
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,10 +109,10 @@ public class RenderedDocument {
 
 
 
-   /**
+  /**
    * The document&#39;s content type
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +123,10 @@ public class RenderedDocument {
 
 
 
-   /**
+  /**
    * The title of the rendered document
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

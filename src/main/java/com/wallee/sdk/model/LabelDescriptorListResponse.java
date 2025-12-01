@@ -51,19 +51,22 @@ import java.util.StringJoiner;
 
 public class LabelDescriptorListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
+  @javax.annotation.Nullable
   private List<LabelDescriptor> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
+  @javax.annotation.Nullable
   private Boolean hasMore;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
+  @javax.annotation.Nullable
   private Integer limit;
 
   public LabelDescriptorListResponse() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LabelDescriptorListResponse(
     @JsonProperty(JSON_PROPERTY_DATA) List<LabelDescriptor> data, 
@@ -76,10 +79,10 @@ public class LabelDescriptorListResponse {
     this.limit = limit;
   }
 
-   /**
+  /**
    * An array containing the actual response objects.
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,10 +93,10 @@ public class LabelDescriptorListResponse {
 
 
 
-   /**
+  /**
    * Whether there are more objects available after this set. If false, there are no more objects to retrieve.
    * @return hasMore
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_MORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,10 +107,10 @@ public class LabelDescriptorListResponse {
 
 
 
-   /**
+  /**
    * The applied limit on the number of objects returned.
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

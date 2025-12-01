@@ -48,24 +48,26 @@ import java.util.StringJoiner;
 
 public class AbstractCustomerAddressActive {
   public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
   private CustomerPostalAddressCreate address;
 
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "addressType";
+  @javax.annotation.Nullable
   private CustomerAddressType addressType;
 
   public AbstractCustomerAddressActive() {
   }
 
-  public AbstractCustomerAddressActive address(CustomerPostalAddressCreate address) {
+  public AbstractCustomerAddressActive address(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -77,20 +79,20 @@ public class AbstractCustomerAddressActive {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(CustomerPostalAddressCreate address) {
+  public void setAddress(@javax.annotation.Nullable CustomerPostalAddressCreate address) {
     this.address = address;
   }
 
-  public AbstractCustomerAddressActive addressType(CustomerAddressType addressType) {
+  public AbstractCustomerAddressActive addressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     
     this.addressType = addressType;
     return this;
   }
 
-   /**
+  /**
    * Get addressType
    * @return addressType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -102,7 +104,7 @@ public class AbstractCustomerAddressActive {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddressType(CustomerAddressType addressType) {
+  public void setAddressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     this.addressType = addressType;
   }
 

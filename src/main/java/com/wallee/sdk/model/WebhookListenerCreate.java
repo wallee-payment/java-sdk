@@ -55,30 +55,37 @@ import java.util.StringJoiner;
 
 public class WebhookListenerCreate {
   public static final String JSON_PROPERTY_ENTITY_STATES = "entityStates";
+  @javax.annotation.Nullable
   private Set<String> entityStates = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_NOTIFY_EVERY_CHANGE = "notifyEveryChange";
+  @javax.annotation.Nullable
   private Boolean notifyEveryChange;
 
   public static final String JSON_PROPERTY_IDENTITY = "identity";
+  @javax.annotation.Nullable
   private Long identity;
 
   public static final String JSON_PROPERTY_ENTITY = "entity";
+  @javax.annotation.Nonnull
   private Long entity;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @javax.annotation.Nonnull
   private Long url;
 
   public WebhookListenerCreate() {
   }
 
-  public WebhookListenerCreate entityStates(Set<String> entityStates) {
+  public WebhookListenerCreate entityStates(@javax.annotation.Nullable Set<String> entityStates) {
     
     this.entityStates = entityStates;
     return this;
@@ -92,10 +99,10 @@ public class WebhookListenerCreate {
     return this;
   }
 
-   /**
+  /**
    * The entity&#39;s target states that are to be monitored.
    * @return entityStates
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENTITY_STATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,20 +115,20 @@ public class WebhookListenerCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENTITY_STATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityStates(Set<String> entityStates) {
+  public void setEntityStates(@javax.annotation.Nullable Set<String> entityStates) {
     this.entityStates = entityStates;
   }
 
-  public WebhookListenerCreate name(String name) {
+  public WebhookListenerCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the webhook listener.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,20 +140,20 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public WebhookListenerCreate state(CreationEntityState state) {
+  public WebhookListenerCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,20 +165,20 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public WebhookListenerCreate notifyEveryChange(Boolean notifyEveryChange) {
+  public WebhookListenerCreate notifyEveryChange(@javax.annotation.Nullable Boolean notifyEveryChange) {
     
     this.notifyEveryChange = notifyEveryChange;
     return this;
   }
 
-   /**
+  /**
    * Whether every update of the entity or only state changes are to be monitored.
    * @return notifyEveryChange
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFY_EVERY_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,20 +190,20 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_NOTIFY_EVERY_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNotifyEveryChange(Boolean notifyEveryChange) {
+  public void setNotifyEveryChange(@javax.annotation.Nullable Boolean notifyEveryChange) {
     this.notifyEveryChange = notifyEveryChange;
   }
 
-  public WebhookListenerCreate identity(Long identity) {
+  public WebhookListenerCreate identity(@javax.annotation.Nullable Long identity) {
     
     this.identity = identity;
     return this;
   }
 
-   /**
+  /**
    * The identity used to sign messages.
    * @return identity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,20 +215,20 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_IDENTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIdentity(Long identity) {
+  public void setIdentity(@javax.annotation.Nullable Long identity) {
     this.identity = identity;
   }
 
-  public WebhookListenerCreate entity(Long entity) {
+  public WebhookListenerCreate entity(@javax.annotation.Nonnull Long entity) {
     
     this.entity = entity;
     return this;
   }
 
-   /**
+  /**
    * The entity that is to be monitored.
    * @return entity
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -233,20 +240,20 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_ENTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEntity(Long entity) {
+  public void setEntity(@javax.annotation.Nonnull Long entity) {
     this.entity = entity;
   }
 
-  public WebhookListenerCreate url(Long url) {
+  public WebhookListenerCreate url(@javax.annotation.Nonnull Long url) {
     
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * The URL where notifications about entity changes are sent to.
    * @return url
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -258,7 +265,7 @@ public class WebhookListenerCreate {
 
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUrl(Long url) {
+  public void setUrl(@javax.annotation.Nonnull Long url) {
     this.url = url;
   }
 

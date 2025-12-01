@@ -49,22 +49,26 @@ import java.util.StringJoiner;
 
 public class BankAccountType {
   public static final String JSON_PROPERTY_IDENTIFIER_NAME = "identifierName";
+  @javax.annotation.Nullable
   private Map<String, String> identifierName = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public BankAccountType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public BankAccountType(
     @JsonProperty(JSON_PROPERTY_IDENTIFIER_NAME) Map<String, String> identifierName, 
@@ -79,10 +83,10 @@ public class BankAccountType {
     this.id = id;
   }
 
-   /**
+  /**
    * The identifier name specifies how the bank account type&#39;s identifier is called.
    * @return identifierName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDENTIFIER_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,10 +97,10 @@ public class BankAccountType {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,10 +111,10 @@ public class BankAccountType {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,10 +125,10 @@ public class BankAccountType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

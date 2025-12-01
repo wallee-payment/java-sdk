@@ -47,16 +47,18 @@ import java.util.StringJoiner;
 
 public class PaymentInformationHashType {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public PaymentInformationHashType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentInformationHashType(
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
@@ -67,10 +69,10 @@ public class PaymentInformationHashType {
     this.id = id;
   }
 
-   /**
+  /**
    * The name that describes the hash type.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,10 +83,10 @@ public class PaymentInformationHashType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

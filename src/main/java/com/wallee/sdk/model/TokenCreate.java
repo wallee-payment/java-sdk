@@ -53,42 +53,50 @@ import java.util.StringJoiner;
 
 public class TokenCreate {
   public static final String JSON_PROPERTY_ENABLED_FOR_ONE_CLICK_PAYMENT = "enabledForOneClickPayment";
+  @javax.annotation.Nullable
   private Boolean enabledForOneClickPayment;
 
   public static final String JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS = "customerEmailAddress";
+  @javax.annotation.Nullable
   private String customerEmailAddress;
 
   public static final String JSON_PROPERTY_TOKEN_REFERENCE = "tokenReference";
+  @javax.annotation.Nullable
   private String tokenReference;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
+  @javax.annotation.Nullable
   private String customerId;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public TokenCreate() {
   }
 
-  public TokenCreate enabledForOneClickPayment(Boolean enabledForOneClickPayment) {
+  public TokenCreate enabledForOneClickPayment(@javax.annotation.Nullable Boolean enabledForOneClickPayment) {
     
     this.enabledForOneClickPayment = enabledForOneClickPayment;
     return this;
   }
 
-   /**
+  /**
    * Whether the token is enabled for one-click payments, which simplify the payment process for the customer. One-click tokens are linked to customers via the customer ID.
    * @return enabledForOneClickPayment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_FOR_ONE_CLICK_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,20 +108,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_ENABLED_FOR_ONE_CLICK_PAYMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledForOneClickPayment(Boolean enabledForOneClickPayment) {
+  public void setEnabledForOneClickPayment(@javax.annotation.Nullable Boolean enabledForOneClickPayment) {
     this.enabledForOneClickPayment = enabledForOneClickPayment;
   }
 
-  public TokenCreate customerEmailAddress(String customerEmailAddress) {
+  public TokenCreate customerEmailAddress(@javax.annotation.Nullable String customerEmailAddress) {
     
     this.customerEmailAddress = customerEmailAddress;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s email address.
    * @return customerEmailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,20 +133,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomerEmailAddress(String customerEmailAddress) {
+  public void setCustomerEmailAddress(@javax.annotation.Nullable String customerEmailAddress) {
     this.customerEmailAddress = customerEmailAddress;
   }
 
-  public TokenCreate tokenReference(String tokenReference) {
+  public TokenCreate tokenReference(@javax.annotation.Nullable String tokenReference) {
     
     this.tokenReference = tokenReference;
     return this;
   }
 
-   /**
+  /**
    * The reference used to identify the payment token (e.g. the customer&#39;s ID or email address).
    * @return tokenReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,20 +158,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_TOKEN_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenReference(String tokenReference) {
+  public void setTokenReference(@javax.annotation.Nullable String tokenReference) {
     this.tokenReference = tokenReference;
   }
 
-  public TokenCreate customerId(String customerId) {
+  public TokenCreate customerId(@javax.annotation.Nullable String customerId) {
     
     this.customerId = customerId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the customer in the external system.
    * @return customerId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,20 +183,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomerId(String customerId) {
+  public void setCustomerId(@javax.annotation.Nullable String customerId) {
     this.customerId = customerId;
   }
 
-  public TokenCreate timeZone(String timeZone) {
+  public TokenCreate timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,20 +208,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public TokenCreate language(String language) {
+  public TokenCreate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,20 +233,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public TokenCreate externalId(String externalId) {
+  public TokenCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -250,20 +258,20 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public TokenCreate state(CreationEntityState state) {
+  public TokenCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +283,7 @@ public class TokenCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 

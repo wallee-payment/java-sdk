@@ -52,22 +52,26 @@ import java.util.StringJoiner;
 
 public class ClientPlatformInformationSearchResponse {
   public static final String JSON_PROPERTY_DATA = "data";
+  @javax.annotation.Nullable
   private List<TransactionClientPlatformInformation> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_OFFSET = "offset";
+  @javax.annotation.Nullable
   private Integer offset;
 
   public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
+  @javax.annotation.Nullable
   private Boolean hasMore;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
+  @javax.annotation.Nullable
   private Integer limit;
 
   public ClientPlatformInformationSearchResponse() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ClientPlatformInformationSearchResponse(
     @JsonProperty(JSON_PROPERTY_DATA) List<TransactionClientPlatformInformation> data, 
@@ -82,10 +86,10 @@ public class ClientPlatformInformationSearchResponse {
     this.limit = limit;
   }
 
-   /**
+  /**
    * An array containing the actual response objects.
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,10 +100,10 @@ public class ClientPlatformInformationSearchResponse {
 
 
 
-   /**
+  /**
    * The number of skipped objects.
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,10 +114,10 @@ public class ClientPlatformInformationSearchResponse {
 
 
 
-   /**
+  /**
    * Whether there are more objects available after this set. If false, there are no more objects to retrieve.
    * @return hasMore
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HAS_MORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,10 +128,10 @@ public class ClientPlatformInformationSearchResponse {
 
 
 
-   /**
+  /**
    * The applied limit on the number of objects returned.
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

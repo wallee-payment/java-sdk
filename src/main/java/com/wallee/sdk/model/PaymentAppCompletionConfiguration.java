@@ -48,25 +48,30 @@ import java.util.StringJoiner;
 
 public class PaymentAppCompletionConfiguration {
   public static final String JSON_PROPERTY_MULTIPLE_COMPLETIONS_SUPPORTED = "multipleCompletionsSupported";
+  @javax.annotation.Nullable
   private Boolean multipleCompletionsSupported;
 
   public static final String JSON_PROPERTY_MAXIMAL_COMPLETION_DELAY_IN_DAYS = "maximalCompletionDelayInDays";
+  @javax.annotation.Nullable
   private Integer maximalCompletionDelayInDays;
 
   public static final String JSON_PROPERTY_COMPLETION_ENDPOINT = "completionEndpoint";
+  @javax.annotation.Nullable
   private String completionEndpoint;
 
   public static final String JSON_PROPERTY_COMPLETION_TIMEOUT_IN_MINUTES = "completionTimeoutInMinutes";
+  @javax.annotation.Nullable
   private Integer completionTimeoutInMinutes;
 
   public static final String JSON_PROPERTY_VOID_ENDPOINT = "voidEndpoint";
+  @javax.annotation.Nullable
   private String voidEndpoint;
 
   public PaymentAppCompletionConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentAppCompletionConfiguration(
     @JsonProperty(JSON_PROPERTY_MULTIPLE_COMPLETIONS_SUPPORTED) Boolean multipleCompletionsSupported, 
@@ -83,10 +88,10 @@ public class PaymentAppCompletionConfiguration {
     this.voidEndpoint = voidEndpoint;
   }
 
-   /**
+  /**
    * Whether the payment connector can process multiple completions for a single transaction.
    * @return multipleCompletionsSupported
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MULTIPLE_COMPLETIONS_SUPPORTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,10 +102,10 @@ public class PaymentAppCompletionConfiguration {
 
 
 
-   /**
+  /**
    * The maximum number of days after a transaction&#39;s authorization during which a completion or void action can be triggered. Once this period has passed, neither action can be executed.
    * @return maximalCompletionDelayInDays
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAXIMAL_COMPLETION_DELAY_IN_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,10 +116,10 @@ public class PaymentAppCompletionConfiguration {
 
 
 
-   /**
+  /**
    * The URL that the payment service provider will invoke to process a completion request. This endpoint handles communication with the provider for initiating and managing completions.
    * @return completionEndpoint
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +130,10 @@ public class PaymentAppCompletionConfiguration {
 
 
 
-   /**
+  /**
    * The maximum time (in minutes) to wait for a response from the payment service provider after a completion request is triggered. If no feedback or final status is received within this period, the completion is considered failed.
    * @return completionTimeoutInMinutes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_TIMEOUT_IN_MINUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +144,10 @@ public class PaymentAppCompletionConfiguration {
 
 
 
-   /**
+  /**
    * The URL that the payment service provider will invoke to process a void request. This endpoint handles communication with the provider for initiating and managing voids.
    * @return voidEndpoint
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VOID_ENDPOINT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

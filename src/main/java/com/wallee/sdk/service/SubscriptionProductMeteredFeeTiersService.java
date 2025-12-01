@@ -36,6 +36,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsProductsMeteredFeesFeeIdTiersId">Delete a metered fee tier Documentation</a>
    */
-  public void deleteSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space) throws ApiException {
+  public void deleteSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteSubscriptionsProductsMeteredFeesFeeIdTiersId(feeId, id, space, Collections.emptyMap());
   }
 
@@ -79,7 +80,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsProductsMeteredFeesFeeIdTiersId">Delete a metered fee tier Documentation</a>
    */
-  public void deleteSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'feeId' is set
@@ -99,8 +100,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers/{id}"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -141,8 +142,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -162,7 +163,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiers">List all metered fee tiers Documentation</a>
    */
-  public ProductMeteredFeeTierListResponse getSubscriptionsProductsMeteredFeesFeeIdTiers(Long feeId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ProductMeteredFeeTierListResponse getSubscriptionsProductsMeteredFeesFeeIdTiers(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsProductsMeteredFeesFeeIdTiers(feeId, space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -184,7 +185,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiers">List all metered fee tiers Documentation</a>
    */
-  public ProductMeteredFeeTierListResponse getSubscriptionsProductsMeteredFeesFeeIdTiers(Long feeId, Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductMeteredFeeTierListResponse getSubscriptionsProductsMeteredFeesFeeIdTiers(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'feeId' is set
@@ -199,7 +200,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -246,8 +247,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -264,7 +265,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiersId">Retrieve a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee getSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space, Set<String> expand) throws ApiException {
+  public ProductMeteredTierFee getSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsProductsMeteredFeesFeeIdTiersId(feeId, id, space, expand, Collections.emptyMap());
   }
 
@@ -283,7 +284,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiersId">Retrieve a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee getSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductMeteredTierFee getSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'feeId' is set
@@ -303,8 +304,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers/{id}"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -347,8 +348,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -368,7 +369,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiersSearch">Search metered fee tiers Documentation</a>
    */
-  public ProductMeteredFeeTierSearchResponse getSubscriptionsProductsMeteredFeesFeeIdTiersSearch(Long feeId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ProductMeteredFeeTierSearchResponse getSubscriptionsProductsMeteredFeesFeeIdTiersSearch(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsProductsMeteredFeesFeeIdTiersSearch(feeId, space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -390,7 +391,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsMeteredFeesFeeIdTiersSearch">Search metered fee tiers Documentation</a>
    */
-  public ProductMeteredFeeTierSearchResponse getSubscriptionsProductsMeteredFeesFeeIdTiersSearch(Long feeId, Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductMeteredFeeTierSearchResponse getSubscriptionsProductsMeteredFeesFeeIdTiersSearch(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'feeId' is set
@@ -405,7 +406,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers/search"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -452,8 +453,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -471,7 +472,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsMeteredFeesFeeIdTiersId">Update a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee patchSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space, ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, Set<String> expand) throws ApiException {
+  public ProductMeteredTierFee patchSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSubscriptionsProductsMeteredFeesFeeIdTiersId(feeId, id, space, productMeteredTierFeeUpdate, expand, Collections.emptyMap());
   }
 
@@ -491,7 +492,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsMeteredFeesFeeIdTiersId">Update a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee patchSubscriptionsProductsMeteredFeesFeeIdTiersId(Long feeId, Long id, Long space, ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductMeteredTierFee patchSubscriptionsProductsMeteredFeesFeeIdTiersId(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = productMeteredTierFeeUpdate;
     
     // verify the required parameter 'feeId' is set
@@ -516,8 +517,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers/{id}"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -560,8 +561,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -578,7 +579,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsMeteredFeesFeeIdTiers">Create a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee postSubscriptionsProductsMeteredFeesFeeIdTiers(Long feeId, Long space, ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, Set<String> expand) throws ApiException {
+  public ProductMeteredTierFee postSubscriptionsProductsMeteredFeesFeeIdTiers(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsProductsMeteredFeesFeeIdTiers(feeId, space, productMeteredTierFeeUpdate, expand, Collections.emptyMap());
   }
 
@@ -597,7 +598,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsMeteredFeesFeeIdTiers">Create a metered fee tier Documentation</a>
    */
-  public ProductMeteredTierFee postSubscriptionsProductsMeteredFeesFeeIdTiers(Long feeId, Long space, ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductMeteredTierFee postSubscriptionsProductsMeteredFeesFeeIdTiers(@javax.annotation.Nonnull Long feeId, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ProductMeteredTierFeeUpdate productMeteredTierFeeUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = productMeteredTierFeeUpdate;
     
     // verify the required parameter 'feeId' is set
@@ -617,7 +618,7 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/metered-fees/{feeId}/tiers"
-      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(feeId.toString()));
+      .replaceAll("\\{" + "feeId" + "\\}", apiClient.escapeString(apiClient.parameterToString(feeId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -660,8 +661,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -701,8 +702,8 @@ public class SubscriptionProductMeteredFeeTiersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

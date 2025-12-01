@@ -69,7 +69,7 @@ public class TransactionCompletionServiceTest {
     assertEquals(TransactionState.FULFILL, processedTransaction.getState(), "State must be FULFILL");
 
     TransactionCompletion transactionCompletion =
-      transactionsService.postPaymentTransactionsIdCompleteOffline(
+      transactionsService.postPaymentTransactionsIdCompleteOnline(
         transaction.getId(), SPACE_ID, EMPTY_EXPAND);
 
     Transaction readTransaction =

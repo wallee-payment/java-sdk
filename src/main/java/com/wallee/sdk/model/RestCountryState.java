@@ -47,22 +47,26 @@ import java.util.StringJoiner;
 
 public class RestCountryState {
   public static final String JSON_PROPERTY_CODE = "code";
+  @javax.annotation.Nullable
   private String code;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
+  @javax.annotation.Nullable
   private String countryCode;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private String id;
 
   public RestCountryState() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestCountryState(
     @JsonProperty(JSON_PROPERTY_CODE) String code, 
@@ -77,10 +81,10 @@ public class RestCountryState {
     this.id = id;
   }
 
-   /**
+  /**
    * The state&#39;s code used within addresses.
    * @return code
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,10 +95,10 @@ public class RestCountryState {
 
 
 
-   /**
+  /**
    * The two-letter code of the state&#39;s country (ISO 3166-1 alpha-2 format).
    * @return countryCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,10 +109,10 @@ public class RestCountryState {
 
 
 
-   /**
+  /**
    * The name of the state.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +123,10 @@ public class RestCountryState {
 
 
 
-   /**
+  /**
    * The state&#39;s code in ISO 3166-2 format.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

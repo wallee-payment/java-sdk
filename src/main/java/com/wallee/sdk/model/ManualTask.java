@@ -58,37 +58,46 @@ import java.util.StringJoiner;
 
 public class ManualTask {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_CONTEXT_ENTITY_ID = "contextEntityId";
+  @javax.annotation.Nullable
   private Long contextEntityId;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXPIRES_ON = "expiresOn";
+  @javax.annotation.Nullable
   private OffsetDateTime expiresOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ManualTaskState state;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public static final String JSON_PROPERTY_ACTIONS = "actions";
+  @javax.annotation.Nullable
   private List<ManualTaskAction> actions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public ManualTask() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ManualTask(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -111,10 +120,10 @@ public class ManualTask {
     this.createdOn = createdOn;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +134,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * The ID of the entity the manual task is linked to.
    * @return contextEntityId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTEXT_ENTITY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +148,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,10 +162,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * The date and time until when the manual task has to be handled.
    * @return expiresOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,10 +176,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,16 +190,16 @@ public class ManualTask {
 
 
 
-  public ManualTask state(ManualTaskState state) {
+  public ManualTask state(@javax.annotation.Nullable ManualTaskState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,14 +211,14 @@ public class ManualTask {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ManualTaskState state) {
+  public void setState(@javax.annotation.Nullable ManualTaskState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The manual task&#39;s type.
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,10 +229,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * The actions that can be triggered to handle the manual task.
    * @return actions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,10 +243,10 @@ public class ManualTask {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

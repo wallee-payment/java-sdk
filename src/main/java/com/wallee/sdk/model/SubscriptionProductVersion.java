@@ -75,76 +75,98 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductVersion {
   public static final String JSON_PROPERTY_RETIRING_FINISHED_ON = "retiringFinishedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime retiringFinishedOn;
 
   public static final String JSON_PROPERTY_ENABLED_CURRENCIES = "enabledCurrencies";
+  @javax.annotation.Nullable
   private Set<String> enabledCurrencies = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
+  @javax.annotation.Nullable
   private SubscriptionProduct product;
 
   public static final String JSON_PROPERTY_RETIRING_STARTED_ON = "retiringStartedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime retiringStartedOn;
 
   public static final String JSON_PROPERTY_TAX_CALCULATION = "taxCalculation";
+  @javax.annotation.Nullable
   private TaxCalculation taxCalculation;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ACTIVATED_ON = "activatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime activatedOn;
 
   public static final String JSON_PROPERTY_BILLING_CYCLE = "billingCycle";
+  @javax.annotation.Nullable
   private String billingCycle;
 
   public static final String JSON_PROPERTY_DEFAULT_CURRENCY = "defaultCurrency";
+  @javax.annotation.Nullable
   private String defaultCurrency;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS = "minimalNumberOfPeriods";
+  @javax.annotation.Nullable
   private Integer minimalNumberOfPeriods;
 
   public static final String JSON_PROPERTY_OBSOLETED_ON = "obsoletedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime obsoletedOn;
 
   public static final String JSON_PROPERTY_BILLING_CYCLE_MODEL = "billingCycleModel";
+  @javax.annotation.Nullable
   private BillingCycleModel billingCycleModel;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_INCREMENT_NUMBER = "incrementNumber";
+  @javax.annotation.Nullable
   private Integer incrementNumber;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionProductVersionState state;
 
   public static final String JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS = "numberOfNoticePeriods";
+  @javax.annotation.Nullable
   private Integer numberOfNoticePeriods;
 
   public SubscriptionProductVersion() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionProductVersion(
     @JsonProperty(JSON_PROPERTY_RETIRING_FINISHED_ON) OffsetDateTime retiringFinishedOn, 
@@ -187,10 +209,10 @@ public class SubscriptionProductVersion {
     this.numberOfNoticePeriods = numberOfNoticePeriods;
   }
 
-   /**
+  /**
    * The date and time when the product version was retired.
    * @return retiringFinishedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETIRING_FINISHED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,10 +223,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The three-letter codes (ISO 4217 format) of the currencies that the product version supports.
    * @return enabledCurrencies
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,16 +237,16 @@ public class SubscriptionProductVersion {
 
 
 
-  public SubscriptionProductVersion product(SubscriptionProduct product) {
+  public SubscriptionProductVersion product(@javax.annotation.Nullable SubscriptionProduct product) {
     
     this.product = product;
     return this;
   }
 
-   /**
+  /**
    * Get product
    * @return product
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,14 +258,14 @@ public class SubscriptionProductVersion {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProduct(SubscriptionProduct product) {
+  public void setProduct(@javax.annotation.Nullable SubscriptionProduct product) {
     this.product = product;
   }
 
-   /**
+  /**
    * The date and time when the product version&#39;s retirement was started.
    * @return retiringStartedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETIRING_STARTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,16 +276,16 @@ public class SubscriptionProductVersion {
 
 
 
-  public SubscriptionProductVersion taxCalculation(TaxCalculation taxCalculation) {
+  public SubscriptionProductVersion taxCalculation(@javax.annotation.Nullable TaxCalculation taxCalculation) {
     
     this.taxCalculation = taxCalculation;
     return this;
   }
 
-   /**
+  /**
    * Get taxCalculation
    * @return taxCalculation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,14 +297,14 @@ public class SubscriptionProductVersion {
 
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxCalculation(TaxCalculation taxCalculation) {
+  public void setTaxCalculation(@javax.annotation.Nullable TaxCalculation taxCalculation) {
     this.taxCalculation = taxCalculation;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,10 +315,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The date and time when the product version was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,10 +329,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,10 +343,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The reference used to identify the product version.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,10 +357,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,10 +371,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The date and time when the product version was activated.
    * @return activatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,10 +385,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The recurring period of time, typically monthly or annually, for which a subscriber is charged.
    * @return billingCycle
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,10 +399,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the product version&#39;s default currency.
    * @return defaultCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -391,10 +413,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The localized name of the product that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,10 +427,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The minimum number of periods the subscription will run before it can be terminated.
    * @return minimalNumberOfPeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,10 +441,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * The date and time when the product version was made obsolete.
    * @return obsoletedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBSOLETED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -433,16 +455,16 @@ public class SubscriptionProductVersion {
 
 
 
-  public SubscriptionProductVersion billingCycleModel(BillingCycleModel billingCycleModel) {
+  public SubscriptionProductVersion billingCycleModel(@javax.annotation.Nullable BillingCycleModel billingCycleModel) {
     
     this.billingCycleModel = billingCycleModel;
     return this;
   }
 
-   /**
+  /**
    * Get billingCycleModel
    * @return billingCycleModel
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -454,14 +476,14 @@ public class SubscriptionProductVersion {
 
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE_MODEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingCycleModel(BillingCycleModel billingCycleModel) {
+  public void setBillingCycleModel(@javax.annotation.Nullable BillingCycleModel billingCycleModel) {
     this.billingCycleModel = billingCycleModel;
   }
 
-   /**
+  /**
    * A comment that describes the product version and why it was created. It is not disclosed to the subscriber.
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -472,10 +494,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -486,10 +508,10 @@ public class SubscriptionProductVersion {
 
 
 
-   /**
+  /**
    * Whenever a new version of a product is created, the number is increased and assigned.
    * @return incrementNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INCREMENT_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -500,16 +522,16 @@ public class SubscriptionProductVersion {
 
 
 
-  public SubscriptionProductVersion state(SubscriptionProductVersionState state) {
+  public SubscriptionProductVersion state(@javax.annotation.Nullable SubscriptionProductVersionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -521,14 +543,14 @@ public class SubscriptionProductVersion {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionProductVersionState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionProductVersionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The number of periods the subscription will keep running after its termination was requested.
    * @return numberOfNoticePeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

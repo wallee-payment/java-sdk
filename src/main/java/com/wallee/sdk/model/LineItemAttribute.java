@@ -45,16 +45,18 @@ import java.util.StringJoiner;
 
 public class LineItemAttribute {
   public static final String JSON_PROPERTY_LABEL = "label";
+  @javax.annotation.Nullable
   private String label;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @javax.annotation.Nullable
   private String value;
 
   public LineItemAttribute() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LineItemAttribute(
     @JsonProperty(JSON_PROPERTY_LABEL) String label, 
@@ -65,10 +67,10 @@ public class LineItemAttribute {
     this.value = value;
   }
 
-   /**
+  /**
    * The label describing the line item attribute.
    * @return label
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,10 +81,10 @@ public class LineItemAttribute {
 
 
 
-   /**
+  /**
    * The value of the line item attribute.
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

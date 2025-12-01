@@ -45,24 +45,26 @@ import java.util.StringJoiner;
 
 public class SubscriptionInitializeSubscriberPresentRequest {
   public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nullable
   private String successUrl;
 
   public static final String JSON_PROPERTY_FAILURE_URL = "failureUrl";
+  @javax.annotation.Nullable
   private String failureUrl;
 
   public SubscriptionInitializeSubscriberPresentRequest() {
   }
 
-  public SubscriptionInitializeSubscriberPresentRequest successUrl(String successUrl) {
+  public SubscriptionInitializeSubscriberPresentRequest successUrl(@javax.annotation.Nullable String successUrl) {
     
     this.successUrl = successUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL that the user is redirected to if the transaction succeeds.
    * @return successUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,20 +76,20 @@ public class SubscriptionInitializeSubscriberPresentRequest {
 
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccessUrl(String successUrl) {
+  public void setSuccessUrl(@javax.annotation.Nullable String successUrl) {
     this.successUrl = successUrl;
   }
 
-  public SubscriptionInitializeSubscriberPresentRequest failureUrl(String failureUrl) {
+  public SubscriptionInitializeSubscriberPresentRequest failureUrl(@javax.annotation.Nullable String failureUrl) {
     
     this.failureUrl = failureUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL that the user is redirected to if the transaction fails.
    * @return failureUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +101,7 @@ public class SubscriptionInitializeSubscriberPresentRequest {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureUrl(String failureUrl) {
+  public void setFailureUrl(@javax.annotation.Nullable String failureUrl) {
     this.failureUrl = failureUrl;
   }
 

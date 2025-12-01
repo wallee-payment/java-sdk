@@ -37,6 +37,7 @@ import com.wallee.sdk.model.SingleSignOnUserSearchResponse;
 import com.wallee.sdk.model.SingleSignOnUserUpdate;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersId">Delete a single sign-on user Documentation</a>
    */
-  public void deleteSingleSignOnUsersId(Long id) throws ApiException {
+  public void deleteSingleSignOnUsersId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteSingleSignOnUsersId(id, Collections.emptyMap());
   }
 
@@ -76,7 +77,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSingleSignOnUsersId">Delete a single sign-on user Documentation</a>
    */
-  public void deleteSingleSignOnUsersId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSingleSignOnUsersId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -86,7 +87,7 @@ public class SingleSignOnUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -125,8 +126,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -144,7 +145,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsers">List all single sign-on users Documentation</a>
    */
-  public SingleSignOnUserListResponse getSingleSignOnUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SingleSignOnUserListResponse getSingleSignOnUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSingleSignOnUsers(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -164,7 +165,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsers">List all single sign-on users Documentation</a>
    */
-  public SingleSignOnUserListResponse getSingleSignOnUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SingleSignOnUserListResponse getSingleSignOnUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -213,8 +214,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -229,7 +230,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersId">Retrieve a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser getSingleSignOnUsersId(Long id, Set<String> expand) throws ApiException {
+  public SingleSignOnUser getSingleSignOnUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSingleSignOnUsersId(id, expand, Collections.emptyMap());
   }
 
@@ -246,7 +247,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersId">Retrieve a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser getSingleSignOnUsersId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SingleSignOnUser getSingleSignOnUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -256,7 +257,7 @@ public class SingleSignOnUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -297,8 +298,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -316,7 +317,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersSearch">Search single sign-on users Documentation</a>
    */
-  public SingleSignOnUserSearchResponse getSingleSignOnUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SingleSignOnUserSearchResponse getSingleSignOnUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSingleSignOnUsersSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -336,7 +337,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSingleSignOnUsersSearch">Search single sign-on users Documentation</a>
    */
-  public SingleSignOnUserSearchResponse getSingleSignOnUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SingleSignOnUserSearchResponse getSingleSignOnUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,8 +386,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -402,7 +403,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSingleSignOnUsersId">Update a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser patchSingleSignOnUsersId(Long id, SingleSignOnUserUpdate singleSignOnUserUpdate, Set<String> expand) throws ApiException {
+  public SingleSignOnUser patchSingleSignOnUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull SingleSignOnUserUpdate singleSignOnUserUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSingleSignOnUsersId(id, singleSignOnUserUpdate, expand, Collections.emptyMap());
   }
 
@@ -420,7 +421,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSingleSignOnUsersId">Update a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser patchSingleSignOnUsersId(Long id, SingleSignOnUserUpdate singleSignOnUserUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SingleSignOnUser patchSingleSignOnUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull SingleSignOnUserUpdate singleSignOnUserUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = singleSignOnUserUpdate;
     
     // verify the required parameter 'id' is set
@@ -435,7 +436,7 @@ public class SingleSignOnUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/single-sign-on-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -476,8 +477,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -492,7 +493,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsers">Create a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser postSingleSignOnUsers(SingleSignOnUserCreate singleSignOnUserCreate, Set<String> expand) throws ApiException {
+  public SingleSignOnUser postSingleSignOnUsers(@javax.annotation.Nonnull SingleSignOnUserCreate singleSignOnUserCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSingleSignOnUsers(singleSignOnUserCreate, expand, Collections.emptyMap());
   }
 
@@ -509,7 +510,7 @@ public class SingleSignOnUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSingleSignOnUsers">Create a single sign-on user Documentation</a>
    */
-  public SingleSignOnUser postSingleSignOnUsers(SingleSignOnUserCreate singleSignOnUserCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SingleSignOnUser postSingleSignOnUsers(@javax.annotation.Nonnull SingleSignOnUserCreate singleSignOnUserCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = singleSignOnUserCreate;
     
     // verify the required parameter 'singleSignOnUserCreate' is set
@@ -559,8 +560,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -600,8 +601,8 @@ public class SingleSignOnUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

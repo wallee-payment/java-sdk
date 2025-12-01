@@ -49,22 +49,26 @@ import java.util.StringJoiner;
 
 public class LabelDescriptorGroup {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_WEIGHT = "weight";
+  @javax.annotation.Nullable
   private Integer weight;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public LabelDescriptorGroup() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LabelDescriptorGroup(
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
@@ -79,10 +83,10 @@ public class LabelDescriptorGroup {
     this.id = id;
   }
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,10 +97,10 @@ public class LabelDescriptorGroup {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,10 +111,10 @@ public class LabelDescriptorGroup {
 
 
 
-   /**
+  /**
    * When listing label groups, they can be sorted by this number.
    * @return weight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,10 +125,10 @@ public class LabelDescriptorGroup {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

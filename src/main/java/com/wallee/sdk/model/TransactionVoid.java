@@ -71,67 +71,86 @@ import java.util.StringJoiner;
 
 public class TransactionVoid {
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_MODE = "mode";
+  @javax.annotation.Nullable
   private TransactionVoidMode mode;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_NEXT_UPDATE_ON = "nextUpdateOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextUpdateOn;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionVoidState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public static final String JSON_PROPERTY_PROCESSOR_REFERENCE = "processorReference";
+  @javax.annotation.Nullable
   private String processorReference;
 
   public TransactionVoid() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionVoid(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -168,10 +187,10 @@ public class TransactionVoid {
     this.processorReference = processorReference;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,10 +201,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,10 +215,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,10 +229,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -224,10 +243,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,10 +257,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,16 +271,16 @@ public class TransactionVoid {
 
 
 
-  public TransactionVoid mode(TransactionVoidMode mode) {
+  public TransactionVoid mode(@javax.annotation.Nullable TransactionVoidMode mode) {
     
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * Get mode
    * @return mode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,14 +292,14 @@ public class TransactionVoid {
 
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMode(TransactionVoidMode mode) {
+  public void setMode(@javax.annotation.Nullable TransactionVoidMode mode) {
     this.mode = mode;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,10 +310,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The date and time when the object will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,10 +324,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The ID of the user the transaction void was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,10 +338,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_UPDATE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -333,16 +352,16 @@ public class TransactionVoid {
 
 
 
-  public TransactionVoid failureReason(FailureReason failureReason) {
+  public TransactionVoid failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,14 +373,14 @@ public class TransactionVoid {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * The date and time when the transaction void succeeded.
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,10 +391,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,16 +405,16 @@ public class TransactionVoid {
 
 
 
-  public TransactionVoid state(TransactionVoidState state) {
+  public TransactionVoid state(@javax.annotation.Nullable TransactionVoidState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,14 +426,14 @@ public class TransactionVoid {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionVoidState state) {
+  public void setState(@javax.annotation.Nullable TransactionVoidState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -425,10 +444,10 @@ public class TransactionVoid {
 
 
 
-   /**
+  /**
    * The date and time when the transaction void failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -439,16 +458,16 @@ public class TransactionVoid {
 
 
 
-  public TransactionVoid transaction(Transaction transaction) {
+  public TransactionVoid transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -460,14 +479,14 @@ public class TransactionVoid {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The reference ID provided by the payment processor, used to trace the void through the external payment system.
    * @return processorReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

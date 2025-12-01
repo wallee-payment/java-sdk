@@ -39,6 +39,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteCustomersBulk">Delete multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteCustomersBulk(Long space, List<Long> requestBody) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody) throws ApiException {
     return this.deleteCustomersBulk(space, requestBody, Collections.emptyMap());
   }
 
@@ -82,7 +83,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteCustomersBulk">Delete multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteCustomersBulk(Long space, List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // verify the required parameter 'space' is set
@@ -138,8 +139,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -153,7 +154,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteCustomersId">Delete a customer Documentation</a>
    */
-  public void deleteCustomersId(Long id, Long space) throws ApiException {
+  public void deleteCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteCustomersId(id, space, Collections.emptyMap());
   }
 
@@ -169,7 +170,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteCustomersId">Delete a customer Documentation</a>
    */
-  public void deleteCustomersId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -184,7 +185,7 @@ public class CustomersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/customers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -225,8 +226,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -245,7 +246,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomers">List all customers Documentation</a>
    */
-  public CustomerListResponse getCustomers(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public CustomerListResponse getCustomers(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getCustomers(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -266,7 +267,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomers">List all customers Documentation</a>
    */
-  public CustomerListResponse getCustomers(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public CustomerListResponse getCustomers(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -322,8 +323,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -339,7 +340,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersId">Retrieve a customer Documentation</a>
    */
-  public Customer getCustomersId(Long id, Long space, Set<String> expand) throws ApiException {
+  public Customer getCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getCustomersId(id, space, expand, Collections.emptyMap());
   }
 
@@ -357,7 +358,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersId">Retrieve a customer Documentation</a>
    */
-  public Customer getCustomersId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Customer getCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -372,7 +373,7 @@ public class CustomersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/customers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -415,8 +416,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -432,7 +433,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersIdEmailAddresses">List a customer&#39;s email addresses Documentation</a>
    */
-  public CustomerEmailAddressListResponse getCustomersIdEmailAddresses(Long id, Long space, Set<String> expand) throws ApiException {
+  public CustomerEmailAddressListResponse getCustomersIdEmailAddresses(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getCustomersIdEmailAddresses(id, space, expand, Collections.emptyMap());
   }
 
@@ -450,7 +451,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersIdEmailAddresses">List a customer&#39;s email addresses Documentation</a>
    */
-  public CustomerEmailAddressListResponse getCustomersIdEmailAddresses(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public CustomerEmailAddressListResponse getCustomersIdEmailAddresses(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -465,7 +466,7 @@ public class CustomersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/customers/{id}/email-addresses"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -508,8 +509,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -528,7 +529,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersSearch">Search customers Documentation</a>
    */
-  public CustomerSearchResponse getCustomersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public CustomerSearchResponse getCustomersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getCustomersSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -549,7 +550,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCustomersSearch">Search customers Documentation</a>
    */
-  public CustomerSearchResponse getCustomersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public CustomerSearchResponse getCustomersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -605,8 +606,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -621,7 +622,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchCustomersBulk">Update multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchCustomersBulk(Long space, List<CustomerActive> customerActive) throws ApiException {
+  public List<RestApiBulkOperationResult> patchCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<CustomerActive> customerActive) throws ApiException {
     return this.patchCustomersBulk(space, customerActive, Collections.emptyMap());
   }
 
@@ -638,7 +639,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchCustomersBulk">Update multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchCustomersBulk(Long space, List<CustomerActive> customerActive, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> patchCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<CustomerActive> customerActive, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = customerActive;
     
     // verify the required parameter 'space' is set
@@ -694,8 +695,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -712,7 +713,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchCustomersId">Update a customer Documentation</a>
    */
-  public Customer patchCustomersId(Long id, Long space, CustomerActive customerActive, Set<String> expand) throws ApiException {
+  public Customer patchCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull CustomerActive customerActive, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchCustomersId(id, space, customerActive, expand, Collections.emptyMap());
   }
 
@@ -731,7 +732,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchCustomersId">Update a customer Documentation</a>
    */
-  public Customer patchCustomersId(Long id, Long space, CustomerActive customerActive, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Customer patchCustomersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull CustomerActive customerActive, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = customerActive;
     
     // verify the required parameter 'id' is set
@@ -751,7 +752,7 @@ public class CustomersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/customers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -794,8 +795,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -811,7 +812,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomers">Create a customer Documentation</a>
    */
-  public Customer postCustomers(Long space, CustomerCreate customerCreate, Set<String> expand) throws ApiException {
+  public Customer postCustomers(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull CustomerCreate customerCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postCustomers(space, customerCreate, expand, Collections.emptyMap());
   }
 
@@ -829,7 +830,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomers">Create a customer Documentation</a>
    */
-  public Customer postCustomers(Long space, CustomerCreate customerCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Customer postCustomers(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull CustomerCreate customerCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = customerCreate;
     
     // verify the required parameter 'space' is set
@@ -886,8 +887,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -902,7 +903,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomersBulk">Create multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postCustomersBulk(Long space, List<CustomerCreate> customerCreate) throws ApiException {
+  public List<RestApiBulkOperationResult> postCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<CustomerCreate> customerCreate) throws ApiException {
     return this.postCustomersBulk(space, customerCreate, Collections.emptyMap());
   }
 
@@ -919,7 +920,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomersBulk">Create multiple customers Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postCustomersBulk(Long space, List<CustomerCreate> customerCreate, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> postCustomersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<CustomerCreate> customerCreate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = customerCreate;
     
     // verify the required parameter 'space' is set
@@ -975,8 +976,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -993,7 +994,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomersIdMergeOther">Merge two customers Documentation</a>
    */
-  public Customer postCustomersIdMergeOther(Long id, Long other, Long space, Set<String> expand) throws ApiException {
+  public Customer postCustomersIdMergeOther(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long other, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postCustomersIdMergeOther(id, other, space, expand, Collections.emptyMap());
   }
 
@@ -1012,7 +1013,7 @@ public class CustomersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postCustomersIdMergeOther">Merge two customers Documentation</a>
    */
-  public Customer postCustomersIdMergeOther(Long id, Long other, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Customer postCustomersIdMergeOther(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long other, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1032,8 +1033,8 @@ public class CustomersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/customers/{id}/merge/{other}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-      .replaceAll("\\{" + "other" + "\\}", apiClient.escapeString(other.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "other" + "\\}", apiClient.escapeString(apiClient.parameterToString(other)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1076,8 +1077,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1117,8 +1118,8 @@ public class CustomersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

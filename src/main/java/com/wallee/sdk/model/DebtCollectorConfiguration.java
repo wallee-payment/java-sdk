@@ -64,43 +64,54 @@ import java.util.StringJoiner;
 
 public class DebtCollectorConfiguration {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_SKIP_REVIEW_ENABLED = "skipReviewEnabled";
+  @javax.annotation.Nullable
   private Boolean skipReviewEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ENABLED_SPACE_VIEWS = "enabledSpaceViews";
+  @javax.annotation.Nullable
   private Set<Long> enabledSpaceViews = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
+  @javax.annotation.Nullable
   private List<DebtCollectorCondition> conditions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_COLLECTOR = "collector";
+  @javax.annotation.Nullable
   private DebtCollector collector;
 
   public DebtCollectorConfiguration() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DebtCollectorConfiguration(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -125,10 +136,10 @@ public class DebtCollectorConfiguration {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +150,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * Whether the review of debt collection cases is skipped.
    * @return skipReviewEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SKIP_REVIEW_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,10 +164,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * The name used to identify the debt collector configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,10 +178,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,10 +192,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * The space views for which the debt collector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,10 +206,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,16 +220,16 @@ public class DebtCollectorConfiguration {
 
 
 
-  public DebtCollectorConfiguration state(CreationEntityState state) {
+  public DebtCollectorConfiguration state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,14 +241,14 @@ public class DebtCollectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * Conditions allow to define criteria that a debt collection case must fulfill in order for the debt collector configuration to be considered for processing the case.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,10 +259,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * The priority that determines the order in which debt collector configurations are taken into account when processing a case. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,10 +273,10 @@ public class DebtCollectorConfiguration {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,16 +287,16 @@ public class DebtCollectorConfiguration {
 
 
 
-  public DebtCollectorConfiguration collector(DebtCollector collector) {
+  public DebtCollectorConfiguration collector(@javax.annotation.Nullable DebtCollector collector) {
     
     this.collector = collector;
     return this;
   }
 
-   /**
+  /**
    * Get collector
    * @return collector
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLLECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,7 +308,7 @@ public class DebtCollectorConfiguration {
 
   @JsonProperty(JSON_PROPERTY_COLLECTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCollector(DebtCollector collector) {
+  public void setCollector(@javax.annotation.Nullable DebtCollector collector) {
     this.collector = collector;
   }
 

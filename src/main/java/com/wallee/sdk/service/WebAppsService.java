@@ -32,6 +32,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.WebAppConfirmationResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -57,7 +58,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebAppsInstalled">Check whether the web app is installed Documentation</a>
    */
-  public Boolean getWebAppsInstalled(Long space) throws ApiException {
+  public Boolean getWebAppsInstalled(@javax.annotation.Nonnull Long space) throws ApiException {
     return this.getWebAppsInstalled(space, Collections.emptyMap());
   }
 
@@ -73,7 +74,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebAppsInstalled">Check whether the web app is installed Documentation</a>
    */
-  public Boolean getWebAppsInstalled(Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public Boolean getWebAppsInstalled(@javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -124,8 +125,8 @@ public class WebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -140,7 +141,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebAppsConfirmCode">Confirm a web app installation Documentation</a>
    */
-  public WebAppConfirmationResponse postWebAppsConfirmCode(String code, Set<String> expand) throws ApiException {
+  public WebAppConfirmationResponse postWebAppsConfirmCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postWebAppsConfirmCode(code, expand, Collections.emptyMap());
   }
 
@@ -157,7 +158,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebAppsConfirmCode">Confirm a web app installation Documentation</a>
    */
-  public WebAppConfirmationResponse postWebAppsConfirmCode(String code, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebAppConfirmationResponse postWebAppsConfirmCode(@javax.annotation.Nonnull String code, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'code' is set
@@ -167,7 +168,7 @@ public class WebAppsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/web-apps/confirm/{code}"
-      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(code.toString()));
+      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(apiClient.parameterToString(code)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -208,8 +209,8 @@ public class WebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -222,7 +223,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebAppsUninstall">Uninstall a web app Documentation</a>
    */
-  public void postWebAppsUninstall(Long space) throws ApiException {
+  public void postWebAppsUninstall(@javax.annotation.Nonnull Long space) throws ApiException {
     this.postWebAppsUninstall(space, Collections.emptyMap());
   }
 
@@ -237,7 +238,7 @@ public class WebAppsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebAppsUninstall">Uninstall a web app Documentation</a>
    */
-  public void postWebAppsUninstall(Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postWebAppsUninstall(@javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -287,8 +288,8 @@ public class WebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -328,8 +329,8 @@ public class WebAppsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -51,33 +51,38 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductComponentGroupUpdate {
   public static final String JSON_PROPERTY_PRODUCT_VERSION = "productVersion";
+  @javax.annotation.Nullable
   private Long productVersion;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_OPTIONAL = "optional";
+  @javax.annotation.Nullable
   private Boolean optional;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public SubscriptionProductComponentGroupUpdate() {
   }
 
-  public SubscriptionProductComponentGroupUpdate productVersion(Long productVersion) {
+  public SubscriptionProductComponentGroupUpdate productVersion(@javax.annotation.Nullable Long productVersion) {
     
     this.productVersion = productVersion;
     return this;
   }
 
-   /**
+  /**
    * The product version that the component group belongs to.
    * @return productVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,20 +94,20 @@ public class SubscriptionProductComponentGroupUpdate {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProductVersion(Long productVersion) {
+  public void setProductVersion(@javax.annotation.Nullable Long productVersion) {
     this.productVersion = productVersion;
   }
 
-  public SubscriptionProductComponentGroupUpdate sortOrder(Integer sortOrder) {
+  public SubscriptionProductComponentGroupUpdate sortOrder(@javax.annotation.Nullable Integer sortOrder) {
     
     this.sortOrder = sortOrder;
     return this;
   }
 
-   /**
+  /**
    * When listing component groups, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,11 +119,11 @@ public class SubscriptionProductComponentGroupUpdate {
 
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSortOrder(Integer sortOrder) {
+  public void setSortOrder(@javax.annotation.Nullable Integer sortOrder) {
     this.sortOrder = sortOrder;
   }
 
-  public SubscriptionProductComponentGroupUpdate name(Map<String, String> name) {
+  public SubscriptionProductComponentGroupUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -132,10 +137,10 @@ public class SubscriptionProductComponentGroupUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the component group that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,20 +152,20 @@ public class SubscriptionProductComponentGroupUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public SubscriptionProductComponentGroupUpdate optional(Boolean optional) {
+  public SubscriptionProductComponentGroupUpdate optional(@javax.annotation.Nullable Boolean optional) {
     
     this.optional = optional;
     return this;
   }
 
-   /**
+  /**
    * Whether the component group is optional, i.e. the customer does not have to select any component.
    * @return optional
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,20 +177,20 @@ public class SubscriptionProductComponentGroupUpdate {
 
   @JsonProperty(JSON_PROPERTY_OPTIONAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOptional(Boolean optional) {
+  public void setOptional(@javax.annotation.Nullable Boolean optional) {
     this.optional = optional;
   }
 
-  public SubscriptionProductComponentGroupUpdate version(Integer version) {
+  public SubscriptionProductComponentGroupUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -197,7 +202,7 @@ public class SubscriptionProductComponentGroupUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

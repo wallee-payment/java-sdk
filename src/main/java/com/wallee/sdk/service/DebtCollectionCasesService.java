@@ -41,6 +41,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteDebtCollectionCasesId">Delete a debt collection case Documentation</a>
    */
-  public void deleteDebtCollectionCasesId(Long id, Long space) throws ApiException {
+  public void deleteDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteDebtCollectionCasesId(id, space, Collections.emptyMap());
   }
 
@@ -82,7 +83,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteDebtCollectionCasesId">Delete a debt collection case Documentation</a>
    */
-  public void deleteDebtCollectionCasesId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -97,7 +98,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -138,8 +139,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -158,7 +159,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCases">List all debt collection cases Documentation</a>
    */
-  public DebtCollectionCaseListResponse getDebtCollectionCases(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public DebtCollectionCaseListResponse getDebtCollectionCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getDebtCollectionCases(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -179,7 +180,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCases">List all debt collection cases Documentation</a>
    */
-  public DebtCollectionCaseListResponse getDebtCollectionCases(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCaseListResponse getDebtCollectionCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -235,8 +236,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -252,7 +253,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesId">Retrieve a debt collection case Documentation</a>
    */
-  public DebtCollectionCase getDebtCollectionCasesId(Long id, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCase getDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getDebtCollectionCasesId(id, space, expand, Collections.emptyMap());
   }
 
@@ -270,7 +271,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesId">Retrieve a debt collection case Documentation</a>
    */
-  public DebtCollectionCase getDebtCollectionCasesId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase getDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -285,7 +286,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -328,8 +329,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -345,7 +346,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesIdDocuments">Retrieve all documents of a debt collection case Documentation</a>
    */
-  public DebtCollectionCaseDocumentListResponse getDebtCollectionCasesIdDocuments(Long id, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCaseDocumentListResponse getDebtCollectionCasesIdDocuments(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getDebtCollectionCasesIdDocuments(id, space, expand, Collections.emptyMap());
   }
 
@@ -363,7 +364,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesIdDocuments">Retrieve all documents of a debt collection case Documentation</a>
    */
-  public DebtCollectionCaseDocumentListResponse getDebtCollectionCasesIdDocuments(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCaseDocumentListResponse getDebtCollectionCasesIdDocuments(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -378,7 +379,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/documents"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -421,8 +422,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -441,7 +442,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesSearch">Search debt collection cases Documentation</a>
    */
-  public DebtCollectionCaseSearchResponse getDebtCollectionCasesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public DebtCollectionCaseSearchResponse getDebtCollectionCasesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getDebtCollectionCasesSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -462,7 +463,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCasesSearch">Search debt collection cases Documentation</a>
    */
-  public DebtCollectionCaseSearchResponse getDebtCollectionCasesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCaseSearchResponse getDebtCollectionCasesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -518,8 +519,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -536,7 +537,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchDebtCollectionCasesId">Update a debt collection case Documentation</a>
    */
-  public DebtCollectionCase patchDebtCollectionCasesId(Long id, Long space, DebtCollectionCaseUpdate debtCollectionCaseUpdate, Set<String> expand) throws ApiException {
+  public DebtCollectionCase patchDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull DebtCollectionCaseUpdate debtCollectionCaseUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchDebtCollectionCasesId(id, space, debtCollectionCaseUpdate, expand, Collections.emptyMap());
   }
 
@@ -555,7 +556,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchDebtCollectionCasesId">Update a debt collection case Documentation</a>
    */
-  public DebtCollectionCase patchDebtCollectionCasesId(Long id, Long space, DebtCollectionCaseUpdate debtCollectionCaseUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase patchDebtCollectionCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull DebtCollectionCaseUpdate debtCollectionCaseUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = debtCollectionCaseUpdate;
     
     // verify the required parameter 'id' is set
@@ -575,7 +576,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -618,8 +619,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -635,7 +636,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCases">Create a debt collection case Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCases(Long space, DebtCollectionCaseCreate debtCollectionCaseCreate, Set<String> expand) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull DebtCollectionCaseCreate debtCollectionCaseCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCases(space, debtCollectionCaseCreate, expand, Collections.emptyMap());
   }
 
@@ -653,7 +654,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCases">Create a debt collection case Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCases(Long space, DebtCollectionCaseCreate debtCollectionCaseCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull DebtCollectionCaseCreate debtCollectionCaseCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = debtCollectionCaseCreate;
     
     // verify the required parameter 'space' is set
@@ -710,8 +711,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -727,7 +728,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdClose">Close a debt collection case Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdClose(Long id, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdClose(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCasesIdClose(id, space, expand, Collections.emptyMap());
   }
 
@@ -745,7 +746,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdClose">Close a debt collection case Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdClose(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdClose(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -760,7 +761,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/close"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -803,8 +804,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -822,7 +823,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdDocuments">Attach a document to a debt collection case Documentation</a>
    */
-  public DebtCollectionCaseDocument postDebtCollectionCasesIdDocuments(Long id, String fileName, String content, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCaseDocument postDebtCollectionCasesIdDocuments(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String fileName, @javax.annotation.Nonnull String content, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCasesIdDocuments(id, fileName, content, space, expand, Collections.emptyMap());
   }
 
@@ -842,7 +843,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdDocuments">Attach a document to a debt collection case Documentation</a>
    */
-  public DebtCollectionCaseDocument postDebtCollectionCasesIdDocuments(Long id, String fileName, String content, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCaseDocument postDebtCollectionCasesIdDocuments(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull String fileName, @javax.annotation.Nonnull String content, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -867,7 +868,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/documents"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -912,8 +913,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -929,7 +930,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdMarkPrepared">Mark a debt collection case as prepared Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdMarkPrepared(Long id, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdMarkPrepared(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCasesIdMarkPrepared(id, space, expand, Collections.emptyMap());
   }
 
@@ -947,7 +948,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdMarkPrepared">Mark a debt collection case as prepared Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdMarkPrepared(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdMarkPrepared(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -962,7 +963,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/mark-prepared"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1005,8 +1006,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1022,7 +1023,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdMarkReviewed">Mark a debt collection case as reviewed Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdMarkReviewed(Long id, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdMarkReviewed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCasesIdMarkReviewed(id, space, expand, Collections.emptyMap());
   }
 
@@ -1040,7 +1041,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdMarkReviewed">Mark a debt collection case as reviewed Documentation</a>
    */
-  public DebtCollectionCase postDebtCollectionCasesIdMarkReviewed(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionCase postDebtCollectionCasesIdMarkReviewed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1055,7 +1056,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/mark-reviewed"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1098,8 +1099,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1117,7 +1118,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdPaymentReceipts">Create a payment receipt for a debt collection case Documentation</a>
    */
-  public DebtCollectionReceipt postDebtCollectionCasesIdPaymentReceipts(Long id, BigDecimal collectedAmount, String externalId, Long space, Set<String> expand) throws ApiException {
+  public DebtCollectionReceipt postDebtCollectionCasesIdPaymentReceipts(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull BigDecimal collectedAmount, @javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postDebtCollectionCasesIdPaymentReceipts(id, collectedAmount, externalId, space, expand, Collections.emptyMap());
   }
 
@@ -1137,7 +1138,7 @@ public class DebtCollectionCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postDebtCollectionCasesIdPaymentReceipts">Create a payment receipt for a debt collection case Documentation</a>
    */
-  public DebtCollectionReceipt postDebtCollectionCasesIdPaymentReceipts(Long id, BigDecimal collectedAmount, String externalId, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectionReceipt postDebtCollectionCasesIdPaymentReceipts(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull BigDecimal collectedAmount, @javax.annotation.Nonnull String externalId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1162,7 +1163,7 @@ public class DebtCollectionCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/cases/{id}/payment-receipts"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -1207,8 +1208,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -1248,8 +1249,8 @@ public class DebtCollectionCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

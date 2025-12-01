@@ -55,40 +55,50 @@ import java.util.StringJoiner;
 
 public class TransactionInvoiceComment {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PINNED = "pinned";
+  @javax.annotation.Nullable
   private Boolean pinned;
 
   public static final String JSON_PROPERTY_EDITED_BY = "editedBy";
+  @javax.annotation.Nullable
   private Long editedBy;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_EDITED_ON = "editedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime editedOn;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_TRANSACTION_INVOICE = "transactionInvoice";
+  @javax.annotation.Nullable
   private TransactionInvoice transactionInvoice;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public TransactionInvoiceComment() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionInvoiceComment(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -113,10 +123,10 @@ public class TransactionInvoiceComment {
     this.content = content;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,10 +137,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * Whether the comment is pinned to the top.
    * @return pinned
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PINNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,10 +151,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * The ID of the user the comment was last updated by.
    * @return editedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EDITED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,10 +165,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * The ID of the user the comment was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,10 +179,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,10 +193,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * The date and time when the comment was last updated.
    * @return editedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EDITED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,10 +207,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,16 +221,16 @@ public class TransactionInvoiceComment {
 
 
 
-  public TransactionInvoiceComment transactionInvoice(TransactionInvoice transactionInvoice) {
+  public TransactionInvoiceComment transactionInvoice(@javax.annotation.Nullable TransactionInvoice transactionInvoice) {
     
     this.transactionInvoice = transactionInvoice;
     return this;
   }
 
-   /**
+  /**
    * Get transactionInvoice
    * @return transactionInvoice
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,14 +242,14 @@ public class TransactionInvoiceComment {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransactionInvoice(TransactionInvoice transactionInvoice) {
+  public void setTransactionInvoice(@javax.annotation.Nullable TransactionInvoice transactionInvoice) {
     this.transactionInvoice = transactionInvoice;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,10 +260,10 @@ public class TransactionInvoiceComment {
 
 
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

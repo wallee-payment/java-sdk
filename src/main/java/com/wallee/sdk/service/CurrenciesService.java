@@ -34,6 +34,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import com.wallee.sdk.model.RestCurrency;
 import java.util.Set;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -59,7 +60,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrencies">List all currencies Documentation</a>
    */
-  public CurrencyListResponse getCurrencies(Set<String> expand) throws ApiException {
+  public CurrencyListResponse getCurrencies(@javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getCurrencies(expand, Collections.emptyMap());
   }
 
@@ -75,7 +76,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrencies">List all currencies Documentation</a>
    */
-  public CurrencyListResponse getCurrencies(Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public CurrencyListResponse getCurrencies(@javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -120,8 +121,8 @@ public class CurrenciesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -135,7 +136,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrenciesCode">Retrieve a currency Documentation</a>
    */
-  public RestCurrency getCurrenciesCode(String code) throws ApiException {
+  public RestCurrency getCurrenciesCode(@javax.annotation.Nonnull String code) throws ApiException {
     return this.getCurrenciesCode(code, Collections.emptyMap());
   }
 
@@ -151,7 +152,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrenciesCode">Retrieve a currency Documentation</a>
    */
-  public RestCurrency getCurrenciesCode(String code, Map<String, String> additionalHeaders) throws ApiException {
+  public RestCurrency getCurrenciesCode(@javax.annotation.Nonnull String code, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'code' is set
@@ -161,7 +162,7 @@ public class CurrenciesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/currencies/{code}"
-      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(code.toString()));
+      .replaceAll("\\{" + "code" + "\\}", apiClient.escapeString(apiClient.parameterToString(code)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -201,8 +202,8 @@ public class CurrenciesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -220,7 +221,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrenciesSearch">Search currencies Documentation</a>
    */
-  public CurrencySearchResponse getCurrenciesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public CurrencySearchResponse getCurrenciesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getCurrenciesSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -240,7 +241,7 @@ public class CurrenciesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCurrenciesSearch">Search currencies Documentation</a>
    */
-  public CurrencySearchResponse getCurrenciesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public CurrencySearchResponse getCurrenciesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -289,8 +290,8 @@ public class CurrenciesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -330,8 +331,8 @@ public class CurrenciesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

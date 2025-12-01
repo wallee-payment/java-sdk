@@ -57,30 +57,37 @@ import java.util.StringJoiner;
 
 public class ProductPeriodFeeUpdate {
   public static final String JSON_PROPERTY_PERIOD_FEE = "periodFee";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmountUpdate> periodFee = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_COMPONENT = "component";
+  @javax.annotation.Nullable
   private Long component;
 
   public static final String JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS = "numberOfFreeTrialPeriods";
+  @javax.annotation.Nullable
   private Integer numberOfFreeTrialPeriods;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public static final String JSON_PROPERTY_LEDGER_ENTRY_TITLE = "ledgerEntryTitle";
+  @javax.annotation.Nullable
   private Map<String, String> ledgerEntryTitle = new HashMap<>();
 
   public ProductPeriodFeeUpdate() {
   }
 
-  public ProductPeriodFeeUpdate periodFee(Set<PersistableCurrencyAmountUpdate> periodFee) {
+  public ProductPeriodFeeUpdate periodFee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> periodFee) {
     
     this.periodFee = periodFee;
     return this;
@@ -94,10 +101,10 @@ public class ProductPeriodFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The amount charged to the customer for each billing cycle during the term of a subscription.
    * @return periodFee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,20 +117,20 @@ public class ProductPeriodFeeUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PERIOD_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPeriodFee(Set<PersistableCurrencyAmountUpdate> periodFee) {
+  public void setPeriodFee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> periodFee) {
     this.periodFee = periodFee;
   }
 
-  public ProductPeriodFeeUpdate component(Long component) {
+  public ProductPeriodFeeUpdate component(@javax.annotation.Nullable Long component) {
     
     this.component = component;
     return this;
   }
 
-   /**
+  /**
    * The product component that the fee belongs to.
    * @return component
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,20 +142,20 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponent(Long component) {
+  public void setComponent(@javax.annotation.Nullable Long component) {
     this.component = component;
   }
 
-  public ProductPeriodFeeUpdate numberOfFreeTrialPeriods(Integer numberOfFreeTrialPeriods) {
+  public ProductPeriodFeeUpdate numberOfFreeTrialPeriods(@javax.annotation.Nullable Integer numberOfFreeTrialPeriods) {
     
     this.numberOfFreeTrialPeriods = numberOfFreeTrialPeriods;
     return this;
   }
 
-   /**
+  /**
    * The number of subscription billing cycles that count as a trial phase and during which no fees are charged.
    * @return numberOfFreeTrialPeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,11 +167,11 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfFreeTrialPeriods(Integer numberOfFreeTrialPeriods) {
+  public void setNumberOfFreeTrialPeriods(@javax.annotation.Nullable Integer numberOfFreeTrialPeriods) {
     this.numberOfFreeTrialPeriods = numberOfFreeTrialPeriods;
   }
 
-  public ProductPeriodFeeUpdate name(Map<String, String> name) {
+  public ProductPeriodFeeUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -178,10 +185,10 @@ public class ProductPeriodFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the fee that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,11 +200,11 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public ProductPeriodFeeUpdate description(Map<String, String> description) {
+  public ProductPeriodFeeUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -211,10 +218,10 @@ public class ProductPeriodFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the fee that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,20 +233,20 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public ProductPeriodFeeUpdate version(Integer version) {
+  public ProductPeriodFeeUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -251,11 +258,11 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 
-  public ProductPeriodFeeUpdate ledgerEntryTitle(Map<String, String> ledgerEntryTitle) {
+  public ProductPeriodFeeUpdate ledgerEntryTitle(@javax.annotation.Nullable Map<String, String> ledgerEntryTitle) {
     
     this.ledgerEntryTitle = ledgerEntryTitle;
     return this;
@@ -269,10 +276,10 @@ public class ProductPeriodFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized title that be used on ledger entries and invoices.
    * @return ledgerEntryTitle
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LEDGER_ENTRY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,7 +291,7 @@ public class ProductPeriodFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_LEDGER_ENTRY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLedgerEntryTitle(Map<String, String> ledgerEntryTitle) {
+  public void setLedgerEntryTitle(@javax.annotation.Nullable Map<String, String> ledgerEntryTitle) {
     this.ledgerEntryTitle = ledgerEntryTitle;
   }
 

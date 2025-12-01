@@ -53,36 +53,42 @@ import java.util.StringJoiner;
 
 public class BillingCycleModel {
   public static final String JSON_PROPERTY_MONTH = "month";
+  @javax.annotation.Nullable
   private DisplayableMonth month;
 
   public static final String JSON_PROPERTY_CUSTOMIZATION = "customization";
+  @javax.annotation.Nullable
   private BillingDayCustomization customization;
 
   public static final String JSON_PROPERTY_DAY_OF_MONTH = "dayOfMonth";
+  @javax.annotation.Nullable
   private Integer dayOfMonth;
 
   public static final String JSON_PROPERTY_WEEKLY_DAY = "weeklyDay";
+  @javax.annotation.Nullable
   private DisplayableDayOfWeek weeklyDay;
 
   public static final String JSON_PROPERTY_NUMBER_OF_PERIODS = "numberOfPeriods";
+  @javax.annotation.Nonnull
   private Integer numberOfPeriods;
 
   public static final String JSON_PROPERTY_BILLING_CYCLE_TYPE = "billingCycleType";
+  @javax.annotation.Nonnull
   private BillingCycleType billingCycleType;
 
   public BillingCycleModel() {
   }
 
-  public BillingCycleModel month(DisplayableMonth month) {
+  public BillingCycleModel month(@javax.annotation.Nullable DisplayableMonth month) {
     
     this.month = month;
     return this;
   }
 
-   /**
+  /**
    * Get month
    * @return month
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,20 +100,20 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMonth(DisplayableMonth month) {
+  public void setMonth(@javax.annotation.Nullable DisplayableMonth month) {
     this.month = month;
   }
 
-  public BillingCycleModel customization(BillingDayCustomization customization) {
+  public BillingCycleModel customization(@javax.annotation.Nullable BillingDayCustomization customization) {
     
     this.customization = customization;
     return this;
   }
 
-   /**
+  /**
    * Get customization
    * @return customization
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,20 +125,20 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMIZATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomization(BillingDayCustomization customization) {
+  public void setCustomization(@javax.annotation.Nullable BillingDayCustomization customization) {
     this.customization = customization;
   }
 
-  public BillingCycleModel dayOfMonth(Integer dayOfMonth) {
+  public BillingCycleModel dayOfMonth(@javax.annotation.Nullable Integer dayOfMonth) {
     
     this.dayOfMonth = dayOfMonth;
     return this;
   }
 
-   /**
+  /**
    * Get dayOfMonth
    * @return dayOfMonth
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,20 +150,20 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_DAY_OF_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDayOfMonth(Integer dayOfMonth) {
+  public void setDayOfMonth(@javax.annotation.Nullable Integer dayOfMonth) {
     this.dayOfMonth = dayOfMonth;
   }
 
-  public BillingCycleModel weeklyDay(DisplayableDayOfWeek weeklyDay) {
+  public BillingCycleModel weeklyDay(@javax.annotation.Nullable DisplayableDayOfWeek weeklyDay) {
     
     this.weeklyDay = weeklyDay;
     return this;
   }
 
-   /**
+  /**
    * Get weeklyDay
    * @return weeklyDay
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WEEKLY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,21 +175,21 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_WEEKLY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWeeklyDay(DisplayableDayOfWeek weeklyDay) {
+  public void setWeeklyDay(@javax.annotation.Nullable DisplayableDayOfWeek weeklyDay) {
     this.weeklyDay = weeklyDay;
   }
 
-  public BillingCycleModel numberOfPeriods(Integer numberOfPeriods) {
+  public BillingCycleModel numberOfPeriods(@javax.annotation.Nonnull Integer numberOfPeriods) {
     
     this.numberOfPeriods = numberOfPeriods;
     return this;
   }
 
-   /**
+  /**
    * Billing Cycle type multiplied by Number of Periods defines billing cycle duration, e.g. 3 months. Monthly types require 1-12; weekly and yearly types require 1-9 periods; and daily types require 1-30.
    * minimum: 1
    * @return numberOfPeriods
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_PERIODS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -195,20 +201,20 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_PERIODS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNumberOfPeriods(Integer numberOfPeriods) {
+  public void setNumberOfPeriods(@javax.annotation.Nonnull Integer numberOfPeriods) {
     this.numberOfPeriods = numberOfPeriods;
   }
 
-  public BillingCycleModel billingCycleType(BillingCycleType billingCycleType) {
+  public BillingCycleModel billingCycleType(@javax.annotation.Nonnull BillingCycleType billingCycleType) {
     
     this.billingCycleType = billingCycleType;
     return this;
   }
 
-   /**
+  /**
    * Get billingCycleType
    * @return billingCycleType
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -220,7 +226,7 @@ public class BillingCycleModel {
 
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBillingCycleType(BillingCycleType billingCycleType) {
+  public void setBillingCycleType(@javax.annotation.Nonnull BillingCycleType billingCycleType) {
     this.billingCycleType = billingCycleType;
   }
 

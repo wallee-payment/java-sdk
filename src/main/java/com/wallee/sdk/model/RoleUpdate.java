@@ -54,21 +54,25 @@ import java.util.StringJoiner;
 
 public class RoleUpdate {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+  @javax.annotation.Nullable
   private Set<Permission> permissions = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
+  @javax.annotation.Nullable
   private Boolean twoFactorRequired;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public RoleUpdate() {
   }
 
-  public RoleUpdate permissions(Set<Permission> permissions) {
+  public RoleUpdate permissions(@javax.annotation.Nullable Set<Permission> permissions) {
     
     this.permissions = permissions;
     return this;
@@ -82,10 +86,10 @@ public class RoleUpdate {
     return this;
   }
 
-   /**
+  /**
    * The permissions granted to users with this role.
    * @return permissions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,11 +102,11 @@ public class RoleUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermissions(Set<Permission> permissions) {
+  public void setPermissions(@javax.annotation.Nullable Set<Permission> permissions) {
     this.permissions = permissions;
   }
 
-  public RoleUpdate name(Map<String, String> name) {
+  public RoleUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -116,10 +120,10 @@ public class RoleUpdate {
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the role.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,20 +135,20 @@ public class RoleUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public RoleUpdate twoFactorRequired(Boolean twoFactorRequired) {
+  public RoleUpdate twoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     
     this.twoFactorRequired = twoFactorRequired;
     return this;
   }
 
-   /**
+  /**
    * Whether users with this role are required to use two-factor authentication.
    * @return twoFactorRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,20 +160,20 @@ public class RoleUpdate {
 
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoFactorRequired(Boolean twoFactorRequired) {
+  public void setTwoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     this.twoFactorRequired = twoFactorRequired;
   }
 
-  public RoleUpdate version(Integer version) {
+  public RoleUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -181,7 +185,7 @@ public class RoleUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

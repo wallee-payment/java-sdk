@@ -37,6 +37,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +68,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefunds">List all refunds Documentation</a>
    */
-  public RefundListResponse getPaymentRefunds(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public RefundListResponse getPaymentRefunds(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentRefunds(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -88,7 +89,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefunds">List all refunds Documentation</a>
    */
-  public RefundListResponse getPaymentRefunds(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundListResponse getPaymentRefunds(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -144,8 +145,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -161,7 +162,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsId">Retrieve a refund Documentation</a>
    */
-  public Refund getPaymentRefundsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public Refund getPaymentRefundsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentRefundsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -179,7 +180,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsId">Retrieve a refund Documentation</a>
    */
-  public Refund getPaymentRefundsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Refund getPaymentRefundsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -194,7 +195,7 @@ public class RefundsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -237,8 +238,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -253,7 +254,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsIdDocument">Retrieve a refund document Documentation</a>
    */
-  public RenderedDocument getPaymentRefundsIdDocument(Long id, Long space) throws ApiException {
+  public RenderedDocument getPaymentRefundsIdDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getPaymentRefundsIdDocument(id, space, Collections.emptyMap());
   }
 
@@ -270,7 +271,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsIdDocument">Retrieve a refund document Documentation</a>
    */
-  public RenderedDocument getPaymentRefundsIdDocument(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public RenderedDocument getPaymentRefundsIdDocument(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -285,7 +286,7 @@ public class RefundsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{id}/document"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -327,8 +328,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -347,7 +348,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsSearch">Search refunds Documentation</a>
    */
-  public RefundSearchResponse getPaymentRefundsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public RefundSearchResponse getPaymentRefundsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentRefundsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -368,7 +369,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentRefundsSearch">Search refunds Documentation</a>
    */
-  public RefundSearchResponse getPaymentRefundsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public RefundSearchResponse getPaymentRefundsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -424,8 +425,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -441,7 +442,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefunds">Create a refund Documentation</a>
    */
-  public Refund postPaymentRefunds(Long space, RefundCreate refundCreate, Set<String> expand) throws ApiException {
+  public Refund postPaymentRefunds(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCreate refundCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentRefunds(space, refundCreate, expand, Collections.emptyMap());
   }
 
@@ -459,7 +460,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefunds">Create a refund Documentation</a>
    */
-  public Refund postPaymentRefunds(Long space, RefundCreate refundCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Refund postPaymentRefunds(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull RefundCreate refundCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = refundCreate;
     
     // verify the required parameter 'space' is set
@@ -516,8 +517,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -533,7 +534,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsIdMarkFailed">Mark a refund as failed Documentation</a>
    */
-  public Refund postPaymentRefundsIdMarkFailed(Long id, Long space, Set<String> expand) throws ApiException {
+  public Refund postPaymentRefundsIdMarkFailed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentRefundsIdMarkFailed(id, space, expand, Collections.emptyMap());
   }
 
@@ -551,7 +552,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsIdMarkFailed">Mark a refund as failed Documentation</a>
    */
-  public Refund postPaymentRefundsIdMarkFailed(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Refund postPaymentRefundsIdMarkFailed(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -566,7 +567,7 @@ public class RefundsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{id}/mark-failed"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -609,8 +610,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -626,7 +627,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsIdMarkSucceeded">Mark a refund as successful Documentation</a>
    */
-  public Refund postPaymentRefundsIdMarkSucceeded(Long id, Long space, Set<String> expand) throws ApiException {
+  public Refund postPaymentRefundsIdMarkSucceeded(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentRefundsIdMarkSucceeded(id, space, expand, Collections.emptyMap());
   }
 
@@ -644,7 +645,7 @@ public class RefundsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentRefundsIdMarkSucceeded">Mark a refund as successful Documentation</a>
    */
-  public Refund postPaymentRefundsIdMarkSucceeded(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Refund postPaymentRefundsIdMarkSucceeded(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -659,7 +660,7 @@ public class RefundsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/refunds/{id}/mark-succeeded"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -702,8 +703,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -743,8 +744,8 @@ public class RefundsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

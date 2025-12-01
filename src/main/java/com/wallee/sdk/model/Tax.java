@@ -46,16 +46,18 @@ import java.util.StringJoiner;
 
 public class Tax {
   public static final String JSON_PROPERTY_RATE = "rate";
+  @javax.annotation.Nullable
   private BigDecimal rate;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private String title;
 
   public Tax() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Tax(
     @JsonProperty(JSON_PROPERTY_RATE) BigDecimal rate, 
@@ -66,11 +68,11 @@ public class Tax {
     this.title = title;
   }
 
-   /**
+  /**
    * The tax rate to be applied.
    * maximum: 100
    * @return rate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,10 +83,10 @@ public class Tax {
 
 
 
-   /**
+  /**
    * The name of the tax.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

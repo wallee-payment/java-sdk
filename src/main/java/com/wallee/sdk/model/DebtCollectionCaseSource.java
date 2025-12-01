@@ -49,22 +49,26 @@ import java.util.StringJoiner;
 
 public class DebtCollectionCaseSource {
   public static final String JSON_PROPERTY_FORCED_PREPARING_STATE = "forcedPreparingState";
+  @javax.annotation.Nullable
   private Boolean forcedPreparingState;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public DebtCollectionCaseSource() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DebtCollectionCaseSource(
     @JsonProperty(JSON_PROPERTY_FORCED_PREPARING_STATE) Boolean forcedPreparingState, 
@@ -79,10 +83,10 @@ public class DebtCollectionCaseSource {
     this.id = id;
   }
 
-   /**
+  /**
    * Whether debt collection cases created from this source will skip review and directly enter preparing state.
    * @return forcedPreparingState
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FORCED_PREPARING_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,10 +97,10 @@ public class DebtCollectionCaseSource {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,10 +111,10 @@ public class DebtCollectionCaseSource {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,10 +125,10 @@ public class DebtCollectionCaseSource {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

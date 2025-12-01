@@ -56,43 +56,54 @@ import java.util.StringJoiner;
 
 public class SubscriptionMetricUsageReport {
   public static final String JSON_PROPERTY_CONSUMED_UNITS = "consumedUnits";
+  @javax.annotation.Nullable
   private BigDecimal consumedUnits;
 
   public static final String JSON_PROPERTY_CREATED_BY_USER_ID = "createdByUserId";
+  @javax.annotation.Nullable
   private Long createdByUserId;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
+  @javax.annotation.Nullable
   private Long metric;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nullable
   private Long subscription;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public SubscriptionMetricUsageReport() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionMetricUsageReport(
     @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS) BigDecimal consumedUnits, 
@@ -121,10 +132,10 @@ public class SubscriptionMetricUsageReport {
     this.version = version;
   }
 
-   /**
+  /**
    * The number of resources consumed, will be charged in the next billing cycle.
    * @return consumedUnits
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -135,10 +146,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The ID of the user the usage report was created by.
    * @return createdByUserId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY_USER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,10 +160,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,10 +174,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The metric that the usage report is recorded for.
    * @return metric
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,10 +188,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,10 +202,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * A description used to identify the usage report.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,10 +216,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -219,10 +230,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,10 +244,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The subscription that the usage report is recorded for.
    * @return subscription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,10 +258,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The date and time when the usage report was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,10 +272,10 @@ public class SubscriptionMetricUsageReport {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

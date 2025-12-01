@@ -35,6 +35,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinks">List all charge flow payment links Documentation</a>
    */
-  public ChargeFlowLevelPaymentLinkListResponse getPaymentChargeFlowsLevelsPaymentLinks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ChargeFlowLevelPaymentLinkListResponse getPaymentChargeFlowsLevelsPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentChargeFlowsLevelsPaymentLinks(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -86,7 +87,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinks">List all charge flow payment links Documentation</a>
    */
-  public ChargeFlowLevelPaymentLinkListResponse getPaymentChargeFlowsLevelsPaymentLinks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ChargeFlowLevelPaymentLinkListResponse getPaymentChargeFlowsLevelsPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -142,8 +143,8 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -159,7 +160,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinksId">Retrieve a charge flow payment link Documentation</a>
    */
-  public ChargeFlowLevelPaymentLink getPaymentChargeFlowsLevelsPaymentLinksId(Long id, Long space, Set<String> expand) throws ApiException {
+  public ChargeFlowLevelPaymentLink getPaymentChargeFlowsLevelsPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentChargeFlowsLevelsPaymentLinksId(id, space, expand, Collections.emptyMap());
   }
 
@@ -177,7 +178,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinksId">Retrieve a charge flow payment link Documentation</a>
    */
-  public ChargeFlowLevelPaymentLink getPaymentChargeFlowsLevelsPaymentLinksId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ChargeFlowLevelPaymentLink getPaymentChargeFlowsLevelsPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -192,7 +193,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/charge-flows/levels/payment-links/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -235,8 +236,8 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -255,7 +256,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinksSearch">Search charge flow payment links Documentation</a>
    */
-  public ChargeFlowLevelPaymentLinkSearchResponse getPaymentChargeFlowsLevelsPaymentLinksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ChargeFlowLevelPaymentLinkSearchResponse getPaymentChargeFlowsLevelsPaymentLinksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentChargeFlowsLevelsPaymentLinksSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -276,7 +277,7 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentChargeFlowsLevelsPaymentLinksSearch">Search charge flow payment links Documentation</a>
    */
-  public ChargeFlowLevelPaymentLinkSearchResponse getPaymentChargeFlowsLevelsPaymentLinksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ChargeFlowLevelPaymentLinkSearchResponse getPaymentChargeFlowsLevelsPaymentLinksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -332,8 +333,8 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -373,8 +374,8 @@ public class ChargeFlowsLevelPaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

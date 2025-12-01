@@ -51,34 +51,42 @@ import java.util.StringJoiner;
 
 public class TransactionClientPlatformInformation {
   public static final String JSON_PROPERTY_SPACE_ID = "spaceId";
+  @javax.annotation.Nullable
   private Long spaceId;
 
   public static final String JSON_PROPERTY_INTEGRATION_TYPE = "integrationType";
+  @javax.annotation.Nullable
   private String integrationType;
 
   public static final String JSON_PROPERTY_OS_VERSION = "osVersion";
+  @javax.annotation.Nullable
   private String osVersion;
 
   public static final String JSON_PROPERTY_PLATFORM_TYPE = "platformType";
+  @javax.annotation.Nullable
   private String platformType;
 
   public static final String JSON_PROPERTY_SDK_VERSION = "sdkVersion";
+  @javax.annotation.Nullable
   private String sdkVersion;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Long transaction;
 
   public TransactionClientPlatformInformation() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionClientPlatformInformation(
     @JsonProperty(JSON_PROPERTY_SPACE_ID) Long spaceId, 
@@ -101,10 +109,10 @@ public class TransactionClientPlatformInformation {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return spaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +123,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The type of integration that was used to collect the payment information.
    * @return integrationType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INTEGRATION_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +137,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The version of the operating system that was used to collect the payment information.
    * @return osVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OS_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +151,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The type of platform that was used to collect the payment information, e.g. Android or iOS.
    * @return platformType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLATFORM_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +165,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The type of the SDK that was used to collect the payment information.
    * @return sdkVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SDK_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +179,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,10 +193,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,10 +207,10 @@ public class TransactionClientPlatformInformation {
 
 
 
-   /**
+  /**
    * The transaction that is associated with the client platform information.
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

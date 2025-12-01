@@ -48,15 +48,17 @@ import java.util.StringJoiner;
 
 public class AbstractSubscriptionMetricUpdate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public AbstractSubscriptionMetricUpdate() {
   }
 
-  public AbstractSubscriptionMetricUpdate name(Map<String, String> name) {
+  public AbstractSubscriptionMetricUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -70,10 +72,10 @@ public class AbstractSubscriptionMetricUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the metric that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -85,11 +87,11 @@ public class AbstractSubscriptionMetricUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public AbstractSubscriptionMetricUpdate description(Map<String, String> description) {
+  public AbstractSubscriptionMetricUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -103,10 +105,10 @@ public class AbstractSubscriptionMetricUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the metric that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,7 +120,7 @@ public class AbstractSubscriptionMetricUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 

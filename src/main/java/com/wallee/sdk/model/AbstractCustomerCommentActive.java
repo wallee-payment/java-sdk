@@ -45,21 +45,22 @@ import java.util.StringJoiner;
 
 public class AbstractCustomerCommentActive {
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public AbstractCustomerCommentActive() {
   }
 
-  public AbstractCustomerCommentActive content(String content) {
+  public AbstractCustomerCommentActive content(@javax.annotation.Nullable String content) {
     
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +72,7 @@ public class AbstractCustomerCommentActive {
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@javax.annotation.Nullable String content) {
     this.content = content;
   }
 

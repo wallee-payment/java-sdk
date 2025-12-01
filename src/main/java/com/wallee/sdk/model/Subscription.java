@@ -69,70 +69,90 @@ import java.util.StringJoiner;
 
 public class Subscription {
   public static final String JSON_PROPERTY_SUBSCRIBER = "subscriber";
+  @javax.annotation.Nullable
   private Subscriber subscriber;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_TERMINATED_BY = "terminatedBy";
+  @javax.annotation.Nullable
   private Long terminatedBy;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_INITIALIZED_ON = "initializedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime initializedOn;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
+  @javax.annotation.Nullable
   private Token token;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_TERMINATED_ON = "terminatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime terminatedOn;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ACTIVATED_ON = "activatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime activatedOn;
 
   public static final String JSON_PROPERTY_TERMINATING_ON = "terminatingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime terminatingOn;
 
   public static final String JSON_PROPERTY_CURRENT_PRODUCT_VERSION = "currentProductVersion";
+  @javax.annotation.Nullable
   private SubscriptionProductVersion currentProductVersion;
 
   public static final String JSON_PROPERTY_PLANNED_TERMINATION_DATE = "plannedTerminationDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedTerminationDate;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionState state;
 
   public static final String JSON_PROPERTY_AFFILIATE = "affiliate";
+  @javax.annotation.Nullable
   private SubscriptionAffiliate affiliate;
 
   public static final String JSON_PROPERTY_TERMINATION_SCHEDULED_ON = "terminationScheduledOn";
+  @javax.annotation.Nullable
   private OffsetDateTime terminationScheduledOn;
 
   public Subscription() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Subscription(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -169,16 +189,16 @@ public class Subscription {
     this.terminationScheduledOn = terminationScheduledOn;
   }
 
-  public Subscription subscriber(Subscriber subscriber) {
+  public Subscription subscriber(@javax.annotation.Nullable Subscriber subscriber) {
     
     this.subscriber = subscriber;
     return this;
   }
 
-   /**
+  /**
    * Get subscriber
    * @return subscriber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,14 +210,14 @@ public class Subscription {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscriber(Subscriber subscriber) {
+  public void setSubscriber(@javax.annotation.Nullable Subscriber subscriber) {
     this.subscriber = subscriber;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,10 +228,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The ID of the user the subscription was terminated by.
    * @return terminatedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,10 +242,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * A description used to identify the subscription.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,10 +256,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,10 +270,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The date and time when the subscription was initialized.
    * @return initializedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIALIZED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,10 +284,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The date and time when the subscription was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,10 +298,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,16 +312,16 @@ public class Subscription {
 
 
 
-  public Subscription token(Token token) {
+  public Subscription token(@javax.annotation.Nullable Token token) {
     
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * Get token
    * @return token
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,14 +333,14 @@ public class Subscription {
 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToken(Token token) {
+  public void setToken(@javax.annotation.Nullable Token token) {
     this.token = token;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the subscription.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,10 +351,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The date and time when the subscription was terminated.
    * @return terminatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,10 +365,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,10 +379,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The date and time when the subscription was activate.
    * @return activatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -373,10 +393,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * The date and time when the termination of the subscription started.
    * @return terminatingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,16 +407,16 @@ public class Subscription {
 
 
 
-  public Subscription currentProductVersion(SubscriptionProductVersion currentProductVersion) {
+  public Subscription currentProductVersion(@javax.annotation.Nullable SubscriptionProductVersion currentProductVersion) {
     
     this.currentProductVersion = currentProductVersion;
     return this;
   }
 
-   /**
+  /**
    * Get currentProductVersion
    * @return currentProductVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENT_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -408,14 +428,14 @@ public class Subscription {
 
   @JsonProperty(JSON_PROPERTY_CURRENT_PRODUCT_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrentProductVersion(SubscriptionProductVersion currentProductVersion) {
+  public void setCurrentProductVersion(@javax.annotation.Nullable SubscriptionProductVersion currentProductVersion) {
     this.currentProductVersion = currentProductVersion;
   }
 
-   /**
+  /**
    * The date and time when the subscription is planned to be terminated.
    * @return plannedTerminationDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_TERMINATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,10 +446,10 @@ public class Subscription {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,16 +460,16 @@ public class Subscription {
 
 
 
-  public Subscription state(SubscriptionState state) {
+  public Subscription state(@javax.annotation.Nullable SubscriptionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,20 +481,20 @@ public class Subscription {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionState state) {
     this.state = state;
   }
 
-  public Subscription affiliate(SubscriptionAffiliate affiliate) {
+  public Subscription affiliate(@javax.annotation.Nullable SubscriptionAffiliate affiliate) {
     
     this.affiliate = affiliate;
     return this;
   }
 
-   /**
+  /**
    * Get affiliate
    * @return affiliate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -486,14 +506,14 @@ public class Subscription {
 
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAffiliate(SubscriptionAffiliate affiliate) {
+  public void setAffiliate(@javax.annotation.Nullable SubscriptionAffiliate affiliate) {
     this.affiliate = affiliate;
   }
 
-   /**
+  /**
    * The date and time when the subscription was scheduled to be terminated.
    * @return terminationScheduledOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATION_SCHEDULED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

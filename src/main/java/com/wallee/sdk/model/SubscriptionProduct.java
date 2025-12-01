@@ -60,46 +60,58 @@ import java.util.StringJoiner;
 
 public class SubscriptionProduct {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_SPACE_ID = "spaceId";
+  @javax.annotation.Nullable
   private Long spaceId;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_PRODUCT_LOCKED = "productLocked";
+  @javax.annotation.Nullable
   private Boolean productLocked;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionProductState state;
 
   public static final String JSON_PROPERTY_FAILED_PAYMENT_SUSPENSION_PERIOD = "failedPaymentSuspensionPeriod";
+  @javax.annotation.Nullable
   private String failedPaymentSuspensionPeriod;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "allowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodConfigurations = new ArrayList<>();
 
   public SubscriptionProduct() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionProduct(
     @JsonProperty(JSON_PROPERTY_REFERENCE) String reference, 
@@ -128,10 +140,10 @@ public class SubscriptionProduct {
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the product, e.g. the SKU.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,10 +154,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,10 +168,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return spaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,10 +182,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * When listing products, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,10 +196,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The name used to identify the product.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,10 +210,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,10 +224,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * Whether subscriptions can be switched to or from this product, or whether they are locked in.
    * @return productLocked
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_LOCKED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,10 +238,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,16 +252,16 @@ public class SubscriptionProduct {
 
 
 
-  public SubscriptionProduct state(SubscriptionProductState state) {
+  public SubscriptionProduct state(@javax.annotation.Nullable SubscriptionProductState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -261,14 +273,14 @@ public class SubscriptionProduct {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionProductState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionProductState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The period after which a subscription that has been suspended due to a failed payment is terminated.
    * @return failedPaymentSuspensionPeriod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_PAYMENT_SUSPENSION_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,10 +291,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,10 +305,10 @@ public class SubscriptionProduct {
 
 
 
-   /**
+  /**
    * The payment methods that can be used to subscribe to this product. If none are selected, no restriction is applied.
    * @return allowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

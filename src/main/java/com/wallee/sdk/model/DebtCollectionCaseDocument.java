@@ -58,40 +58,50 @@ import java.util.StringJoiner;
 
 public class DebtCollectionCaseDocument {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_FILE_NAME = "fileName";
+  @javax.annotation.Nullable
   private String fileName;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_DEBT_COLLECTION_CASE = "debtCollectionCase";
+  @javax.annotation.Nullable
   private Long debtCollectionCase;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
+  @javax.annotation.Nullable
   private String mimeType;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_UNIQUE_ID = "uniqueId";
+  @javax.annotation.Nullable
   private String uniqueId;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public DebtCollectionCaseDocument() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DebtCollectionCaseDocument(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -118,10 +128,10 @@ public class DebtCollectionCaseDocument {
     this.labels = labels;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,10 +142,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The file name of the document.
    * @return fileName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FILE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,10 +156,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,10 +170,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The debt collection case that this document belongs to.
    * @return debtCollectionCase
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEBT_COLLECTION_CASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,10 +184,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,10 +198,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The MIME type of the document&#39;s content.
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,10 +212,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,10 +226,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,10 +240,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * A unique identifier of the document.
    * @return uniqueId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,10 +254,10 @@ public class DebtCollectionCaseDocument {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

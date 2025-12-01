@@ -51,31 +51,38 @@ import java.util.StringJoiner;
 
 public class ExpressCheckoutShippingOption {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private String id;
 
   public static final String JSON_PROPERTY_LABEL = "label";
+  @javax.annotation.Nullable
   private String label;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_SELECTED = "selected";
+  @javax.annotation.Nullable
   private Boolean selected;
 
   public ExpressCheckoutShippingOption() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ExpressCheckoutShippingOption(
     @JsonProperty(JSON_PROPERTY_AMOUNT) BigDecimal amount, 
@@ -96,10 +103,10 @@ public class ExpressCheckoutShippingOption {
     this.selected = selected;
   }
 
-   /**
+  /**
    * Total cost of this shipping option.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,10 +117,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Description of the option
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,10 +131,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Currency of the option
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,10 +145,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Identifier of the option.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,10 +159,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Label of the option.
    * @return label
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,10 +173,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Amount related to taxes.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,10 +187,10 @@ public class ExpressCheckoutShippingOption {
 
 
 
-   /**
+  /**
    * Whether it was the option selected by the customer.
    * @return selected
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SELECTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

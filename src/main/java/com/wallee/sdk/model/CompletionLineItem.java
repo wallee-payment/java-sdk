@@ -47,19 +47,22 @@ import java.util.StringJoiner;
 
 public class CompletionLineItem {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nullable
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_UNIQUE_ID = "uniqueId";
+  @javax.annotation.Nullable
   private String uniqueId;
 
   public CompletionLineItem() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public CompletionLineItem(
     @JsonProperty(JSON_PROPERTY_AMOUNT) BigDecimal amount, 
@@ -72,10 +75,10 @@ public class CompletionLineItem {
     this.uniqueId = uniqueId;
   }
 
-   /**
+  /**
    * The total amount of the line item to be captured, including taxes.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,10 +89,10 @@ public class CompletionLineItem {
 
 
 
-   /**
+  /**
    * The number of items to be captured.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,10 +103,10 @@ public class CompletionLineItem {
 
 
 
-   /**
+  /**
    * The unique identifier of the line item within the set of line items.
    * @return uniqueId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

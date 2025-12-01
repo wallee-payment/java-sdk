@@ -52,31 +52,38 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductRetirement {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_RESPECT_TERMINATION_PERIODS = "respectTerminationPeriods";
+  @javax.annotation.Nullable
   private Boolean respectTerminationPeriods;
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
+  @javax.annotation.Nullable
   private SubscriptionProduct product;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TARGET_PRODUCT = "targetProduct";
+  @javax.annotation.Nullable
   private SubscriptionProduct targetProduct;
 
   public SubscriptionProductRetirement() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionProductRetirement(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -93,10 +100,10 @@ public class SubscriptionProductRetirement {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,10 +114,10 @@ public class SubscriptionProductRetirement {
 
 
 
-   /**
+  /**
    * Whether the subscriptions&#39; termination periods should be respected.
    * @return respectTerminationPeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPECT_TERMINATION_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,16 +128,16 @@ public class SubscriptionProductRetirement {
 
 
 
-  public SubscriptionProductRetirement product(SubscriptionProduct product) {
+  public SubscriptionProductRetirement product(@javax.annotation.Nullable SubscriptionProduct product) {
     
     this.product = product;
     return this;
   }
 
-   /**
+  /**
    * Get product
    * @return product
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,14 +149,14 @@ public class SubscriptionProductRetirement {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProduct(SubscriptionProduct product) {
+  public void setProduct(@javax.annotation.Nullable SubscriptionProduct product) {
     this.product = product;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,10 +167,10 @@ public class SubscriptionProductRetirement {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,10 +181,10 @@ public class SubscriptionProductRetirement {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,16 +195,16 @@ public class SubscriptionProductRetirement {
 
 
 
-  public SubscriptionProductRetirement targetProduct(SubscriptionProduct targetProduct) {
+  public SubscriptionProductRetirement targetProduct(@javax.annotation.Nullable SubscriptionProduct targetProduct) {
     
     this.targetProduct = targetProduct;
     return this;
   }
 
-   /**
+  /**
    * Get targetProduct
    * @return targetProduct
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,7 +216,7 @@ public class SubscriptionProductRetirement {
 
   @JsonProperty(JSON_PROPERTY_TARGET_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetProduct(SubscriptionProduct targetProduct) {
+  public void setTargetProduct(@javax.annotation.Nullable SubscriptionProduct targetProduct) {
     this.targetProduct = targetProduct;
   }
 

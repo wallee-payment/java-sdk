@@ -51,28 +51,34 @@ import java.util.StringJoiner;
 
 public class CurrencyBankAccount {
   public static final String JSON_PROPERTY_BANK_ACCOUNT = "bankAccount";
+  @javax.annotation.Nullable
   private BankAccount bankAccount;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private BankAccountEnvironment environment;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public CurrencyBankAccount() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public CurrencyBankAccount(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -87,16 +93,16 @@ public class CurrencyBankAccount {
     this.version = version;
   }
 
-  public CurrencyBankAccount bankAccount(BankAccount bankAccount) {
+  public CurrencyBankAccount bankAccount(@javax.annotation.Nullable BankAccount bankAccount) {
     
     this.bankAccount = bankAccount;
     return this;
   }
 
-   /**
+  /**
    * Get bankAccount
    * @return bankAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,14 +114,14 @@ public class CurrencyBankAccount {
 
   @JsonProperty(JSON_PROPERTY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankAccount(BankAccount bankAccount) {
+  public void setBankAccount(@javax.annotation.Nullable BankAccount bankAccount) {
     this.bankAccount = bankAccount;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,16 +132,16 @@ public class CurrencyBankAccount {
 
 
 
-  public CurrencyBankAccount environment(BankAccountEnvironment environment) {
+  public CurrencyBankAccount environment(@javax.annotation.Nullable BankAccountEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,14 +153,14 @@ public class CurrencyBankAccount {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(BankAccountEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable BankAccountEnvironment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The currency associated with the bank account.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,10 +171,10 @@ public class CurrencyBankAccount {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,10 +185,10 @@ public class CurrencyBankAccount {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

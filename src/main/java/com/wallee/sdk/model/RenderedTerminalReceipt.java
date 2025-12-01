@@ -48,22 +48,26 @@ import java.util.StringJoiner;
 
 public class RenderedTerminalReceipt {
   public static final String JSON_PROPERTY_PRINTED = "printed";
+  @javax.annotation.Nullable
   private Boolean printed;
 
   public static final String JSON_PROPERTY_DATA = "data";
+  @javax.annotation.Nullable
   private byte[] data;
 
   public static final String JSON_PROPERTY_RECEIPT_TYPE = "receiptType";
+  @javax.annotation.Nullable
   private PaymentTerminalReceiptType receiptType;
 
   public static final String JSON_PROPERTY_MIME_TYPE = "mimeType";
+  @javax.annotation.Nullable
   private String mimeType;
 
   public RenderedTerminalReceipt() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RenderedTerminalReceipt(
     @JsonProperty(JSON_PROPERTY_PRINTED) Boolean printed, 
@@ -76,10 +80,10 @@ public class RenderedTerminalReceipt {
     this.mimeType = mimeType;
   }
 
-   /**
+  /**
    * Whether the terminal&#39;s configuration mandates printing and the device has receipt printing capabilities.
    * @return printed
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRINTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -90,10 +94,10 @@ public class RenderedTerminalReceipt {
 
 
 
-   /**
+  /**
    * The receipt document data in binary format, presented as a Base64-encoded string.
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,16 +108,16 @@ public class RenderedTerminalReceipt {
 
 
 
-  public RenderedTerminalReceipt receiptType(PaymentTerminalReceiptType receiptType) {
+  public RenderedTerminalReceipt receiptType(@javax.annotation.Nullable PaymentTerminalReceiptType receiptType) {
     
     this.receiptType = receiptType;
     return this;
   }
 
-   /**
+  /**
    * Get receiptType
    * @return receiptType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECEIPT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,14 +129,14 @@ public class RenderedTerminalReceipt {
 
   @JsonProperty(JSON_PROPERTY_RECEIPT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReceiptType(PaymentTerminalReceiptType receiptType) {
+  public void setReceiptType(@javax.annotation.Nullable PaymentTerminalReceiptType receiptType) {
     this.receiptType = receiptType;
   }
 
-   /**
+  /**
    * The MIME type specifies the format of the receipt document and is determined by the requested format.
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MIME_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -44,13 +44,14 @@ import java.util.StringJoiner;
 
 public class AnalyticsQueryExecutionResponse {
   public static final String JSON_PROPERTY_QUERY_TOKEN = "queryToken";
+  @javax.annotation.Nullable
   private String queryToken;
 
   public AnalyticsQueryExecutionResponse() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public AnalyticsQueryExecutionResponse(
     @JsonProperty(JSON_PROPERTY_QUERY_TOKEN) String queryToken
@@ -59,10 +60,10 @@ public class AnalyticsQueryExecutionResponse {
     this.queryToken = queryToken;
   }
 
-   /**
+  /**
    * The unique query token associated with a submitted analytics query execution. This token can be used to check the execution status of the query.
    * @return queryToken
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUERY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -52,21 +52,25 @@ import java.util.StringJoiner;
 
 public class SubscriptionCreateRequest {
   public static final String JSON_PROPERTY_COMPONENT_CONFIGURATIONS = "componentConfigurations";
+  @javax.annotation.Nullable
   private Set<SubscriptionComponentReferenceConfiguration> componentConfigurations = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
+  @javax.annotation.Nullable
   private Long product;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nullable
   private SubscriptionPending subscription;
 
   public SubscriptionCreateRequest() {
   }
 
-  public SubscriptionCreateRequest componentConfigurations(Set<SubscriptionComponentReferenceConfiguration> componentConfigurations) {
+  public SubscriptionCreateRequest componentConfigurations(@javax.annotation.Nullable Set<SubscriptionComponentReferenceConfiguration> componentConfigurations) {
     
     this.componentConfigurations = componentConfigurations;
     return this;
@@ -80,10 +84,10 @@ public class SubscriptionCreateRequest {
     return this;
   }
 
-   /**
+  /**
    * The configurations of the subscription&#39;s components.
    * @return componentConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,20 +100,20 @@ public class SubscriptionCreateRequest {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_COMPONENT_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponentConfigurations(Set<SubscriptionComponentReferenceConfiguration> componentConfigurations) {
+  public void setComponentConfigurations(@javax.annotation.Nullable Set<SubscriptionComponentReferenceConfiguration> componentConfigurations) {
     this.componentConfigurations = componentConfigurations;
   }
 
-  public SubscriptionCreateRequest product(Long product) {
+  public SubscriptionCreateRequest product(@javax.annotation.Nullable Long product) {
     
     this.product = product;
     return this;
   }
 
-   /**
+  /**
    * The product to subscribe to.
    * @return product
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,20 +125,20 @@ public class SubscriptionCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProduct(Long product) {
+  public void setProduct(@javax.annotation.Nullable Long product) {
     this.product = product;
   }
 
-  public SubscriptionCreateRequest currency(String currency) {
+  public SubscriptionCreateRequest currency(@javax.annotation.Nullable String currency) {
     
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the currency used to invoice the customer. Must be one of the currencies supported by the product.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,20 +150,20 @@ public class SubscriptionCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public SubscriptionCreateRequest subscription(SubscriptionPending subscription) {
+  public SubscriptionCreateRequest subscription(@javax.annotation.Nullable SubscriptionPending subscription) {
     
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * Get subscription
    * @return subscription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +175,7 @@ public class SubscriptionCreateRequest {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscription(SubscriptionPending subscription) {
+  public void setSubscription(@javax.annotation.Nullable SubscriptionPending subscription) {
     this.subscription = subscription;
   }
 

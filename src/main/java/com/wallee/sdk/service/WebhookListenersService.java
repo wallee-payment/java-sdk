@@ -38,6 +38,7 @@ import com.wallee.sdk.model.WebhookListenerListResponse;
 import com.wallee.sdk.model.WebhookListenerSearchResponse;
 import com.wallee.sdk.model.WebhookListenerUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksListenersBulk">Delete multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteWebhooksListenersBulk(Long space, List<Long> requestBody) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody) throws ApiException {
     return this.deleteWebhooksListenersBulk(space, requestBody, Collections.emptyMap());
   }
 
@@ -81,7 +82,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksListenersBulk">Delete multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteWebhooksListenersBulk(Long space, List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // verify the required parameter 'space' is set
@@ -137,8 +138,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -152,7 +153,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksListenersId">Delete a webhook listener Documentation</a>
    */
-  public void deleteWebhooksListenersId(Long id, Long space) throws ApiException {
+  public void deleteWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteWebhooksListenersId(id, space, Collections.emptyMap());
   }
 
@@ -168,7 +169,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksListenersId">Delete a webhook listener Documentation</a>
    */
-  public void deleteWebhooksListenersId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -183,7 +184,7 @@ public class WebhookListenersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/listeners/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -224,8 +225,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -244,7 +245,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListeners">List all webhook listeners Documentation</a>
    */
-  public WebhookListenerListResponse getWebhooksListeners(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public WebhookListenerListResponse getWebhooksListeners(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getWebhooksListeners(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -265,7 +266,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListeners">List all webhook listeners Documentation</a>
    */
-  public WebhookListenerListResponse getWebhooksListeners(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookListenerListResponse getWebhooksListeners(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -321,8 +322,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -338,7 +339,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListenersId">Retrieve a webhook listener Documentation</a>
    */
-  public WebhookListener getWebhooksListenersId(Long id, Long space, Set<String> expand) throws ApiException {
+  public WebhookListener getWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getWebhooksListenersId(id, space, expand, Collections.emptyMap());
   }
 
@@ -356,7 +357,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListenersId">Retrieve a webhook listener Documentation</a>
    */
-  public WebhookListener getWebhooksListenersId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookListener getWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -371,7 +372,7 @@ public class WebhookListenersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/listeners/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -414,8 +415,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -434,7 +435,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListenersSearch">Search webhook listeners Documentation</a>
    */
-  public WebhookListenerSearchResponse getWebhooksListenersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public WebhookListenerSearchResponse getWebhooksListenersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getWebhooksListenersSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -455,7 +456,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksListenersSearch">Search webhook listeners Documentation</a>
    */
-  public WebhookListenerSearchResponse getWebhooksListenersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookListenerSearchResponse getWebhooksListenersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -511,8 +512,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -527,7 +528,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksListenersBulk">Update multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchWebhooksListenersBulk(Long space, List<WebhookListenerUpdate> webhookListenerUpdate) throws ApiException {
+  public List<RestApiBulkOperationResult> patchWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookListenerUpdate> webhookListenerUpdate) throws ApiException {
     return this.patchWebhooksListenersBulk(space, webhookListenerUpdate, Collections.emptyMap());
   }
 
@@ -544,7 +545,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksListenersBulk">Update multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchWebhooksListenersBulk(Long space, List<WebhookListenerUpdate> webhookListenerUpdate, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> patchWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookListenerUpdate> webhookListenerUpdate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookListenerUpdate;
     
     // verify the required parameter 'space' is set
@@ -600,8 +601,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -618,7 +619,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksListenersId">Update a webhook listener Documentation</a>
    */
-  public WebhookListener patchWebhooksListenersId(Long id, Long space, WebhookListenerUpdate webhookListenerUpdate, Set<String> expand) throws ApiException {
+  public WebhookListener patchWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookListenerUpdate webhookListenerUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchWebhooksListenersId(id, space, webhookListenerUpdate, expand, Collections.emptyMap());
   }
 
@@ -637,7 +638,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksListenersId">Update a webhook listener Documentation</a>
    */
-  public WebhookListener patchWebhooksListenersId(Long id, Long space, WebhookListenerUpdate webhookListenerUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookListener patchWebhooksListenersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookListenerUpdate webhookListenerUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookListenerUpdate;
     
     // verify the required parameter 'id' is set
@@ -657,7 +658,7 @@ public class WebhookListenersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/listeners/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -700,8 +701,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -717,7 +718,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksListeners">Create a webhook listener Documentation</a>
    */
-  public WebhookListener postWebhooksListeners(Long space, WebhookListenerCreate webhookListenerCreate, Set<String> expand) throws ApiException {
+  public WebhookListener postWebhooksListeners(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookListenerCreate webhookListenerCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postWebhooksListeners(space, webhookListenerCreate, expand, Collections.emptyMap());
   }
 
@@ -735,7 +736,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksListeners">Create a webhook listener Documentation</a>
    */
-  public WebhookListener postWebhooksListeners(Long space, WebhookListenerCreate webhookListenerCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookListener postWebhooksListeners(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookListenerCreate webhookListenerCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookListenerCreate;
     
     // verify the required parameter 'space' is set
@@ -792,8 +793,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -808,7 +809,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksListenersBulk">Create multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postWebhooksListenersBulk(Long space, List<WebhookListenerCreate> webhookListenerCreate) throws ApiException {
+  public List<RestApiBulkOperationResult> postWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookListenerCreate> webhookListenerCreate) throws ApiException {
     return this.postWebhooksListenersBulk(space, webhookListenerCreate, Collections.emptyMap());
   }
 
@@ -825,7 +826,7 @@ public class WebhookListenersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksListenersBulk">Create multiple webhook listeners Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postWebhooksListenersBulk(Long space, List<WebhookListenerCreate> webhookListenerCreate, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> postWebhooksListenersBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookListenerCreate> webhookListenerCreate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookListenerCreate;
     
     // verify the required parameter 'space' is set
@@ -881,8 +882,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -922,8 +923,8 @@ public class WebhookListenersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

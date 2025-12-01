@@ -51,18 +51,21 @@ import java.util.StringJoiner;
 
 public class TransactionLineItemVersionCreate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nonnull
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nonnull
   private Long transaction;
 
   public TransactionLineItemVersionCreate() {
   }
 
-  public TransactionLineItemVersionCreate lineItems(List<LineItemCreate> lineItems) {
+  public TransactionLineItemVersionCreate lineItems(@javax.annotation.Nonnull List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -76,10 +79,10 @@ public class TransactionLineItemVersionCreate {
     return this;
   }
 
-   /**
+  /**
    * The line items that replace the original line items in the transaction.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -91,20 +94,20 @@ public class TransactionLineItemVersionCreate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nonnull List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public TransactionLineItemVersionCreate externalId(String externalId) {
+  public TransactionLineItemVersionCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -116,20 +119,20 @@ public class TransactionLineItemVersionCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public TransactionLineItemVersionCreate transaction(Long transaction) {
+  public TransactionLineItemVersionCreate transaction(@javax.annotation.Nonnull Long transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * The transaction that the line item version belongs to.
    * @return transaction
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -141,7 +144,7 @@ public class TransactionLineItemVersionCreate {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTransaction(Long transaction) {
+  public void setTransaction(@javax.annotation.Nonnull Long transaction) {
     this.transaction = transaction;
   }
 

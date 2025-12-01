@@ -53,24 +53,29 @@ import java.util.StringJoiner;
 
 public class WebhookListenerUpdate {
   public static final String JSON_PROPERTY_ENTITY_STATES = "entityStates";
+  @javax.annotation.Nullable
   private Set<String> entityStates = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_NOTIFY_EVERY_CHANGE = "notifyEveryChange";
+  @javax.annotation.Nullable
   private Boolean notifyEveryChange;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public WebhookListenerUpdate() {
   }
 
-  public WebhookListenerUpdate entityStates(Set<String> entityStates) {
+  public WebhookListenerUpdate entityStates(@javax.annotation.Nullable Set<String> entityStates) {
     
     this.entityStates = entityStates;
     return this;
@@ -84,10 +89,10 @@ public class WebhookListenerUpdate {
     return this;
   }
 
-   /**
+  /**
    * The entity&#39;s target states that are to be monitored.
    * @return entityStates
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENTITY_STATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,20 +105,20 @@ public class WebhookListenerUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENTITY_STATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEntityStates(Set<String> entityStates) {
+  public void setEntityStates(@javax.annotation.Nullable Set<String> entityStates) {
     this.entityStates = entityStates;
   }
 
-  public WebhookListenerUpdate name(String name) {
+  public WebhookListenerUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the webhook listener.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,20 +130,20 @@ public class WebhookListenerUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public WebhookListenerUpdate state(CreationEntityState state) {
+  public WebhookListenerUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,20 +155,20 @@ public class WebhookListenerUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public WebhookListenerUpdate notifyEveryChange(Boolean notifyEveryChange) {
+  public WebhookListenerUpdate notifyEveryChange(@javax.annotation.Nullable Boolean notifyEveryChange) {
     
     this.notifyEveryChange = notifyEveryChange;
     return this;
   }
 
-   /**
+  /**
    * Whether every update of the entity or only state changes are to be monitored.
    * @return notifyEveryChange
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTIFY_EVERY_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,20 +180,20 @@ public class WebhookListenerUpdate {
 
   @JsonProperty(JSON_PROPERTY_NOTIFY_EVERY_CHANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNotifyEveryChange(Boolean notifyEveryChange) {
+  public void setNotifyEveryChange(@javax.annotation.Nullable Boolean notifyEveryChange) {
     this.notifyEveryChange = notifyEveryChange;
   }
 
-  public WebhookListenerUpdate version(Integer version) {
+  public WebhookListenerUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -200,7 +205,7 @@ public class WebhookListenerUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

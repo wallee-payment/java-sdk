@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class TransactionCommentCreate {
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nonnull
   private Long transaction;
 
   public TransactionCommentCreate() {
   }
 
-  public TransactionCommentCreate content(String content) {
+  public TransactionCommentCreate content(@javax.annotation.Nullable String content) {
     
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class TransactionCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@javax.annotation.Nullable String content) {
     this.content = content;
   }
 
-  public TransactionCommentCreate transaction(Long transaction) {
+  public TransactionCommentCreate transaction(@javax.annotation.Nonnull Long transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * The transaction that the comment belongs to.
    * @return transaction
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class TransactionCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTransaction(Long transaction) {
+  public void setTransaction(@javax.annotation.Nonnull Long transaction) {
     this.transaction = transaction;
   }
 

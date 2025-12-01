@@ -73,7 +73,7 @@ public class RefundTest {
         transaction.getId(), SPACE_ID, MOCK_CARD_DATA, EMPTY_EXPAND);
 
     TransactionCompletion transactionCompletion =
-      transactionsService.postPaymentTransactionsIdCompleteOffline(
+      transactionsService.postPaymentTransactionsIdCompleteOnline(
         transaction.getId(), SPACE_ID, EMPTY_EXPAND);
 
     assertEquals(
@@ -106,7 +106,7 @@ public class RefundTest {
         transaction.getId(), SPACE_ID, MOCK_CARD_DATA, EMPTY_EXPAND);
 
     TransactionCompletion transactionCompletion =
-      transactionsService.postPaymentTransactionsIdCompleteOffline(
+      transactionsService.postPaymentTransactionsIdCompleteOnline(
         transaction.getId(), SPACE_ID, EMPTY_EXPAND);
 
     assertEquals(

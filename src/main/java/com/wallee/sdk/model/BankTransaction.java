@@ -71,67 +71,86 @@ import java.util.StringJoiner;
 
 public class BankTransaction {
   public static final String JSON_PROPERTY_ADJUSTMENTS = "adjustments";
+  @javax.annotation.Nullable
   private List<PaymentAdjustment> adjustments = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CURRENCY_BANK_ACCOUNT = "currencyBankAccount";
+  @javax.annotation.Nullable
   private CurrencyBankAccount currencyBankAccount;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_POSTING_AMOUNT = "postingAmount";
+  @javax.annotation.Nullable
   private BigDecimal postingAmount;
 
   public static final String JSON_PROPERTY_SOURCE = "source";
+  @javax.annotation.Nullable
   private Long source;
 
   public static final String JSON_PROPERTY_VALUE_DATE = "valueDate";
+  @javax.annotation.Nullable
   private OffsetDateTime valueDate;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private Long type;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_VALUE_AMOUNT = "valueAmount";
+  @javax.annotation.Nullable
   private BigDecimal valueAmount;
 
   public static final String JSON_PROPERTY_FLOW_DIRECTION = "flowDirection";
+  @javax.annotation.Nullable
   private BankTransactionFlowDirection flowDirection;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private BankTransactionState state;
 
   public static final String JSON_PROPERTY_PAYMENT_DATE = "paymentDate";
+  @javax.annotation.Nullable
   private OffsetDateTime paymentDate;
 
   public static final String JSON_PROPERTY_TOTAL_ADJUSTMENT_AMOUNT_INCLUDING_TAX = "totalAdjustmentAmountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal totalAdjustmentAmountIncludingTax;
 
   public BankTransaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public BankTransaction(
     @JsonProperty(JSON_PROPERTY_ADJUSTMENTS) List<PaymentAdjustment> adjustments, 
@@ -170,10 +189,10 @@ public class BankTransaction {
     this.totalAdjustmentAmountIncludingTax = totalAdjustmentAmountIncludingTax;
   }
 
-   /**
+  /**
    * Adjustments are changes made to the initial transaction amount, such as fees or corrections.
    * @return adjustments
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADJUSTMENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,16 +203,16 @@ public class BankTransaction {
 
 
 
-  public BankTransaction currencyBankAccount(CurrencyBankAccount currencyBankAccount) {
+  public BankTransaction currencyBankAccount(@javax.annotation.Nullable CurrencyBankAccount currencyBankAccount) {
     
     this.currencyBankAccount = currencyBankAccount;
     return this;
   }
 
-   /**
+  /**
    * Get currencyBankAccount
    * @return currencyBankAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,14 +224,14 @@ public class BankTransaction {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY_BANK_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrencyBankAccount(CurrencyBankAccount currencyBankAccount) {
+  public void setCurrencyBankAccount(@javax.annotation.Nullable CurrencyBankAccount currencyBankAccount) {
     this.currencyBankAccount = currencyBankAccount;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,10 +242,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * A client generated nonce which identifies the entity to be created. Subsequent creation requests with the same external ID will not create new entities but return the initially created entity instead.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,10 +256,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The posting amount refers to the monetary value recorded for the bank transaction prior to any adjustments.
    * @return postingAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,10 +270,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The source indicates how the bank transaction was created.
    * @return source
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,10 +284,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The value date indicates the date on which the transaction amount becomes effective.
    * @return valueDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,10 +298,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The bank transaction&#39;s type.
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,10 +312,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,10 +326,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -321,10 +340,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * A unique reference to identify the bank transaction.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,10 +354,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,10 +368,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * The value amount represents the net monetary value of the transaction after applicable deductions.
    * @return valueAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,16 +382,16 @@ public class BankTransaction {
 
 
 
-  public BankTransaction flowDirection(BankTransactionFlowDirection flowDirection) {
+  public BankTransaction flowDirection(@javax.annotation.Nullable BankTransactionFlowDirection flowDirection) {
     
     this.flowDirection = flowDirection;
     return this;
   }
 
-   /**
+  /**
    * Get flowDirection
    * @return flowDirection
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FLOW_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -384,14 +403,14 @@ public class BankTransaction {
 
   @JsonProperty(JSON_PROPERTY_FLOW_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlowDirection(BankTransactionFlowDirection flowDirection) {
+  public void setFlowDirection(@javax.annotation.Nullable BankTransactionFlowDirection flowDirection) {
     this.flowDirection = flowDirection;
   }
 
-   /**
+  /**
    * The ID of the user the bank transaction was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -402,10 +421,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -416,16 +435,16 @@ public class BankTransaction {
 
 
 
-  public BankTransaction state(BankTransactionState state) {
+  public BankTransaction state(@javax.annotation.Nullable BankTransactionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -437,14 +456,14 @@ public class BankTransaction {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(BankTransactionState state) {
+  public void setState(@javax.annotation.Nullable BankTransactionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment date specifies the date on which the payment was processed.
    * @return paymentDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -455,10 +474,10 @@ public class BankTransaction {
 
 
 
-   /**
+  /**
    * Represents the total value of all adjustments to the bank transaction, including tax.
    * @return totalAdjustmentAmountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_ADJUSTMENT_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

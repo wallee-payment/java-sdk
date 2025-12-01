@@ -53,28 +53,34 @@ import java.util.StringJoiner;
 
 public class RestCountry {
   public static final String JSON_PROPERTY_ISO_CODE2 = "isoCode2";
+  @javax.annotation.Nullable
   private String isoCode2;
 
   public static final String JSON_PROPERTY_ADDRESS_FORMAT = "addressFormat";
+  @javax.annotation.Nullable
   private RestAddressFormat addressFormat;
 
   public static final String JSON_PROPERTY_ISO_CODE3 = "isoCode3";
+  @javax.annotation.Nullable
   private String isoCode3;
 
   public static final String JSON_PROPERTY_STATE_CODES = "stateCodes";
+  @javax.annotation.Nullable
   private Set<String> stateCodes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_NUMERIC_CODE = "numericCode";
+  @javax.annotation.Nullable
   private String numericCode;
 
   public RestCountry() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestCountry(
     @JsonProperty(JSON_PROPERTY_ISO_CODE2) String isoCode2, 
@@ -91,10 +97,10 @@ public class RestCountry {
     this.numericCode = numericCode;
   }
 
-   /**
+  /**
    * The country&#39;s two-letter code (ISO 3166-1 alpha-2 format).
    * @return isoCode2
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ISO_CODE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,16 +111,16 @@ public class RestCountry {
 
 
 
-  public RestCountry addressFormat(RestAddressFormat addressFormat) {
+  public RestCountry addressFormat(@javax.annotation.Nullable RestAddressFormat addressFormat) {
     
     this.addressFormat = addressFormat;
     return this;
   }
 
-   /**
+  /**
    * Get addressFormat
    * @return addressFormat
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,14 +132,14 @@ public class RestCountry {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddressFormat(RestAddressFormat addressFormat) {
+  public void setAddressFormat(@javax.annotation.Nullable RestAddressFormat addressFormat) {
     this.addressFormat = addressFormat;
   }
 
-   /**
+  /**
    * The country&#39;s three-letter code (ISO 3166-1 alpha-3 format).
    * @return isoCode3
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ISO_CODE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,10 +150,10 @@ public class RestCountry {
 
 
 
-   /**
+  /**
    * The codes of all regions (e.g. states, provinces) of the country (ISO 3166-2 format).
    * @return stateCodes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE_CODES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,10 +164,10 @@ public class RestCountry {
 
 
 
-   /**
+  /**
    * The name of the country.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,10 +178,10 @@ public class RestCountry {
 
 
 
-   /**
+  /**
    * The country&#39;s three-digit code (ISO 3166-1 numeric format).
    * @return numericCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMERIC_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

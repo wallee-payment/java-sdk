@@ -84,88 +84,114 @@ import java.util.StringJoiner;
 
 public class TokenVersion {
   public static final String JSON_PROPERTY_PAYMENT_INFORMATION_HASHES = "paymentInformationHashes";
+  @javax.annotation.Nullable
   private Set<PaymentInformationHash> paymentInformationHashes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private TokenVersionType type;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_RETRY_IN = "retryIn";
+  @javax.annotation.Nullable
   private String retryIn;
 
   public static final String JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION = "paymentConnectorConfiguration";
+  @javax.annotation.Nullable
   private PaymentConnectorConfiguration paymentConnectorConfiguration;
 
   public static final String JSON_PROPERTY_OBSOLETED_ON = "obsoletedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime obsoletedOn;
 
   public static final String JSON_PROPERTY_EXPIRES_ON = "expiresOn";
+  @javax.annotation.Nullable
   private OffsetDateTime expiresOn;
 
   public static final String JSON_PROPERTY_ICON_URL = "iconUrl";
+  @javax.annotation.Nullable
   private String iconUrl;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TokenVersionState state;
 
   public static final String JSON_PROPERTY_PROCESSOR_TOKEN = "processorToken";
+  @javax.annotation.Nullable
   private String processorToken;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_BRAND = "paymentMethodBrand";
+  @javax.annotation.Nullable
   private PaymentMethodBrand paymentMethodBrand;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LAST_RETRIED_ON = "lastRetriedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime lastRetriedOn;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_TOKEN = "token";
+  @javax.annotation.Nullable
   private Token token;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private ChargeAttemptEnvironment environment;
 
   public static final String JSON_PROPERTY_ACTIVATED_ON = "activatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime activatedOn;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  @javax.annotation.Nullable
   private PaymentMethod paymentMethod;
 
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+  @javax.annotation.Nullable
   private Address shippingAddress;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private Address billingAddress;
 
   public static final String JSON_PROPERTY_RETRY_STRATEGY = "retryStrategy";
+  @javax.annotation.Nullable
   private TokenVersionRetryStrategy retryStrategy;
 
   public TokenVersion() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TokenVersion(
     @JsonProperty(JSON_PROPERTY_PAYMENT_INFORMATION_HASHES) Set<PaymentInformationHash> paymentInformationHashes, 
@@ -204,10 +230,10 @@ public class TokenVersion {
     this.name = name;
   }
 
-   /**
+  /**
    * The hashed payment information that the token version represents.
    * @return paymentInformationHashes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_INFORMATION_HASHES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,10 +244,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,16 +258,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion type(TokenVersionType type) {
+  public TokenVersion type(@javax.annotation.Nullable TokenVersionType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,14 +279,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(TokenVersionType type) {
+  public void setType(@javax.annotation.Nullable TokenVersionType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,10 +297,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * Retry interval when the strategy advises retrying later.
    * @return retryIn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRY_IN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,16 +311,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion paymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
+  public TokenVersion paymentConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration paymentConnectorConfiguration) {
     
     this.paymentConnectorConfiguration = paymentConnectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get paymentConnectorConfiguration
    * @return paymentConnectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,14 +332,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentConnectorConfiguration(PaymentConnectorConfiguration paymentConnectorConfiguration) {
+  public void setPaymentConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration paymentConnectorConfiguration) {
     this.paymentConnectorConfiguration = paymentConnectorConfiguration;
   }
 
-   /**
+  /**
    * The date and time when the token version was marked obsolete.
    * @return obsoletedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBSOLETED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -324,10 +350,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The date and time when the token version is set to expire, after which it will be marked as obsolete.
    * @return expiresOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXPIRES_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,10 +364,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The URL to the token&#39;s icon displayed to the customer.
    * @return iconUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ICON_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,10 +378,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,16 +392,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion state(TokenVersionState state) {
+  public TokenVersion state(@javax.annotation.Nullable TokenVersionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -387,14 +413,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TokenVersionState state) {
+  public void setState(@javax.annotation.Nullable TokenVersionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The token name as specified by the processor.
    * @return processorToken
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -405,10 +431,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -419,16 +445,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion paymentMethodBrand(PaymentMethodBrand paymentMethodBrand) {
+  public TokenVersion paymentMethodBrand(@javax.annotation.Nullable PaymentMethodBrand paymentMethodBrand) {
     
     this.paymentMethodBrand = paymentMethodBrand;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethodBrand
    * @return paymentMethodBrand
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -440,14 +466,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_BRAND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethodBrand(PaymentMethodBrand paymentMethodBrand) {
+  public void setPaymentMethodBrand(@javax.annotation.Nullable PaymentMethodBrand paymentMethodBrand) {
     this.paymentMethodBrand = paymentMethodBrand;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -458,10 +484,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The date and time when the system last attempted a retry for this token version.
    * @return lastRetriedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_RETRIED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -472,10 +498,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -486,16 +512,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion token(Token token) {
+  public TokenVersion token(@javax.annotation.Nullable Token token) {
     
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * Get token
    * @return token
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -507,14 +533,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToken(Token token) {
+  public void setToken(@javax.annotation.Nullable Token token) {
     this.token = token;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -525,16 +551,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion environment(ChargeAttemptEnvironment environment) {
+  public TokenVersion environment(@javax.annotation.Nullable ChargeAttemptEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -546,14 +572,14 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(ChargeAttemptEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The date and time when the token version was activated.
    * @return activatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -564,10 +590,10 @@ public class TokenVersion {
 
 
 
-   /**
+  /**
    * The name used to identify the token.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -578,16 +604,16 @@ public class TokenVersion {
 
 
 
-  public TokenVersion paymentMethod(PaymentMethod paymentMethod) {
+  public TokenVersion paymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     
     this.paymentMethod = paymentMethod;
     return this;
   }
 
-   /**
+  /**
    * Get paymentMethod
    * @return paymentMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -599,20 +625,20 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethod(PaymentMethod paymentMethod) {
+  public void setPaymentMethod(@javax.annotation.Nullable PaymentMethod paymentMethod) {
     this.paymentMethod = paymentMethod;
   }
 
-  public TokenVersion shippingAddress(Address shippingAddress) {
+  public TokenVersion shippingAddress(@javax.annotation.Nullable Address shippingAddress) {
     
     this.shippingAddress = shippingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -624,20 +650,20 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddress(Address shippingAddress) {
+  public void setShippingAddress(@javax.annotation.Nullable Address shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
 
-  public TokenVersion billingAddress(Address billingAddress) {
+  public TokenVersion billingAddress(@javax.annotation.Nullable Address billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -649,20 +675,20 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public TokenVersion retryStrategy(TokenVersionRetryStrategy retryStrategy) {
+  public TokenVersion retryStrategy(@javax.annotation.Nullable TokenVersionRetryStrategy retryStrategy) {
     
     this.retryStrategy = retryStrategy;
     return this;
   }
 
-   /**
+  /**
    * Get retryStrategy
    * @return retryStrategy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RETRY_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -674,7 +700,7 @@ public class TokenVersion {
 
   @JsonProperty(JSON_PROPERTY_RETRY_STRATEGY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRetryStrategy(TokenVersionRetryStrategy retryStrategy) {
+  public void setRetryStrategy(@javax.annotation.Nullable TokenVersionRetryStrategy retryStrategy) {
     this.retryStrategy = retryStrategy;
   }
 

@@ -49,25 +49,30 @@ import java.util.StringJoiner;
 
 public class WebAppConfirmationResponse {
   public static final String JSON_PROPERTY_ACCESS_TOKEN = "access_token";
+  @javax.annotation.Nullable
   private String accessToken;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable
   private String scope;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private String state;
 
   public static final String JSON_PROPERTY_TOKEN_TYPE = "token_type";
+  @javax.annotation.Nullable
   private String tokenType;
 
   public static final String JSON_PROPERTY_SPACE = "space";
+  @javax.annotation.Nullable
   private Space space;
 
   public WebAppConfirmationResponse() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public WebAppConfirmationResponse(
     @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN) String accessToken, 
@@ -82,10 +87,10 @@ public class WebAppConfirmationResponse {
     this.tokenType = tokenType;
   }
 
-   /**
+  /**
    * The access code granting permissions to the web service API according to the OAuth standard.
    * @return accessToken
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCESS_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,10 +101,10 @@ public class WebAppConfirmationResponse {
 
 
 
-   /**
+  /**
    * The list of the permissions granted to the web app within the space.
    * @return scope
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,10 +115,10 @@ public class WebAppConfirmationResponse {
 
 
 
-   /**
+  /**
    * The state parameter that was provided in the authorization request.
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,10 +129,10 @@ public class WebAppConfirmationResponse {
 
 
 
-   /**
+  /**
    * The type of the access token that determines the authentication mechanism to use for accessing the web service API.
    * @return tokenType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,16 +143,16 @@ public class WebAppConfirmationResponse {
 
 
 
-  public WebAppConfirmationResponse space(Space space) {
+  public WebAppConfirmationResponse space(@javax.annotation.Nullable Space space) {
     
     this.space = space;
     return this;
   }
 
-   /**
+  /**
    * Get space
    * @return space
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,7 +164,7 @@ public class WebAppConfirmationResponse {
 
   @JsonProperty(JSON_PROPERTY_SPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSpace(Space space) {
+  public void setSpace(@javax.annotation.Nullable Space space) {
     this.space = space;
   }
 

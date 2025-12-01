@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SubscriptionChargeCreate;
 import com.wallee.sdk.model.SubscriptionChargeListResponse;
 import com.wallee.sdk.model.SubscriptionChargeSearchResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsCharges">List all charges Documentation</a>
    */
-  public SubscriptionChargeListResponse getSubscriptionsCharges(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SubscriptionChargeListResponse getSubscriptionsCharges(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsCharges(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsCharges">List all charges Documentation</a>
    */
-  public SubscriptionChargeListResponse getSubscriptionsCharges(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionChargeListResponse getSubscriptionsCharges(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsChargesId">Retrieve a charge Documentation</a>
    */
-  public SubscriptionCharge getSubscriptionsChargesId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionCharge getSubscriptionsChargesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsChargesId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsChargesId">Retrieve a charge Documentation</a>
    */
-  public SubscriptionCharge getSubscriptionsChargesId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionCharge getSubscriptionsChargesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class SubscriptionChargesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/charges/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsChargesSearch">Search charges Documentation</a>
    */
-  public SubscriptionChargeSearchResponse getSubscriptionsChargesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SubscriptionChargeSearchResponse getSubscriptionsChargesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsChargesSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsChargesSearch">Search charges Documentation</a>
    */
-  public SubscriptionChargeSearchResponse getSubscriptionsChargesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionChargeSearchResponse getSubscriptionsChargesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -350,7 +351,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsCharges">Create a charge Documentation</a>
    */
-  public SubscriptionCharge postSubscriptionsCharges(Long space, SubscriptionChargeCreate subscriptionChargeCreate, Set<String> expand) throws ApiException {
+  public SubscriptionCharge postSubscriptionsCharges(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionChargeCreate subscriptionChargeCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsCharges(space, subscriptionChargeCreate, expand, Collections.emptyMap());
   }
 
@@ -368,7 +369,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsCharges">Create a charge Documentation</a>
    */
-  public SubscriptionCharge postSubscriptionsCharges(Long space, SubscriptionChargeCreate subscriptionChargeCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionCharge postSubscriptionsCharges(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionChargeCreate subscriptionChargeCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionChargeCreate;
     
     // verify the required parameter 'space' is set
@@ -425,8 +426,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -442,7 +443,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsChargesIdDiscard">Discard a charge Documentation</a>
    */
-  public SubscriptionCharge postSubscriptionsChargesIdDiscard(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionCharge postSubscriptionsChargesIdDiscard(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsChargesIdDiscard(id, space, expand, Collections.emptyMap());
   }
 
@@ -460,7 +461,7 @@ public class SubscriptionChargesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsChargesIdDiscard">Discard a charge Documentation</a>
    */
-  public SubscriptionCharge postSubscriptionsChargesIdDiscard(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionCharge postSubscriptionsChargesIdDiscard(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -475,7 +476,7 @@ public class SubscriptionChargesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/charges/{id}/discard"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -518,8 +519,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -559,8 +560,8 @@ public class SubscriptionChargesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

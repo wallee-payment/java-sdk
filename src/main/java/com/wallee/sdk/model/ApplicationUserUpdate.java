@@ -49,30 +49,34 @@ import java.util.StringJoiner;
 
 public class ApplicationUserUpdate {
   public static final String JSON_PROPERTY_REQUEST_LIMIT = "requestLimit";
+  @javax.annotation.Nullable
   private Long requestLimit;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public ApplicationUserUpdate() {
   }
 
-  public ApplicationUserUpdate requestLimit(Long requestLimit) {
+  public ApplicationUserUpdate requestLimit(@javax.annotation.Nullable Long requestLimit) {
     
     this.requestLimit = requestLimit;
     return this;
   }
 
-   /**
+  /**
    * The maximum number of API requests that are accepted every 2 minutes.
    * @return requestLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,20 +88,20 @@ public class ApplicationUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestLimit(Long requestLimit) {
+  public void setRequestLimit(@javax.annotation.Nullable Long requestLimit) {
     this.requestLimit = requestLimit;
   }
 
-  public ApplicationUserUpdate name(String name) {
+  public ApplicationUserUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the application user.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,20 +113,20 @@ public class ApplicationUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public ApplicationUserUpdate state(CreationEntityState state) {
+  public ApplicationUserUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,20 +138,20 @@ public class ApplicationUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public ApplicationUserUpdate version(Integer version) {
+  public ApplicationUserUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -159,7 +163,7 @@ public class ApplicationUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

@@ -61,43 +61,54 @@ import java.util.StringJoiner;
 
 public class RefundRecoveryBankTransaction {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_REFUND_CURRENCY_VALUE_AMOUNT = "refundCurrencyValueAmount";
+  @javax.annotation.Nullable
   private BigDecimal refundCurrencyValueAmount;
 
   public static final String JSON_PROPERTY_REFUND_CURRENCY_AMOUNT = "refundCurrencyAmount";
+  @javax.annotation.Nullable
   private BigDecimal refundCurrencyAmount;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_BANK_TRANSACTION = "bankTransaction";
+  @javax.annotation.Nullable
   private BankTransaction bankTransaction;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_REFUND = "refund";
+  @javax.annotation.Nullable
   private Refund refund;
 
   public RefundRecoveryBankTransaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RefundRecoveryBankTransaction(
     @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
@@ -122,10 +133,10 @@ public class RefundRecoveryBankTransaction {
     this.version = version;
   }
 
-   /**
+  /**
    * The line items that were recovered.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,10 +147,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,10 +161,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The value amount represents the net monetary value of the bank transaction, recorded in the refund&#39;s currency, after applicable deductions.
    * @return refundCurrencyValueAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND_CURRENCY_VALUE_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,10 +175,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The posting amount represents the monetary value of the bank transaction, recorded in the refund&#39;s currency, before applying any adjustments.
    * @return refundCurrencyAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND_CURRENCY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -178,10 +189,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -192,10 +203,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,10 +217,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,10 +231,10 @@ public class RefundRecoveryBankTransaction {
 
 
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,16 +245,16 @@ public class RefundRecoveryBankTransaction {
 
 
 
-  public RefundRecoveryBankTransaction bankTransaction(BankTransaction bankTransaction) {
+  public RefundRecoveryBankTransaction bankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     
     this.bankTransaction = bankTransaction;
     return this;
   }
 
-   /**
+  /**
    * Get bankTransaction
    * @return bankTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,14 +266,14 @@ public class RefundRecoveryBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankTransaction(BankTransaction bankTransaction) {
+  public void setBankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     this.bankTransaction = bankTransaction;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -273,16 +284,16 @@ public class RefundRecoveryBankTransaction {
 
 
 
-  public RefundRecoveryBankTransaction refund(Refund refund) {
+  public RefundRecoveryBankTransaction refund(@javax.annotation.Nullable Refund refund) {
     
     this.refund = refund;
     return this;
   }
 
-   /**
+  /**
    * Get refund
    * @return refund
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +305,7 @@ public class RefundRecoveryBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRefund(Refund refund) {
+  public void setRefund(@javax.annotation.Nullable Refund refund) {
     this.refund = refund;
   }
 

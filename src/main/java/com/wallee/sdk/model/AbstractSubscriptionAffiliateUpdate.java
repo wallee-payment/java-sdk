@@ -51,21 +51,25 @@ import java.util.StringJoiner;
 
 public class AbstractSubscriptionAffiliateUpdate {
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public AbstractSubscriptionAffiliateUpdate() {
   }
 
-  public AbstractSubscriptionAffiliateUpdate metaData(Map<String, String> metaData) {
+  public AbstractSubscriptionAffiliateUpdate metaData(@javax.annotation.Nullable Map<String, String> metaData) {
     
     this.metaData = metaData;
     return this;
@@ -79,10 +83,10 @@ public class AbstractSubscriptionAffiliateUpdate {
     return this;
   }
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,20 +98,20 @@ public class AbstractSubscriptionAffiliateUpdate {
 
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetaData(Map<String, String> metaData) {
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  public AbstractSubscriptionAffiliateUpdate name(String name) {
+  public AbstractSubscriptionAffiliateUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the affiliate.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,20 +123,20 @@ public class AbstractSubscriptionAffiliateUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AbstractSubscriptionAffiliateUpdate language(String language) {
+  public AbstractSubscriptionAffiliateUpdate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,20 +148,20 @@ public class AbstractSubscriptionAffiliateUpdate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractSubscriptionAffiliateUpdate state(CreationEntityState state) {
+  public AbstractSubscriptionAffiliateUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,7 +173,7 @@ public class AbstractSubscriptionAffiliateUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 

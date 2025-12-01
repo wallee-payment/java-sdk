@@ -57,42 +57,50 @@ import java.util.StringJoiner;
 
 public class SpaceUpdate {
   public static final String JSON_PROPERTY_REQUEST_LIMIT = "requestLimit";
+  @javax.annotation.Nullable
   private Long requestLimit;
 
   public static final String JSON_PROPERTY_POSTAL_ADDRESS = "postalAddress";
+  @javax.annotation.Nullable
   private SpaceAddressCreate postalAddress;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES = "technicalContactAddresses";
+  @javax.annotation.Nullable
   private Set<String> technicalContactAddresses = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_PRIMARY_CURRENCY = "primaryCurrency";
+  @javax.annotation.Nullable
   private String primaryCurrency;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public SpaceUpdate() {
   }
 
-  public SpaceUpdate requestLimit(Long requestLimit) {
+  public SpaceUpdate requestLimit(@javax.annotation.Nullable Long requestLimit) {
     
     this.requestLimit = requestLimit;
     return this;
   }
 
-   /**
+  /**
    * The maximum number of API requests that are accepted within two minutes. This limit can only be changed with special privileges.
    * @return requestLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,20 +112,20 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRequestLimit(Long requestLimit) {
+  public void setRequestLimit(@javax.annotation.Nullable Long requestLimit) {
     this.requestLimit = requestLimit;
   }
 
-  public SpaceUpdate postalAddress(SpaceAddressCreate postalAddress) {
+  public SpaceUpdate postalAddress(@javax.annotation.Nullable SpaceAddressCreate postalAddress) {
     
     this.postalAddress = postalAddress;
     return this;
   }
 
-   /**
+  /**
    * Get postalAddress
    * @return postalAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,20 +137,20 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPostalAddress(SpaceAddressCreate postalAddress) {
+  public void setPostalAddress(@javax.annotation.Nullable SpaceAddressCreate postalAddress) {
     this.postalAddress = postalAddress;
   }
 
-  public SpaceUpdate name(String name) {
+  public SpaceUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the space.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -154,11 +162,11 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public SpaceUpdate technicalContactAddresses(Set<String> technicalContactAddresses) {
+  public SpaceUpdate technicalContactAddresses(@javax.annotation.Nullable Set<String> technicalContactAddresses) {
     
     this.technicalContactAddresses = technicalContactAddresses;
     return this;
@@ -172,10 +180,10 @@ public class SpaceUpdate {
     return this;
   }
 
-   /**
+  /**
    * The email address that will receive messages about technical issues and errors that occur in the space.
    * @return technicalContactAddresses
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,20 +196,20 @@ public class SpaceUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTechnicalContactAddresses(Set<String> technicalContactAddresses) {
+  public void setTechnicalContactAddresses(@javax.annotation.Nullable Set<String> technicalContactAddresses) {
     this.technicalContactAddresses = technicalContactAddresses;
   }
 
-  public SpaceUpdate timeZone(String timeZone) {
+  public SpaceUpdate timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The time zone that is used to schedule and run background processes. This does not affect the formatting of dates in the user interface.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,20 +221,20 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public SpaceUpdate state(CreationEntityState state) {
+  public SpaceUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,20 +246,20 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public SpaceUpdate primaryCurrency(String primaryCurrency) {
+  public SpaceUpdate primaryCurrency(@javax.annotation.Nullable String primaryCurrency) {
     
     this.primaryCurrency = primaryCurrency;
     return this;
   }
 
-   /**
+  /**
    * The currency that is used to display aggregated amounts in the space.
    * @return primaryCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,20 +271,20 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_PRIMARY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPrimaryCurrency(String primaryCurrency) {
+  public void setPrimaryCurrency(@javax.annotation.Nullable String primaryCurrency) {
     this.primaryCurrency = primaryCurrency;
   }
 
-  public SpaceUpdate version(Integer version) {
+  public SpaceUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -288,7 +296,7 @@ public class SpaceUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

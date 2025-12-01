@@ -35,6 +35,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndications">List all delivery indications Documentation</a>
    */
-  public DeliveryIndicationListResponse getPaymentDeliveryIndications(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public DeliveryIndicationListResponse getPaymentDeliveryIndications(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentDeliveryIndications(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -86,7 +87,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndications">List all delivery indications Documentation</a>
    */
-  public DeliveryIndicationListResponse getPaymentDeliveryIndications(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public DeliveryIndicationListResponse getPaymentDeliveryIndications(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -142,8 +143,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -159,7 +160,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndicationsId">Retrieve a delivery indication Documentation</a>
    */
-  public DeliveryIndication getPaymentDeliveryIndicationsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public DeliveryIndication getPaymentDeliveryIndicationsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentDeliveryIndicationsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -177,7 +178,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndicationsId">Retrieve a delivery indication Documentation</a>
    */
-  public DeliveryIndication getPaymentDeliveryIndicationsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DeliveryIndication getPaymentDeliveryIndicationsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -192,7 +193,7 @@ public class DeliveryIndicationsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/delivery-indications/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -235,8 +236,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -255,7 +256,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndicationsSearch">Search delivery indications Documentation</a>
    */
-  public DeliveryIndicationSearchResponse getPaymentDeliveryIndicationsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public DeliveryIndicationSearchResponse getPaymentDeliveryIndicationsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentDeliveryIndicationsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -276,7 +277,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDeliveryIndicationsSearch">Search delivery indications Documentation</a>
    */
-  public DeliveryIndicationSearchResponse getPaymentDeliveryIndicationsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public DeliveryIndicationSearchResponse getPaymentDeliveryIndicationsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -332,8 +333,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -349,7 +350,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDeliveryIndicationsIdMarkNotSuitable">Mark a delivery indication as not suitable. Documentation</a>
    */
-  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkNotSuitable(Long id, Long space, Set<String> expand) throws ApiException {
+  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkNotSuitable(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentDeliveryIndicationsIdMarkNotSuitable(id, space, expand, Collections.emptyMap());
   }
 
@@ -367,7 +368,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDeliveryIndicationsIdMarkNotSuitable">Mark a delivery indication as not suitable. Documentation</a>
    */
-  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkNotSuitable(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkNotSuitable(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -382,7 +383,7 @@ public class DeliveryIndicationsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/delivery-indications/{id}/mark-not-suitable"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -425,8 +426,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -442,7 +443,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDeliveryIndicationsIdMarkSuitable">Mark a delivery indication as suitable. Documentation</a>
    */
-  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkSuitable(Long id, Long space, Set<String> expand) throws ApiException {
+  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkSuitable(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentDeliveryIndicationsIdMarkSuitable(id, space, expand, Collections.emptyMap());
   }
 
@@ -460,7 +461,7 @@ public class DeliveryIndicationsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDeliveryIndicationsIdMarkSuitable">Mark a delivery indication as suitable. Documentation</a>
    */
-  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkSuitable(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DeliveryIndication postPaymentDeliveryIndicationsIdMarkSuitable(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -475,7 +476,7 @@ public class DeliveryIndicationsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/delivery-indications/{id}/mark-suitable"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -518,8 +519,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -559,8 +560,8 @@ public class DeliveryIndicationsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

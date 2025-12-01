@@ -76,79 +76,102 @@ import java.util.StringJoiner;
 
 public class TransactionInvoice {
   public static final String JSON_PROPERTY_COMPLETION = "completion";
+  @javax.annotation.Nullable
   private TransactionCompletion completion;
 
   public static final String JSON_PROPERTY_DERECOGNIZED_ON = "derecognizedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime derecognizedOn;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_DUE_ON = "dueOn";
+  @javax.annotation.Nullable
   private OffsetDateTime dueOn;
 
   public static final String JSON_PROPERTY_OUTSTANDING_AMOUNT = "outstandingAmount";
+  @javax.annotation.Nullable
   private BigDecimal outstandingAmount;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_PAID_ON = "paidOn";
+  @javax.annotation.Nullable
   private OffsetDateTime paidOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private Environment environment;
 
   public static final String JSON_PROPERTY_DERECOGNIZED_BY = "derecognizedBy";
+  @javax.annotation.Nullable
   private Long derecognizedBy;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private Address billingAddress;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionInvoiceState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public TransactionInvoice() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionInvoice(
     @JsonProperty(JSON_PROPERTY_DERECOGNIZED_ON) OffsetDateTime derecognizedOn, 
@@ -193,16 +216,16 @@ public class TransactionInvoice {
     this.merchantReference = merchantReference;
   }
 
-  public TransactionInvoice completion(TransactionCompletion completion) {
+  public TransactionInvoice completion(@javax.annotation.Nullable TransactionCompletion completion) {
     
     this.completion = completion;
     return this;
   }
 
-   /**
+  /**
    * Get completion
    * @return completion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,14 +237,14 @@ public class TransactionInvoice {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletion(TransactionCompletion completion) {
+  public void setCompletion(@javax.annotation.Nullable TransactionCompletion completion) {
     this.completion = completion;
   }
 
-   /**
+  /**
    * The date and time when the invoice was derecognized, meaning it is no longer considered outstanding or valid in the system.
    * @return derecognizedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DERECOGNIZED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,10 +255,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The total sum of all line items on the invoice, including taxes.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,10 +269,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The due date for payment of the invoice.
    * @return dueOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DUE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,10 +283,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The remaining amount the buyer owes to the merchant. A negative value indicates the invoice has been overpaid.
    * @return outstandingAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OUTSTANDING_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -274,10 +297,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -288,10 +311,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,10 +325,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The time zone that this object is associated with.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,10 +339,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,10 +353,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -344,10 +367,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -358,10 +381,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The date and time when the invoice was recorded as paid. May differ from the actual payment date due to processing delays.
    * @return paidOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAID_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -372,10 +395,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -386,10 +409,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The invoiced line items that will appear on the invoice document.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,10 +423,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -414,16 +437,16 @@ public class TransactionInvoice {
 
 
 
-  public TransactionInvoice environment(Environment environment) {
+  public TransactionInvoice environment(@javax.annotation.Nullable Environment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -435,14 +458,14 @@ public class TransactionInvoice {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(Environment environment) {
+  public void setEnvironment(@javax.annotation.Nullable Environment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The ID of the user the invoice was derecognized by.
    * @return derecognizedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DERECOGNIZED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -453,16 +476,16 @@ public class TransactionInvoice {
 
 
 
-  public TransactionInvoice billingAddress(Address billingAddress) {
+  public TransactionInvoice billingAddress(@javax.annotation.Nullable Address billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -474,14 +497,14 @@ public class TransactionInvoice {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(Address billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -492,16 +515,16 @@ public class TransactionInvoice {
 
 
 
-  public TransactionInvoice state(TransactionInvoiceState state) {
+  public TransactionInvoice state(@javax.annotation.Nullable TransactionInvoiceState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -513,14 +536,14 @@ public class TransactionInvoice {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionInvoiceState state) {
+  public void setState(@javax.annotation.Nullable TransactionInvoiceState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -531,10 +554,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The portion of the invoiced amount that corresponds to taxes.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -545,10 +568,10 @@ public class TransactionInvoice {
 
 
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

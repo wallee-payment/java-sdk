@@ -52,24 +52,29 @@ import java.util.StringJoiner;
 
 public class TransactionCompletionDetails {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<CompletionLineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LAST_COMPLETION = "lastCompletion";
+  @javax.annotation.Nullable
   private Boolean lastCompletion;
 
   public static final String JSON_PROPERTY_STATEMENT_DESCRIPTOR = "statementDescriptor";
+  @javax.annotation.Nullable
   private String statementDescriptor;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE = "invoiceMerchantReference";
+  @javax.annotation.Nullable
   private String invoiceMerchantReference;
 
   public TransactionCompletionDetails() {
   }
 
-  public TransactionCompletionDetails lineItems(List<CompletionLineItemCreate> lineItems) {
+  public TransactionCompletionDetails lineItems(@javax.annotation.Nullable List<CompletionLineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -83,10 +88,10 @@ public class TransactionCompletionDetails {
     return this;
   }
 
-   /**
+  /**
    * The line items to be captured in the transaction completion.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,20 +103,20 @@ public class TransactionCompletionDetails {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<CompletionLineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<CompletionLineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public TransactionCompletionDetails lastCompletion(Boolean lastCompletion) {
+  public TransactionCompletionDetails lastCompletion(@javax.annotation.Nullable Boolean lastCompletion) {
     
     this.lastCompletion = lastCompletion;
     return this;
   }
 
-   /**
+  /**
    * Whether this is the final completion for the transaction, meaning no further completions can occur, and the transaction will move to its completed state upon success.
    * @return lastCompletion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,20 +128,20 @@ public class TransactionCompletionDetails {
 
   @JsonProperty(JSON_PROPERTY_LAST_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastCompletion(Boolean lastCompletion) {
+  public void setLastCompletion(@javax.annotation.Nullable Boolean lastCompletion) {
     this.lastCompletion = lastCompletion;
   }
 
-  public TransactionCompletionDetails statementDescriptor(String statementDescriptor) {
+  public TransactionCompletionDetails statementDescriptor(@javax.annotation.Nullable String statementDescriptor) {
     
     this.statementDescriptor = statementDescriptor;
     return this;
   }
 
-   /**
+  /**
    * The statement descriptor that appears on a customer&#39;s bank statement, providing an explanation for charges or payments, helping customers identify the transaction.
    * @return statementDescriptor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATEMENT_DESCRIPTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,20 +153,20 @@ public class TransactionCompletionDetails {
 
   @JsonProperty(JSON_PROPERTY_STATEMENT_DESCRIPTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatementDescriptor(String statementDescriptor) {
+  public void setStatementDescriptor(@javax.annotation.Nullable String statementDescriptor) {
     this.statementDescriptor = statementDescriptor;
   }
 
-  public TransactionCompletionDetails externalId(String externalId) {
+  public TransactionCompletionDetails externalId(@javax.annotation.Nullable String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -173,20 +178,20 @@ public class TransactionCompletionDetails {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nullable String externalId) {
     this.externalId = externalId;
   }
 
-  public TransactionCompletionDetails invoiceMerchantReference(String invoiceMerchantReference) {
+  public TransactionCompletionDetails invoiceMerchantReference(@javax.annotation.Nullable String invoiceMerchantReference) {
     
     this.invoiceMerchantReference = invoiceMerchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,7 +203,7 @@ public class TransactionCompletionDetails {
 
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvoiceMerchantReference(String invoiceMerchantReference) {
+  public void setInvoiceMerchantReference(@javax.annotation.Nullable String invoiceMerchantReference) {
     this.invoiceMerchantReference = invoiceMerchantReference;
   }
 

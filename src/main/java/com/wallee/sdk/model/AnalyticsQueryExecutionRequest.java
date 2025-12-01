@@ -46,27 +46,30 @@ import java.util.StringJoiner;
 
 public class AnalyticsQueryExecutionRequest {
   public static final String JSON_PROPERTY_SFTP_DISPATCH_SETTINGS_ID = "sftpDispatchSettingsId";
+  @javax.annotation.Nullable
   private Long sftpDispatchSettingsId;
 
   public static final String JSON_PROPERTY_SFTP_DISPATCH_RESULT_FILE_RENAME_PATTERN = "sftpDispatchResultFileRenamePattern";
+  @javax.annotation.Nullable
   private String sftpDispatchResultFileRenamePattern;
 
   public static final String JSON_PROPERTY_SQL = "sql";
+  @javax.annotation.Nullable
   private String sql;
 
   public AnalyticsQueryExecutionRequest() {
   }
 
-  public AnalyticsQueryExecutionRequest sftpDispatchSettingsId(Long sftpDispatchSettingsId) {
+  public AnalyticsQueryExecutionRequest sftpDispatchSettingsId(@javax.annotation.Nullable Long sftpDispatchSettingsId) {
     
     this.sftpDispatchSettingsId = sftpDispatchSettingsId;
     return this;
   }
 
-   /**
+  /**
    * Optional. ID of the active SFTP configuration to use (associated with the target account). This is only required if the result file is scheduled for delivery to a remote SFTP server.
    * @return sftpDispatchSettingsId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SFTP_DISPATCH_SETTINGS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -78,20 +81,20 @@ public class AnalyticsQueryExecutionRequest {
 
   @JsonProperty(JSON_PROPERTY_SFTP_DISPATCH_SETTINGS_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSftpDispatchSettingsId(Long sftpDispatchSettingsId) {
+  public void setSftpDispatchSettingsId(@javax.annotation.Nullable Long sftpDispatchSettingsId) {
     this.sftpDispatchSettingsId = sftpDispatchSettingsId;
   }
 
-  public AnalyticsQueryExecutionRequest sftpDispatchResultFileRenamePattern(String sftpDispatchResultFileRenamePattern) {
+  public AnalyticsQueryExecutionRequest sftpDispatchResultFileRenamePattern(@javax.annotation.Nullable String sftpDispatchResultFileRenamePattern) {
     
     this.sftpDispatchResultFileRenamePattern = sftpDispatchResultFileRenamePattern;
     return this;
   }
 
-   /**
+  /**
    * Optional. Renaming pattern used for the result file during SFTP delivery. You can use a combination of fixed Latin text and timestamp variables (e.g., \&quot;transaction_report_{YYYMMDD_hhmmss}\&quot;). Supported variable formats: DDMMYY, MMDDYY, YYYYMMDD, DD_MM_YY, DD-MM-YY, YYYY-MM-DD, YYYY_MM_DD, YYYYMMDD_hhmmss, YYYY-MM-DD_hh-mm-ss.
    * @return sftpDispatchResultFileRenamePattern
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SFTP_DISPATCH_RESULT_FILE_RENAME_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -103,20 +106,20 @@ public class AnalyticsQueryExecutionRequest {
 
   @JsonProperty(JSON_PROPERTY_SFTP_DISPATCH_RESULT_FILE_RENAME_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSftpDispatchResultFileRenamePattern(String sftpDispatchResultFileRenamePattern) {
+  public void setSftpDispatchResultFileRenamePattern(@javax.annotation.Nullable String sftpDispatchResultFileRenamePattern) {
     this.sftpDispatchResultFileRenamePattern = sftpDispatchResultFileRenamePattern;
   }
 
-  public AnalyticsQueryExecutionRequest sql(String sql) {
+  public AnalyticsQueryExecutionRequest sql(@javax.annotation.Nullable String sql) {
     
     this.sql = sql;
     return this;
   }
 
-   /**
+  /**
    * The SQL query (in PrestoDB dialect) to execute on the analytics database. This query defines exactly which data should be retrieved.
    * @return sql
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SQL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,7 +131,7 @@ public class AnalyticsQueryExecutionRequest {
 
   @JsonProperty(JSON_PROPERTY_SQL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSql(String sql) {
+  public void setSql(@javax.annotation.Nullable String sql) {
     this.sql = sql;
   }
 

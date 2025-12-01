@@ -52,31 +52,38 @@ import java.util.StringJoiner;
 
 public class PaymentProcessor {
   public static final String JSON_PROPERTY_COMPANY_NAME = "companyName";
+  @javax.annotation.Nullable
   private Map<String, String> companyName = new HashMap<>();
 
   public static final String JSON_PROPERTY_HEADQUARTERS_LOCATION = "headquartersLocation";
+  @javax.annotation.Nullable
   private Map<String, String> headquartersLocation = new HashMap<>();
 
   public static final String JSON_PROPERTY_LOGO_PATH = "logoPath";
+  @javax.annotation.Nullable
   private String logoPath;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_PRODUCT_NAME = "productName";
+  @javax.annotation.Nullable
   private Map<String, String> productName = new HashMap<>();
 
   public PaymentProcessor() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentProcessor(
     @JsonProperty(JSON_PROPERTY_COMPANY_NAME) Map<String, String> companyName, 
@@ -97,10 +104,10 @@ public class PaymentProcessor {
     this.productName = productName;
   }
 
-   /**
+  /**
    * The name of the company to which the processor belongs.
    * @return companyName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPANY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,10 +118,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * Where the processor&#39;s headquarters are located.
    * @return headquartersLocation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HEADQUARTERS_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +132,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * The path to the logo image of the processor.
    * @return logoPath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOGO_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +146,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -153,10 +160,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,10 +174,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,10 +188,10 @@ public class PaymentProcessor {
 
 
 
-   /**
+  /**
    * The name of the processor&#39;s product.
    * @return productName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

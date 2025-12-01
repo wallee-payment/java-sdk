@@ -57,43 +57,54 @@ import java.util.StringJoiner;
 
 public class DocumentTemplate {
   public static final String JSON_PROPERTY_DELIVERY_ENABLED = "deliveryEnabled";
+  @javax.annotation.Nullable
   private Boolean deliveryEnabled;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_SPACE_ID = "spaceId";
+  @javax.annotation.Nullable
   private Long spaceId;
 
   public static final String JSON_PROPERTY_DEFAULT_TEMPLATE = "defaultTemplate";
+  @javax.annotation.Nullable
   private Boolean defaultTemplate;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_TEMPLATE_RESOURCE = "templateResource";
+  @javax.annotation.Nullable
   private String templateResource;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private DocumentTemplateType type;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public DocumentTemplate() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DocumentTemplate(
     @JsonProperty(JSON_PROPERTY_DELIVERY_ENABLED) Boolean deliveryEnabled, 
@@ -118,10 +129,10 @@ public class DocumentTemplate {
     this.version = version;
   }
 
-   /**
+  /**
    * Whether documents of this template should be delivered.
    * @return deliveryEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELIVERY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,10 +143,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,10 +157,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return spaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,10 +171,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * Whether this is the default document template which is used whenever no specific template is specified for the same template type.
    * @return defaultTemplate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -174,10 +185,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * The name used to identify the document template.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,10 +199,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,10 +213,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * The resource path to a custom template to be used to generate PDF documents.
    * @return templateResource
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TEMPLATE_RESOURCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,10 +227,10 @@ public class DocumentTemplate {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,16 +241,16 @@ public class DocumentTemplate {
 
 
 
-  public DocumentTemplate state(CreationEntityState state) {
+  public DocumentTemplate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,20 +262,20 @@ public class DocumentTemplate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public DocumentTemplate type(DocumentTemplateType type) {
+  public DocumentTemplate type(@javax.annotation.Nullable DocumentTemplateType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,14 +287,14 @@ public class DocumentTemplate {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(DocumentTemplateType type) {
+  public void setType(@javax.annotation.Nullable DocumentTemplateType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

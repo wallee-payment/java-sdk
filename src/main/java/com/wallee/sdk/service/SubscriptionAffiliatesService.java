@@ -37,6 +37,7 @@ import com.wallee.sdk.model.SubscriptionAffiliateListResponse;
 import com.wallee.sdk.model.SubscriptionAffiliateSearchResponse;
 import com.wallee.sdk.model.SubscriptionAffiliateUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsAffiliatesId">Delete an affiliate Documentation</a>
    */
-  public void deleteSubscriptionsAffiliatesId(Long id, Long space) throws ApiException {
+  public void deleteSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteSubscriptionsAffiliatesId(id, space, Collections.emptyMap());
   }
 
@@ -78,7 +79,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsAffiliatesId">Delete an affiliate Documentation</a>
    */
-  public void deleteSubscriptionsAffiliatesId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -93,7 +94,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/affiliates/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -134,8 +135,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -154,7 +155,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliates">List all affiliates Documentation</a>
    */
-  public SubscriptionAffiliateListResponse getSubscriptionsAffiliates(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SubscriptionAffiliateListResponse getSubscriptionsAffiliates(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsAffiliates(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -175,7 +176,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliates">List all affiliates Documentation</a>
    */
-  public SubscriptionAffiliateListResponse getSubscriptionsAffiliates(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionAffiliateListResponse getSubscriptionsAffiliates(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -231,8 +232,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -248,7 +249,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliatesId">Retrieve an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate getSubscriptionsAffiliatesId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionAffiliate getSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsAffiliatesId(id, space, expand, Collections.emptyMap());
   }
 
@@ -266,7 +267,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliatesId">Retrieve an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate getSubscriptionsAffiliatesId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionAffiliate getSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -281,7 +282,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/affiliates/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -324,8 +325,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -344,7 +345,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliatesSearch">Search affiliates Documentation</a>
    */
-  public SubscriptionAffiliateSearchResponse getSubscriptionsAffiliatesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SubscriptionAffiliateSearchResponse getSubscriptionsAffiliatesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsAffiliatesSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -365,7 +366,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsAffiliatesSearch">Search affiliates Documentation</a>
    */
-  public SubscriptionAffiliateSearchResponse getSubscriptionsAffiliatesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionAffiliateSearchResponse getSubscriptionsAffiliatesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -421,8 +422,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -439,7 +440,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsAffiliatesId">Update an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate patchSubscriptionsAffiliatesId(Long id, Long space, SubscriptionAffiliateUpdate subscriptionAffiliateUpdate, Set<String> expand) throws ApiException {
+  public SubscriptionAffiliate patchSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionAffiliateUpdate subscriptionAffiliateUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSubscriptionsAffiliatesId(id, space, subscriptionAffiliateUpdate, expand, Collections.emptyMap());
   }
 
@@ -458,7 +459,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsAffiliatesId">Update an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate patchSubscriptionsAffiliatesId(Long id, Long space, SubscriptionAffiliateUpdate subscriptionAffiliateUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionAffiliate patchSubscriptionsAffiliatesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionAffiliateUpdate subscriptionAffiliateUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionAffiliateUpdate;
     
     // verify the required parameter 'id' is set
@@ -478,7 +479,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/affiliates/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -521,8 +522,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -538,7 +539,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsAffiliates">Create an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate postSubscriptionsAffiliates(Long space, SubscriptionAffiliateCreate subscriptionAffiliateCreate, Set<String> expand) throws ApiException {
+  public SubscriptionAffiliate postSubscriptionsAffiliates(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionAffiliateCreate subscriptionAffiliateCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsAffiliates(space, subscriptionAffiliateCreate, expand, Collections.emptyMap());
   }
 
@@ -556,7 +557,7 @@ public class SubscriptionAffiliatesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsAffiliates">Create an affiliate Documentation</a>
    */
-  public SubscriptionAffiliate postSubscriptionsAffiliates(Long space, SubscriptionAffiliateCreate subscriptionAffiliateCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionAffiliate postSubscriptionsAffiliates(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionAffiliateCreate subscriptionAffiliateCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionAffiliateCreate;
     
     // verify the required parameter 'space' is set
@@ -613,8 +614,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -654,8 +655,8 @@ public class SubscriptionAffiliatesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

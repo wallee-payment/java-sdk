@@ -44,21 +44,22 @@ import java.util.StringJoiner;
 
 public class SubscriptionUpdateRequest {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public SubscriptionUpdateRequest() {
   }
 
-  public SubscriptionUpdateRequest description(String description) {
+  public SubscriptionUpdateRequest description(@javax.annotation.Nullable String description) {
     
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A description used to identify the subscription.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -70,7 +71,7 @@ public class SubscriptionUpdateRequest {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 

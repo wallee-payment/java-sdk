@@ -30,6 +30,7 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.RestApiErrorResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class WebhookEncryptionKeysService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksEncryptionKeysId">Retrieve a webhook encryption key Documentation</a>
    */
-  public String getWebhooksEncryptionKeysId(String id) throws ApiException {
+  public String getWebhooksEncryptionKeysId(@javax.annotation.Nonnull String id) throws ApiException {
     return this.getWebhooksEncryptionKeysId(id, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class WebhookEncryptionKeysService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksEncryptionKeysId">Retrieve a webhook encryption key Documentation</a>
    */
-  public String getWebhooksEncryptionKeysId(String id, Map<String, String> additionalHeaders) throws ApiException {
+  public String getWebhooksEncryptionKeysId(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -90,7 +91,7 @@ public class WebhookEncryptionKeysService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/encryption-keys/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -130,8 +131,8 @@ public class WebhookEncryptionKeysService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -171,8 +172,8 @@ public class WebhookEncryptionKeysService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

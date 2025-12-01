@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SortingOrder;
 import com.wallee.sdk.model.TransactionLineItemVersion;
 import com.wallee.sdk.model.TransactionLineItemVersionCreate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersions">List all transaction line item versions Documentation</a>
    */
-  public LineItemVersionListResponse getPaymentTransactionsLineItemVersions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public LineItemVersionListResponse getPaymentTransactionsLineItemVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentTransactionsLineItemVersions(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersions">List all transaction line item versions Documentation</a>
    */
-  public LineItemVersionListResponse getPaymentTransactionsLineItemVersions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public LineItemVersionListResponse getPaymentTransactionsLineItemVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class TransactionLineItemVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersionsId">Retrieve a transaction line item version Documentation</a>
    */
-  public TransactionLineItemVersion getPaymentTransactionsLineItemVersionsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public TransactionLineItemVersion getPaymentTransactionsLineItemVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentTransactionsLineItemVersionsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersionsId">Retrieve a transaction line item version Documentation</a>
    */
-  public TransactionLineItemVersion getPaymentTransactionsLineItemVersionsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionLineItemVersion getPaymentTransactionsLineItemVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/transactions/line-item-versions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class TransactionLineItemVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersionsSearch">Search transaction line item versions Documentation</a>
    */
-  public LineItemVersionSearchResponse getPaymentTransactionsLineItemVersionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public LineItemVersionSearchResponse getPaymentTransactionsLineItemVersionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentTransactionsLineItemVersionsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsLineItemVersionsSearch">Search transaction line item versions Documentation</a>
    */
-  public LineItemVersionSearchResponse getPaymentTransactionsLineItemVersionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public LineItemVersionSearchResponse getPaymentTransactionsLineItemVersionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class TransactionLineItemVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -350,7 +351,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsLineItemVersions">Create a transaction line item version Documentation</a>
    */
-  public TransactionLineItemVersion postPaymentTransactionsLineItemVersions(Long space, TransactionLineItemVersionCreate transactionLineItemVersionCreate, Set<String> expand) throws ApiException {
+  public TransactionLineItemVersion postPaymentTransactionsLineItemVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionLineItemVersionCreate transactionLineItemVersionCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentTransactionsLineItemVersions(space, transactionLineItemVersionCreate, expand, Collections.emptyMap());
   }
 
@@ -368,7 +369,7 @@ public class TransactionLineItemVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsLineItemVersions">Create a transaction line item version Documentation</a>
    */
-  public TransactionLineItemVersion postPaymentTransactionsLineItemVersions(Long space, TransactionLineItemVersionCreate transactionLineItemVersionCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public TransactionLineItemVersion postPaymentTransactionsLineItemVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull TransactionLineItemVersionCreate transactionLineItemVersionCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = transactionLineItemVersionCreate;
     
     // verify the required parameter 'space' is set
@@ -425,8 +426,8 @@ public class TransactionLineItemVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -466,8 +467,8 @@ public class TransactionLineItemVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

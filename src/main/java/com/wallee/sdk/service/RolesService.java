@@ -37,6 +37,7 @@ import com.wallee.sdk.model.RoleUpdate;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteRolesId">Delete a role Documentation</a>
    */
-  public void deleteRolesId(Long id) throws ApiException {
+  public void deleteRolesId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteRolesId(id, Collections.emptyMap());
   }
 
@@ -76,7 +77,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteRolesId">Delete a role Documentation</a>
    */
-  public void deleteRolesId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteRolesId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -86,7 +87,7 @@ public class RolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/roles/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -125,8 +126,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -144,7 +145,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRoles">List all roles Documentation</a>
    */
-  public RoleListResponse getRoles(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public RoleListResponse getRoles(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getRoles(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -164,7 +165,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRoles">List all roles Documentation</a>
    */
-  public RoleListResponse getRoles(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public RoleListResponse getRoles(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -213,8 +214,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -229,7 +230,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRolesId">Retrieve a role Documentation</a>
    */
-  public Role getRolesId(Long id, Set<String> expand) throws ApiException {
+  public Role getRolesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getRolesId(id, expand, Collections.emptyMap());
   }
 
@@ -246,7 +247,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRolesId">Retrieve a role Documentation</a>
    */
-  public Role getRolesId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Role getRolesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -256,7 +257,7 @@ public class RolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/roles/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -297,8 +298,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -316,7 +317,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRolesSearch">Search roles Documentation</a>
    */
-  public RoleSearchResponse getRolesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public RoleSearchResponse getRolesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getRolesSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -336,7 +337,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getRolesSearch">Search roles Documentation</a>
    */
-  public RoleSearchResponse getRolesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public RoleSearchResponse getRolesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,8 +386,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -402,7 +403,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchRolesId">Update a role Documentation</a>
    */
-  public Role patchRolesId(Long id, RoleUpdate roleUpdate, Set<String> expand) throws ApiException {
+  public Role patchRolesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull RoleUpdate roleUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchRolesId(id, roleUpdate, expand, Collections.emptyMap());
   }
 
@@ -420,7 +421,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchRolesId">Update a role Documentation</a>
    */
-  public Role patchRolesId(Long id, RoleUpdate roleUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Role patchRolesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull RoleUpdate roleUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = roleUpdate;
     
     // verify the required parameter 'id' is set
@@ -435,7 +436,7 @@ public class RolesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/roles/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -476,8 +477,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -492,7 +493,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postRoles">Create a role Documentation</a>
    */
-  public Role postRoles(RoleCreate roleCreate, Set<String> expand) throws ApiException {
+  public Role postRoles(@javax.annotation.Nonnull RoleCreate roleCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postRoles(roleCreate, expand, Collections.emptyMap());
   }
 
@@ -509,7 +510,7 @@ public class RolesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postRoles">Create a role Documentation</a>
    */
-  public Role postRoles(RoleCreate roleCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Role postRoles(@javax.annotation.Nonnull RoleCreate roleCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = roleCreate;
     
     // verify the required parameter 'roleCreate' is set
@@ -559,8 +560,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -600,8 +601,8 @@ public class RolesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

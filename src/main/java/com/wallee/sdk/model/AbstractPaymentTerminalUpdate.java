@@ -45,21 +45,22 @@ import java.util.StringJoiner;
 
 public class AbstractPaymentTerminalUpdate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public AbstractPaymentTerminalUpdate() {
   }
 
-  public AbstractPaymentTerminalUpdate name(String name) {
+  public AbstractPaymentTerminalUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the payment terminal.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +72,7 @@ public class AbstractPaymentTerminalUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 

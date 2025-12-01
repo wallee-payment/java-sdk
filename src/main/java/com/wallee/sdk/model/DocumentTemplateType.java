@@ -52,25 +52,30 @@ import java.util.StringJoiner;
 
 public class DocumentTemplateType {
   public static final String JSON_PROPERTY_FEATURE = "feature";
+  @javax.annotation.Nullable
   private Feature feature;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public static final String JSON_PROPERTY_GROUP = "group";
+  @javax.annotation.Nullable
   private DocumentTemplateTypeGroup group;
 
   public DocumentTemplateType() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DocumentTemplateType(
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
@@ -83,16 +88,16 @@ public class DocumentTemplateType {
     this.title = title;
   }
 
-  public DocumentTemplateType feature(Feature feature) {
+  public DocumentTemplateType feature(@javax.annotation.Nullable Feature feature) {
     
     this.feature = feature;
     return this;
   }
 
-   /**
+  /**
    * Get feature
    * @return feature
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,14 +109,14 @@ public class DocumentTemplateType {
 
   @JsonProperty(JSON_PROPERTY_FEATURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFeature(Feature feature) {
+  public void setFeature(@javax.annotation.Nullable Feature feature) {
     this.feature = feature;
   }
 
-   /**
+  /**
    * The localized description of the document template type.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,10 +127,10 @@ public class DocumentTemplateType {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,10 +141,10 @@ public class DocumentTemplateType {
 
 
 
-   /**
+  /**
    * The localized title of the document template type.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,16 +155,16 @@ public class DocumentTemplateType {
 
 
 
-  public DocumentTemplateType group(DocumentTemplateTypeGroup group) {
+  public DocumentTemplateType group(@javax.annotation.Nullable DocumentTemplateTypeGroup group) {
     
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * Get group
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,7 +176,7 @@ public class DocumentTemplateType {
 
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGroup(DocumentTemplateTypeGroup group) {
+  public void setGroup(@javax.annotation.Nullable DocumentTemplateTypeGroup group) {
     this.group = group;
   }
 

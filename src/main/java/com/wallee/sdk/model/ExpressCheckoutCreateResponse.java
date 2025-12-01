@@ -45,24 +45,26 @@ import java.util.StringJoiner;
 
 public class ExpressCheckoutCreateResponse {
   public static final String JSON_PROPERTY_IFRAME_SRC = "iframeSrc";
+  @javax.annotation.Nullable
   private String iframeSrc;
 
   public static final String JSON_PROPERTY_SESSION = "session";
+  @javax.annotation.Nullable
   private Long session;
 
   public ExpressCheckoutCreateResponse() {
   }
 
-  public ExpressCheckoutCreateResponse iframeSrc(String iframeSrc) {
+  public ExpressCheckoutCreateResponse iframeSrc(@javax.annotation.Nullable String iframeSrc) {
     
     this.iframeSrc = iframeSrc;
     return this;
   }
 
-   /**
+  /**
    * Get iframeSrc
    * @return iframeSrc
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IFRAME_SRC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,20 +76,20 @@ public class ExpressCheckoutCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_IFRAME_SRC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIframeSrc(String iframeSrc) {
+  public void setIframeSrc(@javax.annotation.Nullable String iframeSrc) {
     this.iframeSrc = iframeSrc;
   }
 
-  public ExpressCheckoutCreateResponse session(Long session) {
+  public ExpressCheckoutCreateResponse session(@javax.annotation.Nullable Long session) {
     
     this.session = session;
     return this;
   }
 
-   /**
+  /**
    * Get session
    * @return session
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +101,7 @@ public class ExpressCheckoutCreateResponse {
 
   @JsonProperty(JSON_PROPERTY_SESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSession(Long session) {
+  public void setSession(@javax.annotation.Nullable Long session) {
     this.session = session;
   }
 

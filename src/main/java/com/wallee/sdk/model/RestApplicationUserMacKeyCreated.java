@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class RestApplicationUserMacKeyCreated {
   public static final String JSON_PROPERTY_CREATION_TIME = "creationTime";
+  @javax.annotation.Nullable
   private OffsetDateTime creationTime;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ApplicationKeyState state;
 
   public static final String JSON_PROPERTY_KEY = "key";
+  @javax.annotation.Nullable
   private String key;
 
   public RestApplicationUserMacKeyCreated() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestApplicationUserMacKeyCreated(
     @JsonProperty(JSON_PROPERTY_CREATION_TIME) OffsetDateTime creationTime, 
@@ -78,10 +82,10 @@ public class RestApplicationUserMacKeyCreated {
     this.key = key;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return creationTime
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATION_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,10 +96,10 @@ public class RestApplicationUserMacKeyCreated {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -106,16 +110,16 @@ public class RestApplicationUserMacKeyCreated {
 
 
 
-  public RestApplicationUserMacKeyCreated state(ApplicationKeyState state) {
+  public RestApplicationUserMacKeyCreated state(@javax.annotation.Nullable ApplicationKeyState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,14 +131,14 @@ public class RestApplicationUserMacKeyCreated {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ApplicationKeyState state) {
+  public void setState(@javax.annotation.Nullable ApplicationKeyState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The actual key to authenticate API requests.
    * @return key
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

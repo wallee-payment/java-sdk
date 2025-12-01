@@ -48,25 +48,30 @@ import java.util.StringJoiner;
 
 public class UserSpaceRole {
   public static final String JSON_PROPERTY_ROLE = "role";
+  @javax.annotation.Nullable
   private Long role;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_USER = "user";
+  @javax.annotation.Nullable
   private Long user;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_SPACE = "space";
+  @javax.annotation.Nullable
   private Long space;
 
   public UserSpaceRole() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public UserSpaceRole(
     @JsonProperty(JSON_PROPERTY_ROLE) Long role, 
@@ -83,10 +88,10 @@ public class UserSpaceRole {
     this.space = space;
   }
 
-   /**
+  /**
    * The role that is assigned to the user.
    * @return role
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ROLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,10 +102,10 @@ public class UserSpaceRole {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -111,10 +116,10 @@ public class UserSpaceRole {
 
 
 
-   /**
+  /**
    * The user whose role this defines.
    * @return user
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,10 +130,10 @@ public class UserSpaceRole {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,10 +144,10 @@ public class UserSpaceRole {
 
 
 
-   /**
+  /**
    * The space in which the role is assigned to the user.
    * @return space
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

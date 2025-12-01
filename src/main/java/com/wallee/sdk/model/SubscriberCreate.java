@@ -62,51 +62,62 @@ import java.util.StringJoiner;
 
 public class SubscriberCreate {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_ADDITIONAL_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "additionalAllowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> additionalAllowedPaymentMethodConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_DISALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "disallowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> disallowedPaymentMethodConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+  @javax.annotation.Nullable
   private AddressCreate shippingAddress;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private AddressCreate billingAddress;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public SubscriberCreate() {
   }
 
-  public SubscriberCreate reference(String reference) {
+  public SubscriberCreate reference(@javax.annotation.Nullable String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the subscriber.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,11 +129,11 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
-  public SubscriberCreate additionalAllowedPaymentMethodConfigurations(List<Long> additionalAllowedPaymentMethodConfigurations) {
+  public SubscriberCreate additionalAllowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> additionalAllowedPaymentMethodConfigurations) {
     
     this.additionalAllowedPaymentMethodConfigurations = additionalAllowedPaymentMethodConfigurations;
     return this;
@@ -136,10 +147,10 @@ public class SubscriberCreate {
     return this;
   }
 
-   /**
+  /**
    * Allow the subscriber to use these payment methods even if subscription products do not accept them.
    * @return additionalAllowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,11 +162,11 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_ADDITIONAL_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAdditionalAllowedPaymentMethodConfigurations(List<Long> additionalAllowedPaymentMethodConfigurations) {
+  public void setAdditionalAllowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> additionalAllowedPaymentMethodConfigurations) {
     this.additionalAllowedPaymentMethodConfigurations = additionalAllowedPaymentMethodConfigurations;
   }
 
-  public SubscriberCreate metaData(Map<String, String> metaData) {
+  public SubscriberCreate metaData(@javax.annotation.Nullable Map<String, String> metaData) {
     
     this.metaData = metaData;
     return this;
@@ -169,10 +180,10 @@ public class SubscriberCreate {
     return this;
   }
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,20 +195,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetaData(Map<String, String> metaData) {
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  public SubscriberCreate emailAddress(String emailAddress) {
+  public SubscriberCreate emailAddress(@javax.annotation.Nullable String emailAddress) {
     
     this.emailAddress = emailAddress;
     return this;
   }
 
-   /**
+  /**
    * The email address that is used to communicate with the subscriber. There can be only one subscriber per space with the same email address.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,11 +220,11 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
-  public SubscriberCreate disallowedPaymentMethodConfigurations(List<Long> disallowedPaymentMethodConfigurations) {
+  public SubscriberCreate disallowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> disallowedPaymentMethodConfigurations) {
     
     this.disallowedPaymentMethodConfigurations = disallowedPaymentMethodConfigurations;
     return this;
@@ -227,10 +238,10 @@ public class SubscriberCreate {
     return this;
   }
 
-   /**
+  /**
    * Prevent the subscriber from using these payment methods even if subscription products do accept them.
    * @return disallowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,20 +253,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_DISALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDisallowedPaymentMethodConfigurations(List<Long> disallowedPaymentMethodConfigurations) {
+  public void setDisallowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> disallowedPaymentMethodConfigurations) {
     this.disallowedPaymentMethodConfigurations = disallowedPaymentMethodConfigurations;
   }
 
-  public SubscriberCreate description(String description) {
+  public SubscriberCreate description(@javax.annotation.Nullable String description) {
     
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * The description used to identify the subscriber.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,20 +278,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
-  public SubscriberCreate shippingAddress(AddressCreate shippingAddress) {
+  public SubscriberCreate shippingAddress(@javax.annotation.Nullable AddressCreate shippingAddress) {
     
     this.shippingAddress = shippingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,20 +303,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddress(AddressCreate shippingAddress) {
+  public void setShippingAddress(@javax.annotation.Nullable AddressCreate shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
 
-  public SubscriberCreate language(String language) {
+  public SubscriberCreate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is used when communicating with the subscriber via emails and documents.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,20 +328,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public SubscriberCreate billingAddress(AddressCreate billingAddress) {
+  public SubscriberCreate billingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,20 +353,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(AddressCreate billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public SubscriberCreate externalId(String externalId) {
+  public SubscriberCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -367,20 +378,20 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public SubscriberCreate state(CreationEntityState state) {
+  public SubscriberCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -392,7 +403,7 @@ public class SubscriberCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 

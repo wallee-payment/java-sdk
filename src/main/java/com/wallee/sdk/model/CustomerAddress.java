@@ -55,34 +55,42 @@ import java.util.StringJoiner;
 
 public class CustomerAddress {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
   private CustomerPostalAddress address;
 
   public static final String JSON_PROPERTY_ADDRESS_TYPE = "addressType";
+  @javax.annotation.Nullable
   private CustomerAddressType addressType;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
+  @javax.annotation.Nullable
   private Customer customer;
 
   public static final String JSON_PROPERTY_DEFAULT_ADDRESS = "defaultAddress";
+  @javax.annotation.Nullable
   private Boolean defaultAddress;
 
   public CustomerAddress() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public CustomerAddress(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -99,10 +107,10 @@ public class CustomerAddress {
     this.defaultAddress = defaultAddress;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,16 +121,16 @@ public class CustomerAddress {
 
 
 
-  public CustomerAddress address(CustomerPostalAddress address) {
+  public CustomerAddress address(@javax.annotation.Nullable CustomerPostalAddress address) {
     
     this.address = address;
     return this;
   }
 
-   /**
+  /**
    * Get address
    * @return address
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,20 +142,20 @@ public class CustomerAddress {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddress(CustomerPostalAddress address) {
+  public void setAddress(@javax.annotation.Nullable CustomerPostalAddress address) {
     this.address = address;
   }
 
-  public CustomerAddress addressType(CustomerAddressType addressType) {
+  public CustomerAddress addressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     
     this.addressType = addressType;
     return this;
   }
 
-   /**
+  /**
    * Get addressType
    * @return addressType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,14 +167,14 @@ public class CustomerAddress {
 
   @JsonProperty(JSON_PROPERTY_ADDRESS_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAddressType(CustomerAddressType addressType) {
+  public void setAddressType(@javax.annotation.Nullable CustomerAddressType addressType) {
     this.addressType = addressType;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,10 +185,10 @@ public class CustomerAddress {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,10 +199,10 @@ public class CustomerAddress {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -205,16 +213,16 @@ public class CustomerAddress {
 
 
 
-  public CustomerAddress customer(Customer customer) {
+  public CustomerAddress customer(@javax.annotation.Nullable Customer customer) {
     
     this.customer = customer;
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,14 +234,14 @@ public class CustomerAddress {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomer(Customer customer) {
+  public void setCustomer(@javax.annotation.Nullable Customer customer) {
     this.customer = customer;
   }
 
-   /**
+  /**
    * Whether this is the customer&#39;s default address.
    * @return defaultAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

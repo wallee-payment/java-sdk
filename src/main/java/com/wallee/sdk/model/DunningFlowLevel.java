@@ -62,49 +62,62 @@ import java.util.StringJoiner;
 
 public class DunningFlowLevel {
   public static final String JSON_PROPERTY_PERIOD = "period";
+  @javax.annotation.Nullable
   private String period;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_REMINDER_TEMPLATE = "reminderTemplate";
+  @javax.annotation.Nullable
   private DocumentTemplate reminderTemplate;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public static final String JSON_PROPERTY_PROCESSOR = "processor";
+  @javax.annotation.Nullable
   private Long processor;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_DOCUMENT_TEXT = "documentText";
+  @javax.annotation.Nullable
   private Map<String, String> documentText = new HashMap<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_FLOW = "flow";
+  @javax.annotation.Nullable
   private DunningFlow flow;
 
   public DunningFlowLevel() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DunningFlowLevel(
     @JsonProperty(JSON_PROPERTY_PERIOD) String period, 
@@ -131,10 +144,10 @@ public class DunningFlowLevel {
     this.id = id;
   }
 
-   /**
+  /**
    * The duration of the level before switching to the next one.
    * @return period
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,10 +158,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,16 +172,16 @@ public class DunningFlowLevel {
 
 
 
-  public DunningFlowLevel reminderTemplate(DocumentTemplate reminderTemplate) {
+  public DunningFlowLevel reminderTemplate(@javax.annotation.Nullable DocumentTemplate reminderTemplate) {
     
     this.reminderTemplate = reminderTemplate;
     return this;
   }
 
-   /**
+  /**
    * Get reminderTemplate
    * @return reminderTemplate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REMINDER_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,14 +193,14 @@ public class DunningFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_REMINDER_TEMPLATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReminderTemplate(DocumentTemplate reminderTemplate) {
+  public void setReminderTemplate(@javax.annotation.Nullable DocumentTemplate reminderTemplate) {
     this.reminderTemplate = reminderTemplate;
   }
 
-   /**
+  /**
    * The priority indicates the sort order of the level. A low value indicates that the level is executed before any level with a higher value. Any change to this value affects future level selections. The value has to pe unique per dunning flow.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,10 +211,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * The title is used to communicate the dunning level to the customer within the reminder.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,10 +225,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * Get processor
    * @return processor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,10 +239,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,10 +253,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -254,10 +267,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * This text is put in the reminder document of this dunning flow level.
    * @return documentText
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOCUMENT_TEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,10 +281,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * The dunning flow level name is used internally to identify the dunning flow level. For example the name is used within search fields and hence it should be distinct and descriptive.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,10 +295,10 @@ public class DunningFlowLevel {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,16 +309,16 @@ public class DunningFlowLevel {
 
 
 
-  public DunningFlowLevel state(CreationEntityState state) {
+  public DunningFlowLevel state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,20 +330,20 @@ public class DunningFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public DunningFlowLevel flow(DunningFlow flow) {
+  public DunningFlowLevel flow(@javax.annotation.Nullable DunningFlow flow) {
     
     this.flow = flow;
     return this;
   }
 
-   /**
+  /**
    * Get flow
    * @return flow
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,7 +355,7 @@ public class DunningFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlow(DunningFlow flow) {
+  public void setFlow(@javax.annotation.Nullable DunningFlow flow) {
     this.flow = flow;
   }
 

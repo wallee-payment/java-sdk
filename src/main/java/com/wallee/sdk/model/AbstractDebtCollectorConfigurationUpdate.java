@@ -58,36 +58,42 @@ import java.util.StringJoiner;
 
 public class AbstractDebtCollectorConfigurationUpdate {
   public static final String JSON_PROPERTY_SKIP_REVIEW_ENABLED = "skipReviewEnabled";
+  @javax.annotation.Nullable
   private Boolean skipReviewEnabled;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ENABLED_SPACE_VIEWS = "enabledSpaceViews";
+  @javax.annotation.Nullable
   private Set<Long> enabledSpaceViews = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
+  @javax.annotation.Nullable
   private List<DebtCollectorCondition> conditions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public AbstractDebtCollectorConfigurationUpdate() {
   }
 
-  public AbstractDebtCollectorConfigurationUpdate skipReviewEnabled(Boolean skipReviewEnabled) {
+  public AbstractDebtCollectorConfigurationUpdate skipReviewEnabled(@javax.annotation.Nullable Boolean skipReviewEnabled) {
     
     this.skipReviewEnabled = skipReviewEnabled;
     return this;
   }
 
-   /**
+  /**
    * Whether the review of debt collection cases is skipped.
    * @return skipReviewEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SKIP_REVIEW_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,20 +105,20 @@ public class AbstractDebtCollectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_SKIP_REVIEW_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSkipReviewEnabled(Boolean skipReviewEnabled) {
+  public void setSkipReviewEnabled(@javax.annotation.Nullable Boolean skipReviewEnabled) {
     this.skipReviewEnabled = skipReviewEnabled;
   }
 
-  public AbstractDebtCollectorConfigurationUpdate name(String name) {
+  public AbstractDebtCollectorConfigurationUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the debt collector configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -124,11 +130,11 @@ public class AbstractDebtCollectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AbstractDebtCollectorConfigurationUpdate enabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public AbstractDebtCollectorConfigurationUpdate enabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     
     this.enabledSpaceViews = enabledSpaceViews;
     return this;
@@ -142,10 +148,10 @@ public class AbstractDebtCollectorConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * The space views for which the debt collector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,20 +164,20 @@ public class AbstractDebtCollectorConfigurationUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public void setEnabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     this.enabledSpaceViews = enabledSpaceViews;
   }
 
-  public AbstractDebtCollectorConfigurationUpdate state(CreationEntityState state) {
+  public AbstractDebtCollectorConfigurationUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,11 +189,11 @@ public class AbstractDebtCollectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public AbstractDebtCollectorConfigurationUpdate conditions(List<DebtCollectorCondition> conditions) {
+  public AbstractDebtCollectorConfigurationUpdate conditions(@javax.annotation.Nullable List<DebtCollectorCondition> conditions) {
     
     this.conditions = conditions;
     return this;
@@ -201,10 +207,10 @@ public class AbstractDebtCollectorConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * Conditions allow to define criteria that a debt collection case must fulfill in order for the debt collector configuration to be considered for processing the case.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,20 +222,20 @@ public class AbstractDebtCollectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConditions(List<DebtCollectorCondition> conditions) {
+  public void setConditions(@javax.annotation.Nullable List<DebtCollectorCondition> conditions) {
     this.conditions = conditions;
   }
 
-  public AbstractDebtCollectorConfigurationUpdate priority(Integer priority) {
+  public AbstractDebtCollectorConfigurationUpdate priority(@javax.annotation.Nullable Integer priority) {
     
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * The priority that determines the order in which debt collector configurations are taken into account when processing a case. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,7 +247,7 @@ public class AbstractDebtCollectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriority(Integer priority) {
+  public void setPriority(@javax.annotation.Nullable Integer priority) {
     this.priority = priority;
   }
 

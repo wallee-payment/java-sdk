@@ -47,19 +47,22 @@ import java.util.StringJoiner;
 
 public class PaymentInformationHash {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private PaymentInformationHashType type;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @javax.annotation.Nullable
   private String value;
 
   public PaymentInformationHash() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentInformationHash(
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
@@ -70,10 +73,10 @@ public class PaymentInformationHash {
     this.value = value;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,16 +87,16 @@ public class PaymentInformationHash {
 
 
 
-  public PaymentInformationHash type(PaymentInformationHashType type) {
+  public PaymentInformationHash type(@javax.annotation.Nullable PaymentInformationHashType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,14 +108,14 @@ public class PaymentInformationHash {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(PaymentInformationHashType type) {
+  public void setType(@javax.annotation.Nullable PaymentInformationHashType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The hash value generated based on the specified type.
    * @return value
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

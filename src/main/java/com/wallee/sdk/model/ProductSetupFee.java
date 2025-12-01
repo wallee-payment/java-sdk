@@ -61,40 +61,50 @@ import java.util.StringJoiner;
 
 public class ProductSetupFee {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_COMPONENT = "component";
+  @javax.annotation.Nullable
   private SubscriptionProductComponent component;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_SETUP_FEE = "setupFee";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmount> setupFee = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_ON_DOWNGRADE_CREDITED_AMOUNT = "onDowngradeCreditedAmount";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmount> onDowngradeCreditedAmount = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private ProductFeeType type;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_ON_UPGRADE_CREDITED_AMOUNT = "onUpgradeCreditedAmount";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmount> onUpgradeCreditedAmount = new LinkedHashSet<>();
 
   public ProductSetupFee() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ProductSetupFee(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -117,10 +127,10 @@ public class ProductSetupFee {
     this.onUpgradeCreditedAmount = onUpgradeCreditedAmount;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,16 +141,16 @@ public class ProductSetupFee {
 
 
 
-  public ProductSetupFee component(SubscriptionProductComponent component) {
+  public ProductSetupFee component(@javax.annotation.Nullable SubscriptionProductComponent component) {
     
     this.component = component;
     return this;
   }
 
-   /**
+  /**
    * Get component
    * @return component
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,14 +162,14 @@ public class ProductSetupFee {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponent(SubscriptionProductComponent component) {
+  public void setComponent(@javax.annotation.Nullable SubscriptionProductComponent component) {
     this.component = component;
   }
 
-   /**
+  /**
    * The localized name of the fee that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,10 +180,10 @@ public class ProductSetupFee {
 
 
 
-   /**
+  /**
    * The localized description of the fee that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,10 +194,10 @@ public class ProductSetupFee {
 
 
 
-   /**
+  /**
    * The amount charged to the customer once when they subscribe to a subscription.
    * @return setupFee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SETUP_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -198,10 +208,10 @@ public class ProductSetupFee {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -212,10 +222,10 @@ public class ProductSetupFee {
 
 
 
-   /**
+  /**
    * The amount charged to the customer when a subscription is downgraded.
    * @return onDowngradeCreditedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_DOWNGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,16 +236,16 @@ public class ProductSetupFee {
 
 
 
-  public ProductSetupFee type(ProductFeeType type) {
+  public ProductSetupFee type(@javax.annotation.Nullable ProductFeeType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,14 +257,14 @@ public class ProductSetupFee {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(ProductFeeType type) {
+  public void setType(@javax.annotation.Nullable ProductFeeType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,10 +275,10 @@ public class ProductSetupFee {
 
 
 
-   /**
+  /**
    * The amount charged to the customer when a subscription is upgraded.
    * @return onUpgradeCreditedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_UPGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

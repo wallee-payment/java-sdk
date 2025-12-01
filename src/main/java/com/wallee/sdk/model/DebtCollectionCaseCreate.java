@@ -62,42 +62,53 @@ import java.util.StringJoiner;
 
 public class DebtCollectionCaseCreate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONTRACT_DATE = "contractDate";
+  @javax.annotation.Nullable
   private OffsetDateTime contractDate;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private DebtCollectionEnvironment environment;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
+  @javax.annotation.Nullable
   private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private AddressCreate billingAddress;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nonnull
   private String reference;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_COLLECTOR_CONFIGURATION = "collectorConfiguration";
+  @javax.annotation.Nullable
   private Long collectorConfiguration;
 
   public DebtCollectionCaseCreate() {
   }
 
-  public DebtCollectionCaseCreate lineItems(List<LineItemCreate> lineItems) {
+  public DebtCollectionCaseCreate lineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -111,10 +122,10 @@ public class DebtCollectionCaseCreate {
     return this;
   }
 
-   /**
+  /**
    * The line items that are subject of this debt collection case.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,20 +137,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public DebtCollectionCaseCreate contractDate(OffsetDateTime contractDate) {
+  public DebtCollectionCaseCreate contractDate(@javax.annotation.Nullable OffsetDateTime contractDate) {
     
     this.contractDate = contractDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the contract with the debtor was signed.
    * @return contractDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,20 +162,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContractDate(OffsetDateTime contractDate) {
+  public void setContractDate(@javax.annotation.Nullable OffsetDateTime contractDate) {
     this.contractDate = contractDate;
   }
 
-  public DebtCollectionCaseCreate environment(DebtCollectionEnvironment environment) {
+  public DebtCollectionCaseCreate environment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,20 +187,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(DebtCollectionEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     this.environment = environment;
   }
 
-  public DebtCollectionCaseCreate dueDate(OffsetDateTime dueDate) {
+  public DebtCollectionCaseCreate dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
     
     this.dueDate = dueDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the claim was due.
    * @return dueDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,20 +212,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDueDate(OffsetDateTime dueDate) {
+  public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
     this.dueDate = dueDate;
   }
 
-  public DebtCollectionCaseCreate currency(String currency) {
+  public DebtCollectionCaseCreate currency(@javax.annotation.Nullable String currency) {
     
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the case&#39;s currency.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -226,20 +237,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public DebtCollectionCaseCreate language(String language) {
+  public DebtCollectionCaseCreate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,20 +262,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public DebtCollectionCaseCreate billingAddress(AddressCreate billingAddress) {
+  public DebtCollectionCaseCreate billingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,20 +287,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(AddressCreate billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public DebtCollectionCaseCreate spaceViewId(Long spaceViewId) {
+  public DebtCollectionCaseCreate spaceViewId(@javax.annotation.Nullable Long spaceViewId) {
     
     this.spaceViewId = spaceViewId;
     return this;
   }
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,20 +312,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSpaceViewId(Long spaceViewId) {
+  public void setSpaceViewId(@javax.annotation.Nullable Long spaceViewId) {
     this.spaceViewId = spaceViewId;
   }
 
-  public DebtCollectionCaseCreate reference(String reference) {
+  public DebtCollectionCaseCreate reference(@javax.annotation.Nonnull String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A unique reference to identify the debt collection case in communication with the debtor.
    * @return reference
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -326,20 +337,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nonnull String reference) {
     this.reference = reference;
   }
 
-  public DebtCollectionCaseCreate externalId(String externalId) {
+  public DebtCollectionCaseCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -351,20 +362,20 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public DebtCollectionCaseCreate collectorConfiguration(Long collectorConfiguration) {
+  public DebtCollectionCaseCreate collectorConfiguration(@javax.annotation.Nullable Long collectorConfiguration) {
     
     this.collectorConfiguration = collectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * The configuration that the case is processed with.
    * @return collectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COLLECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,7 +387,7 @@ public class DebtCollectionCaseCreate {
 
   @JsonProperty(JSON_PROPERTY_COLLECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCollectorConfiguration(Long collectorConfiguration) {
+  public void setCollectorConfiguration(@javax.annotation.Nullable Long collectorConfiguration) {
     this.collectorConfiguration = collectorConfiguration;
   }
 

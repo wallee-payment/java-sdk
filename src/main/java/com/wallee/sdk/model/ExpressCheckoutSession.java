@@ -59,31 +59,38 @@ import java.util.StringJoiner;
 
 public class ExpressCheckoutSession {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_WALLET_TYPE = "walletType";
+  @javax.annotation.Nullable
   private ExpressCheckoutWalletType walletType;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ExpressCheckoutSessionState state;
 
   public static final String JSON_PROPERTY_SHIPPING_OPTIONS = "shippingOptions";
+  @javax.annotation.Nullable
   private List<ExpressCheckoutShippingOption> shippingOptions = new ArrayList<>();
 
   public ExpressCheckoutSession() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ExpressCheckoutSession(
     @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
@@ -100,10 +107,10 @@ public class ExpressCheckoutSession {
     this.shippingOptions = shippingOptions;
   }
 
-   /**
+  /**
    * Get lineItems
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,10 +121,10 @@ public class ExpressCheckoutSession {
 
 
 
-   /**
+  /**
    * The spaceId linked to the entity.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,10 +135,10 @@ public class ExpressCheckoutSession {
 
 
 
-   /**
+  /**
    * Get metaData
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,16 +149,16 @@ public class ExpressCheckoutSession {
 
 
 
-  public ExpressCheckoutSession walletType(ExpressCheckoutWalletType walletType) {
+  public ExpressCheckoutSession walletType(@javax.annotation.Nullable ExpressCheckoutWalletType walletType) {
     
     this.walletType = walletType;
     return this;
   }
 
-   /**
+  /**
    * Get walletType
    * @return walletType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WALLET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -163,14 +170,14 @@ public class ExpressCheckoutSession {
 
   @JsonProperty(JSON_PROPERTY_WALLET_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWalletType(ExpressCheckoutWalletType walletType) {
+  public void setWalletType(@javax.annotation.Nullable ExpressCheckoutWalletType walletType) {
     this.walletType = walletType;
   }
 
-   /**
+  /**
    * Id of the entity.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,16 +188,16 @@ public class ExpressCheckoutSession {
 
 
 
-  public ExpressCheckoutSession state(ExpressCheckoutSessionState state) {
+  public ExpressCheckoutSession state(@javax.annotation.Nullable ExpressCheckoutSessionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,14 +209,14 @@ public class ExpressCheckoutSession {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ExpressCheckoutSessionState state) {
+  public void setState(@javax.annotation.Nullable ExpressCheckoutSessionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * Get shippingOptions
    * @return shippingOptions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

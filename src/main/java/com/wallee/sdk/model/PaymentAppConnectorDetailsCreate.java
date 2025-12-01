@@ -45,21 +45,22 @@ import java.util.StringJoiner;
 
 public class PaymentAppConnectorDetailsCreate {
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public PaymentAppConnectorDetailsCreate() {
   }
 
-  public PaymentAppConnectorDetailsCreate externalId(String externalId) {
+  public PaymentAppConnectorDetailsCreate externalId(@javax.annotation.Nullable String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -71,7 +72,7 @@ public class PaymentAppConnectorDetailsCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nullable String externalId) {
     this.externalId = externalId;
   }
 

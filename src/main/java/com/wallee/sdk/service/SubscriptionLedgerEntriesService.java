@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SubscriptionLedgerEntryCreate;
 import com.wallee.sdk.model.SubscriptionLedgerEntryListResponse;
 import com.wallee.sdk.model.SubscriptionLedgerEntrySearchResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntries">List all ledger entries Documentation</a>
    */
-  public SubscriptionLedgerEntryListResponse getSubscriptionsLedgerEntries(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SubscriptionLedgerEntryListResponse getSubscriptionsLedgerEntries(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsLedgerEntries(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntries">List all ledger entries Documentation</a>
    */
-  public SubscriptionLedgerEntryListResponse getSubscriptionsLedgerEntries(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionLedgerEntryListResponse getSubscriptionsLedgerEntries(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntriesId">Retrieve a ledger entry Documentation</a>
    */
-  public SubscriptionLedgerEntry getSubscriptionsLedgerEntriesId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionLedgerEntry getSubscriptionsLedgerEntriesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsLedgerEntriesId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntriesId">Retrieve a ledger entry Documentation</a>
    */
-  public SubscriptionLedgerEntry getSubscriptionsLedgerEntriesId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionLedgerEntry getSubscriptionsLedgerEntriesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/ledger-entries/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntriesSearch">Search ledger entries Documentation</a>
    */
-  public SubscriptionLedgerEntrySearchResponse getSubscriptionsLedgerEntriesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SubscriptionLedgerEntrySearchResponse getSubscriptionsLedgerEntriesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsLedgerEntriesSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsLedgerEntriesSearch">Search ledger entries Documentation</a>
    */
-  public SubscriptionLedgerEntrySearchResponse getSubscriptionsLedgerEntriesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionLedgerEntrySearchResponse getSubscriptionsLedgerEntriesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -350,7 +351,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsLedgerEntries">Create a ledger entry Documentation</a>
    */
-  public SubscriptionLedgerEntry postSubscriptionsLedgerEntries(Long space, SubscriptionLedgerEntryCreate subscriptionLedgerEntryCreate, Set<String> expand) throws ApiException {
+  public SubscriptionLedgerEntry postSubscriptionsLedgerEntries(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionLedgerEntryCreate subscriptionLedgerEntryCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsLedgerEntries(space, subscriptionLedgerEntryCreate, expand, Collections.emptyMap());
   }
 
@@ -368,7 +369,7 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsLedgerEntries">Create a ledger entry Documentation</a>
    */
-  public SubscriptionLedgerEntry postSubscriptionsLedgerEntries(Long space, SubscriptionLedgerEntryCreate subscriptionLedgerEntryCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionLedgerEntry postSubscriptionsLedgerEntries(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionLedgerEntryCreate subscriptionLedgerEntryCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionLedgerEntryCreate;
     
     // verify the required parameter 'space' is set
@@ -425,8 +426,8 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -466,8 +467,8 @@ public class SubscriptionLedgerEntriesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

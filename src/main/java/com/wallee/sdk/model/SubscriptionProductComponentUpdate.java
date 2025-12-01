@@ -59,54 +59,66 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductComponentUpdate {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private Long reference;
 
   public static final String JSON_PROPERTY_TAX_CLASS = "taxClass";
+  @javax.annotation.Nullable
   private Long taxClass;
 
   public static final String JSON_PROPERTY_QUANTITY_STEP = "quantityStep";
+  @javax.annotation.Nullable
   private BigDecimal quantityStep;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_COMPONENT_GROUP = "componentGroup";
+  @javax.annotation.Nullable
   private Long componentGroup;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_COMPONENT_CHANGE_WEIGHT = "componentChangeWeight";
+  @javax.annotation.Nullable
   private Integer componentChangeWeight;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public static final String JSON_PROPERTY_MAXIMAL_QUANTITY = "maximalQuantity";
+  @javax.annotation.Nullable
   private BigDecimal maximalQuantity;
 
   public static final String JSON_PROPERTY_DEFAULT_COMPONENT = "defaultComponent";
+  @javax.annotation.Nullable
   private Boolean defaultComponent;
 
   public static final String JSON_PROPERTY_MINIMAL_QUANTITY = "minimalQuantity";
+  @javax.annotation.Nullable
   private BigDecimal minimalQuantity;
 
   public SubscriptionProductComponentUpdate() {
   }
 
-  public SubscriptionProductComponentUpdate reference(Long reference) {
+  public SubscriptionProductComponentUpdate reference(@javax.annotation.Nullable Long reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The reference is used to link components across different product versions.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,20 +130,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(Long reference) {
+  public void setReference(@javax.annotation.Nullable Long reference) {
     this.reference = reference;
   }
 
-  public SubscriptionProductComponentUpdate taxClass(Long taxClass) {
+  public SubscriptionProductComponentUpdate taxClass(@javax.annotation.Nullable Long taxClass) {
     
     this.taxClass = taxClass;
     return this;
   }
 
-   /**
+  /**
    * The tax class to be applied to fees.
    * @return taxClass
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,20 +155,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_TAX_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxClass(Long taxClass) {
+  public void setTaxClass(@javax.annotation.Nullable Long taxClass) {
     this.taxClass = taxClass;
   }
 
-  public SubscriptionProductComponentUpdate quantityStep(BigDecimal quantityStep) {
+  public SubscriptionProductComponentUpdate quantityStep(@javax.annotation.Nullable BigDecimal quantityStep) {
     
     this.quantityStep = quantityStep;
     return this;
   }
 
-   /**
+  /**
    * The quantity step determines the interval in which the quantity can be increased.
    * @return quantityStep
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY_STEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,20 +180,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY_STEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuantityStep(BigDecimal quantityStep) {
+  public void setQuantityStep(@javax.annotation.Nullable BigDecimal quantityStep) {
     this.quantityStep = quantityStep;
   }
 
-  public SubscriptionProductComponentUpdate sortOrder(Integer sortOrder) {
+  public SubscriptionProductComponentUpdate sortOrder(@javax.annotation.Nullable Integer sortOrder) {
     
     this.sortOrder = sortOrder;
     return this;
   }
 
-   /**
+  /**
    * When listing components, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -193,20 +205,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSortOrder(Integer sortOrder) {
+  public void setSortOrder(@javax.annotation.Nullable Integer sortOrder) {
     this.sortOrder = sortOrder;
   }
 
-  public SubscriptionProductComponentUpdate componentGroup(Long componentGroup) {
+  public SubscriptionProductComponentUpdate componentGroup(@javax.annotation.Nullable Long componentGroup) {
     
     this.componentGroup = componentGroup;
     return this;
   }
 
-   /**
+  /**
    * The group that the component belongs to.
    * @return componentGroup
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,11 +230,11 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponentGroup(Long componentGroup) {
+  public void setComponentGroup(@javax.annotation.Nullable Long componentGroup) {
     this.componentGroup = componentGroup;
   }
 
-  public SubscriptionProductComponentUpdate name(Map<String, String> name) {
+  public SubscriptionProductComponentUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -236,10 +248,10 @@ public class SubscriptionProductComponentUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the component that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,11 +263,11 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public SubscriptionProductComponentUpdate description(Map<String, String> description) {
+  public SubscriptionProductComponentUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -269,10 +281,10 @@ public class SubscriptionProductComponentUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the component that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,20 +296,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public SubscriptionProductComponentUpdate componentChangeWeight(Integer componentChangeWeight) {
+  public SubscriptionProductComponentUpdate componentChangeWeight(@javax.annotation.Nullable Integer componentChangeWeight) {
     
     this.componentChangeWeight = componentChangeWeight;
     return this;
   }
 
-   /**
+  /**
    * If switching from a component with a lower tier to a component with a higher one, this is considered an upgrade and a fee may be applied.
    * @return componentChangeWeight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_CHANGE_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,20 +321,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT_CHANGE_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponentChangeWeight(Integer componentChangeWeight) {
+  public void setComponentChangeWeight(@javax.annotation.Nullable Integer componentChangeWeight) {
     this.componentChangeWeight = componentChangeWeight;
   }
 
-  public SubscriptionProductComponentUpdate version(Integer version) {
+  public SubscriptionProductComponentUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -334,20 +346,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 
-  public SubscriptionProductComponentUpdate maximalQuantity(BigDecimal maximalQuantity) {
+  public SubscriptionProductComponentUpdate maximalQuantity(@javax.annotation.Nullable BigDecimal maximalQuantity) {
     
     this.maximalQuantity = maximalQuantity;
     return this;
   }
 
-   /**
+  /**
    * A maximum of the defined quantity can be selected for this component.
    * @return maximalQuantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAXIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -359,20 +371,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_MAXIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaximalQuantity(BigDecimal maximalQuantity) {
+  public void setMaximalQuantity(@javax.annotation.Nullable BigDecimal maximalQuantity) {
     this.maximalQuantity = maximalQuantity;
   }
 
-  public SubscriptionProductComponentUpdate defaultComponent(Boolean defaultComponent) {
+  public SubscriptionProductComponentUpdate defaultComponent(@javax.annotation.Nullable Boolean defaultComponent) {
     
     this.defaultComponent = defaultComponent;
     return this;
   }
 
-   /**
+  /**
    * Whether this is the default component in its group and preselected.
    * @return defaultComponent
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -384,20 +396,20 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_DEFAULT_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefaultComponent(Boolean defaultComponent) {
+  public void setDefaultComponent(@javax.annotation.Nullable Boolean defaultComponent) {
     this.defaultComponent = defaultComponent;
   }
 
-  public SubscriptionProductComponentUpdate minimalQuantity(BigDecimal minimalQuantity) {
+  public SubscriptionProductComponentUpdate minimalQuantity(@javax.annotation.Nullable BigDecimal minimalQuantity) {
     
     this.minimalQuantity = minimalQuantity;
     return this;
   }
 
-   /**
+  /**
    * A minimum of the defined quantity must be selected for this component.
    * @return minimalQuantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MINIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -409,7 +421,7 @@ public class SubscriptionProductComponentUpdate {
 
   @JsonProperty(JSON_PROPERTY_MINIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimalQuantity(BigDecimal minimalQuantity) {
+  public void setMinimalQuantity(@javax.annotation.Nullable BigDecimal minimalQuantity) {
     this.minimalQuantity = minimalQuantity;
   }
 

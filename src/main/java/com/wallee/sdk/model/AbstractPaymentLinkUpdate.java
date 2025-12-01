@@ -66,45 +66,57 @@ import java.util.StringJoiner;
 
 public class AbstractPaymentLinkUpdate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_AVAILABLE_UNTIL = "availableUntil";
+  @javax.annotation.Nullable
   private OffsetDateTime availableUntil;
 
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS_HANDLING_MODE = "shippingAddressHandlingMode";
+  @javax.annotation.Nullable
   private PaymentLinkAddressHandlingMode shippingAddressHandlingMode;
 
   public static final String JSON_PROPERTY_ALLOWED_REDIRECTION_DOMAINS = "allowedRedirectionDomains";
+  @javax.annotation.Nullable
   private Set<String> allowedRedirectionDomains = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_MAXIMAL_NUMBER_OF_TRANSACTIONS = "maximalNumberOfTransactions";
+  @javax.annotation.Nullable
   private Integer maximalNumberOfTransactions;
 
   public static final String JSON_PROPERTY_AVAILABLE_FROM = "availableFrom";
+  @javax.annotation.Nullable
   private OffsetDateTime availableFrom;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "allowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private Set<PaymentMethodConfiguration> allowedPaymentMethodConfigurations = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_APPLIED_SPACE_VIEW = "appliedSpaceView";
+  @javax.annotation.Nullable
   private Long appliedSpaceView;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS_HANDLING_MODE = "billingAddressHandlingMode";
+  @javax.annotation.Nullable
   private PaymentLinkAddressHandlingMode billingAddressHandlingMode;
 
   public AbstractPaymentLinkUpdate() {
   }
 
-  public AbstractPaymentLinkUpdate lineItems(List<LineItemCreate> lineItems) {
+  public AbstractPaymentLinkUpdate lineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -118,10 +130,10 @@ public class AbstractPaymentLinkUpdate {
     return this;
   }
 
-   /**
+  /**
    * The line items representing what is being sold. If not specified, they can be supplied via request parameters.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,20 +145,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public AbstractPaymentLinkUpdate availableUntil(OffsetDateTime availableUntil) {
+  public AbstractPaymentLinkUpdate availableUntil(@javax.annotation.Nullable OffsetDateTime availableUntil) {
     
     this.availableUntil = availableUntil;
     return this;
   }
 
-   /**
+  /**
    * The latest date the payment link can be used to initiate a transaction. If no date is provided, the link will remain available indefinitely.
    * @return availableUntil
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVAILABLE_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,20 +170,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_AVAILABLE_UNTIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAvailableUntil(OffsetDateTime availableUntil) {
+  public void setAvailableUntil(@javax.annotation.Nullable OffsetDateTime availableUntil) {
     this.availableUntil = availableUntil;
   }
 
-  public AbstractPaymentLinkUpdate shippingAddressHandlingMode(PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
+  public AbstractPaymentLinkUpdate shippingAddressHandlingMode(@javax.annotation.Nullable PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
     
     this.shippingAddressHandlingMode = shippingAddressHandlingMode;
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddressHandlingMode
    * @return shippingAddressHandlingMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS_HANDLING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,11 +195,11 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS_HANDLING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddressHandlingMode(PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
+  public void setShippingAddressHandlingMode(@javax.annotation.Nullable PaymentLinkAddressHandlingMode shippingAddressHandlingMode) {
     this.shippingAddressHandlingMode = shippingAddressHandlingMode;
   }
 
-  public AbstractPaymentLinkUpdate allowedRedirectionDomains(Set<String> allowedRedirectionDomains) {
+  public AbstractPaymentLinkUpdate allowedRedirectionDomains(@javax.annotation.Nullable Set<String> allowedRedirectionDomains) {
     
     this.allowedRedirectionDomains = allowedRedirectionDomains;
     return this;
@@ -201,10 +213,10 @@ public class AbstractPaymentLinkUpdate {
     return this;
   }
 
-   /**
+  /**
    * The domains to which the user is allowed to be redirected after the payment is completed. The following options can be configured: Exact domain: enter a full domain, e.g. (https://example.com). Wildcard domain: use to allow subdomains, e.g. (https://_*.example.com). All domains: use (ALL) to allow redirection to any domain (not recommended for security reasons). No domains : use (NONE) to disallow any redirection. Only one option per line is allowed. Invalid entries will be rejected. 
    * @return allowedRedirectionDomains
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_REDIRECTION_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -217,20 +229,20 @@ public class AbstractPaymentLinkUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ALLOWED_REDIRECTION_DOMAINS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedRedirectionDomains(Set<String> allowedRedirectionDomains) {
+  public void setAllowedRedirectionDomains(@javax.annotation.Nullable Set<String> allowedRedirectionDomains) {
     this.allowedRedirectionDomains = allowedRedirectionDomains;
   }
 
-  public AbstractPaymentLinkUpdate name(String name) {
+  public AbstractPaymentLinkUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the payment link.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,20 +254,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AbstractPaymentLinkUpdate currency(String currency) {
+  public AbstractPaymentLinkUpdate currency(@javax.annotation.Nullable String currency) {
     
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter currency code (ISO 4217). If not specified, it must be provided in the &#39;currency&#39; request parameter.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -267,20 +279,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public AbstractPaymentLinkUpdate language(String language) {
+  public AbstractPaymentLinkUpdate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language for displaying the payment page. If not specified, it can be supplied via the &#39;language&#39; request parameter.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,20 +304,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractPaymentLinkUpdate maximalNumberOfTransactions(Integer maximalNumberOfTransactions) {
+  public AbstractPaymentLinkUpdate maximalNumberOfTransactions(@javax.annotation.Nullable Integer maximalNumberOfTransactions) {
     
     this.maximalNumberOfTransactions = maximalNumberOfTransactions;
     return this;
   }
 
-   /**
+  /**
    * The maximum number of transactions that can be initiated using the payment link.
    * @return maximalNumberOfTransactions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAXIMAL_NUMBER_OF_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -317,20 +329,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_MAXIMAL_NUMBER_OF_TRANSACTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaximalNumberOfTransactions(Integer maximalNumberOfTransactions) {
+  public void setMaximalNumberOfTransactions(@javax.annotation.Nullable Integer maximalNumberOfTransactions) {
     this.maximalNumberOfTransactions = maximalNumberOfTransactions;
   }
 
-  public AbstractPaymentLinkUpdate availableFrom(OffsetDateTime availableFrom) {
+  public AbstractPaymentLinkUpdate availableFrom(@javax.annotation.Nullable OffsetDateTime availableFrom) {
     
     this.availableFrom = availableFrom;
     return this;
   }
 
-   /**
+  /**
    * The earliest date the payment link can be used to initiate a transaction. If no date is provided, the link will be available immediately.
    * @return availableFrom
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AVAILABLE_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -342,11 +354,11 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_AVAILABLE_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAvailableFrom(OffsetDateTime availableFrom) {
+  public void setAvailableFrom(@javax.annotation.Nullable OffsetDateTime availableFrom) {
     this.availableFrom = availableFrom;
   }
 
-  public AbstractPaymentLinkUpdate allowedPaymentMethodConfigurations(Set<PaymentMethodConfiguration> allowedPaymentMethodConfigurations) {
+  public AbstractPaymentLinkUpdate allowedPaymentMethodConfigurations(@javax.annotation.Nullable Set<PaymentMethodConfiguration> allowedPaymentMethodConfigurations) {
     
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
     return this;
@@ -360,10 +372,10 @@ public class AbstractPaymentLinkUpdate {
     return this;
   }
 
-   /**
+  /**
    * The payment method configurations that customers can use for making payments.
    * @return allowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -376,20 +388,20 @@ public class AbstractPaymentLinkUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedPaymentMethodConfigurations(Set<PaymentMethodConfiguration> allowedPaymentMethodConfigurations) {
+  public void setAllowedPaymentMethodConfigurations(@javax.annotation.Nullable Set<PaymentMethodConfiguration> allowedPaymentMethodConfigurations) {
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
   }
 
-  public AbstractPaymentLinkUpdate appliedSpaceView(Long appliedSpaceView) {
+  public AbstractPaymentLinkUpdate appliedSpaceView(@javax.annotation.Nullable Long appliedSpaceView) {
     
     this.appliedSpaceView = appliedSpaceView;
     return this;
   }
 
-   /**
+  /**
    * The payment link can be used within a specific space view, which may apply a customized design to the payment page.
    * @return appliedSpaceView
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPLIED_SPACE_VIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -401,20 +413,20 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_APPLIED_SPACE_VIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAppliedSpaceView(Long appliedSpaceView) {
+  public void setAppliedSpaceView(@javax.annotation.Nullable Long appliedSpaceView) {
     this.appliedSpaceView = appliedSpaceView;
   }
 
-  public AbstractPaymentLinkUpdate billingAddressHandlingMode(PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
+  public AbstractPaymentLinkUpdate billingAddressHandlingMode(@javax.annotation.Nullable PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
     
     this.billingAddressHandlingMode = billingAddressHandlingMode;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddressHandlingMode
    * @return billingAddressHandlingMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_HANDLING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -426,7 +438,7 @@ public class AbstractPaymentLinkUpdate {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS_HANDLING_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddressHandlingMode(PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
+  public void setBillingAddressHandlingMode(@javax.annotation.Nullable PaymentLinkAddressHandlingMode billingAddressHandlingMode) {
     this.billingAddressHandlingMode = billingAddressHandlingMode;
   }
 

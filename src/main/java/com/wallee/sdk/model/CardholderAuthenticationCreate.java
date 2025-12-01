@@ -51,33 +51,38 @@ import java.util.StringJoiner;
 
 public class CardholderAuthenticationCreate {
   public static final String JSON_PROPERTY_AUTHENTICATION_IDENTIFIER = "authenticationIdentifier";
+  @javax.annotation.Nullable
   private String authenticationIdentifier;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_RESPONSE = "authenticationResponse";
+  @javax.annotation.Nonnull
   private CardAuthenticationResponse authenticationResponse;
 
   public static final String JSON_PROPERTY_ELECTRONIC_COMMERCE_INDICATOR = "electronicCommerceIndicator";
+  @javax.annotation.Nullable
   private String electronicCommerceIndicator;
 
   public static final String JSON_PROPERTY_AUTHENTICATION_VALUE = "authenticationValue";
+  @javax.annotation.Nullable
   private String authenticationValue;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private CardAuthenticationVersion version;
 
   public CardholderAuthenticationCreate() {
   }
 
-  public CardholderAuthenticationCreate authenticationIdentifier(String authenticationIdentifier) {
+  public CardholderAuthenticationCreate authenticationIdentifier(@javax.annotation.Nullable String authenticationIdentifier) {
     
     this.authenticationIdentifier = authenticationIdentifier;
     return this;
   }
 
-   /**
+  /**
    * The identifier (e.g., XID or DSTransactionID) assigned by the authentication system for tracking and verification.
    * @return authenticationIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,20 +94,20 @@ public class CardholderAuthenticationCreate {
 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAuthenticationIdentifier(String authenticationIdentifier) {
+  public void setAuthenticationIdentifier(@javax.annotation.Nullable String authenticationIdentifier) {
     this.authenticationIdentifier = authenticationIdentifier;
   }
 
-  public CardholderAuthenticationCreate authenticationResponse(CardAuthenticationResponse authenticationResponse) {
+  public CardholderAuthenticationCreate authenticationResponse(@javax.annotation.Nonnull CardAuthenticationResponse authenticationResponse) {
     
     this.authenticationResponse = authenticationResponse;
     return this;
   }
 
-   /**
+  /**
    * Get authenticationResponse
    * @return authenticationResponse
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -114,20 +119,20 @@ public class CardholderAuthenticationCreate {
 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_RESPONSE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAuthenticationResponse(CardAuthenticationResponse authenticationResponse) {
+  public void setAuthenticationResponse(@javax.annotation.Nonnull CardAuthenticationResponse authenticationResponse) {
     this.authenticationResponse = authenticationResponse;
   }
 
-  public CardholderAuthenticationCreate electronicCommerceIndicator(String electronicCommerceIndicator) {
+  public CardholderAuthenticationCreate electronicCommerceIndicator(@javax.annotation.Nullable String electronicCommerceIndicator) {
     
     this.electronicCommerceIndicator = electronicCommerceIndicator;
     return this;
   }
 
-   /**
+  /**
    * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
    * @return electronicCommerceIndicator
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ELECTRONIC_COMMERCE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,20 +144,20 @@ public class CardholderAuthenticationCreate {
 
   @JsonProperty(JSON_PROPERTY_ELECTRONIC_COMMERCE_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setElectronicCommerceIndicator(String electronicCommerceIndicator) {
+  public void setElectronicCommerceIndicator(@javax.annotation.Nullable String electronicCommerceIndicator) {
     this.electronicCommerceIndicator = electronicCommerceIndicator;
   }
 
-  public CardholderAuthenticationCreate authenticationValue(String authenticationValue) {
+  public CardholderAuthenticationCreate authenticationValue(@javax.annotation.Nullable String authenticationValue) {
     
     this.authenticationValue = authenticationValue;
     return this;
   }
 
-   /**
+  /**
    * The cryptographic token (CAVV/AAV) generated during the authentication process to validate the cardholder&#39;s identity.
    * @return authenticationValue
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,20 +169,20 @@ public class CardholderAuthenticationCreate {
 
   @JsonProperty(JSON_PROPERTY_AUTHENTICATION_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAuthenticationValue(String authenticationValue) {
+  public void setAuthenticationValue(@javax.annotation.Nullable String authenticationValue) {
     this.authenticationValue = authenticationValue;
   }
 
-  public CardholderAuthenticationCreate version(CardAuthenticationVersion version) {
+  public CardholderAuthenticationCreate version(@javax.annotation.Nonnull CardAuthenticationVersion version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -189,7 +194,7 @@ public class CardholderAuthenticationCreate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(CardAuthenticationVersion version) {
+  public void setVersion(@javax.annotation.Nonnull CardAuthenticationVersion version) {
     this.version = version;
   }
 

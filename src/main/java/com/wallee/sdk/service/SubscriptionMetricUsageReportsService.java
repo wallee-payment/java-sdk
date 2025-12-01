@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SortingOrder;
 import com.wallee.sdk.model.SubscriptionMetricUsageReport;
 import com.wallee.sdk.model.SubscriptionMetricUsageReportCreate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReports">List all metric usage reports Documentation</a>
    */
-  public MetricUsageReportListResponse getSubscriptionsMetricUsageReports(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public MetricUsageReportListResponse getSubscriptionsMetricUsageReports(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsMetricUsageReports(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReports">List all metric usage reports Documentation</a>
    */
-  public MetricUsageReportListResponse getSubscriptionsMetricUsageReports(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public MetricUsageReportListResponse getSubscriptionsMetricUsageReports(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReportsId">Retrieve a metric usage report Documentation</a>
    */
-  public SubscriptionMetricUsageReport getSubscriptionsMetricUsageReportsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionMetricUsageReport getSubscriptionsMetricUsageReportsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsMetricUsageReportsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReportsId">Retrieve a metric usage report Documentation</a>
    */
-  public SubscriptionMetricUsageReport getSubscriptionsMetricUsageReportsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionMetricUsageReport getSubscriptionsMetricUsageReportsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/metric-usage-reports/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReportsSearch">Search metric usage reports Documentation</a>
    */
-  public MetricUsageReportSearchResponse getSubscriptionsMetricUsageReportsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public MetricUsageReportSearchResponse getSubscriptionsMetricUsageReportsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsMetricUsageReportsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsMetricUsageReportsSearch">Search metric usage reports Documentation</a>
    */
-  public MetricUsageReportSearchResponse getSubscriptionsMetricUsageReportsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public MetricUsageReportSearchResponse getSubscriptionsMetricUsageReportsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -350,7 +351,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsMetricUsageReports">Create a metric usage report Documentation</a>
    */
-  public SubscriptionMetricUsageReport postSubscriptionsMetricUsageReports(Long space, SubscriptionMetricUsageReportCreate subscriptionMetricUsageReportCreate, Set<String> expand) throws ApiException {
+  public SubscriptionMetricUsageReport postSubscriptionsMetricUsageReports(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionMetricUsageReportCreate subscriptionMetricUsageReportCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsMetricUsageReports(space, subscriptionMetricUsageReportCreate, expand, Collections.emptyMap());
   }
 
@@ -368,7 +369,7 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsMetricUsageReports">Create a metric usage report Documentation</a>
    */
-  public SubscriptionMetricUsageReport postSubscriptionsMetricUsageReports(Long space, SubscriptionMetricUsageReportCreate subscriptionMetricUsageReportCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionMetricUsageReport postSubscriptionsMetricUsageReports(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionMetricUsageReportCreate subscriptionMetricUsageReportCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionMetricUsageReportCreate;
     
     // verify the required parameter 'space' is set
@@ -425,8 +426,8 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -466,8 +467,8 @@ public class SubscriptionMetricUsageReportsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -62,45 +62,54 @@ import java.util.StringJoiner;
 
 public class PaymentConnectorConfigurationCreate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ENABLED_SPACE_VIEWS = "enabledSpaceViews";
+  @javax.annotation.Nullable
   private Set<Long> enabledSpaceViews = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
+  @javax.annotation.Nullable
   private List<Condition> conditions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_ENABLED_SALES_CHANNELS = "enabledSalesChannels";
+  @javax.annotation.Nullable
   private Set<SalesChannel> enabledSalesChannels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION = "paymentMethodConfiguration";
+  @javax.annotation.Nonnull
   private Long paymentMethodConfiguration;
 
   public static final String JSON_PROPERTY_CONNECTOR = "connector";
+  @javax.annotation.Nonnull
   private Long connector;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nonnull
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_PROCESSOR_CONFIGURATION = "processorConfiguration";
+  @javax.annotation.Nonnull
   private Long processorConfiguration;
 
   public PaymentConnectorConfigurationCreate() {
   }
 
-  public PaymentConnectorConfigurationCreate name(String name) {
+  public PaymentConnectorConfigurationCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the connector configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,11 +121,11 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public PaymentConnectorConfigurationCreate enabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public PaymentConnectorConfigurationCreate enabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     
     this.enabledSpaceViews = enabledSpaceViews;
     return this;
@@ -130,10 +139,10 @@ public class PaymentConnectorConfigurationCreate {
     return this;
   }
 
-   /**
+  /**
    * The space views for which the connector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,11 +155,11 @@ public class PaymentConnectorConfigurationCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public void setEnabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     this.enabledSpaceViews = enabledSpaceViews;
   }
 
-  public PaymentConnectorConfigurationCreate conditions(List<Condition> conditions) {
+  public PaymentConnectorConfigurationCreate conditions(@javax.annotation.Nullable List<Condition> conditions) {
     
     this.conditions = conditions;
     return this;
@@ -164,10 +173,10 @@ public class PaymentConnectorConfigurationCreate {
     return this;
   }
 
-   /**
+  /**
    * Conditions allow to define criteria that a transaction must fulfill in order for the connector configuration to be considered for processing the payment.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,20 +188,20 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConditions(List<Condition> conditions) {
+  public void setConditions(@javax.annotation.Nullable List<Condition> conditions) {
     this.conditions = conditions;
   }
 
-  public PaymentConnectorConfigurationCreate priority(Integer priority) {
+  public PaymentConnectorConfigurationCreate priority(@javax.annotation.Nullable Integer priority) {
     
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * The priority that determines the order in which connector configurations are taken into account when processing a payment. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,11 +213,11 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriority(Integer priority) {
+  public void setPriority(@javax.annotation.Nullable Integer priority) {
     this.priority = priority;
   }
 
-  public PaymentConnectorConfigurationCreate enabledSalesChannels(Set<SalesChannel> enabledSalesChannels) {
+  public PaymentConnectorConfigurationCreate enabledSalesChannels(@javax.annotation.Nullable Set<SalesChannel> enabledSalesChannels) {
     
     this.enabledSalesChannels = enabledSalesChannels;
     return this;
@@ -222,10 +231,10 @@ public class PaymentConnectorConfigurationCreate {
     return this;
   }
 
-   /**
+  /**
    * The sales channels for which the connector configuration is enabled. If empty, it is enabled for all sales channels.
    * @return enabledSalesChannels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -238,20 +247,20 @@ public class PaymentConnectorConfigurationCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledSalesChannels(Set<SalesChannel> enabledSalesChannels) {
+  public void setEnabledSalesChannels(@javax.annotation.Nullable Set<SalesChannel> enabledSalesChannels) {
     this.enabledSalesChannels = enabledSalesChannels;
   }
 
-  public PaymentConnectorConfigurationCreate paymentMethodConfiguration(Long paymentMethodConfiguration) {
+  public PaymentConnectorConfigurationCreate paymentMethodConfiguration(@javax.annotation.Nonnull Long paymentMethodConfiguration) {
     
     this.paymentMethodConfiguration = paymentMethodConfiguration;
     return this;
   }
 
-   /**
+  /**
    * The payment method configuration that the connector configuration belongs to.
    * @return paymentMethodConfiguration
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -263,20 +272,20 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPaymentMethodConfiguration(Long paymentMethodConfiguration) {
+  public void setPaymentMethodConfiguration(@javax.annotation.Nonnull Long paymentMethodConfiguration) {
     this.paymentMethodConfiguration = paymentMethodConfiguration;
   }
 
-  public PaymentConnectorConfigurationCreate connector(Long connector) {
+  public PaymentConnectorConfigurationCreate connector(@javax.annotation.Nonnull Long connector) {
     
     this.connector = connector;
     return this;
   }
 
-   /**
+  /**
    * The connector that the configuration is for.
    * @return connector
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CONNECTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -288,20 +297,20 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_CONNECTOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConnector(Long connector) {
+  public void setConnector(@javax.annotation.Nonnull Long connector) {
     this.connector = connector;
   }
 
-  public PaymentConnectorConfigurationCreate state(CreationEntityState state) {
+  public PaymentConnectorConfigurationCreate state(@javax.annotation.Nonnull CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -313,20 +322,20 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nonnull CreationEntityState state) {
     this.state = state;
   }
 
-  public PaymentConnectorConfigurationCreate processorConfiguration(Long processorConfiguration) {
+  public PaymentConnectorConfigurationCreate processorConfiguration(@javax.annotation.Nonnull Long processorConfiguration) {
     
     this.processorConfiguration = processorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * The processor configuration that the connector configuration belongs to.
    * @return processorConfiguration
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -338,7 +347,7 @@ public class PaymentConnectorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProcessorConfiguration(Long processorConfiguration) {
+  public void setProcessorConfiguration(@javax.annotation.Nonnull Long processorConfiguration) {
     this.processorConfiguration = processorConfiguration;
   }
 

@@ -49,30 +49,34 @@ import java.util.StringJoiner;
 
 public class SubscriptionUpdate {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_PLANNED_TERMINATION_DATE = "plannedTerminationDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedTerminationDate;
 
   public static final String JSON_PROPERTY_AFFILIATE = "affiliate";
+  @javax.annotation.Nullable
   private Long affiliate;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public SubscriptionUpdate() {
   }
 
-  public SubscriptionUpdate description(String description) {
+  public SubscriptionUpdate description(@javax.annotation.Nullable String description) {
     
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A description used to identify the subscription.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -84,20 +88,20 @@ public class SubscriptionUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
-  public SubscriptionUpdate plannedTerminationDate(OffsetDateTime plannedTerminationDate) {
+  public SubscriptionUpdate plannedTerminationDate(@javax.annotation.Nullable OffsetDateTime plannedTerminationDate) {
     
     this.plannedTerminationDate = plannedTerminationDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the subscription is planned to be terminated.
    * @return plannedTerminationDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_TERMINATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,20 +113,20 @@ public class SubscriptionUpdate {
 
   @JsonProperty(JSON_PROPERTY_PLANNED_TERMINATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlannedTerminationDate(OffsetDateTime plannedTerminationDate) {
+  public void setPlannedTerminationDate(@javax.annotation.Nullable OffsetDateTime plannedTerminationDate) {
     this.plannedTerminationDate = plannedTerminationDate;
   }
 
-  public SubscriptionUpdate affiliate(Long affiliate) {
+  public SubscriptionUpdate affiliate(@javax.annotation.Nullable Long affiliate) {
     
     this.affiliate = affiliate;
     return this;
   }
 
-   /**
+  /**
    * The affiliate that led to the creation of the subscription.
    * @return affiliate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,20 +138,20 @@ public class SubscriptionUpdate {
 
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAffiliate(Long affiliate) {
+  public void setAffiliate(@javax.annotation.Nullable Long affiliate) {
     this.affiliate = affiliate;
   }
 
-  public SubscriptionUpdate version(Integer version) {
+  public SubscriptionUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -159,7 +163,7 @@ public class SubscriptionUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

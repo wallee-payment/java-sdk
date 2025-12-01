@@ -62,52 +62,66 @@ import java.util.StringJoiner;
 
 public class Charge {
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private ChargeType type;
 
   public static final String JSON_PROPERTY_USER_FAILURE_MESSAGE = "userFailureMessage";
+  @javax.annotation.Nullable
   private String userFailureMessage;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ChargeState state;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public Charge() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Charge(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -134,10 +148,10 @@ public class Charge {
     this.id = id;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,10 +162,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The time zone that this object is associated with.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,10 +176,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,10 +190,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,16 +204,16 @@ public class Charge {
 
 
 
-  public Charge type(ChargeType type) {
+  public Charge type(@javax.annotation.Nullable ChargeType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,14 +225,14 @@ public class Charge {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(ChargeType type) {
+  public void setType(@javax.annotation.Nullable ChargeType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The message that can be displayed to the customer explaining why the charge failed, in the customer&#39;s language.
    * @return userFailureMessage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_FAILURE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,10 +243,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,10 +257,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,10 +271,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,10 +285,10 @@ public class Charge {
 
 
 
-   /**
+  /**
    * The date and time when the charge will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,16 +299,16 @@ public class Charge {
 
 
 
-  public Charge failureReason(FailureReason failureReason) {
+  public Charge failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,14 +320,14 @@ public class Charge {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -324,16 +338,16 @@ public class Charge {
 
 
 
-  public Charge state(ChargeState state) {
+  public Charge state(@javax.annotation.Nullable ChargeState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -345,20 +359,20 @@ public class Charge {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ChargeState state) {
+  public void setState(@javax.annotation.Nullable ChargeState state) {
     this.state = state;
   }
 
-  public Charge transaction(Transaction transaction) {
+  public Charge transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +384,7 @@ public class Charge {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 

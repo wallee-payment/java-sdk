@@ -62,55 +62,70 @@ import java.util.StringJoiner;
 
 public class PaymentContract {
   public static final String JSON_PROPERTY_CONTRACT_TYPE = "contractType";
+  @javax.annotation.Nullable
   private PaymentContractType contractType;
 
   public static final String JSON_PROPERTY_TERMINATED_BY = "terminatedBy";
+  @javax.annotation.Nullable
   private Long terminatedBy;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TERMINATED_ON = "terminatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime terminatedOn;
 
   public static final String JSON_PROPERTY_ACTIVATED_ON = "activatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime activatedOn;
 
   public static final String JSON_PROPERTY_START_TERMINATING_ON = "startTerminatingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime startTerminatingOn;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_CONTRACT_IDENTIFIER = "contractIdentifier";
+  @javax.annotation.Nullable
   private String contractIdentifier;
 
   public static final String JSON_PROPERTY_REJECTED_ON = "rejectedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime rejectedOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentContractState state;
 
   public static final String JSON_PROPERTY_REJECTION_REASON = "rejectionReason";
+  @javax.annotation.Nullable
   private FailureReason rejectionReason;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @javax.annotation.Nullable
   private Long account;
 
   public PaymentContract() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentContract(
     @JsonProperty(JSON_PROPERTY_TERMINATED_BY) Long terminatedBy, 
@@ -141,16 +156,16 @@ public class PaymentContract {
     this.account = account;
   }
 
-  public PaymentContract contractType(PaymentContractType contractType) {
+  public PaymentContract contractType(@javax.annotation.Nullable PaymentContractType contractType) {
     
     this.contractType = contractType;
     return this;
   }
 
-   /**
+  /**
    * Get contractType
    * @return contractType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,14 +177,14 @@ public class PaymentContract {
 
   @JsonProperty(JSON_PROPERTY_CONTRACT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContractType(PaymentContractType contractType) {
+  public void setContractType(@javax.annotation.Nullable PaymentContractType contractType) {
     this.contractType = contractType;
   }
 
-   /**
+  /**
    * The ID of the user the contract was terminated by.
    * @return terminatedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,10 +195,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,10 +209,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,10 +223,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,10 +237,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The date and time when the contract was terminated.
    * @return terminatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,10 +251,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The date and time when the contract was activated.
    * @return activatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,10 +265,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The date and time when the termination process of the contract was started.
    * @return startTerminatingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_TERMINATING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,10 +279,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The ID of the user the contract was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -278,10 +293,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The identifier of the contract.
    * @return contractIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTRACT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -292,10 +307,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * The date and time when the contract was rejected.
    * @return rejectedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REJECTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -306,10 +321,10 @@ public class PaymentContract {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,16 +335,16 @@ public class PaymentContract {
 
 
 
-  public PaymentContract state(PaymentContractState state) {
+  public PaymentContract state(@javax.annotation.Nullable PaymentContractState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -341,20 +356,20 @@ public class PaymentContract {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentContractState state) {
+  public void setState(@javax.annotation.Nullable PaymentContractState state) {
     this.state = state;
   }
 
-  public PaymentContract rejectionReason(FailureReason rejectionReason) {
+  public PaymentContract rejectionReason(@javax.annotation.Nullable FailureReason rejectionReason) {
     
     this.rejectionReason = rejectionReason;
     return this;
   }
 
-   /**
+  /**
    * Get rejectionReason
    * @return rejectionReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REJECTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -366,14 +381,14 @@ public class PaymentContract {
 
   @JsonProperty(JSON_PROPERTY_REJECTION_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRejectionReason(FailureReason rejectionReason) {
+  public void setRejectionReason(@javax.annotation.Nullable FailureReason rejectionReason) {
     this.rejectionReason = rejectionReason;
   }
 
-   /**
+  /**
    * This account that the contract belongs to.
    * @return account
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

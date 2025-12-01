@@ -47,27 +47,30 @@ import java.util.StringJoiner;
 
 public class AccountUpdate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_SUBACCOUNT_LIMIT = "subaccountLimit";
+  @javax.annotation.Nullable
   private Long subaccountLimit;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public AccountUpdate() {
   }
 
-  public AccountUpdate name(String name) {
+  public AccountUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the account.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,20 +82,20 @@ public class AccountUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public AccountUpdate subaccountLimit(Long subaccountLimit) {
+  public AccountUpdate subaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     
     this.subaccountLimit = subaccountLimit;
     return this;
   }
 
-   /**
+  /**
    * The number of sub-accounts that can be created within this account.
    * @return subaccountLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,20 +107,20 @@ public class AccountUpdate {
 
   @JsonProperty(JSON_PROPERTY_SUBACCOUNT_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubaccountLimit(Long subaccountLimit) {
+  public void setSubaccountLimit(@javax.annotation.Nullable Long subaccountLimit) {
     this.subaccountLimit = subaccountLimit;
   }
 
-  public AccountUpdate version(Integer version) {
+  public AccountUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -129,7 +132,7 @@ public class AccountUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

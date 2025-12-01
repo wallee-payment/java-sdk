@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class SubscriptionComponentReferenceConfiguration {
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nullable
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_PRODUCT_COMPONENT_REFERENCE_ID = "productComponentReferenceId";
+  @javax.annotation.Nullable
   private Long productComponentReferenceId;
 
   public SubscriptionComponentReferenceConfiguration() {
   }
 
-  public SubscriptionComponentReferenceConfiguration quantity(BigDecimal quantity) {
+  public SubscriptionComponentReferenceConfiguration quantity(@javax.annotation.Nullable BigDecimal quantity) {
     
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * The quantity that should be applied to the component.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class SubscriptionComponentReferenceConfiguration {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setQuantity(BigDecimal quantity) {
+  public void setQuantity(@javax.annotation.Nullable BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public SubscriptionComponentReferenceConfiguration productComponentReferenceId(Long productComponentReferenceId) {
+  public SubscriptionComponentReferenceConfiguration productComponentReferenceId(@javax.annotation.Nullable Long productComponentReferenceId) {
     
     this.productComponentReferenceId = productComponentReferenceId;
     return this;
   }
 
-   /**
+  /**
    * The ID of the component reference that is being configured.
    * @return productComponentReferenceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT_COMPONENT_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +102,7 @@ public class SubscriptionComponentReferenceConfiguration {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT_COMPONENT_REFERENCE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProductComponentReferenceId(Long productComponentReferenceId) {
+  public void setProductComponentReferenceId(@javax.annotation.Nullable Long productComponentReferenceId) {
     this.productComponentReferenceId = productComponentReferenceId;
   }
 

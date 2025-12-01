@@ -35,6 +35,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectors">List all debt collectors Documentation</a>
    */
-  public DebtCollectorListResponse getDebtCollectionCollectors(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public DebtCollectorListResponse getDebtCollectionCollectors(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getDebtCollectionCollectors(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -84,7 +85,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectors">List all debt collectors Documentation</a>
    */
-  public DebtCollectorListResponse getDebtCollectionCollectors(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectorListResponse getDebtCollectionCollectors(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -133,8 +134,8 @@ public class DebtCollectorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -149,7 +150,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectorsId">Retrieve a debt collector Documentation</a>
    */
-  public DebtCollector getDebtCollectionCollectorsId(Long id, Set<String> expand) throws ApiException {
+  public DebtCollector getDebtCollectionCollectorsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getDebtCollectionCollectorsId(id, expand, Collections.emptyMap());
   }
 
@@ -166,7 +167,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectorsId">Retrieve a debt collector Documentation</a>
    */
-  public DebtCollector getDebtCollectionCollectorsId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollector getDebtCollectionCollectorsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -176,7 +177,7 @@ public class DebtCollectorsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/debt-collection/collectors/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -217,8 +218,8 @@ public class DebtCollectorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -236,7 +237,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectorsSearch">Search debt collectors Documentation</a>
    */
-  public DebtCollectorSearchResponse getDebtCollectionCollectorsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public DebtCollectorSearchResponse getDebtCollectionCollectorsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getDebtCollectionCollectorsSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -256,7 +257,7 @@ public class DebtCollectorsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getDebtCollectionCollectorsSearch">Search debt collectors Documentation</a>
    */
-  public DebtCollectorSearchResponse getDebtCollectionCollectorsSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public DebtCollectorSearchResponse getDebtCollectionCollectorsSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -305,8 +306,8 @@ public class DebtCollectorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -346,8 +347,8 @@ public class DebtCollectorsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

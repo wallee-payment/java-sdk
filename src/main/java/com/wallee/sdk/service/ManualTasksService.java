@@ -35,6 +35,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -65,7 +66,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasks">List all manual tasks Documentation</a>
    */
-  public ManualTaskListResponse getManualTasks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ManualTaskListResponse getManualTasks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getManualTasks(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -86,7 +87,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasks">List all manual tasks Documentation</a>
    */
-  public ManualTaskListResponse getManualTasks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ManualTaskListResponse getManualTasks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -142,8 +143,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -159,7 +160,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksId">Retrieve a manual task Documentation</a>
    */
-  public ManualTask getManualTasksId(Long id, Long space, Set<String> expand) throws ApiException {
+  public ManualTask getManualTasksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getManualTasksId(id, space, expand, Collections.emptyMap());
   }
 
@@ -177,7 +178,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksId">Retrieve a manual task Documentation</a>
    */
-  public ManualTask getManualTasksId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ManualTask getManualTasksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -192,7 +193,7 @@ public class ManualTasksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/manual-tasks/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -235,8 +236,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -251,7 +252,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksIdNotification">Retrieve a manual task&#39;s notification message Documentation</a>
    */
-  public String getManualTasksIdNotification(Long id, Long space) throws ApiException {
+  public String getManualTasksIdNotification(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     return this.getManualTasksIdNotification(id, space, Collections.emptyMap());
   }
 
@@ -268,7 +269,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksIdNotification">Retrieve a manual task&#39;s notification message Documentation</a>
    */
-  public String getManualTasksIdNotification(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public String getManualTasksIdNotification(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -283,7 +284,7 @@ public class ManualTasksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/manual-tasks/{id}/notification"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -325,8 +326,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -345,7 +346,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksSearch">Search manual tasks Documentation</a>
    */
-  public ManualTaskSearchResponse getManualTasksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ManualTaskSearchResponse getManualTasksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getManualTasksSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -366,7 +367,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getManualTasksSearch">Search manual tasks Documentation</a>
    */
-  public ManualTaskSearchResponse getManualTasksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ManualTaskSearchResponse getManualTasksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -422,8 +423,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -438,7 +439,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postManualTasksIdActionActionId">Process a manual task&#39;s action Documentation</a>
    */
-  public void postManualTasksIdActionActionId(Long id, Long actionId, Long space) throws ApiException {
+  public void postManualTasksIdActionActionId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long actionId, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postManualTasksIdActionActionId(id, actionId, space, Collections.emptyMap());
   }
 
@@ -455,7 +456,7 @@ public class ManualTasksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postManualTasksIdActionActionId">Process a manual task&#39;s action Documentation</a>
    */
-  public void postManualTasksIdActionActionId(Long id, Long actionId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postManualTasksIdActionActionId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long actionId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -475,8 +476,8 @@ public class ManualTasksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/manual-tasks/{id}/action/{actionId}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-      .replaceAll("\\{" + "actionId" + "\\}", apiClient.escapeString(actionId.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)))
+      .replaceAll("\\{" + "actionId" + "\\}", apiClient.escapeString(apiClient.parameterToString(actionId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -517,8 +518,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -558,8 +559,8 @@ public class ManualTasksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

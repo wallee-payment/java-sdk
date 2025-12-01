@@ -38,6 +38,7 @@ import com.wallee.sdk.model.WebhookUrl;
 import com.wallee.sdk.model.WebhookUrlCreate;
 import com.wallee.sdk.model.WebhookUrlUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksUrlsBulk">Delete multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteWebhooksUrlsBulk(Long space, List<Long> requestBody) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody) throws ApiException {
     return this.deleteWebhooksUrlsBulk(space, requestBody, Collections.emptyMap());
   }
 
@@ -81,7 +82,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksUrlsBulk">Delete multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> deleteWebhooksUrlsBulk(Long space, List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> deleteWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<Long> requestBody, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = requestBody;
     
     // verify the required parameter 'space' is set
@@ -137,8 +138,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -152,7 +153,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksUrlsId">Delete a webhook URL Documentation</a>
    */
-  public void deleteWebhooksUrlsId(Long id, Long space) throws ApiException {
+  public void deleteWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteWebhooksUrlsId(id, space, Collections.emptyMap());
   }
 
@@ -168,7 +169,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteWebhooksUrlsId">Delete a webhook URL Documentation</a>
    */
-  public void deleteWebhooksUrlsId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -183,7 +184,7 @@ public class WebhookUrlsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/urls/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -224,8 +225,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -244,7 +245,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrls">List all webhook URLs Documentation</a>
    */
-  public WebhookURLListResponse getWebhooksUrls(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public WebhookURLListResponse getWebhooksUrls(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getWebhooksUrls(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -265,7 +266,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrls">List all webhook URLs Documentation</a>
    */
-  public WebhookURLListResponse getWebhooksUrls(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookURLListResponse getWebhooksUrls(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -321,8 +322,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -338,7 +339,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrlsId">Retrieve a webhook URL Documentation</a>
    */
-  public WebhookUrl getWebhooksUrlsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public WebhookUrl getWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getWebhooksUrlsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -356,7 +357,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrlsId">Retrieve a webhook URL Documentation</a>
    */
-  public WebhookUrl getWebhooksUrlsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookUrl getWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -371,7 +372,7 @@ public class WebhookUrlsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/urls/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -414,8 +415,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -434,7 +435,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrlsSearch">Search webhook URLs Documentation</a>
    */
-  public WebhookURLSearchResponse getWebhooksUrlsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public WebhookURLSearchResponse getWebhooksUrlsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getWebhooksUrlsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -455,7 +456,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getWebhooksUrlsSearch">Search webhook URLs Documentation</a>
    */
-  public WebhookURLSearchResponse getWebhooksUrlsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookURLSearchResponse getWebhooksUrlsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -511,8 +512,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -527,7 +528,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksUrlsBulk">Update multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchWebhooksUrlsBulk(Long space, List<WebhookUrlUpdate> webhookUrlUpdate) throws ApiException {
+  public List<RestApiBulkOperationResult> patchWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookUrlUpdate> webhookUrlUpdate) throws ApiException {
     return this.patchWebhooksUrlsBulk(space, webhookUrlUpdate, Collections.emptyMap());
   }
 
@@ -544,7 +545,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksUrlsBulk">Update multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> patchWebhooksUrlsBulk(Long space, List<WebhookUrlUpdate> webhookUrlUpdate, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> patchWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookUrlUpdate> webhookUrlUpdate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookUrlUpdate;
     
     // verify the required parameter 'space' is set
@@ -600,8 +601,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -618,7 +619,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksUrlsId">Update a webhook URL Documentation</a>
    */
-  public WebhookUrl patchWebhooksUrlsId(Long id, Long space, WebhookUrlUpdate webhookUrlUpdate, Set<String> expand) throws ApiException {
+  public WebhookUrl patchWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookUrlUpdate webhookUrlUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchWebhooksUrlsId(id, space, webhookUrlUpdate, expand, Collections.emptyMap());
   }
 
@@ -637,7 +638,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchWebhooksUrlsId">Update a webhook URL Documentation</a>
    */
-  public WebhookUrl patchWebhooksUrlsId(Long id, Long space, WebhookUrlUpdate webhookUrlUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookUrl patchWebhooksUrlsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookUrlUpdate webhookUrlUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookUrlUpdate;
     
     // verify the required parameter 'id' is set
@@ -657,7 +658,7 @@ public class WebhookUrlsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/webhooks/urls/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -700,8 +701,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -717,7 +718,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksUrls">Create a webhook URL Documentation</a>
    */
-  public WebhookUrl postWebhooksUrls(Long space, WebhookUrlCreate webhookUrlCreate, Set<String> expand) throws ApiException {
+  public WebhookUrl postWebhooksUrls(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookUrlCreate webhookUrlCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postWebhooksUrls(space, webhookUrlCreate, expand, Collections.emptyMap());
   }
 
@@ -735,7 +736,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksUrls">Create a webhook URL Documentation</a>
    */
-  public WebhookUrl postWebhooksUrls(Long space, WebhookUrlCreate webhookUrlCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public WebhookUrl postWebhooksUrls(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull WebhookUrlCreate webhookUrlCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookUrlCreate;
     
     // verify the required parameter 'space' is set
@@ -792,8 +793,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -808,7 +809,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksUrlsBulk">Create multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postWebhooksUrlsBulk(Long space, List<WebhookUrlCreate> webhookUrlCreate) throws ApiException {
+  public List<RestApiBulkOperationResult> postWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookUrlCreate> webhookUrlCreate) throws ApiException {
     return this.postWebhooksUrlsBulk(space, webhookUrlCreate, Collections.emptyMap());
   }
 
@@ -825,7 +826,7 @@ public class WebhookUrlsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postWebhooksUrlsBulk">Create multiple webhook URLs Documentation</a>
    */
-  public List<RestApiBulkOperationResult> postWebhooksUrlsBulk(Long space, List<WebhookUrlCreate> webhookUrlCreate, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApiBulkOperationResult> postWebhooksUrlsBulk(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull List<WebhookUrlCreate> webhookUrlCreate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = webhookUrlCreate;
     
     // verify the required parameter 'space' is set
@@ -881,8 +882,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -922,8 +923,8 @@ public class WebhookUrlsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

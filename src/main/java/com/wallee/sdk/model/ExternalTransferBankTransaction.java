@@ -51,31 +51,38 @@ import java.util.StringJoiner;
 
 public class ExternalTransferBankTransaction {
   public static final String JSON_PROPERTY_EXTERNAL_BANK_NAME = "externalBankName";
+  @javax.annotation.Nullable
   private String externalBankName;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_EXTERNAL_ACCOUNT_IDENTIFIER = "externalAccountIdentifier";
+  @javax.annotation.Nullable
   private String externalAccountIdentifier;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_BANK_TRANSACTION = "bankTransaction";
+  @javax.annotation.Nullable
   private BankTransaction bankTransaction;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_EXTERNAL_ACCOUNT_TYPE = "externalAccountType";
+  @javax.annotation.Nullable
   private String externalAccountType;
 
   public ExternalTransferBankTransaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ExternalTransferBankTransaction(
     @JsonProperty(JSON_PROPERTY_EXTERNAL_BANK_NAME) String externalBankName, 
@@ -94,10 +101,10 @@ public class ExternalTransferBankTransaction {
     this.externalAccountType = externalAccountType;
   }
 
-   /**
+  /**
    * The external bank account&#39;s name.
    * @return externalBankName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_BANK_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,10 +115,10 @@ public class ExternalTransferBankTransaction {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,10 +129,10 @@ public class ExternalTransferBankTransaction {
 
 
 
-   /**
+  /**
    * The identifier is used to uniquely identify the external bank account.
    * @return externalAccountIdentifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ACCOUNT_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -136,10 +143,10 @@ public class ExternalTransferBankTransaction {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,16 +157,16 @@ public class ExternalTransferBankTransaction {
 
 
 
-  public ExternalTransferBankTransaction bankTransaction(BankTransaction bankTransaction) {
+  public ExternalTransferBankTransaction bankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     
     this.bankTransaction = bankTransaction;
     return this;
   }
 
-   /**
+  /**
    * Get bankTransaction
    * @return bankTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,14 +178,14 @@ public class ExternalTransferBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBankTransaction(BankTransaction bankTransaction) {
+  public void setBankTransaction(@javax.annotation.Nullable BankTransaction bankTransaction) {
     this.bankTransaction = bankTransaction;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,10 +196,10 @@ public class ExternalTransferBankTransaction {
 
 
 
-   /**
+  /**
    * The external bank account&#39;s type.
    * @return externalAccountType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ACCOUNT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

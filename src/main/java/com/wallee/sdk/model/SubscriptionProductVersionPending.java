@@ -62,42 +62,53 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductVersionPending {
   public static final String JSON_PROPERTY_ENABLED_CURRENCIES = "enabledCurrencies";
+  @javax.annotation.Nullable
   private Set<String> enabledCurrencies = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_PRODUCT = "product";
+  @javax.annotation.Nullable
   private Long product;
 
   public static final String JSON_PROPERTY_TAX_CALCULATION = "taxCalculation";
+  @javax.annotation.Nullable
   private TaxCalculation taxCalculation;
 
   public static final String JSON_PROPERTY_BILLING_CYCLE = "billingCycle";
+  @javax.annotation.Nullable
   private String billingCycle;
 
   public static final String JSON_PROPERTY_DEFAULT_CURRENCY = "defaultCurrency";
+  @javax.annotation.Nullable
   private String defaultCurrency;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS = "minimalNumberOfPeriods";
+  @javax.annotation.Nullable
   private Integer minimalNumberOfPeriods;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
+  @javax.annotation.Nullable
   private String comment;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionProductVersionState state;
 
   public static final String JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS = "numberOfNoticePeriods";
+  @javax.annotation.Nullable
   private Integer numberOfNoticePeriods;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public SubscriptionProductVersionPending() {
   }
 
-  public SubscriptionProductVersionPending enabledCurrencies(Set<String> enabledCurrencies) {
+  public SubscriptionProductVersionPending enabledCurrencies(@javax.annotation.Nullable Set<String> enabledCurrencies) {
     
     this.enabledCurrencies = enabledCurrencies;
     return this;
@@ -111,10 +122,10 @@ public class SubscriptionProductVersionPending {
     return this;
   }
 
-   /**
+  /**
    * The three-letter codes (ISO 4217 format) of the currencies that the product version supports.
    * @return enabledCurrencies
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,20 +138,20 @@ public class SubscriptionProductVersionPending {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_CURRENCIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledCurrencies(Set<String> enabledCurrencies) {
+  public void setEnabledCurrencies(@javax.annotation.Nullable Set<String> enabledCurrencies) {
     this.enabledCurrencies = enabledCurrencies;
   }
 
-  public SubscriptionProductVersionPending product(Long product) {
+  public SubscriptionProductVersionPending product(@javax.annotation.Nullable Long product) {
     
     this.product = product;
     return this;
   }
 
-   /**
+  /**
    * The product that the version belongs to.
    * @return product
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,20 +163,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProduct(Long product) {
+  public void setProduct(@javax.annotation.Nullable Long product) {
     this.product = product;
   }
 
-  public SubscriptionProductVersionPending taxCalculation(TaxCalculation taxCalculation) {
+  public SubscriptionProductVersionPending taxCalculation(@javax.annotation.Nullable TaxCalculation taxCalculation) {
     
     this.taxCalculation = taxCalculation;
     return this;
   }
 
-   /**
+  /**
    * Get taxCalculation
    * @return taxCalculation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,20 +188,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_TAX_CALCULATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxCalculation(TaxCalculation taxCalculation) {
+  public void setTaxCalculation(@javax.annotation.Nullable TaxCalculation taxCalculation) {
     this.taxCalculation = taxCalculation;
   }
 
-  public SubscriptionProductVersionPending billingCycle(String billingCycle) {
+  public SubscriptionProductVersionPending billingCycle(@javax.annotation.Nullable String billingCycle) {
     
     this.billingCycle = billingCycle;
     return this;
   }
 
-   /**
+  /**
    * The recurring period of time, typically monthly or annually, for which a subscriber is charged.
    * @return billingCycle
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,20 +213,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_BILLING_CYCLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingCycle(String billingCycle) {
+  public void setBillingCycle(@javax.annotation.Nullable String billingCycle) {
     this.billingCycle = billingCycle;
   }
 
-  public SubscriptionProductVersionPending defaultCurrency(String defaultCurrency) {
+  public SubscriptionProductVersionPending defaultCurrency(@javax.annotation.Nullable String defaultCurrency) {
     
     this.defaultCurrency = defaultCurrency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the product version&#39;s default currency.
    * @return defaultCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,11 +238,11 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDefaultCurrency(String defaultCurrency) {
+  public void setDefaultCurrency(@javax.annotation.Nullable String defaultCurrency) {
     this.defaultCurrency = defaultCurrency;
   }
 
-  public SubscriptionProductVersionPending name(Map<String, String> name) {
+  public SubscriptionProductVersionPending name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -245,10 +256,10 @@ public class SubscriptionProductVersionPending {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the product that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,20 +271,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public SubscriptionProductVersionPending minimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
+  public SubscriptionProductVersionPending minimalNumberOfPeriods(@javax.annotation.Nullable Integer minimalNumberOfPeriods) {
     
     this.minimalNumberOfPeriods = minimalNumberOfPeriods;
     return this;
   }
 
-   /**
+  /**
    * The minimum number of periods the subscription will run before it can be terminated.
    * @return minimalNumberOfPeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,20 +296,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_MINIMAL_NUMBER_OF_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimalNumberOfPeriods(Integer minimalNumberOfPeriods) {
+  public void setMinimalNumberOfPeriods(@javax.annotation.Nullable Integer minimalNumberOfPeriods) {
     this.minimalNumberOfPeriods = minimalNumberOfPeriods;
   }
 
-  public SubscriptionProductVersionPending comment(String comment) {
+  public SubscriptionProductVersionPending comment(@javax.annotation.Nullable String comment) {
     
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * A comment that describes the product version and why it was created. It is not disclosed to the subscriber.
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,20 +321,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
-  public SubscriptionProductVersionPending state(SubscriptionProductVersionState state) {
+  public SubscriptionProductVersionPending state(@javax.annotation.Nullable SubscriptionProductVersionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,20 +346,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionProductVersionState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionProductVersionState state) {
     this.state = state;
   }
 
-  public SubscriptionProductVersionPending numberOfNoticePeriods(Integer numberOfNoticePeriods) {
+  public SubscriptionProductVersionPending numberOfNoticePeriods(@javax.annotation.Nullable Integer numberOfNoticePeriods) {
     
     this.numberOfNoticePeriods = numberOfNoticePeriods;
     return this;
   }
 
-   /**
+  /**
    * The number of periods the subscription will keep running after its termination was requested.
    * @return numberOfNoticePeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,20 +371,20 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_NUMBER_OF_NOTICE_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNumberOfNoticePeriods(Integer numberOfNoticePeriods) {
+  public void setNumberOfNoticePeriods(@javax.annotation.Nullable Integer numberOfNoticePeriods) {
     this.numberOfNoticePeriods = numberOfNoticePeriods;
   }
 
-  public SubscriptionProductVersionPending version(Integer version) {
+  public SubscriptionProductVersionPending version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -385,7 +396,7 @@ public class SubscriptionProductVersionPending {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

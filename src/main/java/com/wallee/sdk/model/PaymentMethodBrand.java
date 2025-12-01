@@ -51,28 +51,34 @@ import java.util.StringJoiner;
 
 public class PaymentMethodBrand {
   public static final String JSON_PROPERTY_GRAY_IMAGE_PATH = "grayImagePath";
+  @javax.annotation.Nullable
   private String grayImagePath;
 
   public static final String JSON_PROPERTY_IMAGE_PATH = "imagePath";
+  @javax.annotation.Nullable
   private String imagePath;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD = "paymentMethod";
+  @javax.annotation.Nullable
   private Long paymentMethod;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public PaymentMethodBrand() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentMethodBrand(
     @JsonProperty(JSON_PROPERTY_GRAY_IMAGE_PATH) String grayImagePath, 
@@ -91,10 +97,10 @@ public class PaymentMethodBrand {
     this.id = id;
   }
 
-   /**
+  /**
    * The path to the payment method brand&#39;s grayscale image.
    * @return grayImagePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GRAY_IMAGE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,10 +111,10 @@ public class PaymentMethodBrand {
 
 
 
-   /**
+  /**
    * The path to the payment method brand&#39;s image.
    * @return imagePath
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IMAGE_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +125,10 @@ public class PaymentMethodBrand {
 
 
 
-   /**
+  /**
    * The localized name of the object.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,10 +139,10 @@ public class PaymentMethodBrand {
 
 
 
-   /**
+  /**
    * The localized description of the object.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,10 +153,10 @@ public class PaymentMethodBrand {
 
 
 
-   /**
+  /**
    * The payment method that the brand belongs to.
    * @return paymentMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,10 +167,10 @@ public class PaymentMethodBrand {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -50,33 +50,38 @@ import java.util.StringJoiner;
 
 public class SubscriptionMetricUsageReportCreate {
   public static final String JSON_PROPERTY_CONSUMED_UNITS = "consumedUnits";
+  @javax.annotation.Nonnull
   private BigDecimal consumedUnits;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
+  @javax.annotation.Nonnull
   private Long metric;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nonnull
   private Long subscription;
 
   public SubscriptionMetricUsageReportCreate() {
   }
 
-  public SubscriptionMetricUsageReportCreate consumedUnits(BigDecimal consumedUnits) {
+  public SubscriptionMetricUsageReportCreate consumedUnits(@javax.annotation.Nonnull BigDecimal consumedUnits) {
     
     this.consumedUnits = consumedUnits;
     return this;
   }
 
-   /**
+  /**
    * The number of resources consumed, will be charged in the next billing cycle.
    * @return consumedUnits
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -88,20 +93,20 @@ public class SubscriptionMetricUsageReportCreate {
 
   @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setConsumedUnits(BigDecimal consumedUnits) {
+  public void setConsumedUnits(@javax.annotation.Nonnull BigDecimal consumedUnits) {
     this.consumedUnits = consumedUnits;
   }
 
-  public SubscriptionMetricUsageReportCreate metric(Long metric) {
+  public SubscriptionMetricUsageReportCreate metric(@javax.annotation.Nonnull Long metric) {
     
     this.metric = metric;
     return this;
   }
 
-   /**
+  /**
    * The metric that the usage report is recorded for.
    * @return metric
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -113,20 +118,20 @@ public class SubscriptionMetricUsageReportCreate {
 
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMetric(Long metric) {
+  public void setMetric(@javax.annotation.Nonnull Long metric) {
     this.metric = metric;
   }
 
-  public SubscriptionMetricUsageReportCreate description(String description) {
+  public SubscriptionMetricUsageReportCreate description(@javax.annotation.Nullable String description) {
     
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A description used to identify the usage report.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,20 +143,20 @@ public class SubscriptionMetricUsageReportCreate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
-  public SubscriptionMetricUsageReportCreate externalId(String externalId) {
+  public SubscriptionMetricUsageReportCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -163,20 +168,20 @@ public class SubscriptionMetricUsageReportCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public SubscriptionMetricUsageReportCreate subscription(Long subscription) {
+  public SubscriptionMetricUsageReportCreate subscription(@javax.annotation.Nonnull Long subscription) {
     
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * The subscription that the usage report is recorded for.
    * @return subscription
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -188,7 +193,7 @@ public class SubscriptionMetricUsageReportCreate {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSubscription(Long subscription) {
+  public void setSubscription(@javax.annotation.Nonnull Long subscription) {
     this.subscription = subscription;
   }
 

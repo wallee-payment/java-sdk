@@ -47,16 +47,18 @@ import java.util.StringJoiner;
 
 public class DocumentTemplateTypeGroup {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private Map<String, String> title = new HashMap<>();
 
   public DocumentTemplateTypeGroup() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DocumentTemplateTypeGroup(
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
@@ -67,10 +69,10 @@ public class DocumentTemplateTypeGroup {
     this.title = title;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,10 +83,10 @@ public class DocumentTemplateTypeGroup {
 
 
 
-   /**
+  /**
    * The localized title of the group.
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

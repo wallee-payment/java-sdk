@@ -36,6 +36,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCases">List all dunning cases Documentation</a>
    */
-  public DunningCaseListResponse getPaymentDunningCases(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public DunningCaseListResponse getPaymentDunningCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentDunningCases(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCases">List all dunning cases Documentation</a>
    */
-  public DunningCaseListResponse getPaymentDunningCases(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public DunningCaseListResponse getPaymentDunningCases(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCasesId">Retrieve a dunning case Documentation</a>
    */
-  public DunningCase getPaymentDunningCasesId(Long id, Long space, Set<String> expand) throws ApiException {
+  public DunningCase getPaymentDunningCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentDunningCasesId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCasesId">Retrieve a dunning case Documentation</a>
    */
-  public DunningCase getPaymentDunningCasesId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public DunningCase getPaymentDunningCasesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class DunningCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/dunning-cases/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCasesSearch">Search dunning cases Documentation</a>
    */
-  public DunningCaseSearchResponse getPaymentDunningCasesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public DunningCaseSearchResponse getPaymentDunningCasesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentDunningCasesSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentDunningCasesSearch">Search dunning cases Documentation</a>
    */
-  public DunningCaseSearchResponse getPaymentDunningCasesSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public DunningCaseSearchResponse getPaymentDunningCasesSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -349,7 +350,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDunningCasesIdSuspend">Suspend a dunning case Documentation</a>
    */
-  public void postPaymentDunningCasesIdSuspend(Long id, Long space, OffsetDateTime plannedEndDate) throws ApiException {
+  public void postPaymentDunningCasesIdSuspend(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable OffsetDateTime plannedEndDate) throws ApiException {
     this.postPaymentDunningCasesIdSuspend(id, space, plannedEndDate, Collections.emptyMap());
   }
 
@@ -366,7 +367,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDunningCasesIdSuspend">Suspend a dunning case Documentation</a>
    */
-  public void postPaymentDunningCasesIdSuspend(Long id, Long space, OffsetDateTime plannedEndDate, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentDunningCasesIdSuspend(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable OffsetDateTime plannedEndDate, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -381,7 +382,7 @@ public class DunningCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/dunning-cases/{id}/suspend"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -423,8 +424,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -438,7 +439,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDunningCasesInvoiceInvoiceId">Create a dunning case for an invoice Documentation</a>
    */
-  public void postPaymentDunningCasesInvoiceInvoiceId(Long invoiceId, Long space) throws ApiException {
+  public void postPaymentDunningCasesInvoiceInvoiceId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space) throws ApiException {
     this.postPaymentDunningCasesInvoiceInvoiceId(invoiceId, space, Collections.emptyMap());
   }
 
@@ -454,7 +455,7 @@ public class DunningCasesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentDunningCasesInvoiceInvoiceId">Create a dunning case for an invoice Documentation</a>
    */
-  public void postPaymentDunningCasesInvoiceInvoiceId(Long invoiceId, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void postPaymentDunningCasesInvoiceInvoiceId(@javax.annotation.Nonnull Long invoiceId, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'invoiceId' is set
@@ -469,7 +470,7 @@ public class DunningCasesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/dunning-cases/invoice/{invoiceId}"
-      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(invoiceId.toString()));
+      .replaceAll("\\{" + "invoiceId" + "\\}", apiClient.escapeString(apiClient.parameterToString(invoiceId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -510,8 +511,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -551,8 +552,8 @@ public class DunningCasesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

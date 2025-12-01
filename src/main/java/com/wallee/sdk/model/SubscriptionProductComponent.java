@@ -63,52 +63,66 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductComponent {
   public static final String JSON_PROPERTY_TAX_CLASS = "taxClass";
+  @javax.annotation.Nullable
   private TaxClass taxClass;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_COMPONENT_CHANGE_WEIGHT = "componentChangeWeight";
+  @javax.annotation.Nullable
   private Integer componentChangeWeight;
 
   public static final String JSON_PROPERTY_MAXIMAL_QUANTITY = "maximalQuantity";
+  @javax.annotation.Nullable
   private BigDecimal maximalQuantity;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_MINIMAL_QUANTITY = "minimalQuantity";
+  @javax.annotation.Nullable
   private BigDecimal minimalQuantity;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private SubscriptionProductComponentReference reference;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_QUANTITY_STEP = "quantityStep";
+  @javax.annotation.Nullable
   private BigDecimal quantityStep;
 
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
+  @javax.annotation.Nullable
   private Integer sortOrder;
 
   public static final String JSON_PROPERTY_COMPONENT_GROUP = "componentGroup";
+  @javax.annotation.Nullable
   private SubscriptionProductComponentGroup componentGroup;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_DEFAULT_COMPONENT = "defaultComponent";
+  @javax.annotation.Nullable
   private Boolean defaultComponent;
 
   public SubscriptionProductComponent() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionProductComponent(
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
@@ -137,16 +151,16 @@ public class SubscriptionProductComponent {
     this.defaultComponent = defaultComponent;
   }
 
-  public SubscriptionProductComponent taxClass(TaxClass taxClass) {
+  public SubscriptionProductComponent taxClass(@javax.annotation.Nullable TaxClass taxClass) {
     
     this.taxClass = taxClass;
     return this;
   }
 
-   /**
+  /**
    * Get taxClass
    * @return taxClass
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,14 +172,14 @@ public class SubscriptionProductComponent {
 
   @JsonProperty(JSON_PROPERTY_TAX_CLASS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxClass(TaxClass taxClass) {
+  public void setTaxClass(@javax.annotation.Nullable TaxClass taxClass) {
     this.taxClass = taxClass;
   }
 
-   /**
+  /**
    * The localized description of the component that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -176,10 +190,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * If switching from a component with a lower tier to a component with a higher one, this is considered an upgrade and a fee may be applied.
    * @return componentChangeWeight
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_CHANGE_WEIGHT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -190,10 +204,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * A maximum of the defined quantity can be selected for this component.
    * @return maximalQuantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAXIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,10 +218,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -218,10 +232,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * A minimum of the defined quantity must be selected for this component.
    * @return minimalQuantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MINIMAL_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -232,16 +246,16 @@ public class SubscriptionProductComponent {
 
 
 
-  public SubscriptionProductComponent reference(SubscriptionProductComponentReference reference) {
+  public SubscriptionProductComponent reference(@javax.annotation.Nullable SubscriptionProductComponentReference reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * Get reference
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -253,14 +267,14 @@ public class SubscriptionProductComponent {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(SubscriptionProductComponentReference reference) {
+  public void setReference(@javax.annotation.Nullable SubscriptionProductComponentReference reference) {
     this.reference = reference;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,10 +285,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * The quantity step determines the interval in which the quantity can be increased.
    * @return quantityStep
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY_STEP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,10 +299,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * When listing components, they can be sorted by this number.
    * @return sortOrder
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORT_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,16 +313,16 @@ public class SubscriptionProductComponent {
 
 
 
-  public SubscriptionProductComponent componentGroup(SubscriptionProductComponentGroup componentGroup) {
+  public SubscriptionProductComponent componentGroup(@javax.annotation.Nullable SubscriptionProductComponentGroup componentGroup) {
     
     this.componentGroup = componentGroup;
     return this;
   }
 
-   /**
+  /**
    * Get componentGroup
    * @return componentGroup
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -320,14 +334,14 @@ public class SubscriptionProductComponent {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponentGroup(SubscriptionProductComponentGroup componentGroup) {
+  public void setComponentGroup(@javax.annotation.Nullable SubscriptionProductComponentGroup componentGroup) {
     this.componentGroup = componentGroup;
   }
 
-   /**
+  /**
    * The localized name of the component that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -338,10 +352,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -352,10 +366,10 @@ public class SubscriptionProductComponent {
 
 
 
-   /**
+  /**
    * Whether this is the default component in its group and preselected.
    * @return defaultComponent
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEFAULT_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

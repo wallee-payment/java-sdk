@@ -33,6 +33,7 @@ import java.time.OffsetDateTime;
 import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class ConsumedResourcesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesConsumedResources">List consumed resources Documentation</a>
    */
-  public MetricUsageListResponse getSpacesConsumedResources(OffsetDateTime startDate, OffsetDateTime endDate, Long space, Set<String> expand) throws ApiException {
+  public MetricUsageListResponse getSpacesConsumedResources(@javax.annotation.Nonnull OffsetDateTime startDate, @javax.annotation.Nonnull OffsetDateTime endDate, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSpacesConsumedResources(startDate, endDate, space, expand, Collections.emptyMap());
   }
 
@@ -80,7 +81,7 @@ public class ConsumedResourcesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesConsumedResources">List consumed resources Documentation</a>
    */
-  public MetricUsageListResponse getSpacesConsumedResources(OffsetDateTime startDate, OffsetDateTime endDate, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public MetricUsageListResponse getSpacesConsumedResources(@javax.annotation.Nonnull OffsetDateTime startDate, @javax.annotation.Nonnull OffsetDateTime endDate, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'startDate' is set
@@ -144,8 +145,8 @@ public class ConsumedResourcesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -185,8 +186,8 @@ public class ConsumedResourcesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

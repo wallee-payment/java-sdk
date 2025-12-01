@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class RefundCommentCreate {
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public static final String JSON_PROPERTY_REFUND = "refund";
+  @javax.annotation.Nonnull
   private Long refund;
 
   public RefundCommentCreate() {
   }
 
-  public RefundCommentCreate content(String content) {
+  public RefundCommentCreate content(@javax.annotation.Nullable String content) {
     
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class RefundCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContent(String content) {
+  public void setContent(@javax.annotation.Nullable String content) {
     this.content = content;
   }
 
-  public RefundCommentCreate refund(Long refund) {
+  public RefundCommentCreate refund(@javax.annotation.Nonnull Long refund) {
     
     this.refund = refund;
     return this;
   }
 
-   /**
+  /**
    * The refund that the comment belongs to.
    * @return refund
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class RefundCommentCreate {
 
   @JsonProperty(JSON_PROPERTY_REFUND)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRefund(Long refund) {
+  public void setRefund(@javax.annotation.Nonnull Long refund) {
     this.refund = refund;
   }
 

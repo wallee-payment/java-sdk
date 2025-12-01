@@ -70,67 +70,86 @@ import java.util.StringJoiner;
 
 public class Space {
   public static final String JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE = "activeOrRestrictedActive";
+  @javax.annotation.Nullable
   private Boolean activeOrRestrictedActive;
 
   public static final String JSON_PROPERTY_DELETED_ON = "deletedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime deletedOn;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ACTIVE = "active";
+  @javax.annotation.Nullable
   private Boolean active;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_PRIMARY_CURRENCY = "primaryCurrency";
+  @javax.annotation.Nullable
   private String primaryCurrency;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_DELETED_BY = "deletedBy";
+  @javax.annotation.Nullable
   private Long deletedBy;
 
   public static final String JSON_PROPERTY_REQUEST_LIMIT = "requestLimit";
+  @javax.annotation.Nullable
   private Long requestLimit;
 
   public static final String JSON_PROPERTY_DATABASE = "database";
+  @javax.annotation.Nullable
   private TenantDatabase database;
 
   public static final String JSON_PROPERTY_POSTAL_ADDRESS = "postalAddress";
+  @javax.annotation.Nullable
   private SpaceAddress postalAddress;
 
   public static final String JSON_PROPERTY_RESTRICTED_ACTIVE = "restrictedActive";
+  @javax.annotation.Nullable
   private Boolean restrictedActive;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES = "technicalContactAddresses";
+  @javax.annotation.Nullable
   private Set<String> technicalContactAddresses = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @javax.annotation.Nullable
   private Account account;
 
   public Space() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Space(
     @JsonProperty(JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE) Boolean activeOrRestrictedActive, 
@@ -167,10 +186,10 @@ public class Space {
     this.id = id;
   }
 
-   /**
+  /**
    * Whether this space and all its parent accounts are active or restricted active.
    * @return activeOrRestrictedActive
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE_OR_RESTRICTED_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,10 +200,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The date and time when the space was deleted.
    * @return deletedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -195,10 +214,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,10 +228,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * Whether this space and all its parent accounts are active.
    * @return active
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,10 +242,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The time zone that is used to schedule and run background processes. This does not affect the formatting of dates in the user interface.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -237,10 +256,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The date and time when the space was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -251,10 +270,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The currency that is used to display aggregated amounts in the space.
    * @return primaryCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -265,10 +284,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,10 +298,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The ID of the user the space was deleted by.
    * @return deletedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DELETED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -293,10 +312,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The maximum number of API requests that are accepted within two minutes. This limit can only be changed with special privileges.
    * @return requestLimit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUEST_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -307,16 +326,16 @@ public class Space {
 
 
 
-  public Space database(TenantDatabase database) {
+  public Space database(@javax.annotation.Nullable TenantDatabase database) {
     
     this.database = database;
     return this;
   }
 
-   /**
+  /**
    * Get database
    * @return database
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATABASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -328,20 +347,20 @@ public class Space {
 
   @JsonProperty(JSON_PROPERTY_DATABASE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDatabase(TenantDatabase database) {
+  public void setDatabase(@javax.annotation.Nullable TenantDatabase database) {
     this.database = database;
   }
 
-  public Space postalAddress(SpaceAddress postalAddress) {
+  public Space postalAddress(@javax.annotation.Nullable SpaceAddress postalAddress) {
     
     this.postalAddress = postalAddress;
     return this;
   }
 
-   /**
+  /**
    * Get postalAddress
    * @return postalAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,14 +372,14 @@ public class Space {
 
   @JsonProperty(JSON_PROPERTY_POSTAL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPostalAddress(SpaceAddress postalAddress) {
+  public void setPostalAddress(@javax.annotation.Nullable SpaceAddress postalAddress) {
     this.postalAddress = postalAddress;
   }
 
-   /**
+  /**
    * Whether this space and all its parent accounts are active or restricted active. There is least one parent account that is restricted active.
    * @return restrictedActive
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -371,10 +390,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The ID of the user the space was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,10 +404,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The name used to identify the space.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -399,10 +418,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * The email address that will receive messages about technical issues and errors that occur in the space.
    * @return technicalContactAddresses
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TECHNICAL_CONTACT_ADDRESSES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -413,10 +432,10 @@ public class Space {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,16 +446,16 @@ public class Space {
 
 
 
-  public Space state(CreationEntityState state) {
+  public Space state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -448,20 +467,20 @@ public class Space {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public Space account(Account account) {
+  public Space account(@javax.annotation.Nullable Account account) {
     
     this.account = account;
     return this;
   }
 
-   /**
+  /**
    * Get account
    * @return account
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -473,7 +492,7 @@ public class Space {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAccount(Account account) {
+  public void setAccount(@javax.annotation.Nullable Account account) {
     this.account = account;
   }
 

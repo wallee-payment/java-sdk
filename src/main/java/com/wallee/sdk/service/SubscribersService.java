@@ -37,6 +37,7 @@ import com.wallee.sdk.model.SubscriberListResponse;
 import com.wallee.sdk.model.SubscriberSearchResponse;
 import com.wallee.sdk.model.SubscriberUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsSubscribersId">Delete a subscriber Documentation</a>
    */
-  public void deleteSubscriptionsSubscribersId(Long id, Long space) throws ApiException {
+  public void deleteSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deleteSubscriptionsSubscribersId(id, space, Collections.emptyMap());
   }
 
@@ -78,7 +79,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSubscriptionsSubscribersId">Delete a subscriber Documentation</a>
    */
-  public void deleteSubscriptionsSubscribersId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -93,7 +94,7 @@ public class SubscribersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/subscribers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -134,8 +135,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -154,7 +155,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribers">List all subscribers Documentation</a>
    */
-  public SubscriberListResponse getSubscriptionsSubscribers(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SubscriberListResponse getSubscriptionsSubscribers(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsSubscribers(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -175,7 +176,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribers">List all subscribers Documentation</a>
    */
-  public SubscriberListResponse getSubscriptionsSubscribers(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriberListResponse getSubscriptionsSubscribers(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -231,8 +232,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -248,7 +249,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribersId">Retrieve a subscriber Documentation</a>
    */
-  public Subscriber getSubscriptionsSubscribersId(Long id, Long space, Set<String> expand) throws ApiException {
+  public Subscriber getSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsSubscribersId(id, space, expand, Collections.emptyMap());
   }
 
@@ -266,7 +267,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribersId">Retrieve a subscriber Documentation</a>
    */
-  public Subscriber getSubscriptionsSubscribersId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Subscriber getSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -281,7 +282,7 @@ public class SubscribersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/subscribers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -324,8 +325,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -344,7 +345,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribersSearch">Search subscribers Documentation</a>
    */
-  public SubscriberSearchResponse getSubscriptionsSubscribersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SubscriberSearchResponse getSubscriptionsSubscribersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsSubscribersSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -365,7 +366,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsSubscribersSearch">Search subscribers Documentation</a>
    */
-  public SubscriberSearchResponse getSubscriptionsSubscribersSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriberSearchResponse getSubscriptionsSubscribersSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -421,8 +422,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -439,7 +440,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsSubscribersId">Update a subscriber Documentation</a>
    */
-  public Subscriber patchSubscriptionsSubscribersId(Long id, Long space, SubscriberUpdate subscriberUpdate, Set<String> expand) throws ApiException {
+  public Subscriber patchSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriberUpdate subscriberUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSubscriptionsSubscribersId(id, space, subscriberUpdate, expand, Collections.emptyMap());
   }
 
@@ -458,7 +459,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsSubscribersId">Update a subscriber Documentation</a>
    */
-  public Subscriber patchSubscriptionsSubscribersId(Long id, Long space, SubscriberUpdate subscriberUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Subscriber patchSubscriptionsSubscribersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriberUpdate subscriberUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriberUpdate;
     
     // verify the required parameter 'id' is set
@@ -478,7 +479,7 @@ public class SubscribersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/subscribers/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -521,8 +522,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -538,7 +539,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsSubscribers">Create a subscriber Documentation</a>
    */
-  public Subscriber postSubscriptionsSubscribers(Long space, SubscriberCreate subscriberCreate, Set<String> expand) throws ApiException {
+  public Subscriber postSubscriptionsSubscribers(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriberCreate subscriberCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsSubscribers(space, subscriberCreate, expand, Collections.emptyMap());
   }
 
@@ -556,7 +557,7 @@ public class SubscribersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsSubscribers">Create a subscriber Documentation</a>
    */
-  public Subscriber postSubscriptionsSubscribers(Long space, SubscriberCreate subscriberCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Subscriber postSubscriptionsSubscribers(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriberCreate subscriberCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriberCreate;
     
     // verify the required parameter 'space' is set
@@ -613,8 +614,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -654,8 +655,8 @@ public class SubscribersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

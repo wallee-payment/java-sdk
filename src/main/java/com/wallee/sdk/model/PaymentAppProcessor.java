@@ -63,58 +63,74 @@ import java.util.StringJoiner;
 
 public class PaymentAppProcessor {
   public static final String JSON_PROPERTY_DOCUMENTATION_URL = "documentationUrl";
+  @javax.annotation.Nullable
   private String documentationUrl;
 
   public static final String JSON_PROPERTY_CONFIGURED_ENVIRONMENT = "configuredEnvironment";
+  @javax.annotation.Nullable
   private ChargeAttemptEnvironment configuredEnvironment;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_SVG_ICON = "svgIcon";
+  @javax.annotation.Nullable
   private String svgIcon;
 
   public static final String JSON_PROPERTY_UPDATED_ON = "updatedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime updatedOn;
 
   public static final String JSON_PROPERTY_USABLE_IN_PRODUCTION = "usableInProduction";
+  @javax.annotation.Nullable
   private Boolean usableInProduction;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_PROCESSOR_CONFIGURATION = "processorConfiguration";
+  @javax.annotation.Nullable
   private PaymentProcessorConfiguration processorConfiguration;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_USABLE_IN_PRODUCTION_SINCE = "usableInProductionSince";
+  @javax.annotation.Nullable
   private OffsetDateTime usableInProductionSince;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_INSTALLATION_ID = "installationId";
+  @javax.annotation.Nullable
   private Long installationId;
 
   public static final String JSON_PROPERTY_PRODUCTION_MODE_URL = "productionModeUrl";
+  @javax.annotation.Nullable
   private String productionModeUrl;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private PaymentAppProcessorState state;
 
   public PaymentAppProcessor() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public PaymentAppProcessor(
     @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL) String documentationUrl, 
@@ -147,10 +163,10 @@ public class PaymentAppProcessor {
     this.productionModeUrl = productionModeUrl;
   }
 
-   /**
+  /**
    * A URL pointing to the documentation that explains how to configure and use the processor.
    * @return documentationUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOCUMENTATION_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -161,16 +177,16 @@ public class PaymentAppProcessor {
 
 
 
-  public PaymentAppProcessor configuredEnvironment(ChargeAttemptEnvironment configuredEnvironment) {
+  public PaymentAppProcessor configuredEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment configuredEnvironment) {
     
     this.configuredEnvironment = configuredEnvironment;
     return this;
   }
 
-   /**
+  /**
    * Get configuredEnvironment
    * @return configuredEnvironment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIGURED_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,14 +198,14 @@ public class PaymentAppProcessor {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURED_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfiguredEnvironment(ChargeAttemptEnvironment configuredEnvironment) {
+  public void setConfiguredEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment configuredEnvironment) {
     this.configuredEnvironment = configuredEnvironment;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,10 +216,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * An SVG icon representing the processor, displayed to the user in the interface.
    * @return svgIcon
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SVG_ICON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,10 +230,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * The date and time when the processor was last updated.
    * @return updatedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,10 +244,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * Whether the processor is fully prepared and available for handling transactions in a production environment.
    * @return usableInProduction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USABLE_IN_PRODUCTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,10 +258,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * The date and time when the processor was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,10 +272,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,16 +286,16 @@ public class PaymentAppProcessor {
 
 
 
-  public PaymentAppProcessor processorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
+  public PaymentAppProcessor processorConfiguration(@javax.annotation.Nullable PaymentProcessorConfiguration processorConfiguration) {
     
     this.processorConfiguration = processorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get processorConfiguration
    * @return processorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -291,14 +307,14 @@ public class PaymentAppProcessor {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProcessorConfiguration(PaymentProcessorConfiguration processorConfiguration) {
+  public void setProcessorConfiguration(@javax.annotation.Nullable PaymentProcessorConfiguration processorConfiguration) {
     this.processorConfiguration = processorConfiguration;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -309,10 +325,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * the date and time when the processor became fully usable and available for handling transactions in a production environment.
    * @return usableInProductionSince
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USABLE_IN_PRODUCTION_SINCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,10 +339,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * The name used to identify the processor.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,10 +353,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,10 +367,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * The installation ID identifies the Web App installation.
    * @return installationId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INSTALLATION_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,10 +381,10 @@ public class PaymentAppProcessor {
 
 
 
-   /**
+  /**
    * A URL pointing to the site where merchants can set up production mode for the processor.
    * @return productionModeUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRODUCTION_MODE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,16 +395,16 @@ public class PaymentAppProcessor {
 
 
 
-  public PaymentAppProcessor state(PaymentAppProcessorState state) {
+  public PaymentAppProcessor state(@javax.annotation.Nullable PaymentAppProcessorState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -400,7 +416,7 @@ public class PaymentAppProcessor {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(PaymentAppProcessorState state) {
+  public void setState(@javax.annotation.Nullable PaymentAppProcessorState state) {
     this.state = state;
   }
 

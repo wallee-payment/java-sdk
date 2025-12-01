@@ -53,30 +53,34 @@ import java.util.StringJoiner;
 
 public class ProductMeteredTierFeeUpdate {
   public static final String JSON_PROPERTY_START_RANGE = "startRange";
+  @javax.annotation.Nullable
   private BigDecimal startRange;
 
   public static final String JSON_PROPERTY_METERED_FEE = "meteredFee";
+  @javax.annotation.Nullable
   private Long meteredFee;
 
   public static final String JSON_PROPERTY_FEE = "fee";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmountUpdate> fee = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public ProductMeteredTierFeeUpdate() {
   }
 
-  public ProductMeteredTierFeeUpdate startRange(BigDecimal startRange) {
+  public ProductMeteredTierFeeUpdate startRange(@javax.annotation.Nullable BigDecimal startRange) {
     
     this.startRange = startRange;
     return this;
   }
 
-   /**
+  /**
    * Starting from and including this quantity is contained in the tier.
    * @return startRange
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -88,20 +92,20 @@ public class ProductMeteredTierFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_START_RANGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartRange(BigDecimal startRange) {
+  public void setStartRange(@javax.annotation.Nullable BigDecimal startRange) {
     this.startRange = startRange;
   }
 
-  public ProductMeteredTierFeeUpdate meteredFee(Long meteredFee) {
+  public ProductMeteredTierFeeUpdate meteredFee(@javax.annotation.Nullable Long meteredFee) {
     
     this.meteredFee = meteredFee;
     return this;
   }
 
-   /**
+  /**
    * The metered fee that this tier belongs to.
    * @return meteredFee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METERED_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,11 +117,11 @@ public class ProductMeteredTierFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_METERED_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMeteredFee(Long meteredFee) {
+  public void setMeteredFee(@javax.annotation.Nullable Long meteredFee) {
     this.meteredFee = meteredFee;
   }
 
-  public ProductMeteredTierFeeUpdate fee(Set<PersistableCurrencyAmountUpdate> fee) {
+  public ProductMeteredTierFeeUpdate fee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> fee) {
     
     this.fee = fee;
     return this;
@@ -131,10 +135,10 @@ public class ProductMeteredTierFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The amount charged to the customer for each consumed unit at the end of a billing cycle.
    * @return fee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -147,20 +151,20 @@ public class ProductMeteredTierFeeUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFee(Set<PersistableCurrencyAmountUpdate> fee) {
+  public void setFee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> fee) {
     this.fee = fee;
   }
 
-  public ProductMeteredTierFeeUpdate version(Integer version) {
+  public ProductMeteredTierFeeUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -172,7 +176,7 @@ public class ProductMeteredTierFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

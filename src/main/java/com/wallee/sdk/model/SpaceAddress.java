@@ -58,55 +58,70 @@ import java.util.StringJoiner;
 
 public class SpaceAddress {
   public static final String JSON_PROPERTY_COUNTRY = "country";
+  @javax.annotation.Nullable
   private String country;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
+  @javax.annotation.Nullable
   private String mobilePhoneNumber;
 
   public static final String JSON_PROPERTY_ORGANIZATION_NAME = "organizationName";
+  @javax.annotation.Nullable
   private String organizationName;
 
   public static final String JSON_PROPERTY_CITY = "city";
+  @javax.annotation.Nullable
   private String city;
 
   public static final String JSON_PROPERTY_GIVEN_NAME = "givenName";
+  @javax.annotation.Nullable
   private String givenName;
 
   public static final String JSON_PROPERTY_POSTCODE = "postcode";
+  @javax.annotation.Nullable
   private String postcode;
 
   public static final String JSON_PROPERTY_SALES_TAX_NUMBER = "salesTaxNumber";
+  @javax.annotation.Nullable
   private String salesTaxNumber;
 
   public static final String JSON_PROPERTY_DEPENDENT_LOCALITY = "dependentLocality";
+  @javax.annotation.Nullable
   private String dependentLocality;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
+  @javax.annotation.Nullable
   private String phoneNumber;
 
   public static final String JSON_PROPERTY_SORTING_CODE = "sortingCode";
+  @javax.annotation.Nullable
   private String sortingCode;
 
   public static final String JSON_PROPERTY_STREET = "street";
+  @javax.annotation.Nullable
   private String street;
 
   public static final String JSON_PROPERTY_FAMILY_NAME = "familyName";
+  @javax.annotation.Nullable
   private String familyName;
 
   public static final String JSON_PROPERTY_POSTAL_STATE = "postalState";
+  @javax.annotation.Nullable
   private String postalState;
 
   public static final String JSON_PROPERTY_SALUTATION = "salutation";
+  @javax.annotation.Nullable
   private String salutation;
 
   public SpaceAddress() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SpaceAddress(
     @JsonProperty(JSON_PROPERTY_COUNTRY) String country, 
@@ -143,10 +158,10 @@ public class SpaceAddress {
     this.salutation = salutation;
   }
 
-   /**
+  /**
    * The two-letter country code (ISO 3166 format).
    * @return country
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +172,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The phone number of a mobile phone.
    * @return mobilePhoneNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +186,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The organization&#39;s name.
    * @return organizationName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ORGANIZATION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,10 +200,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The city, town or village.
    * @return city
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,10 +214,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The given or first name.
    * @return givenName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GIVEN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,10 +228,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The postal code, also known as ZIP, postcode, etc.
    * @return postcode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTCODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,10 +242,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The sales tax number of the organization.
    * @return salesTaxNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SALES_TAX_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -241,10 +256,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The dependent locality which is a sub-division of the state.
    * @return dependentLocality
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DEPENDENT_LOCALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -255,10 +270,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The email address used for communication with clients.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,10 +284,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The phone number.
    * @return phoneNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,10 +298,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The sorting code identifying the post office where the PO Box is located.
    * @return sortingCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SORTING_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -297,10 +312,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The street or PO Box.
    * @return street
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STREET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -311,10 +326,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The family or last name.
    * @return familyName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAMILY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -325,10 +340,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The name of the region, typically a state, county, province or prefecture.
    * @return postalState
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POSTAL_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -339,10 +354,10 @@ public class SpaceAddress {
 
 
 
-   /**
+  /**
    * The salutation e.g. Mrs, Mr, Dr.
    * @return salutation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SALUTATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -37,6 +37,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentLinksId">Delete a payment link Documentation</a>
    */
-  public void deletePaymentLinksId(Long id, Long space) throws ApiException {
+  public void deletePaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
     this.deletePaymentLinksId(id, space, Collections.emptyMap());
   }
 
@@ -78,7 +79,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deletePaymentLinksId">Delete a payment link Documentation</a>
    */
-  public void deletePaymentLinksId(Long id, Long space, Map<String, String> additionalHeaders) throws ApiException {
+  public void deletePaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -93,7 +94,7 @@ public class PaymentLinksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/links/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -134,8 +135,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -154,7 +155,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinks">List all payment links Documentation</a>
    */
-  public PaymentLinkListResponse getPaymentLinks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public PaymentLinkListResponse getPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getPaymentLinks(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -175,7 +176,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinks">List all payment links Documentation</a>
    */
-  public PaymentLinkListResponse getPaymentLinks(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentLinkListResponse getPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -231,8 +232,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -248,7 +249,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinksId">Retrieve a payment link Documentation</a>
    */
-  public PaymentLink getPaymentLinksId(Long id, Long space, Set<String> expand) throws ApiException {
+  public PaymentLink getPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getPaymentLinksId(id, space, expand, Collections.emptyMap());
   }
 
@@ -266,7 +267,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinksId">Retrieve a payment link Documentation</a>
    */
-  public PaymentLink getPaymentLinksId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentLink getPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -281,7 +282,7 @@ public class PaymentLinksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/links/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -324,8 +325,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -344,7 +345,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinksSearch">Search payment links Documentation</a>
    */
-  public PaymentLinkSearchResponse getPaymentLinksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public PaymentLinkSearchResponse getPaymentLinksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getPaymentLinksSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -365,7 +366,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentLinksSearch">Search payment links Documentation</a>
    */
-  public PaymentLinkSearchResponse getPaymentLinksSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentLinkSearchResponse getPaymentLinksSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -421,8 +422,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -439,7 +440,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentLinksId">Update a payment link Documentation</a>
    */
-  public PaymentLink patchPaymentLinksId(Long id, Long space, PaymentLinkUpdate paymentLinkUpdate, Set<String> expand) throws ApiException {
+  public PaymentLink patchPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentLinkUpdate paymentLinkUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchPaymentLinksId(id, space, paymentLinkUpdate, expand, Collections.emptyMap());
   }
 
@@ -458,7 +459,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchPaymentLinksId">Update a payment link Documentation</a>
    */
-  public PaymentLink patchPaymentLinksId(Long id, Long space, PaymentLinkUpdate paymentLinkUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentLink patchPaymentLinksId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentLinkUpdate paymentLinkUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentLinkUpdate;
     
     // verify the required parameter 'id' is set
@@ -478,7 +479,7 @@ public class PaymentLinksService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/payment/links/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -521,8 +522,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -538,7 +539,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentLinks">Create a payment link Documentation</a>
    */
-  public PaymentLink postPaymentLinks(Long space, PaymentLinkCreate paymentLinkCreate, Set<String> expand) throws ApiException {
+  public PaymentLink postPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentLinkCreate paymentLinkCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postPaymentLinks(space, paymentLinkCreate, expand, Collections.emptyMap());
   }
 
@@ -556,7 +557,7 @@ public class PaymentLinksService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentLinks">Create a payment link Documentation</a>
    */
-  public PaymentLink postPaymentLinks(Long space, PaymentLinkCreate paymentLinkCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public PaymentLink postPaymentLinks(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentLinkCreate paymentLinkCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = paymentLinkCreate;
     
     // verify the required parameter 'space' is set
@@ -613,8 +614,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -654,8 +655,8 @@ public class PaymentLinksService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

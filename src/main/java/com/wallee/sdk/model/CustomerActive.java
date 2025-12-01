@@ -54,33 +54,41 @@ import java.util.StringJoiner;
 
 public class CustomerActive {
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_FAMILY_NAME = "familyName";
+  @javax.annotation.Nullable
   private String familyName;
 
   public static final String JSON_PROPERTY_GIVEN_NAME = "givenName";
+  @javax.annotation.Nullable
   private String givenName;
 
   public static final String JSON_PROPERTY_PREFERRED_CURRENCY = "preferredCurrency";
+  @javax.annotation.Nullable
   private String preferredCurrency;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
+  @javax.annotation.Nullable
   private String customerId;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public CustomerActive() {
   }
 
-  public CustomerActive metaData(Map<String, String> metaData) {
+  public CustomerActive metaData(@javax.annotation.Nullable Map<String, String> metaData) {
     
     this.metaData = metaData;
     return this;
@@ -94,10 +102,10 @@ public class CustomerActive {
     return this;
   }
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,20 +117,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetaData(Map<String, String> metaData) {
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  public CustomerActive emailAddress(String emailAddress) {
+  public CustomerActive emailAddress(@javax.annotation.Nullable String emailAddress) {
     
     this.emailAddress = emailAddress;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s email address.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,20 +142,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
-  public CustomerActive familyName(String familyName) {
+  public CustomerActive familyName(@javax.annotation.Nullable String familyName) {
     
     this.familyName = familyName;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s family or last name.
    * @return familyName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAMILY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,20 +167,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_FAMILY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFamilyName(String familyName) {
+  public void setFamilyName(@javax.annotation.Nullable String familyName) {
     this.familyName = familyName;
   }
 
-  public CustomerActive givenName(String givenName) {
+  public CustomerActive givenName(@javax.annotation.Nullable String givenName) {
     
     this.givenName = givenName;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s given or first name.
    * @return givenName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_GIVEN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -184,20 +192,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_GIVEN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setGivenName(String givenName) {
+  public void setGivenName(@javax.annotation.Nullable String givenName) {
     this.givenName = givenName;
   }
 
-  public CustomerActive preferredCurrency(String preferredCurrency) {
+  public CustomerActive preferredCurrency(@javax.annotation.Nullable String preferredCurrency) {
     
     this.preferredCurrency = preferredCurrency;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s preferred currency.
    * @return preferredCurrency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREFERRED_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,20 +217,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_PREFERRED_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPreferredCurrency(String preferredCurrency) {
+  public void setPreferredCurrency(@javax.annotation.Nullable String preferredCurrency) {
     this.preferredCurrency = preferredCurrency;
   }
 
-  public CustomerActive customerId(String customerId) {
+  public CustomerActive customerId(@javax.annotation.Nullable String customerId) {
     
     this.customerId = customerId;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s ID in the merchant&#39;s system.
    * @return customerId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,20 +242,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomerId(String customerId) {
+  public void setCustomerId(@javax.annotation.Nullable String customerId) {
     this.customerId = customerId;
   }
 
-  public CustomerActive language(String language) {
+  public CustomerActive language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,20 +267,20 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public CustomerActive version(Integer version) {
+  public CustomerActive version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -284,7 +292,7 @@ public class CustomerActive {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

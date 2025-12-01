@@ -36,6 +36,7 @@ import com.wallee.sdk.model.SubscriptionPeriodBill;
 import com.wallee.sdk.model.SubscriptionPeriodBillListResponse;
 import com.wallee.sdk.model.SubscriptionPeriodBillSearchResponse;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBills">List all subscription period bills Documentation</a>
    */
-  public SubscriptionPeriodBillListResponse getSubscriptionsPeriodBills(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SubscriptionPeriodBillListResponse getSubscriptionsPeriodBills(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsPeriodBills(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -87,7 +88,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBills">List all subscription period bills Documentation</a>
    */
-  public SubscriptionPeriodBillListResponse getSubscriptionsPeriodBills(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionPeriodBillListResponse getSubscriptionsPeriodBills(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -143,8 +144,8 @@ public class SubscriptionPeriodBillsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -160,7 +161,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBillsId">Retrieve a subscription period bill Documentation</a>
    */
-  public SubscriptionPeriodBill getSubscriptionsPeriodBillsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionPeriodBill getSubscriptionsPeriodBillsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsPeriodBillsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -178,7 +179,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBillsId">Retrieve a subscription period bill Documentation</a>
    */
-  public SubscriptionPeriodBill getSubscriptionsPeriodBillsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionPeriodBill getSubscriptionsPeriodBillsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -193,7 +194,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/period-bills/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -236,8 +237,8 @@ public class SubscriptionPeriodBillsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -256,7 +257,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBillsSearch">Search subscription period bills Documentation</a>
    */
-  public SubscriptionPeriodBillSearchResponse getSubscriptionsPeriodBillsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SubscriptionPeriodBillSearchResponse getSubscriptionsPeriodBillsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsPeriodBillsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -277,7 +278,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsPeriodBillsSearch">Search subscription period bills Documentation</a>
    */
-  public SubscriptionPeriodBillSearchResponse getSubscriptionsPeriodBillsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionPeriodBillSearchResponse getSubscriptionsPeriodBillsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -333,8 +334,8 @@ public class SubscriptionPeriodBillsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -352,7 +353,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsPeriodBillsIdClose">Close a subscription period bill Documentation</a>
    */
-  public SubscriptionPeriodBill postSubscriptionsPeriodBillsIdClose(Long id, OffsetDateTime currentDate, Boolean createNextPeriod, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionPeriodBill postSubscriptionsPeriodBillsIdClose(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull OffsetDateTime currentDate, @javax.annotation.Nonnull Boolean createNextPeriod, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsPeriodBillsIdClose(id, currentDate, createNextPeriod, space, expand, Collections.emptyMap());
   }
 
@@ -372,7 +373,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsPeriodBillsIdClose">Close a subscription period bill Documentation</a>
    */
-  public SubscriptionPeriodBill postSubscriptionsPeriodBillsIdClose(Long id, OffsetDateTime currentDate, Boolean createNextPeriod, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionPeriodBill postSubscriptionsPeriodBillsIdClose(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull OffsetDateTime currentDate, @javax.annotation.Nonnull Boolean createNextPeriod, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -397,7 +398,7 @@ public class SubscriptionPeriodBillsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/period-bills/{id}/close"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -442,8 +443,8 @@ public class SubscriptionPeriodBillsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -483,8 +484,8 @@ public class SubscriptionPeriodBillsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

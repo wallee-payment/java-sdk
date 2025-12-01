@@ -53,36 +53,42 @@ import java.util.StringJoiner;
 
 public class ProductMeteredFeeUpdate {
   public static final String JSON_PROPERTY_COMPONENT = "component";
+  @javax.annotation.Nullable
   private Long component;
 
   public static final String JSON_PROPERTY_TIER_PRICING = "tierPricing";
+  @javax.annotation.Nullable
   private ProductMeteredTierPricing tierPricing;
 
   public static final String JSON_PROPERTY_METRIC = "metric";
+  @javax.annotation.Nullable
   private Long metric;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public ProductMeteredFeeUpdate() {
   }
 
-  public ProductMeteredFeeUpdate component(Long component) {
+  public ProductMeteredFeeUpdate component(@javax.annotation.Nullable Long component) {
     
     this.component = component;
     return this;
   }
 
-   /**
+  /**
    * The product component that the fee belongs to.
    * @return component
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,20 +100,20 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponent(Long component) {
+  public void setComponent(@javax.annotation.Nullable Long component) {
     this.component = component;
   }
 
-  public ProductMeteredFeeUpdate tierPricing(ProductMeteredTierPricing tierPricing) {
+  public ProductMeteredFeeUpdate tierPricing(@javax.annotation.Nullable ProductMeteredTierPricing tierPricing) {
     
     this.tierPricing = tierPricing;
     return this;
   }
 
-   /**
+  /**
    * Get tierPricing
    * @return tierPricing
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIER_PRICING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,20 +125,20 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_TIER_PRICING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTierPricing(ProductMeteredTierPricing tierPricing) {
+  public void setTierPricing(@javax.annotation.Nullable ProductMeteredTierPricing tierPricing) {
     this.tierPricing = tierPricing;
   }
 
-  public ProductMeteredFeeUpdate metric(Long metric) {
+  public ProductMeteredFeeUpdate metric(@javax.annotation.Nullable Long metric) {
     
     this.metric = metric;
     return this;
   }
 
-   /**
+  /**
    * The metric used to determine the resource consumption billed to the customer.
    * @return metric
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -144,11 +150,11 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetric(Long metric) {
+  public void setMetric(@javax.annotation.Nullable Long metric) {
     this.metric = metric;
   }
 
-  public ProductMeteredFeeUpdate name(Map<String, String> name) {
+  public ProductMeteredFeeUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -162,10 +168,10 @@ public class ProductMeteredFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the fee that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,11 +183,11 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public ProductMeteredFeeUpdate description(Map<String, String> description) {
+  public ProductMeteredFeeUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -195,10 +201,10 @@ public class ProductMeteredFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the fee that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,20 +216,20 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public ProductMeteredFeeUpdate version(Integer version) {
+  public ProductMeteredFeeUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -235,7 +241,7 @@ public class ProductMeteredFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

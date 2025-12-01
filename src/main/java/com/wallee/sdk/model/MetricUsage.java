@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class MetricUsage {
   public static final String JSON_PROPERTY_CONSUMED_UNITS = "consumedUnits";
+  @javax.annotation.Nullable
   private BigDecimal consumedUnits;
 
   public static final String JSON_PROPERTY_METRIC_DESCRIPTION = "metricDescription";
+  @javax.annotation.Nullable
   private Map<String, String> metricDescription = new HashMap<>();
 
   public static final String JSON_PROPERTY_METRIC_NAME = "metricName";
+  @javax.annotation.Nullable
   private Map<String, String> metricName = new HashMap<>();
 
   public static final String JSON_PROPERTY_METRIC_ID = "metricId";
+  @javax.annotation.Nullable
   private Long metricId;
 
   public MetricUsage() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public MetricUsage(
     @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS) BigDecimal consumedUnits, 
@@ -80,10 +84,10 @@ public class MetricUsage {
     this.metricId = metricId;
   }
 
-   /**
+  /**
    * The number of consumed units.
    * @return consumedUnits
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONSUMED_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,10 +98,10 @@ public class MetricUsage {
 
 
 
-   /**
+  /**
    * The description of the consumed unit&#39;s metric.
    * @return metricDescription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,10 +112,10 @@ public class MetricUsage {
 
 
 
-   /**
+  /**
    * The name of the consumed units&#39; metric.
    * @return metricName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,10 +126,10 @@ public class MetricUsage {
 
 
 
-   /**
+  /**
    * The ID of the consumed units&#39; metric.
    * @return metricId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_METRIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

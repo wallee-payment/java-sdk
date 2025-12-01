@@ -52,25 +52,30 @@ import java.util.StringJoiner;
 
 public class LegalOrganizationForm {
   public static final String JSON_PROPERTY_COUNTRY = "country";
+  @javax.annotation.Nullable
   private String country;
 
   public static final String JSON_PROPERTY_SHORTCUT = "shortcut";
+  @javax.annotation.Nullable
   private Set<LocalizedString> shortcut = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ENGLISH_DESCRIPTION = "englishDescription";
+  @javax.annotation.Nullable
   private String englishDescription;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Set<LocalizedString> description = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public LegalOrganizationForm() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LegalOrganizationForm(
     @JsonProperty(JSON_PROPERTY_COUNTRY) String country, 
@@ -87,10 +92,10 @@ public class LegalOrganizationForm {
     this.id = id;
   }
 
-   /**
+  /**
    * The two-letter code of the country the legal organization form is used in (ISO 3166-1 alpha-2 format).
    * @return country
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,10 +106,10 @@ public class LegalOrganizationForm {
 
 
 
-   /**
+  /**
    * The localized shortcuts of the legal organization form.
    * @return shortcut
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHORTCUT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +120,10 @@ public class LegalOrganizationForm {
 
 
 
-   /**
+  /**
    * The English name of the legal organization form.
    * @return englishDescription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENGLISH_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +134,10 @@ public class LegalOrganizationForm {
 
 
 
-   /**
+  /**
    * The localized descriptions of the legal organization form.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +148,10 @@ public class LegalOrganizationForm {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

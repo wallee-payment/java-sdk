@@ -47,19 +47,22 @@ import java.util.StringJoiner;
 
 public class LineItemReduction {
   public static final String JSON_PROPERTY_QUANTITY_REDUCTION = "quantityReduction";
+  @javax.annotation.Nullable
   private BigDecimal quantityReduction;
 
   public static final String JSON_PROPERTY_UNIT_PRICE_REDUCTION = "unitPriceReduction";
+  @javax.annotation.Nullable
   private BigDecimal unitPriceReduction;
 
   public static final String JSON_PROPERTY_LINE_ITEM_UNIQUE_ID = "lineItemUniqueId";
+  @javax.annotation.Nullable
   private String lineItemUniqueId;
 
   public LineItemReduction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LineItemReduction(
     @JsonProperty(JSON_PROPERTY_QUANTITY_REDUCTION) BigDecimal quantityReduction, 
@@ -72,10 +75,10 @@ public class LineItemReduction {
     this.lineItemUniqueId = lineItemUniqueId;
   }
 
-   /**
+  /**
    * The quantity removed or reduced from the line item. This value reflects the decrease in the item count due to the reduction.
    * @return quantityReduction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -86,10 +89,10 @@ public class LineItemReduction {
 
 
 
-   /**
+  /**
    * The monetary amount by which the line item&#39;s unit price is discounted. This reduction adjusts the price without altering the quantity.
    * @return unitPriceReduction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE_REDUCTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,10 +103,10 @@ public class LineItemReduction {
 
 
 
-   /**
+  /**
    * The unique identifier of the line item to which the reduction is applied. This ID ensures the reduction is accurately associated with the correct item.
    * @return lineItemUniqueId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEM_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

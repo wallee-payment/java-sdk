@@ -37,6 +37,7 @@ import com.wallee.sdk.model.SpaceListResponse;
 import com.wallee.sdk.model.SpaceSearchResponse;
 import com.wallee.sdk.model.SpaceUpdate;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +62,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSpacesId">Delete a space Documentation</a>
    */
-  public void deleteSpacesId(Long id) throws ApiException {
+  public void deleteSpacesId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteSpacesId(id, Collections.emptyMap());
   }
 
@@ -76,7 +77,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteSpacesId">Delete a space Documentation</a>
    */
-  public void deleteSpacesId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteSpacesId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -86,7 +87,7 @@ public class SpacesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/spaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -125,8 +126,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -144,7 +145,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpaces">List all spaces Documentation</a>
    */
-  public SpaceListResponse getSpaces(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public SpaceListResponse getSpaces(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSpaces(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -164,7 +165,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpaces">List all spaces Documentation</a>
    */
-  public SpaceListResponse getSpaces(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public SpaceListResponse getSpaces(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -213,8 +214,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -229,7 +230,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesId">Retrieve a space Documentation</a>
    */
-  public Space getSpacesId(Long id, Set<String> expand) throws ApiException {
+  public Space getSpacesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSpacesId(id, expand, Collections.emptyMap());
   }
 
@@ -246,7 +247,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesId">Retrieve a space Documentation</a>
    */
-  public Space getSpacesId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Space getSpacesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -256,7 +257,7 @@ public class SpacesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/spaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -297,8 +298,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -316,7 +317,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesSearch">Search spaces Documentation</a>
    */
-  public SpaceSearchResponse getSpacesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public SpaceSearchResponse getSpacesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSpacesSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -336,7 +337,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSpacesSearch">Search spaces Documentation</a>
    */
-  public SpaceSearchResponse getSpacesSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public SpaceSearchResponse getSpacesSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -385,8 +386,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -402,7 +403,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSpacesId">Update a space Documentation</a>
    */
-  public Space patchSpacesId(Long id, SpaceUpdate spaceUpdate, Set<String> expand) throws ApiException {
+  public Space patchSpacesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull SpaceUpdate spaceUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSpacesId(id, spaceUpdate, expand, Collections.emptyMap());
   }
 
@@ -420,7 +421,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSpacesId">Update a space Documentation</a>
    */
-  public Space patchSpacesId(Long id, SpaceUpdate spaceUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Space patchSpacesId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull SpaceUpdate spaceUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = spaceUpdate;
     
     // verify the required parameter 'id' is set
@@ -435,7 +436,7 @@ public class SpacesService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/spaces/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -476,8 +477,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -492,7 +493,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSpaces">Create a space Documentation</a>
    */
-  public Space postSpaces(SpaceCreate spaceCreate, Set<String> expand) throws ApiException {
+  public Space postSpaces(@javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSpaces(spaceCreate, expand, Collections.emptyMap());
   }
 
@@ -509,7 +510,7 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSpaces">Create a space Documentation</a>
    */
-  public Space postSpaces(SpaceCreate spaceCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Space postSpaces(@javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = spaceCreate;
     
     // verify the required parameter 'spaceCreate' is set
@@ -559,8 +560,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -600,8 +601,8 @@ public class SpacesService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -53,18 +53,21 @@ import java.util.StringJoiner;
 
 public class AbstractRoleUpdate {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+  @javax.annotation.Nullable
   private Set<Permission> permissions = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
+  @javax.annotation.Nullable
   private Boolean twoFactorRequired;
 
   public AbstractRoleUpdate() {
   }
 
-  public AbstractRoleUpdate permissions(Set<Permission> permissions) {
+  public AbstractRoleUpdate permissions(@javax.annotation.Nullable Set<Permission> permissions) {
     
     this.permissions = permissions;
     return this;
@@ -78,10 +81,10 @@ public class AbstractRoleUpdate {
     return this;
   }
 
-   /**
+  /**
    * The permissions granted to users with this role.
    * @return permissions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,11 +97,11 @@ public class AbstractRoleUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermissions(Set<Permission> permissions) {
+  public void setPermissions(@javax.annotation.Nullable Set<Permission> permissions) {
     this.permissions = permissions;
   }
 
-  public AbstractRoleUpdate name(Map<String, String> name) {
+  public AbstractRoleUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -112,10 +115,10 @@ public class AbstractRoleUpdate {
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the role.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,20 +130,20 @@ public class AbstractRoleUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public AbstractRoleUpdate twoFactorRequired(Boolean twoFactorRequired) {
+  public AbstractRoleUpdate twoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     
     this.twoFactorRequired = twoFactorRequired;
     return this;
   }
 
-   /**
+  /**
    * Whether users with this role are required to use two-factor authentication.
    * @return twoFactorRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,7 +155,7 @@ public class AbstractRoleUpdate {
 
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoFactorRequired(Boolean twoFactorRequired) {
+  public void setTwoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     this.twoFactorRequired = twoFactorRequired;
   }
 

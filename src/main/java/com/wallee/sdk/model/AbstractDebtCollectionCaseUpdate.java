@@ -59,33 +59,41 @@ import java.util.StringJoiner;
 
 public class AbstractDebtCollectionCaseUpdate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CONTRACT_DATE = "contractDate";
+  @javax.annotation.Nullable
   private OffsetDateTime contractDate;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private DebtCollectionEnvironment environment;
 
   public static final String JSON_PROPERTY_DUE_DATE = "dueDate";
+  @javax.annotation.Nullable
   private OffsetDateTime dueDate;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private AddressCreate billingAddress;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public AbstractDebtCollectionCaseUpdate() {
   }
 
-  public AbstractDebtCollectionCaseUpdate lineItems(List<LineItemCreate> lineItems) {
+  public AbstractDebtCollectionCaseUpdate lineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -99,10 +107,10 @@ public class AbstractDebtCollectionCaseUpdate {
     return this;
   }
 
-   /**
+  /**
    * The line items that are subject of this debt collection case.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,20 +122,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public AbstractDebtCollectionCaseUpdate contractDate(OffsetDateTime contractDate) {
+  public AbstractDebtCollectionCaseUpdate contractDate(@javax.annotation.Nullable OffsetDateTime contractDate) {
     
     this.contractDate = contractDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the contract with the debtor was signed.
    * @return contractDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -139,20 +147,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_CONTRACT_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setContractDate(OffsetDateTime contractDate) {
+  public void setContractDate(@javax.annotation.Nullable OffsetDateTime contractDate) {
     this.contractDate = contractDate;
   }
 
-  public AbstractDebtCollectionCaseUpdate environment(DebtCollectionEnvironment environment) {
+  public AbstractDebtCollectionCaseUpdate environment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -164,20 +172,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(DebtCollectionEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable DebtCollectionEnvironment environment) {
     this.environment = environment;
   }
 
-  public AbstractDebtCollectionCaseUpdate dueDate(OffsetDateTime dueDate) {
+  public AbstractDebtCollectionCaseUpdate dueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
     
     this.dueDate = dueDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the claim was due.
    * @return dueDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -189,20 +197,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_DUE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDueDate(OffsetDateTime dueDate) {
+  public void setDueDate(@javax.annotation.Nullable OffsetDateTime dueDate) {
     this.dueDate = dueDate;
   }
 
-  public AbstractDebtCollectionCaseUpdate currency(String currency) {
+  public AbstractDebtCollectionCaseUpdate currency(@javax.annotation.Nullable String currency) {
     
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the case&#39;s currency.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,20 +222,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public AbstractDebtCollectionCaseUpdate language(String language) {
+  public AbstractDebtCollectionCaseUpdate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,20 +247,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractDebtCollectionCaseUpdate billingAddress(AddressCreate billingAddress) {
+  public AbstractDebtCollectionCaseUpdate billingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -264,20 +272,20 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(AddressCreate billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public AbstractDebtCollectionCaseUpdate spaceViewId(Long spaceViewId) {
+  public AbstractDebtCollectionCaseUpdate spaceViewId(@javax.annotation.Nullable Long spaceViewId) {
     
     this.spaceViewId = spaceViewId;
     return this;
   }
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,7 +297,7 @@ public class AbstractDebtCollectionCaseUpdate {
 
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSpaceViewId(Long spaceViewId) {
+  public void setSpaceViewId(@javax.annotation.Nullable Long spaceViewId) {
     this.spaceViewId = spaceViewId;
   }
 

@@ -40,6 +40,7 @@ import com.wallee.sdk.model.RestApplicationUserMacKeyCreated;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -64,7 +65,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteApplicationUsersId">Delete an application user Documentation</a>
    */
-  public void deleteApplicationUsersId(Long id) throws ApiException {
+  public void deleteApplicationUsersId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteApplicationUsersId(id, Collections.emptyMap());
   }
 
@@ -79,7 +80,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteApplicationUsersId">Delete an application user Documentation</a>
    */
-  public void deleteApplicationUsersId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteApplicationUsersId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -89,7 +90,7 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -128,8 +129,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -143,7 +144,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteApplicationUsersUserIdKeysId">Deactivate an authentication key Documentation</a>
    */
-  public void deleteApplicationUsersUserIdKeysId(Long userId, Long id) throws ApiException {
+  public void deleteApplicationUsersUserIdKeysId(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteApplicationUsersUserIdKeysId(userId, id, Collections.emptyMap());
   }
 
@@ -159,7 +160,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteApplicationUsersUserIdKeysId">Deactivate an authentication key Documentation</a>
    */
-  public void deleteApplicationUsersUserIdKeysId(Long userId, Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteApplicationUsersUserIdKeysId(@javax.annotation.Nonnull Long userId, @javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -174,8 +175,8 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{userId}/keys/{id}"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()))
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)))
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -214,8 +215,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -233,7 +234,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsers">List all application users Documentation</a>
    */
-  public ApplicationUserListResponse getApplicationUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ApplicationUserListResponse getApplicationUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getApplicationUsers(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -253,7 +254,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsers">List all application users Documentation</a>
    */
-  public ApplicationUserListResponse getApplicationUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ApplicationUserListResponse getApplicationUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -302,8 +303,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -318,7 +319,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersId">Retrieve an application user Documentation</a>
    */
-  public ApplicationUser getApplicationUsersId(Long id, Set<String> expand) throws ApiException {
+  public ApplicationUser getApplicationUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getApplicationUsersId(id, expand, Collections.emptyMap());
   }
 
@@ -335,7 +336,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersId">Retrieve an application user Documentation</a>
    */
-  public ApplicationUser getApplicationUsersId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ApplicationUser getApplicationUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -345,7 +346,7 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -386,8 +387,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -405,7 +406,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersSearch">Search application users Documentation</a>
    */
-  public ApplicationUserSearchResponse getApplicationUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ApplicationUserSearchResponse getApplicationUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getApplicationUsersSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -425,7 +426,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersSearch">Search application users Documentation</a>
    */
-  public ApplicationUserSearchResponse getApplicationUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ApplicationUserSearchResponse getApplicationUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -474,8 +475,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -489,7 +490,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersUserIdKeys">List a user&#39;s authentication keys Documentation</a>
    */
-  public List<RestApplicationUserMacKey> getApplicationUsersUserIdKeys(Long userId) throws ApiException {
+  public List<RestApplicationUserMacKey> getApplicationUsersUserIdKeys(@javax.annotation.Nonnull Long userId) throws ApiException {
     return this.getApplicationUsersUserIdKeys(userId, Collections.emptyMap());
   }
 
@@ -505,7 +506,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getApplicationUsersUserIdKeys">List a user&#39;s authentication keys Documentation</a>
    */
-  public List<RestApplicationUserMacKey> getApplicationUsersUserIdKeys(Long userId, Map<String, String> additionalHeaders) throws ApiException {
+  public List<RestApplicationUserMacKey> getApplicationUsersUserIdKeys(@javax.annotation.Nonnull Long userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -515,7 +516,7 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{userId}/keys"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -555,8 +556,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -572,7 +573,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchApplicationUsersId">Update an application user Documentation</a>
    */
-  public ApplicationUser patchApplicationUsersId(Long id, ApplicationUserUpdate applicationUserUpdate, Set<String> expand) throws ApiException {
+  public ApplicationUser patchApplicationUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull ApplicationUserUpdate applicationUserUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchApplicationUsersId(id, applicationUserUpdate, expand, Collections.emptyMap());
   }
 
@@ -590,7 +591,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchApplicationUsersId">Update an application user Documentation</a>
    */
-  public ApplicationUser patchApplicationUsersId(Long id, ApplicationUserUpdate applicationUserUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ApplicationUser patchApplicationUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull ApplicationUserUpdate applicationUserUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = applicationUserUpdate;
     
     // verify the required parameter 'id' is set
@@ -605,7 +606,7 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -646,8 +647,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -662,7 +663,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postApplicationUsers">Create an application user Documentation</a>
    */
-  public ApplicationUserCreateWithMacKey postApplicationUsers(ApplicationUserCreate applicationUserCreate, Set<String> expand) throws ApiException {
+  public ApplicationUserCreateWithMacKey postApplicationUsers(@javax.annotation.Nonnull ApplicationUserCreate applicationUserCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postApplicationUsers(applicationUserCreate, expand, Collections.emptyMap());
   }
 
@@ -679,7 +680,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postApplicationUsers">Create an application user Documentation</a>
    */
-  public ApplicationUserCreateWithMacKey postApplicationUsers(ApplicationUserCreate applicationUserCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ApplicationUserCreateWithMacKey postApplicationUsers(@javax.annotation.Nonnull ApplicationUserCreate applicationUserCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = applicationUserCreate;
     
     // verify the required parameter 'applicationUserCreate' is set
@@ -729,8 +730,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -744,7 +745,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postApplicationUsersUserIdKeys">Generate a new authentication key Documentation</a>
    */
-  public RestApplicationUserMacKeyCreated postApplicationUsersUserIdKeys(Long userId) throws ApiException {
+  public RestApplicationUserMacKeyCreated postApplicationUsersUserIdKeys(@javax.annotation.Nonnull Long userId) throws ApiException {
     return this.postApplicationUsersUserIdKeys(userId, Collections.emptyMap());
   }
 
@@ -760,7 +761,7 @@ public class ApplicationUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postApplicationUsersUserIdKeys">Generate a new authentication key Documentation</a>
    */
-  public RestApplicationUserMacKeyCreated postApplicationUsersUserIdKeys(Long userId, Map<String, String> additionalHeaders) throws ApiException {
+  public RestApplicationUserMacKeyCreated postApplicationUsersUserIdKeys(@javax.annotation.Nonnull Long userId, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'userId' is set
@@ -770,7 +771,7 @@ public class ApplicationUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/application-users/{userId}/keys"
-      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(userId.toString()));
+      .replaceAll("\\{" + "userId" + "\\}", apiClient.escapeString(apiClient.parameterToString(userId)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -810,8 +811,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -851,8 +852,8 @@ public class ApplicationUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

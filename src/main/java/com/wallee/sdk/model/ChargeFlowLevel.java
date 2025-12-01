@@ -61,49 +61,62 @@ import java.util.StringJoiner;
 
 public class ChargeFlowLevel {
   public static final String JSON_PROPERTY_SYNCHRONOUS_CHARGE = "synchronousCharge";
+  @javax.annotation.Nullable
   private Charge synchronousCharge;
 
   public static final String JSON_PROPERTY_CONFIGURATION = "configuration";
+  @javax.annotation.Nullable
   private ChargeFlowLevelConfiguration _configuration;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ChargeFlowLevelState state;
 
   public static final String JSON_PROPERTY_ASYNCHRONOUS_CHARGE = "asynchronousCharge";
+  @javax.annotation.Nullable
   private Charge asynchronousCharge;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_TOKEN_CHARGE = "tokenCharge";
+  @javax.annotation.Nullable
   private Charge tokenCharge;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public ChargeFlowLevel() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ChargeFlowLevel(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -124,16 +137,16 @@ public class ChargeFlowLevel {
     this.linkedTransaction = linkedTransaction;
   }
 
-  public ChargeFlowLevel synchronousCharge(Charge synchronousCharge) {
+  public ChargeFlowLevel synchronousCharge(@javax.annotation.Nullable Charge synchronousCharge) {
     
     this.synchronousCharge = synchronousCharge;
     return this;
   }
 
-   /**
+  /**
    * Get synchronousCharge
    * @return synchronousCharge
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SYNCHRONOUS_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -145,20 +158,20 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_SYNCHRONOUS_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSynchronousCharge(Charge synchronousCharge) {
+  public void setSynchronousCharge(@javax.annotation.Nullable Charge synchronousCharge) {
     this.synchronousCharge = synchronousCharge;
   }
 
-  public ChargeFlowLevel _configuration(ChargeFlowLevelConfiguration _configuration) {
+  public ChargeFlowLevel _configuration(@javax.annotation.Nullable ChargeFlowLevelConfiguration _configuration) {
     
     this._configuration = _configuration;
     return this;
   }
 
-   /**
+  /**
    * Get _configuration
    * @return _configuration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -170,14 +183,14 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfiguration(ChargeFlowLevelConfiguration _configuration) {
+  public void setConfiguration(@javax.annotation.Nullable ChargeFlowLevelConfiguration _configuration) {
     this._configuration = _configuration;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,10 +201,10 @@ public class ChargeFlowLevel {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,10 +215,10 @@ public class ChargeFlowLevel {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -216,10 +229,10 @@ public class ChargeFlowLevel {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -230,10 +243,10 @@ public class ChargeFlowLevel {
 
 
 
-   /**
+  /**
    * The date and time when the charge flow level will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -244,10 +257,10 @@ public class ChargeFlowLevel {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -258,16 +271,16 @@ public class ChargeFlowLevel {
 
 
 
-  public ChargeFlowLevel state(ChargeFlowLevelState state) {
+  public ChargeFlowLevel state(@javax.annotation.Nullable ChargeFlowLevelState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -279,20 +292,20 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ChargeFlowLevelState state) {
+  public void setState(@javax.annotation.Nullable ChargeFlowLevelState state) {
     this.state = state;
   }
 
-  public ChargeFlowLevel asynchronousCharge(Charge asynchronousCharge) {
+  public ChargeFlowLevel asynchronousCharge(@javax.annotation.Nullable Charge asynchronousCharge) {
     
     this.asynchronousCharge = asynchronousCharge;
     return this;
   }
 
-   /**
+  /**
    * Get asynchronousCharge
    * @return asynchronousCharge
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ASYNCHRONOUS_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,14 +317,14 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_ASYNCHRONOUS_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAsynchronousCharge(Charge asynchronousCharge) {
+  public void setAsynchronousCharge(@javax.annotation.Nullable Charge asynchronousCharge) {
     this.asynchronousCharge = asynchronousCharge;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,16 +335,16 @@ public class ChargeFlowLevel {
 
 
 
-  public ChargeFlowLevel tokenCharge(Charge tokenCharge) {
+  public ChargeFlowLevel tokenCharge(@javax.annotation.Nullable Charge tokenCharge) {
     
     this.tokenCharge = tokenCharge;
     return this;
   }
 
-   /**
+  /**
    * Get tokenCharge
    * @return tokenCharge
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -343,20 +356,20 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_TOKEN_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenCharge(Charge tokenCharge) {
+  public void setTokenCharge(@javax.annotation.Nullable Charge tokenCharge) {
     this.tokenCharge = tokenCharge;
   }
 
-  public ChargeFlowLevel transaction(Transaction transaction) {
+  public ChargeFlowLevel transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,7 +381,7 @@ public class ChargeFlowLevel {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 

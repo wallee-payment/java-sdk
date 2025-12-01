@@ -48,19 +48,22 @@ import java.util.StringJoiner;
 
 public class WebhookListenerEntity {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_TECHNICAL_NAME = "technicalName";
+  @javax.annotation.Nullable
   private String technicalName;
 
   public WebhookListenerEntity() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public WebhookListenerEntity(
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
@@ -73,10 +76,10 @@ public class WebhookListenerEntity {
     this.technicalName = technicalName;
   }
 
-   /**
+  /**
    * The name used to identify the webhook listener entity.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -87,10 +90,10 @@ public class WebhookListenerEntity {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,10 +104,10 @@ public class WebhookListenerEntity {
 
 
 
-   /**
+  /**
    * The name used to programmatically identify the webhook listener entity.
    * @return technicalName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TECHNICAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

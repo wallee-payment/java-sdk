@@ -53,34 +53,42 @@ import java.util.StringJoiner;
 
 public class ConnectorInvocation {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIME_TOOK_IN_MILLISECONDS = "timeTookInMilliseconds";
+  @javax.annotation.Nullable
   private Long timeTookInMilliseconds;
 
   public static final String JSON_PROPERTY_STAGE = "stage";
+  @javax.annotation.Nullable
   private ConnectorInvocationStage stage;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Long transaction;
 
   public ConnectorInvocation() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ConnectorInvocation(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -101,10 +109,10 @@ public class ConnectorInvocation {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +123,10 @@ public class ConnectorInvocation {
 
 
 
-   /**
+  /**
    * The duration, in milliseconds, taken to execute the connector invocation.
    * @return timeTookInMilliseconds
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_TOOK_IN_MILLISECONDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,16 +137,16 @@ public class ConnectorInvocation {
 
 
 
-  public ConnectorInvocation stage(ConnectorInvocationStage stage) {
+  public ConnectorInvocation stage(@javax.annotation.Nullable ConnectorInvocationStage stage) {
     
     this.stage = stage;
     return this;
   }
 
-   /**
+  /**
    * Get stage
    * @return stage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,14 +158,14 @@ public class ConnectorInvocation {
 
   @JsonProperty(JSON_PROPERTY_STAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStage(ConnectorInvocationStage stage) {
+  public void setStage(@javax.annotation.Nullable ConnectorInvocationStage stage) {
     this.stage = stage;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -168,10 +176,10 @@ public class ConnectorInvocation {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -182,10 +190,10 @@ public class ConnectorInvocation {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,10 +204,10 @@ public class ConnectorInvocation {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -210,10 +218,10 @@ public class ConnectorInvocation {
 
 
 
-   /**
+  /**
    * The transaction that the connector invocation belongs to.
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

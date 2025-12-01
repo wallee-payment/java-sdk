@@ -45,16 +45,18 @@ import java.util.StringJoiner;
 
 public class LocalizedString {
   public static final String JSON_PROPERTY_STRING = "string";
+  @javax.annotation.Nullable
   private String string;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public LocalizedString() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LocalizedString(
     @JsonProperty(JSON_PROPERTY_STRING) String string, 
@@ -65,10 +67,10 @@ public class LocalizedString {
     this.language = language;
   }
 
-   /**
+  /**
    * The localized term.
    * @return string
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STRING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -79,10 +81,10 @@ public class LocalizedString {
 
 
 
-   /**
+  /**
    * The term&#39;s language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

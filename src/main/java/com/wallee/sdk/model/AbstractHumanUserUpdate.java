@@ -53,42 +53,50 @@ import java.util.StringJoiner;
 
 public class AbstractHumanUserUpdate {
   public static final String JSON_PROPERTY_MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
+  @javax.annotation.Nullable
   private String mobilePhoneNumber;
 
   public static final String JSON_PROPERTY_TWO_FACTOR_ENABLED = "twoFactorEnabled";
+  @javax.annotation.Nullable
   private Boolean twoFactorEnabled;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_FIRSTNAME = "firstname";
+  @javax.annotation.Nullable
   private String firstname;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_LASTNAME = "lastname";
+  @javax.annotation.Nullable
   private String lastname;
 
   public AbstractHumanUserUpdate() {
   }
 
-  public AbstractHumanUserUpdate mobilePhoneNumber(String mobilePhoneNumber) {
+  public AbstractHumanUserUpdate mobilePhoneNumber(@javax.annotation.Nullable String mobilePhoneNumber) {
     
     this.mobilePhoneNumber = mobilePhoneNumber;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s mobile phone number.
    * @return mobilePhoneNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,20 +108,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMobilePhoneNumber(String mobilePhoneNumber) {
+  public void setMobilePhoneNumber(@javax.annotation.Nullable String mobilePhoneNumber) {
     this.mobilePhoneNumber = mobilePhoneNumber;
   }
 
-  public AbstractHumanUserUpdate twoFactorEnabled(Boolean twoFactorEnabled) {
+  public AbstractHumanUserUpdate twoFactorEnabled(@javax.annotation.Nullable Boolean twoFactorEnabled) {
     
     this.twoFactorEnabled = twoFactorEnabled;
     return this;
   }
 
-   /**
+  /**
    * Whether two-factor authentication is enabled for this user.
    * @return twoFactorEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -125,20 +133,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoFactorEnabled(Boolean twoFactorEnabled) {
+  public void setTwoFactorEnabled(@javax.annotation.Nullable Boolean twoFactorEnabled) {
     this.twoFactorEnabled = twoFactorEnabled;
   }
 
-  public AbstractHumanUserUpdate emailAddress(String emailAddress) {
+  public AbstractHumanUserUpdate emailAddress(@javax.annotation.Nullable String emailAddress) {
     
     this.emailAddress = emailAddress;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s email address.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -150,20 +158,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmailAddress(String emailAddress) {
+  public void setEmailAddress(@javax.annotation.Nullable String emailAddress) {
     this.emailAddress = emailAddress;
   }
 
-  public AbstractHumanUserUpdate firstname(String firstname) {
+  public AbstractHumanUserUpdate firstname(@javax.annotation.Nullable String firstname) {
     
     this.firstname = firstname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s first name.
    * @return firstname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -175,20 +183,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFirstname(String firstname) {
+  public void setFirstname(@javax.annotation.Nullable String firstname) {
     this.firstname = firstname;
   }
 
-  public AbstractHumanUserUpdate timeZone(String timeZone) {
+  public AbstractHumanUserUpdate timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,20 +208,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public AbstractHumanUserUpdate language(String language) {
+  public AbstractHumanUserUpdate language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s preferred language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,20 +233,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractHumanUserUpdate state(CreationEntityState state) {
+  public AbstractHumanUserUpdate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,20 +258,20 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public AbstractHumanUserUpdate lastname(String lastname) {
+  public AbstractHumanUserUpdate lastname(@javax.annotation.Nullable String lastname) {
     
     this.lastname = lastname;
     return this;
   }
 
-   /**
+  /**
    * The user&#39;s last name.
    * @return lastname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,7 +283,7 @@ public class AbstractHumanUserUpdate {
 
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLastname(String lastname) {
+  public void setLastname(@javax.annotation.Nullable String lastname) {
     this.lastname = lastname;
   }
 

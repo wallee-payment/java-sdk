@@ -78,76 +78,98 @@ import java.util.StringJoiner;
 
 public class TransactionLineItemVersion {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_PROCESSING_ON = "processingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingOn;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_NEXT_UPDATE_ON = "nextUpdateOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextUpdateOn;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionLineItemVersionState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public TransactionLineItemVersion() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionLineItemVersion(
     @JsonProperty(JSON_PROPERTY_AMOUNT) BigDecimal amount, 
@@ -192,10 +214,10 @@ public class TransactionLineItemVersion {
     this.failedOn = failedOn;
   }
 
-   /**
+  /**
    * The total amount of the updated line items, including taxes.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,10 +228,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -220,10 +242,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the line item version was started.
    * @return processingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,10 +256,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,10 +270,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -262,10 +284,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -276,10 +298,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -290,10 +312,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -304,10 +326,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -318,10 +340,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The line items that replace the original line items in the transaction.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -332,10 +354,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -346,10 +368,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time by when the line item version is expected to be processed.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,10 +382,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The ID of the user the line item version was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -374,10 +396,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time when the next update of the line item version&#39;s state is planned.
    * @return nextUpdateOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_UPDATE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -388,16 +410,16 @@ public class TransactionLineItemVersion {
 
 
 
-  public TransactionLineItemVersion failureReason(FailureReason failureReason) {
+  public TransactionLineItemVersion failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -409,14 +431,14 @@ public class TransactionLineItemVersion {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * The date and time when the line item version was processed successfully.
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -427,10 +449,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -441,16 +463,16 @@ public class TransactionLineItemVersion {
 
 
 
-  public TransactionLineItemVersion state(TransactionLineItemVersionState state) {
+  public TransactionLineItemVersion state(@javax.annotation.Nullable TransactionLineItemVersionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -462,14 +484,14 @@ public class TransactionLineItemVersion {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionLineItemVersionState state) {
+  public void setState(@javax.annotation.Nullable TransactionLineItemVersionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -480,10 +502,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The portion of the total amount that corresponds to taxes.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -494,10 +516,10 @@ public class TransactionLineItemVersion {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the line item version failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -508,16 +530,16 @@ public class TransactionLineItemVersion {
 
 
 
-  public TransactionLineItemVersion transaction(Transaction transaction) {
+  public TransactionLineItemVersion transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -529,7 +551,7 @@ public class TransactionLineItemVersion {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 

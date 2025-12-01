@@ -57,39 +57,46 @@ import java.util.StringJoiner;
 
 public class ProductSetupFeeUpdate {
   public static final String JSON_PROPERTY_COMPONENT = "component";
+  @javax.annotation.Nullable
   private Long component;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_SETUP_FEE = "setupFee";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmountUpdate> setupFee = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ON_DOWNGRADE_CREDITED_AMOUNT = "onDowngradeCreditedAmount";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmountUpdate> onDowngradeCreditedAmount = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public static final String JSON_PROPERTY_ON_UPGRADE_CREDITED_AMOUNT = "onUpgradeCreditedAmount";
+  @javax.annotation.Nullable
   private Set<PersistableCurrencyAmountUpdate> onUpgradeCreditedAmount = new LinkedHashSet<>();
 
   public ProductSetupFeeUpdate() {
   }
 
-  public ProductSetupFeeUpdate component(Long component) {
+  public ProductSetupFeeUpdate component(@javax.annotation.Nullable Long component) {
     
     this.component = component;
     return this;
   }
 
-   /**
+  /**
    * The product component that the fee belongs to.
    * @return component
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,11 +108,11 @@ public class ProductSetupFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_COMPONENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setComponent(Long component) {
+  public void setComponent(@javax.annotation.Nullable Long component) {
     this.component = component;
   }
 
-  public ProductSetupFeeUpdate name(Map<String, String> name) {
+  public ProductSetupFeeUpdate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -119,10 +126,10 @@ public class ProductSetupFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized name of the fee that is displayed to the customer.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -134,11 +141,11 @@ public class ProductSetupFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public ProductSetupFeeUpdate description(Map<String, String> description) {
+  public ProductSetupFeeUpdate description(@javax.annotation.Nullable Map<String, String> description) {
     
     this.description = description;
     return this;
@@ -152,10 +159,10 @@ public class ProductSetupFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The localized description of the fee that is displayed to the customer.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -167,11 +174,11 @@ public class ProductSetupFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(Map<String, String> description) {
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
     this.description = description;
   }
 
-  public ProductSetupFeeUpdate setupFee(Set<PersistableCurrencyAmountUpdate> setupFee) {
+  public ProductSetupFeeUpdate setupFee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> setupFee) {
     
     this.setupFee = setupFee;
     return this;
@@ -185,10 +192,10 @@ public class ProductSetupFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The amount charged to the customer once when they subscribe to a subscription.
    * @return setupFee
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SETUP_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,11 +208,11 @@ public class ProductSetupFeeUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_SETUP_FEE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSetupFee(Set<PersistableCurrencyAmountUpdate> setupFee) {
+  public void setSetupFee(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> setupFee) {
     this.setupFee = setupFee;
   }
 
-  public ProductSetupFeeUpdate onDowngradeCreditedAmount(Set<PersistableCurrencyAmountUpdate> onDowngradeCreditedAmount) {
+  public ProductSetupFeeUpdate onDowngradeCreditedAmount(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> onDowngradeCreditedAmount) {
     
     this.onDowngradeCreditedAmount = onDowngradeCreditedAmount;
     return this;
@@ -219,10 +226,10 @@ public class ProductSetupFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The amount charged to the customer when a subscription is downgraded.
    * @return onDowngradeCreditedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_DOWNGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,20 +242,20 @@ public class ProductSetupFeeUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ON_DOWNGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOnDowngradeCreditedAmount(Set<PersistableCurrencyAmountUpdate> onDowngradeCreditedAmount) {
+  public void setOnDowngradeCreditedAmount(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> onDowngradeCreditedAmount) {
     this.onDowngradeCreditedAmount = onDowngradeCreditedAmount;
   }
 
-  public ProductSetupFeeUpdate version(Integer version) {
+  public ProductSetupFeeUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -260,11 +267,11 @@ public class ProductSetupFeeUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 
-  public ProductSetupFeeUpdate onUpgradeCreditedAmount(Set<PersistableCurrencyAmountUpdate> onUpgradeCreditedAmount) {
+  public ProductSetupFeeUpdate onUpgradeCreditedAmount(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> onUpgradeCreditedAmount) {
     
     this.onUpgradeCreditedAmount = onUpgradeCreditedAmount;
     return this;
@@ -278,10 +285,10 @@ public class ProductSetupFeeUpdate {
     return this;
   }
 
-   /**
+  /**
    * The amount charged to the customer when a subscription is upgraded.
    * @return onUpgradeCreditedAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ON_UPGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,7 +301,7 @@ public class ProductSetupFeeUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ON_UPGRADE_CREDITED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setOnUpgradeCreditedAmount(Set<PersistableCurrencyAmountUpdate> onUpgradeCreditedAmount) {
+  public void setOnUpgradeCreditedAmount(@javax.annotation.Nullable Set<PersistableCurrencyAmountUpdate> onUpgradeCreditedAmount) {
     this.onUpgradeCreditedAmount = onUpgradeCreditedAmount;
   }
 

@@ -55,40 +55,50 @@ import java.util.StringJoiner;
 
 public class CustomerComment {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PINNED = "pinned";
+  @javax.annotation.Nullable
   private Boolean pinned;
 
   public static final String JSON_PROPERTY_EDITED_BY = "editedBy";
+  @javax.annotation.Nullable
   private Long editedBy;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_EDITED_ON = "editedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime editedOn;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_CONTENT = "content";
+  @javax.annotation.Nullable
   private String content;
 
   public static final String JSON_PROPERTY_CUSTOMER = "customer";
+  @javax.annotation.Nullable
   private Customer customer;
 
   public CustomerComment() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public CustomerComment(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -113,10 +123,10 @@ public class CustomerComment {
     this.content = content;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -127,10 +137,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * Whether the comment is pinned to the top.
    * @return pinned
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PINNED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,10 +151,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The ID of the user the comment was last updated by.
    * @return editedBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EDITED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,10 +165,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The ID of the user the comment was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -169,10 +179,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,10 +193,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The date and time when the comment was last updated.
    * @return editedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EDITED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,10 +207,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,10 +221,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,10 +235,10 @@ public class CustomerComment {
 
 
 
-   /**
+  /**
    * The comment&#39;s actual content.
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -239,16 +249,16 @@ public class CustomerComment {
 
 
 
-  public CustomerComment customer(Customer customer) {
+  public CustomerComment customer(@javax.annotation.Nullable Customer customer) {
     
     this.customer = customer;
     return this;
   }
 
-   /**
+  /**
    * Get customer
    * @return customer
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -260,7 +270,7 @@ public class CustomerComment {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomer(Customer customer) {
+  public void setCustomer(@javax.annotation.Nullable Customer customer) {
     this.customer = customer;
   }
 

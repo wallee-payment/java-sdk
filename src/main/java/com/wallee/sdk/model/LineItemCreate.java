@@ -63,48 +63,58 @@ import java.util.StringJoiner;
 
 public class LineItemCreate {
   public static final String JSON_PROPERTY_SHIPPING_REQUIRED = "shippingRequired";
+  @javax.annotation.Nullable
   private Boolean shippingRequired;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nonnull
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nonnull
   private String name;
 
   public static final String JSON_PROPERTY_TAXES = "taxes";
+  @javax.annotation.Nullable
   private Set<TaxCreate> taxes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @javax.annotation.Nullable
   private Map<String, LineItemAttributeCreate> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
+  @javax.annotation.Nonnull
   private BigDecimal amountIncludingTax;
 
   public static final String JSON_PROPERTY_DISCOUNT_INCLUDING_TAX = "discountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal discountIncludingTax;
 
   public static final String JSON_PROPERTY_SKU = "sku";
+  @javax.annotation.Nullable
   private String sku;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private LineItemType type;
 
   public static final String JSON_PROPERTY_UNIQUE_ID = "uniqueId";
+  @javax.annotation.Nonnull
   private String uniqueId;
 
   public LineItemCreate() {
   }
 
-  public LineItemCreate shippingRequired(Boolean shippingRequired) {
+  public LineItemCreate shippingRequired(@javax.annotation.Nullable Boolean shippingRequired) {
     
     this.shippingRequired = shippingRequired;
     return this;
   }
 
-   /**
+  /**
    * Whether the item required shipping.
    * @return shippingRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,20 +126,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingRequired(Boolean shippingRequired) {
+  public void setShippingRequired(@javax.annotation.Nullable Boolean shippingRequired) {
     this.shippingRequired = shippingRequired;
   }
 
-  public LineItemCreate quantity(BigDecimal quantity) {
+  public LineItemCreate quantity(@javax.annotation.Nonnull BigDecimal quantity) {
     
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * The number of items that were purchased.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -141,20 +151,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuantity(BigDecimal quantity) {
+  public void setQuantity(@javax.annotation.Nonnull BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public LineItemCreate name(String name) {
+  public LineItemCreate name(@javax.annotation.Nonnull String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the product, ideally in the customer&#39;s language.
    * @return name
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -166,11 +176,11 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
   }
 
-  public LineItemCreate taxes(Set<TaxCreate> taxes) {
+  public LineItemCreate taxes(@javax.annotation.Nullable Set<TaxCreate> taxes) {
     
     this.taxes = taxes;
     return this;
@@ -184,10 +194,10 @@ public class LineItemCreate {
     return this;
   }
 
-   /**
+  /**
    * A set of tax lines, each of which specifies a tax applied to the item.
    * @return taxes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,11 +210,11 @@ public class LineItemCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTaxes(Set<TaxCreate> taxes) {
+  public void setTaxes(@javax.annotation.Nullable Set<TaxCreate> taxes) {
     this.taxes = taxes;
   }
 
-  public LineItemCreate attributes(Map<String, LineItemAttributeCreate> attributes) {
+  public LineItemCreate attributes(@javax.annotation.Nullable Map<String, LineItemAttributeCreate> attributes) {
     
     this.attributes = attributes;
     return this;
@@ -218,10 +228,10 @@ public class LineItemCreate {
     return this;
   }
 
-   /**
+  /**
    * A map of custom information for the item.
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,20 +243,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAttributes(Map<String, LineItemAttributeCreate> attributes) {
+  public void setAttributes(@javax.annotation.Nullable Map<String, LineItemAttributeCreate> attributes) {
     this.attributes = attributes;
   }
 
-  public LineItemCreate amountIncludingTax(BigDecimal amountIncludingTax) {
+  public LineItemCreate amountIncludingTax(@javax.annotation.Nonnull BigDecimal amountIncludingTax) {
     
     this.amountIncludingTax = amountIncludingTax;
     return this;
   }
 
-   /**
+  /**
    * The line item price with discounts applied, including taxes.
    * @return amountIncludingTax
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -258,20 +268,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAmountIncludingTax(BigDecimal amountIncludingTax) {
+  public void setAmountIncludingTax(@javax.annotation.Nonnull BigDecimal amountIncludingTax) {
     this.amountIncludingTax = amountIncludingTax;
   }
 
-  public LineItemCreate discountIncludingTax(BigDecimal discountIncludingTax) {
+  public LineItemCreate discountIncludingTax(@javax.annotation.Nullable BigDecimal discountIncludingTax) {
     
     this.discountIncludingTax = discountIncludingTax;
     return this;
   }
 
-   /**
+  /**
    * The discount allocated to the item, including taxes.
    * @return discountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -283,20 +293,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_DISCOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDiscountIncludingTax(BigDecimal discountIncludingTax) {
+  public void setDiscountIncludingTax(@javax.annotation.Nullable BigDecimal discountIncludingTax) {
     this.discountIncludingTax = discountIncludingTax;
   }
 
-  public LineItemCreate sku(String sku) {
+  public LineItemCreate sku(@javax.annotation.Nullable String sku) {
     
     this.sku = sku;
     return this;
   }
 
-   /**
+  /**
    * The SKU (stock-keeping unit) of the product.
    * @return sku
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,20 +318,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSku(String sku) {
+  public void setSku(@javax.annotation.Nullable String sku) {
     this.sku = sku;
   }
 
-  public LineItemCreate type(LineItemType type) {
+  public LineItemCreate type(@javax.annotation.Nonnull LineItemType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -333,20 +343,20 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(LineItemType type) {
+  public void setType(@javax.annotation.Nonnull LineItemType type) {
     this.type = type;
   }
 
-  public LineItemCreate uniqueId(String uniqueId) {
+  public LineItemCreate uniqueId(@javax.annotation.Nonnull String uniqueId) {
     
     this.uniqueId = uniqueId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the line item within the set of line items.
    * @return uniqueId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -358,7 +368,7 @@ public class LineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUniqueId(String uniqueId) {
+  public void setUniqueId(@javax.annotation.Nonnull String uniqueId) {
     this.uniqueId = uniqueId;
   }
 

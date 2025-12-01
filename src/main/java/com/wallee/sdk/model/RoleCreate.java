@@ -54,21 +54,25 @@ import java.util.StringJoiner;
 
 public class RoleCreate {
   public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+  @javax.annotation.Nullable
   private Set<Permission> permissions = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
+  @javax.annotation.Nullable
   private Boolean twoFactorRequired;
 
   public static final String JSON_PROPERTY_ACCOUNT = "account";
+  @javax.annotation.Nonnull
   private Long account;
 
   public RoleCreate() {
   }
 
-  public RoleCreate permissions(Set<Permission> permissions) {
+  public RoleCreate permissions(@javax.annotation.Nullable Set<Permission> permissions) {
     
     this.permissions = permissions;
     return this;
@@ -82,10 +86,10 @@ public class RoleCreate {
     return this;
   }
 
-   /**
+  /**
    * The permissions granted to users with this role.
    * @return permissions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,11 +102,11 @@ public class RoleCreate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_PERMISSIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPermissions(Set<Permission> permissions) {
+  public void setPermissions(@javax.annotation.Nullable Set<Permission> permissions) {
     this.permissions = permissions;
   }
 
-  public RoleCreate name(Map<String, String> name) {
+  public RoleCreate name(@javax.annotation.Nullable Map<String, String> name) {
     
     this.name = name;
     return this;
@@ -116,10 +120,10 @@ public class RoleCreate {
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the role.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,20 +135,20 @@ public class RoleCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(Map<String, String> name) {
+  public void setName(@javax.annotation.Nullable Map<String, String> name) {
     this.name = name;
   }
 
-  public RoleCreate twoFactorRequired(Boolean twoFactorRequired) {
+  public RoleCreate twoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     
     this.twoFactorRequired = twoFactorRequired;
     return this;
   }
 
-   /**
+  /**
    * Whether users with this role are required to use two-factor authentication.
    * @return twoFactorRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -156,20 +160,20 @@ public class RoleCreate {
 
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoFactorRequired(Boolean twoFactorRequired) {
+  public void setTwoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     this.twoFactorRequired = twoFactorRequired;
   }
 
-  public RoleCreate account(Long account) {
+  public RoleCreate account(@javax.annotation.Nonnull Long account) {
     
     this.account = account;
     return this;
   }
 
-   /**
+  /**
    * The account the role belongs to. The role can only be assigned within this account.
    * @return account
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -181,7 +185,7 @@ public class RoleCreate {
 
   @JsonProperty(JSON_PROPERTY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAccount(Long account) {
+  public void setAccount(@javax.annotation.Nonnull Long account) {
     this.account = account;
   }
 

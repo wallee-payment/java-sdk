@@ -53,34 +53,42 @@ import java.util.StringJoiner;
 
 public class TransactionGroup {
   public static final String JSON_PROPERTY_BEGIN_DATE = "beginDate";
+  @javax.annotation.Nullable
   private OffsetDateTime beginDate;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_END_DATE = "endDate";
+  @javax.annotation.Nullable
   private OffsetDateTime endDate;
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
+  @javax.annotation.Nullable
   private String customerId;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionGroupState state;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public TransactionGroup() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionGroup(
     @JsonProperty(JSON_PROPERTY_BEGIN_DATE) OffsetDateTime beginDate, 
@@ -101,10 +109,10 @@ public class TransactionGroup {
     this.version = version;
   }
 
-   /**
+  /**
    * The date and time when the initial transaction in the group was created.
    * @return beginDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BEGIN_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -115,10 +123,10 @@ public class TransactionGroup {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,10 +137,10 @@ public class TransactionGroup {
 
 
 
-   /**
+  /**
    * The date and time when the final transaction in the group was last updated.
    * @return endDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +151,10 @@ public class TransactionGroup {
 
 
 
-   /**
+  /**
    * The unique identifier of the customer in the external system.
    * @return customerId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +165,10 @@ public class TransactionGroup {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +179,10 @@ public class TransactionGroup {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,16 +193,16 @@ public class TransactionGroup {
 
 
 
-  public TransactionGroup state(TransactionGroupState state) {
+  public TransactionGroup state(@javax.annotation.Nullable TransactionGroupState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -206,14 +214,14 @@ public class TransactionGroup {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionGroupState state) {
+  public void setState(@javax.annotation.Nullable TransactionGroupState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

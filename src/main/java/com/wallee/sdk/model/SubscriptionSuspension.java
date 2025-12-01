@@ -62,52 +62,66 @@ import java.util.StringJoiner;
 
 public class SubscriptionSuspension {
   public static final String JSON_PROPERTY_EFFECTIVE_END_DATE = "effectiveEndDate";
+  @javax.annotation.Nullable
   private OffsetDateTime effectiveEndDate;
 
   public static final String JSON_PROPERTY_NOTE = "note";
+  @javax.annotation.Nullable
   private String note;
 
   public static final String JSON_PROPERTY_REASON = "reason";
+  @javax.annotation.Nullable
   private SubscriptionSuspensionReason reason;
 
   public static final String JSON_PROPERTY_PERIOD_BILL = "periodBill";
+  @javax.annotation.Nullable
   private Long periodBill;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nullable
   private Subscription subscription;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_PLANNED_END_DATE = "plannedEndDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedEndDate;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_END_ACTION = "endAction";
+  @javax.annotation.Nullable
   private SubscriptionSuspensionAction endAction;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionSuspensionState state;
 
   public SubscriptionSuspension() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionSuspension(
     @JsonProperty(JSON_PROPERTY_EFFECTIVE_END_DATE) OffsetDateTime effectiveEndDate, 
@@ -134,10 +148,10 @@ public class SubscriptionSuspension {
     this.id = id;
   }
 
-   /**
+  /**
    * The date and time when the suspension ended.
    * @return effectiveEndDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EFFECTIVE_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -148,10 +162,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * A note that contains details about the suspension. It is not disclosed to the subscriber.
    * @return note
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NOTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,16 +176,16 @@ public class SubscriptionSuspension {
 
 
 
-  public SubscriptionSuspension reason(SubscriptionSuspensionReason reason) {
+  public SubscriptionSuspension reason(@javax.annotation.Nullable SubscriptionSuspensionReason reason) {
     
     this.reason = reason;
     return this;
   }
 
-   /**
+  /**
    * Get reason
    * @return reason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,14 +197,14 @@ public class SubscriptionSuspension {
 
   @JsonProperty(JSON_PROPERTY_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReason(SubscriptionSuspensionReason reason) {
+  public void setReason(@javax.annotation.Nullable SubscriptionSuspensionReason reason) {
     this.reason = reason;
   }
 
-   /**
+  /**
    * The period bill that led to the suspension of the subscription.
    * @return periodBill
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD_BILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -201,10 +215,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -215,10 +229,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,16 +243,16 @@ public class SubscriptionSuspension {
 
 
 
-  public SubscriptionSuspension subscription(Subscription subscription) {
+  public SubscriptionSuspension subscription(@javax.annotation.Nullable Subscription subscription) {
     
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * Get subscription
    * @return subscription
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -250,14 +264,14 @@ public class SubscriptionSuspension {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscription(Subscription subscription) {
+  public void setSubscription(@javax.annotation.Nullable Subscription subscription) {
     this.subscription = subscription;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -268,10 +282,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -282,10 +296,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * The date and time when the suspension is planned to end.
    * @return plannedEndDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -296,10 +310,10 @@ public class SubscriptionSuspension {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -310,16 +324,16 @@ public class SubscriptionSuspension {
 
 
 
-  public SubscriptionSuspension endAction(SubscriptionSuspensionAction endAction) {
+  public SubscriptionSuspension endAction(@javax.annotation.Nullable SubscriptionSuspensionAction endAction) {
     
     this.endAction = endAction;
     return this;
   }
 
-   /**
+  /**
    * Get endAction
    * @return endAction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -331,14 +345,14 @@ public class SubscriptionSuspension {
 
   @JsonProperty(JSON_PROPERTY_END_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndAction(SubscriptionSuspensionAction endAction) {
+  public void setEndAction(@javax.annotation.Nullable SubscriptionSuspensionAction endAction) {
     this.endAction = endAction;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -349,16 +363,16 @@ public class SubscriptionSuspension {
 
 
 
-  public SubscriptionSuspension state(SubscriptionSuspensionState state) {
+  public SubscriptionSuspension state(@javax.annotation.Nullable SubscriptionSuspensionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -370,7 +384,7 @@ public class SubscriptionSuspension {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionSuspensionState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionSuspensionState state) {
     this.state = state;
   }
 

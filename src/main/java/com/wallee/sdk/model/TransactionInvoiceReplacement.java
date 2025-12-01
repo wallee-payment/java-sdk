@@ -55,27 +55,33 @@ import java.util.StringJoiner;
 
 public class TransactionInvoiceReplacement {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nonnull
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_DUE_ON = "dueOn";
+  @javax.annotation.Nullable
   private OffsetDateTime dueOn;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private AddressCreate billingAddress;
 
   public static final String JSON_PROPERTY_SENT_TO_CUSTOMER = "sentToCustomer";
+  @javax.annotation.Nullable
   private Boolean sentToCustomer;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public TransactionInvoiceReplacement() {
   }
 
-  public TransactionInvoiceReplacement lineItems(List<LineItemCreate> lineItems) {
+  public TransactionInvoiceReplacement lineItems(@javax.annotation.Nonnull List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -89,10 +95,10 @@ public class TransactionInvoiceReplacement {
     return this;
   }
 
-   /**
+  /**
    * The invoiced line items that will appear on the invoice document.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -104,20 +110,20 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nonnull List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public TransactionInvoiceReplacement dueOn(OffsetDateTime dueOn) {
+  public TransactionInvoiceReplacement dueOn(@javax.annotation.Nullable OffsetDateTime dueOn) {
     
     this.dueOn = dueOn;
     return this;
   }
 
-   /**
+  /**
    * The due date for payment of the invoice.
    * @return dueOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DUE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,20 +135,20 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_DUE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDueOn(OffsetDateTime dueOn) {
+  public void setDueOn(@javax.annotation.Nullable OffsetDateTime dueOn) {
     this.dueOn = dueOn;
   }
 
-  public TransactionInvoiceReplacement externalId(String externalId) {
+  public TransactionInvoiceReplacement externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -154,20 +160,20 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public TransactionInvoiceReplacement billingAddress(AddressCreate billingAddress) {
+  public TransactionInvoiceReplacement billingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,20 +185,20 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(AddressCreate billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public TransactionInvoiceReplacement sentToCustomer(Boolean sentToCustomer) {
+  public TransactionInvoiceReplacement sentToCustomer(@javax.annotation.Nullable Boolean sentToCustomer) {
     
     this.sentToCustomer = sentToCustomer;
     return this;
   }
 
-   /**
+  /**
    * Whether the invoice will be sent to the customer via email.
    * @return sentToCustomer
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SENT_TO_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -204,20 +210,20 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_SENT_TO_CUSTOMER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSentToCustomer(Boolean sentToCustomer) {
+  public void setSentToCustomer(@javax.annotation.Nullable Boolean sentToCustomer) {
     this.sentToCustomer = sentToCustomer;
   }
 
-  public TransactionInvoiceReplacement merchantReference(String merchantReference) {
+  public TransactionInvoiceReplacement merchantReference(@javax.annotation.Nullable String merchantReference) {
     
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -229,7 +235,7 @@ public class TransactionInvoiceReplacement {
 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMerchantReference(String merchantReference) {
+  public void setMerchantReference(@javax.annotation.Nullable String merchantReference) {
     this.merchantReference = merchantReference;
   }
 

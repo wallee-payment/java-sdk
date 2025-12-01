@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class ManualTaskAction {
   public static final String JSON_PROPERTY_TASK_TYPE = "taskType";
+  @javax.annotation.Nullable
   private Long taskType;
 
   public static final String JSON_PROPERTY_STYLE = "style";
+  @javax.annotation.Nullable
   private ManualTaskActionStyle style;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_LABEL = "label";
+  @javax.annotation.Nullable
   private Map<String, String> label = new HashMap<>();
 
   public ManualTaskAction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ManualTaskAction(
     @JsonProperty(JSON_PROPERTY_TASK_TYPE) Long taskType, 
@@ -78,10 +82,10 @@ public class ManualTaskAction {
     this.label = label;
   }
 
-   /**
+  /**
    * The type of manual tasks this action belongs to.
    * @return taskType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TASK_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,16 +96,16 @@ public class ManualTaskAction {
 
 
 
-  public ManualTaskAction style(ManualTaskActionStyle style) {
+  public ManualTaskAction style(@javax.annotation.Nullable ManualTaskActionStyle style) {
     
     this.style = style;
     return this;
   }
 
-   /**
+  /**
    * Get style
    * @return style
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -113,14 +117,14 @@ public class ManualTaskAction {
 
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStyle(ManualTaskActionStyle style) {
+  public void setStyle(@javax.annotation.Nullable ManualTaskActionStyle style) {
     this.style = style;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,10 +135,10 @@ public class ManualTaskAction {
 
 
 
-   /**
+  /**
    * The action&#39;s label.
    * @return label
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

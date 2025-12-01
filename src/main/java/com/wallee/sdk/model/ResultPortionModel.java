@@ -50,22 +50,26 @@ import java.util.StringJoiner;
 
 public class ResultPortionModel {
   public static final String JSON_PROPERTY_OFFSET = "offset";
+  @javax.annotation.Nullable
   private Integer offset;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
+  @javax.annotation.Nullable
   private Integer limit;
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
+  @javax.annotation.Nullable
   private Long totalCount;
 
   public static final String JSON_PROPERTY_ITEMS = "items";
+  @javax.annotation.Nullable
   private List<Object> items = new ArrayList<>();
 
   public ResultPortionModel() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ResultPortionModel(
     @JsonProperty(JSON_PROPERTY_OFFSET) Integer offset, 
@@ -80,10 +84,10 @@ public class ResultPortionModel {
     this.items = items;
   }
 
-   /**
+  /**
    * 0-based offset of items.
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -94,10 +98,10 @@ public class ResultPortionModel {
 
 
 
-   /**
+  /**
    * Amount of items in portion.
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,10 +112,10 @@ public class ResultPortionModel {
 
 
 
-   /**
+  /**
    * Total count of items.
    * @return totalCount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,10 +126,10 @@ public class ResultPortionModel {
 
 
 
-   /**
+  /**
    * Items of the result portion.
    * @return items
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

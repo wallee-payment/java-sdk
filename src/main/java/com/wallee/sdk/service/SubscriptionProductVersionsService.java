@@ -38,6 +38,7 @@ import com.wallee.sdk.model.SubscriptionProductVersionPending;
 import com.wallee.sdk.model.SubscriptionProductVersionRetirement;
 import com.wallee.sdk.model.SubscriptionProductVersionRetirementRequest;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -68,7 +69,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersions">List all product versions Documentation</a>
    */
-  public ProductVersionListResponse getSubscriptionsProductsVersions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public ProductVersionListResponse getSubscriptionsProductsVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getSubscriptionsProductsVersions(space, after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -89,7 +90,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersions">List all product versions Documentation</a>
    */
-  public ProductVersionListResponse getSubscriptionsProductsVersions(Long space, Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductVersionListResponse getSubscriptionsProductsVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -145,8 +146,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -162,7 +163,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersionsId">Retrieve a product version Documentation</a>
    */
-  public SubscriptionProductVersion getSubscriptionsProductsVersionsId(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionProductVersion getSubscriptionsProductsVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getSubscriptionsProductsVersionsId(id, space, expand, Collections.emptyMap());
   }
 
@@ -180,7 +181,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersionsId">Retrieve a product version Documentation</a>
    */
-  public SubscriptionProductVersion getSubscriptionsProductsVersionsId(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductVersion getSubscriptionsProductsVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -195,7 +196,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/versions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -238,8 +239,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -258,7 +259,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersionsSearch">Search product versions Documentation</a>
    */
-  public ProductVersionSearchResponse getSubscriptionsProductsVersionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public ProductVersionSearchResponse getSubscriptionsProductsVersionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getSubscriptionsProductsVersionsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -279,7 +280,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getSubscriptionsProductsVersionsSearch">Search product versions Documentation</a>
    */
-  public ProductVersionSearchResponse getSubscriptionsProductsVersionsSearch(Long space, Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public ProductVersionSearchResponse getSubscriptionsProductsVersionsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'space' is set
@@ -335,8 +336,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -353,7 +354,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsVersionsId">Update a product version Documentation</a>
    */
-  public SubscriptionProductVersion patchSubscriptionsProductsVersionsId(Long id, Long space, SubscriptionProductVersionPending subscriptionProductVersionPending, Set<String> expand) throws ApiException {
+  public SubscriptionProductVersion patchSubscriptionsProductsVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionPending subscriptionProductVersionPending, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchSubscriptionsProductsVersionsId(id, space, subscriptionProductVersionPending, expand, Collections.emptyMap());
   }
 
@@ -372,7 +373,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchSubscriptionsProductsVersionsId">Update a product version Documentation</a>
    */
-  public SubscriptionProductVersion patchSubscriptionsProductsVersionsId(Long id, Long space, SubscriptionProductVersionPending subscriptionProductVersionPending, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductVersion patchSubscriptionsProductsVersionsId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionPending subscriptionProductVersionPending, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionProductVersionPending;
     
     // verify the required parameter 'id' is set
@@ -392,7 +393,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/versions/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -435,8 +436,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -452,7 +453,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersions">Create a product version Documentation</a>
    */
-  public SubscriptionProductVersion postSubscriptionsProductsVersions(Long space, SubscriptionProductVersionPending subscriptionProductVersionPending, Set<String> expand) throws ApiException {
+  public SubscriptionProductVersion postSubscriptionsProductsVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionPending subscriptionProductVersionPending, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsProductsVersions(space, subscriptionProductVersionPending, expand, Collections.emptyMap());
   }
 
@@ -470,7 +471,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersions">Create a product version Documentation</a>
    */
-  public SubscriptionProductVersion postSubscriptionsProductsVersions(Long space, SubscriptionProductVersionPending subscriptionProductVersionPending, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductVersion postSubscriptionsProductsVersions(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionPending subscriptionProductVersionPending, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionProductVersionPending;
     
     // verify the required parameter 'space' is set
@@ -527,8 +528,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -544,7 +545,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersionsIdActivate">Activate a product version Documentation</a>
    */
-  public SubscriptionProductVersion postSubscriptionsProductsVersionsIdActivate(Long id, Long space, Set<String> expand) throws ApiException {
+  public SubscriptionProductVersion postSubscriptionsProductsVersionsIdActivate(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsProductsVersionsIdActivate(id, space, expand, Collections.emptyMap());
   }
 
@@ -562,7 +563,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersionsIdActivate">Activate a product version Documentation</a>
    */
-  public SubscriptionProductVersion postSubscriptionsProductsVersionsIdActivate(Long id, Long space, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductVersion postSubscriptionsProductsVersionsIdActivate(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -577,7 +578,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/versions/{id}/activate"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -620,8 +621,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -638,7 +639,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersionsIdRetire">Retire a product version Documentation</a>
    */
-  public SubscriptionProductVersionRetirement postSubscriptionsProductsVersionsIdRetire(Long id, Long space, SubscriptionProductVersionRetirementRequest subscriptionProductVersionRetirementRequest, Set<String> expand) throws ApiException {
+  public SubscriptionProductVersionRetirement postSubscriptionsProductsVersionsIdRetire(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionRetirementRequest subscriptionProductVersionRetirementRequest, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postSubscriptionsProductsVersionsIdRetire(id, space, subscriptionProductVersionRetirementRequest, expand, Collections.emptyMap());
   }
 
@@ -657,7 +658,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSubscriptionsProductsVersionsIdRetire">Retire a product version Documentation</a>
    */
-  public SubscriptionProductVersionRetirement postSubscriptionsProductsVersionsIdRetire(Long id, Long space, SubscriptionProductVersionRetirementRequest subscriptionProductVersionRetirementRequest, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public SubscriptionProductVersionRetirement postSubscriptionsProductsVersionsIdRetire(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull SubscriptionProductVersionRetirementRequest subscriptionProductVersionRetirementRequest, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = subscriptionProductVersionRetirementRequest;
     
     // verify the required parameter 'id' is set
@@ -677,7 +678,7 @@ public class SubscriptionProductVersionsService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/subscriptions/products/versions/{id}/retire"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -720,8 +721,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -761,8 +762,8 @@ public class SubscriptionProductVersionsService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 

@@ -49,22 +49,26 @@ import java.util.StringJoiner;
 
 public class TokenizedCardData {
   public static final String JSON_PROPERTY_INITIAL_RECURRING_TRANSACTION = "initialRecurringTransaction";
+  @javax.annotation.Nullable
   private Boolean initialRecurringTransaction;
 
   public static final String JSON_PROPERTY_RECURRING_INDICATOR = "recurringIndicator";
+  @javax.annotation.Nullable
   private RecurringIndicator recurringIndicator;
 
   public static final String JSON_PROPERTY_TOKEN_REQUESTOR_ID = "tokenRequestorId";
+  @javax.annotation.Nullable
   private String tokenRequestorId;
 
   public static final String JSON_PROPERTY_CRYPTOGRAM = "cryptogram";
+  @javax.annotation.Nullable
   private CardCryptogram cryptogram;
 
   public TokenizedCardData() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TokenizedCardData(
     @JsonProperty(JSON_PROPERTY_INITIAL_RECURRING_TRANSACTION) Boolean initialRecurringTransaction, 
@@ -75,10 +79,10 @@ public class TokenizedCardData {
     this.tokenRequestorId = tokenRequestorId;
   }
 
-   /**
+  /**
    * Whether the transaction is an initial recurring transaction, based on the recurring indicator. This is used to identify the first transaction in a recurring payment setup.
    * @return initialRecurringTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIAL_RECURRING_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -89,16 +93,16 @@ public class TokenizedCardData {
 
 
 
-  public TokenizedCardData recurringIndicator(RecurringIndicator recurringIndicator) {
+  public TokenizedCardData recurringIndicator(@javax.annotation.Nullable RecurringIndicator recurringIndicator) {
     
     this.recurringIndicator = recurringIndicator;
     return this;
   }
 
-   /**
+  /**
    * Get recurringIndicator
    * @return recurringIndicator
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,14 +114,14 @@ public class TokenizedCardData {
 
   @JsonProperty(JSON_PROPERTY_RECURRING_INDICATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRecurringIndicator(RecurringIndicator recurringIndicator) {
+  public void setRecurringIndicator(@javax.annotation.Nullable RecurringIndicator recurringIndicator) {
     this.recurringIndicator = recurringIndicator;
   }
 
-   /**
+  /**
    * The token requestor identifier (TRID) identifies the entity requesting tokenization for a card transaction.
    * @return tokenRequestorId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_REQUESTOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,16 +132,16 @@ public class TokenizedCardData {
 
 
 
-  public TokenizedCardData cryptogram(CardCryptogram cryptogram) {
+  public TokenizedCardData cryptogram(@javax.annotation.Nullable CardCryptogram cryptogram) {
     
     this.cryptogram = cryptogram;
     return this;
   }
 
-   /**
+  /**
    * Get cryptogram
    * @return cryptogram
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -149,7 +153,7 @@ public class TokenizedCardData {
 
   @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCryptogram(CardCryptogram cryptogram) {
+  public void setCryptogram(@javax.annotation.Nullable CardCryptogram cryptogram) {
     this.cryptogram = cryptogram;
   }
 

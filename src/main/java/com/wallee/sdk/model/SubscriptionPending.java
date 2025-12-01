@@ -52,39 +52,46 @@ import java.util.StringJoiner;
 
 public class SubscriptionPending {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
   private String description;
 
   public static final String JSON_PROPERTY_PLANNED_TERMINATION_DATE = "plannedTerminationDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedTerminationDate;
 
   public static final String JSON_PROPERTY_AFFILIATE = "affiliate";
+  @javax.annotation.Nullable
   private Long affiliate;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_SUBSCRIBER = "subscriber";
+  @javax.annotation.Nullable
   private Long subscriber;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
+  @javax.annotation.Nullable
   private Long token;
 
   public SubscriptionPending() {
   }
 
-  public SubscriptionPending description(String description) {
+  public SubscriptionPending description(@javax.annotation.Nullable String description) {
     
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * A description used to identify the subscription.
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -96,20 +103,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDescription(String description) {
+  public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
   }
 
-  public SubscriptionPending plannedTerminationDate(OffsetDateTime plannedTerminationDate) {
+  public SubscriptionPending plannedTerminationDate(@javax.annotation.Nullable OffsetDateTime plannedTerminationDate) {
     
     this.plannedTerminationDate = plannedTerminationDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the subscription is planned to be terminated.
    * @return plannedTerminationDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_TERMINATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -121,20 +128,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_PLANNED_TERMINATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlannedTerminationDate(OffsetDateTime plannedTerminationDate) {
+  public void setPlannedTerminationDate(@javax.annotation.Nullable OffsetDateTime plannedTerminationDate) {
     this.plannedTerminationDate = plannedTerminationDate;
   }
 
-  public SubscriptionPending affiliate(Long affiliate) {
+  public SubscriptionPending affiliate(@javax.annotation.Nullable Long affiliate) {
     
     this.affiliate = affiliate;
     return this;
   }
 
-   /**
+  /**
    * The affiliate that led to the creation of the subscription.
    * @return affiliate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,20 +153,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_AFFILIATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAffiliate(Long affiliate) {
+  public void setAffiliate(@javax.annotation.Nullable Long affiliate) {
     this.affiliate = affiliate;
   }
 
-  public SubscriptionPending version(Integer version) {
+  public SubscriptionPending version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -171,20 +178,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 
-  public SubscriptionPending reference(String reference) {
+  public SubscriptionPending reference(@javax.annotation.Nullable String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the subscription.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -196,20 +203,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
-  public SubscriptionPending subscriber(Long subscriber) {
+  public SubscriptionPending subscriber(@javax.annotation.Nullable Long subscriber) {
     
     this.subscriber = subscriber;
     return this;
   }
 
-   /**
+  /**
    * The subscriber that the subscription belongs to.
    * @return subscriber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -221,20 +228,20 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscriber(Long subscriber) {
+  public void setSubscriber(@javax.annotation.Nullable Long subscriber) {
     this.subscriber = subscriber;
   }
 
-  public SubscriptionPending token(Long token) {
+  public SubscriptionPending token(@javax.annotation.Nullable Long token) {
     
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * The payment token that is used to charge the customer.
    * @return token
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -246,7 +253,7 @@ public class SubscriptionPending {
 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToken(Long token) {
+  public void setToken(@javax.annotation.Nullable Long token) {
     this.token = token;
   }
 

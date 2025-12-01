@@ -50,31 +50,38 @@ import java.util.StringJoiner;
 
 public class RestLanguage {
   public static final String JSON_PROPERTY_PRIMARY_OF_GROUP = "primaryOfGroup";
+  @javax.annotation.Nullable
   private Boolean primaryOfGroup;
 
   public static final String JSON_PROPERTY_COUNTRY_CODE = "countryCode";
+  @javax.annotation.Nullable
   private String countryCode;
 
   public static final String JSON_PROPERTY_ISO2_CODE = "iso2Code";
+  @javax.annotation.Nullable
   private String iso2Code;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_IETF_CODE = "ietfCode";
+  @javax.annotation.Nullable
   private String ietfCode;
 
   public static final String JSON_PROPERTY_ISO3_CODE = "iso3Code";
+  @javax.annotation.Nullable
   private String iso3Code;
 
   public static final String JSON_PROPERTY_PLURAL_EXPRESSION = "pluralExpression";
+  @javax.annotation.Nullable
   private String pluralExpression;
 
   public RestLanguage() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestLanguage(
     @JsonProperty(JSON_PROPERTY_PRIMARY_OF_GROUP) Boolean primaryOfGroup, 
@@ -95,10 +102,10 @@ public class RestLanguage {
     this.pluralExpression = pluralExpression;
   }
 
-   /**
+  /**
    * Whether this is the primary language in a group of languages.
    * @return primaryOfGroup
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_OF_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -109,10 +116,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The two-letter code of the language&#39;s region (ISO 3166-1 alpha-2 format).
    * @return countryCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -123,10 +130,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The language&#39;s two-letter code (ISO 639-1 format).
    * @return iso2Code
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ISO2_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -137,10 +144,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The name of the language.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -151,10 +158,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The language&#39;s IETF tag consisting of the two-letter ISO code and region e.g. en-US, de-CH.
    * @return ietfCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IETF_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,10 +172,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The language&#39;s three-letter code (ISO 639-2/T format).
    * @return iso3Code
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ISO3_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -179,10 +186,10 @@ public class RestLanguage {
 
 
 
-   /**
+  /**
    * The expression to determine the plural index for a given number of items used to find the proper plural form for translations.
    * @return pluralExpression
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLURAL_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -45,24 +45,26 @@ import java.util.StringJoiner;
 
 public class SubscriptionProductRetirementRequest {
   public static final String JSON_PROPERTY_RESPECT_TERMINATION_PERIODS = "respectTerminationPeriods";
+  @javax.annotation.Nullable
   private Boolean respectTerminationPeriods;
 
   public static final String JSON_PROPERTY_TARGET_PRODUCT = "targetProduct";
+  @javax.annotation.Nullable
   private Long targetProduct;
 
   public SubscriptionProductRetirementRequest() {
   }
 
-  public SubscriptionProductRetirementRequest respectTerminationPeriods(Boolean respectTerminationPeriods) {
+  public SubscriptionProductRetirementRequest respectTerminationPeriods(@javax.annotation.Nullable Boolean respectTerminationPeriods) {
     
     this.respectTerminationPeriods = respectTerminationPeriods;
     return this;
   }
 
-   /**
+  /**
    * Whether the subscriptions&#39; termination periods should be respected.
    * @return respectTerminationPeriods
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESPECT_TERMINATION_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -74,20 +76,20 @@ public class SubscriptionProductRetirementRequest {
 
   @JsonProperty(JSON_PROPERTY_RESPECT_TERMINATION_PERIODS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRespectTerminationPeriods(Boolean respectTerminationPeriods) {
+  public void setRespectTerminationPeriods(@javax.annotation.Nullable Boolean respectTerminationPeriods) {
     this.respectTerminationPeriods = respectTerminationPeriods;
   }
 
-  public SubscriptionProductRetirementRequest targetProduct(Long targetProduct) {
+  public SubscriptionProductRetirementRequest targetProduct(@javax.annotation.Nullable Long targetProduct) {
     
     this.targetProduct = targetProduct;
     return this;
   }
 
-   /**
+  /**
    * The product to which the subscriptions with the retiring product are to be migrated. If none is defined, the subscriptions are terminated.
    * @return targetProduct
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,7 +101,7 @@ public class SubscriptionProductRetirementRequest {
 
   @JsonProperty(JSON_PROPERTY_TARGET_PRODUCT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetProduct(Long targetProduct) {
+  public void setTargetProduct(@javax.annotation.Nullable Long targetProduct) {
     this.targetProduct = targetProduct;
   }
 

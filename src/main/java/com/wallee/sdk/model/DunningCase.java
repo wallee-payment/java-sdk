@@ -60,49 +60,62 @@ import java.util.StringJoiner;
 
 public class DunningCase {
   public static final String JSON_PROPERTY_CANCELED_ON = "canceledOn";
+  @javax.annotation.Nullable
   private OffsetDateTime canceledOn;
 
   public static final String JSON_PROPERTY_DERECOGNIZED_ON = "derecognizedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime derecognizedOn;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_INITIAL_INVOICE = "initialInvoice";
+  @javax.annotation.Nullable
   private TransactionInvoice initialInvoice;
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private DunningCaseState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_FLOW = "flow";
+  @javax.annotation.Nullable
   private DunningFlow flow;
 
   public DunningCase() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public DunningCase(
     @JsonProperty(JSON_PROPERTY_CANCELED_ON) OffsetDateTime canceledOn, 
@@ -129,10 +142,10 @@ public class DunningCase {
     this.failedOn = failedOn;
   }
 
-   /**
+  /**
    * Get canceledOn
    * @return canceledOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CANCELED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -143,10 +156,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * Get derecognizedOn
    * @return derecognizedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DERECOGNIZED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -157,10 +170,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,10 +184,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,10 +198,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,10 +212,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,16 +226,16 @@ public class DunningCase {
 
 
 
-  public DunningCase initialInvoice(TransactionInvoice initialInvoice) {
+  public DunningCase initialInvoice(@javax.annotation.Nullable TransactionInvoice initialInvoice) {
     
     this.initialInvoice = initialInvoice;
     return this;
   }
 
-   /**
+  /**
    * Get initialInvoice
    * @return initialInvoice
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIAL_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,14 +247,14 @@ public class DunningCase {
 
   @JsonProperty(JSON_PROPERTY_INITIAL_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInitialInvoice(TransactionInvoice initialInvoice) {
+  public void setInitialInvoice(@javax.annotation.Nullable TransactionInvoice initialInvoice) {
     this.initialInvoice = initialInvoice;
   }
 
-   /**
+  /**
    * Get succeededOn
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,10 +265,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,16 +279,16 @@ public class DunningCase {
 
 
 
-  public DunningCase state(DunningCaseState state) {
+  public DunningCase state(@javax.annotation.Nullable DunningCaseState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -287,14 +300,14 @@ public class DunningCase {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(DunningCaseState state) {
+  public void setState(@javax.annotation.Nullable DunningCaseState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,10 +318,10 @@ public class DunningCase {
 
 
 
-   /**
+  /**
    * Get failedOn
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -319,16 +332,16 @@ public class DunningCase {
 
 
 
-  public DunningCase flow(DunningFlow flow) {
+  public DunningCase flow(@javax.annotation.Nullable DunningFlow flow) {
     
     this.flow = flow;
     return this;
   }
 
-   /**
+  /**
    * Get flow
    * @return flow
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,7 +353,7 @@ public class DunningCase {
 
   @JsonProperty(JSON_PROPERTY_FLOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFlow(DunningFlow flow) {
+  public void setFlow(@javax.annotation.Nullable DunningFlow flow) {
     this.flow = flow;
   }
 

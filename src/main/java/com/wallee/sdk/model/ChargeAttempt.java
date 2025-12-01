@@ -88,97 +88,126 @@ import java.util.StringJoiner;
 
 public class ChargeAttempt {
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_SALES_CHANNEL = "salesChannel";
+  @javax.annotation.Nullable
   private Long salesChannel;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_INITIALIZING_TOKEN_VERSION = "initializingTokenVersion";
+  @javax.annotation.Nullable
   private Boolean initializingTokenVersion;
 
   public static final String JSON_PROPERTY_TOKEN_VERSION = "tokenVersion";
+  @javax.annotation.Nullable
   private TokenVersion tokenVersion;
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private ChargeAttemptState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_REDIRECTION_URL = "redirectionUrl";
+  @javax.annotation.Nullable
   private String redirectionUrl;
 
   public static final String JSON_PROPERTY_CHARGE = "charge";
+  @javax.annotation.Nullable
   private Charge charge;
 
   public static final String JSON_PROPERTY_WALLET = "wallet";
+  @javax.annotation.Nullable
   private WalletType wallet;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_TERMINAL = "terminal";
+  @javax.annotation.Nullable
   private PaymentTerminal terminal;
 
   public static final String JSON_PROPERTY_USER_FAILURE_MESSAGE = "userFailureMessage";
+  @javax.annotation.Nullable
   private String userFailureMessage;
 
   public static final String JSON_PROPERTY_COMPLETION_BEHAVIOR = "completionBehavior";
+  @javax.annotation.Nullable
   private TransactionCompletionBehavior completionBehavior;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private ChargeAttemptEnvironment environment;
 
   public static final String JSON_PROPERTY_INVOCATION = "invocation";
+  @javax.annotation.Nullable
   private ConnectorInvocation invocation;
 
   public static final String JSON_PROPERTY_CONNECTOR_CONFIGURATION = "connectorConfiguration";
+  @javax.annotation.Nullable
   private PaymentConnectorConfiguration connectorConfiguration;
 
   public static final String JSON_PROPERTY_NEXT_UPDATE_ON = "nextUpdateOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextUpdateOn;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_CUSTOMERS_PRESENCE = "customersPresence";
+  @javax.annotation.Nullable
   private CustomersPresence customersPresence;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public ChargeAttempt() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public ChargeAttempt(
     @JsonProperty(JSON_PROPERTY_LANGUAGE) String language, 
@@ -221,10 +250,10 @@ public class ChargeAttempt {
     this.failedOn = failedOn;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -235,10 +264,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The sales channel through which the charge attempt was made.
    * @return salesChannel
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SALES_CHANNEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,10 +278,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -263,10 +292,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * Whether a new token version is being initialized.
    * @return initializingTokenVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INITIALIZING_TOKEN_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,16 +306,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt tokenVersion(TokenVersion tokenVersion) {
+  public ChargeAttempt tokenVersion(@javax.annotation.Nullable TokenVersion tokenVersion) {
     
     this.tokenVersion = tokenVersion;
     return this;
   }
 
-   /**
+  /**
    * Get tokenVersion
    * @return tokenVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,14 +327,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_TOKEN_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenVersion(TokenVersion tokenVersion) {
+  public void setTokenVersion(@javax.annotation.Nullable TokenVersion tokenVersion) {
     this.tokenVersion = tokenVersion;
   }
 
-   /**
+  /**
    * The date and time when the charge attempt succeeded.
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -316,10 +345,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -330,16 +359,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt state(ChargeAttemptState state) {
+  public ChargeAttempt state(@javax.annotation.Nullable ChargeAttemptState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,14 +380,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(ChargeAttemptState state) {
+  public void setState(@javax.annotation.Nullable ChargeAttemptState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -369,10 +398,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The URL to redirect the customer to after payment processing.
    * @return redirectionUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDIRECTION_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -383,16 +412,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt charge(Charge charge) {
+  public ChargeAttempt charge(@javax.annotation.Nullable Charge charge) {
     
     this.charge = charge;
     return this;
   }
 
-   /**
+  /**
    * Get charge
    * @return charge
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,20 +433,20 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_CHARGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCharge(Charge charge) {
+  public void setCharge(@javax.annotation.Nullable Charge charge) {
     this.charge = charge;
   }
 
-  public ChargeAttempt wallet(WalletType wallet) {
+  public ChargeAttempt wallet(@javax.annotation.Nullable WalletType wallet) {
     
     this.wallet = wallet;
     return this;
   }
 
-   /**
+  /**
    * Get wallet
    * @return wallet
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_WALLET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -429,14 +458,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_WALLET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setWallet(WalletType wallet) {
+  public void setWallet(@javax.annotation.Nullable WalletType wallet) {
     this.wallet = wallet;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -447,10 +476,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The time zone that this object is associated with.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -461,10 +490,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -475,16 +504,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt terminal(PaymentTerminal terminal) {
+  public ChargeAttempt terminal(@javax.annotation.Nullable PaymentTerminal terminal) {
     
     this.terminal = terminal;
     return this;
   }
 
-   /**
+  /**
    * Get terminal
    * @return terminal
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -496,14 +525,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_TERMINAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTerminal(PaymentTerminal terminal) {
+  public void setTerminal(@javax.annotation.Nullable PaymentTerminal terminal) {
     this.terminal = terminal;
   }
 
-   /**
+  /**
    * The message that can be displayed to the customer explaining why the charge attempt failed, in the customer&#39;s language.
    * @return userFailureMessage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USER_FAILURE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -514,16 +543,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt completionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public ChargeAttempt completionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     
     this.completionBehavior = completionBehavior;
     return this;
   }
 
-   /**
+  /**
    * Get completionBehavior
    * @return completionBehavior
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -535,14 +564,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public void setCompletionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     this.completionBehavior = completionBehavior;
   }
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -553,10 +582,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -567,10 +596,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -581,10 +610,10 @@ public class ChargeAttempt {
 
 
 
-   /**
+  /**
    * The date and time when the object will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -595,16 +624,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt environment(ChargeAttemptEnvironment environment) {
+  public ChargeAttempt environment(@javax.annotation.Nullable ChargeAttemptEnvironment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -616,20 +645,20 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(ChargeAttemptEnvironment environment) {
+  public void setEnvironment(@javax.annotation.Nullable ChargeAttemptEnvironment environment) {
     this.environment = environment;
   }
 
-  public ChargeAttempt invocation(ConnectorInvocation invocation) {
+  public ChargeAttempt invocation(@javax.annotation.Nullable ConnectorInvocation invocation) {
     
     this.invocation = invocation;
     return this;
   }
 
-   /**
+  /**
    * Get invocation
    * @return invocation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -641,20 +670,20 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_INVOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvocation(ConnectorInvocation invocation) {
+  public void setInvocation(@javax.annotation.Nullable ConnectorInvocation invocation) {
     this.invocation = invocation;
   }
 
-  public ChargeAttempt connectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
+  public ChargeAttempt connectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration connectorConfiguration) {
     
     this.connectorConfiguration = connectorConfiguration;
     return this;
   }
 
-   /**
+  /**
    * Get connectorConfiguration
    * @return connectorConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -666,14 +695,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_CONNECTOR_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConnectorConfiguration(PaymentConnectorConfiguration connectorConfiguration) {
+  public void setConnectorConfiguration(@javax.annotation.Nullable PaymentConnectorConfiguration connectorConfiguration) {
     this.connectorConfiguration = connectorConfiguration;
   }
 
-   /**
+  /**
    * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_UPDATE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -684,16 +713,16 @@ public class ChargeAttempt {
 
 
 
-  public ChargeAttempt failureReason(FailureReason failureReason) {
+  public ChargeAttempt failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -705,20 +734,20 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-  public ChargeAttempt customersPresence(CustomersPresence customersPresence) {
+  public ChargeAttempt customersPresence(@javax.annotation.Nullable CustomersPresence customersPresence) {
     
     this.customersPresence = customersPresence;
     return this;
   }
 
-   /**
+  /**
    * Get customersPresence
    * @return customersPresence
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMERS_PRESENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -730,14 +759,14 @@ public class ChargeAttempt {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMERS_PRESENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomersPresence(CustomersPresence customersPresence) {
+  public void setCustomersPresence(@javax.annotation.Nullable CustomersPresence customersPresence) {
     this.customersPresence = customersPresence;
   }
 
-   /**
+  /**
    * The date and time when the charge attempt failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

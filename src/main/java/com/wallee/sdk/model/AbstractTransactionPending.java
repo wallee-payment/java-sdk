@@ -72,75 +72,94 @@ import java.util.StringJoiner;
 
 public class AbstractTransactionPending {
   public static final String JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS = "customerEmailAddress";
+  @javax.annotation.Nullable
   private String customerEmailAddress;
 
   public static final String JSON_PROPERTY_SHIPPING_METHOD = "shippingMethod";
+  @javax.annotation.Nullable
   private String shippingMethod;
 
   public static final String JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE = "invoiceMerchantReference";
+  @javax.annotation.Nullable
   private String invoiceMerchantReference;
 
   public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nullable
   private String successUrl;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_TOKENIZATION_MODE = "tokenizationMode";
+  @javax.annotation.Nullable
   private TokenizationMode tokenizationMode;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_BRANDS = "allowedPaymentMethodBrands";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodBrands = new ArrayList<>();
 
   public static final String JSON_PROPERTY_COMPLETION_BEHAVIOR = "completionBehavior";
+  @javax.annotation.Nullable
   private TransactionCompletionBehavior completionBehavior;
 
   public static final String JSON_PROPERTY_TOKEN = "token";
+  @javax.annotation.Nullable
   private Long token;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItemCreate> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
   private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_CUSTOMER_ID = "customerId";
+  @javax.annotation.Nullable
   private String customerId;
 
   public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+  @javax.annotation.Nullable
   private AddressCreate shippingAddress;
 
   public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
   private String currency;
 
   public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
   private AddressCreate billingAddress;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public static final String JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS = "allowedPaymentMethodConfigurations";
+  @javax.annotation.Nullable
   private List<Long> allowedPaymentMethodConfigurations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_FAILED_URL = "failedUrl";
+  @javax.annotation.Nullable
   private String failedUrl;
 
   public AbstractTransactionPending() {
   }
 
-  public AbstractTransactionPending customerEmailAddress(String customerEmailAddress) {
+  public AbstractTransactionPending customerEmailAddress(@javax.annotation.Nullable String customerEmailAddress) {
     
     this.customerEmailAddress = customerEmailAddress;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s email address.
    * @return customerEmailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,20 +171,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomerEmailAddress(String customerEmailAddress) {
+  public void setCustomerEmailAddress(@javax.annotation.Nullable String customerEmailAddress) {
     this.customerEmailAddress = customerEmailAddress;
   }
 
-  public AbstractTransactionPending shippingMethod(String shippingMethod) {
+  public AbstractTransactionPending shippingMethod(@javax.annotation.Nullable String shippingMethod) {
     
     this.shippingMethod = shippingMethod;
     return this;
   }
 
-   /**
+  /**
    * The name of the shipping method used to ship the products.
    * @return shippingMethod
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -177,20 +196,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingMethod(String shippingMethod) {
+  public void setShippingMethod(@javax.annotation.Nullable String shippingMethod) {
     this.shippingMethod = shippingMethod;
   }
 
-  public AbstractTransactionPending invoiceMerchantReference(String invoiceMerchantReference) {
+  public AbstractTransactionPending invoiceMerchantReference(@javax.annotation.Nullable String invoiceMerchantReference) {
     
     this.invoiceMerchantReference = invoiceMerchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -202,20 +221,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInvoiceMerchantReference(String invoiceMerchantReference) {
+  public void setInvoiceMerchantReference(@javax.annotation.Nullable String invoiceMerchantReference) {
     this.invoiceMerchantReference = invoiceMerchantReference;
   }
 
-  public AbstractTransactionPending successUrl(String successUrl) {
+  public AbstractTransactionPending successUrl(@javax.annotation.Nullable String successUrl) {
     
     this.successUrl = successUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,20 +246,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccessUrl(String successUrl) {
+  public void setSuccessUrl(@javax.annotation.Nullable String successUrl) {
     this.successUrl = successUrl;
   }
 
-  public AbstractTransactionPending timeZone(String timeZone) {
+  public AbstractTransactionPending timeZone(@javax.annotation.Nullable String timeZone) {
     
     this.timeZone = timeZone;
     return this;
   }
 
-   /**
+  /**
    * The customer&#39;s time zone, which affects how dates and times are formatted when communicating with the customer.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -252,20 +271,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTimeZone(String timeZone) {
+  public void setTimeZone(@javax.annotation.Nullable String timeZone) {
     this.timeZone = timeZone;
   }
 
-  public AbstractTransactionPending language(String language) {
+  public AbstractTransactionPending language(@javax.annotation.Nullable String language) {
     
     this.language = language;
     return this;
   }
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -277,20 +296,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLanguage(String language) {
+  public void setLanguage(@javax.annotation.Nullable String language) {
     this.language = language;
   }
 
-  public AbstractTransactionPending tokenizationMode(TokenizationMode tokenizationMode) {
+  public AbstractTransactionPending tokenizationMode(@javax.annotation.Nullable TokenizationMode tokenizationMode) {
     
     this.tokenizationMode = tokenizationMode;
     return this;
   }
 
-   /**
+  /**
    * Get tokenizationMode
    * @return tokenizationMode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -302,11 +321,11 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_TOKENIZATION_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTokenizationMode(TokenizationMode tokenizationMode) {
+  public void setTokenizationMode(@javax.annotation.Nullable TokenizationMode tokenizationMode) {
     this.tokenizationMode = tokenizationMode;
   }
 
-  public AbstractTransactionPending allowedPaymentMethodBrands(List<Long> allowedPaymentMethodBrands) {
+  public AbstractTransactionPending allowedPaymentMethodBrands(@javax.annotation.Nullable List<Long> allowedPaymentMethodBrands) {
     
     this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
     return this;
@@ -320,10 +339,10 @@ public class AbstractTransactionPending {
     return this;
   }
 
-   /**
+  /**
    * The payment method brands that can be used to authorize the transaction.
    * @return allowedPaymentMethodBrands
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -335,20 +354,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_BRANDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedPaymentMethodBrands(List<Long> allowedPaymentMethodBrands) {
+  public void setAllowedPaymentMethodBrands(@javax.annotation.Nullable List<Long> allowedPaymentMethodBrands) {
     this.allowedPaymentMethodBrands = allowedPaymentMethodBrands;
   }
 
-  public AbstractTransactionPending completionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public AbstractTransactionPending completionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     
     this.completionBehavior = completionBehavior;
     return this;
   }
 
-   /**
+  /**
    * Get completionBehavior
    * @return completionBehavior
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -360,20 +379,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION_BEHAVIOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletionBehavior(TransactionCompletionBehavior completionBehavior) {
+  public void setCompletionBehavior(@javax.annotation.Nullable TransactionCompletionBehavior completionBehavior) {
     this.completionBehavior = completionBehavior;
   }
 
-  public AbstractTransactionPending token(Long token) {
+  public AbstractTransactionPending token(@javax.annotation.Nullable Long token) {
     
     this.token = token;
     return this;
   }
 
-   /**
+  /**
    * The payment token that should be used to charge the customer.
    * @return token
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -385,11 +404,11 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setToken(Long token) {
+  public void setToken(@javax.annotation.Nullable Long token) {
     this.token = token;
   }
 
-  public AbstractTransactionPending lineItems(List<LineItemCreate> lineItems) {
+  public AbstractTransactionPending lineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     
     this.lineItems = lineItems;
     return this;
@@ -403,10 +422,10 @@ public class AbstractTransactionPending {
     return this;
   }
 
-   /**
+  /**
    * The line items purchased by the customer.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -418,11 +437,11 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItems(List<LineItemCreate> lineItems) {
+  public void setLineItems(@javax.annotation.Nullable List<LineItemCreate> lineItems) {
     this.lineItems = lineItems;
   }
 
-  public AbstractTransactionPending metaData(Map<String, String> metaData) {
+  public AbstractTransactionPending metaData(@javax.annotation.Nullable Map<String, String> metaData) {
     
     this.metaData = metaData;
     return this;
@@ -436,10 +455,10 @@ public class AbstractTransactionPending {
     return this;
   }
 
-   /**
+  /**
    * Allow to store additional information about the object.
    * @return metaData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -451,20 +470,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_META_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMetaData(Map<String, String> metaData) {
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
     this.metaData = metaData;
   }
 
-  public AbstractTransactionPending customerId(String customerId) {
+  public AbstractTransactionPending customerId(@javax.annotation.Nullable String customerId) {
     
     this.customerId = customerId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the customer in the external system.
    * @return customerId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -476,20 +495,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_CUSTOMER_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCustomerId(String customerId) {
+  public void setCustomerId(@javax.annotation.Nullable String customerId) {
     this.customerId = customerId;
   }
 
-  public AbstractTransactionPending shippingAddress(AddressCreate shippingAddress) {
+  public AbstractTransactionPending shippingAddress(@javax.annotation.Nullable AddressCreate shippingAddress) {
     
     this.shippingAddress = shippingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get shippingAddress
    * @return shippingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -501,20 +520,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddress(AddressCreate shippingAddress) {
+  public void setShippingAddress(@javax.annotation.Nullable AddressCreate shippingAddress) {
     this.shippingAddress = shippingAddress;
   }
 
-  public AbstractTransactionPending currency(String currency) {
+  public AbstractTransactionPending currency(@javax.annotation.Nullable String currency) {
     
     this.currency = currency;
     return this;
   }
 
-   /**
+  /**
    * The three-letter code (ISO 4217 format) of the transaction&#39;s currency.
    * @return currency
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -526,20 +545,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_CURRENCY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCurrency(String currency) {
+  public void setCurrency(@javax.annotation.Nullable String currency) {
     this.currency = currency;
   }
 
-  public AbstractTransactionPending billingAddress(AddressCreate billingAddress) {
+  public AbstractTransactionPending billingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     
     this.billingAddress = billingAddress;
     return this;
   }
 
-   /**
+  /**
    * Get billingAddress
    * @return billingAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -551,20 +570,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(AddressCreate billingAddress) {
+  public void setBillingAddress(@javax.annotation.Nullable AddressCreate billingAddress) {
     this.billingAddress = billingAddress;
   }
 
-  public AbstractTransactionPending merchantReference(String merchantReference) {
+  public AbstractTransactionPending merchantReference(@javax.annotation.Nullable String merchantReference) {
     
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the transaction.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -576,11 +595,11 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMerchantReference(String merchantReference) {
+  public void setMerchantReference(@javax.annotation.Nullable String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-  public AbstractTransactionPending allowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+  public AbstractTransactionPending allowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> allowedPaymentMethodConfigurations) {
     
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
     return this;
@@ -594,10 +613,10 @@ public class AbstractTransactionPending {
     return this;
   }
 
-   /**
+  /**
    * The payment method configurations that can be used to authorize the transaction.
    * @return allowedPaymentMethodConfigurations
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -609,20 +628,20 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_ALLOWED_PAYMENT_METHOD_CONFIGURATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAllowedPaymentMethodConfigurations(List<Long> allowedPaymentMethodConfigurations) {
+  public void setAllowedPaymentMethodConfigurations(@javax.annotation.Nullable List<Long> allowedPaymentMethodConfigurations) {
     this.allowedPaymentMethodConfigurations = allowedPaymentMethodConfigurations;
   }
 
-  public AbstractTransactionPending failedUrl(String failedUrl) {
+  public AbstractTransactionPending failedUrl(@javax.annotation.Nullable String failedUrl) {
     
     this.failedUrl = failedUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -634,7 +653,7 @@ public class AbstractTransactionPending {
 
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailedUrl(String failedUrl) {
+  public void setFailedUrl(@javax.annotation.Nullable String failedUrl) {
     this.failedUrl = failedUrl;
   }
 

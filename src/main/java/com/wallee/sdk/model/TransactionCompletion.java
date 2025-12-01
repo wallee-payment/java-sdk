@@ -88,103 +88,134 @@ import java.util.StringJoiner;
 
 public class TransactionCompletion {
   public static final String JSON_PROPERTY_LINE_ITEM_VERSION = "lineItemVersion";
+  @javax.annotation.Nullable
   private TransactionLineItemVersion lineItemVersion;
 
   public static final String JSON_PROPERTY_STATEMENT_DESCRIPTOR = "statementDescriptor";
+  @javax.annotation.Nullable
   private String statementDescriptor;
 
   public static final String JSON_PROPERTY_BASE_LINE_ITEMS = "baseLineItems";
+  @javax.annotation.Nullable
   private List<LineItem> baseLineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSING_ON = "processingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingOn;
 
   public static final String JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE = "invoiceMerchantReference";
+  @javax.annotation.Nullable
   private String invoiceMerchantReference;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_REMAINING_LINE_ITEMS = "remainingLineItems";
+  @javax.annotation.Nullable
   private List<LineItem> remainingLineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MODE = "mode";
+  @javax.annotation.Nullable
   private TransactionCompletionMode mode;
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private TransactionCompletionState state;
 
   public static final String JSON_PROPERTY_LINKED_TRANSACTION = "linkedTransaction";
+  @javax.annotation.Nullable
   private Long linkedTransaction;
 
   public static final String JSON_PROPERTY_PAYMENT_INFORMATION = "paymentInformation";
+  @javax.annotation.Nullable
   private String paymentInformation;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_LAST_COMPLETION = "lastCompletion";
+  @javax.annotation.Nullable
   private Boolean lastCompletion;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_SPACE_VIEW_ID = "spaceViewId";
+  @javax.annotation.Nullable
   private Long spaceViewId;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_NEXT_UPDATE_ON = "nextUpdateOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextUpdateOn;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_PROCESSOR_REFERENCE = "processorReference";
+  @javax.annotation.Nullable
   private String processorReference;
 
   public TransactionCompletion() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public TransactionCompletion(
     @JsonProperty(JSON_PROPERTY_STATEMENT_DESCRIPTOR) String statementDescriptor, 
@@ -245,16 +276,16 @@ public class TransactionCompletion {
     this.processorReference = processorReference;
   }
 
-  public TransactionCompletion lineItemVersion(TransactionLineItemVersion lineItemVersion) {
+  public TransactionCompletion lineItemVersion(@javax.annotation.Nullable TransactionLineItemVersion lineItemVersion) {
     
     this.lineItemVersion = lineItemVersion;
     return this;
   }
 
-   /**
+  /**
    * Get lineItemVersion
    * @return lineItemVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEM_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,14 +297,14 @@ public class TransactionCompletion {
 
   @JsonProperty(JSON_PROPERTY_LINE_ITEM_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLineItemVersion(TransactionLineItemVersion lineItemVersion) {
+  public void setLineItemVersion(@javax.annotation.Nullable TransactionLineItemVersion lineItemVersion) {
     this.lineItemVersion = lineItemVersion;
   }
 
-   /**
+  /**
    * The statement descriptor that appears on a customer&#39;s bank statement, providing an explanation for charges or payments, helping customers identify the transaction.
    * @return statementDescriptor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATEMENT_DESCRIPTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,10 +315,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The original line items from the transaction that serve as the baseline for this completion.
    * @return baseLineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BASE_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -298,10 +329,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the transaction completion was started.
    * @return processingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -312,10 +343,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the invoice.
    * @return invoiceMerchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -326,10 +357,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -340,10 +371,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The line items yet to be captured in the transaction.
    * @return remainingLineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REMAINING_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -354,10 +385,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -368,10 +399,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The line items captured in this transaction completion.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -382,16 +413,16 @@ public class TransactionCompletion {
 
 
 
-  public TransactionCompletion mode(TransactionCompletionMode mode) {
+  public TransactionCompletion mode(@javax.annotation.Nullable TransactionCompletionMode mode) {
     
     this.mode = mode;
     return this;
   }
 
-   /**
+  /**
    * Get mode
    * @return mode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,14 +434,14 @@ public class TransactionCompletion {
 
   @JsonProperty(JSON_PROPERTY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMode(TransactionCompletionMode mode) {
+  public void setMode(@javax.annotation.Nullable TransactionCompletionMode mode) {
     this.mode = mode;
   }
 
-   /**
+  /**
    * The date and time when the transaction completion succeeded.
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,10 +452,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -435,16 +466,16 @@ public class TransactionCompletion {
 
 
 
-  public TransactionCompletion state(TransactionCompletionState state) {
+  public TransactionCompletion state(@javax.annotation.Nullable TransactionCompletionState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -456,14 +487,14 @@ public class TransactionCompletion {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(TransactionCompletionState state) {
+  public void setState(@javax.annotation.Nullable TransactionCompletionState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The payment transaction this object is linked to.
    * @return linkedTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -474,10 +505,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * Payment-specific details related to this transaction completion such as payment instructions or references needed for processing.
    * @return paymentInformation
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_INFORMATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -488,10 +519,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The total amount to be captured in this completion, including taxes.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -502,10 +533,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * Whether this is the final completion for the transaction. After the last completion is successfully created, the transaction enters its final state, and no further completions can occur.
    * @return lastCompletion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LAST_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -516,10 +547,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -530,10 +561,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -544,10 +575,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The time zone that this object is associated with.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -558,10 +589,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The ID of the space view this object is linked to.
    * @return spaceViewId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SPACE_VIEW_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -572,10 +603,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -586,10 +617,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -600,10 +631,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -614,10 +645,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the object will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -628,10 +659,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The ID of the user the transaction completion was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -642,10 +673,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_UPDATE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -656,16 +687,16 @@ public class TransactionCompletion {
 
 
 
-  public TransactionCompletion failureReason(FailureReason failureReason) {
+  public TransactionCompletion failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -677,14 +708,14 @@ public class TransactionCompletion {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * The portion of the captured amount that corresponds to taxes.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -695,10 +726,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The date and time when the transaction completion failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -709,10 +740,10 @@ public class TransactionCompletion {
 
 
 
-   /**
+  /**
    * The reference ID provided by the payment processor, used to trace the completion through the external payment system.
    * @return processorReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

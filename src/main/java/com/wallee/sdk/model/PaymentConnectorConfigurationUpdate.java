@@ -58,36 +58,42 @@ import java.util.StringJoiner;
 
 public class PaymentConnectorConfigurationUpdate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ENABLED_SPACE_VIEWS = "enabledSpaceViews";
+  @javax.annotation.Nullable
   private Set<Long> enabledSpaceViews = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_CONDITIONS = "conditions";
+  @javax.annotation.Nullable
   private List<Condition> conditions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
+  @javax.annotation.Nullable
   private Integer priority;
 
   public static final String JSON_PROPERTY_ENABLED_SALES_CHANNELS = "enabledSalesChannels";
+  @javax.annotation.Nullable
   private Set<SalesChannel> enabledSalesChannels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nonnull
   private Integer version;
 
   public PaymentConnectorConfigurationUpdate() {
   }
 
-  public PaymentConnectorConfigurationUpdate name(String name) {
+  public PaymentConnectorConfigurationUpdate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the connector configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -99,11 +105,11 @@ public class PaymentConnectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public PaymentConnectorConfigurationUpdate enabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public PaymentConnectorConfigurationUpdate enabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     
     this.enabledSpaceViews = enabledSpaceViews;
     return this;
@@ -117,10 +123,10 @@ public class PaymentConnectorConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * The space views for which the connector configuration is enabled. If empty, it is enabled for all space views.
    * @return enabledSpaceViews
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,11 +139,11 @@ public class PaymentConnectorConfigurationUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_SPACE_VIEWS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledSpaceViews(Set<Long> enabledSpaceViews) {
+  public void setEnabledSpaceViews(@javax.annotation.Nullable Set<Long> enabledSpaceViews) {
     this.enabledSpaceViews = enabledSpaceViews;
   }
 
-  public PaymentConnectorConfigurationUpdate conditions(List<Condition> conditions) {
+  public PaymentConnectorConfigurationUpdate conditions(@javax.annotation.Nullable List<Condition> conditions) {
     
     this.conditions = conditions;
     return this;
@@ -151,10 +157,10 @@ public class PaymentConnectorConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * Conditions allow to define criteria that a transaction must fulfill in order for the connector configuration to be considered for processing the payment.
    * @return conditions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,20 +172,20 @@ public class PaymentConnectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_CONDITIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConditions(List<Condition> conditions) {
+  public void setConditions(@javax.annotation.Nullable List<Condition> conditions) {
     this.conditions = conditions;
   }
 
-  public PaymentConnectorConfigurationUpdate priority(Integer priority) {
+  public PaymentConnectorConfigurationUpdate priority(@javax.annotation.Nullable Integer priority) {
     
     this.priority = priority;
     return this;
   }
 
-   /**
+  /**
    * The priority that determines the order in which connector configurations are taken into account when processing a payment. Low values are considered first.
    * @return priority
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,11 +197,11 @@ public class PaymentConnectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPriority(Integer priority) {
+  public void setPriority(@javax.annotation.Nullable Integer priority) {
     this.priority = priority;
   }
 
-  public PaymentConnectorConfigurationUpdate enabledSalesChannels(Set<SalesChannel> enabledSalesChannels) {
+  public PaymentConnectorConfigurationUpdate enabledSalesChannels(@javax.annotation.Nullable Set<SalesChannel> enabledSalesChannels) {
     
     this.enabledSalesChannels = enabledSalesChannels;
     return this;
@@ -209,10 +215,10 @@ public class PaymentConnectorConfigurationUpdate {
     return this;
   }
 
-   /**
+  /**
    * The sales channels for which the connector configuration is enabled. If empty, it is enabled for all sales channels.
    * @return enabledSalesChannels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENABLED_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -225,20 +231,20 @@ public class PaymentConnectorConfigurationUpdate {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_ENABLED_SALES_CHANNELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnabledSalesChannels(Set<SalesChannel> enabledSalesChannels) {
+  public void setEnabledSalesChannels(@javax.annotation.Nullable Set<SalesChannel> enabledSalesChannels) {
     this.enabledSalesChannels = enabledSalesChannels;
   }
 
-  public PaymentConnectorConfigurationUpdate version(Integer version) {
+  public PaymentConnectorConfigurationUpdate version(@javax.annotation.Nonnull Integer version) {
     
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -250,7 +256,7 @@ public class PaymentConnectorConfigurationUpdate {
 
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(Integer version) {
+  public void setVersion(@javax.annotation.Nonnull Integer version) {
     this.version = version;
   }
 

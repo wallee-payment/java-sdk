@@ -48,27 +48,30 @@ import java.util.StringJoiner;
 
 public class CompletionLineItemCreate {
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nonnull
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nonnull
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_UNIQUE_ID = "uniqueId";
+  @javax.annotation.Nonnull
   private String uniqueId;
 
   public CompletionLineItemCreate() {
   }
 
-  public CompletionLineItemCreate amount(BigDecimal amount) {
+  public CompletionLineItemCreate amount(@javax.annotation.Nonnull BigDecimal amount) {
     
     this.amount = amount;
     return this;
   }
 
-   /**
+  /**
    * The total amount of the line item to be captured, including taxes.
    * @return amount
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -80,20 +83,20 @@ public class CompletionLineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(@javax.annotation.Nonnull BigDecimal amount) {
     this.amount = amount;
   }
 
-  public CompletionLineItemCreate quantity(BigDecimal quantity) {
+  public CompletionLineItemCreate quantity(@javax.annotation.Nonnull BigDecimal quantity) {
     
     this.quantity = quantity;
     return this;
   }
 
-   /**
+  /**
    * The number of items to be captured.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -105,20 +108,20 @@ public class CompletionLineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setQuantity(BigDecimal quantity) {
+  public void setQuantity(@javax.annotation.Nonnull BigDecimal quantity) {
     this.quantity = quantity;
   }
 
-  public CompletionLineItemCreate uniqueId(String uniqueId) {
+  public CompletionLineItemCreate uniqueId(@javax.annotation.Nonnull String uniqueId) {
     
     this.uniqueId = uniqueId;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the line item within the set of line items.
    * @return uniqueId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +133,7 @@ public class CompletionLineItemCreate {
 
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUniqueId(String uniqueId) {
+  public void setUniqueId(@javax.annotation.Nonnull String uniqueId) {
     this.uniqueId = uniqueId;
   }
 

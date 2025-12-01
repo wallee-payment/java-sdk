@@ -54,22 +54,26 @@ import java.util.StringJoiner;
 
 public class RestAddressFormat {
   public static final String JSON_PROPERTY_POST_CODE_EXAMPLES = "postCodeExamples";
+  @javax.annotation.Nullable
   private List<String> postCodeExamples = new ArrayList<>();
 
   public static final String JSON_PROPERTY_REQUIRED_FIELDS = "requiredFields";
+  @javax.annotation.Nullable
   private Set<RestAddressFormatField> requiredFields = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_USED_FIELDS = "usedFields";
+  @javax.annotation.Nullable
   private Set<RestAddressFormatField> usedFields = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_POST_CODE_REGEX = "postCodeRegex";
+  @javax.annotation.Nullable
   private String postCodeRegex;
 
   public RestAddressFormat() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestAddressFormat(
     @JsonProperty(JSON_PROPERTY_POST_CODE_EXAMPLES) List<String> postCodeExamples, 
@@ -84,10 +88,10 @@ public class RestAddressFormat {
     this.postCodeRegex = postCodeRegex;
   }
 
-   /**
+  /**
    * A list of sample post codes.
    * @return postCodeExamples
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POST_CODE_EXAMPLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -98,10 +102,10 @@ public class RestAddressFormat {
 
 
 
-   /**
+  /**
    * The fields that are required in the address format.
    * @return requiredFields
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REQUIRED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -112,10 +116,10 @@ public class RestAddressFormat {
 
 
 
-   /**
+  /**
    * The fields that are used in the address format.
    * @return usedFields
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_USED_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,10 +130,10 @@ public class RestAddressFormat {
 
 
 
-   /**
+  /**
    * The regular expression to validate post codes.
    * @return postCodeRegex
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_POST_CODE_REGEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

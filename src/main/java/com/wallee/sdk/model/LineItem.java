@@ -73,73 +73,94 @@ import java.util.StringJoiner;
 
 public class LineItem {
   public static final String JSON_PROPERTY_TAX_AMOUNT_PER_UNIT = "taxAmountPerUnit";
+  @javax.annotation.Nullable
   private BigDecimal taxAmountPerUnit;
 
   public static final String JSON_PROPERTY_UNDISCOUNTED_AMOUNT_EXCLUDING_TAX = "undiscountedAmountExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal undiscountedAmountExcludingTax;
 
   public static final String JSON_PROPERTY_QUANTITY = "quantity";
+  @javax.annotation.Nullable
   private BigDecimal quantity;
 
   public static final String JSON_PROPERTY_UNDISCOUNTED_UNIT_PRICE_INCLUDING_TAX = "undiscountedUnitPriceIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal undiscountedUnitPriceIncludingTax;
 
   public static final String JSON_PROPERTY_AMOUNT_EXCLUDING_TAX = "amountExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountExcludingTax;
 
   public static final String JSON_PROPERTY_UNDISCOUNTED_AMOUNT_INCLUDING_TAX = "undiscountedAmountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal undiscountedAmountIncludingTax;
 
   public static final String JSON_PROPERTY_TAXES = "taxes";
+  @javax.annotation.Nullable
   private Set<Tax> taxes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private LineItemType type;
 
   public static final String JSON_PROPERTY_UNIT_PRICE_INCLUDING_TAX = "unitPriceIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal unitPriceIncludingTax;
 
   public static final String JSON_PROPERTY_DISCOUNT_EXCLUDING_TAX = "discountExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal discountExcludingTax;
 
   public static final String JSON_PROPERTY_SHIPPING_REQUIRED = "shippingRequired";
+  @javax.annotation.Nullable
   private Boolean shippingRequired;
 
   public static final String JSON_PROPERTY_UNIT_PRICE_EXCLUDING_TAX = "unitPriceExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal unitPriceExcludingTax;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  @javax.annotation.Nullable
   private Map<String, LineItemAttribute> attributes = new HashMap<>();
 
   public static final String JSON_PROPERTY_UNDISCOUNTED_UNIT_PRICE_EXCLUDING_TAX = "undiscountedUnitPriceExcludingTax";
+  @javax.annotation.Nullable
   private BigDecimal undiscountedUnitPriceExcludingTax;
 
   public static final String JSON_PROPERTY_AMOUNT_INCLUDING_TAX = "amountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal amountIncludingTax;
 
   public static final String JSON_PROPERTY_DISCOUNT_INCLUDING_TAX = "discountIncludingTax";
+  @javax.annotation.Nullable
   private BigDecimal discountIncludingTax;
 
   public static final String JSON_PROPERTY_SKU = "sku";
+  @javax.annotation.Nullable
   private String sku;
 
   public static final String JSON_PROPERTY_TAX_AMOUNT = "taxAmount";
+  @javax.annotation.Nullable
   private BigDecimal taxAmount;
 
   public static final String JSON_PROPERTY_AGGREGATED_TAX_RATE = "aggregatedTaxRate";
+  @javax.annotation.Nullable
   private BigDecimal aggregatedTaxRate;
 
   public static final String JSON_PROPERTY_UNIQUE_ID = "uniqueId";
+  @javax.annotation.Nullable
   private String uniqueId;
 
   public LineItem() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public LineItem(
     @JsonProperty(JSON_PROPERTY_TAX_AMOUNT_PER_UNIT) BigDecimal taxAmountPerUnit, 
@@ -186,10 +207,10 @@ public class LineItem {
     this.uniqueId = uniqueId;
   }
 
-   /**
+  /**
    * The calculated tax amount per unit.
    * @return taxAmountPerUnit
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT_PER_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,10 +221,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The line item price with discounts not applied, excluding taxes.
    * @return undiscountedAmountExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNDISCOUNTED_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,10 +235,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The number of items that were purchased.
    * @return quantity
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_QUANTITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,10 +249,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The calculated price per unit with discounts not applied, including taxes.
    * @return undiscountedUnitPriceIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNDISCOUNTED_UNIT_PRICE_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,10 +263,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The line item price with discounts applied, excluding taxes.
    * @return amountExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -256,10 +277,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The line item price with discounts not applied, including taxes.
    * @return undiscountedAmountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNDISCOUNTED_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -270,10 +291,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * A set of tax lines, each of which specifies a tax applied to the item.
    * @return taxes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -284,16 +305,16 @@ public class LineItem {
 
 
 
-  public LineItem type(LineItemType type) {
+  public LineItem type(@javax.annotation.Nullable LineItemType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -305,14 +326,14 @@ public class LineItem {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(LineItemType type) {
+  public void setType(@javax.annotation.Nullable LineItemType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The calculated price per unit with discounts applied, including taxes.
    * @return unitPriceIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -323,10 +344,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The discount allocated to the item, excluding taxes.
    * @return discountExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCOUNT_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,10 +358,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * Whether the item required shipping.
    * @return shippingRequired
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SHIPPING_REQUIRED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -351,10 +372,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The calculated price per unit with discounts applied, excluding taxes.
    * @return unitPriceExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIT_PRICE_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -365,10 +386,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The name of the product, ideally in the customer&#39;s language.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,10 +400,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * A map of custom information for the item.
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -393,10 +414,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The calculated price per unit with discounts not applied, excluding taxes.
    * @return undiscountedUnitPriceExcludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNDISCOUNTED_UNIT_PRICE_EXCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -407,10 +428,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The line item price with discounts applied, including taxes.
    * @return amountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -421,10 +442,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The discount allocated to the item, including taxes.
    * @return discountIncludingTax
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DISCOUNT_INCLUDING_TAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -435,10 +456,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The SKU (stock-keeping unit) of the product.
    * @return sku
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SKU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -449,10 +470,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The sum of all taxes applied to the item.
    * @return taxAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAX_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -463,10 +484,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The total tax rate applied to the item, calculated from the rates of all tax lines.
    * @return aggregatedTaxRate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AGGREGATED_TAX_RATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -477,10 +498,10 @@ public class LineItem {
 
 
 
-   /**
+  /**
    * The unique identifier of the line item within the set of line items.
    * @return uniqueId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UNIQUE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

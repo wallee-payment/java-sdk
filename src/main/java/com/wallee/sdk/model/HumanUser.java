@@ -56,46 +56,58 @@ import java.util.StringJoiner;
 
 public class HumanUser {
   public static final String JSON_PROPERTY_MOBILE_PHONE_NUMBER = "mobilePhoneNumber";
+  @javax.annotation.Nullable
   private String mobilePhoneNumber;
 
   public static final String JSON_PROPERTY_TWO_FACTOR_ENABLED = "twoFactorEnabled";
+  @javax.annotation.Nullable
   private Boolean twoFactorEnabled;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS = "emailAddress";
+  @javax.annotation.Nullable
   private String emailAddress;
 
   public static final String JSON_PROPERTY_FIRSTNAME = "firstname";
+  @javax.annotation.Nullable
   private String firstname;
 
   public static final String JSON_PROPERTY_EMAIL_ADDRESS_VERIFIED = "emailAddressVerified";
+  @javax.annotation.Nullable
   private Boolean emailAddressVerified;
 
   public static final String JSON_PROPERTY_SCOPE = "scope";
+  @javax.annotation.Nullable
   private Long scope;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_TWO_FACTOR_TYPE = "twoFactorType";
+  @javax.annotation.Nullable
   private TwoFactorAuthenticationType twoFactorType;
 
   public static final String JSON_PROPERTY_MOBILE_PHONE_VERIFIED = "mobilePhoneVerified";
+  @javax.annotation.Nullable
   private Boolean mobilePhoneVerified;
 
   public static final String JSON_PROPERTY_PRIMARY_ACCOUNT = "primaryAccount";
+  @javax.annotation.Nullable
   private Long primaryAccount;
 
   public static final String JSON_PROPERTY_LASTNAME = "lastname";
+  @javax.annotation.Nullable
   private String lastname;
 
   public HumanUser() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public HumanUser(
     @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER) String mobilePhoneNumber, 
@@ -124,10 +136,10 @@ public class HumanUser {
     this.lastname = lastname;
   }
 
-   /**
+  /**
    * The user&#39;s mobile phone number.
    * @return mobilePhoneNumber
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -138,10 +150,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * Whether two-factor authentication is enabled for this user.
    * @return twoFactorEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -152,10 +164,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The user&#39;s email address.
    * @return emailAddress
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,10 +178,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The user&#39;s first name.
    * @return firstname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FIRSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -180,10 +192,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * Whether the user&#39;s email address has been verified.
    * @return emailAddressVerified
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMAIL_ADDRESS_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -194,10 +206,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The scope that the user belongs to.
    * @return scope
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -208,10 +220,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The user&#39;s time zone. If none is specified, the one provided by the browser will be used.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -222,10 +234,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The user&#39;s preferred language.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -236,16 +248,16 @@ public class HumanUser {
 
 
 
-  public HumanUser twoFactorType(TwoFactorAuthenticationType twoFactorType) {
+  public HumanUser twoFactorType(@javax.annotation.Nullable TwoFactorAuthenticationType twoFactorType) {
     
     this.twoFactorType = twoFactorType;
     return this;
   }
 
-   /**
+  /**
    * Get twoFactorType
    * @return twoFactorType
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,14 +269,14 @@ public class HumanUser {
 
   @JsonProperty(JSON_PROPERTY_TWO_FACTOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTwoFactorType(TwoFactorAuthenticationType twoFactorType) {
+  public void setTwoFactorType(@javax.annotation.Nullable TwoFactorAuthenticationType twoFactorType) {
     this.twoFactorType = twoFactorType;
   }
 
-   /**
+  /**
    * Whether the user&#39;s mobile phone number has been verified.
    * @return mobilePhoneVerified
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MOBILE_PHONE_VERIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,10 +287,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The primary account that the user belongs to.
    * @return primaryAccount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PRIMARY_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -289,10 +301,10 @@ public class HumanUser {
 
 
 
-   /**
+  /**
    * The user&#39;s last name.
    * @return lastname
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LASTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

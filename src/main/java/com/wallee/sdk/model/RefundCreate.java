@@ -57,39 +57,46 @@ import java.util.StringJoiner;
 
 public class RefundCreate {
   public static final String JSON_PROPERTY_COMPLETION = "completion";
+  @javax.annotation.Nullable
   private Long completion;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_REDUCTIONS = "reductions";
+  @javax.annotation.Nullable
   private List<LineItemReductionCreate> reductions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private RefundType type;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Long transaction;
 
   public RefundCreate() {
   }
 
-  public RefundCreate completion(Long completion) {
+  public RefundCreate completion(@javax.annotation.Nullable Long completion) {
     
     this.completion = completion;
     return this;
   }
 
-   /**
+  /**
    * The transaction completion that the refund belongs to.
    * @return completion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,20 +108,20 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCompletion(Long completion) {
+  public void setCompletion(@javax.annotation.Nullable Long completion) {
     this.completion = completion;
   }
 
-  public RefundCreate amount(BigDecimal amount) {
+  public RefundCreate amount(@javax.annotation.Nullable BigDecimal amount) {
     
     this.amount = amount;
     return this;
   }
 
-   /**
+  /**
    * The total monetary amount of the refund, representing the exact credit issued to the customer.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -126,11 +133,11 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(@javax.annotation.Nullable BigDecimal amount) {
     this.amount = amount;
   }
 
-  public RefundCreate reductions(List<LineItemReductionCreate> reductions) {
+  public RefundCreate reductions(@javax.annotation.Nullable List<LineItemReductionCreate> reductions) {
     
     this.reductions = reductions;
     return this;
@@ -144,10 +151,10 @@ public class RefundCreate {
     return this;
   }
 
-   /**
+  /**
    * The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.
    * @return reductions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,20 +166,20 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_REDUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReductions(List<LineItemReductionCreate> reductions) {
+  public void setReductions(@javax.annotation.Nullable List<LineItemReductionCreate> reductions) {
     this.reductions = reductions;
   }
 
-  public RefundCreate externalId(String externalId) {
+  public RefundCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -184,20 +191,20 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public RefundCreate type(RefundType type) {
+  public RefundCreate type(@javax.annotation.Nonnull RefundType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -209,20 +216,20 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(RefundType type) {
+  public void setType(@javax.annotation.Nonnull RefundType type) {
     this.type = type;
   }
 
-  public RefundCreate merchantReference(String merchantReference) {
+  public RefundCreate merchantReference(@javax.annotation.Nullable String merchantReference) {
     
     this.merchantReference = merchantReference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the refund.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -234,20 +241,20 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMerchantReference(String merchantReference) {
+  public void setMerchantReference(@javax.annotation.Nullable String merchantReference) {
     this.merchantReference = merchantReference;
   }
 
-  public RefundCreate transaction(Long transaction) {
+  public RefundCreate transaction(@javax.annotation.Nullable Long transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * The transaction that the refund belongs to.
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,7 +266,7 @@ public class RefundCreate {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Long transaction) {
+  public void setTransaction(@javax.annotation.Nullable Long transaction) {
     this.transaction = transaction;
   }
 

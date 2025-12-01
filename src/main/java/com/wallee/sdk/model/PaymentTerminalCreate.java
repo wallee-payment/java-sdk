@@ -50,36 +50,42 @@ import java.util.StringJoiner;
 
 public class PaymentTerminalCreate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
+  @javax.annotation.Nullable
   private String identifier;
 
   public static final String JSON_PROPERTY_CONFIGURATION_VERSION = "configurationVersion";
+  @javax.annotation.Nullable
   private Long configurationVersion;
 
   public static final String JSON_PROPERTY_LOCATION_VERSION = "locationVersion";
+  @javax.annotation.Nullable
   private Long locationVersion;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private Long type;
 
   public PaymentTerminalCreate() {
   }
 
-  public PaymentTerminalCreate name(String name) {
+  public PaymentTerminalCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the payment terminal.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,20 +97,20 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public PaymentTerminalCreate identifier(String identifier) {
+  public PaymentTerminalCreate identifier(@javax.annotation.Nullable String identifier) {
     
     this.identifier = identifier;
     return this;
   }
 
-   /**
+  /**
    * The unique identifier of the terminal, that is displayed on the device.
    * @return identifier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -116,20 +122,20 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_IDENTIFIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIdentifier(String identifier) {
+  public void setIdentifier(@javax.annotation.Nullable String identifier) {
     this.identifier = identifier;
   }
 
-  public PaymentTerminalCreate configurationVersion(Long configurationVersion) {
+  public PaymentTerminalCreate configurationVersion(@javax.annotation.Nullable Long configurationVersion) {
     
     this.configurationVersion = configurationVersion;
     return this;
   }
 
-   /**
+  /**
    * The configuration that is assigned to the terminal and determines how it works.
    * @return configurationVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -141,20 +147,20 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_CONFIGURATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConfigurationVersion(Long configurationVersion) {
+  public void setConfigurationVersion(@javax.annotation.Nullable Long configurationVersion) {
     this.configurationVersion = configurationVersion;
   }
 
-  public PaymentTerminalCreate locationVersion(Long locationVersion) {
+  public PaymentTerminalCreate locationVersion(@javax.annotation.Nullable Long locationVersion) {
     
     this.locationVersion = locationVersion;
     return this;
   }
 
-   /**
+  /**
    * The physical location where the terminal is used.
    * @return locationVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LOCATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -166,20 +172,20 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_LOCATION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setLocationVersion(Long locationVersion) {
+  public void setLocationVersion(@javax.annotation.Nullable Long locationVersion) {
     this.locationVersion = locationVersion;
   }
 
-  public PaymentTerminalCreate externalId(String externalId) {
+  public PaymentTerminalCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -191,20 +197,20 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public PaymentTerminalCreate type(Long type) {
+  public PaymentTerminalCreate type(@javax.annotation.Nonnull Long type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * The type of the payment terminal.
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -216,7 +222,7 @@ public class PaymentTerminalCreate {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(Long type) {
+  public void setType(@javax.annotation.Nonnull Long type) {
     this.type = type;
   }
 

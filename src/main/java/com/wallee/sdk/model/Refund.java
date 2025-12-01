@@ -92,106 +92,138 @@ import java.util.StringJoiner;
 
 public class Refund {
   public static final String JSON_PROPERTY_TOTAL_SETTLED_AMOUNT = "totalSettledAmount";
+  @javax.annotation.Nullable
   private BigDecimal totalSettledAmount;
 
   public static final String JSON_PROPERTY_REDUCTIONS = "reductions";
+  @javax.annotation.Nullable
   private List<LineItemReduction> reductions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_BASE_LINE_ITEMS = "baseLineItems";
+  @javax.annotation.Nullable
   private List<LineItem> baseLineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PROCESSING_ON = "processingOn";
+  @javax.annotation.Nullable
   private OffsetDateTime processingOn;
 
   public static final String JSON_PROPERTY_TAXES = "taxes";
+  @javax.annotation.Nullable
   private Set<Tax> taxes = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private RefundType type;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+  @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
+  @javax.annotation.Nullable
   private OffsetDateTime succeededOn;
 
   public static final String JSON_PROPERTY_REDUCED_LINE_ITEMS = "reducedLineItems";
+  @javax.annotation.Nullable
   private List<LineItem> reducedLineItems = new ArrayList<>();
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private RefundState state;
 
   public static final String JSON_PROPERTY_MERCHANT_REFERENCE = "merchantReference";
+  @javax.annotation.Nullable
   private String merchantReference;
 
   public static final String JSON_PROPERTY_COMPLETION = "completion";
+  @javax.annotation.Nullable
   private Long completion;
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
   private BigDecimal amount;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
   private String externalId;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
+  @javax.annotation.Nullable
   private String timeZone;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_LABELS = "labels";
+  @javax.annotation.Nullable
   private Set<Label> labels = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TIMEOUT_ON = "timeoutOn";
+  @javax.annotation.Nullable
   private OffsetDateTime timeoutOn;
 
   public static final String JSON_PROPERTY_ENVIRONMENT = "environment";
+  @javax.annotation.Nullable
   private Environment environment;
 
   public static final String JSON_PROPERTY_CREATED_BY = "createdBy";
+  @javax.annotation.Nullable
   private Long createdBy;
 
   public static final String JSON_PROPERTY_NEXT_UPDATE_ON = "nextUpdateOn";
+  @javax.annotation.Nullable
   private OffsetDateTime nextUpdateOn;
 
   public static final String JSON_PROPERTY_UPDATED_INVOICE = "updatedInvoice";
+  @javax.annotation.Nullable
   private Long updatedInvoice;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private FailureReason failureReason;
 
   public static final String JSON_PROPERTY_TOTAL_APPLIED_FEES = "totalAppliedFees";
+  @javax.annotation.Nullable
   private BigDecimal totalAppliedFees;
 
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
+  @javax.annotation.Nullable
   private OffsetDateTime failedOn;
 
   public static final String JSON_PROPERTY_TRANSACTION = "transaction";
+  @javax.annotation.Nullable
   private Transaction transaction;
 
   public static final String JSON_PROPERTY_PROCESSOR_REFERENCE = "processorReference";
+  @javax.annotation.Nullable
   private String processorReference;
 
   public Refund() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Refund(
     @JsonProperty(JSON_PROPERTY_TOTAL_SETTLED_AMOUNT) BigDecimal totalSettledAmount, 
@@ -252,10 +284,10 @@ public class Refund {
     this.processorReference = processorReference;
   }
 
-   /**
+  /**
    * The total amount settled for the refund, factoring in reductions, taxes, and any additional applied fees.
    * @return totalSettledAmount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_SETTLED_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,10 +298,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The reductions applied on the original transaction items, detailing specific adjustments associated with the refund.
    * @return reductions
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDUCTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,10 +312,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The original base line items from the transaction prior to the refund, serving as a reference for the refunded amounts.
    * @return baseLineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BASE_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -294,10 +326,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the processing of the refund was started.
    * @return processingOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSING_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -308,10 +340,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The tax breakdown applied to the refund amount, helping with tax calculations or reporting.
    * @return taxes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TAXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -322,10 +354,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -336,16 +368,16 @@ public class Refund {
 
 
 
-  public Refund type(RefundType type) {
+  public Refund type(@javax.annotation.Nullable RefundType type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -357,14 +389,14 @@ public class Refund {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(RefundType type) {
+  public void setType(@javax.annotation.Nullable RefundType type) {
     this.type = type;
   }
 
-   /**
+  /**
    * The date and time when the object was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -375,10 +407,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The line items included in the refund, representing the reductions.
    * @return lineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -389,10 +421,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the refund succeeded.
    * @return succeededOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -403,10 +435,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The line items from the original transaction, adjusted to reflect any reductions applied during the refund process.
    * @return reducedLineItems
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REDUCED_LINE_ITEMS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -417,10 +449,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,16 +463,16 @@ public class Refund {
 
 
 
-  public Refund state(RefundState state) {
+  public Refund state(@javax.annotation.Nullable RefundState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -452,14 +484,14 @@ public class Refund {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(RefundState state) {
+  public void setState(@javax.annotation.Nullable RefundState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the refund.
    * @return merchantReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MERCHANT_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -470,10 +502,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The transaction completion that the refund belongs to.
    * @return completion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_COMPLETION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -484,10 +516,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The total monetary amount of the refund, representing the exact credit issued to the customer.
    * @return amount
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_AMOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -498,10 +530,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -512,10 +544,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -526,10 +558,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The time zone that this object is associated with.
    * @return timeZone
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -540,10 +572,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -554,10 +586,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The labels providing additional information about the object.
    * @return labels
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LABELS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -568,10 +600,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -582,10 +614,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the object will expire.
    * @return timeoutOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TIMEOUT_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -596,16 +628,16 @@ public class Refund {
 
 
 
-  public Refund environment(Environment environment) {
+  public Refund environment(@javax.annotation.Nullable Environment environment) {
     
     this.environment = environment;
     return this;
   }
 
-   /**
+  /**
    * Get environment
    * @return environment
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -617,14 +649,14 @@ public class Refund {
 
   @JsonProperty(JSON_PROPERTY_ENVIRONMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEnvironment(Environment environment) {
+  public void setEnvironment(@javax.annotation.Nullable Environment environment) {
     this.environment = environment;
   }
 
-   /**
+  /**
    * The ID of the user the refund was created by.
    * @return createdBy
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -635,10 +667,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the next update of the object&#39;s state is planned.
    * @return nextUpdateOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NEXT_UPDATE_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -649,10 +681,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * An updated invoice reflecting adjustments made by the refund.
    * @return updatedInvoice
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_UPDATED_INVOICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -663,16 +695,16 @@ public class Refund {
 
 
 
-  public Refund failureReason(FailureReason failureReason) {
+  public Refund failureReason(@javax.annotation.Nullable FailureReason failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * Get failureReason
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -684,14 +716,14 @@ public class Refund {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(FailureReason failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable FailureReason failureReason) {
     this.failureReason = failureReason;
   }
 
-   /**
+  /**
    * The sum of fees applied to the refund transaction, such as processing or service charges.
    * @return totalAppliedFees
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TOTAL_APPLIED_FEES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -702,10 +734,10 @@ public class Refund {
 
 
 
-   /**
+  /**
    * The date and time when the refund failed.
    * @return failedOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -716,16 +748,16 @@ public class Refund {
 
 
 
-  public Refund transaction(Transaction transaction) {
+  public Refund transaction(@javax.annotation.Nullable Transaction transaction) {
     
     this.transaction = transaction;
     return this;
   }
 
-   /**
+  /**
    * Get transaction
    * @return transaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -737,14 +769,14 @@ public class Refund {
 
   @JsonProperty(JSON_PROPERTY_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTransaction(Transaction transaction) {
+  public void setTransaction(@javax.annotation.Nullable Transaction transaction) {
     this.transaction = transaction;
   }
 
-   /**
+  /**
    * The reference ID provided by the payment processor, used to trace the refund through the external payment system.
    * @return processorReference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROCESSOR_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

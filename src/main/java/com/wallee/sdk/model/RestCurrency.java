@@ -47,22 +47,26 @@ import java.util.StringJoiner;
 
 public class RestCurrency {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_FRACTION_DIGITS = "fractionDigits";
+  @javax.annotation.Nullable
   private Integer fractionDigits;
 
   public static final String JSON_PROPERTY_CURRENCY_CODE = "currencyCode";
+  @javax.annotation.Nullable
   private String currencyCode;
 
   public static final String JSON_PROPERTY_NUMERIC_CODE = "numericCode";
+  @javax.annotation.Nullable
   private Integer numericCode;
 
   public RestCurrency() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestCurrency(
     @JsonProperty(JSON_PROPERTY_NAME) String name, 
@@ -77,10 +81,10 @@ public class RestCurrency {
     this.numericCode = numericCode;
   }
 
-   /**
+  /**
    * The name of the currency.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -91,10 +95,10 @@ public class RestCurrency {
 
 
 
-   /**
+  /**
    * The currency&#39;s number of decimals. When calculating amounts in this currency, the fraction digits determine the accuracy.
    * @return fractionDigits
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FRACTION_DIGITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,10 +109,10 @@ public class RestCurrency {
 
 
 
-   /**
+  /**
    * The currency&#39;s three-letter code (ISO 4217 format).
    * @return currencyCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CURRENCY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,10 +123,10 @@ public class RestCurrency {
 
 
 
-   /**
+  /**
    * The currency&#39;s three-digit code (ISO 4217 format).
    * @return numericCode
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NUMERIC_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

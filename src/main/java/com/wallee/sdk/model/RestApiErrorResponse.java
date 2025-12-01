@@ -51,25 +51,30 @@ import java.util.StringJoiner;
 
 public class RestApiErrorResponse {
   public static final String JSON_PROPERTY_DATE = "date";
+  @javax.annotation.Nullable
   private OffsetDateTime date;
 
   public static final String JSON_PROPERTY_CODE = "code";
+  @javax.annotation.Nullable
   private String code;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private String id;
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
+  @javax.annotation.Nullable
   private String message;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
+  @javax.annotation.Nullable
   private Map<String, String> errors = new HashMap<>();
 
   public RestApiErrorResponse() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public RestApiErrorResponse(
     @JsonProperty(JSON_PROPERTY_DATE) OffsetDateTime date, 
@@ -86,10 +91,10 @@ public class RestApiErrorResponse {
     this.errors = errors;
   }
 
-   /**
+  /**
    * The date and time when the error occurred.
    * @return date
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,10 +105,10 @@ public class RestApiErrorResponse {
 
 
 
-   /**
+  /**
    * A brief explanation of the error that can be used to programmatically handle it.
    * @return code
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -114,10 +119,10 @@ public class RestApiErrorResponse {
 
 
 
-   /**
+  /**
    * The unique identifier of the error.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -128,10 +133,10 @@ public class RestApiErrorResponse {
 
 
 
-   /**
+  /**
    * A human-readable message providing more details about the error.
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -142,10 +147,10 @@ public class RestApiErrorResponse {
 
 
 
-   /**
+  /**
    * A map of errors where the key represents the error identifier (such as field name or error context) and the value contains the detailed error message.
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -49,25 +49,30 @@ import java.util.StringJoiner;
 
 public class InternalTransferBankTransaction {
   public static final String JSON_PROPERTY_SOURCE_BANK_TRANSACTION = "sourceBankTransaction";
+  @javax.annotation.Nullable
   private BankTransaction sourceBankTransaction;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_TARGET_BANK_TRANSACTION = "targetBankTransaction";
+  @javax.annotation.Nullable
   private BankTransaction targetBankTransaction;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public InternalTransferBankTransaction() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public InternalTransferBankTransaction(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -80,16 +85,16 @@ public class InternalTransferBankTransaction {
     this.version = version;
   }
 
-  public InternalTransferBankTransaction sourceBankTransaction(BankTransaction sourceBankTransaction) {
+  public InternalTransferBankTransaction sourceBankTransaction(@javax.annotation.Nullable BankTransaction sourceBankTransaction) {
     
     this.sourceBankTransaction = sourceBankTransaction;
     return this;
   }
 
-   /**
+  /**
    * Get sourceBankTransaction
    * @return sourceBankTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOURCE_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -101,14 +106,14 @@ public class InternalTransferBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_SOURCE_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSourceBankTransaction(BankTransaction sourceBankTransaction) {
+  public void setSourceBankTransaction(@javax.annotation.Nullable BankTransaction sourceBankTransaction) {
     this.sourceBankTransaction = sourceBankTransaction;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,16 +124,16 @@ public class InternalTransferBankTransaction {
 
 
 
-  public InternalTransferBankTransaction targetBankTransaction(BankTransaction targetBankTransaction) {
+  public InternalTransferBankTransaction targetBankTransaction(@javax.annotation.Nullable BankTransaction targetBankTransaction) {
     
     this.targetBankTransaction = targetBankTransaction;
     return this;
   }
 
-   /**
+  /**
    * Get targetBankTransaction
    * @return targetBankTransaction
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -140,14 +145,14 @@ public class InternalTransferBankTransaction {
 
   @JsonProperty(JSON_PROPERTY_TARGET_BANK_TRANSACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetBankTransaction(BankTransaction targetBankTransaction) {
+  public void setTargetBankTransaction(@javax.annotation.Nullable BankTransaction targetBankTransaction) {
     this.targetBankTransaction = targetBankTransaction;
   }
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,10 +163,10 @@ public class InternalTransferBankTransaction {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

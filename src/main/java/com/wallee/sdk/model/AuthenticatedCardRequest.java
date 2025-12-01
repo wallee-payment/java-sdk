@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class AuthenticatedCardRequest {
   public static final String JSON_PROPERTY_CARD_DATA = "cardData";
+  @javax.annotation.Nullable
   private AuthenticatedCardDataCreate cardData;
 
   public static final String JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION = "paymentMethodConfiguration";
+  @javax.annotation.Nullable
   private Long paymentMethodConfiguration;
 
   public AuthenticatedCardRequest() {
   }
 
-  public AuthenticatedCardRequest cardData(AuthenticatedCardDataCreate cardData) {
+  public AuthenticatedCardRequest cardData(@javax.annotation.Nullable AuthenticatedCardDataCreate cardData) {
     
     this.cardData = cardData;
     return this;
   }
 
-   /**
+  /**
    * Get cardData
    * @return cardData
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class AuthenticatedCardRequest {
 
   @JsonProperty(JSON_PROPERTY_CARD_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setCardData(AuthenticatedCardDataCreate cardData) {
+  public void setCardData(@javax.annotation.Nullable AuthenticatedCardDataCreate cardData) {
     this.cardData = cardData;
   }
 
-  public AuthenticatedCardRequest paymentMethodConfiguration(Long paymentMethodConfiguration) {
+  public AuthenticatedCardRequest paymentMethodConfiguration(@javax.annotation.Nullable Long paymentMethodConfiguration) {
     
     this.paymentMethodConfiguration = paymentMethodConfiguration;
     return this;
   }
 
-   /**
+  /**
    * The ID of the payment method configuration to use.
    * @return paymentMethodConfiguration
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -100,7 +102,7 @@ public class AuthenticatedCardRequest {
 
   @JsonProperty(JSON_PROPERTY_PAYMENT_METHOD_CONFIGURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentMethodConfiguration(Long paymentMethodConfiguration) {
+  public void setPaymentMethodConfiguration(@javax.annotation.Nullable Long paymentMethodConfiguration) {
     this.paymentMethodConfiguration = paymentMethodConfiguration;
   }
 

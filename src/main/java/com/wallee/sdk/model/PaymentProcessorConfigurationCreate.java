@@ -48,27 +48,30 @@ import java.util.StringJoiner;
 
 public class PaymentProcessorConfigurationCreate {
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_PROCESSOR = "processor";
+  @javax.annotation.Nonnull
   private Long processor;
 
   public PaymentProcessorConfigurationCreate() {
   }
 
-  public PaymentProcessorConfigurationCreate name(String name) {
+  public PaymentProcessorConfigurationCreate name(@javax.annotation.Nullable String name) {
     
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name used to identify the payment method configuration.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -80,20 +83,20 @@ public class PaymentProcessorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(String name) {
+  public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
   }
 
-  public PaymentProcessorConfigurationCreate state(CreationEntityState state) {
+  public PaymentProcessorConfigurationCreate state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,20 +108,20 @@ public class PaymentProcessorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-  public PaymentProcessorConfigurationCreate processor(Long processor) {
+  public PaymentProcessorConfigurationCreate processor(@javax.annotation.Nonnull Long processor) {
     
     this.processor = processor;
     return this;
   }
 
-   /**
+  /**
    * The payment processor that the configuration is for.
    * @return processor
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -130,7 +133,7 @@ public class PaymentProcessorConfigurationCreate {
 
   @JsonProperty(JSON_PROPERTY_PROCESSOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProcessor(Long processor) {
+  public void setProcessor(@javax.annotation.Nonnull Long processor) {
     this.processor = processor;
   }
 

@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class LineItemAttributeCreate {
   public static final String JSON_PROPERTY_LABEL = "label";
+  @javax.annotation.Nonnull
   private String label;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @javax.annotation.Nonnull
   private String value;
 
   public LineItemAttributeCreate() {
   }
 
-  public LineItemAttributeCreate label(String label) {
+  public LineItemAttributeCreate label(@javax.annotation.Nonnull String label) {
     
     this.label = label;
     return this;
   }
 
-   /**
+  /**
    * The label describing the line item attribute.
    * @return label
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -75,20 +77,20 @@ public class LineItemAttributeCreate {
 
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setLabel(String label) {
+  public void setLabel(@javax.annotation.Nonnull String label) {
     this.label = label;
   }
 
-  public LineItemAttributeCreate value(String value) {
+  public LineItemAttributeCreate value(@javax.annotation.Nonnull String value) {
     
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The value of the line item attribute.
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class LineItemAttributeCreate {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@javax.annotation.Nonnull String value) {
     this.value = value;
   }
 

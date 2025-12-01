@@ -332,84 +332,7 @@ class TransactionsServiceTest {
       "Transaction state must be FULFILLED");
   }
 
-  /**
-   * Authorizes and completes a transaction offline using card details.
-   *
-   * <p>Verifies that:
-   * <ul>
-   *   <li>Transaction completion state is SUCCESSFUL
-   *   <li>Transaction state is FULFILL
-   * </ul>
-   */
-  @Test
-  public void completeOfflineShouldMakeTransactionCompletionStateSuccessful() throws ApiException {
-    TransactionCreate transactionCreate = getTransactionCreatePayload();
-    transactionCreate.setTokenizationMode(TokenizationMode.FORCE_CREATION);
-    transactionCreate.setCustomersPresence(CustomersPresence.NOT_PRESENT);
-    transactionCreate.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_IMMEDIATELY);
 
-    Transaction transaction = create(transactionCreate);
-
-    Transaction authorizedTransaction =
-      transactionsService.postPaymentTransactionsIdProcessCardDetails(
-        transaction.getId(), SPACE_ID, MOCK_CARD_DATA, EMPTY_EXPAND);
-
-    TransactionCompletion processedTransaction =
-      transactionsService.postPaymentTransactionsIdCompleteOffline(
-        authorizedTransaction.getId(), SPACE_ID, EMPTY_EXPAND);
-
-    assertEquals(
-      TransactionCompletionState.SUCCESSFUL,
-      processedTransaction.getState(),
-      "Transaction completion state must be SUCCESSFUL");
-
-    Transaction completedTransaction =
-      transactionsService.getPaymentTransactionsId(transaction.getId(), SPACE_ID, EMPTY_EXPAND);
-
-    assertEquals(
-      TransactionState.FULFILL,
-      completedTransaction.getState(),
-      "Transaction state must be FULFILLED");
-  }
-
-  /**
-   * Authorizes and completes a transaction offline partially using card details.
-   *
-   * <p>Verifies that:
-   * <ul>
-   *   <li>Transaction completion state is SUCCESSFUL
-   *   <li>Transaction state is FULFILL
-   * </ul>
-   */
-  @Test
-  public void completeOfflinePartiallyShouldMakeTransactionCompletionStateSuccessful()
-    throws ApiException {
-    Transaction transaction = create(getTransactionCreatePayload());
-
-    Transaction authorizedTransaction =
-      transactionsService.postPaymentTransactionsIdProcessCardDetails(
-        transaction.getId(), SPACE_ID, MOCK_CARD_DATA, EMPTY_EXPAND);
-
-    TransactionCompletionDetails tcd = new TransactionCompletionDetails();
-    tcd.setExternalId(UUID.randomUUID().toString());
-
-    TransactionCompletion processedTransaction =
-      transactionsService.postPaymentTransactionsIdCompletePartiallyOffline(
-        authorizedTransaction.getId(), SPACE_ID, tcd, EMPTY_EXPAND);
-
-    assertEquals(
-      TransactionCompletionState.SUCCESSFUL,
-      processedTransaction.getState(),
-      "Transaction completion state must be SUCCESSFUL");
-
-    Transaction completedTransaction =
-      transactionsService.getPaymentTransactionsId(transaction.getId(), SPACE_ID, EMPTY_EXPAND);
-
-    assertEquals(
-      TransactionState.FULFILL,
-      completedTransaction.getState(),
-      "Transaction state must be FULFILLED");
-  }
 
   /**
    * Authorizes and voids a transaction online.
@@ -458,52 +381,6 @@ class TransactionsServiceTest {
       "Transaction state should be VOIDED");
   }
 
-  /**
-   * Authorizes and voids a transaction offline.
-   *
-   * <p>Verifies that:
-   * <ul>
-   *   <li>Transaction void state is SUCCESSFUL
-   *   <li>Transaction state is VOIDED
-   * </ul>
-   */
-  @Test
-  public void voidTransactionOfflineShouldReturnVoidedTransaction() throws ApiException {
-    TransactionCreate transactionCreate = getTransactionCreatePayload();
-    transactionCreate.setTokenizationMode(TokenizationMode.FORCE_CREATION);
-    transactionCreate.setCustomersPresence(CustomersPresence.NOT_PRESENT);
-    transactionCreate.setCompletionBehavior(TransactionCompletionBehavior.COMPLETE_DEFERRED);
-
-    Transaction transaction = create(transactionCreate);
-
-    Transaction authorizedTransaction =
-      transactionsService.postPaymentTransactionsIdProcessCardDetails(
-        transaction.getId(), SPACE_ID, MOCK_CARD_DATA, EMPTY_EXPAND);
-
-    assertEquals(
-      TransactionState.AUTHORIZED,
-      authorizedTransaction.getState(),
-      "Transaction state should be AUTHORIZED");
-
-    Set<String> expand = new HashSet<>();
-    expand.add("transaction");
-
-    TransactionVoid transactionVoid =
-      transactionsService.postPaymentTransactionsIdVoidOffline(
-        authorizedTransaction.getId(), SPACE_ID, expand);
-
-    assertEquals(
-      TransactionVoidState.SUCCESSFUL,
-      transactionVoid.getState(),
-      "Transaction void state should be SUCCESSFUL");
-
-    assertNotNull(transactionVoid.getTransaction());
-
-    assertEquals(
-      TransactionState.VOIDED,
-      transactionVoid.getTransaction().getState(),
-      "Transaction state should be VOIDED");
-  }
 
   /**
    * Creates, authorizes and completes a transaction.

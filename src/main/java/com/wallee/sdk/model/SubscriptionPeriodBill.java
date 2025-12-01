@@ -57,43 +57,54 @@ import java.util.StringJoiner;
 
 public class SubscriptionPeriodBill {
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
+  @javax.annotation.Nullable
   private Long linkedSpaceId;
 
   public static final String JSON_PROPERTY_PERIOD_START_DATE = "periodStartDate";
+  @javax.annotation.Nullable
   private OffsetDateTime periodStartDate;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION_VERSION = "subscriptionVersion";
+  @javax.annotation.Nullable
   private SubscriptionVersion subscriptionVersion;
 
   public static final String JSON_PROPERTY_EFFECTIVE_PERIOD_END_DATE = "effectivePeriodEndDate";
+  @javax.annotation.Nullable
   private OffsetDateTime effectivePeriodEndDate;
 
   public static final String JSON_PROPERTY_LANGUAGE = "language";
+  @javax.annotation.Nullable
   private String language;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private SubscriptionPeriodBillState state;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
   private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_PLANNED_PERIOD_END_DATE = "plannedPeriodEndDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPeriodEndDate;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public SubscriptionPeriodBill() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public SubscriptionPeriodBill(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -118,10 +129,10 @@ public class SubscriptionPeriodBill {
     this.version = version;
   }
 
-   /**
+  /**
    * The ID of the space this object belongs to.
    * @return linkedSpaceId
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -132,10 +143,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * The date and time when the period started.
    * @return periodStartDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PERIOD_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -146,10 +157,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -160,16 +171,16 @@ public class SubscriptionPeriodBill {
 
 
 
-  public SubscriptionPeriodBill subscriptionVersion(SubscriptionVersion subscriptionVersion) {
+  public SubscriptionPeriodBill subscriptionVersion(@javax.annotation.Nullable SubscriptionVersion subscriptionVersion) {
     
     this.subscriptionVersion = subscriptionVersion;
     return this;
   }
 
-   /**
+  /**
    * Get subscriptionVersion
    * @return subscriptionVersion
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,14 +192,14 @@ public class SubscriptionPeriodBill {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSubscriptionVersion(SubscriptionVersion subscriptionVersion) {
+  public void setSubscriptionVersion(@javax.annotation.Nullable SubscriptionVersion subscriptionVersion) {
     this.subscriptionVersion = subscriptionVersion;
   }
 
-   /**
+  /**
    * The date and time when the period actually ended.
    * @return effectivePeriodEndDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EFFECTIVE_PERIOD_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -199,10 +210,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * The language that is linked to the object.
    * @return language
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_LANGUAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -213,10 +224,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -227,16 +238,16 @@ public class SubscriptionPeriodBill {
 
 
 
-  public SubscriptionPeriodBill state(SubscriptionPeriodBillState state) {
+  public SubscriptionPeriodBill state(@javax.annotation.Nullable SubscriptionPeriodBillState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -248,14 +259,14 @@ public class SubscriptionPeriodBill {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(SubscriptionPeriodBillState state) {
+  public void setState(@javax.annotation.Nullable SubscriptionPeriodBillState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The date and time when the period bill was created.
    * @return createdOn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_CREATED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -266,10 +277,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * The date and time when the period is planned to end.
    * @return plannedPeriodEndDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PERIOD_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -280,10 +291,10 @@ public class SubscriptionPeriodBill {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

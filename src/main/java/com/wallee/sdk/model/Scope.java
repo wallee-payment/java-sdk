@@ -66,52 +66,66 @@ import java.util.StringJoiner;
 
 public class Scope {
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
 
   public static final String JSON_PROPERTY_SSL_ACTIVE = "sslActive";
+  @javax.annotation.Nullable
   private Boolean sslActive;
 
   public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
   private Integer version;
 
   public static final String JSON_PROPERTY_MACHINE_NAME = "machineName";
+  @javax.annotation.Nullable
   private String machineName;
 
   public static final String JSON_PROPERTY_URL = "url";
+  @javax.annotation.Nullable
   private String url;
 
   public static final String JSON_PROPERTY_FEATURES = "features";
+  @javax.annotation.Nullable
   private Set<Feature> features = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_THEMES = "themes";
+  @javax.annotation.Nullable
   private List<String> themes = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PORT = "port";
+  @javax.annotation.Nullable
   private Integer port;
 
   public static final String JSON_PROPERTY_PREPROD_DOMAIN_NAME = "preprodDomainName";
+  @javax.annotation.Nullable
   private String preprodDomainName;
 
   public static final String JSON_PROPERTY_DOMAIN_NAME = "domainName";
+  @javax.annotation.Nullable
   private String domainName;
 
   public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
   private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
   private Long id;
 
   public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
   private CreationEntityState state;
 
   public static final String JSON_PROPERTY_SANDBOX_DOMAIN_NAME = "sandboxDomainName";
+  @javax.annotation.Nullable
   private String sandboxDomainName;
 
   public Scope() {
   }
   /**
-  * Constructor with only readonly parameters
-  */
+   * Constructor with only readonly parameters
+   */
   @JsonCreator
   public Scope(
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
@@ -144,10 +158,10 @@ public class Scope {
     this.sandboxDomainName = sandboxDomainName;
   }
 
-   /**
+  /**
    * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
    * @return plannedPurgeDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,10 +172,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * Whether the scope supports SSL.
    * @return sslActive
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SSL_ACTIVE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -172,10 +186,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The version is used for optimistic locking and incremented whenever the object is updated.
    * @return version
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -186,10 +200,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The name identifying the scope in e.g. URLs.
    * @return machineName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MACHINE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -200,10 +214,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The URL where the scope can be accessed.
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,10 +228,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The list of features that are active in the scope.
    * @return features
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FEATURES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -228,10 +242,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The themes that determine the look and feel of the scope&#39;s user interface. A fall-through strategy is applied when building the actual theme.
    * @return themes
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_THEMES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -242,11 +256,11 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The port where the scope can be accessed.
    * minimum: 1
    * @return port
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -257,10 +271,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The preprod domain name that belongs to the scope.
    * @return preprodDomainName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PREPROD_DOMAIN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -271,10 +285,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The domain name that belongs to the scope.
    * @return domainName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DOMAIN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,10 +299,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * The name used to identify the scope.
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -299,10 +313,10 @@ public class Scope {
 
 
 
-   /**
+  /**
    * A unique identifier for the object.
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -313,16 +327,16 @@ public class Scope {
 
 
 
-  public Scope state(CreationEntityState state) {
+  public Scope state(@javax.annotation.Nullable CreationEntityState state) {
     
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -334,14 +348,14 @@ public class Scope {
 
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(CreationEntityState state) {
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
     this.state = state;
   }
 
-   /**
+  /**
    * The sandbox domain name that belongs to the scope.
    * @return sandboxDomainName
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SANDBOX_DOMAIN_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)

@@ -53,39 +53,46 @@ import java.util.StringJoiner;
 
 public class SubscriptionChargeCreate {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_PLANNED_EXECUTION_DATE = "plannedExecutionDate";
+  @javax.annotation.Nullable
   private OffsetDateTime plannedExecutionDate;
 
   public static final String JSON_PROPERTY_PROCESSING_TYPE = "processingType";
+  @javax.annotation.Nonnull
   private SubscriptionChargeProcessingType processingType;
 
   public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nonnull
   private String externalId;
 
   public static final String JSON_PROPERTY_SUCCESS_URL = "successUrl";
+  @javax.annotation.Nullable
   private String successUrl;
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
+  @javax.annotation.Nonnull
   private Long subscription;
 
   public static final String JSON_PROPERTY_FAILED_URL = "failedUrl";
+  @javax.annotation.Nullable
   private String failedUrl;
 
   public SubscriptionChargeCreate() {
   }
 
-  public SubscriptionChargeCreate reference(String reference) {
+  public SubscriptionChargeCreate reference(@javax.annotation.Nullable String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * The merchant&#39;s reference used to identify the charge.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -97,20 +104,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
-  public SubscriptionChargeCreate plannedExecutionDate(OffsetDateTime plannedExecutionDate) {
+  public SubscriptionChargeCreate plannedExecutionDate(@javax.annotation.Nullable OffsetDateTime plannedExecutionDate) {
     
     this.plannedExecutionDate = plannedExecutionDate;
     return this;
   }
 
-   /**
+  /**
    * The date and time when the execution of the charge is planned.
    * @return plannedExecutionDate
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PLANNED_EXECUTION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -122,20 +129,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_PLANNED_EXECUTION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPlannedExecutionDate(OffsetDateTime plannedExecutionDate) {
+  public void setPlannedExecutionDate(@javax.annotation.Nullable OffsetDateTime plannedExecutionDate) {
     this.plannedExecutionDate = plannedExecutionDate;
   }
 
-  public SubscriptionChargeCreate processingType(SubscriptionChargeProcessingType processingType) {
+  public SubscriptionChargeCreate processingType(@javax.annotation.Nonnull SubscriptionChargeProcessingType processingType) {
     
     this.processingType = processingType;
     return this;
   }
 
-   /**
+  /**
    * Get processingType
    * @return processingType
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -147,20 +154,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_PROCESSING_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setProcessingType(SubscriptionChargeProcessingType processingType) {
+  public void setProcessingType(@javax.annotation.Nonnull SubscriptionChargeProcessingType processingType) {
     this.processingType = processingType;
   }
 
-  public SubscriptionChargeCreate externalId(String externalId) {
+  public SubscriptionChargeCreate externalId(@javax.annotation.Nonnull String externalId) {
     
     this.externalId = externalId;
     return this;
   }
 
-   /**
+  /**
    * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
    * @return externalId
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -172,20 +179,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setExternalId(String externalId) {
+  public void setExternalId(@javax.annotation.Nonnull String externalId) {
     this.externalId = externalId;
   }
 
-  public SubscriptionChargeCreate successUrl(String successUrl) {
+  public SubscriptionChargeCreate successUrl(@javax.annotation.Nullable String successUrl) {
     
     this.successUrl = successUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to redirect the customer back to after they successfully authenticated their payment.
    * @return successUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,20 +204,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_SUCCESS_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSuccessUrl(String successUrl) {
+  public void setSuccessUrl(@javax.annotation.Nullable String successUrl) {
     this.successUrl = successUrl;
   }
 
-  public SubscriptionChargeCreate subscription(Long subscription) {
+  public SubscriptionChargeCreate subscription(@javax.annotation.Nonnull Long subscription) {
     
     this.subscription = subscription;
     return this;
   }
 
-   /**
+  /**
    * The subscription that the charge belongs to.
    * @return subscription
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -222,20 +229,20 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSubscription(Long subscription) {
+  public void setSubscription(@javax.annotation.Nonnull Long subscription) {
     this.subscription = subscription;
   }
 
-  public SubscriptionChargeCreate failedUrl(String failedUrl) {
+  public SubscriptionChargeCreate failedUrl(@javax.annotation.Nullable String failedUrl) {
     
     this.failedUrl = failedUrl;
     return this;
   }
 
-   /**
+  /**
    * The URL to redirect the customer back to after they canceled or failed to authenticated their payment.
    * @return failedUrl
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -247,7 +254,7 @@ public class SubscriptionChargeCreate {
 
   @JsonProperty(JSON_PROPERTY_FAILED_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailedUrl(String failedUrl) {
+  public void setFailedUrl(@javax.annotation.Nullable String failedUrl) {
     this.failedUrl = failedUrl;
   }
 

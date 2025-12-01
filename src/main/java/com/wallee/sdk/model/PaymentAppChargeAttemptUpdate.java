@@ -48,30 +48,34 @@ import java.util.StringJoiner;
 
 public class PaymentAppChargeAttemptUpdate {
   public static final String JSON_PROPERTY_REFERENCE = "reference";
+  @javax.annotation.Nullable
   private String reference;
 
   public static final String JSON_PROPERTY_TARGET_STATE = "targetState";
+  @javax.annotation.Nullable
   private PaymentAppChargeAttemptTargetState targetState;
 
   public static final String JSON_PROPERTY_FAILURE_REASON = "failureReason";
+  @javax.annotation.Nullable
   private Long failureReason;
 
   public static final String JSON_PROPERTY_END_USER_FAILURE_MESSAGE = "endUserFailureMessage";
+  @javax.annotation.Nullable
   private String endUserFailureMessage;
 
   public PaymentAppChargeAttemptUpdate() {
   }
 
-  public PaymentAppChargeAttemptUpdate reference(String reference) {
+  public PaymentAppChargeAttemptUpdate reference(@javax.annotation.Nullable String reference) {
     
     this.reference = reference;
     return this;
   }
 
-   /**
+  /**
    * A unique identifier for the charge attempt within the systems of the external service provider. This field is mandatory when the target state is set to &#39;SUCCESSFUL&#39;.
    * @return reference
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -83,20 +87,20 @@ public class PaymentAppChargeAttemptUpdate {
 
   @JsonProperty(JSON_PROPERTY_REFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setReference(String reference) {
+  public void setReference(@javax.annotation.Nullable String reference) {
     this.reference = reference;
   }
 
-  public PaymentAppChargeAttemptUpdate targetState(PaymentAppChargeAttemptTargetState targetState) {
+  public PaymentAppChargeAttemptUpdate targetState(@javax.annotation.Nullable PaymentAppChargeAttemptTargetState targetState) {
     
     this.targetState = targetState;
     return this;
   }
 
-   /**
+  /**
    * Get targetState
    * @return targetState
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TARGET_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -108,20 +112,20 @@ public class PaymentAppChargeAttemptUpdate {
 
   @JsonProperty(JSON_PROPERTY_TARGET_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTargetState(PaymentAppChargeAttemptTargetState targetState) {
+  public void setTargetState(@javax.annotation.Nullable PaymentAppChargeAttemptTargetState targetState) {
     this.targetState = targetState;
   }
 
-  public PaymentAppChargeAttemptUpdate failureReason(Long failureReason) {
+  public PaymentAppChargeAttemptUpdate failureReason(@javax.annotation.Nullable Long failureReason) {
     
     this.failureReason = failureReason;
     return this;
   }
 
-   /**
+  /**
    * The reason for the charge attempt&#39;s failure. This field is mandatory when the target state is set to &#39;FAILED&#39;.
    * @return failureReason
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,20 +137,20 @@ public class PaymentAppChargeAttemptUpdate {
 
   @JsonProperty(JSON_PROPERTY_FAILURE_REASON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setFailureReason(Long failureReason) {
+  public void setFailureReason(@javax.annotation.Nullable Long failureReason) {
     this.failureReason = failureReason;
   }
 
-  public PaymentAppChargeAttemptUpdate endUserFailureMessage(String endUserFailureMessage) {
+  public PaymentAppChargeAttemptUpdate endUserFailureMessage(@javax.annotation.Nullable String endUserFailureMessage) {
     
     this.endUserFailureMessage = endUserFailureMessage;
     return this;
   }
 
-   /**
+  /**
    * A message explaining to the buyer why the payment failed. The message must be localized in the buyer&#39;s language, as specified in the payment page invocation URL.
    * @return endUserFailureMessage
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_END_USER_FAILURE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -158,7 +162,7 @@ public class PaymentAppChargeAttemptUpdate {
 
   @JsonProperty(JSON_PROPERTY_END_USER_FAILURE_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEndUserFailureMessage(String endUserFailureMessage) {
+  public void setEndUserFailureMessage(@javax.annotation.Nullable String endUserFailureMessage) {
     this.endUserFailureMessage = endUserFailureMessage;
   }
 

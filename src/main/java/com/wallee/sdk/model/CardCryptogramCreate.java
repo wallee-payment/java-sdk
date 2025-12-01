@@ -46,24 +46,26 @@ import java.util.StringJoiner;
 
 public class CardCryptogramCreate {
   public static final String JSON_PROPERTY_ECI = "eci";
+  @javax.annotation.Nullable
   private String eci;
 
   public static final String JSON_PROPERTY_VALUE = "value";
+  @javax.annotation.Nonnull
   private String value;
 
   public CardCryptogramCreate() {
   }
 
-  public CardCryptogramCreate eci(String eci) {
+  public CardCryptogramCreate eci(@javax.annotation.Nullable String eci) {
     
     this.eci = eci;
     return this;
   }
 
-   /**
+  /**
    * The Electronic Commerce Indicator (ECI) represents the authentication level and indicates liability shift during online or card-not-present transactions.
    * @return eci
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -75,20 +77,20 @@ public class CardCryptogramCreate {
 
   @JsonProperty(JSON_PROPERTY_ECI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEci(String eci) {
+  public void setEci(@javax.annotation.Nullable String eci) {
     this.eci = eci;
   }
 
-  public CardCryptogramCreate value(String value) {
+  public CardCryptogramCreate value(@javax.annotation.Nonnull String value) {
     
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * The cryptogram value used for securing card transactions, format varying based on the PAN type.
    * @return value
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -100,7 +102,7 @@ public class CardCryptogramCreate {
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setValue(String value) {
+  public void setValue(@javax.annotation.Nonnull String value) {
     this.value = value;
   }
 

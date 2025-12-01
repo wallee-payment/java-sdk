@@ -38,6 +38,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
 
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,7 +63,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteHumanUsersId">Delete a human user Documentation</a>
    */
-  public void deleteHumanUsersId(Long id) throws ApiException {
+  public void deleteHumanUsersId(@javax.annotation.Nonnull Long id) throws ApiException {
     this.deleteHumanUsersId(id, Collections.emptyMap());
   }
 
@@ -77,7 +78,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#deleteHumanUsersId">Delete a human user Documentation</a>
    */
-  public void deleteHumanUsersId(Long id, Map<String, String> additionalHeaders) throws ApiException {
+  public void deleteHumanUsersId(@javax.annotation.Nonnull Long id, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -87,7 +88,7 @@ public class HumanUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/human-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -126,8 +127,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        null,
-        requestTimeout
+        requestTimeout,
+        null
     );
   }
 
@@ -145,7 +146,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsers">List all human users Documentation</a>
    */
-  public HumanUserListResponse getHumanUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order) throws ApiException {
+  public HumanUserListResponse getHumanUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order) throws ApiException {
     return this.getHumanUsers(after, before, expand, limit, order, Collections.emptyMap());
   }
 
@@ -165,7 +166,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsers">List all human users Documentation</a>
    */
-  public HumanUserListResponse getHumanUsers(Long after, Long before, Set<String> expand, Integer limit, SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
+  public HumanUserListResponse getHumanUsers(@javax.annotation.Nullable Long after, @javax.annotation.Nullable Long before, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable SortingOrder order, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -214,8 +215,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -233,7 +234,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersExport">Export human users Documentation</a>
    */
-  public File getHumanUsersExport(Set<String> fields, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public File getHumanUsersExport(@javax.annotation.Nullable Set<String> fields, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getHumanUsersExport(fields, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -253,7 +254,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersExport">Export human users Documentation</a>
    */
-  public File getHumanUsersExport(Set<String> fields, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public File getHumanUsersExport(@javax.annotation.Nullable Set<String> fields, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -303,8 +304,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -319,7 +320,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersId">Retrieve a human user Documentation</a>
    */
-  public HumanUser getHumanUsersId(Long id, Set<String> expand) throws ApiException {
+  public HumanUser getHumanUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.getHumanUsersId(id, expand, Collections.emptyMap());
   }
 
@@ -336,7 +337,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersId">Retrieve a human user Documentation</a>
    */
-  public HumanUser getHumanUsersId(Long id, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public HumanUser getHumanUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -346,7 +347,7 @@ public class HumanUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/human-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -387,8 +388,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -406,7 +407,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersSearch">Search human users Documentation</a>
    */
-  public HumanUserSearchResponse getHumanUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query) throws ApiException {
+  public HumanUserSearchResponse getHumanUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
     return this.getHumanUsersSearch(expand, limit, offset, order, query, Collections.emptyMap());
   }
 
@@ -426,7 +427,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getHumanUsersSearch">Search human users Documentation</a>
    */
-  public HumanUserSearchResponse getHumanUsersSearch(Set<String> expand, Integer limit, Integer offset, String order, String query, Map<String, String> additionalHeaders) throws ApiException {
+  public HumanUserSearchResponse getHumanUsersSearch(@javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -475,8 +476,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -492,7 +493,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchHumanUsersId">Update a human user Documentation</a>
    */
-  public HumanUser patchHumanUsersId(Long id, HumanUserUpdate humanUserUpdate, Set<String> expand) throws ApiException {
+  public HumanUser patchHumanUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull HumanUserUpdate humanUserUpdate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.patchHumanUsersId(id, humanUserUpdate, expand, Collections.emptyMap());
   }
 
@@ -510,7 +511,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#patchHumanUsersId">Update a human user Documentation</a>
    */
-  public HumanUser patchHumanUsersId(Long id, HumanUserUpdate humanUserUpdate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public HumanUser patchHumanUsersId(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull HumanUserUpdate humanUserUpdate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = humanUserUpdate;
     
     // verify the required parameter 'id' is set
@@ -525,7 +526,7 @@ public class HumanUsersService extends BaseApi {
     
     // create path and map variables
     String localVarPath = "/human-users/{id}"
-      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
 
     StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
     String localVarQueryParameterBaseName;
@@ -566,8 +567,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -582,7 +583,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postHumanUsers">Create a human user Documentation</a>
    */
-  public HumanUser postHumanUsers(HumanUserCreate humanUserCreate, Set<String> expand) throws ApiException {
+  public HumanUser postHumanUsers(@javax.annotation.Nonnull HumanUserCreate humanUserCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
     return this.postHumanUsers(humanUserCreate, expand, Collections.emptyMap());
   }
 
@@ -599,7 +600,7 @@ public class HumanUsersService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postHumanUsers">Create a human user Documentation</a>
    */
-  public HumanUser postHumanUsers(HumanUserCreate humanUserCreate, Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public HumanUser postHumanUsers(@javax.annotation.Nonnull HumanUserCreate humanUserCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = humanUserCreate;
     
     // verify the required parameter 'humanUserCreate' is set
@@ -649,8 +650,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        localVarReturnType,
-        requestTimeout
+        requestTimeout,
+        localVarReturnType
     );
   }
 
@@ -690,8 +691,8 @@ public class HumanUsersService extends BaseApi {
         localVarFormParams,
         localVarAccept,
         localVarContentType,
-        returnType,
-        requestTimeout
+        requestTimeout,
+        returnType
     );
   }
 
