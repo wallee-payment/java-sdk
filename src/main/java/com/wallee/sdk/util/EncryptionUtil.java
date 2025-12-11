@@ -21,7 +21,7 @@
  */
 package com.wallee.sdk.util;
 
-import com.wallee.sdk.ErrorCode;
+import com.wallee.sdk.SdkExceptionErrorCodes;
 import com.wallee.sdk.WalleeSdkException;
 
 import java.nio.charset.StandardCharsets;
@@ -64,7 +64,7 @@ public class EncryptionUtil {
       verifier.initVerify(publicKey);
     } catch (InvalidKeyException e) {
       throw new WalleeSdkException(
-          ErrorCode.WEBHOOK_ENCRYPTION_VERIFIER_INIT_ERROR,
+            SdkExceptionErrorCodes.WEBHOOK_ENCRYPTION_VERIFIER_INIT_ERROR,
           "Could not initialize encryption verifier due to public key issue: "
               + e.getLocalizedMessage());
     }
@@ -72,14 +72,14 @@ public class EncryptionUtil {
       verifier.update(contentToVerify.getBytes(StandardCharsets.UTF_8));
     } catch (SignatureException e) {
       throw new WalleeSdkException(
-          ErrorCode.WEBHOOK_ENCRYPTION_VERIFIER_CONTENT_UPDATE_ERROR,
+            SdkExceptionErrorCodes.WEBHOOK_ENCRYPTION_VERIFIER_CONTENT_UPDATE_ERROR,
           "Could not update content in verifier due to verifier issue: " + e.getLocalizedMessage());
     }
     try {
       return verifier.verify(Base64.getDecoder().decode(contentSignature));
     } catch (SignatureException e) {
       throw new WalleeSdkException(
-          ErrorCode.WEBHOOK_ENCRYPTION_SIGNATURE_VERIFICATION_FAILED,
+            SdkExceptionErrorCodes.WEBHOOK_ENCRYPTION_SIGNATURE_VERIFICATION_FAILED,
           "Content verification failed due to unknown issue: " + e.getLocalizedMessage());
     }
   }
@@ -91,14 +91,14 @@ public class EncryptionUtil {
           .generatePublic(new X509EncodedKeySpec(publicKeyBytes));
     } catch (InvalidKeySpecException e) {
       throw new WalleeSdkException(
-          ErrorCode.INVALID_WEBHOOK_ENCRYPTION_PUBLIC_KEY, "Invalid public key");
+            SdkExceptionErrorCodes.INVALID_WEBHOOK_ENCRYPTION_PUBLIC_KEY, "Invalid public key");
     } catch (NoSuchAlgorithmException e) {
       throw new WalleeSdkException(
-          ErrorCode.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
+            SdkExceptionErrorCodes.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
           "Unknown webhook signature encryption algorithm: " + signatureAlgorithm);
     } catch (NoSuchProviderException e) {
       throw new WalleeSdkException(
-          ErrorCode.UNKNOWN_WEBHOOK_ENCRYPTION_PROVIDER,
+            SdkExceptionErrorCodes.UNKNOWN_WEBHOOK_ENCRYPTION_PROVIDER,
           "Unknown webhook signature encryption provider: " + encryptionProvider);
     }
   }
@@ -108,7 +108,7 @@ public class EncryptionUtil {
       return Signature.getInstance(signatureAlgorithm);
     } catch (NoSuchAlgorithmException e) {
       throw new WalleeSdkException(
-          ErrorCode.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
+            SdkExceptionErrorCodes.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
           "Unsupported signature algorithm: " + signatureAlgorithm);
     }
   }
@@ -118,7 +118,7 @@ public class EncryptionUtil {
 
     if (signatureAlgorithm.isEmpty()) {
       throw new WalleeSdkException(
-          ErrorCode.MISSING_WEBHOOK_ENCRYPTION_ALGORYTHM,
+          SdkExceptionErrorCodes.MISSING_WEBHOOK_ENCRYPTION_ALGORYTHM,
           "Webhook signature algorythm was not provided");
     }
 
@@ -128,7 +128,7 @@ public class EncryptionUtil {
         break;
       default:
         throw new WalleeSdkException(
-            ErrorCode.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
+              SdkExceptionErrorCodes.UNSUPPORTED_WEBHOOK_ENCRYPTION_ALGORYTHM,
             "Unsupported webhook signature algorithm: '" + signatureAlgorithm + "'. "
             + "This may indicate that the REST API is using a new encryption algorithm for webhooks. "
             + "Please check whether a newer version of the SDK is available.");

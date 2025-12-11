@@ -28,7 +28,7 @@ public class WalleeSdkException extends RuntimeException {
 
   private static final long serialVersionUID = 1748345776895L;
 
-  private final ErrorCode code;
+  private final String code;
 
   private final String message;
 
@@ -38,16 +38,28 @@ public class WalleeSdkException extends RuntimeException {
    * @param code    SDK error code
    * @param message  exception message details
    */
-  public WalleeSdkException(ErrorCode code, String message) {
-    super();
+  public WalleeSdkException(String code, String message) {
+    super(String.format("Error code: %s. %s", code, message));
     this.code = code;
-    this.message = String.format("Error code: %d. %s", code.getCode(), message);
+    this.message = message;
+  }
+
+  /**
+   * Constructor.
+   *
+   * @param code    SdkExceptionErrorCodes error code
+   * @param message  exception message details
+   */
+  public WalleeSdkException(SdkExceptionErrorCodes code, String message) {
+    super(String.format("Error code: %s. %s", code, message));
+    this.code = code.getCode();
+    this.message = message;
   }
 
   /**
    * @return SDK error code
    */
-  public ErrorCode getCode() {
+  public String getCode() {
     return this.code;
   }
 
