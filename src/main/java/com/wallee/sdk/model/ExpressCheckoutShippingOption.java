@@ -132,7 +132,7 @@ public class ExpressCheckoutShippingOption {
 
 
   /**
-   * Currency of the option
+   * Currency code (ISO-4217) of this shipping option.
    * @return currency
    */
   @javax.annotation.Nullable

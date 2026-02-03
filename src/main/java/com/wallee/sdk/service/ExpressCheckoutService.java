@@ -30,6 +30,10 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.ExpressCheckoutCreateResponse;
 import com.wallee.sdk.model.ExpressCheckoutSessionCreate;
+import com.wallee.sdk.model.ExpressCheckoutShippingAddressChangeRequest;
+import com.wallee.sdk.model.ExpressCheckoutShippingAddressChangeResponse;
+import com.wallee.sdk.model.ExpressCheckoutShippingMethodChangeRequest;
+import com.wallee.sdk.model.ExpressCheckoutShippingMethodChangeResponse;
 import com.wallee.sdk.model.RestApiErrorResponse;
 
 
@@ -46,6 +50,200 @@ public class ExpressCheckoutService extends BaseApi {
 
   public ExpressCheckoutService(ApiClient apiClient) {
     super(apiClient);
+  }
+
+  /**
+   * Change shipping address
+   * 
+   
+   * @param sessionToken  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expressCheckoutShippingAddressChangeRequest  (required)
+   * @return ExpressCheckoutShippingAddressChangeResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#patchExpressCheckoutShippingAddressChange">Change shipping address Documentation</a>
+   */
+  public ExpressCheckoutShippingAddressChangeResponse patchExpressCheckoutShippingAddressChange(@javax.annotation.Nonnull String sessionToken, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutShippingAddressChangeRequest expressCheckoutShippingAddressChangeRequest) throws ApiException {
+    return this.patchExpressCheckoutShippingAddressChange(sessionToken, space, expressCheckoutShippingAddressChangeRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Change shipping address
+   * 
+   
+   * @param sessionToken  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expressCheckoutShippingAddressChangeRequest  (required)
+   * @param additionalHeaders The additional headers for this call
+   * @return ExpressCheckoutShippingAddressChangeResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#patchExpressCheckoutShippingAddressChange">Change shipping address Documentation</a>
+   */
+  public ExpressCheckoutShippingAddressChangeResponse patchExpressCheckoutShippingAddressChange(@javax.annotation.Nonnull String sessionToken, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutShippingAddressChangeRequest expressCheckoutShippingAddressChangeRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = expressCheckoutShippingAddressChangeRequest;
+    
+    // verify the required parameter 'sessionToken' is set
+    if (sessionToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionToken' when calling patchExpressCheckoutShippingAddressChange");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling patchExpressCheckoutShippingAddressChange");
+    }
+    
+    // verify the required parameter 'expressCheckoutShippingAddressChangeRequest' is set
+    if (expressCheckoutShippingAddressChangeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'expressCheckoutShippingAddressChangeRequest' when calling patchExpressCheckoutShippingAddressChange");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/express-checkout/shipping/address-change";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("sessionToken", sessionToken));
+    if (space != null)
+      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<ExpressCheckoutShippingAddressChangeResponse> localVarReturnType = new TypeReference<ExpressCheckoutShippingAddressChangeResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Change shipping method
+   * 
+   
+   * @param sessionToken  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expressCheckoutShippingMethodChangeRequest  (required)
+   * @return ExpressCheckoutShippingMethodChangeResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#patchExpressCheckoutShippingMethodChange">Change shipping method Documentation</a>
+   */
+  public ExpressCheckoutShippingMethodChangeResponse patchExpressCheckoutShippingMethodChange(@javax.annotation.Nonnull String sessionToken, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutShippingMethodChangeRequest expressCheckoutShippingMethodChangeRequest) throws ApiException {
+    return this.patchExpressCheckoutShippingMethodChange(sessionToken, space, expressCheckoutShippingMethodChangeRequest, Collections.emptyMap());
+  }
+
+
+  /**
+   * Change shipping method
+   * 
+   
+   * @param sessionToken  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expressCheckoutShippingMethodChangeRequest  (required)
+   * @param additionalHeaders The additional headers for this call
+   * @return ExpressCheckoutShippingMethodChangeResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#patchExpressCheckoutShippingMethodChange">Change shipping method Documentation</a>
+   */
+  public ExpressCheckoutShippingMethodChangeResponse patchExpressCheckoutShippingMethodChange(@javax.annotation.Nonnull String sessionToken, @javax.annotation.Nonnull Long space, @javax.annotation.Nonnull ExpressCheckoutShippingMethodChangeRequest expressCheckoutShippingMethodChangeRequest, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = expressCheckoutShippingMethodChangeRequest;
+    
+    // verify the required parameter 'sessionToken' is set
+    if (sessionToken == null) {
+      throw new ApiException(400, "Missing the required parameter 'sessionToken' when calling patchExpressCheckoutShippingMethodChange");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling patchExpressCheckoutShippingMethodChange");
+    }
+    
+    // verify the required parameter 'expressCheckoutShippingMethodChangeRequest' is set
+    if (expressCheckoutShippingMethodChangeRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'expressCheckoutShippingMethodChangeRequest' when calling patchExpressCheckoutShippingMethodChange");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/express-checkout/shipping/method-change";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("sessionToken", sessionToken));
+    if (space != null)
+      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<ExpressCheckoutShippingMethodChangeResponse> localVarReturnType = new TypeReference<ExpressCheckoutShippingMethodChangeResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
   }
 
   /**

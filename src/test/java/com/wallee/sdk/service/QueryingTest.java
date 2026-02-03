@@ -389,4 +389,16 @@ public class QueryingTest {
       response.getPaymentConnectorConfiguration().getProcessorConfiguration().getLinkedSpaceId(),
       "Items in nested response should be present");
   }
+
+  /**
+   * Transaction search with single quote sign in query parameter.
+   */
+  @Test
+  public void fetchWithSingleQuoteInQueryShouldReturnSuccessfulResponse() throws ApiException {
+    TransactionSearchResponse response = transactionsService.getPaymentTransactionsSearch(
+          SPACE_ID, Collections.emptySet(), 1, 0, "", "completedOn:<'2026-01-15'");
+
+    assertNotNull(response.getData());
+    assertNotEquals(0, response.getData().size());
+  }
 }

@@ -32,7 +32,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.CompletionLineItemCreate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -44,16 +46,22 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   TransactionCompletionDetails.JSON_PROPERTY_LINE_ITEMS,
+  TransactionCompletionDetails.JSON_PROPERTY_META_DATA,
   TransactionCompletionDetails.JSON_PROPERTY_LAST_COMPLETION,
   TransactionCompletionDetails.JSON_PROPERTY_STATEMENT_DESCRIPTOR,
   TransactionCompletionDetails.JSON_PROPERTY_EXTERNAL_ID,
-  TransactionCompletionDetails.JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE
+  TransactionCompletionDetails.JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE,
+  TransactionCompletionDetails.JSON_PROPERTY_ID
 })
 
 public class TransactionCompletionDetails {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   @javax.annotation.Nullable
   private List<CompletionLineItemCreate> lineItems = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
+  private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_LAST_COMPLETION = "lastCompletion";
   @javax.annotation.Nullable
@@ -70,6 +78,10 @@ public class TransactionCompletionDetails {
   public static final String JSON_PROPERTY_INVOICE_MERCHANT_REFERENCE = "invoiceMerchantReference";
   @javax.annotation.Nullable
   private String invoiceMerchantReference;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
+  private Long id;
 
   public TransactionCompletionDetails() {
   }
@@ -105,6 +117,39 @@ public class TransactionCompletionDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(@javax.annotation.Nullable List<CompletionLineItemCreate> lineItems) {
     this.lineItems = lineItems;
+  }
+
+  public TransactionCompletionDetails metaData(@javax.annotation.Nullable Map<String, String> metaData) {
+    
+    this.metaData = metaData;
+    return this;
+  }
+
+  public TransactionCompletionDetails putMetaDataItem(String key, String metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new HashMap<>();
+    }
+    this.metaData.put(key, metaDataItem);
+    return this;
+  }
+
+  /**
+   * Allow to store additional information about the object.
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getMetaData() {
+    return metaData;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
+    this.metaData = metaData;
   }
 
   public TransactionCompletionDetails lastCompletion(@javax.annotation.Nullable Boolean lastCompletion) {
@@ -207,6 +252,31 @@ public class TransactionCompletionDetails {
     this.invoiceMerchantReference = invoiceMerchantReference;
   }
 
+  public TransactionCompletionDetails id(@javax.annotation.Nullable Long id) {
+    
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * A unique identifier for the object.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getId() {
+    return id;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(@javax.annotation.Nullable Long id) {
+    this.id = id;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -217,15 +287,17 @@ public class TransactionCompletionDetails {
     }
     TransactionCompletionDetails transactionCompletionDetails = (TransactionCompletionDetails) o;
     return Objects.equals(this.lineItems, transactionCompletionDetails.lineItems) &&
+        Objects.equals(this.metaData, transactionCompletionDetails.metaData) &&
         Objects.equals(this.lastCompletion, transactionCompletionDetails.lastCompletion) &&
         Objects.equals(this.statementDescriptor, transactionCompletionDetails.statementDescriptor) &&
         Objects.equals(this.externalId, transactionCompletionDetails.externalId) &&
-        Objects.equals(this.invoiceMerchantReference, transactionCompletionDetails.invoiceMerchantReference);
+        Objects.equals(this.invoiceMerchantReference, transactionCompletionDetails.invoiceMerchantReference) &&
+        Objects.equals(this.id, transactionCompletionDetails.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItems, lastCompletion, statementDescriptor, externalId, invoiceMerchantReference);
+    return Objects.hash(lineItems, metaData, lastCompletion, statementDescriptor, externalId, invoiceMerchantReference, id);
   }
 
   @Override
@@ -233,10 +305,12 @@ public class TransactionCompletionDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionCompletionDetails {\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    lastCompletion: ").append(toIndentedString(lastCompletion)).append("\n");
     sb.append("    statementDescriptor: ").append(toIndentedString(statementDescriptor)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    invoiceMerchantReference: ").append(toIndentedString(invoiceMerchantReference)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -294,6 +368,20 @@ public class TransactionCompletionDetails {
       }
     }
 
+    // add `metaData` to the URL query string
+    if (getMetaData() != null) {
+      for (String _key : getMetaData().keySet()) {
+        try {
+          joiner.add(String.format("%smetaData%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetaData().get(_key), URLEncoder.encode(String.valueOf(getMetaData().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
     // add `lastCompletion` to the URL query string
     if (getLastCompletion() != null) {
       try {
@@ -328,6 +416,16 @@ public class TransactionCompletionDetails {
     if (getInvoiceMerchantReference() != null) {
       try {
         joiner.add(String.format("%sinvoiceMerchantReference%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInvoiceMerchantReference()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -40,7 +40,8 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   ExpressCheckoutCreateResponse.JSON_PROPERTY_IFRAME_SRC,
-  ExpressCheckoutCreateResponse.JSON_PROPERTY_SESSION
+  ExpressCheckoutCreateResponse.JSON_PROPERTY_SESSION,
+  ExpressCheckoutCreateResponse.JSON_PROPERTY_SESSION_TOKEN
 })
 
 public class ExpressCheckoutCreateResponse {
@@ -51,6 +52,10 @@ public class ExpressCheckoutCreateResponse {
   public static final String JSON_PROPERTY_SESSION = "session";
   @javax.annotation.Nullable
   private Long session;
+
+  public static final String JSON_PROPERTY_SESSION_TOKEN = "sessionToken";
+  @javax.annotation.Nullable
+  private String sessionToken;
 
   public ExpressCheckoutCreateResponse() {
   }
@@ -105,6 +110,31 @@ public class ExpressCheckoutCreateResponse {
     this.session = session;
   }
 
+  public ExpressCheckoutCreateResponse sessionToken(@javax.annotation.Nullable String sessionToken) {
+    
+    this.sessionToken = sessionToken;
+    return this;
+  }
+
+  /**
+   * Get sessionToken
+   * @return sessionToken
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSessionToken() {
+    return sessionToken;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SESSION_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSessionToken(@javax.annotation.Nullable String sessionToken) {
+    this.sessionToken = sessionToken;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,12 +145,13 @@ public class ExpressCheckoutCreateResponse {
     }
     ExpressCheckoutCreateResponse expressCheckoutCreateResponse = (ExpressCheckoutCreateResponse) o;
     return Objects.equals(this.iframeSrc, expressCheckoutCreateResponse.iframeSrc) &&
-        Objects.equals(this.session, expressCheckoutCreateResponse.session);
+        Objects.equals(this.session, expressCheckoutCreateResponse.session) &&
+        Objects.equals(this.sessionToken, expressCheckoutCreateResponse.sessionToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iframeSrc, session);
+    return Objects.hash(iframeSrc, session, sessionToken);
   }
 
   @Override
@@ -129,6 +160,7 @@ public class ExpressCheckoutCreateResponse {
     sb.append("class ExpressCheckoutCreateResponse {\n");
     sb.append("    iframeSrc: ").append(toIndentedString(iframeSrc)).append("\n");
     sb.append("    session: ").append(toIndentedString(session)).append("\n");
+    sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -190,6 +222,16 @@ public class ExpressCheckoutCreateResponse {
     if (getSession() != null) {
       try {
         joiner.add(String.format("%ssession%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSession()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `sessionToken` to the URL query string
+    if (getSessionToken() != null) {
+      try {
+        joiner.add(String.format("%ssessionToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSessionToken()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

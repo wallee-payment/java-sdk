@@ -45,6 +45,8 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   ExpressCheckoutSessionCreate.JSON_PROPERTY_LINE_ITEMS,
+  ExpressCheckoutSessionCreate.JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL,
+  ExpressCheckoutSessionCreate.JSON_PROPERTY_CURRENCY,
   ExpressCheckoutSessionCreate.JSON_PROPERTY_SHIPPING_OPTIONS
 })
 @JsonTypeName("ExpressCheckoutSession.Create")
@@ -53,6 +55,14 @@ public class ExpressCheckoutSessionCreate {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL = "merchantShippingCallbackUrl";
+  @javax.annotation.Nullable
+  private String merchantShippingCallbackUrl;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
+  private String currency;
 
   public static final String JSON_PROPERTY_SHIPPING_OPTIONS = "shippingOptions";
   @javax.annotation.Nullable
@@ -92,6 +102,56 @@ public class ExpressCheckoutSessionCreate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLineItems(@javax.annotation.Nullable List<LineItem> lineItems) {
     this.lineItems = lineItems;
+  }
+
+  public ExpressCheckoutSessionCreate merchantShippingCallbackUrl(@javax.annotation.Nullable String merchantShippingCallbackUrl) {
+    
+    this.merchantShippingCallbackUrl = merchantShippingCallbackUrl;
+    return this;
+  }
+
+  /**
+   * The URL to fetch the shipping options from.
+   * @return merchantShippingCallbackUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMerchantShippingCallbackUrl() {
+    return merchantShippingCallbackUrl;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMerchantShippingCallbackUrl(@javax.annotation.Nullable String merchantShippingCallbackUrl) {
+    this.merchantShippingCallbackUrl = merchantShippingCallbackUrl;
+  }
+
+  public ExpressCheckoutSessionCreate currency(@javax.annotation.Nullable String currency) {
+    
+    this.currency = currency;
+    return this;
+  }
+
+  /**
+   * The currency of the session.
+   * @return currency
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setCurrency(@javax.annotation.Nullable String currency) {
+    this.currency = currency;
   }
 
   public ExpressCheckoutSessionCreate shippingOptions(@javax.annotation.Nullable List<ExpressCheckoutShippingOption> shippingOptions) {
@@ -137,12 +197,14 @@ public class ExpressCheckoutSessionCreate {
     }
     ExpressCheckoutSessionCreate expressCheckoutSessionCreate = (ExpressCheckoutSessionCreate) o;
     return Objects.equals(this.lineItems, expressCheckoutSessionCreate.lineItems) &&
+        Objects.equals(this.merchantShippingCallbackUrl, expressCheckoutSessionCreate.merchantShippingCallbackUrl) &&
+        Objects.equals(this.currency, expressCheckoutSessionCreate.currency) &&
         Objects.equals(this.shippingOptions, expressCheckoutSessionCreate.shippingOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItems, shippingOptions);
+    return Objects.hash(lineItems, merchantShippingCallbackUrl, currency, shippingOptions);
   }
 
   @Override
@@ -150,6 +212,8 @@ public class ExpressCheckoutSessionCreate {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExpressCheckoutSessionCreate {\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    merchantShippingCallbackUrl: ").append(toIndentedString(merchantShippingCallbackUrl)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    shippingOptions: ").append(toIndentedString(shippingOptions)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -205,6 +269,26 @@ public class ExpressCheckoutSessionCreate {
           joiner.add(getLineItems().get(i).toUrlQueryString(String.format("%slineItems%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
+      }
+    }
+
+    // add `merchantShippingCallbackUrl` to the URL query string
+    if (getMerchantShippingCallbackUrl() != null) {
+      try {
+        joiner.add(String.format("%smerchantShippingCallbackUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMerchantShippingCallbackUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

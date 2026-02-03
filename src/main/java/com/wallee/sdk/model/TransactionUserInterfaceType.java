@@ -48,6 +48,8 @@ public enum TransactionUserInterfaceType {
   
   TERMINAL("TERMINAL"),
   
+  CLOUD_TILL_INTERFACE("CLOUD_TILL_INTERFACE"),
+  
   EXPRESS_CHECKOUT("EXPRESS_CHECKOUT");
 
   private String value;

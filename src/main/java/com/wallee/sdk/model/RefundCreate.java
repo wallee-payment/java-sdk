@@ -34,7 +34,9 @@ import com.wallee.sdk.model.RefundType;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -46,6 +48,7 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   RefundCreate.JSON_PROPERTY_COMPLETION,
+  RefundCreate.JSON_PROPERTY_META_DATA,
   RefundCreate.JSON_PROPERTY_AMOUNT,
   RefundCreate.JSON_PROPERTY_REDUCTIONS,
   RefundCreate.JSON_PROPERTY_EXTERNAL_ID,
@@ -59,6 +62,10 @@ public class RefundCreate {
   public static final String JSON_PROPERTY_COMPLETION = "completion";
   @javax.annotation.Nullable
   private Long completion;
+
+  public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
+  private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_AMOUNT = "amount";
   @javax.annotation.Nullable
@@ -110,6 +117,39 @@ public class RefundCreate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompletion(@javax.annotation.Nullable Long completion) {
     this.completion = completion;
+  }
+
+  public RefundCreate metaData(@javax.annotation.Nullable Map<String, String> metaData) {
+    
+    this.metaData = metaData;
+    return this;
+  }
+
+  public RefundCreate putMetaDataItem(String key, String metaDataItem) {
+    if (this.metaData == null) {
+      this.metaData = new HashMap<>();
+    }
+    this.metaData.put(key, metaDataItem);
+    return this;
+  }
+
+  /**
+   * Allow to store additional information about the object.
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getMetaData() {
+    return metaData;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setMetaData(@javax.annotation.Nullable Map<String, String> metaData) {
+    this.metaData = metaData;
   }
 
   public RefundCreate amount(@javax.annotation.Nullable BigDecimal amount) {
@@ -280,6 +320,7 @@ public class RefundCreate {
     }
     RefundCreate refundCreate = (RefundCreate) o;
     return Objects.equals(this.completion, refundCreate.completion) &&
+        Objects.equals(this.metaData, refundCreate.metaData) &&
         Objects.equals(this.amount, refundCreate.amount) &&
         Objects.equals(this.reductions, refundCreate.reductions) &&
         Objects.equals(this.externalId, refundCreate.externalId) &&
@@ -290,7 +331,7 @@ public class RefundCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(completion, amount, reductions, externalId, type, merchantReference, transaction);
+    return Objects.hash(completion, metaData, amount, reductions, externalId, type, merchantReference, transaction);
   }
 
   @Override
@@ -298,6 +339,7 @@ public class RefundCreate {
     StringBuilder sb = new StringBuilder();
     sb.append("class RefundCreate {\n");
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    reductions: ").append(toIndentedString(reductions)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
@@ -358,6 +400,20 @@ public class RefundCreate {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `metaData` to the URL query string
+    if (getMetaData() != null) {
+      for (String _key : getMetaData().keySet()) {
+        try {
+          joiner.add(String.format("%smetaData%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetaData().get(_key), URLEncoder.encode(String.valueOf(getMetaData().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

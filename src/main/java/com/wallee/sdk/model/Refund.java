@@ -43,8 +43,10 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -65,6 +67,7 @@ import java.util.StringJoiner;
   Refund.JSON_PROPERTY_TYPE,
   Refund.JSON_PROPERTY_CREATED_ON,
   Refund.JSON_PROPERTY_LINE_ITEMS,
+  Refund.JSON_PROPERTY_META_DATA,
   Refund.JSON_PROPERTY_SUCCEEDED_ON,
   Refund.JSON_PROPERTY_REDUCED_LINE_ITEMS,
   Refund.JSON_PROPERTY_ID,
@@ -126,6 +129,10 @@ public class Refund {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
+  private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
   @javax.annotation.Nullable
@@ -234,6 +241,7 @@ public class Refund {
     @JsonProperty(JSON_PROPERTY_LANGUAGE) String language, 
     @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
     @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
+    @JsonProperty(JSON_PROPERTY_META_DATA) Map<String, String> metaData, 
     @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON) OffsetDateTime succeededOn, 
     @JsonProperty(JSON_PROPERTY_REDUCED_LINE_ITEMS) List<LineItem> reducedLineItems, 
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
@@ -263,6 +271,7 @@ public class Refund {
     this.language = language;
     this.createdOn = createdOn;
     this.lineItems = lineItems;
+    this.metaData = metaData;
     this.succeededOn = succeededOn;
     this.reducedLineItems = reducedLineItems;
     this.id = id;
@@ -417,6 +426,20 @@ public class Refund {
 
   public List<LineItem> getLineItems() {
     return lineItems;
+  }
+
+
+
+  /**
+   * Allow to store additional information about the object.
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getMetaData() {
+    return metaData;
   }
 
 
@@ -805,6 +828,7 @@ public class Refund {
         Objects.equals(this.type, refund.type) &&
         Objects.equals(this.createdOn, refund.createdOn) &&
         Objects.equals(this.lineItems, refund.lineItems) &&
+        Objects.equals(this.metaData, refund.metaData) &&
         Objects.equals(this.succeededOn, refund.succeededOn) &&
         Objects.equals(this.reducedLineItems, refund.reducedLineItems) &&
         Objects.equals(this.id, refund.id) &&
@@ -832,7 +856,7 @@ public class Refund {
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalSettledAmount, reductions, baseLineItems, processingOn, taxes, language, type, createdOn, lineItems, succeededOn, reducedLineItems, id, state, merchantReference, completion, amount, plannedPurgeDate, externalId, timeZone, version, labels, linkedSpaceId, timeoutOn, environment, createdBy, nextUpdateOn, updatedInvoice, failureReason, totalAppliedFees, failedOn, transaction, processorReference);
+    return Objects.hash(totalSettledAmount, reductions, baseLineItems, processingOn, taxes, language, type, createdOn, lineItems, metaData, succeededOn, reducedLineItems, id, state, merchantReference, completion, amount, plannedPurgeDate, externalId, timeZone, version, labels, linkedSpaceId, timeoutOn, environment, createdBy, nextUpdateOn, updatedInvoice, failureReason, totalAppliedFees, failedOn, transaction, processorReference);
   }
 
   @Override
@@ -848,6 +872,7 @@ public class Refund {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
     sb.append("    reducedLineItems: ").append(toIndentedString(reducedLineItems)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -1006,6 +1031,20 @@ public class Refund {
         if (getLineItems().get(i) != null) {
           joiner.add(getLineItems().get(i).toUrlQueryString(String.format("%slineItems%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `metaData` to the URL query string
+    if (getMetaData() != null) {
+      for (String _key : getMetaData().keySet()) {
+        try {
+          joiner.add(String.format("%smetaData%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetaData().get(_key), URLEncoder.encode(String.valueOf(getMetaData().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
         }
       }
     }

@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.Address;
 import com.wallee.sdk.model.ExpressCheckoutSessionState;
 import com.wallee.sdk.model.ExpressCheckoutShippingOption;
 import com.wallee.sdk.model.ExpressCheckoutWalletType;
@@ -49,9 +50,13 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   ExpressCheckoutSession.JSON_PROPERTY_LINE_ITEMS,
+  ExpressCheckoutSession.JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL,
   ExpressCheckoutSession.JSON_PROPERTY_LINKED_SPACE_ID,
   ExpressCheckoutSession.JSON_PROPERTY_META_DATA,
   ExpressCheckoutSession.JSON_PROPERTY_WALLET_TYPE,
+  ExpressCheckoutSession.JSON_PROPERTY_SHIPPING_ADDRESS,
+  ExpressCheckoutSession.JSON_PROPERTY_CURRENCY,
+  ExpressCheckoutSession.JSON_PROPERTY_BILLING_ADDRESS,
   ExpressCheckoutSession.JSON_PROPERTY_ID,
   ExpressCheckoutSession.JSON_PROPERTY_STATE,
   ExpressCheckoutSession.JSON_PROPERTY_SHIPPING_OPTIONS
@@ -61,6 +66,10 @@ public class ExpressCheckoutSession {
   public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
   @javax.annotation.Nullable
   private List<LineItem> lineItems = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL = "merchantShippingCallbackUrl";
+  @javax.annotation.Nullable
+  private String merchantShippingCallbackUrl;
 
   public static final String JSON_PROPERTY_LINKED_SPACE_ID = "linkedSpaceId";
   @javax.annotation.Nullable
@@ -73,6 +82,18 @@ public class ExpressCheckoutSession {
   public static final String JSON_PROPERTY_WALLET_TYPE = "walletType";
   @javax.annotation.Nullable
   private ExpressCheckoutWalletType walletType;
+
+  public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+  @javax.annotation.Nullable
+  private Address shippingAddress;
+
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @javax.annotation.Nullable
+  private String currency;
+
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nullable
+  private Address billingAddress;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -94,15 +115,19 @@ public class ExpressCheckoutSession {
   @JsonCreator
   public ExpressCheckoutSession(
     @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
+    @JsonProperty(JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL) String merchantShippingCallbackUrl, 
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
     @JsonProperty(JSON_PROPERTY_META_DATA) Map<String, String> metaData, 
+    @JsonProperty(JSON_PROPERTY_CURRENCY) String currency, 
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
     @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS) List<ExpressCheckoutShippingOption> shippingOptions
   ) {
     this();
     this.lineItems = lineItems;
+    this.merchantShippingCallbackUrl = merchantShippingCallbackUrl;
     this.linkedSpaceId = linkedSpaceId;
     this.metaData = metaData;
+    this.currency = currency;
     this.id = id;
     this.shippingOptions = shippingOptions;
   }
@@ -117,6 +142,20 @@ public class ExpressCheckoutSession {
 
   public List<LineItem> getLineItems() {
     return lineItems;
+  }
+
+
+
+  /**
+   * The URL to fetch the shipping options from.
+   * @return merchantShippingCallbackUrl
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_MERCHANT_SHIPPING_CALLBACK_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getMerchantShippingCallbackUrl() {
+    return merchantShippingCallbackUrl;
   }
 
 
@@ -172,6 +211,70 @@ public class ExpressCheckoutSession {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setWalletType(@javax.annotation.Nullable ExpressCheckoutWalletType walletType) {
     this.walletType = walletType;
+  }
+
+  public ExpressCheckoutSession shippingAddress(@javax.annotation.Nullable Address shippingAddress) {
+    
+    this.shippingAddress = shippingAddress;
+    return this;
+  }
+
+  /**
+   * Get shippingAddress
+   * @return shippingAddress
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Address getShippingAddress() {
+    return shippingAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setShippingAddress(@javax.annotation.Nullable Address shippingAddress) {
+    this.shippingAddress = shippingAddress;
+  }
+
+  /**
+   * The currency of the session.
+   * @return currency
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getCurrency() {
+    return currency;
+  }
+
+
+
+  public ExpressCheckoutSession billingAddress(@javax.annotation.Nullable Address billingAddress) {
+    
+    this.billingAddress = billingAddress;
+    return this;
+  }
+
+  /**
+   * Get billingAddress
+   * @return billingAddress
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Address getBillingAddress() {
+    return billingAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
+    this.billingAddress = billingAddress;
   }
 
   /**
@@ -237,9 +340,13 @@ public class ExpressCheckoutSession {
     }
     ExpressCheckoutSession expressCheckoutSession = (ExpressCheckoutSession) o;
     return Objects.equals(this.lineItems, expressCheckoutSession.lineItems) &&
+        Objects.equals(this.merchantShippingCallbackUrl, expressCheckoutSession.merchantShippingCallbackUrl) &&
         Objects.equals(this.linkedSpaceId, expressCheckoutSession.linkedSpaceId) &&
         Objects.equals(this.metaData, expressCheckoutSession.metaData) &&
         Objects.equals(this.walletType, expressCheckoutSession.walletType) &&
+        Objects.equals(this.shippingAddress, expressCheckoutSession.shippingAddress) &&
+        Objects.equals(this.currency, expressCheckoutSession.currency) &&
+        Objects.equals(this.billingAddress, expressCheckoutSession.billingAddress) &&
         Objects.equals(this.id, expressCheckoutSession.id) &&
         Objects.equals(this.state, expressCheckoutSession.state) &&
         Objects.equals(this.shippingOptions, expressCheckoutSession.shippingOptions);
@@ -247,7 +354,7 @@ public class ExpressCheckoutSession {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItems, linkedSpaceId, metaData, walletType, id, state, shippingOptions);
+    return Objects.hash(lineItems, merchantShippingCallbackUrl, linkedSpaceId, metaData, walletType, shippingAddress, currency, billingAddress, id, state, shippingOptions);
   }
 
   @Override
@@ -255,9 +362,13 @@ public class ExpressCheckoutSession {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExpressCheckoutSession {\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
+    sb.append("    merchantShippingCallbackUrl: ").append(toIndentedString(merchantShippingCallbackUrl)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
+    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
+    sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    shippingOptions: ").append(toIndentedString(shippingOptions)).append("\n");
@@ -318,6 +429,16 @@ public class ExpressCheckoutSession {
       }
     }
 
+    // add `merchantShippingCallbackUrl` to the URL query string
+    if (getMerchantShippingCallbackUrl() != null) {
+      try {
+        joiner.add(String.format("%smerchantShippingCallbackUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMerchantShippingCallbackUrl()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `linkedSpaceId` to the URL query string
     if (getLinkedSpaceId() != null) {
       try {
@@ -345,6 +466,26 @@ public class ExpressCheckoutSession {
     // add `walletType` to the URL query string
     if (getWalletType() != null) {
       joiner.add(getWalletType().toUrlQueryString(prefix + "walletType" + suffix));
+    }
+
+    // add `shippingAddress` to the URL query string
+    if (getShippingAddress() != null) {
+      joiner.add(getShippingAddress().toUrlQueryString(prefix + "shippingAddress" + suffix));
+    }
+
+    // add `currency` to the URL query string
+    if (getCurrency() != null) {
+      try {
+        joiner.add(String.format("%scurrency%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCurrency()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `billingAddress` to the URL query string
+    if (getBillingAddress() != null) {
+      joiner.add(getBillingAddress().toUrlQueryString(prefix + "billingAddress" + suffix));
     }
 
     // add `id` to the URL query string

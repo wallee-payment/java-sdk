@@ -40,8 +40,10 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -63,6 +65,7 @@ import java.util.StringJoiner;
   TransactionCompletion.JSON_PROPERTY_CREATED_ON,
   TransactionCompletion.JSON_PROPERTY_LINE_ITEMS,
   TransactionCompletion.JSON_PROPERTY_MODE,
+  TransactionCompletion.JSON_PROPERTY_META_DATA,
   TransactionCompletion.JSON_PROPERTY_SUCCEEDED_ON,
   TransactionCompletion.JSON_PROPERTY_ID,
   TransactionCompletion.JSON_PROPERTY_STATE,
@@ -126,6 +129,10 @@ public class TransactionCompletion {
   public static final String JSON_PROPERTY_MODE = "mode";
   @javax.annotation.Nullable
   private TransactionCompletionMode mode;
+
+  public static final String JSON_PROPERTY_META_DATA = "metaData";
+  @javax.annotation.Nullable
+  private Map<String, String> metaData = new HashMap<>();
 
   public static final String JSON_PROPERTY_SUCCEEDED_ON = "succeededOn";
   @javax.annotation.Nullable
@@ -226,6 +233,7 @@ public class TransactionCompletion {
     @JsonProperty(JSON_PROPERTY_REMAINING_LINE_ITEMS) List<LineItem> remainingLineItems, 
     @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
     @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
+    @JsonProperty(JSON_PROPERTY_META_DATA) Map<String, String> metaData, 
     @JsonProperty(JSON_PROPERTY_SUCCEEDED_ON) OffsetDateTime succeededOn, 
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
     @JsonProperty(JSON_PROPERTY_LINKED_TRANSACTION) Long linkedTransaction, 
@@ -255,6 +263,7 @@ public class TransactionCompletion {
     this.remainingLineItems = remainingLineItems;
     this.createdOn = createdOn;
     this.lineItems = lineItems;
+    this.metaData = metaData;
     this.succeededOn = succeededOn;
     this.id = id;
     this.linkedTransaction = linkedTransaction;
@@ -437,6 +446,20 @@ public class TransactionCompletion {
   public void setMode(@javax.annotation.Nullable TransactionCompletionMode mode) {
     this.mode = mode;
   }
+
+  /**
+   * Allow to store additional information about the object.
+   * @return metaData
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_META_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getMetaData() {
+    return metaData;
+  }
+
+
 
   /**
    * The date and time when the transaction completion succeeded.
@@ -773,6 +796,7 @@ public class TransactionCompletion {
         Objects.equals(this.createdOn, transactionCompletion.createdOn) &&
         Objects.equals(this.lineItems, transactionCompletion.lineItems) &&
         Objects.equals(this.mode, transactionCompletion.mode) &&
+        Objects.equals(this.metaData, transactionCompletion.metaData) &&
         Objects.equals(this.succeededOn, transactionCompletion.succeededOn) &&
         Objects.equals(this.id, transactionCompletion.id) &&
         Objects.equals(this.state, transactionCompletion.state) &&
@@ -798,7 +822,7 @@ public class TransactionCompletion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItemVersion, statementDescriptor, baseLineItems, processingOn, invoiceMerchantReference, language, remainingLineItems, createdOn, lineItems, mode, succeededOn, id, state, linkedTransaction, paymentInformation, amount, lastCompletion, plannedPurgeDate, externalId, timeZone, spaceViewId, version, labels, linkedSpaceId, timeoutOn, createdBy, nextUpdateOn, failureReason, taxAmount, failedOn, processorReference);
+    return Objects.hash(lineItemVersion, statementDescriptor, baseLineItems, processingOn, invoiceMerchantReference, language, remainingLineItems, createdOn, lineItems, mode, metaData, succeededOn, id, state, linkedTransaction, paymentInformation, amount, lastCompletion, plannedPurgeDate, externalId, timeZone, spaceViewId, version, labels, linkedSpaceId, timeoutOn, createdBy, nextUpdateOn, failureReason, taxAmount, failedOn, processorReference);
   }
 
   @Override
@@ -815,6 +839,7 @@ public class TransactionCompletion {
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    metaData: ").append(toIndentedString(metaData)).append("\n");
     sb.append("    succeededOn: ").append(toIndentedString(succeededOn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
@@ -975,6 +1000,20 @@ public class TransactionCompletion {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `metaData` to the URL query string
+    if (getMetaData() != null) {
+      for (String _key : getMetaData().keySet()) {
+        try {
+          joiner.add(String.format("%smetaData%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getMetaData().get(_key), URLEncoder.encode(String.valueOf(getMetaData().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 
