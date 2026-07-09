@@ -29,11 +29,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.LineItem;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.wallee.sdk.model.RelatedPerson;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,64 +40,53 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutShippingMethodChangeResponse
+ * MerchantRelatedPersonsDto
  */
 @JsonPropertyOrder({
-  ExpressCheckoutShippingMethodChangeResponse.JSON_PROPERTY_LINE_ITEMS,
-  ExpressCheckoutShippingMethodChangeResponse.JSON_PROPERTY_ORDER_TOTAL
+  MerchantRelatedPersonsDto.JSON_PROPERTY_RELATED_PERSONS
 })
 
-public class ExpressCheckoutShippingMethodChangeResponse {
-  public static final String JSON_PROPERTY_LINE_ITEMS = "lineItems";
+public class MerchantRelatedPersonsDto {
+  public static final String JSON_PROPERTY_RELATED_PERSONS = "relatedPersons";
   @javax.annotation.Nullable
-  private List<LineItem> lineItems = new ArrayList<>();
+  private Set<RelatedPerson> relatedPersons = new LinkedHashSet<>();
 
-  public static final String JSON_PROPERTY_ORDER_TOTAL = "orderTotal";
-  @javax.annotation.Nullable
-  private BigDecimal orderTotal;
-
-  public ExpressCheckoutShippingMethodChangeResponse() {
+  public MerchantRelatedPersonsDto() {
   }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public ExpressCheckoutShippingMethodChangeResponse(
-    @JsonProperty(JSON_PROPERTY_LINE_ITEMS) List<LineItem> lineItems, 
-    @JsonProperty(JSON_PROPERTY_ORDER_TOTAL) BigDecimal orderTotal
-  ) {
-    this();
-    this.lineItems = lineItems;
-    this.orderTotal = orderTotal;
+
+  public MerchantRelatedPersonsDto relatedPersons(@javax.annotation.Nullable Set<RelatedPerson> relatedPersons) {
+    
+    this.relatedPersons = relatedPersons;
+    return this;
+  }
+
+  public MerchantRelatedPersonsDto addRelatedPersonsItem(RelatedPerson relatedPersonsItem) {
+    if (this.relatedPersons == null) {
+      this.relatedPersons = new LinkedHashSet<>();
+    }
+    this.relatedPersons.add(relatedPersonsItem);
+    return this;
   }
 
   /**
-   * Get lineItems
-   * @return lineItems
+   * The people who own, control, direct, or represent the merchant company.
+   * @return relatedPersons
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LINE_ITEMS)
+  @JsonProperty(JSON_PROPERTY_RELATED_PERSONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<LineItem> getLineItems() {
-    return lineItems;
+  public Set<RelatedPerson> getRelatedPersons() {
+    return relatedPersons;
   }
 
 
-
-  /**
-   * Get orderTotal
-   * @return orderTotal
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER_TOTAL)
+  @JsonDeserialize(as = LinkedHashSet.class)
+  @JsonProperty(JSON_PROPERTY_RELATED_PERSONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public BigDecimal getOrderTotal() {
-    return orderTotal;
+  public void setRelatedPersons(@javax.annotation.Nullable Set<RelatedPerson> relatedPersons) {
+    this.relatedPersons = relatedPersons;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -108,22 +96,20 @@ public class ExpressCheckoutShippingMethodChangeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutShippingMethodChangeResponse expressCheckoutShippingMethodChangeResponse = (ExpressCheckoutShippingMethodChangeResponse) o;
-    return Objects.equals(this.lineItems, expressCheckoutShippingMethodChangeResponse.lineItems) &&
-        Objects.equals(this.orderTotal, expressCheckoutShippingMethodChangeResponse.orderTotal);
+    MerchantRelatedPersonsDto merchantRelatedPersonsDto = (MerchantRelatedPersonsDto) o;
+    return Objects.equals(this.relatedPersons, merchantRelatedPersonsDto.relatedPersons);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(lineItems, orderTotal);
+    return Objects.hash(relatedPersons);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutShippingMethodChangeResponse {\n");
-    sb.append("    lineItems: ").append(toIndentedString(lineItems)).append("\n");
-    sb.append("    orderTotal: ").append(toIndentedString(orderTotal)).append("\n");
+    sb.append("class MerchantRelatedPersonsDto {\n");
+    sb.append("    relatedPersons: ").append(toIndentedString(relatedPersons)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -171,24 +157,16 @@ public class ExpressCheckoutShippingMethodChangeResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `lineItems` to the URL query string
-    if (getLineItems() != null) {
-      for (int i = 0; i < getLineItems().size(); i++) {
-        if (getLineItems().get(i) != null) {
-          joiner.add(getLineItems().get(i).toUrlQueryString(String.format("%slineItems%s%s", prefix, suffix,
+    // add `relatedPersons` to the URL query string
+    if (getRelatedPersons() != null) {
+      int i = 0;
+      for (RelatedPerson _item : getRelatedPersons()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%srelatedPersons%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }
-    }
-
-    // add `orderTotal` to the URL query string
-    if (getOrderTotal() != null) {
-      try {
-        joiner.add(String.format("%sorderTotal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrderTotal()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+      i++;
     }
 
     return joiner.toString();

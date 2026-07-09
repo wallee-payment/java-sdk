@@ -221,8 +221,14 @@ public class SalesChannelSearchResponse {
     if (getData() != null) {
       for (int i = 0; i < getData().size(); i++) {
         if (getData().get(i) != null) {
-          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          try {
+            joiner.add(String.format("%sdata%s%s=%s", prefix, suffix,
+                "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+                URLEncoder.encode(String.valueOf(getData().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+          } catch (UnsupportedEncodingException e) {
+            // Should never happen, UTF-8 is always supported
+            throw new RuntimeException(e);
+          }
         }
       }
     }

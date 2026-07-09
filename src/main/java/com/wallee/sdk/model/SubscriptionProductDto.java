@@ -29,8 +29,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -38,74 +36,58 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutWalletType
+ * SubscriptionProductDto
  */
 @JsonPropertyOrder({
-  ExpressCheckoutWalletType.JSON_PROPERTY_NAME,
-  ExpressCheckoutWalletType.JSON_PROPERTY_DESCRIPTION,
-  ExpressCheckoutWalletType.JSON_PROPERTY_ID
+  SubscriptionProductDto.JSON_PROPERTY_NAME,
+  SubscriptionProductDto.JSON_PROPERTY_ID
 })
 
-public class ExpressCheckoutWalletType {
+public class SubscriptionProductDto {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
-  private Map<String, String> name = new HashMap<>();
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private Map<String, String> description = new HashMap<>();
+  private String name;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
   private Long id;
 
-  public ExpressCheckoutWalletType() {
+  public SubscriptionProductDto() {
   }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public ExpressCheckoutWalletType(
-    @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
-    @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
-    @JsonProperty(JSON_PROPERTY_ID) Long id
-  ) {
-    this();
+
+  public SubscriptionProductDto name(@javax.annotation.Nullable String name) {
+    
     this.name = name;
-    this.description = description;
-    this.id = id;
+    return this;
   }
 
   /**
-   * The localized name of the object.
+   * Get name
    * @return name
    */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Map<String, String> getName() {
+  public String getName() {
     return name;
   }
 
 
-
-  /**
-   * The localized description of the object.
-   * @return description
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, String> getDescription() {
-    return description;
+  public void setName(@javax.annotation.Nullable String name) {
+    this.name = name;
   }
 
-
+  public SubscriptionProductDto id(@javax.annotation.Nullable Long id) {
+    
+    this.id = id;
+    return this;
+  }
 
   /**
-   * A unique identifier for the object.
+   * Get id
    * @return id
    */
   @javax.annotation.Nullable
@@ -117,6 +99,11 @@ public class ExpressCheckoutWalletType {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setId(@javax.annotation.Nullable Long id) {
+    this.id = id;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -126,23 +113,21 @@ public class ExpressCheckoutWalletType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutWalletType expressCheckoutWalletType = (ExpressCheckoutWalletType) o;
-    return Objects.equals(this.name, expressCheckoutWalletType.name) &&
-        Objects.equals(this.description, expressCheckoutWalletType.description) &&
-        Objects.equals(this.id, expressCheckoutWalletType.id);
+    SubscriptionProductDto subscriptionProductDto = (SubscriptionProductDto) o;
+    return Objects.equals(this.name, subscriptionProductDto.name) &&
+        Objects.equals(this.id, subscriptionProductDto.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, id);
+    return Objects.hash(name, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutWalletType {\n");
+    sb.append("class SubscriptionProductDto {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -193,29 +178,11 @@ public class ExpressCheckoutWalletType {
 
     // add `name` to the URL query string
     if (getName() != null) {
-      for (String _key : getName().keySet()) {
-        try {
-          joiner.add(String.format("%sname%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getName().get(_key), URLEncoder.encode(String.valueOf(getName().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
-      }
-    }
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      for (String _key : getDescription().keySet()) {
-        try {
-          joiner.add(String.format("%sdescription%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getDescription().get(_key), URLEncoder.encode(String.valueOf(getDescription().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

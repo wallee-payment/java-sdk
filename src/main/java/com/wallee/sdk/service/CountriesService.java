@@ -34,6 +34,7 @@ import com.wallee.sdk.model.RestApiErrorResponse;
 import com.wallee.sdk.model.RestCountry;
 import com.wallee.sdk.model.RestCountryState;
 import java.util.Set;
+import com.wallee.sdk.model.StateListResponse;
 
 
 import java.util.ArrayList;
@@ -216,13 +217,14 @@ public class CountriesService extends BaseApi {
    * 
    
    * @param countryCode  (required)
-   * @return List&lt;RestCountryState&gt;
+   * @param expand  (optional)
+   * @return StateListResponse
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCountryCodeStates">List all states for a country Documentation</a>
    */
-  public List<RestCountryState> getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode) throws ApiException {
-    return this.getCountriesCountryCodeStates(countryCode, Collections.emptyMap());
+  public StateListResponse getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.getCountriesCountryCodeStates(countryCode, expand, Collections.emptyMap());
   }
 
 
@@ -231,13 +233,14 @@ public class CountriesService extends BaseApi {
    * 
    
    * @param countryCode  (required)
+   * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
-   * @return List&lt;RestCountryState&gt;
+   * @return StateListResponse
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesCountryCodeStates">List all states for a country Documentation</a>
    */
-  public List<RestCountryState> getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode, Map<String, String> additionalHeaders) throws ApiException {
+  public StateListResponse getCountriesCountryCodeStates(@javax.annotation.Nonnull String countryCode, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'countryCode' is set
@@ -257,6 +260,7 @@ public class CountriesService extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -274,7 +278,7 @@ public class CountriesService extends BaseApi {
 
     int requestTimeout = apiClient.getRequestTimeout();
 
-    TypeReference<List<RestCountryState>> localVarReturnType = new TypeReference<List<RestCountryState>>() {};
+    TypeReference<StateListResponse> localVarReturnType = new TypeReference<StateListResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -384,13 +388,14 @@ public class CountriesService extends BaseApi {
    * List all country states
    * 
    
-   * @return List&lt;RestCountryState&gt;
+   * @param expand  (optional)
+   * @return StateListResponse
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStates">List all country states Documentation</a>
    */
-  public List<RestCountryState> getCountriesStates() throws ApiException {
-    return this.getCountriesStates(Collections.emptyMap());
+  public StateListResponse getCountriesStates(@javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.getCountriesStates(expand, Collections.emptyMap());
   }
 
 
@@ -398,13 +403,14 @@ public class CountriesService extends BaseApi {
    * List all country states
    * 
    
+   * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
-   * @return List&lt;RestCountryState&gt;
+   * @return StateListResponse
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStates">List all country states Documentation</a>
    */
-  public List<RestCountryState> getCountriesStates(Map<String, String> additionalHeaders) throws ApiException {
+  public StateListResponse getCountriesStates(@javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // create path and map variables
@@ -418,6 +424,7 @@ public class CountriesService extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -435,7 +442,7 @@ public class CountriesService extends BaseApi {
 
     int requestTimeout = apiClient.getRequestTimeout();
 
-    TypeReference<List<RestCountryState>> localVarReturnType = new TypeReference<List<RestCountryState>>() {};
+    TypeReference<StateListResponse> localVarReturnType = new TypeReference<StateListResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -458,13 +465,14 @@ public class CountriesService extends BaseApi {
    * 
    
    * @param id  (required)
+   * @param expand  (optional)
    * @return RestCountryState
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStatesId">Retrieve a country state Documentation</a>
    */
-  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id) throws ApiException {
-    return this.getCountriesStatesId(id, Collections.emptyMap());
+  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.getCountriesStatesId(id, expand, Collections.emptyMap());
   }
 
 
@@ -473,13 +481,14 @@ public class CountriesService extends BaseApi {
    * 
    
    * @param id  (required)
+   * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
    * @return RestCountryState
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getCountriesStatesId">Retrieve a country state Documentation</a>
    */
-  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id, Map<String, String> additionalHeaders) throws ApiException {
+  public RestCountryState getCountriesStatesId(@javax.annotation.Nonnull String id, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -499,6 +508,7 @@ public class CountriesService extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     
     localVarHeaderParams.putAll(additionalHeaders);
 

@@ -34,23 +34,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Gets or Sets ExpressCheckoutSessionState
+ * Gets or Sets DeliveryDestination
  */
-public enum ExpressCheckoutSessionState {
+public enum DeliveryDestination {
   
-  PENDING("PENDING"),
+  ONLY_INSIDE("ONLY_INSIDE"),
   
-  APPROVED("APPROVED"),
+  ALL_OF_EUROPE("ALL_OF_EUROPE"),
   
-  PROCESSING("PROCESSING"),
-  
-  AUTHORIZED("AUTHORIZED"),
-  
-  FAILED("FAILED");
+  WORLDWIDE("WORLDWIDE");
 
   private String value;
 
-  ExpressCheckoutSessionState(String value) {
+  DeliveryDestination(String value) {
     this.value = value;
   }
 
@@ -65,8 +61,8 @@ public enum ExpressCheckoutSessionState {
   }
 
   @JsonCreator
-  public static ExpressCheckoutSessionState fromValue(String value) {
-    for (ExpressCheckoutSessionState b : ExpressCheckoutSessionState.values()) {
+  public static DeliveryDestination fromValue(String value) {
+    for (DeliveryDestination b : DeliveryDestination.values()) {
       if (b.value.equals(value)) {
         return b;
       }

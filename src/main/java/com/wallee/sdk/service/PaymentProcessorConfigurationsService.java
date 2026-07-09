@@ -105,7 +105,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -201,7 +201,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -294,7 +294,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -391,7 +391,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -491,7 +491,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -583,7 +583,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -596,6 +596,107 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
 
     final String[] localVarContentTypes = {
       "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<PaymentProcessorConfiguration> localVarReturnType = new TypeReference<PaymentProcessorConfiguration>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Link a contract with a payment processor configuration
+   * 
+   
+   * @param id  (required)
+   * @param contractId The contract to link with the payment processor configuration. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return PaymentProcessorConfiguration
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentProcessorConfigurationsIdLinkContract">Link a contract with a payment processor configuration Documentation</a>
+   */
+  public PaymentProcessorConfiguration postPaymentProcessorConfigurationsIdLinkContract(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long contractId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postPaymentProcessorConfigurationsIdLinkContract(id, contractId, space, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Link a contract with a payment processor configuration
+   * 
+   
+   * @param id  (required)
+   * @param contractId The contract to link with the payment processor configuration. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return PaymentProcessorConfiguration
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentProcessorConfigurationsIdLinkContract">Link a contract with a payment processor configuration Documentation</a>
+   */
+  public PaymentProcessorConfiguration postPaymentProcessorConfigurationsIdLinkContract(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long contractId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling postPaymentProcessorConfigurationsIdLinkContract");
+    }
+    
+    // verify the required parameter 'contractId' is set
+    if (contractId == null) {
+      throw new ApiException(400, "Missing the required parameter 'contractId' when calling postPaymentProcessorConfigurationsIdLinkContract");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentProcessorConfigurationsIdLinkContract");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/processor-configurations/{id}/link-contract"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("contractId", contractId));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
@@ -637,7 +738,7 @@ public class PaymentProcessorConfigurationsService extends BaseApi {
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {
-      "application/json"
+      
     };
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 

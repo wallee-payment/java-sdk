@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.Setter;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,43 +37,44 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutShippingMethodChangeRequest
+ * BoardingStrategyInformationRequest
  */
 @JsonPropertyOrder({
-  ExpressCheckoutShippingMethodChangeRequest.JSON_PROPERTY_SHIPPING_METHOD_ID
+  BoardingStrategyInformationRequest.JSON_PROPERTY_BILLING_ADDRESS
 })
 
-public class ExpressCheckoutShippingMethodChangeRequest {
-  public static final String JSON_PROPERTY_SHIPPING_METHOD_ID = "shippingMethodId";
-  @javax.annotation.Nullable
-  private String shippingMethodId;
+public class BoardingStrategyInformationRequest {
+  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  @javax.annotation.Nonnull
+  private Setter billingAddress;
 
-  public ExpressCheckoutShippingMethodChangeRequest() {
+  public BoardingStrategyInformationRequest() {
   }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public ExpressCheckoutShippingMethodChangeRequest(
-    @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD_ID) String shippingMethodId
-  ) {
-    this();
-    this.shippingMethodId = shippingMethodId;
+
+  public BoardingStrategyInformationRequest billingAddress(@javax.annotation.Nonnull Setter billingAddress) {
+    
+    this.billingAddress = billingAddress;
+    return this;
   }
 
   /**
-   * Identifier of the selected shipping option.
-   * @return shippingMethodId
+   * Get billingAddress
+   * @return billingAddress
    */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHIPPING_METHOD_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public String getShippingMethodId() {
-    return shippingMethodId;
+  public Setter getBillingAddress() {
+    return billingAddress;
   }
 
 
+  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setBillingAddress(@javax.annotation.Nonnull Setter billingAddress) {
+    this.billingAddress = billingAddress;
+  }
 
   @Override
   public boolean equals(Object o) {
@@ -82,20 +84,20 @@ public class ExpressCheckoutShippingMethodChangeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutShippingMethodChangeRequest expressCheckoutShippingMethodChangeRequest = (ExpressCheckoutShippingMethodChangeRequest) o;
-    return Objects.equals(this.shippingMethodId, expressCheckoutShippingMethodChangeRequest.shippingMethodId);
+    BoardingStrategyInformationRequest boardingStrategyInformationRequest = (BoardingStrategyInformationRequest) o;
+    return Objects.equals(this.billingAddress, boardingStrategyInformationRequest.billingAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shippingMethodId);
+    return Objects.hash(billingAddress);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutShippingMethodChangeRequest {\n");
-    sb.append("    shippingMethodId: ").append(toIndentedString(shippingMethodId)).append("\n");
+    sb.append("class BoardingStrategyInformationRequest {\n");
+    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -143,14 +145,9 @@ public class ExpressCheckoutShippingMethodChangeRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `shippingMethodId` to the URL query string
-    if (getShippingMethodId() != null) {
-      try {
-        joiner.add(String.format("%sshippingMethodId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getShippingMethodId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
+    // add `billingAddress` to the URL query string
+    if (getBillingAddress() != null) {
+      joiner.add(getBillingAddress().toUrlQueryString(prefix + "billingAddress" + suffix));
     }
 
     return joiner.toString();

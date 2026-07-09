@@ -29,9 +29,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.wallee.sdk.model.Feature;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -42,6 +45,7 @@ import java.util.StringJoiner;
  * WalletType
  */
 @JsonPropertyOrder({
+  WalletType.JSON_PROPERTY_REQUIRED_FEATURES,
   WalletType.JSON_PROPERTY_FEATURE,
   WalletType.JSON_PROPERTY_SORT_ORDER,
   WalletType.JSON_PROPERTY_NAME,
@@ -51,6 +55,10 @@ import java.util.StringJoiner;
 })
 
 public class WalletType {
+  public static final String JSON_PROPERTY_REQUIRED_FEATURES = "requiredFeatures";
+  @javax.annotation.Nullable
+  private Set<Feature> requiredFeatures = new LinkedHashSet<>();
+
   public static final String JSON_PROPERTY_FEATURE = "feature";
   @javax.annotation.Nullable
   private Feature feature;
@@ -82,6 +90,7 @@ public class WalletType {
    */
   @JsonCreator
   public WalletType(
+    @JsonProperty(JSON_PROPERTY_REQUIRED_FEATURES) Set<Feature> requiredFeatures, 
     @JsonProperty(JSON_PROPERTY_SORT_ORDER) Integer sortOrder, 
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
@@ -89,12 +98,27 @@ public class WalletType {
     @JsonProperty(JSON_PROPERTY_ID) Long id
   ) {
     this();
+    this.requiredFeatures = requiredFeatures;
     this.sortOrder = sortOrder;
     this.name = name;
     this.description = description;
     this.navigationPath = navigationPath;
     this.id = id;
   }
+
+  /**
+   * Get requiredFeatures
+   * @return requiredFeatures
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_REQUIRED_FEATURES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Set<Feature> getRequiredFeatures() {
+    return requiredFeatures;
+  }
+
+
 
   public WalletType feature(@javax.annotation.Nullable Feature feature) {
     
@@ -200,7 +224,8 @@ public class WalletType {
       return false;
     }
     WalletType walletType = (WalletType) o;
-    return Objects.equals(this.feature, walletType.feature) &&
+    return Objects.equals(this.requiredFeatures, walletType.requiredFeatures) &&
+        Objects.equals(this.feature, walletType.feature) &&
         Objects.equals(this.sortOrder, walletType.sortOrder) &&
         Objects.equals(this.name, walletType.name) &&
         Objects.equals(this.description, walletType.description) &&
@@ -210,13 +235,14 @@ public class WalletType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(feature, sortOrder, name, description, navigationPath, id);
+    return Objects.hash(requiredFeatures, feature, sortOrder, name, description, navigationPath, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WalletType {\n");
+    sb.append("    requiredFeatures: ").append(toIndentedString(requiredFeatures)).append("\n");
     sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -269,6 +295,18 @@ public class WalletType {
     }
 
     StringJoiner joiner = new StringJoiner("&");
+
+    // add `requiredFeatures` to the URL query string
+    if (getRequiredFeatures() != null) {
+      int i = 0;
+      for (Feature _item : getRequiredFeatures()) {
+        if (_item != null) {
+          joiner.add(_item.toUrlQueryString(String.format("%srequiredFeatures%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+      i++;
+    }
 
     // add `feature` to the URL query string
     if (getFeature() != null) {

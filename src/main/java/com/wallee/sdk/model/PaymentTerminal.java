@@ -45,6 +45,7 @@ import java.util.StringJoiner;
  */
 @JsonPropertyOrder({
   PaymentTerminal.JSON_PROPERTY_IDENTIFIER,
+  PaymentTerminal.JSON_PROPERTY_DEACTIVATED_ON,
   PaymentTerminal.JSON_PROPERTY_PLANNED_PURGE_DATE,
   PaymentTerminal.JSON_PROPERTY_EXTERNAL_ID,
   PaymentTerminal.JSON_PROPERTY_TYPE,
@@ -54,6 +55,8 @@ import java.util.StringJoiner;
   PaymentTerminal.JSON_PROPERTY_LINKED_SPACE_ID,
   PaymentTerminal.JSON_PROPERTY_CONFIGURATION_VERSION,
   PaymentTerminal.JSON_PROPERTY_LOCATION_VERSION,
+  PaymentTerminal.JSON_PROPERTY_ACTIVATED_ON,
+  PaymentTerminal.JSON_PROPERTY_DECOMMISSIONED_ON,
   PaymentTerminal.JSON_PROPERTY_DEFAULT_CURRENCY,
   PaymentTerminal.JSON_PROPERTY_NAME,
   PaymentTerminal.JSON_PROPERTY_ID,
@@ -64,6 +67,10 @@ public class PaymentTerminal {
   public static final String JSON_PROPERTY_IDENTIFIER = "identifier";
   @javax.annotation.Nullable
   private String identifier;
+
+  public static final String JSON_PROPERTY_DEACTIVATED_ON = "deactivatedOn";
+  @javax.annotation.Nullable
+  private OffsetDateTime deactivatedOn;
 
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
   @javax.annotation.Nullable
@@ -101,6 +108,14 @@ public class PaymentTerminal {
   @javax.annotation.Nullable
   private PaymentTerminalLocationVersion locationVersion;
 
+  public static final String JSON_PROPERTY_ACTIVATED_ON = "activatedOn";
+  @javax.annotation.Nullable
+  private OffsetDateTime activatedOn;
+
+  public static final String JSON_PROPERTY_DECOMMISSIONED_ON = "decommissionedOn";
+  @javax.annotation.Nullable
+  private OffsetDateTime decommissionedOn;
+
   public static final String JSON_PROPERTY_DEFAULT_CURRENCY = "defaultCurrency";
   @javax.annotation.Nullable
   private String defaultCurrency;
@@ -125,24 +140,30 @@ public class PaymentTerminal {
   @JsonCreator
   public PaymentTerminal(
     @JsonProperty(JSON_PROPERTY_IDENTIFIER) String identifier, 
+    @JsonProperty(JSON_PROPERTY_DEACTIVATED_ON) OffsetDateTime deactivatedOn, 
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
     @JsonProperty(JSON_PROPERTY_EXTERNAL_ID) String externalId, 
     @JsonProperty(JSON_PROPERTY_DEVICE_NAME) String deviceName, 
     @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
     @JsonProperty(JSON_PROPERTY_DEVICE_SERIAL_NUMBER) String deviceSerialNumber, 
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
+    @JsonProperty(JSON_PROPERTY_ACTIVATED_ON) OffsetDateTime activatedOn, 
+    @JsonProperty(JSON_PROPERTY_DECOMMISSIONED_ON) OffsetDateTime decommissionedOn, 
     @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY) String defaultCurrency, 
     @JsonProperty(JSON_PROPERTY_NAME) String name, 
     @JsonProperty(JSON_PROPERTY_ID) Long id
   ) {
     this();
     this.identifier = identifier;
+    this.deactivatedOn = deactivatedOn;
     this.plannedPurgeDate = plannedPurgeDate;
     this.externalId = externalId;
     this.deviceName = deviceName;
     this.version = version;
     this.deviceSerialNumber = deviceSerialNumber;
     this.linkedSpaceId = linkedSpaceId;
+    this.activatedOn = activatedOn;
+    this.decommissionedOn = decommissionedOn;
     this.defaultCurrency = defaultCurrency;
     this.name = name;
     this.id = id;
@@ -158,6 +179,20 @@ public class PaymentTerminal {
 
   public String getIdentifier() {
     return identifier;
+  }
+
+
+
+  /**
+   * Get deactivatedOn
+   * @return deactivatedOn
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DEACTIVATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getDeactivatedOn() {
+    return deactivatedOn;
   }
 
 
@@ -322,6 +357,34 @@ public class PaymentTerminal {
   }
 
   /**
+   * Get activatedOn
+   * @return activatedOn
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACTIVATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getActivatedOn() {
+    return activatedOn;
+  }
+
+
+
+  /**
+   * Get decommissionedOn
+   * @return decommissionedOn
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DECOMMISSIONED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getDecommissionedOn() {
+    return decommissionedOn;
+  }
+
+
+
+  /**
    * The default currency of the terminal.
    * @return defaultCurrency
    */
@@ -398,6 +461,7 @@ public class PaymentTerminal {
     }
     PaymentTerminal paymentTerminal = (PaymentTerminal) o;
     return Objects.equals(this.identifier, paymentTerminal.identifier) &&
+        Objects.equals(this.deactivatedOn, paymentTerminal.deactivatedOn) &&
         Objects.equals(this.plannedPurgeDate, paymentTerminal.plannedPurgeDate) &&
         Objects.equals(this.externalId, paymentTerminal.externalId) &&
         Objects.equals(this.type, paymentTerminal.type) &&
@@ -407,6 +471,8 @@ public class PaymentTerminal {
         Objects.equals(this.linkedSpaceId, paymentTerminal.linkedSpaceId) &&
         Objects.equals(this.configurationVersion, paymentTerminal.configurationVersion) &&
         Objects.equals(this.locationVersion, paymentTerminal.locationVersion) &&
+        Objects.equals(this.activatedOn, paymentTerminal.activatedOn) &&
+        Objects.equals(this.decommissionedOn, paymentTerminal.decommissionedOn) &&
         Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
         Objects.equals(this.name, paymentTerminal.name) &&
         Objects.equals(this.id, paymentTerminal.id) &&
@@ -415,7 +481,7 @@ public class PaymentTerminal {
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, plannedPurgeDate, externalId, type, deviceName, version, deviceSerialNumber, linkedSpaceId, configurationVersion, locationVersion, defaultCurrency, name, id, state);
+    return Objects.hash(identifier, deactivatedOn, plannedPurgeDate, externalId, type, deviceName, version, deviceSerialNumber, linkedSpaceId, configurationVersion, locationVersion, activatedOn, decommissionedOn, defaultCurrency, name, id, state);
   }
 
   @Override
@@ -423,6 +489,7 @@ public class PaymentTerminal {
     StringBuilder sb = new StringBuilder();
     sb.append("class PaymentTerminal {\n");
     sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+    sb.append("    deactivatedOn: ").append(toIndentedString(deactivatedOn)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
     sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -432,6 +499,8 @@ public class PaymentTerminal {
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    locationVersion: ").append(toIndentedString(locationVersion)).append("\n");
+    sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
+    sb.append("    decommissionedOn: ").append(toIndentedString(decommissionedOn)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -487,6 +556,16 @@ public class PaymentTerminal {
     if (getIdentifier() != null) {
       try {
         joiner.add(String.format("%sidentifier%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getIdentifier()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `deactivatedOn` to the URL query string
+    if (getDeactivatedOn() != null) {
+      try {
+        joiner.add(String.format("%sdeactivatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDeactivatedOn()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -566,6 +645,26 @@ public class PaymentTerminal {
     // add `locationVersion` to the URL query string
     if (getLocationVersion() != null) {
       joiner.add(getLocationVersion().toUrlQueryString(prefix + "locationVersion" + suffix));
+    }
+
+    // add `activatedOn` to the URL query string
+    if (getActivatedOn() != null) {
+      try {
+        joiner.add(String.format("%sactivatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActivatedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `decommissionedOn` to the URL query string
+    if (getDecommissionedOn() != null) {
+      try {
+        joiner.add(String.format("%sdecommissionedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDecommissionedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `defaultCurrency` to the URL query string

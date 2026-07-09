@@ -29,7 +29,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ExpressCheckoutSessionState;
+import com.wallee.sdk.model.WalleejoinPartnershipResponseDto;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -37,94 +40,86 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutApprovalResponse
+ * WalleejoinPartnershipResponseDtoListResponse
  */
 @JsonPropertyOrder({
-  ExpressCheckoutApprovalResponse.JSON_PROPERTY_MERCHANT_REDIRECT_URL,
-  ExpressCheckoutApprovalResponse.JSON_PROPERTY_SESSION_ID,
-  ExpressCheckoutApprovalResponse.JSON_PROPERTY_STATE
+  WalleejoinPartnershipResponseDtoListResponse.JSON_PROPERTY_DATA,
+  WalleejoinPartnershipResponseDtoListResponse.JSON_PROPERTY_HAS_MORE,
+  WalleejoinPartnershipResponseDtoListResponse.JSON_PROPERTY_LIMIT
 })
+@JsonTypeName("Walleejoin_Partnership_Response_Dto_List_Response")
 
-public class ExpressCheckoutApprovalResponse {
-  public static final String JSON_PROPERTY_MERCHANT_REDIRECT_URL = "merchantRedirectUrl";
+public class WalleejoinPartnershipResponseDtoListResponse {
+  public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nullable
-  private String merchantRedirectUrl;
+  private List<WalleejoinPartnershipResponseDto> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
+  public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
   @javax.annotation.Nullable
-  private Long sessionId;
+  private Boolean hasMore;
 
-  public static final String JSON_PROPERTY_STATE = "state";
+  public static final String JSON_PROPERTY_LIMIT = "limit";
   @javax.annotation.Nullable
-  private ExpressCheckoutSessionState state;
+  private Integer limit;
 
-  public ExpressCheckoutApprovalResponse() {
+  public WalleejoinPartnershipResponseDtoListResponse() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public ExpressCheckoutApprovalResponse(
-    @JsonProperty(JSON_PROPERTY_MERCHANT_REDIRECT_URL) String merchantRedirectUrl, 
-    @JsonProperty(JSON_PROPERTY_SESSION_ID) Long sessionId
+  public WalleejoinPartnershipResponseDtoListResponse(
+    @JsonProperty(JSON_PROPERTY_DATA) List<WalleejoinPartnershipResponseDto> data, 
+    @JsonProperty(JSON_PROPERTY_HAS_MORE) Boolean hasMore, 
+    @JsonProperty(JSON_PROPERTY_LIMIT) Integer limit
   ) {
     this();
-    this.merchantRedirectUrl = merchantRedirectUrl;
-    this.sessionId = sessionId;
+    this.data = data;
+    this.hasMore = hasMore;
+    this.limit = limit;
   }
 
   /**
-   * Get merchantRedirectUrl
-   * @return merchantRedirectUrl
+   * An array containing the actual response objects.
+   * @return data
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MERCHANT_REDIRECT_URL)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getMerchantRedirectUrl() {
-    return merchantRedirectUrl;
+  public List<WalleejoinPartnershipResponseDto> getData() {
+    return data;
   }
 
 
 
   /**
-   * Get sessionId
-   * @return sessionId
+   * Whether there are more objects available after this set. If false, there are no more objects to retrieve.
+   * @return hasMore
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SESSION_ID)
+  @JsonProperty(JSON_PROPERTY_HAS_MORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getSessionId() {
-    return sessionId;
+  public Boolean getHasMore() {
+    return hasMore;
   }
 
 
-
-  public ExpressCheckoutApprovalResponse state(@javax.annotation.Nullable ExpressCheckoutSessionState state) {
-    
-    this.state = state;
-    return this;
-  }
 
   /**
-   * Get state
-   * @return state
+   * The applied limit on the number of objects returned.
+   * @return limit
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public ExpressCheckoutSessionState getState() {
-    return state;
+  public Integer getLimit() {
+    return limit;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setState(@javax.annotation.Nullable ExpressCheckoutSessionState state) {
-    this.state = state;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -134,24 +129,24 @@ public class ExpressCheckoutApprovalResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutApprovalResponse expressCheckoutApprovalResponse = (ExpressCheckoutApprovalResponse) o;
-    return Objects.equals(this.merchantRedirectUrl, expressCheckoutApprovalResponse.merchantRedirectUrl) &&
-        Objects.equals(this.sessionId, expressCheckoutApprovalResponse.sessionId) &&
-        Objects.equals(this.state, expressCheckoutApprovalResponse.state);
+    WalleejoinPartnershipResponseDtoListResponse walleejoinPartnershipResponseDtoListResponse = (WalleejoinPartnershipResponseDtoListResponse) o;
+    return Objects.equals(this.data, walleejoinPartnershipResponseDtoListResponse.data) &&
+        Objects.equals(this.hasMore, walleejoinPartnershipResponseDtoListResponse.hasMore) &&
+        Objects.equals(this.limit, walleejoinPartnershipResponseDtoListResponse.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(merchantRedirectUrl, sessionId, state);
+    return Objects.hash(data, hasMore, limit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutApprovalResponse {\n");
-    sb.append("    merchantRedirectUrl: ").append(toIndentedString(merchantRedirectUrl)).append("\n");
-    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("class WalleejoinPartnershipResponseDtoListResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -199,30 +194,30 @@ public class ExpressCheckoutApprovalResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `merchantRedirectUrl` to the URL query string
-    if (getMerchantRedirectUrl() != null) {
+    // add `data` to the URL query string
+    if (getData() != null) {
+      for (int i = 0; i < getData().size(); i++) {
+        if (getData().get(i) != null) {
+          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `hasMore` to the URL query string
+    if (getHasMore() != null) {
       try {
-        joiner.add(String.format("%smerchantRedirectUrl%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMerchantRedirectUrl()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%shasMore%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHasMore()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `sessionId` to the URL query string
-    if (getSessionId() != null) {
+    // add `limit` to the URL query string
+    if (getLimit() != null) {
       try {
-        joiner.add(String.format("%ssessionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSessionId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `state` to the URL query string
-    if (getState() != null) {
-      try {
-        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%slimit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLimit()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

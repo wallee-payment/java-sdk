@@ -102,7 +102,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -189,7 +189,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -286,7 +286,7 @@ public class AnalyticsQueriesService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -376,7 +376,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -467,7 +467,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -557,7 +557,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -648,7 +648,7 @@ public class AnalyticsQueriesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -745,7 +745,7 @@ public class AnalyticsQueriesService extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("queryExternalId", queryExternalId));
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

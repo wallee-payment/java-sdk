@@ -29,6 +29,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.RestCountryState;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,61 +40,83 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BogusExpressCheckoutPaymentData
+ * StateListResponse
  */
 @JsonPropertyOrder({
-  BogusExpressCheckoutPaymentData.JSON_PROPERTY_PAYMENT_TOKEN,
-  BogusExpressCheckoutPaymentData.JSON_PROPERTY_CRYPTOGRAM
+  StateListResponse.JSON_PROPERTY_DATA,
+  StateListResponse.JSON_PROPERTY_HAS_MORE,
+  StateListResponse.JSON_PROPERTY_LIMIT
 })
+@JsonTypeName("State_List_Response")
 
-public class BogusExpressCheckoutPaymentData {
-  public static final String JSON_PROPERTY_PAYMENT_TOKEN = "paymentToken";
+public class StateListResponse {
+  public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nullable
-  private String paymentToken;
+  private List<RestCountryState> data = new ArrayList<>();
 
-  public static final String JSON_PROPERTY_CRYPTOGRAM = "cryptogram";
+  public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
   @javax.annotation.Nullable
-  private String cryptogram;
+  private Boolean hasMore;
 
-  public BogusExpressCheckoutPaymentData() {
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  @javax.annotation.Nullable
+  private Integer limit;
+
+  public StateListResponse() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public BogusExpressCheckoutPaymentData(
-    @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN) String paymentToken, 
-    @JsonProperty(JSON_PROPERTY_CRYPTOGRAM) String cryptogram
+  public StateListResponse(
+    @JsonProperty(JSON_PROPERTY_DATA) List<RestCountryState> data, 
+    @JsonProperty(JSON_PROPERTY_HAS_MORE) Boolean hasMore, 
+    @JsonProperty(JSON_PROPERTY_LIMIT) Integer limit
   ) {
     this();
-    this.paymentToken = paymentToken;
-    this.cryptogram = cryptogram;
+    this.data = data;
+    this.hasMore = hasMore;
+    this.limit = limit;
   }
 
   /**
-   * Wallet-generated payment token collected during approval.
-   * @return paymentToken
+   * An array containing the actual response objects.
+   * @return data
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAYMENT_TOKEN)
+  @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getPaymentToken() {
-    return paymentToken;
+  public List<RestCountryState> getData() {
+    return data;
   }
 
 
 
   /**
-   * Wallet-generated cryptogram collected during approval.
-   * @return cryptogram
+   * Whether there are more objects available after this set. If false, there are no more objects to retrieve.
+   * @return hasMore
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CRYPTOGRAM)
+  @JsonProperty(JSON_PROPERTY_HAS_MORE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getCryptogram() {
-    return cryptogram;
+  public Boolean getHasMore() {
+    return hasMore;
+  }
+
+
+
+  /**
+   * The applied limit on the number of objects returned.
+   * @return limit
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getLimit() {
+    return limit;
   }
 
 
@@ -103,22 +129,24 @@ public class BogusExpressCheckoutPaymentData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BogusExpressCheckoutPaymentData bogusExpressCheckoutPaymentData = (BogusExpressCheckoutPaymentData) o;
-    return Objects.equals(this.paymentToken, bogusExpressCheckoutPaymentData.paymentToken) &&
-        Objects.equals(this.cryptogram, bogusExpressCheckoutPaymentData.cryptogram);
+    StateListResponse stateListResponse = (StateListResponse) o;
+    return Objects.equals(this.data, stateListResponse.data) &&
+        Objects.equals(this.hasMore, stateListResponse.hasMore) &&
+        Objects.equals(this.limit, stateListResponse.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentToken, cryptogram);
+    return Objects.hash(data, hasMore, limit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BogusExpressCheckoutPaymentData {\n");
-    sb.append("    paymentToken: ").append(toIndentedString(paymentToken)).append("\n");
-    sb.append("    cryptogram: ").append(toIndentedString(cryptogram)).append("\n");
+    sb.append("class StateListResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -166,20 +194,30 @@ public class BogusExpressCheckoutPaymentData {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `paymentToken` to the URL query string
-    if (getPaymentToken() != null) {
+    // add `data` to the URL query string
+    if (getData() != null) {
+      for (int i = 0; i < getData().size(); i++) {
+        if (getData().get(i) != null) {
+          joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
+    // add `hasMore` to the URL query string
+    if (getHasMore() != null) {
       try {
-        joiner.add(String.format("%spaymentToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPaymentToken()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%shasMore%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getHasMore()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `cryptogram` to the URL query string
-    if (getCryptogram() != null) {
+    // add `limit` to the URL query string
+    if (getLimit() != null) {
       try {
-        joiner.add(String.format("%scryptogram%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCryptogram()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%slimit%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getLimit()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

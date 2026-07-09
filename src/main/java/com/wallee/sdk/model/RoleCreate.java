@@ -47,6 +47,7 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   RoleCreate.JSON_PROPERTY_PERMISSIONS,
   RoleCreate.JSON_PROPERTY_NAME,
+  RoleCreate.JSON_PROPERTY_DESCRIPTION,
   RoleCreate.JSON_PROPERTY_TWO_FACTOR_REQUIRED,
   RoleCreate.JSON_PROPERTY_ACCOUNT
 })
@@ -60,6 +61,10 @@ public class RoleCreate {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
   private Map<String, String> name = new HashMap<>();
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_TWO_FACTOR_REQUIRED = "twoFactorRequired";
   @javax.annotation.Nullable
@@ -139,6 +144,39 @@ public class RoleCreate {
     this.name = name;
   }
 
+  public RoleCreate description(@javax.annotation.Nullable Map<String, String> description) {
+    
+    this.description = description;
+    return this;
+  }
+
+  public RoleCreate putDescriptionItem(String key, String descriptionItem) {
+    if (this.description == null) {
+      this.description = new HashMap<>();
+    }
+    this.description.put(key, descriptionItem);
+    return this;
+  }
+
+  /**
+   * Additional information that describes the role.
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(@javax.annotation.Nullable Map<String, String> description) {
+    this.description = description;
+  }
+
   public RoleCreate twoFactorRequired(@javax.annotation.Nullable Boolean twoFactorRequired) {
     
     this.twoFactorRequired = twoFactorRequired;
@@ -200,13 +238,14 @@ public class RoleCreate {
     RoleCreate roleCreate = (RoleCreate) o;
     return Objects.equals(this.permissions, roleCreate.permissions) &&
         Objects.equals(this.name, roleCreate.name) &&
+        Objects.equals(this.description, roleCreate.description) &&
         Objects.equals(this.twoFactorRequired, roleCreate.twoFactorRequired) &&
         Objects.equals(this.account, roleCreate.account);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(permissions, name, twoFactorRequired, account);
+    return Objects.hash(permissions, name, description, twoFactorRequired, account);
   }
 
   @Override
@@ -215,6 +254,7 @@ public class RoleCreate {
     sb.append("class RoleCreate {\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    twoFactorRequired: ").append(toIndentedString(twoFactorRequired)).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("}");
@@ -283,6 +323,20 @@ public class RoleCreate {
           joiner.add(String.format("%sname%s%s=%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
               getName().get(_key), URLEncoder.encode(String.valueOf(getName().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      for (String _key : getDescription().keySet()) {
+        try {
+          joiner.add(String.format("%sdescription%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getDescription().get(_key), URLEncoder.encode(String.valueOf(getDescription().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
         } catch (UnsupportedEncodingException e) {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);

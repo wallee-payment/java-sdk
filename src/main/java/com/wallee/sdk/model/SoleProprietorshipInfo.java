@@ -29,7 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Address;
+import com.wallee.sdk.model.IdentityInfo;
+import com.wallee.sdk.model.SoleProprietorOwnershipType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -37,73 +38,73 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutShippingAddressChangeRequest
+ * SoleProprietorshipInfo
  */
 @JsonPropertyOrder({
-  ExpressCheckoutShippingAddressChangeRequest.JSON_PROPERTY_SHIPPING_ADDRESS,
-  ExpressCheckoutShippingAddressChangeRequest.JSON_PROPERTY_BILLING_ADDRESS
+  SoleProprietorshipInfo.JSON_PROPERTY_THIRD_PARTY_INFO,
+  SoleProprietorshipInfo.JSON_PROPERTY_SOLE_PROPRIETOR_OWNERSHIP_TYPE
 })
 
-public class ExpressCheckoutShippingAddressChangeRequest {
-  public static final String JSON_PROPERTY_SHIPPING_ADDRESS = "shippingAddress";
+public class SoleProprietorshipInfo {
+  public static final String JSON_PROPERTY_THIRD_PARTY_INFO = "thirdPartyInfo";
   @javax.annotation.Nullable
-  private Address shippingAddress;
+  private IdentityInfo thirdPartyInfo;
 
-  public static final String JSON_PROPERTY_BILLING_ADDRESS = "billingAddress";
+  public static final String JSON_PROPERTY_SOLE_PROPRIETOR_OWNERSHIP_TYPE = "soleProprietorOwnershipType";
   @javax.annotation.Nullable
-  private Address billingAddress;
+  private SoleProprietorOwnershipType soleProprietorOwnershipType;
 
-  public ExpressCheckoutShippingAddressChangeRequest() {
+  public SoleProprietorshipInfo() {
   }
 
-  public ExpressCheckoutShippingAddressChangeRequest shippingAddress(@javax.annotation.Nullable Address shippingAddress) {
+  public SoleProprietorshipInfo thirdPartyInfo(@javax.annotation.Nullable IdentityInfo thirdPartyInfo) {
     
-    this.shippingAddress = shippingAddress;
+    this.thirdPartyInfo = thirdPartyInfo;
     return this;
   }
 
   /**
-   * Get shippingAddress
-   * @return shippingAddress
+   * Get thirdPartyInfo
+   * @return thirdPartyInfo
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getShippingAddress() {
-    return shippingAddress;
+  public IdentityInfo getThirdPartyInfo() {
+    return thirdPartyInfo;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SHIPPING_ADDRESS)
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_INFO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setShippingAddress(@javax.annotation.Nullable Address shippingAddress) {
-    this.shippingAddress = shippingAddress;
+  public void setThirdPartyInfo(@javax.annotation.Nullable IdentityInfo thirdPartyInfo) {
+    this.thirdPartyInfo = thirdPartyInfo;
   }
 
-  public ExpressCheckoutShippingAddressChangeRequest billingAddress(@javax.annotation.Nullable Address billingAddress) {
+  public SoleProprietorshipInfo soleProprietorOwnershipType(@javax.annotation.Nullable SoleProprietorOwnershipType soleProprietorOwnershipType) {
     
-    this.billingAddress = billingAddress;
+    this.soleProprietorOwnershipType = soleProprietorOwnershipType;
     return this;
   }
 
   /**
-   * Get billingAddress
-   * @return billingAddress
+   * Get soleProprietorOwnershipType
+   * @return soleProprietorOwnershipType
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETOR_OWNERSHIP_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getBillingAddress() {
-    return billingAddress;
+  public SoleProprietorOwnershipType getSoleProprietorOwnershipType() {
+    return soleProprietorOwnershipType;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BILLING_ADDRESS)
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETOR_OWNERSHIP_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBillingAddress(@javax.annotation.Nullable Address billingAddress) {
-    this.billingAddress = billingAddress;
+  public void setSoleProprietorOwnershipType(@javax.annotation.Nullable SoleProprietorOwnershipType soleProprietorOwnershipType) {
+    this.soleProprietorOwnershipType = soleProprietorOwnershipType;
   }
 
   @Override
@@ -114,22 +115,22 @@ public class ExpressCheckoutShippingAddressChangeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutShippingAddressChangeRequest expressCheckoutShippingAddressChangeRequest = (ExpressCheckoutShippingAddressChangeRequest) o;
-    return Objects.equals(this.shippingAddress, expressCheckoutShippingAddressChangeRequest.shippingAddress) &&
-        Objects.equals(this.billingAddress, expressCheckoutShippingAddressChangeRequest.billingAddress);
+    SoleProprietorshipInfo soleProprietorshipInfo = (SoleProprietorshipInfo) o;
+    return Objects.equals(this.thirdPartyInfo, soleProprietorshipInfo.thirdPartyInfo) &&
+        Objects.equals(this.soleProprietorOwnershipType, soleProprietorshipInfo.soleProprietorOwnershipType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shippingAddress, billingAddress);
+    return Objects.hash(thirdPartyInfo, soleProprietorOwnershipType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutShippingAddressChangeRequest {\n");
-    sb.append("    shippingAddress: ").append(toIndentedString(shippingAddress)).append("\n");
-    sb.append("    billingAddress: ").append(toIndentedString(billingAddress)).append("\n");
+    sb.append("class SoleProprietorshipInfo {\n");
+    sb.append("    thirdPartyInfo: ").append(toIndentedString(thirdPartyInfo)).append("\n");
+    sb.append("    soleProprietorOwnershipType: ").append(toIndentedString(soleProprietorOwnershipType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -177,14 +178,19 @@ public class ExpressCheckoutShippingAddressChangeRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `shippingAddress` to the URL query string
-    if (getShippingAddress() != null) {
-      joiner.add(getShippingAddress().toUrlQueryString(prefix + "shippingAddress" + suffix));
+    // add `thirdPartyInfo` to the URL query string
+    if (getThirdPartyInfo() != null) {
+      joiner.add(getThirdPartyInfo().toUrlQueryString(prefix + "thirdPartyInfo" + suffix));
     }
 
-    // add `billingAddress` to the URL query string
-    if (getBillingAddress() != null) {
-      joiner.add(getBillingAddress().toUrlQueryString(prefix + "billingAddress" + suffix));
+    // add `soleProprietorOwnershipType` to the URL query string
+    if (getSoleProprietorOwnershipType() != null) {
+      try {
+        joiner.add(String.format("%ssoleProprietorOwnershipType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSoleProprietorOwnershipType()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     return joiner.toString();

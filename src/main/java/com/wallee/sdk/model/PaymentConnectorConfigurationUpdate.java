@@ -390,11 +390,17 @@ public class PaymentConnectorConfigurationUpdate {
       int i = 0;
       for (SalesChannel _item : getEnabledSalesChannels()) {
         if (_item != null) {
-          joiner.add(_item.toUrlQueryString(String.format("%senabledSalesChannels%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+          try {
+            joiner.add(String.format("%senabledSalesChannels%s%s=%s", prefix, suffix,
+                "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+                URLEncoder.encode(String.valueOf(_item), "UTF-8").replaceAll("\\+", "%20")));
+          } catch (UnsupportedEncodingException e) {
+            // Should never happen, UTF-8 is always supported
+            throw new RuntimeException(e);
+          }
         }
+        i++;
       }
-      i++;
     }
 
     // add `version` to the URL query string

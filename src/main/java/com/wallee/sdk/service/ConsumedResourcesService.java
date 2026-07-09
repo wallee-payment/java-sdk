@@ -114,7 +114,7 @@ public class ConsumedResourcesService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

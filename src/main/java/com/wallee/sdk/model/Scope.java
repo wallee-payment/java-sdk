@@ -55,6 +55,7 @@ import java.util.StringJoiner;
   Scope.JSON_PROPERTY_URL,
   Scope.JSON_PROPERTY_FEATURES,
   Scope.JSON_PROPERTY_THEMES,
+  Scope.JSON_PROPERTY_TRUSTED_EXTERNAL_ORIGINS,
   Scope.JSON_PROPERTY_PORT,
   Scope.JSON_PROPERTY_PREPROD_DOMAIN_NAME,
   Scope.JSON_PROPERTY_DOMAIN_NAME,
@@ -92,6 +93,10 @@ public class Scope {
   public static final String JSON_PROPERTY_THEMES = "themes";
   @javax.annotation.Nullable
   private List<String> themes = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_TRUSTED_EXTERNAL_ORIGINS = "trustedExternalOrigins";
+  @javax.annotation.Nullable
+  private List<String> trustedExternalOrigins = new ArrayList<>();
 
   public static final String JSON_PROPERTY_PORT = "port";
   @javax.annotation.Nullable
@@ -135,6 +140,7 @@ public class Scope {
     @JsonProperty(JSON_PROPERTY_URL) String url, 
     @JsonProperty(JSON_PROPERTY_FEATURES) Set<Feature> features, 
     @JsonProperty(JSON_PROPERTY_THEMES) List<String> themes, 
+    @JsonProperty(JSON_PROPERTY_TRUSTED_EXTERNAL_ORIGINS) List<String> trustedExternalOrigins, 
     @JsonProperty(JSON_PROPERTY_PORT) Integer port, 
     @JsonProperty(JSON_PROPERTY_PREPROD_DOMAIN_NAME) String preprodDomainName, 
     @JsonProperty(JSON_PROPERTY_DOMAIN_NAME) String domainName, 
@@ -150,6 +156,7 @@ public class Scope {
     this.url = url;
     this.features = features;
     this.themes = themes;
+    this.trustedExternalOrigins = trustedExternalOrigins;
     this.port = port;
     this.preprodDomainName = preprodDomainName;
     this.domainName = domainName;
@@ -252,6 +259,20 @@ public class Scope {
 
   public List<String> getThemes() {
     return themes;
+  }
+
+
+
+  /**
+   * Trusted external origins (e.g. merchant shops) for browser API access (CORS on /api/) and absolute target redirect URLs.
+   * @return trustedExternalOrigins
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRUSTED_EXTERNAL_ORIGINS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getTrustedExternalOrigins() {
+    return trustedExternalOrigins;
   }
 
 
@@ -382,6 +403,7 @@ public class Scope {
         Objects.equals(this.url, scope.url) &&
         Objects.equals(this.features, scope.features) &&
         Objects.equals(this.themes, scope.themes) &&
+        Objects.equals(this.trustedExternalOrigins, scope.trustedExternalOrigins) &&
         Objects.equals(this.port, scope.port) &&
         Objects.equals(this.preprodDomainName, scope.preprodDomainName) &&
         Objects.equals(this.domainName, scope.domainName) &&
@@ -393,7 +415,7 @@ public class Scope {
 
   @Override
   public int hashCode() {
-    return Objects.hash(plannedPurgeDate, sslActive, version, machineName, url, features, themes, port, preprodDomainName, domainName, name, id, state, sandboxDomainName);
+    return Objects.hash(plannedPurgeDate, sslActive, version, machineName, url, features, themes, trustedExternalOrigins, port, preprodDomainName, domainName, name, id, state, sandboxDomainName);
   }
 
   @Override
@@ -407,6 +429,7 @@ public class Scope {
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    features: ").append(toIndentedString(features)).append("\n");
     sb.append("    themes: ").append(toIndentedString(themes)).append("\n");
+    sb.append("    trustedExternalOrigins: ").append(toIndentedString(trustedExternalOrigins)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    preprodDomainName: ").append(toIndentedString(preprodDomainName)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
@@ -530,6 +553,20 @@ public class Scope {
           joiner.add(String.format("%sthemes%s%s=%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
               URLEncoder.encode(String.valueOf(getThemes().get(i)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
+      }
+    }
+
+    // add `trustedExternalOrigins` to the URL query string
+    if (getTrustedExternalOrigins() != null) {
+      for (int i = 0; i < getTrustedExternalOrigins().size(); i++) {
+        try {
+          joiner.add(String.format("%strustedExternalOrigins%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix),
+              URLEncoder.encode(String.valueOf(getTrustedExternalOrigins().get(i)), "UTF-8").replaceAll("\\+", "%20")));
         } catch (UnsupportedEncodingException e) {
           // Should never happen, UTF-8 is always supported
           throw new RuntimeException(e);

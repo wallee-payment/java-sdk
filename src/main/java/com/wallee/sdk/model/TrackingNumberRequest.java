@@ -29,11 +29,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.ExpressCheckoutShippingOption;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -41,64 +36,44 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * ExpressCheckoutShippingAddressChangeResponse
+ * TrackingNumberRequest
  */
 @JsonPropertyOrder({
-  ExpressCheckoutShippingAddressChangeResponse.JSON_PROPERTY_ORDER_TOTAL,
-  ExpressCheckoutShippingAddressChangeResponse.JSON_PROPERTY_SHIPPING_OPTIONS
+  TrackingNumberRequest.JSON_PROPERTY_TRACKING_NUMBER
 })
 
-public class ExpressCheckoutShippingAddressChangeResponse {
-  public static final String JSON_PROPERTY_ORDER_TOTAL = "orderTotal";
+public class TrackingNumberRequest {
+  public static final String JSON_PROPERTY_TRACKING_NUMBER = "trackingNumber";
   @javax.annotation.Nullable
-  private BigDecimal orderTotal;
+  private String trackingNumber;
 
-  public static final String JSON_PROPERTY_SHIPPING_OPTIONS = "shippingOptions";
-  @javax.annotation.Nullable
-  private List<ExpressCheckoutShippingOption> shippingOptions = new ArrayList<>();
-
-  public ExpressCheckoutShippingAddressChangeResponse() {
+  public TrackingNumberRequest() {
   }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public ExpressCheckoutShippingAddressChangeResponse(
-    @JsonProperty(JSON_PROPERTY_ORDER_TOTAL) BigDecimal orderTotal, 
-    @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS) List<ExpressCheckoutShippingOption> shippingOptions
-  ) {
-    this();
-    this.orderTotal = orderTotal;
-    this.shippingOptions = shippingOptions;
+
+  public TrackingNumberRequest trackingNumber(@javax.annotation.Nullable String trackingNumber) {
+    
+    this.trackingNumber = trackingNumber;
+    return this;
   }
 
   /**
-   * Get orderTotal
-   * @return orderTotal
+   * Get trackingNumber
+   * @return trackingNumber
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ORDER_TOTAL)
+  @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BigDecimal getOrderTotal() {
-    return orderTotal;
+  public String getTrackingNumber() {
+    return trackingNumber;
   }
 
 
-
-  /**
-   * Get shippingOptions
-   * @return shippingOptions
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SHIPPING_OPTIONS)
+  @JsonProperty(JSON_PROPERTY_TRACKING_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public List<ExpressCheckoutShippingOption> getShippingOptions() {
-    return shippingOptions;
+  public void setTrackingNumber(@javax.annotation.Nullable String trackingNumber) {
+    this.trackingNumber = trackingNumber;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -108,22 +83,20 @@ public class ExpressCheckoutShippingAddressChangeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExpressCheckoutShippingAddressChangeResponse expressCheckoutShippingAddressChangeResponse = (ExpressCheckoutShippingAddressChangeResponse) o;
-    return Objects.equals(this.orderTotal, expressCheckoutShippingAddressChangeResponse.orderTotal) &&
-        Objects.equals(this.shippingOptions, expressCheckoutShippingAddressChangeResponse.shippingOptions);
+    TrackingNumberRequest trackingNumberRequest = (TrackingNumberRequest) o;
+    return Objects.equals(this.trackingNumber, trackingNumberRequest.trackingNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderTotal, shippingOptions);
+    return Objects.hash(trackingNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExpressCheckoutShippingAddressChangeResponse {\n");
-    sb.append("    orderTotal: ").append(toIndentedString(orderTotal)).append("\n");
-    sb.append("    shippingOptions: ").append(toIndentedString(shippingOptions)).append("\n");
+    sb.append("class TrackingNumberRequest {\n");
+    sb.append("    trackingNumber: ").append(toIndentedString(trackingNumber)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -171,23 +144,13 @@ public class ExpressCheckoutShippingAddressChangeResponse {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `orderTotal` to the URL query string
-    if (getOrderTotal() != null) {
+    // add `trackingNumber` to the URL query string
+    if (getTrackingNumber() != null) {
       try {
-        joiner.add(String.format("%sorderTotal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOrderTotal()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%strackingNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTrackingNumber()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
-      }
-    }
-
-    // add `shippingOptions` to the URL query string
-    if (getShippingOptions() != null) {
-      for (int i = 0; i < getShippingOptions().size(); i++) {
-        if (getShippingOptions().get(i) != null) {
-          joiner.add(getShippingOptions().get(i).toUrlQueryString(String.format("%sshippingOptions%s%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
-        }
       }
     }
 

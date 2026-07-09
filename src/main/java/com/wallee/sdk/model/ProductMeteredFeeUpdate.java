@@ -45,6 +45,7 @@ import java.util.StringJoiner;
   ProductMeteredFeeUpdate.JSON_PROPERTY_COMPONENT,
   ProductMeteredFeeUpdate.JSON_PROPERTY_TIER_PRICING,
   ProductMeteredFeeUpdate.JSON_PROPERTY_METRIC,
+  ProductMeteredFeeUpdate.JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS,
   ProductMeteredFeeUpdate.JSON_PROPERTY_NAME,
   ProductMeteredFeeUpdate.JSON_PROPERTY_DESCRIPTION,
   ProductMeteredFeeUpdate.JSON_PROPERTY_VERSION
@@ -63,6 +64,10 @@ public class ProductMeteredFeeUpdate {
   public static final String JSON_PROPERTY_METRIC = "metric";
   @javax.annotation.Nullable
   private Long metric;
+
+  public static final String JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS = "numberOfFreeTrialPeriods";
+  @javax.annotation.Nullable
+  private Integer numberOfFreeTrialPeriods;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -152,6 +157,31 @@ public class ProductMeteredFeeUpdate {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetric(@javax.annotation.Nullable Long metric) {
     this.metric = metric;
+  }
+
+  public ProductMeteredFeeUpdate numberOfFreeTrialPeriods(@javax.annotation.Nullable Integer numberOfFreeTrialPeriods) {
+    
+    this.numberOfFreeTrialPeriods = numberOfFreeTrialPeriods;
+    return this;
+  }
+
+  /**
+   * The number of subscription billing cycles that count as a trial phase and during which no fees are charged.
+   * @return numberOfFreeTrialPeriods
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getNumberOfFreeTrialPeriods() {
+    return numberOfFreeTrialPeriods;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setNumberOfFreeTrialPeriods(@javax.annotation.Nullable Integer numberOfFreeTrialPeriods) {
+    this.numberOfFreeTrialPeriods = numberOfFreeTrialPeriods;
   }
 
   public ProductMeteredFeeUpdate name(@javax.annotation.Nullable Map<String, String> name) {
@@ -257,6 +287,7 @@ public class ProductMeteredFeeUpdate {
     return Objects.equals(this.component, productMeteredFeeUpdate.component) &&
         Objects.equals(this.tierPricing, productMeteredFeeUpdate.tierPricing) &&
         Objects.equals(this.metric, productMeteredFeeUpdate.metric) &&
+        Objects.equals(this.numberOfFreeTrialPeriods, productMeteredFeeUpdate.numberOfFreeTrialPeriods) &&
         Objects.equals(this.name, productMeteredFeeUpdate.name) &&
         Objects.equals(this.description, productMeteredFeeUpdate.description) &&
         Objects.equals(this.version, productMeteredFeeUpdate.version);
@@ -264,7 +295,7 @@ public class ProductMeteredFeeUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(component, tierPricing, metric, name, description, version);
+    return Objects.hash(component, tierPricing, metric, numberOfFreeTrialPeriods, name, description, version);
   }
 
   @Override
@@ -274,6 +305,7 @@ public class ProductMeteredFeeUpdate {
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    tierPricing: ").append(toIndentedString(tierPricing)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    numberOfFreeTrialPeriods: ").append(toIndentedString(numberOfFreeTrialPeriods)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -348,6 +380,16 @@ public class ProductMeteredFeeUpdate {
     if (getMetric() != null) {
       try {
         joiner.add(String.format("%smetric%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMetric()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `numberOfFreeTrialPeriods` to the URL query string
+    if (getNumberOfFreeTrialPeriods() != null) {
+      try {
+        joiner.add(String.format("%snumberOfFreeTrialPeriods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfFreeTrialPeriods()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

@@ -24,171 +24,48 @@ package com.wallee.sdk.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.util.HashMap;
-import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.StringJoiner;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
- * SalesChannel
+ * Gets or Sets SalesChannel
  */
-@JsonPropertyOrder({
-  SalesChannel.JSON_PROPERTY_SORT_ORDER,
-  SalesChannel.JSON_PROPERTY_NAME,
-  SalesChannel.JSON_PROPERTY_DESCRIPTION,
-  SalesChannel.JSON_PROPERTY_ID
-})
+public enum SalesChannel {
+  
+  ECOMMERCE("ECOMMERCE"),
+  
+  TERMINAL("TERMINAL");
 
-public class SalesChannel {
-  public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
-  @javax.annotation.Nullable
-  private Integer sortOrder;
+  private String value;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  @javax.annotation.Nullable
-  private Map<String, String> name = new HashMap<>();
-
-  public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  @javax.annotation.Nullable
-  private Map<String, String> description = new HashMap<>();
-
-  public static final String JSON_PROPERTY_ID = "id";
-  @javax.annotation.Nullable
-  private Long id;
-
-  public SalesChannel() {
-  }
-  /**
-   * Constructor with only readonly parameters
-   */
-  @JsonCreator
-  public SalesChannel(
-    @JsonProperty(JSON_PROPERTY_SORT_ORDER) Integer sortOrder, 
-    @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
-    @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
-    @JsonProperty(JSON_PROPERTY_ID) Long id
-  ) {
-    this();
-    this.sortOrder = sortOrder;
-    this.name = name;
-    this.description = description;
-    this.id = id;
+  SalesChannel(String value) {
+    this.value = value;
   }
 
-  /**
-   * When listing sales channels, they can be sorted by this number.
-   * @return sortOrder
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SORT_ORDER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getSortOrder() {
-    return sortOrder;
-  }
-
-
-
-  /**
-   * The localized name of the object.
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, String> getName() {
-    return name;
-  }
-
-
-
-  /**
-   * The localized description of the object.
-   * @return description
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Map<String, String> getDescription() {
-    return description;
-  }
-
-
-
-  /**
-   * A unique identifier for the object.
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getId() {
-    return id;
-  }
-
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    SalesChannel salesChannel = (SalesChannel) o;
-    return Objects.equals(this.sortOrder, salesChannel.sortOrder) &&
-        Objects.equals(this.name, salesChannel.name) &&
-        Objects.equals(this.description, salesChannel.description) &&
-        Objects.equals(this.id, salesChannel.id);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(sortOrder, name, description, id);
+  @JsonValue
+  public String getValue() {
+    return value;
   }
 
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SalesChannel {\n");
-    sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("}");
-    return sb.toString();
+    return String.valueOf(value);
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+  @JsonCreator
+  public static SalesChannel fromValue(String value) {
+    for (SalesChannel b : SalesChannel.values()) {
+      if (b.value.equals(value)) {
+        return b;
+      }
     }
-    return o.toString().replace("\n", "\n    ");
-  }
-
-  /**
-   * Convert the instance into URL query string.
-   *
-   * @return URL query string
-   */
-  public String toUrlQueryString() {
-    return toUrlQueryString(null);
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 
   /**
@@ -198,72 +75,11 @@ public class SalesChannel {
    * @return URL query string
    */
   public String toUrlQueryString(String prefix) {
-    String suffix = "";
-    String containerSuffix = "";
-    String containerPrefix = "";
     if (prefix == null) {
-      // style=form, explode=true, e.g. /pet?name=cat&type=manx
       prefix = "";
-    } else {
-      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
-      prefix = prefix + "[";
-      suffix = "]";
-      containerSuffix = "]";
-      containerPrefix = "[";
     }
 
-    StringJoiner joiner = new StringJoiner("&");
-
-    // add `sortOrder` to the URL query string
-    if (getSortOrder() != null) {
-      try {
-        joiner.add(String.format("%ssortOrder%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSortOrder()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `name` to the URL query string
-    if (getName() != null) {
-      for (String _key : getName().keySet()) {
-        try {
-          joiner.add(String.format("%sname%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getName().get(_key), URLEncoder.encode(String.valueOf(getName().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
-      }
-    }
-
-    // add `description` to the URL query string
-    if (getDescription() != null) {
-      for (String _key : getDescription().keySet()) {
-        try {
-          joiner.add(String.format("%sdescription%s%s=%s", prefix, suffix,
-              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
-              getDescription().get(_key), URLEncoder.encode(String.valueOf(getDescription().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
-        } catch (UnsupportedEncodingException e) {
-          // Should never happen, UTF-8 is always supported
-          throw new RuntimeException(e);
-        }
-      }
-    }
-
-    // add `id` to the URL query string
-    if (getId() != null) {
-      try {
-        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    return joiner.toString();
+    return String.format("%s=%s", prefix, this.toString());
   }
-
 }
 

@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.BogusExpressCheckoutPaymentData;
+import com.wallee.sdk.model.SoleProprietorshipInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -37,43 +37,73 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * BogusExpressCheckoutApprovalRequest
+ * RepresentativeInfo
  */
 @JsonPropertyOrder({
-  BogusExpressCheckoutApprovalRequest.JSON_PROPERTY_PAYMENT_DATA
+  RepresentativeInfo.JSON_PROPERTY_PHONE_NUMBER,
+  RepresentativeInfo.JSON_PROPERTY_SOLE_PROPRIETORSHIP_INFO
 })
 
-public class BogusExpressCheckoutApprovalRequest {
-  public static final String JSON_PROPERTY_PAYMENT_DATA = "paymentData";
+public class RepresentativeInfo {
+  public static final String JSON_PROPERTY_PHONE_NUMBER = "phoneNumber";
   @javax.annotation.Nullable
-  private BogusExpressCheckoutPaymentData paymentData;
+  private String phoneNumber;
 
-  public BogusExpressCheckoutApprovalRequest() {
+  public static final String JSON_PROPERTY_SOLE_PROPRIETORSHIP_INFO = "soleProprietorshipInfo";
+  @javax.annotation.Nullable
+  private SoleProprietorshipInfo soleProprietorshipInfo;
+
+  public RepresentativeInfo() {
   }
 
-  public BogusExpressCheckoutApprovalRequest paymentData(@javax.annotation.Nullable BogusExpressCheckoutPaymentData paymentData) {
+  public RepresentativeInfo phoneNumber(@javax.annotation.Nullable String phoneNumber) {
     
-    this.paymentData = paymentData;
+    this.phoneNumber = phoneNumber;
     return this;
   }
 
   /**
-   * Get paymentData
-   * @return paymentData
+   * Get phoneNumber
+   * @return phoneNumber
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public BogusExpressCheckoutPaymentData getPaymentData() {
-    return paymentData;
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAYMENT_DATA)
+  @JsonProperty(JSON_PROPERTY_PHONE_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setPaymentData(@javax.annotation.Nullable BogusExpressCheckoutPaymentData paymentData) {
-    this.paymentData = paymentData;
+  public void setPhoneNumber(@javax.annotation.Nullable String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public RepresentativeInfo soleProprietorshipInfo(@javax.annotation.Nullable SoleProprietorshipInfo soleProprietorshipInfo) {
+    
+    this.soleProprietorshipInfo = soleProprietorshipInfo;
+    return this;
+  }
+
+  /**
+   * Get soleProprietorshipInfo
+   * @return soleProprietorshipInfo
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SoleProprietorshipInfo getSoleProprietorshipInfo() {
+    return soleProprietorshipInfo;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOLE_PROPRIETORSHIP_INFO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSoleProprietorshipInfo(@javax.annotation.Nullable SoleProprietorshipInfo soleProprietorshipInfo) {
+    this.soleProprietorshipInfo = soleProprietorshipInfo;
   }
 
   @Override
@@ -84,20 +114,22 @@ public class BogusExpressCheckoutApprovalRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BogusExpressCheckoutApprovalRequest bogusExpressCheckoutApprovalRequest = (BogusExpressCheckoutApprovalRequest) o;
-    return Objects.equals(this.paymentData, bogusExpressCheckoutApprovalRequest.paymentData);
+    RepresentativeInfo representativeInfo = (RepresentativeInfo) o;
+    return Objects.equals(this.phoneNumber, representativeInfo.phoneNumber) &&
+        Objects.equals(this.soleProprietorshipInfo, representativeInfo.soleProprietorshipInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentData);
+    return Objects.hash(phoneNumber, soleProprietorshipInfo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BogusExpressCheckoutApprovalRequest {\n");
-    sb.append("    paymentData: ").append(toIndentedString(paymentData)).append("\n");
+    sb.append("class RepresentativeInfo {\n");
+    sb.append("    phoneNumber: ").append(toIndentedString(phoneNumber)).append("\n");
+    sb.append("    soleProprietorshipInfo: ").append(toIndentedString(soleProprietorshipInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -145,9 +177,19 @@ public class BogusExpressCheckoutApprovalRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `paymentData` to the URL query string
-    if (getPaymentData() != null) {
-      joiner.add(getPaymentData().toUrlQueryString(prefix + "paymentData" + suffix));
+    // add `phoneNumber` to the URL query string
+    if (getPhoneNumber() != null) {
+      try {
+        joiner.add(String.format("%sphoneNumber%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPhoneNumber()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `soleProprietorshipInfo` to the URL query string
+    if (getSoleProprietorshipInfo() != null) {
+      joiner.add(getSoleProprietorshipInfo().toUrlQueryString(prefix + "soleProprietorshipInfo" + suffix));
     }
 
     return joiner.toString();

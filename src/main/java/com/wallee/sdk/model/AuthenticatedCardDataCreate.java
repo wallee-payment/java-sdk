@@ -49,6 +49,7 @@ import java.util.StringJoiner;
   AuthenticatedCardDataCreate.JSON_PROPERTY_CARD_VERIFICATION_CODE,
   AuthenticatedCardDataCreate.JSON_PROPERTY_PRIMARY_ACCOUNT_NUMBER,
   AuthenticatedCardDataCreate.JSON_PROPERTY_RECURRING_INDICATOR,
+  AuthenticatedCardDataCreate.JSON_PROPERTY_TRANSACTION_LINK_IDENTIFIER,
   AuthenticatedCardDataCreate.JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE,
   AuthenticatedCardDataCreate.JSON_PROPERTY_CARDHOLDER_AUTHENTICATION,
   AuthenticatedCardDataCreate.JSON_PROPERTY_TOKEN_REQUESTOR_ID,
@@ -80,6 +81,10 @@ public class AuthenticatedCardDataCreate {
   public static final String JSON_PROPERTY_RECURRING_INDICATOR = "recurringIndicator";
   @javax.annotation.Nullable
   private RecurringIndicator recurringIndicator;
+
+  public static final String JSON_PROPERTY_TRANSACTION_LINK_IDENTIFIER = "transactionLinkIdentifier";
+  @javax.annotation.Nullable
+  private String transactionLinkIdentifier;
 
   public static final String JSON_PROPERTY_SCHEME_TRANSACTION_REFERENCE = "schemeTransactionReference";
   @javax.annotation.Nullable
@@ -250,6 +255,31 @@ public class AuthenticatedCardDataCreate {
     this.recurringIndicator = recurringIndicator;
   }
 
+  public AuthenticatedCardDataCreate transactionLinkIdentifier(@javax.annotation.Nullable String transactionLinkIdentifier) {
+    
+    this.transactionLinkIdentifier = transactionLinkIdentifier;
+    return this;
+  }
+
+  /**
+   * A reference specific to linking card transaction lifecycle events within the payment scheme.
+   * @return transactionLinkIdentifier
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getTransactionLinkIdentifier() {
+    return transactionLinkIdentifier;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_LINK_IDENTIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionLinkIdentifier(@javax.annotation.Nullable String transactionLinkIdentifier) {
+    this.transactionLinkIdentifier = transactionLinkIdentifier;
+  }
+
   public AuthenticatedCardDataCreate schemeTransactionReference(@javax.annotation.Nullable String schemeTransactionReference) {
     
     this.schemeTransactionReference = schemeTransactionReference;
@@ -365,6 +395,7 @@ public class AuthenticatedCardDataCreate {
         Objects.equals(this.cardVerificationCode, authenticatedCardDataCreate.cardVerificationCode) &&
         Objects.equals(this.primaryAccountNumber, authenticatedCardDataCreate.primaryAccountNumber) &&
         Objects.equals(this.recurringIndicator, authenticatedCardDataCreate.recurringIndicator) &&
+        Objects.equals(this.transactionLinkIdentifier, authenticatedCardDataCreate.transactionLinkIdentifier) &&
         Objects.equals(this.schemeTransactionReference, authenticatedCardDataCreate.schemeTransactionReference) &&
         Objects.equals(this.cardholderAuthentication, authenticatedCardDataCreate.cardholderAuthentication) &&
         Objects.equals(this.tokenRequestorId, authenticatedCardDataCreate.tokenRequestorId) &&
@@ -373,7 +404,7 @@ public class AuthenticatedCardDataCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expiryDate, panType, cardHolderName, cardVerificationCode, primaryAccountNumber, recurringIndicator, schemeTransactionReference, cardholderAuthentication, tokenRequestorId, cryptogram);
+    return Objects.hash(expiryDate, panType, cardHolderName, cardVerificationCode, primaryAccountNumber, recurringIndicator, transactionLinkIdentifier, schemeTransactionReference, cardholderAuthentication, tokenRequestorId, cryptogram);
   }
 
   @Override
@@ -386,6 +417,7 @@ public class AuthenticatedCardDataCreate {
     sb.append("    cardVerificationCode: ").append(toIndentedString(cardVerificationCode)).append("\n");
     sb.append("    primaryAccountNumber: ").append(toIndentedString(primaryAccountNumber)).append("\n");
     sb.append("    recurringIndicator: ").append(toIndentedString(recurringIndicator)).append("\n");
+    sb.append("    transactionLinkIdentifier: ").append(toIndentedString(transactionLinkIdentifier)).append("\n");
     sb.append("    schemeTransactionReference: ").append(toIndentedString(schemeTransactionReference)).append("\n");
     sb.append("    cardholderAuthentication: ").append(toIndentedString(cardholderAuthentication)).append("\n");
     sb.append("    tokenRequestorId: ").append(toIndentedString(tokenRequestorId)).append("\n");
@@ -491,6 +523,16 @@ public class AuthenticatedCardDataCreate {
     if (getRecurringIndicator() != null) {
       try {
         joiner.add(String.format("%srecurringIndicator%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRecurringIndicator()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `transactionLinkIdentifier` to the URL query string
+    if (getTransactionLinkIdentifier() != null) {
+      try {
+        joiner.add(String.format("%stransactionLinkIdentifier%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTransactionLinkIdentifier()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

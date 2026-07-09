@@ -112,7 +112,7 @@ public class CurrencyBankAccountsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -205,7 +205,7 @@ public class CurrencyBankAccountsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -302,7 +302,7 @@ public class CurrencyBankAccountsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

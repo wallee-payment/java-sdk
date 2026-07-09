@@ -30,6 +30,7 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.AuthenticatedCardRequest;
 import com.wallee.sdk.model.Charge;
+import com.wallee.sdk.model.ChargeAttempt;
 import java.io.File;
 import com.wallee.sdk.model.PaymentMethodConfigurationListResponse;
 import com.wallee.sdk.model.RenderedDocument;
@@ -126,7 +127,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -222,7 +223,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -315,7 +316,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -405,7 +406,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -498,7 +499,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -599,7 +600,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("integrationMode", integrationMode));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -696,7 +697,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -790,7 +791,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -880,7 +881,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -970,7 +971,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1060,7 +1061,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1150,7 +1151,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1240,7 +1241,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1333,7 +1334,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1423,7 +1424,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1513,7 +1514,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1614,7 +1615,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("integrationMode", integrationMode));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1704,7 +1705,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1723,6 +1724,99 @@ public class TransactionsService extends BaseApi {
     int requestTimeout = apiClient.getRequestTimeout();
 
     TypeReference<String> localVarReturnType = new TypeReference<String>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Retrieve the successful charge attempt
+   * Returns the successful charge attempt that authorized the transaction with the given id.
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return ChargeAttempt
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdSuccessfulChargeAttempt">Retrieve the successful charge attempt Documentation</a>
+   */
+  public ChargeAttempt getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.getPaymentTransactionsIdSuccessfulChargeAttempt(id, space, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Retrieve the successful charge attempt
+   * Returns the successful charge attempt that authorized the transaction with the given id.
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return ChargeAttempt
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdSuccessfulChargeAttempt">Retrieve the successful charge attempt Documentation</a>
+   */
+  public ChargeAttempt getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPaymentTransactionsIdSuccessfulChargeAttempt");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling getPaymentTransactionsIdSuccessfulChargeAttempt");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/transactions/{id}/successful-charge-attempt"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<ChargeAttempt> localVarReturnType = new TypeReference<ChargeAttempt>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -1810,7 +1904,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("format", format));
     localVarQueryParams.addAll(apiClient.parameterToPair("width", width));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1907,7 +2001,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2007,7 +2101,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2099,7 +2193,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2197,7 +2291,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2290,7 +2384,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2383,7 +2477,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2487,7 +2581,7 @@ public class TransactionsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
     localVarQueryParams.addAll(apiClient.parameterToPair("recipient", recipient));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2579,7 +2673,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2672,7 +2766,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2772,7 +2866,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2872,7 +2966,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -2972,7 +3066,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3072,7 +3166,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3169,7 +3263,7 @@ public class TransactionsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3262,7 +3356,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3355,7 +3449,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3448,7 +3542,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -3541,7 +3635,7 @@ public class TransactionsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

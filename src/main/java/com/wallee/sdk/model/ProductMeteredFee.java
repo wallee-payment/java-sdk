@@ -49,6 +49,7 @@ import java.util.StringJoiner;
   ProductMeteredFee.JSON_PROPERTY_COMPONENT,
   ProductMeteredFee.JSON_PROPERTY_TIER_PRICING,
   ProductMeteredFee.JSON_PROPERTY_METRIC,
+  ProductMeteredFee.JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS,
   ProductMeteredFee.JSON_PROPERTY_NAME,
   ProductMeteredFee.JSON_PROPERTY_DESCRIPTION,
   ProductMeteredFee.JSON_PROPERTY_ID,
@@ -72,6 +73,10 @@ public class ProductMeteredFee {
   public static final String JSON_PROPERTY_METRIC = "metric";
   @javax.annotation.Nullable
   private SubscriptionMetric metric;
+
+  public static final String JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS = "numberOfFreeTrialPeriods";
+  @javax.annotation.Nullable
+  private Integer numberOfFreeTrialPeriods;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -101,6 +106,7 @@ public class ProductMeteredFee {
   @JsonCreator
   public ProductMeteredFee(
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
+    @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS) Integer numberOfFreeTrialPeriods, 
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
@@ -108,6 +114,7 @@ public class ProductMeteredFee {
   ) {
     this();
     this.linkedSpaceId = linkedSpaceId;
+    this.numberOfFreeTrialPeriods = numberOfFreeTrialPeriods;
     this.name = name;
     this.description = description;
     this.id = id;
@@ -204,6 +211,20 @@ public class ProductMeteredFee {
   }
 
   /**
+   * The number of subscription billing cycles that count as a trial phase and during which no fees are charged.
+   * @return numberOfFreeTrialPeriods
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_FREE_TRIAL_PERIODS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getNumberOfFreeTrialPeriods() {
+    return numberOfFreeTrialPeriods;
+  }
+
+
+
+  /**
    * The localized name of the fee that is displayed to the customer.
    * @return name
    */
@@ -297,6 +318,7 @@ public class ProductMeteredFee {
         Objects.equals(this.component, productMeteredFee.component) &&
         Objects.equals(this.tierPricing, productMeteredFee.tierPricing) &&
         Objects.equals(this.metric, productMeteredFee.metric) &&
+        Objects.equals(this.numberOfFreeTrialPeriods, productMeteredFee.numberOfFreeTrialPeriods) &&
         Objects.equals(this.name, productMeteredFee.name) &&
         Objects.equals(this.description, productMeteredFee.description) &&
         Objects.equals(this.id, productMeteredFee.id) &&
@@ -306,7 +328,7 @@ public class ProductMeteredFee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(linkedSpaceId, component, tierPricing, metric, name, description, id, type, version);
+    return Objects.hash(linkedSpaceId, component, tierPricing, metric, numberOfFreeTrialPeriods, name, description, id, type, version);
   }
 
   @Override
@@ -317,6 +339,7 @@ public class ProductMeteredFee {
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    tierPricing: ").append(toIndentedString(tierPricing)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    numberOfFreeTrialPeriods: ").append(toIndentedString(numberOfFreeTrialPeriods)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -397,6 +420,16 @@ public class ProductMeteredFee {
     // add `metric` to the URL query string
     if (getMetric() != null) {
       joiner.add(getMetric().toUrlQueryString(prefix + "metric" + suffix));
+    }
+
+    // add `numberOfFreeTrialPeriods` to the URL query string
+    if (getNumberOfFreeTrialPeriods() != null) {
+      try {
+        joiner.add(String.format("%snumberOfFreeTrialPeriods%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getNumberOfFreeTrialPeriods()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
     }
 
     // add `name` to the URL query string

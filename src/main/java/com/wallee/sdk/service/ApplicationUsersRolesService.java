@@ -110,7 +110,7 @@ public class ApplicationUsersRolesService extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("roleId", roleId));
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -205,7 +205,7 @@ public class ApplicationUsersRolesService extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("roleId", roleId));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -294,7 +294,7 @@ public class ApplicationUsersRolesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -384,7 +384,7 @@ public class ApplicationUsersRolesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -485,7 +485,7 @@ public class ApplicationUsersRolesService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("roleId", roleId));
     localVarQueryParams.addAll(apiClient.parameterToPair("appliesOnSubAccount", appliesOnSubAccount));
     if (account != null)
-      localVarHeaderParams.put("Account", apiClient.parameterToString(account));
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -583,7 +583,7 @@ public class ApplicationUsersRolesService extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("roleId", roleId));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

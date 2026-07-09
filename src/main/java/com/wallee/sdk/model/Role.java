@@ -51,6 +51,7 @@ import java.util.StringJoiner;
   Role.JSON_PROPERTY_PERMISSIONS,
   Role.JSON_PROPERTY_NAME,
   Role.JSON_PROPERTY_PLANNED_PURGE_DATE,
+  Role.JSON_PROPERTY_DESCRIPTION,
   Role.JSON_PROPERTY_ID,
   Role.JSON_PROPERTY_STATE,
   Role.JSON_PROPERTY_VERSION,
@@ -70,6 +71,10 @@ public class Role {
   public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
   @javax.annotation.Nullable
   private OffsetDateTime plannedPurgeDate;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private Map<String, String> description = new HashMap<>();
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
@@ -101,6 +106,7 @@ public class Role {
     @JsonProperty(JSON_PROPERTY_PERMISSIONS) Set<Permission> permissions, 
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
     @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
+    @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
     @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
     @JsonProperty(JSON_PROPERTY_TWO_FACTOR_REQUIRED) Boolean twoFactorRequired
@@ -109,6 +115,7 @@ public class Role {
     this.permissions = permissions;
     this.name = name;
     this.plannedPurgeDate = plannedPurgeDate;
+    this.description = description;
     this.id = id;
     this.version = version;
     this.twoFactorRequired = twoFactorRequired;
@@ -152,6 +159,20 @@ public class Role {
 
   public OffsetDateTime getPlannedPurgeDate() {
     return plannedPurgeDate;
+  }
+
+
+
+  /**
+   * Additional information that describes the role.
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Map<String, String> getDescription() {
+    return description;
   }
 
 
@@ -260,6 +281,7 @@ public class Role {
     return Objects.equals(this.permissions, role.permissions) &&
         Objects.equals(this.name, role.name) &&
         Objects.equals(this.plannedPurgeDate, role.plannedPurgeDate) &&
+        Objects.equals(this.description, role.description) &&
         Objects.equals(this.id, role.id) &&
         Objects.equals(this.state, role.state) &&
         Objects.equals(this.version, role.version) &&
@@ -269,7 +291,7 @@ public class Role {
 
   @Override
   public int hashCode() {
-    return Objects.hash(permissions, name, plannedPurgeDate, id, state, version, account, twoFactorRequired);
+    return Objects.hash(permissions, name, plannedPurgeDate, description, id, state, version, account, twoFactorRequired);
   }
 
   @Override
@@ -279,6 +301,7 @@ public class Role {
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -364,6 +387,20 @@ public class Role {
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      for (String _key : getDescription().keySet()) {
+        try {
+          joiner.add(String.format("%sdescription%s%s=%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, _key, containerSuffix),
+              getDescription().get(_key), URLEncoder.encode(String.valueOf(getDescription().get(_key)), "UTF-8").replaceAll("\\+", "%20")));
+        } catch (UnsupportedEncodingException e) {
+          // Should never happen, UTF-8 is always supported
+          throw new RuntimeException(e);
+        }
       }
     }
 

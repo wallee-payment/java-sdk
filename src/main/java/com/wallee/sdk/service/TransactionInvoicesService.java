@@ -114,7 +114,7 @@ public class TransactionInvoicesService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -207,7 +207,7 @@ public class TransactionInvoicesService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -297,7 +297,7 @@ public class TransactionInvoicesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -387,7 +387,7 @@ public class TransactionInvoicesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -484,7 +484,7 @@ public class TransactionInvoicesService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -577,7 +577,7 @@ public class TransactionInvoicesService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -596,6 +596,105 @@ public class TransactionInvoicesService extends BaseApi {
     int requestTimeout = apiClient.getRequestTimeout();
 
     TypeReference<TransactionInvoice> localVarReturnType = new TypeReference<TransactionInvoice>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Create an instant invoice payment URL
+   * 
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param successUrl  (optional)
+   * @param failureUrl  (optional)
+   * @param ttlInMinutes Optional TTL in minutes relative to now. Allowed range is 1 to 561600 (13 months in minutes). If omitted, 30 minutes is used. (optional)
+   * @return String
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesIdInstantPaymentUrl">Create an instant invoice payment URL Documentation</a>
+   */
+  public String postPaymentTransactionsInvoicesIdInstantPaymentUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable String successUrl, @javax.annotation.Nullable String failureUrl, @javax.annotation.Nullable Long ttlInMinutes) throws ApiException {
+    return this.postPaymentTransactionsInvoicesIdInstantPaymentUrl(id, space, successUrl, failureUrl, ttlInMinutes, Collections.emptyMap());
+  }
+
+
+  /**
+   * Create an instant invoice payment URL
+   * 
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param successUrl  (optional)
+   * @param failureUrl  (optional)
+   * @param ttlInMinutes Optional TTL in minutes relative to now. Allowed range is 1 to 561600 (13 months in minutes). If omitted, 30 minutes is used. (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return String
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTransactionsInvoicesIdInstantPaymentUrl">Create an instant invoice payment URL Documentation</a>
+   */
+  public String postPaymentTransactionsInvoicesIdInstantPaymentUrl(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable String successUrl, @javax.annotation.Nullable String failureUrl, @javax.annotation.Nullable Long ttlInMinutes, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling postPaymentTransactionsInvoicesIdInstantPaymentUrl");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTransactionsInvoicesIdInstantPaymentUrl");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/transactions/invoices/{id}/instant-payment-url"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("successUrl", successUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPair("failureUrl", failureUrl));
+    localVarQueryParams.addAll(apiClient.parameterToPair("ttlInMinutes", ttlInMinutes));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<String> localVarReturnType = new TypeReference<String>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -670,7 +769,7 @@ public class TransactionInvoicesService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -770,7 +869,7 @@ public class TransactionInvoicesService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 

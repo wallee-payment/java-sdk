@@ -107,7 +107,7 @@ public class PaymentTerminalsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -203,7 +203,7 @@ public class PaymentTerminalsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -296,7 +296,7 @@ public class PaymentTerminalsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -397,7 +397,7 @@ public class PaymentTerminalsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("transactionId", transactionId));
     localVarQueryParams.addAll(apiClient.parameterToPair("language", language));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -494,7 +494,7 @@ public class PaymentTerminalsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
     localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -594,7 +594,7 @@ public class PaymentTerminalsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -686,7 +686,7 @@ public class PaymentTerminalsService extends BaseApi {
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -790,7 +790,7 @@ public class PaymentTerminalsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("language", language));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -824,6 +824,93 @@ public class PaymentTerminalsService extends BaseApi {
         localVarContentType,
         requestTimeout,
         localVarReturnType
+    );
+  }
+
+  /**
+   * Remotely trigger the configuration by identifier
+   * 
+   
+   * @param identifier The unique identifier of the terminal. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration">Remotely trigger the configuration by identifier Documentation</a>
+   */
+  public void postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration(@javax.annotation.Nonnull String identifier, @javax.annotation.Nonnull Long space) throws ApiException {
+    this.postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration(identifier, space, Collections.emptyMap());
+  }
+
+
+  /**
+   * Remotely trigger the configuration by identifier
+   * 
+   
+   * @param identifier The unique identifier of the terminal. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param additionalHeaders The additional headers for this call
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration">Remotely trigger the configuration by identifier Documentation</a>
+   */
+  public void postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration(@javax.annotation.Nonnull String identifier, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminalsByIdentifierIdentifierTriggerConfiguration");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/by-identifier/{identifier}/trigger-configuration"
+      .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(apiClient.parameterToString(identifier)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        null
     );
   }
 
@@ -881,7 +968,7 @@ public class PaymentTerminalsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -977,7 +1064,7 @@ public class PaymentTerminalsService extends BaseApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPair("serialNumber", serialNumber));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1080,7 +1167,7 @@ public class PaymentTerminalsService extends BaseApi {
     localVarQueryParams.addAll(apiClient.parameterToPair("language", language));
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1114,6 +1201,93 @@ public class PaymentTerminalsService extends BaseApi {
         localVarContentType,
         requestTimeout,
         localVarReturnType
+    );
+  }
+
+  /**
+   * Remotely trigger the configuration
+   * 
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsIdTriggerConfiguration">Remotely trigger the configuration Documentation</a>
+   */
+  public void postPaymentTerminalsIdTriggerConfiguration(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
+    this.postPaymentTerminalsIdTriggerConfiguration(id, space, Collections.emptyMap());
+  }
+
+
+  /**
+   * Remotely trigger the configuration
+   * 
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param additionalHeaders The additional headers for this call
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsIdTriggerConfiguration">Remotely trigger the configuration Documentation</a>
+   */
+  public void postPaymentTerminalsIdTriggerConfiguration(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling postPaymentTerminalsIdTriggerConfiguration");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminalsIdTriggerConfiguration");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/{id}/trigger-configuration"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        null
     );
   }
 
@@ -1171,7 +1345,7 @@ public class PaymentTerminalsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
@@ -1259,7 +1433,7 @@ public class PaymentTerminalsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     if (space != null)
-      localVarHeaderParams.put("Space", apiClient.parameterToString(space));
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
     localVarHeaderParams.putAll(additionalHeaders);
 
