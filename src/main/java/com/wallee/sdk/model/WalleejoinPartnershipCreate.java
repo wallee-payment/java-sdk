@@ -46,6 +46,7 @@ import java.util.StringJoiner;
   WalleejoinPartnershipCreate.JSON_PROPERTY_PRICING_PROFILE_SELL_RATE,
   WalleejoinPartnershipCreate.JSON_PROPERTY_ACTIVATED_ON,
   WalleejoinPartnershipCreate.JSON_PROPERTY_MERCHANT_ACCOUNT,
+  WalleejoinPartnershipCreate.JSON_PROPERTY_INVITATION_EMAIL_ADDRESS,
   WalleejoinPartnershipCreate.JSON_PROPERTY_PARTNERSHIP_TYPE,
   WalleejoinPartnershipCreate.JSON_PROPERTY_STATE,
   WalleejoinPartnershipCreate.JSON_PROPERTY_SUBSCRIPTION_PRODUCT_ID,
@@ -69,6 +70,10 @@ public class WalleejoinPartnershipCreate {
   public static final String JSON_PROPERTY_MERCHANT_ACCOUNT = "merchantAccount";
   @javax.annotation.Nullable
   private Long merchantAccount;
+
+  public static final String JSON_PROPERTY_INVITATION_EMAIL_ADDRESS = "invitationEmailAddress";
+  @javax.annotation.Nullable
+  private String invitationEmailAddress;
 
   public static final String JSON_PROPERTY_PARTNERSHIP_TYPE = "partnershipType";
   @javax.annotation.Nullable
@@ -189,6 +194,31 @@ public class WalleejoinPartnershipCreate {
     this.merchantAccount = merchantAccount;
   }
 
+  public WalleejoinPartnershipCreate invitationEmailAddress(@javax.annotation.Nullable String invitationEmailAddress) {
+    
+    this.invitationEmailAddress = invitationEmailAddress;
+    return this;
+  }
+
+  /**
+   * The email address the merchant was invited with.
+   * @return invitationEmailAddress
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INVITATION_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getInvitationEmailAddress() {
+    return invitationEmailAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INVITATION_EMAIL_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInvitationEmailAddress(@javax.annotation.Nullable String invitationEmailAddress) {
+    this.invitationEmailAddress = invitationEmailAddress;
+  }
+
   public WalleejoinPartnershipCreate partnershipType(@javax.annotation.Nullable WalleejoinPartnershipType partnershipType) {
     
     this.partnershipType = partnershipType;
@@ -302,6 +332,7 @@ public class WalleejoinPartnershipCreate {
         Objects.equals(this.pricingProfileSellRate, walleejoinPartnershipCreate.pricingProfileSellRate) &&
         Objects.equals(this.activatedOn, walleejoinPartnershipCreate.activatedOn) &&
         Objects.equals(this.merchantAccount, walleejoinPartnershipCreate.merchantAccount) &&
+        Objects.equals(this.invitationEmailAddress, walleejoinPartnershipCreate.invitationEmailAddress) &&
         Objects.equals(this.partnershipType, walleejoinPartnershipCreate.partnershipType) &&
         Objects.equals(this.state, walleejoinPartnershipCreate.state) &&
         Objects.equals(this.subscriptionProductId, walleejoinPartnershipCreate.subscriptionProductId) &&
@@ -310,7 +341,7 @@ public class WalleejoinPartnershipCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(terminatedOn, pricingProfileSellRate, activatedOn, merchantAccount, partnershipType, state, subscriptionProductId, partnerAccount);
+    return Objects.hash(terminatedOn, pricingProfileSellRate, activatedOn, merchantAccount, invitationEmailAddress, partnershipType, state, subscriptionProductId, partnerAccount);
   }
 
   @Override
@@ -321,6 +352,7 @@ public class WalleejoinPartnershipCreate {
     sb.append("    pricingProfileSellRate: ").append(toIndentedString(pricingProfileSellRate)).append("\n");
     sb.append("    activatedOn: ").append(toIndentedString(activatedOn)).append("\n");
     sb.append("    merchantAccount: ").append(toIndentedString(merchantAccount)).append("\n");
+    sb.append("    invitationEmailAddress: ").append(toIndentedString(invitationEmailAddress)).append("\n");
     sb.append("    partnershipType: ").append(toIndentedString(partnershipType)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    subscriptionProductId: ").append(toIndentedString(subscriptionProductId)).append("\n");
@@ -406,6 +438,16 @@ public class WalleejoinPartnershipCreate {
     if (getMerchantAccount() != null) {
       try {
         joiner.add(String.format("%smerchantAccount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getMerchantAccount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `invitationEmailAddress` to the URL query string
+    if (getInvitationEmailAddress() != null) {
+      try {
+        joiner.add(String.format("%sinvitationEmailAddress%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getInvitationEmailAddress()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

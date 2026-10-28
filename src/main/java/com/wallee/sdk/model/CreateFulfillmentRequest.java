@@ -29,6 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -39,20 +40,60 @@ import java.util.StringJoiner;
  * CreateFulfillmentRequest
  */
 @JsonPropertyOrder({
+  CreateFulfillmentRequest.JSON_PROPERTY_AMOUNT,
   CreateFulfillmentRequest.JSON_PROPERTY_COMPLETION_ID,
+  CreateFulfillmentRequest.JSON_PROPERTY_DESCRIPTION,
+  CreateFulfillmentRequest.JSON_PROPERTY_EXTERNAL_ID,
   CreateFulfillmentRequest.JSON_PROPERTY_TRACKING_NUMBER
 })
 
 public class CreateFulfillmentRequest {
+  public static final String JSON_PROPERTY_AMOUNT = "amount";
+  @javax.annotation.Nullable
+  private BigDecimal amount;
+
   public static final String JSON_PROPERTY_COMPLETION_ID = "completionId";
   @javax.annotation.Nullable
   private Long completionId;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private String description;
+
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
+  private String externalId;
 
   public static final String JSON_PROPERTY_TRACKING_NUMBER = "trackingNumber";
   @javax.annotation.Nullable
   private String trackingNumber;
 
   public CreateFulfillmentRequest() {
+  }
+
+  public CreateFulfillmentRequest amount(@javax.annotation.Nullable BigDecimal amount) {
+    
+    this.amount = amount;
+    return this;
+  }
+
+  /**
+   * Get amount
+   * @return amount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getAmount() {
+    return amount;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAmount(@javax.annotation.Nullable BigDecimal amount) {
+    this.amount = amount;
   }
 
   public CreateFulfillmentRequest completionId(@javax.annotation.Nullable Long completionId) {
@@ -78,6 +119,56 @@ public class CreateFulfillmentRequest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCompletionId(@javax.annotation.Nullable Long completionId) {
     this.completionId = completionId;
+  }
+
+  public CreateFulfillmentRequest description(@javax.annotation.Nullable String description) {
+    
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setDescription(@javax.annotation.Nullable String description) {
+    this.description = description;
+  }
+
+  public CreateFulfillmentRequest externalId(@javax.annotation.Nullable String externalId) {
+    
+    this.externalId = externalId;
+    return this;
+  }
+
+  /**
+   * Get externalId
+   * @return externalId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setExternalId(@javax.annotation.Nullable String externalId) {
+    this.externalId = externalId;
   }
 
   public CreateFulfillmentRequest trackingNumber(@javax.annotation.Nullable String trackingNumber) {
@@ -114,20 +205,26 @@ public class CreateFulfillmentRequest {
       return false;
     }
     CreateFulfillmentRequest createFulfillmentRequest = (CreateFulfillmentRequest) o;
-    return Objects.equals(this.completionId, createFulfillmentRequest.completionId) &&
+    return Objects.equals(this.amount, createFulfillmentRequest.amount) &&
+        Objects.equals(this.completionId, createFulfillmentRequest.completionId) &&
+        Objects.equals(this.description, createFulfillmentRequest.description) &&
+        Objects.equals(this.externalId, createFulfillmentRequest.externalId) &&
         Objects.equals(this.trackingNumber, createFulfillmentRequest.trackingNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(completionId, trackingNumber);
+    return Objects.hash(amount, completionId, description, externalId, trackingNumber);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFulfillmentRequest {\n");
+    sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    completionId: ").append(toIndentedString(completionId)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
     sb.append("    trackingNumber: ").append(toIndentedString(trackingNumber)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -176,10 +273,40 @@ public class CreateFulfillmentRequest {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `amount` to the URL query string
+    if (getAmount() != null) {
+      try {
+        joiner.add(String.format("%samount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAmount()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `completionId` to the URL query string
     if (getCompletionId() != null) {
       try {
         joiner.add(String.format("%scompletionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCompletionId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalId` to the URL query string
+    if (getExternalId() != null) {
+      try {
+        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

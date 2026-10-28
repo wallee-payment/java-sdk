@@ -47,7 +47,9 @@ import java.util.StringJoiner;
 @JsonPropertyOrder({
   WalletType.JSON_PROPERTY_REQUIRED_FEATURES,
   WalletType.JSON_PROPERTY_FEATURE,
+  WalletType.JSON_PROPERTY_STANDARD_CHECKOUT_SUPPORTED,
   WalletType.JSON_PROPERTY_SORT_ORDER,
+  WalletType.JSON_PROPERTY_EXPRESS_CHECKOUT_SUPPORTED,
   WalletType.JSON_PROPERTY_NAME,
   WalletType.JSON_PROPERTY_DESCRIPTION,
   WalletType.JSON_PROPERTY_NAVIGATION_PATH,
@@ -63,9 +65,17 @@ public class WalletType {
   @javax.annotation.Nullable
   private Feature feature;
 
+  public static final String JSON_PROPERTY_STANDARD_CHECKOUT_SUPPORTED = "standardCheckoutSupported";
+  @javax.annotation.Nullable
+  private Boolean standardCheckoutSupported;
+
   public static final String JSON_PROPERTY_SORT_ORDER = "sortOrder";
   @javax.annotation.Nullable
   private Integer sortOrder;
+
+  public static final String JSON_PROPERTY_EXPRESS_CHECKOUT_SUPPORTED = "expressCheckoutSupported";
+  @javax.annotation.Nullable
+  private Boolean expressCheckoutSupported;
 
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
@@ -91,7 +101,9 @@ public class WalletType {
   @JsonCreator
   public WalletType(
     @JsonProperty(JSON_PROPERTY_REQUIRED_FEATURES) Set<Feature> requiredFeatures, 
+    @JsonProperty(JSON_PROPERTY_STANDARD_CHECKOUT_SUPPORTED) Boolean standardCheckoutSupported, 
     @JsonProperty(JSON_PROPERTY_SORT_ORDER) Integer sortOrder, 
+    @JsonProperty(JSON_PROPERTY_EXPRESS_CHECKOUT_SUPPORTED) Boolean expressCheckoutSupported, 
     @JsonProperty(JSON_PROPERTY_NAME) Map<String, String> name, 
     @JsonProperty(JSON_PROPERTY_DESCRIPTION) Map<String, String> description, 
     @JsonProperty(JSON_PROPERTY_NAVIGATION_PATH) String navigationPath, 
@@ -99,7 +111,9 @@ public class WalletType {
   ) {
     this();
     this.requiredFeatures = requiredFeatures;
+    this.standardCheckoutSupported = standardCheckoutSupported;
     this.sortOrder = sortOrder;
+    this.expressCheckoutSupported = expressCheckoutSupported;
     this.name = name;
     this.description = description;
     this.navigationPath = navigationPath;
@@ -146,6 +160,20 @@ public class WalletType {
   }
 
   /**
+   * Get standardCheckoutSupported
+   * @return standardCheckoutSupported
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STANDARD_CHECKOUT_SUPPORTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getStandardCheckoutSupported() {
+    return standardCheckoutSupported;
+  }
+
+
+
+  /**
    * Get sortOrder
    * @return sortOrder
    */
@@ -155,6 +183,20 @@ public class WalletType {
 
   public Integer getSortOrder() {
     return sortOrder;
+  }
+
+
+
+  /**
+   * Get expressCheckoutSupported
+   * @return expressCheckoutSupported
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXPRESS_CHECKOUT_SUPPORTED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getExpressCheckoutSupported() {
+    return expressCheckoutSupported;
   }
 
 
@@ -226,7 +268,9 @@ public class WalletType {
     WalletType walletType = (WalletType) o;
     return Objects.equals(this.requiredFeatures, walletType.requiredFeatures) &&
         Objects.equals(this.feature, walletType.feature) &&
+        Objects.equals(this.standardCheckoutSupported, walletType.standardCheckoutSupported) &&
         Objects.equals(this.sortOrder, walletType.sortOrder) &&
+        Objects.equals(this.expressCheckoutSupported, walletType.expressCheckoutSupported) &&
         Objects.equals(this.name, walletType.name) &&
         Objects.equals(this.description, walletType.description) &&
         Objects.equals(this.navigationPath, walletType.navigationPath) &&
@@ -235,7 +279,7 @@ public class WalletType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(requiredFeatures, feature, sortOrder, name, description, navigationPath, id);
+    return Objects.hash(requiredFeatures, feature, standardCheckoutSupported, sortOrder, expressCheckoutSupported, name, description, navigationPath, id);
   }
 
   @Override
@@ -244,7 +288,9 @@ public class WalletType {
     sb.append("class WalletType {\n");
     sb.append("    requiredFeatures: ").append(toIndentedString(requiredFeatures)).append("\n");
     sb.append("    feature: ").append(toIndentedString(feature)).append("\n");
+    sb.append("    standardCheckoutSupported: ").append(toIndentedString(standardCheckoutSupported)).append("\n");
     sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
+    sb.append("    expressCheckoutSupported: ").append(toIndentedString(expressCheckoutSupported)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    navigationPath: ").append(toIndentedString(navigationPath)).append("\n");
@@ -313,10 +359,30 @@ public class WalletType {
       joiner.add(getFeature().toUrlQueryString(prefix + "feature" + suffix));
     }
 
+    // add `standardCheckoutSupported` to the URL query string
+    if (getStandardCheckoutSupported() != null) {
+      try {
+        joiner.add(String.format("%sstandardCheckoutSupported%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getStandardCheckoutSupported()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
     // add `sortOrder` to the URL query string
     if (getSortOrder() != null) {
       try {
         joiner.add(String.format("%ssortOrder%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSortOrder()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `expressCheckoutSupported` to the URL query string
+    if (getExpressCheckoutSupported() != null) {
+      try {
+        joiner.add(String.format("%sexpressCheckoutSupported%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExpressCheckoutSupported()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

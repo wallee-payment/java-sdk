@@ -29,7 +29,7 @@ import com.wallee.sdk.BaseApi;
 import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.Account;
-import com.wallee.sdk.model.AccountCreate;
+import com.wallee.sdk.model.AccountCreateWithOwner;
 import com.wallee.sdk.model.AccountListResponse;
 import com.wallee.sdk.model.AccountSearchResponse;
 import com.wallee.sdk.model.AccountUpdate;
@@ -486,15 +486,16 @@ public class AccountsService extends BaseApi {
    * Create an account
    * 
    
-   * @param accountCreate  (required)
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param accountCreateWithOwner  (required)
    * @param expand  (optional)
    * @return Account
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccounts">Create an account Documentation</a>
    */
-  public Account postAccounts(@javax.annotation.Nonnull AccountCreate accountCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
-    return this.postAccounts(accountCreate, expand, Collections.emptyMap());
+  public Account postAccounts(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull AccountCreateWithOwner accountCreateWithOwner, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postAccounts(account, accountCreateWithOwner, expand, Collections.emptyMap());
   }
 
 
@@ -502,7 +503,8 @@ public class AccountsService extends BaseApi {
    * Create an account
    * 
    
-   * @param accountCreate  (required)
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param accountCreateWithOwner  (required)
    * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
    * @return Account
@@ -510,12 +512,17 @@ public class AccountsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postAccounts">Create an account Documentation</a>
    */
-  public Account postAccounts(@javax.annotation.Nonnull AccountCreate accountCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = accountCreate;
+  public Account postAccounts(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull AccountCreateWithOwner accountCreateWithOwner, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = accountCreateWithOwner;
     
-    // verify the required parameter 'accountCreate' is set
-    if (accountCreate == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountCreate' when calling postAccounts");
+    // verify the required parameter 'account' is set
+    if (account == null) {
+      throw new ApiException(400, "Missing the required parameter 'account' when calling postAccounts");
+    }
+    
+    // verify the required parameter 'accountCreateWithOwner' is set
+    if (accountCreateWithOwner == null) {
+      throw new ApiException(400, "Missing the required parameter 'accountCreateWithOwner' when calling postAccounts");
     }
     
     // create path and map variables
@@ -530,7 +537,9 @@ public class AccountsService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
-    
+    if (account != null)
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
+
     localVarHeaderParams.putAll(additionalHeaders);
 
     

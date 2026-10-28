@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.SecretKeyState;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,68 +38,52 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserSpaceRole
+ * RestOAuthClientSecret
  */
 @JsonPropertyOrder({
-  UserSpaceRole.JSON_PROPERTY_ROLE,
-  UserSpaceRole.JSON_PROPERTY_ID,
-  UserSpaceRole.JSON_PROPERTY_USER,
-  UserSpaceRole.JSON_PROPERTY_VERSION,
-  UserSpaceRole.JSON_PROPERTY_SPACE
+  RestOAuthClientSecret.JSON_PROPERTY_CREATION_TIME,
+  RestOAuthClientSecret.JSON_PROPERTY_ID,
+  RestOAuthClientSecret.JSON_PROPERTY_STATE
 })
 
-public class UserSpaceRole {
-  public static final String JSON_PROPERTY_ROLE = "role";
+public class RestOAuthClientSecret {
+  public static final String JSON_PROPERTY_CREATION_TIME = "creationTime";
   @javax.annotation.Nullable
-  private Long role;
+  private OffsetDateTime creationTime;
 
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
   private Long id;
 
-  public static final String JSON_PROPERTY_USER = "user";
+  public static final String JSON_PROPERTY_STATE = "state";
   @javax.annotation.Nullable
-  private Long user;
+  private SecretKeyState state;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nullable
-  private Integer version;
-
-  public static final String JSON_PROPERTY_SPACE = "space";
-  @javax.annotation.Nullable
-  private Long space;
-
-  public UserSpaceRole() {
+  public RestOAuthClientSecret() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public UserSpaceRole(
-    @JsonProperty(JSON_PROPERTY_ROLE) Long role, 
-    @JsonProperty(JSON_PROPERTY_ID) Long id, 
-    @JsonProperty(JSON_PROPERTY_USER) Long user, 
-    @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
-    @JsonProperty(JSON_PROPERTY_SPACE) Long space
+  public RestOAuthClientSecret(
+    @JsonProperty(JSON_PROPERTY_CREATION_TIME) OffsetDateTime creationTime, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id
   ) {
     this();
-    this.role = role;
+    this.creationTime = creationTime;
     this.id = id;
-    this.user = user;
-    this.version = version;
-    this.space = space;
   }
 
   /**
-   * The role that is assigned to the user.
-   * @return role
+   * The date and time when the object was created.
+   * @return creationTime
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE)
+  @JsonProperty(JSON_PROPERTY_CREATION_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getRole() {
-    return role;
+  public OffsetDateTime getCreationTime() {
+    return creationTime;
   }
 
 
@@ -116,47 +102,30 @@ public class UserSpaceRole {
 
 
 
+  public RestOAuthClientSecret state(@javax.annotation.Nullable SecretKeyState state) {
+    
+    this.state = state;
+    return this;
+  }
+
   /**
-   * The user whose role this defines.
-   * @return user
+   * Get state
+   * @return state
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_USER)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getUser() {
-    return user;
+  public SecretKeyState getState() {
+    return state;
   }
 
 
-
-  /**
-   * The version is used for optimistic locking and incremented whenever the object is updated.
-   * @return version
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getVersion() {
-    return version;
+  public void setState(@javax.annotation.Nullable SecretKeyState state) {
+    this.state = state;
   }
-
-
-
-  /**
-   * The space in which the role is assigned to the user.
-   * @return space
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SPACE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getSpace() {
-    return space;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -166,28 +135,24 @@ public class UserSpaceRole {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserSpaceRole userSpaceRole = (UserSpaceRole) o;
-    return Objects.equals(this.role, userSpaceRole.role) &&
-        Objects.equals(this.id, userSpaceRole.id) &&
-        Objects.equals(this.user, userSpaceRole.user) &&
-        Objects.equals(this.version, userSpaceRole.version) &&
-        Objects.equals(this.space, userSpaceRole.space);
+    RestOAuthClientSecret restOAuthClientSecret = (RestOAuthClientSecret) o;
+    return Objects.equals(this.creationTime, restOAuthClientSecret.creationTime) &&
+        Objects.equals(this.id, restOAuthClientSecret.id) &&
+        Objects.equals(this.state, restOAuthClientSecret.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, id, user, version, space);
+    return Objects.hash(creationTime, id, state);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserSpaceRole {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class RestOAuthClientSecret {\n");
+    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    space: ").append(toIndentedString(space)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -235,10 +200,10 @@ public class UserSpaceRole {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `role` to the URL query string
-    if (getRole() != null) {
+    // add `creationTime` to the URL query string
+    if (getCreationTime() != null) {
       try {
-        joiner.add(String.format("%srole%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRole()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%screationTime%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreationTime()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -255,30 +220,10 @@ public class UserSpaceRole {
       }
     }
 
-    // add `user` to the URL query string
-    if (getUser() != null) {
+    // add `state` to the URL query string
+    if (getState() != null) {
       try {
-        joiner.add(String.format("%suser%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUser()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `version` to the URL query string
-    if (getVersion() != null) {
-      try {
-        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
-    // add `space` to the URL query string
-    if (getSpace() != null) {
-      try {
-        joiner.add(String.format("%sspace%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSpace()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

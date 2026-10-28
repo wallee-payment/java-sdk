@@ -29,7 +29,8 @@ import com.wallee.sdk.BaseApi;
 import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.PaymentTerminal;
-import com.wallee.sdk.model.PaymentTerminalCreate;
+import com.wallee.sdk.model.PaymentTerminalActivationStatusDetailSearchResponse;
+import com.wallee.sdk.model.PaymentTerminalCreationRequest;
 import com.wallee.sdk.model.PaymentTerminalTransactionSummaryReference;
 import com.wallee.sdk.model.PaymentTerminalUpdate;
 import com.wallee.sdk.model.RestApiErrorResponse;
@@ -38,6 +39,7 @@ import com.wallee.sdk.model.SortingOrder;
 import com.wallee.sdk.model.TerminalListResponse;
 import com.wallee.sdk.model.TerminalSearchResponse;
 import com.wallee.sdk.model.Transaction;
+import com.wallee.sdk.model.TransactionVoid;
 
 
 import java.util.ArrayList;
@@ -222,6 +224,109 @@ public class PaymentTerminalsService extends BaseApi {
     int requestTimeout = apiClient.getRequestTimeout();
 
     TypeReference<TerminalListResponse> localVarReturnType = new TypeReference<TerminalListResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Search payment terminal activation status
+   * 
+   
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param activationCodeActive Filters payment terminals that have an active activation code (optional)
+   * @param configurationId Filters payment terminals by their configuration ID (optional)
+   * @param environment Filters payment terminals by their environment (TEST/PRODUCTION) (optional)
+   * @param hasActivationCode Filters payment terminals that have an activation code (optional)
+   * @param limit A limit on the number of objects to be returned, between 1 and 100. Default is 10. (optional)
+   * @param locationId Filters payment terminals by their location ID (optional)
+   * @param offset A cursor for pagination, specifies the number of objects to skip. (optional)
+   * @return PaymentTerminalActivationStatusDetailSearchResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTerminalsActivationStatus">Search payment terminal activation status Documentation</a>
+   */
+  public PaymentTerminalActivationStatusDetailSearchResponse getPaymentTerminalsActivationStatus(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Boolean activationCodeActive, @javax.annotation.Nullable Long configurationId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable Boolean hasActivationCode, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Long locationId, @javax.annotation.Nullable Integer offset) throws ApiException {
+    return this.getPaymentTerminalsActivationStatus(space, activationCodeActive, configurationId, environment, hasActivationCode, limit, locationId, offset, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search payment terminal activation status
+   * 
+   
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param activationCodeActive Filters payment terminals that have an active activation code (optional)
+   * @param configurationId Filters payment terminals by their configuration ID (optional)
+   * @param environment Filters payment terminals by their environment (TEST/PRODUCTION) (optional)
+   * @param hasActivationCode Filters payment terminals that have an activation code (optional)
+   * @param limit A limit on the number of objects to be returned, between 1 and 100. Default is 10. (optional)
+   * @param locationId Filters payment terminals by their location ID (optional)
+   * @param offset A cursor for pagination, specifies the number of objects to skip. (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return PaymentTerminalActivationStatusDetailSearchResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTerminalsActivationStatus">Search payment terminal activation status Documentation</a>
+   */
+  public PaymentTerminalActivationStatusDetailSearchResponse getPaymentTerminalsActivationStatus(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Boolean activationCodeActive, @javax.annotation.Nullable Long configurationId, @javax.annotation.Nullable String environment, @javax.annotation.Nullable Boolean hasActivationCode, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Long locationId, @javax.annotation.Nullable Integer offset, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling getPaymentTerminalsActivationStatus");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/activation-status";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("activationCodeActive", activationCodeActive));
+    localVarQueryParams.addAll(apiClient.parameterToPair("configurationId", configurationId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("environment", environment));
+    localVarQueryParams.addAll(apiClient.parameterToPair("hasActivationCode", hasActivationCode));
+    localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPair("locationId", locationId));
+    localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<PaymentTerminalActivationStatusDetailSearchResponse> localVarReturnType = new TypeReference<PaymentTerminalActivationStatusDetailSearchResponse>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",
@@ -635,15 +740,15 @@ public class PaymentTerminalsService extends BaseApi {
    * 
    
    * @param space Specifies the ID of the space the operation should be executed in. (required)
-   * @param paymentTerminalCreate  (required)
+   * @param paymentTerminalCreationRequest  (required)
    * @param expand  (optional)
    * @return PaymentTerminal
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminals">Create a payment terminal Documentation</a>
    */
-  public PaymentTerminal postPaymentTerminals(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentTerminalCreate paymentTerminalCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
-    return this.postPaymentTerminals(space, paymentTerminalCreate, expand, Collections.emptyMap());
+  public PaymentTerminal postPaymentTerminals(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentTerminalCreationRequest paymentTerminalCreationRequest, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postPaymentTerminals(space, paymentTerminalCreationRequest, expand, Collections.emptyMap());
   }
 
 
@@ -652,7 +757,7 @@ public class PaymentTerminalsService extends BaseApi {
    * 
    
    * @param space Specifies the ID of the space the operation should be executed in. (required)
-   * @param paymentTerminalCreate  (required)
+   * @param paymentTerminalCreationRequest  (required)
    * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
    * @return PaymentTerminal
@@ -660,17 +765,17 @@ public class PaymentTerminalsService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminals">Create a payment terminal Documentation</a>
    */
-  public PaymentTerminal postPaymentTerminals(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentTerminalCreate paymentTerminalCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = paymentTerminalCreate;
+  public PaymentTerminal postPaymentTerminals(@javax.annotation.Nonnull Long space, @javax.annotation.Nonnull PaymentTerminalCreationRequest paymentTerminalCreationRequest, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = paymentTerminalCreationRequest;
     
     // verify the required parameter 'space' is set
     if (space == null) {
       throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminals");
     }
     
-    // verify the required parameter 'paymentTerminalCreate' is set
-    if (paymentTerminalCreate == null) {
-      throw new ApiException(400, "Missing the required parameter 'paymentTerminalCreate' when calling postPaymentTerminals");
+    // verify the required parameter 'paymentTerminalCreationRequest' is set
+    if (paymentTerminalCreationRequest == null) {
+      throw new ApiException(400, "Missing the required parameter 'paymentTerminalCreationRequest' when calling postPaymentTerminals");
     }
     
     // create path and map variables
@@ -810,6 +915,100 @@ public class PaymentTerminalsService extends BaseApi {
     int requestTimeout = 90;
 
     TypeReference<Transaction> localVarReturnType = new TypeReference<Transaction>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Refresh a physical terminal state by identifier
+   * 
+   * (The read time out for this request is 30 seconds)
+   * @param identifier The unique identifier of the terminal. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return PaymentTerminal
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsByIdentifierIdentifierRefresh">Refresh a physical terminal state by identifier Documentation</a>
+   */
+  public PaymentTerminal postPaymentTerminalsByIdentifierIdentifierRefresh(@javax.annotation.Nonnull String identifier, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postPaymentTerminalsByIdentifierIdentifierRefresh(identifier, space, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Refresh a physical terminal state by identifier
+   * 
+   * (The read time out for this request is 30 seconds)
+   * @param identifier The unique identifier of the terminal. (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return PaymentTerminal
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsByIdentifierIdentifierRefresh">Refresh a physical terminal state by identifier Documentation</a>
+   */
+  public PaymentTerminal postPaymentTerminalsByIdentifierIdentifierRefresh(@javax.annotation.Nonnull String identifier, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'identifier' is set
+    if (identifier == null) {
+      throw new ApiException(400, "Missing the required parameter 'identifier' when calling postPaymentTerminalsByIdentifierIdentifierRefresh");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminalsByIdentifierIdentifierRefresh");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/by-identifier/{identifier}/refresh"
+      .replaceAll("\\{" + "identifier" + "\\}", apiClient.escapeString(apiClient.parameterToString(identifier)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    // The read (connection) time out for this request is 30 seconds.
+    int requestTimeout = 30;
+
+    TypeReference<PaymentTerminal> localVarReturnType = new TypeReference<PaymentTerminal>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",
@@ -1205,6 +1404,100 @@ public class PaymentTerminalsService extends BaseApi {
   }
 
   /**
+   * Refresh a physical terminal state
+   * 
+   * (The read time out for this request is 30 seconds)
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return PaymentTerminal
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsIdRefresh">Refresh a physical terminal state Documentation</a>
+   */
+  public PaymentTerminal postPaymentTerminalsIdRefresh(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postPaymentTerminalsIdRefresh(id, space, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Refresh a physical terminal state
+   * 
+   * (The read time out for this request is 30 seconds)
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return PaymentTerminal
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsIdRefresh">Refresh a physical terminal state Documentation</a>
+   */
+  public PaymentTerminal postPaymentTerminalsIdRefresh(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling postPaymentTerminalsIdRefresh");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminalsIdRefresh");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/{id}/refresh"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    // The read (connection) time out for this request is 30 seconds.
+    int requestTimeout = 30;
+
+    TypeReference<PaymentTerminal> localVarReturnType = new TypeReference<PaymentTerminal>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Remotely trigger the configuration
    * 
    
@@ -1465,6 +1758,100 @@ public class PaymentTerminalsService extends BaseApi {
         localVarContentType,
         requestTimeout,
         null
+    );
+  }
+
+  /**
+   * Revert terminal transaction
+   * This function communicates with the payment terminal to cancel the authorization hold and remove the transaction from the current open batch. It must be executed before the settlement (Submission) occurs.
+   * (The read time out for this request is 90 seconds)
+   * @param transactionId  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return TransactionVoid
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsTriggerReversal">Revert terminal transaction Documentation</a>
+   */
+  public TransactionVoid postPaymentTerminalsTriggerReversal(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postPaymentTerminalsTriggerReversal(transactionId, space, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Revert terminal transaction
+   * This function communicates with the payment terminal to cancel the authorization hold and remove the transaction from the current open batch. It must be executed before the settlement (Submission) occurs.
+   * (The read time out for this request is 90 seconds)
+   * @param transactionId  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return TransactionVoid
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postPaymentTerminalsTriggerReversal">Revert terminal transaction Documentation</a>
+   */
+  public TransactionVoid postPaymentTerminalsTriggerReversal(@javax.annotation.Nonnull Long transactionId, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'transactionId' is set
+    if (transactionId == null) {
+      throw new ApiException(400, "Missing the required parameter 'transactionId' when calling postPaymentTerminalsTriggerReversal");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling postPaymentTerminalsTriggerReversal");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/terminals/trigger-reversal";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPair("transactionId", transactionId));
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    // The read (connection) time out for this request is 90 seconds.
+    int requestTimeout = 90;
+
+    TypeReference<TransactionVoid> localVarReturnType = new TypeReference<TransactionVoid>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
     );
   }
 

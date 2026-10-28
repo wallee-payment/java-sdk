@@ -59,6 +59,7 @@ import java.util.StringJoiner;
   PaymentTerminal.JSON_PROPERTY_DECOMMISSIONED_ON,
   PaymentTerminal.JSON_PROPERTY_DEFAULT_CURRENCY,
   PaymentTerminal.JSON_PROPERTY_NAME,
+  PaymentTerminal.JSON_PROPERTY_ACTIVATION_CODE,
   PaymentTerminal.JSON_PROPERTY_ID,
   PaymentTerminal.JSON_PROPERTY_STATE
 })
@@ -124,6 +125,10 @@ public class PaymentTerminal {
   @javax.annotation.Nullable
   private String name;
 
+  public static final String JSON_PROPERTY_ACTIVATION_CODE = "activationCode";
+  @javax.annotation.Nullable
+  private String activationCode;
+
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
   private Long id;
@@ -151,6 +156,7 @@ public class PaymentTerminal {
     @JsonProperty(JSON_PROPERTY_DECOMMISSIONED_ON) OffsetDateTime decommissionedOn, 
     @JsonProperty(JSON_PROPERTY_DEFAULT_CURRENCY) String defaultCurrency, 
     @JsonProperty(JSON_PROPERTY_NAME) String name, 
+    @JsonProperty(JSON_PROPERTY_ACTIVATION_CODE) String activationCode, 
     @JsonProperty(JSON_PROPERTY_ID) Long id
   ) {
     this();
@@ -166,6 +172,7 @@ public class PaymentTerminal {
     this.decommissionedOn = decommissionedOn;
     this.defaultCurrency = defaultCurrency;
     this.name = name;
+    this.activationCode = activationCode;
     this.id = id;
   }
 
@@ -413,6 +420,20 @@ public class PaymentTerminal {
 
 
   /**
+   * Get activationCode
+   * @return activationCode
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ACTIVATION_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getActivationCode() {
+    return activationCode;
+  }
+
+
+
+  /**
    * A unique identifier for the object.
    * @return id
    */
@@ -475,13 +496,14 @@ public class PaymentTerminal {
         Objects.equals(this.decommissionedOn, paymentTerminal.decommissionedOn) &&
         Objects.equals(this.defaultCurrency, paymentTerminal.defaultCurrency) &&
         Objects.equals(this.name, paymentTerminal.name) &&
+        Objects.equals(this.activationCode, paymentTerminal.activationCode) &&
         Objects.equals(this.id, paymentTerminal.id) &&
         Objects.equals(this.state, paymentTerminal.state);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identifier, deactivatedOn, plannedPurgeDate, externalId, type, deviceName, version, deviceSerialNumber, linkedSpaceId, configurationVersion, locationVersion, activatedOn, decommissionedOn, defaultCurrency, name, id, state);
+    return Objects.hash(identifier, deactivatedOn, plannedPurgeDate, externalId, type, deviceName, version, deviceSerialNumber, linkedSpaceId, configurationVersion, locationVersion, activatedOn, decommissionedOn, defaultCurrency, name, activationCode, id, state);
   }
 
   @Override
@@ -503,6 +525,7 @@ public class PaymentTerminal {
     sb.append("    decommissionedOn: ").append(toIndentedString(decommissionedOn)).append("\n");
     sb.append("    defaultCurrency: ").append(toIndentedString(defaultCurrency)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    activationCode: ").append(toIndentedString(activationCode)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("}");
@@ -681,6 +704,16 @@ public class PaymentTerminal {
     if (getName() != null) {
       try {
         joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `activationCode` to the URL query string
+    if (getActivationCode() != null) {
+      try {
+        joiner.add(String.format("%sactivationCode%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getActivationCode()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

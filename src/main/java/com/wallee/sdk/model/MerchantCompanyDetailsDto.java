@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.Address;
+import com.wallee.sdk.model.BasicAddress;
 import com.wallee.sdk.model.LegalForm;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -83,7 +83,7 @@ public class MerchantCompanyDetailsDto {
 
   public static final String JSON_PROPERTY_INCORPORATION_ADDRESS = "incorporationAddress";
   @javax.annotation.Nullable
-  private Address incorporationAddress;
+  private BasicAddress incorporationAddress;
 
   public static final String JSON_PROPERTY_LEGAL_FORM = "legalForm";
   @javax.annotation.Nullable
@@ -267,7 +267,7 @@ public class MerchantCompanyDetailsDto {
     this.businessIdentificationNumber = businessIdentificationNumber;
   }
 
-  public MerchantCompanyDetailsDto incorporationAddress(@javax.annotation.Nullable Address incorporationAddress) {
+  public MerchantCompanyDetailsDto incorporationAddress(@javax.annotation.Nullable BasicAddress incorporationAddress) {
     
     this.incorporationAddress = incorporationAddress;
     return this;
@@ -281,14 +281,14 @@ public class MerchantCompanyDetailsDto {
   @JsonProperty(JSON_PROPERTY_INCORPORATION_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Address getIncorporationAddress() {
+  public BasicAddress getIncorporationAddress() {
     return incorporationAddress;
   }
 
 
   @JsonProperty(JSON_PROPERTY_INCORPORATION_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setIncorporationAddress(@javax.annotation.Nullable Address incorporationAddress) {
+  public void setIncorporationAddress(@javax.annotation.Nullable BasicAddress incorporationAddress) {
     this.incorporationAddress = incorporationAddress;
   }
 

@@ -44,6 +44,8 @@ public enum PaymentTerminalLocationVersionState {
   
   ACTIVE("ACTIVE"),
   
+  OBSOLETE("OBSOLETE"),
+  
   DELETING("DELETING"),
   
   DELETED("DELETED");

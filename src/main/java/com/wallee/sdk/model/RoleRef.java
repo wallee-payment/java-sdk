@@ -36,29 +36,39 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * AbstractPaymentTerminalUpdate
+ * RoleRef
  */
 @JsonPropertyOrder({
-  AbstractPaymentTerminalUpdate.JSON_PROPERTY_NAME
+  RoleRef.JSON_PROPERTY_NAME,
+  RoleRef.JSON_PROPERTY_ID
 })
-@JsonTypeName("Abstract.PaymentTerminal.Update")
 
-public class AbstractPaymentTerminalUpdate {
+public class RoleRef {
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
   private String name;
 
-  public AbstractPaymentTerminalUpdate() {
-  }
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
+  private Long id;
 
-  public AbstractPaymentTerminalUpdate name(@javax.annotation.Nullable String name) {
-    
+  public RoleRef() {
+  }
+  /**
+   * Constructor with only readonly parameters
+   */
+  @JsonCreator
+  public RoleRef(
+    @JsonProperty(JSON_PROPERTY_NAME) String name, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id
+  ) {
+    this();
     this.name = name;
-    return this;
+    this.id = id;
   }
 
   /**
-   * The name used to identify the payment terminal.
+   * The name used to identify the role.
    * @return name
    */
   @javax.annotation.Nullable
@@ -70,11 +80,20 @@ public class AbstractPaymentTerminalUpdate {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
+
+  /**
+   * A unique identifier for the object.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(@javax.annotation.Nullable String name) {
-    this.name = name;
+
+  public Long getId() {
+    return id;
   }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -84,20 +103,22 @@ public class AbstractPaymentTerminalUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AbstractPaymentTerminalUpdate abstractPaymentTerminalUpdate = (AbstractPaymentTerminalUpdate) o;
-    return Objects.equals(this.name, abstractPaymentTerminalUpdate.name);
+    RoleRef roleRef = (RoleRef) o;
+    return Objects.equals(this.name, roleRef.name) &&
+        Objects.equals(this.id, roleRef.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AbstractPaymentTerminalUpdate {\n");
+    sb.append("class RoleRef {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -149,6 +170,16 @@ public class AbstractPaymentTerminalUpdate {
     if (getName() != null) {
       try {
         joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

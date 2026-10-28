@@ -1,0 +1,477 @@
+/**
+ * Wallee AG Java SDK
+ *
+ * This library allows to interact with the Wallee AG payment service.
+ *
+ * Copyright owner: Wallee AG
+ * Website: https://en.wallee.com
+ * Developer email: ecosystem-team@wallee.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.wallee.sdk.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.PaymentTerminalAddress;
+import com.wallee.sdk.model.PaymentTerminalLocationState;
+import java.time.OffsetDateTime;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.StringJoiner;
+
+/**
+ * PaymentTerminalLocationCrudModel
+ */
+@JsonPropertyOrder({
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_PRODUCTION_MERCHANT_ID,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_ADDRESS,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_NAME,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_PLANNED_PURGE_DATE,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_EXTERNAL_ID,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_CONTACT_ADDRESS,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_ID,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_STATE,
+  PaymentTerminalLocationCrudModel.JSON_PROPERTY_VERSION
+})
+
+public class PaymentTerminalLocationCrudModel {
+  public static final String JSON_PROPERTY_PRODUCTION_MERCHANT_ID = "productionMerchantId";
+  @javax.annotation.Nullable
+  private String productionMerchantId;
+
+  public static final String JSON_PROPERTY_ADDRESS = "address";
+  @javax.annotation.Nullable
+  private PaymentTerminalAddress address;
+
+  public static final String JSON_PROPERTY_NAME = "name";
+  @javax.annotation.Nullable
+  private String name;
+
+  public static final String JSON_PROPERTY_PLANNED_PURGE_DATE = "plannedPurgeDate";
+  @javax.annotation.Nullable
+  private OffsetDateTime plannedPurgeDate;
+
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
+  private String externalId;
+
+  public static final String JSON_PROPERTY_CONTACT_ADDRESS = "contactAddress";
+  @javax.annotation.Nullable
+  private PaymentTerminalAddress contactAddress;
+
+  public static final String JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY = "versionAppliedImmediately";
+  @javax.annotation.Nullable
+  private Boolean versionAppliedImmediately;
+
+  public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nullable
+  private Long id;
+
+  public static final String JSON_PROPERTY_STATE = "state";
+  @javax.annotation.Nullable
+  private PaymentTerminalLocationState state;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  @javax.annotation.Nullable
+  private Integer version;
+
+  public PaymentTerminalLocationCrudModel() {
+  }
+  /**
+   * Constructor with only readonly parameters
+   */
+  @JsonCreator
+  public PaymentTerminalLocationCrudModel(
+    @JsonProperty(JSON_PROPERTY_PRODUCTION_MERCHANT_ID) String productionMerchantId, 
+    @JsonProperty(JSON_PROPERTY_NAME) String name, 
+    @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE) OffsetDateTime plannedPurgeDate, 
+    @JsonProperty(JSON_PROPERTY_EXTERNAL_ID) String externalId, 
+    @JsonProperty(JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY) Boolean versionAppliedImmediately, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id, 
+    @JsonProperty(JSON_PROPERTY_VERSION) Integer version
+  ) {
+    this();
+    this.productionMerchantId = productionMerchantId;
+    this.name = name;
+    this.plannedPurgeDate = plannedPurgeDate;
+    this.externalId = externalId;
+    this.versionAppliedImmediately = versionAppliedImmediately;
+    this.id = id;
+    this.version = version;
+  }
+
+  /**
+   * The production merchant identifier assigned to the location.
+   * @return productionMerchantId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PRODUCTION_MERCHANT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getProductionMerchantId() {
+    return productionMerchantId;
+  }
+
+
+
+  public PaymentTerminalLocationCrudModel address(@javax.annotation.Nullable PaymentTerminalAddress address) {
+    
+    this.address = address;
+    return this;
+  }
+
+  /**
+   * Get address
+   * @return address
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PaymentTerminalAddress getAddress() {
+    return address;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setAddress(@javax.annotation.Nullable PaymentTerminalAddress address) {
+    this.address = address;
+  }
+
+  /**
+   * The name used to identify the payment terminal location.
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getName() {
+    return name;
+  }
+
+
+
+  /**
+   * The date and time when the object is planned to be permanently removed. If the value is empty, the object will not be removed.
+   * @return plannedPurgeDate
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PLANNED_PURGE_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getPlannedPurgeDate() {
+    return plannedPurgeDate;
+  }
+
+
+
+  /**
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
+   * @return externalId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+
+  public PaymentTerminalLocationCrudModel contactAddress(@javax.annotation.Nullable PaymentTerminalAddress contactAddress) {
+    
+    this.contactAddress = contactAddress;
+    return this;
+  }
+
+  /**
+   * Get contactAddress
+   * @return contactAddress
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CONTACT_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PaymentTerminalAddress getContactAddress() {
+    return contactAddress;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_CONTACT_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setContactAddress(@javax.annotation.Nullable PaymentTerminalAddress contactAddress) {
+    this.contactAddress = contactAddress;
+  }
+
+  /**
+   * Whether changes to the location are applied to terminals immediately.
+   * @return versionAppliedImmediately
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION_APPLIED_IMMEDIATELY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getVersionAppliedImmediately() {
+    return versionAppliedImmediately;
+  }
+
+
+
+  /**
+   * A unique identifier for the object.
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getId() {
+    return id;
+  }
+
+
+
+  public PaymentTerminalLocationCrudModel state(@javax.annotation.Nullable PaymentTerminalLocationState state) {
+    
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Get state
+   * @return state
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public PaymentTerminalLocationState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(@javax.annotation.Nullable PaymentTerminalLocationState state) {
+    this.state = state;
+  }
+
+  /**
+   * The version is used for optimistic locking and incremented whenever the object is updated.
+   * @return version
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getVersion() {
+    return version;
+  }
+
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PaymentTerminalLocationCrudModel paymentTerminalLocationCrudModel = (PaymentTerminalLocationCrudModel) o;
+    return Objects.equals(this.productionMerchantId, paymentTerminalLocationCrudModel.productionMerchantId) &&
+        Objects.equals(this.address, paymentTerminalLocationCrudModel.address) &&
+        Objects.equals(this.name, paymentTerminalLocationCrudModel.name) &&
+        Objects.equals(this.plannedPurgeDate, paymentTerminalLocationCrudModel.plannedPurgeDate) &&
+        Objects.equals(this.externalId, paymentTerminalLocationCrudModel.externalId) &&
+        Objects.equals(this.contactAddress, paymentTerminalLocationCrudModel.contactAddress) &&
+        Objects.equals(this.versionAppliedImmediately, paymentTerminalLocationCrudModel.versionAppliedImmediately) &&
+        Objects.equals(this.id, paymentTerminalLocationCrudModel.id) &&
+        Objects.equals(this.state, paymentTerminalLocationCrudModel.state) &&
+        Objects.equals(this.version, paymentTerminalLocationCrudModel.version);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(productionMerchantId, address, name, plannedPurgeDate, externalId, contactAddress, versionAppliedImmediately, id, state, version);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class PaymentTerminalLocationCrudModel {\n");
+    sb.append("    productionMerchantId: ").append(toIndentedString(productionMerchantId)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    plannedPurgeDate: ").append(toIndentedString(plannedPurgeDate)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    contactAddress: ").append(toIndentedString(contactAddress)).append("\n");
+    sb.append("    versionAppliedImmediately: ").append(toIndentedString(versionAppliedImmediately)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @return URL query string
+   */
+  public String toUrlQueryString() {
+    return toUrlQueryString(null);
+  }
+
+  /**
+   * Convert the instance into URL query string.
+   *
+   * @param prefix prefix of the query string
+   * @return URL query string
+   */
+  public String toUrlQueryString(String prefix) {
+    String suffix = "";
+    String containerSuffix = "";
+    String containerPrefix = "";
+    if (prefix == null) {
+      // style=form, explode=true, e.g. /pet?name=cat&type=manx
+      prefix = "";
+    } else {
+      // deepObject style e.g. /pet?id[name]=cat&id[type]=manx
+      prefix = prefix + "[";
+      suffix = "]";
+      containerSuffix = "]";
+      containerPrefix = "[";
+    }
+
+    StringJoiner joiner = new StringJoiner("&");
+
+    // add `productionMerchantId` to the URL query string
+    if (getProductionMerchantId() != null) {
+      try {
+        joiner.add(String.format("%sproductionMerchantId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getProductionMerchantId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `address` to the URL query string
+    if (getAddress() != null) {
+      joiner.add(getAddress().toUrlQueryString(prefix + "address" + suffix));
+    }
+
+    // add `name` to the URL query string
+    if (getName() != null) {
+      try {
+        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `plannedPurgeDate` to the URL query string
+    if (getPlannedPurgeDate() != null) {
+      try {
+        joiner.add(String.format("%splannedPurgeDate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getPlannedPurgeDate()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalId` to the URL query string
+    if (getExternalId() != null) {
+      try {
+        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `contactAddress` to the URL query string
+    if (getContactAddress() != null) {
+      joiner.add(getContactAddress().toUrlQueryString(prefix + "contactAddress" + suffix));
+    }
+
+    // add `versionAppliedImmediately` to the URL query string
+    if (getVersionAppliedImmediately() != null) {
+      try {
+        joiner.add(String.format("%sversionAppliedImmediately%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersionAppliedImmediately()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `id` to the URL query string
+    if (getId() != null) {
+      try {
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `state` to the URL query string
+    if (getState() != null) {
+      try {
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `version` to the URL query string
+    if (getVersion() != null) {
+      try {
+        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    return joiner.toString();
+  }
+
+}
+

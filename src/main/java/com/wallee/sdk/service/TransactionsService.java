@@ -30,7 +30,7 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.AuthenticatedCardRequest;
 import com.wallee.sdk.model.Charge;
-import com.wallee.sdk.model.ChargeAttempt;
+import com.wallee.sdk.model.ChargeAttemptLookupResult;
 import java.io.File;
 import com.wallee.sdk.model.PaymentMethodConfigurationListResponse;
 import com.wallee.sdk.model.RenderedDocument;
@@ -47,6 +47,7 @@ import com.wallee.sdk.model.TransactionCompletionDetails;
 import com.wallee.sdk.model.TransactionCreate;
 import com.wallee.sdk.model.TransactionLineItemVersion;
 import com.wallee.sdk.model.TransactionListResponse;
+import com.wallee.sdk.model.TransactionOverview;
 import com.wallee.sdk.model.TransactionPending;
 import com.wallee.sdk.model.TransactionSearchResponse;
 import com.wallee.sdk.model.TransactionVoid;
@@ -1461,6 +1462,96 @@ public class TransactionsService extends BaseApi {
   }
 
   /**
+   * Retrieve a transaction overview
+   * Returns the transaction with the given id together with the successful charge attempt that authorized it, including its labels, attached under &#39;successfulChargeAttempt&#39;. When the transaction has no successful charge attempt yet, only the transaction is returned.
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @return TransactionOverview
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdOverview">Retrieve a transaction overview Documentation</a>
+   */
+  public TransactionOverview getPaymentTransactionsIdOverview(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
+    return this.getPaymentTransactionsIdOverview(id, space, Collections.emptyMap());
+  }
+
+
+  /**
+   * Retrieve a transaction overview
+   * Returns the transaction with the given id together with the successful charge attempt that authorized it, including its labels, attached under &#39;successfulChargeAttempt&#39;. When the transaction has no successful charge attempt yet, only the transaction is returned.
+   
+   * @param id  (required)
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param additionalHeaders The additional headers for this call
+   * @return TransactionOverview
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdOverview">Retrieve a transaction overview Documentation</a>
+   */
+  public TransactionOverview getPaymentTransactionsIdOverview(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPaymentTransactionsIdOverview");
+    }
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling getPaymentTransactionsIdOverview");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/transactions/{id}/overview"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<TransactionOverview> localVarReturnType = new TypeReference<TransactionOverview>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
    * Retrieve a packing slip document
    * 
    
@@ -1743,35 +1834,33 @@ public class TransactionsService extends BaseApi {
 
   /**
    * Retrieve the successful charge attempt
-   * Returns the successful charge attempt that authorized the transaction with the given id.
+   * Returns the successful charge attempt that authorized the transaction with the given id. When the transaction has no successful charge attempt yet, the transaction status is returned instead, so the endpoint can be polled until the charge attempt appears. Note that a successful charge attempt confirms the authorization of the transaction, not its completion. When the transaction is charged with deferred payment, a successful charge attempt does not guarantee that the transaction will be completed and fulfilled, so this operation is not suited to confirming the final fulfillment of such a transaction. In that case, we recommend confirming that the transaction has been captured and is successful, using either the completion read API or the transaction read API.
    
    * @param id  (required)
    * @param space Specifies the ID of the space the operation should be executed in. (required)
-   * @param expand  (optional)
-   * @return ChargeAttempt
+   * @return ChargeAttemptLookupResult
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdSuccessfulChargeAttempt">Retrieve the successful charge attempt Documentation</a>
    */
-  public ChargeAttempt getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand) throws ApiException {
-    return this.getPaymentTransactionsIdSuccessfulChargeAttempt(id, space, expand, Collections.emptyMap());
+  public ChargeAttemptLookupResult getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space) throws ApiException {
+    return this.getPaymentTransactionsIdSuccessfulChargeAttempt(id, space, Collections.emptyMap());
   }
 
 
   /**
    * Retrieve the successful charge attempt
-   * Returns the successful charge attempt that authorized the transaction with the given id.
+   * Returns the successful charge attempt that authorized the transaction with the given id. When the transaction has no successful charge attempt yet, the transaction status is returned instead, so the endpoint can be polled until the charge attempt appears. Note that a successful charge attempt confirms the authorization of the transaction, not its completion. When the transaction is charged with deferred payment, a successful charge attempt does not guarantee that the transaction will be completed and fulfilled, so this operation is not suited to confirming the final fulfillment of such a transaction. In that case, we recommend confirming that the transaction has been captured and is successful, using either the completion read API or the transaction read API.
    
    * @param id  (required)
    * @param space Specifies the ID of the space the operation should be executed in. (required)
-   * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
-   * @return ChargeAttempt
+   * @return ChargeAttemptLookupResult
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentTransactionsIdSuccessfulChargeAttempt">Retrieve the successful charge attempt Documentation</a>
    */
-  public ChargeAttempt getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public ChargeAttemptLookupResult getPaymentTransactionsIdSuccessfulChargeAttempt(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long space, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = null;
     
     // verify the required parameter 'id' is set
@@ -1796,7 +1885,6 @@ public class TransactionsService extends BaseApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
     if (space != null)
       localVarHeaderParams.put("space", apiClient.parameterToString(space));
 
@@ -1816,7 +1904,7 @@ public class TransactionsService extends BaseApi {
 
     int requestTimeout = apiClient.getRequestTimeout();
 
-    TypeReference<ChargeAttempt> localVarReturnType = new TypeReference<ChargeAttempt>() {};
+    TypeReference<ChargeAttemptLookupResult> localVarReturnType = new TypeReference<ChargeAttemptLookupResult>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "GET",

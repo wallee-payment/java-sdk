@@ -29,6 +29,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.RoleRef;
+import com.wallee.sdk.model.UserType;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,39 +41,65 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * PaymentTerminalPreparing
+ * RestMember
  */
 @JsonPropertyOrder({
-  PaymentTerminalPreparing.JSON_PROPERTY_NAME,
-  PaymentTerminalPreparing.JSON_PROPERTY_VERSION,
-  PaymentTerminalPreparing.JSON_PROPERTY_EXTERNAL_ID
+  RestMember.JSON_PROPERTY_ROLES,
+  RestMember.JSON_PROPERTY_NAME,
+  RestMember.JSON_PROPERTY_ID,
+  RestMember.JSON_PROPERTY_USER_TYPE
 })
-@JsonTypeName("PaymentTerminal.Preparing")
 
-public class PaymentTerminalPreparing {
+public class RestMember {
+  public static final String JSON_PROPERTY_ROLES = "roles";
+  @javax.annotation.Nullable
+  private List<RoleRef> roles = new ArrayList<>();
+
   public static final String JSON_PROPERTY_NAME = "name";
   @javax.annotation.Nullable
   private String name;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nonnull
-  private Integer version;
-
-  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
-  private String externalId;
+  private Long id;
 
-  public PaymentTerminalPreparing() {
+  public static final String JSON_PROPERTY_USER_TYPE = "userType";
+  @javax.annotation.Nullable
+  private UserType userType;
+
+  public RestMember() {
   }
-
-  public PaymentTerminalPreparing name(@javax.annotation.Nullable String name) {
-    
+  /**
+   * Constructor with only readonly parameters
+   */
+  @JsonCreator
+  public RestMember(
+    @JsonProperty(JSON_PROPERTY_ROLES) List<RoleRef> roles, 
+    @JsonProperty(JSON_PROPERTY_NAME) String name, 
+    @JsonProperty(JSON_PROPERTY_ID) Long id
+  ) {
+    this();
+    this.roles = roles;
     this.name = name;
-    return this;
+    this.id = id;
   }
 
   /**
-   * The name used to identify the payment terminal.
+   * The roles the user holds.
+   * @return roles
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<RoleRef> getRoles() {
+    return roles;
+  }
+
+
+
+  /**
+   * The name used to identify the user.
    * @return name
    */
   @javax.annotation.Nullable
@@ -80,60 +111,44 @@ public class PaymentTerminalPreparing {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(@javax.annotation.Nullable String name) {
-    this.name = name;
-  }
-
-  public PaymentTerminalPreparing version(@javax.annotation.Nonnull Integer version) {
-    
-    this.version = version;
-    return this;
-  }
 
   /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
-   * @return version
-   */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getVersion() {
-    return version;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(@javax.annotation.Nonnull Integer version) {
-    this.version = version;
-  }
-
-  public PaymentTerminalPreparing externalId(@javax.annotation.Nullable String externalId) {
-    
-    this.externalId = externalId;
-    return this;
-  }
-
-  /**
-   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
-   * @return externalId
+   * A unique identifier for the object.
+   * @return id
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getExternalId() {
-    return externalId;
+  public Long getId() {
+    return id;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+
+  public RestMember userType(@javax.annotation.Nullable UserType userType) {
+    
+    this.userType = userType;
+    return this;
+  }
+
+  /**
+   * Get userType
+   * @return userType
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setExternalId(@javax.annotation.Nullable String externalId) {
-    this.externalId = externalId;
+
+  public UserType getUserType() {
+    return userType;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USER_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUserType(@javax.annotation.Nullable UserType userType) {
+    this.userType = userType;
   }
 
   @Override
@@ -144,24 +159,26 @@ public class PaymentTerminalPreparing {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentTerminalPreparing paymentTerminalPreparing = (PaymentTerminalPreparing) o;
-    return Objects.equals(this.name, paymentTerminalPreparing.name) &&
-        Objects.equals(this.version, paymentTerminalPreparing.version) &&
-        Objects.equals(this.externalId, paymentTerminalPreparing.externalId);
+    RestMember restMember = (RestMember) o;
+    return Objects.equals(this.roles, restMember.roles) &&
+        Objects.equals(this.name, restMember.name) &&
+        Objects.equals(this.id, restMember.id) &&
+        Objects.equals(this.userType, restMember.userType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version, externalId);
+    return Objects.hash(roles, name, id, userType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentTerminalPreparing {\n");
+    sb.append("class RestMember {\n");
+    sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    userType: ").append(toIndentedString(userType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -209,6 +226,16 @@ public class PaymentTerminalPreparing {
 
     StringJoiner joiner = new StringJoiner("&");
 
+    // add `roles` to the URL query string
+    if (getRoles() != null) {
+      for (int i = 0; i < getRoles().size(); i++) {
+        if (getRoles().get(i) != null) {
+          joiner.add(getRoles().get(i).toUrlQueryString(String.format("%sroles%s%s", prefix, suffix,
+              "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
+        }
+      }
+    }
+
     // add `name` to the URL query string
     if (getName() != null) {
       try {
@@ -219,20 +246,20 @@ public class PaymentTerminalPreparing {
       }
     }
 
-    // add `version` to the URL query string
-    if (getVersion() != null) {
+    // add `id` to the URL query string
+    if (getId() != null) {
       try {
-        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sid%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `externalId` to the URL query string
-    if (getExternalId() != null) {
+    // add `userType` to the URL query string
+    if (getUserType() != null) {
       try {
-        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%suserType%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUserType()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

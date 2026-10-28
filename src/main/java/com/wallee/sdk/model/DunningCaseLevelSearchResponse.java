@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.UserSpaceRole;
+import com.wallee.sdk.model.DunningCaseLevel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,19 +40,24 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserSpaceRoleListResponse
+ * DunningCaseLevelSearchResponse
  */
 @JsonPropertyOrder({
-  UserSpaceRoleListResponse.JSON_PROPERTY_DATA,
-  UserSpaceRoleListResponse.JSON_PROPERTY_HAS_MORE,
-  UserSpaceRoleListResponse.JSON_PROPERTY_LIMIT
+  DunningCaseLevelSearchResponse.JSON_PROPERTY_DATA,
+  DunningCaseLevelSearchResponse.JSON_PROPERTY_OFFSET,
+  DunningCaseLevelSearchResponse.JSON_PROPERTY_HAS_MORE,
+  DunningCaseLevelSearchResponse.JSON_PROPERTY_LIMIT
 })
-@JsonTypeName("User_Space_Role_List_Response")
+@JsonTypeName("Dunning_Case_Level_Search_Response")
 
-public class UserSpaceRoleListResponse {
+public class DunningCaseLevelSearchResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nullable
-  private List<UserSpaceRole> data = new ArrayList<>();
+  private List<DunningCaseLevel> data = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_OFFSET = "offset";
+  @javax.annotation.Nullable
+  private Integer offset;
 
   public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
   @javax.annotation.Nullable
@@ -62,19 +67,21 @@ public class UserSpaceRoleListResponse {
   @javax.annotation.Nullable
   private Integer limit;
 
-  public UserSpaceRoleListResponse() {
+  public DunningCaseLevelSearchResponse() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public UserSpaceRoleListResponse(
-    @JsonProperty(JSON_PROPERTY_DATA) List<UserSpaceRole> data, 
+  public DunningCaseLevelSearchResponse(
+    @JsonProperty(JSON_PROPERTY_DATA) List<DunningCaseLevel> data, 
+    @JsonProperty(JSON_PROPERTY_OFFSET) Integer offset, 
     @JsonProperty(JSON_PROPERTY_HAS_MORE) Boolean hasMore, 
     @JsonProperty(JSON_PROPERTY_LIMIT) Integer limit
   ) {
     this();
     this.data = data;
+    this.offset = offset;
     this.hasMore = hasMore;
     this.limit = limit;
   }
@@ -87,8 +94,22 @@ public class UserSpaceRoleListResponse {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<UserSpaceRole> getData() {
+  public List<DunningCaseLevel> getData() {
     return data;
+  }
+
+
+
+  /**
+   * The number of skipped objects.
+   * @return offset
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getOffset() {
+    return offset;
   }
 
 
@@ -129,22 +150,24 @@ public class UserSpaceRoleListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserSpaceRoleListResponse userSpaceRoleListResponse = (UserSpaceRoleListResponse) o;
-    return Objects.equals(this.data, userSpaceRoleListResponse.data) &&
-        Objects.equals(this.hasMore, userSpaceRoleListResponse.hasMore) &&
-        Objects.equals(this.limit, userSpaceRoleListResponse.limit);
+    DunningCaseLevelSearchResponse dunningCaseLevelSearchResponse = (DunningCaseLevelSearchResponse) o;
+    return Objects.equals(this.data, dunningCaseLevelSearchResponse.data) &&
+        Objects.equals(this.offset, dunningCaseLevelSearchResponse.offset) &&
+        Objects.equals(this.hasMore, dunningCaseLevelSearchResponse.hasMore) &&
+        Objects.equals(this.limit, dunningCaseLevelSearchResponse.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, hasMore, limit);
+    return Objects.hash(data, offset, hasMore, limit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserSpaceRoleListResponse {\n");
+    sb.append("class DunningCaseLevelSearchResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
@@ -201,6 +224,16 @@ public class UserSpaceRoleListResponse {
           joiner.add(getData().get(i).toUrlQueryString(String.format("%sdata%s%s", prefix, suffix,
               "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
+      }
+    }
+
+    // add `offset` to the URL query string
+    if (getOffset() != null) {
+      try {
+        joiner.add(String.format("%soffset%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOffset()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
       }
     }
 

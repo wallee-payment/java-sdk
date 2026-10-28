@@ -486,6 +486,7 @@ public class SpacesService extends BaseApi {
    * Create a space
    * 
    
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
    * @param spaceCreate  (required)
    * @param expand  (optional)
    * @return Space
@@ -493,8 +494,8 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSpaces">Create a space Documentation</a>
    */
-  public Space postSpaces(@javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
-    return this.postSpaces(spaceCreate, expand, Collections.emptyMap());
+  public Space postSpaces(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postSpaces(account, spaceCreate, expand, Collections.emptyMap());
   }
 
 
@@ -502,6 +503,7 @@ public class SpacesService extends BaseApi {
    * Create a space
    * 
    
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
    * @param spaceCreate  (required)
    * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
@@ -510,8 +512,13 @@ public class SpacesService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postSpaces">Create a space Documentation</a>
    */
-  public Space postSpaces(@javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+  public Space postSpaces(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull SpaceCreate spaceCreate, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
     Object localVarPostBody = spaceCreate;
+    
+    // verify the required parameter 'account' is set
+    if (account == null) {
+      throw new ApiException(400, "Missing the required parameter 'account' when calling postSpaces");
+    }
     
     // verify the required parameter 'spaceCreate' is set
     if (spaceCreate == null) {
@@ -530,7 +537,9 @@ public class SpacesService extends BaseApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
-    
+    if (account != null)
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
+
     localVarHeaderParams.putAll(additionalHeaders);
 
     

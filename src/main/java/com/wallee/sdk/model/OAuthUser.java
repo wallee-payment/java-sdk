@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.wallee.sdk.model.CreationEntityState;
+import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.io.UnsupportedEncodingException;
@@ -36,29 +38,34 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserAccountRole
+ * OAuthUser
  */
 @JsonPropertyOrder({
-  UserAccountRole.JSON_PROPERTY_ROLE,
-  UserAccountRole.JSON_PROPERTY_ID,
-  UserAccountRole.JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT,
-  UserAccountRole.JSON_PROPERTY_USER,
-  UserAccountRole.JSON_PROPERTY_VERSION,
-  UserAccountRole.JSON_PROPERTY_ACCOUNT
+  OAuthUser.JSON_PROPERTY_ID,
+  OAuthUser.JSON_PROPERTY_STATE,
+  OAuthUser.JSON_PROPERTY_UPDATED_ON,
+  OAuthUser.JSON_PROPERTY_CREATED_ON,
+  OAuthUser.JSON_PROPERTY_USER,
+  OAuthUser.JSON_PROPERTY_VERSION,
+  OAuthUser.JSON_PROPERTY_OAUTH_CLIENT
 })
 
-public class UserAccountRole {
-  public static final String JSON_PROPERTY_ROLE = "role";
-  @javax.annotation.Nullable
-  private Long role;
-
+public class OAuthUser {
   public static final String JSON_PROPERTY_ID = "id";
   @javax.annotation.Nullable
   private Long id;
 
-  public static final String JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT = "appliesOnSubAccount";
+  public static final String JSON_PROPERTY_STATE = "state";
   @javax.annotation.Nullable
-  private Boolean appliesOnSubAccount;
+  private CreationEntityState state;
+
+  public static final String JSON_PROPERTY_UPDATED_ON = "updatedOn";
+  @javax.annotation.Nullable
+  private OffsetDateTime updatedOn;
+
+  public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
+  @javax.annotation.Nullable
+  private OffsetDateTime createdOn;
 
   public static final String JSON_PROPERTY_USER = "user";
   @javax.annotation.Nullable
@@ -68,46 +75,32 @@ public class UserAccountRole {
   @javax.annotation.Nullable
   private Integer version;
 
-  public static final String JSON_PROPERTY_ACCOUNT = "account";
+  public static final String JSON_PROPERTY_OAUTH_CLIENT = "oauthClient";
   @javax.annotation.Nullable
-  private Long account;
+  private Long oauthClient;
 
-  public UserAccountRole() {
+  public OAuthUser() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public UserAccountRole(
-    @JsonProperty(JSON_PROPERTY_ROLE) Long role, 
+  public OAuthUser(
     @JsonProperty(JSON_PROPERTY_ID) Long id, 
-    @JsonProperty(JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT) Boolean appliesOnSubAccount, 
+    @JsonProperty(JSON_PROPERTY_UPDATED_ON) OffsetDateTime updatedOn, 
+    @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
     @JsonProperty(JSON_PROPERTY_USER) Long user, 
     @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
-    @JsonProperty(JSON_PROPERTY_ACCOUNT) Long account
+    @JsonProperty(JSON_PROPERTY_OAUTH_CLIENT) Long oauthClient
   ) {
     this();
-    this.role = role;
     this.id = id;
-    this.appliesOnSubAccount = appliesOnSubAccount;
+    this.updatedOn = updatedOn;
+    this.createdOn = createdOn;
     this.user = user;
     this.version = version;
-    this.account = account;
+    this.oauthClient = oauthClient;
   }
-
-  /**
-   * The role that is assigned to the user.
-   * @return role
-   */
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ROLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Long getRole() {
-    return role;
-  }
-
-
 
   /**
    * A unique identifier for the object.
@@ -123,22 +116,61 @@ public class UserAccountRole {
 
 
 
+  public OAuthUser state(@javax.annotation.Nullable CreationEntityState state) {
+    
+    this.state = state;
+    return this;
+  }
+
   /**
-   * Whether the role is assigned to the user in subaccounts only.
-   * @return appliesOnSubAccount
+   * Get state
+   * @return state
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_APPLIES_ON_SUB_ACCOUNT)
+  @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Boolean getAppliesOnSubAccount() {
-    return appliesOnSubAccount;
+  public CreationEntityState getState() {
+    return state;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setState(@javax.annotation.Nullable CreationEntityState state) {
+    this.state = state;
+  }
+
+  /**
+   * Get updatedOn
+   * @return updatedOn
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_UPDATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getUpdatedOn() {
+    return updatedOn;
   }
 
 
 
   /**
-   * The user whose role this defines.
+   * Get createdOn
+   * @return createdOn
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_CREATED_ON)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public OffsetDateTime getCreatedOn() {
+    return createdOn;
+  }
+
+
+
+  /**
+   * Get user
    * @return user
    */
   @javax.annotation.Nullable
@@ -166,15 +198,15 @@ public class UserAccountRole {
 
 
   /**
-   * The account in which the role is assigned to the user.
-   * @return account
+   * Get oauthClient
+   * @return oauthClient
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ACCOUNT)
+  @JsonProperty(JSON_PROPERTY_OAUTH_CLIENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Long getAccount() {
-    return account;
+  public Long getOauthClient() {
+    return oauthClient;
   }
 
 
@@ -187,30 +219,32 @@ public class UserAccountRole {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserAccountRole userAccountRole = (UserAccountRole) o;
-    return Objects.equals(this.role, userAccountRole.role) &&
-        Objects.equals(this.id, userAccountRole.id) &&
-        Objects.equals(this.appliesOnSubAccount, userAccountRole.appliesOnSubAccount) &&
-        Objects.equals(this.user, userAccountRole.user) &&
-        Objects.equals(this.version, userAccountRole.version) &&
-        Objects.equals(this.account, userAccountRole.account);
+    OAuthUser oauthUser = (OAuthUser) o;
+    return Objects.equals(this.id, oauthUser.id) &&
+        Objects.equals(this.state, oauthUser.state) &&
+        Objects.equals(this.updatedOn, oauthUser.updatedOn) &&
+        Objects.equals(this.createdOn, oauthUser.createdOn) &&
+        Objects.equals(this.user, oauthUser.user) &&
+        Objects.equals(this.version, oauthUser.version) &&
+        Objects.equals(this.oauthClient, oauthUser.oauthClient);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(role, id, appliesOnSubAccount, user, version, account);
+    return Objects.hash(id, state, updatedOn, createdOn, user, version, oauthClient);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserAccountRole {\n");
-    sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("class OAuthUser {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    appliesOnSubAccount: ").append(toIndentedString(appliesOnSubAccount)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    updatedOn: ").append(toIndentedString(updatedOn)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -258,16 +292,6 @@ public class UserAccountRole {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `role` to the URL query string
-    if (getRole() != null) {
-      try {
-        joiner.add(String.format("%srole%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getRole()), "UTF-8").replaceAll("\\+", "%20")));
-      } catch (UnsupportedEncodingException e) {
-        // Should never happen, UTF-8 is always supported
-        throw new RuntimeException(e);
-      }
-    }
-
     // add `id` to the URL query string
     if (getId() != null) {
       try {
@@ -278,10 +302,30 @@ public class UserAccountRole {
       }
     }
 
-    // add `appliesOnSubAccount` to the URL query string
-    if (getAppliesOnSubAccount() != null) {
+    // add `state` to the URL query string
+    if (getState() != null) {
       try {
-        joiner.add(String.format("%sappliesOnSubAccount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAppliesOnSubAccount()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%sstate%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getState()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `updatedOn` to the URL query string
+    if (getUpdatedOn() != null) {
+      try {
+        joiner.add(String.format("%supdatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getUpdatedOn()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `createdOn` to the URL query string
+    if (getCreatedOn() != null) {
+      try {
+        joiner.add(String.format("%screatedOn%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCreatedOn()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
@@ -308,10 +352,10 @@ public class UserAccountRole {
       }
     }
 
-    // add `account` to the URL query string
-    if (getAccount() != null) {
+    // add `oauthClient` to the URL query string
+    if (getOauthClient() != null) {
       try {
-        joiner.add(String.format("%saccount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getAccount()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%soauthClient%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOauthClient()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

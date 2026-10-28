@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.wallee.sdk.model.UserAccountRole;
+import com.wallee.sdk.model.PaymentTerminalLocationCrudModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,19 +40,19 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * UserAccountRoleListResponse
+ * PaymentTerminalLocationListResponse
  */
 @JsonPropertyOrder({
-  UserAccountRoleListResponse.JSON_PROPERTY_DATA,
-  UserAccountRoleListResponse.JSON_PROPERTY_HAS_MORE,
-  UserAccountRoleListResponse.JSON_PROPERTY_LIMIT
+  PaymentTerminalLocationListResponse.JSON_PROPERTY_DATA,
+  PaymentTerminalLocationListResponse.JSON_PROPERTY_HAS_MORE,
+  PaymentTerminalLocationListResponse.JSON_PROPERTY_LIMIT
 })
-@JsonTypeName("User_Account_Role_List_Response")
+@JsonTypeName("Payment_Terminal_Location_List_Response")
 
-public class UserAccountRoleListResponse {
+public class PaymentTerminalLocationListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   @javax.annotation.Nullable
-  private List<UserAccountRole> data = new ArrayList<>();
+  private List<PaymentTerminalLocationCrudModel> data = new ArrayList<>();
 
   public static final String JSON_PROPERTY_HAS_MORE = "hasMore";
   @javax.annotation.Nullable
@@ -62,14 +62,14 @@ public class UserAccountRoleListResponse {
   @javax.annotation.Nullable
   private Integer limit;
 
-  public UserAccountRoleListResponse() {
+  public PaymentTerminalLocationListResponse() {
   }
   /**
    * Constructor with only readonly parameters
    */
   @JsonCreator
-  public UserAccountRoleListResponse(
-    @JsonProperty(JSON_PROPERTY_DATA) List<UserAccountRole> data, 
+  public PaymentTerminalLocationListResponse(
+    @JsonProperty(JSON_PROPERTY_DATA) List<PaymentTerminalLocationCrudModel> data, 
     @JsonProperty(JSON_PROPERTY_HAS_MORE) Boolean hasMore, 
     @JsonProperty(JSON_PROPERTY_LIMIT) Integer limit
   ) {
@@ -87,7 +87,7 @@ public class UserAccountRoleListResponse {
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<UserAccountRole> getData() {
+  public List<PaymentTerminalLocationCrudModel> getData() {
     return data;
   }
 
@@ -129,10 +129,10 @@ public class UserAccountRoleListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UserAccountRoleListResponse userAccountRoleListResponse = (UserAccountRoleListResponse) o;
-    return Objects.equals(this.data, userAccountRoleListResponse.data) &&
-        Objects.equals(this.hasMore, userAccountRoleListResponse.hasMore) &&
-        Objects.equals(this.limit, userAccountRoleListResponse.limit);
+    PaymentTerminalLocationListResponse paymentTerminalLocationListResponse = (PaymentTerminalLocationListResponse) o;
+    return Objects.equals(this.data, paymentTerminalLocationListResponse.data) &&
+        Objects.equals(this.hasMore, paymentTerminalLocationListResponse.hasMore) &&
+        Objects.equals(this.limit, paymentTerminalLocationListResponse.limit);
   }
 
   @Override
@@ -143,7 +143,7 @@ public class UserAccountRoleListResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UserAccountRoleListResponse {\n");
+    sb.append("class PaymentTerminalLocationListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    hasMore: ").append(toIndentedString(hasMore)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");

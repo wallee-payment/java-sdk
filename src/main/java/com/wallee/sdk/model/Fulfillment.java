@@ -31,6 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.wallee.sdk.model.FulfillmentState;
 import com.wallee.sdk.model.TransactionCompletion;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -45,6 +46,9 @@ import java.util.StringJoiner;
   Fulfillment.JSON_PROPERTY_COMPLETION,
   Fulfillment.JSON_PROPERTY_OVERRIDDEN_BY,
   Fulfillment.JSON_PROPERTY_OVERRIDE_REASON,
+  Fulfillment.JSON_PROPERTY_DESCRIPTION,
+  Fulfillment.JSON_PROPERTY_EXTERNAL_ID,
+  Fulfillment.JSON_PROPERTY_GROSS_AMOUNT,
   Fulfillment.JSON_PROPERTY_CREATED_ON,
   Fulfillment.JSON_PROPERTY_VERSION,
   Fulfillment.JSON_PROPERTY_LINKED_SPACE_ID,
@@ -73,6 +77,18 @@ public class Fulfillment {
   public static final String JSON_PROPERTY_OVERRIDE_REASON = "overrideReason";
   @javax.annotation.Nullable
   private String overrideReason;
+
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @javax.annotation.Nullable
+  private String description;
+
+  public static final String JSON_PROPERTY_EXTERNAL_ID = "externalId";
+  @javax.annotation.Nullable
+  private String externalId;
+
+  public static final String JSON_PROPERTY_GROSS_AMOUNT = "grossAmount";
+  @javax.annotation.Nullable
+  private BigDecimal grossAmount;
 
   public static final String JSON_PROPERTY_CREATED_ON = "createdOn";
   @javax.annotation.Nullable
@@ -139,6 +155,9 @@ public class Fulfillment {
   public Fulfillment(
     @JsonProperty(JSON_PROPERTY_OVERRIDDEN_BY) Long overriddenBy, 
     @JsonProperty(JSON_PROPERTY_OVERRIDE_REASON) String overrideReason, 
+    @JsonProperty(JSON_PROPERTY_DESCRIPTION) String description, 
+    @JsonProperty(JSON_PROPERTY_EXTERNAL_ID) String externalId, 
+    @JsonProperty(JSON_PROPERTY_GROSS_AMOUNT) BigDecimal grossAmount, 
     @JsonProperty(JSON_PROPERTY_CREATED_ON) OffsetDateTime createdOn, 
     @JsonProperty(JSON_PROPERTY_VERSION) Integer version, 
     @JsonProperty(JSON_PROPERTY_LINKED_SPACE_ID) Long linkedSpaceId, 
@@ -156,6 +175,9 @@ public class Fulfillment {
     this();
     this.overriddenBy = overriddenBy;
     this.overrideReason = overrideReason;
+    this.description = description;
+    this.externalId = externalId;
+    this.grossAmount = grossAmount;
     this.createdOn = createdOn;
     this.version = version;
     this.linkedSpaceId = linkedSpaceId;
@@ -220,6 +242,48 @@ public class Fulfillment {
 
   public String getOverrideReason() {
     return overrideReason;
+  }
+
+
+
+  /**
+   * Get description
+   * @return description
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getDescription() {
+    return description;
+  }
+
+
+
+  /**
+   * A client-generated nonce which uniquely identifies some action to be executed. Subsequent requests with the same external ID do not execute the action again, but return the original result.
+   * @return externalId
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getExternalId() {
+    return externalId;
+  }
+
+
+
+  /**
+   * Get grossAmount
+   * @return grossAmount
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_GROSS_AMOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public BigDecimal getGrossAmount() {
+    return grossAmount;
   }
 
 
@@ -443,6 +507,9 @@ public class Fulfillment {
     return Objects.equals(this.completion, fulfillment.completion) &&
         Objects.equals(this.overriddenBy, fulfillment.overriddenBy) &&
         Objects.equals(this.overrideReason, fulfillment.overrideReason) &&
+        Objects.equals(this.description, fulfillment.description) &&
+        Objects.equals(this.externalId, fulfillment.externalId) &&
+        Objects.equals(this.grossAmount, fulfillment.grossAmount) &&
         Objects.equals(this.createdOn, fulfillment.createdOn) &&
         Objects.equals(this.version, fulfillment.version) &&
         Objects.equals(this.linkedSpaceId, fulfillment.linkedSpaceId) &&
@@ -461,7 +528,7 @@ public class Fulfillment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(completion, overriddenBy, overrideReason, createdOn, version, linkedSpaceId, createdBy, failureReason, fulfilledBy, inStorePickup, id, state, linkedTransaction, trackingNumber, failedOn, overriddenOn, fulfilledOn);
+    return Objects.hash(completion, overriddenBy, overrideReason, description, externalId, grossAmount, createdOn, version, linkedSpaceId, createdBy, failureReason, fulfilledBy, inStorePickup, id, state, linkedTransaction, trackingNumber, failedOn, overriddenOn, fulfilledOn);
   }
 
   @Override
@@ -471,6 +538,9 @@ public class Fulfillment {
     sb.append("    completion: ").append(toIndentedString(completion)).append("\n");
     sb.append("    overriddenBy: ").append(toIndentedString(overriddenBy)).append("\n");
     sb.append("    overrideReason: ").append(toIndentedString(overrideReason)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    grossAmount: ").append(toIndentedString(grossAmount)).append("\n");
     sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    linkedSpaceId: ").append(toIndentedString(linkedSpaceId)).append("\n");
@@ -551,6 +621,36 @@ public class Fulfillment {
     if (getOverrideReason() != null) {
       try {
         joiner.add(String.format("%soverrideReason%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getOverrideReason()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `description` to the URL query string
+    if (getDescription() != null) {
+      try {
+        joiner.add(String.format("%sdescription%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDescription()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `externalId` to the URL query string
+    if (getExternalId() != null) {
+      try {
+        joiner.add(String.format("%sexternalId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getExternalId()), "UTF-8").replaceAll("\\+", "%20")));
+      } catch (UnsupportedEncodingException e) {
+        // Should never happen, UTF-8 is always supported
+        throw new RuntimeException(e);
+      }
+    }
+
+    // add `grossAmount` to the URL query string
+    if (getGrossAmount() != null) {
+      try {
+        joiner.add(String.format("%sgrossAmount%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getGrossAmount()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

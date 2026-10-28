@@ -31,7 +31,7 @@ import com.wallee.sdk.Pair;
 import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.SortingOrder;
-import com.wallee.sdk.model.WalleejoinCreatePartnershipRequestDto;
+import com.wallee.sdk.model.WalleejoinCreatePartnershipApiRequestDto;
 import com.wallee.sdk.model.WalleejoinPartnershipCreate;
 import com.wallee.sdk.model.WalleejoinPartnershipResponseDto;
 import com.wallee.sdk.model.WalleejoinPartnershipResponseDtoListResponse;
@@ -432,14 +432,14 @@ public class JoinPartnershipService extends BaseApi {
    * 
    
    * @param account Specifies the ID of the account the operation should be executed in. (required)
-   * @param walleejoinCreatePartnershipRequestDto  (required)
+   * @param walleejoinCreatePartnershipApiRequestDto  (required)
    * @return Object
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postJoinProgramPartnershipsCreateAffiliate">Create a join account partnership Documentation</a>
    */
-  public Object postJoinProgramPartnershipsCreateAffiliate(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipRequestDto walleejoinCreatePartnershipRequestDto) throws ApiException {
-    return this.postJoinProgramPartnershipsCreateAffiliate(account, walleejoinCreatePartnershipRequestDto, Collections.emptyMap());
+  public Object postJoinProgramPartnershipsCreateAffiliate(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipApiRequestDto walleejoinCreatePartnershipApiRequestDto) throws ApiException {
+    return this.postJoinProgramPartnershipsCreateAffiliate(account, walleejoinCreatePartnershipApiRequestDto, Collections.emptyMap());
   }
 
 
@@ -448,24 +448,24 @@ public class JoinPartnershipService extends BaseApi {
    * 
    
    * @param account Specifies the ID of the account the operation should be executed in. (required)
-   * @param walleejoinCreatePartnershipRequestDto  (required)
+   * @param walleejoinCreatePartnershipApiRequestDto  (required)
    * @param additionalHeaders The additional headers for this call
    * @return Object
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postJoinProgramPartnershipsCreateAffiliate">Create a join account partnership Documentation</a>
    */
-  public Object postJoinProgramPartnershipsCreateAffiliate(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipRequestDto walleejoinCreatePartnershipRequestDto, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = walleejoinCreatePartnershipRequestDto;
+  public Object postJoinProgramPartnershipsCreateAffiliate(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipApiRequestDto walleejoinCreatePartnershipApiRequestDto, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = walleejoinCreatePartnershipApiRequestDto;
     
     // verify the required parameter 'account' is set
     if (account == null) {
       throw new ApiException(400, "Missing the required parameter 'account' when calling postJoinProgramPartnershipsCreateAffiliate");
     }
     
-    // verify the required parameter 'walleejoinCreatePartnershipRequestDto' is set
-    if (walleejoinCreatePartnershipRequestDto == null) {
-      throw new ApiException(400, "Missing the required parameter 'walleejoinCreatePartnershipRequestDto' when calling postJoinProgramPartnershipsCreateAffiliate");
+    // verify the required parameter 'walleejoinCreatePartnershipApiRequestDto' is set
+    if (walleejoinCreatePartnershipApiRequestDto == null) {
+      throw new ApiException(400, "Missing the required parameter 'walleejoinCreatePartnershipApiRequestDto' when calling postJoinProgramPartnershipsCreateAffiliate");
     }
     
     // create path and map variables
@@ -521,15 +521,15 @@ public class JoinPartnershipService extends BaseApi {
    * 
    
    * @param account Specifies the ID of the account the operation should be executed in. (required)
-   * @param walleejoinCreatePartnershipRequestDto  (required)
+   * @param walleejoinCreatePartnershipApiRequestDto  (required)
    * @param expand  (optional)
    * @return WalleejoinPartnershipResponseDto
    * @throws ApiException if fails to make API call
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postJoinProgramPartnershipsCreateIsv">Create a join platform partnership Documentation</a>
    */
-  public WalleejoinPartnershipResponseDto postJoinProgramPartnershipsCreateIsv(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipRequestDto walleejoinCreatePartnershipRequestDto, @javax.annotation.Nullable Set<String> expand) throws ApiException {
-    return this.postJoinProgramPartnershipsCreateIsv(account, walleejoinCreatePartnershipRequestDto, expand, Collections.emptyMap());
+  public WalleejoinPartnershipResponseDto postJoinProgramPartnershipsCreateIsv(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipApiRequestDto walleejoinCreatePartnershipApiRequestDto, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postJoinProgramPartnershipsCreateIsv(account, walleejoinCreatePartnershipApiRequestDto, expand, Collections.emptyMap());
   }
 
 
@@ -538,7 +538,7 @@ public class JoinPartnershipService extends BaseApi {
    * 
    
    * @param account Specifies the ID of the account the operation should be executed in. (required)
-   * @param walleejoinCreatePartnershipRequestDto  (required)
+   * @param walleejoinCreatePartnershipApiRequestDto  (required)
    * @param expand  (optional)
    * @param additionalHeaders The additional headers for this call
    * @return WalleejoinPartnershipResponseDto
@@ -546,17 +546,17 @@ public class JoinPartnershipService extends BaseApi {
    * 
    * @see <a href="https://app-wallee.com/doc/api/web-service#postJoinProgramPartnershipsCreateIsv">Create a join platform partnership Documentation</a>
    */
-  public WalleejoinPartnershipResponseDto postJoinProgramPartnershipsCreateIsv(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipRequestDto walleejoinCreatePartnershipRequestDto, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
-    Object localVarPostBody = walleejoinCreatePartnershipRequestDto;
+  public WalleejoinPartnershipResponseDto postJoinProgramPartnershipsCreateIsv(@javax.annotation.Nonnull Long account, @javax.annotation.Nonnull WalleejoinCreatePartnershipApiRequestDto walleejoinCreatePartnershipApiRequestDto, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = walleejoinCreatePartnershipApiRequestDto;
     
     // verify the required parameter 'account' is set
     if (account == null) {
       throw new ApiException(400, "Missing the required parameter 'account' when calling postJoinProgramPartnershipsCreateIsv");
     }
     
-    // verify the required parameter 'walleejoinCreatePartnershipRequestDto' is set
-    if (walleejoinCreatePartnershipRequestDto == null) {
-      throw new ApiException(400, "Missing the required parameter 'walleejoinCreatePartnershipRequestDto' when calling postJoinProgramPartnershipsCreateIsv");
+    // verify the required parameter 'walleejoinCreatePartnershipApiRequestDto' is set
+    if (walleejoinCreatePartnershipApiRequestDto == null) {
+      throw new ApiException(400, "Missing the required parameter 'walleejoinCreatePartnershipApiRequestDto' when calling postJoinProgramPartnershipsCreateIsv");
     }
     
     // create path and map variables

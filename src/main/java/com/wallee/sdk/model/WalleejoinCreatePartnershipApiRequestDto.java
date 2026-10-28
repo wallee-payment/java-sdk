@@ -36,17 +36,17 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * WalleejoinCreatePartnershipRequestDto
+ * WalleejoinCreatePartnershipApiRequestDto
  */
 @JsonPropertyOrder({
-  WalleejoinCreatePartnershipRequestDto.JSON_PROPERTY_EMAIL_MESSAGE,
-  WalleejoinCreatePartnershipRequestDto.JSON_PROPERTY_PARTNER_ACCOUNT_ID,
-  WalleejoinCreatePartnershipRequestDto.JSON_PROPERTY_PRICING_PROFILE_SELL_RATE_ID,
-  WalleejoinCreatePartnershipRequestDto.JSON_PROPERTY_SUBSCRIPTION_PRODUCT_ID,
-  WalleejoinCreatePartnershipRequestDto.JSON_PROPERTY_MERCHANT_EMAIL_ADDRESS
+  WalleejoinCreatePartnershipApiRequestDto.JSON_PROPERTY_EMAIL_MESSAGE,
+  WalleejoinCreatePartnershipApiRequestDto.JSON_PROPERTY_PARTNER_ACCOUNT_ID,
+  WalleejoinCreatePartnershipApiRequestDto.JSON_PROPERTY_PRICING_PROFILE_SELL_RATE_ID,
+  WalleejoinCreatePartnershipApiRequestDto.JSON_PROPERTY_SUBSCRIPTION_PRODUCT_ID,
+  WalleejoinCreatePartnershipApiRequestDto.JSON_PROPERTY_MERCHANT_EMAIL_ADDRESS
 })
 
-public class WalleejoinCreatePartnershipRequestDto {
+public class WalleejoinCreatePartnershipApiRequestDto {
   public static final String JSON_PROPERTY_EMAIL_MESSAGE = "emailMessage";
   @javax.annotation.Nullable
   private String emailMessage;
@@ -67,10 +67,10 @@ public class WalleejoinCreatePartnershipRequestDto {
   @javax.annotation.Nullable
   private String merchantEmailAddress;
 
-  public WalleejoinCreatePartnershipRequestDto() {
+  public WalleejoinCreatePartnershipApiRequestDto() {
   }
 
-  public WalleejoinCreatePartnershipRequestDto emailMessage(@javax.annotation.Nullable String emailMessage) {
+  public WalleejoinCreatePartnershipApiRequestDto emailMessage(@javax.annotation.Nullable String emailMessage) {
     
     this.emailMessage = emailMessage;
     return this;
@@ -95,7 +95,7 @@ public class WalleejoinCreatePartnershipRequestDto {
     this.emailMessage = emailMessage;
   }
 
-  public WalleejoinCreatePartnershipRequestDto partnerAccountId(@javax.annotation.Nullable Long partnerAccountId) {
+  public WalleejoinCreatePartnershipApiRequestDto partnerAccountId(@javax.annotation.Nullable Long partnerAccountId) {
     
     this.partnerAccountId = partnerAccountId;
     return this;
@@ -120,7 +120,7 @@ public class WalleejoinCreatePartnershipRequestDto {
     this.partnerAccountId = partnerAccountId;
   }
 
-  public WalleejoinCreatePartnershipRequestDto pricingProfileSellRateId(@javax.annotation.Nullable Long pricingProfileSellRateId) {
+  public WalleejoinCreatePartnershipApiRequestDto pricingProfileSellRateId(@javax.annotation.Nullable Long pricingProfileSellRateId) {
     
     this.pricingProfileSellRateId = pricingProfileSellRateId;
     return this;
@@ -145,7 +145,7 @@ public class WalleejoinCreatePartnershipRequestDto {
     this.pricingProfileSellRateId = pricingProfileSellRateId;
   }
 
-  public WalleejoinCreatePartnershipRequestDto subscriptionProductId(@javax.annotation.Nullable Long subscriptionProductId) {
+  public WalleejoinCreatePartnershipApiRequestDto subscriptionProductId(@javax.annotation.Nullable Long subscriptionProductId) {
     
     this.subscriptionProductId = subscriptionProductId;
     return this;
@@ -170,7 +170,7 @@ public class WalleejoinCreatePartnershipRequestDto {
     this.subscriptionProductId = subscriptionProductId;
   }
 
-  public WalleejoinCreatePartnershipRequestDto merchantEmailAddress(@javax.annotation.Nullable String merchantEmailAddress) {
+  public WalleejoinCreatePartnershipApiRequestDto merchantEmailAddress(@javax.annotation.Nullable String merchantEmailAddress) {
     
     this.merchantEmailAddress = merchantEmailAddress;
     return this;
@@ -203,12 +203,12 @@ public class WalleejoinCreatePartnershipRequestDto {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WalleejoinCreatePartnershipRequestDto walleejoinCreatePartnershipRequestDto = (WalleejoinCreatePartnershipRequestDto) o;
-    return Objects.equals(this.emailMessage, walleejoinCreatePartnershipRequestDto.emailMessage) &&
-        Objects.equals(this.partnerAccountId, walleejoinCreatePartnershipRequestDto.partnerAccountId) &&
-        Objects.equals(this.pricingProfileSellRateId, walleejoinCreatePartnershipRequestDto.pricingProfileSellRateId) &&
-        Objects.equals(this.subscriptionProductId, walleejoinCreatePartnershipRequestDto.subscriptionProductId) &&
-        Objects.equals(this.merchantEmailAddress, walleejoinCreatePartnershipRequestDto.merchantEmailAddress);
+    WalleejoinCreatePartnershipApiRequestDto walleejoinCreatePartnershipApiRequestDto = (WalleejoinCreatePartnershipApiRequestDto) o;
+    return Objects.equals(this.emailMessage, walleejoinCreatePartnershipApiRequestDto.emailMessage) &&
+        Objects.equals(this.partnerAccountId, walleejoinCreatePartnershipApiRequestDto.partnerAccountId) &&
+        Objects.equals(this.pricingProfileSellRateId, walleejoinCreatePartnershipApiRequestDto.pricingProfileSellRateId) &&
+        Objects.equals(this.subscriptionProductId, walleejoinCreatePartnershipApiRequestDto.subscriptionProductId) &&
+        Objects.equals(this.merchantEmailAddress, walleejoinCreatePartnershipApiRequestDto.merchantEmailAddress);
   }
 
   @Override
@@ -219,7 +219,7 @@ public class WalleejoinCreatePartnershipRequestDto {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WalleejoinCreatePartnershipRequestDto {\n");
+    sb.append("class WalleejoinCreatePartnershipApiRequestDto {\n");
     sb.append("    emailMessage: ").append(toIndentedString(emailMessage)).append("\n");
     sb.append("    partnerAccountId: ").append(toIndentedString(partnerAccountId)).append("\n");
     sb.append("    pricingProfileSellRateId: ").append(toIndentedString(pricingProfileSellRateId)).append("\n");

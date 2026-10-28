@@ -38,9 +38,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public enum SalesChannel {
   
-  ECOMMERCE("ECOMMERCE"),
+  TERMINAL("TERMINAL"),
   
-  TERMINAL("TERMINAL");
+  ECOMMERCE("ECOMMERCE");
 
   private String value;
 

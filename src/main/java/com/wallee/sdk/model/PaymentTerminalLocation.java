@@ -124,7 +124,7 @@ public class PaymentTerminalLocation {
 
 
   /**
-   * Get productionMerchantId
+   * The production merchant identifier assigned to the location.
    * @return productionMerchantId
    */
   @javax.annotation.Nullable

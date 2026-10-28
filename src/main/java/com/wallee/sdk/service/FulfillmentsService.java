@@ -30,6 +30,7 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.CreateFulfillmentRequest;
 import com.wallee.sdk.model.Fulfillment;
+import com.wallee.sdk.model.FulfillmentSearchResponse;
 import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 import com.wallee.sdk.model.TrackingNumberRequest;
@@ -48,6 +49,103 @@ public class FulfillmentsService extends BaseApi {
 
   public FulfillmentsService(ApiClient apiClient) {
     super(apiClient);
+  }
+
+  /**
+   * Search fulfillments
+   * 
+   
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param limit A limit on the number of objects to be returned, between 1 and 100. Default is 10. (optional)
+   * @param offset A cursor for pagination, specifies the number of objects to skip. (optional)
+   * @param order The fields and order to sort the objects by. (optional)
+   * @param query The search query to filter the objects by. (optional)
+   * @return FulfillmentSearchResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentFacilitatorFulfillmentsSearch">Search fulfillments Documentation</a>
+   */
+  public FulfillmentSearchResponse getPaymentFacilitatorFulfillmentsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query) throws ApiException {
+    return this.getPaymentFacilitatorFulfillmentsSearch(space, expand, limit, offset, order, query, Collections.emptyMap());
+  }
+
+
+  /**
+   * Search fulfillments
+   * 
+   
+   * @param space Specifies the ID of the space the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param limit A limit on the number of objects to be returned, between 1 and 100. Default is 10. (optional)
+   * @param offset A cursor for pagination, specifies the number of objects to skip. (optional)
+   * @param order The fields and order to sort the objects by. (optional)
+   * @param query The search query to filter the objects by. (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return FulfillmentSearchResponse
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getPaymentFacilitatorFulfillmentsSearch">Search fulfillments Documentation</a>
+   */
+  public FulfillmentSearchResponse getPaymentFacilitatorFulfillmentsSearch(@javax.annotation.Nonnull Long space, @javax.annotation.Nullable Set<String> expand, @javax.annotation.Nullable Integer limit, @javax.annotation.Nullable Integer offset, @javax.annotation.Nullable String order, @javax.annotation.Nullable String query, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'space' is set
+    if (space == null) {
+      throw new ApiException(400, "Missing the required parameter 'space' when calling getPaymentFacilitatorFulfillmentsSearch");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/payment/facilitator/fulfillments/search";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPair("order", order));
+    localVarQueryParams.addAll(apiClient.parameterToPair("query", query));
+    if (space != null)
+      localVarHeaderParams.put("space", apiClient.parameterToString(space));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<FulfillmentSearchResponse> localVarReturnType = new TypeReference<FulfillmentSearchResponse>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
   }
 
   /**
