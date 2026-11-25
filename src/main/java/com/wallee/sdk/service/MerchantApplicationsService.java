@@ -30,6 +30,8 @@ import com.wallee.sdk.Pair;
 
 import com.wallee.sdk.model.MerchantApplicationDataDto;
 import com.wallee.sdk.model.MerchantApplicationStatusDto;
+import com.wallee.sdk.model.MerchantApplicationSubmitRequestDto;
+import com.wallee.sdk.model.MerchantApplicationSubmittedDto;
 import com.wallee.sdk.model.RestApiErrorResponse;
 import java.util.Set;
 
@@ -47,6 +49,91 @@ public class MerchantApplicationsService extends BaseApi {
 
   public MerchantApplicationsService(ApiClient apiClient) {
     super(apiClient);
+  }
+
+  /**
+   * Retrieve a merchant application by account
+   * Returns the merchant application for the account specified in the account header.
+   
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @return MerchantApplicationDataDto
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getOnboardingMerchantApplicationsByAccount">Retrieve a merchant application by account Documentation</a>
+   */
+  public MerchantApplicationDataDto getOnboardingMerchantApplicationsByAccount(@javax.annotation.Nonnull Long account, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.getOnboardingMerchantApplicationsByAccount(account, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Retrieve a merchant application by account
+   * Returns the merchant application for the account specified in the account header.
+   
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return MerchantApplicationDataDto
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#getOnboardingMerchantApplicationsByAccount">Retrieve a merchant application by account Documentation</a>
+   */
+  public MerchantApplicationDataDto getOnboardingMerchantApplicationsByAccount(@javax.annotation.Nonnull Long account, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = null;
+    
+    // verify the required parameter 'account' is set
+    if (account == null) {
+      throw new ApiException(400, "Missing the required parameter 'account' when calling getOnboardingMerchantApplicationsByAccount");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/onboarding/merchant-applications/by-account";
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (account != null)
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<MerchantApplicationDataDto> localVarReturnType = new TypeReference<MerchantApplicationDataDto>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
   }
 
   /**
@@ -402,6 +489,106 @@ public class MerchantApplicationsService extends BaseApi {
     int requestTimeout = apiClient.getRequestTimeout();
 
     TypeReference<MerchantApplicationDataDto> localVarReturnType = new TypeReference<MerchantApplicationDataDto>() {};
+    return apiClient.invokeAPI(
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarCollectionQueryParams,
+        localVarQueryStringJoiner.toString(),
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        requestTimeout,
+        localVarReturnType
+    );
+  }
+
+  /**
+   * Submit a merchant application and create an organization
+   * 
+   
+   * @param id  (required)
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param merchantApplicationSubmitRequestDto  (required)
+   * @param expand  (optional)
+   * @return MerchantApplicationSubmittedDto
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postOnboardingMerchantApplicationsIdSubmit">Submit a merchant application and create an organization Documentation</a>
+   */
+  public MerchantApplicationSubmittedDto postOnboardingMerchantApplicationsIdSubmit(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long account, @javax.annotation.Nonnull MerchantApplicationSubmitRequestDto merchantApplicationSubmitRequestDto, @javax.annotation.Nullable Set<String> expand) throws ApiException {
+    return this.postOnboardingMerchantApplicationsIdSubmit(id, account, merchantApplicationSubmitRequestDto, expand, Collections.emptyMap());
+  }
+
+
+  /**
+   * Submit a merchant application and create an organization
+   * 
+   
+   * @param id  (required)
+   * @param account Specifies the ID of the account the operation should be executed in. (required)
+   * @param merchantApplicationSubmitRequestDto  (required)
+   * @param expand  (optional)
+   * @param additionalHeaders The additional headers for this call
+   * @return MerchantApplicationSubmittedDto
+   * @throws ApiException if fails to make API call
+   * 
+   * @see <a href="https://app-wallee.com/doc/api/web-service#postOnboardingMerchantApplicationsIdSubmit">Submit a merchant application and create an organization Documentation</a>
+   */
+  public MerchantApplicationSubmittedDto postOnboardingMerchantApplicationsIdSubmit(@javax.annotation.Nonnull Long id, @javax.annotation.Nonnull Long account, @javax.annotation.Nonnull MerchantApplicationSubmitRequestDto merchantApplicationSubmitRequestDto, @javax.annotation.Nullable Set<String> expand, Map<String, String> additionalHeaders) throws ApiException {
+    Object localVarPostBody = merchantApplicationSubmitRequestDto;
+    
+    // verify the required parameter 'id' is set
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling postOnboardingMerchantApplicationsIdSubmit");
+    }
+    
+    // verify the required parameter 'account' is set
+    if (account == null) {
+      throw new ApiException(400, "Missing the required parameter 'account' when calling postOnboardingMerchantApplicationsIdSubmit");
+    }
+    
+    // verify the required parameter 'merchantApplicationSubmitRequestDto' is set
+    if (merchantApplicationSubmitRequestDto == null) {
+      throw new ApiException(400, "Missing the required parameter 'merchantApplicationSubmitRequestDto' when calling postOnboardingMerchantApplicationsIdSubmit");
+    }
+    
+    // create path and map variables
+    String localVarPath = "/onboarding/merchant-applications/{id}/submit"
+      .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(apiClient.parameterToString(id)));
+
+    StringJoiner localVarQueryStringJoiner = new StringJoiner("&");
+    String localVarQueryParameterBaseName;
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "expand", expand));
+    if (account != null)
+      localVarHeaderParams.put("account", apiClient.parameterToString(account));
+
+    localVarHeaderParams.putAll(additionalHeaders);
+
+    
+    
+    final String[] localVarAccepts = {
+      "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {
+      "application/json"
+    };
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    int requestTimeout = apiClient.getRequestTimeout();
+
+    TypeReference<MerchantApplicationSubmittedDto> localVarReturnType = new TypeReference<MerchantApplicationSubmittedDto>() {};
     return apiClient.invokeAPI(
         localVarPath,
         "POST",

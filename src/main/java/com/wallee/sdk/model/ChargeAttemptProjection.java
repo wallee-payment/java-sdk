@@ -40,6 +40,7 @@ import com.wallee.sdk.model.Label;
 import com.wallee.sdk.model.PaymentConnectorConfiguration;
 import com.wallee.sdk.model.PaymentTerminal;
 import com.wallee.sdk.model.TokenVersion;
+import com.wallee.sdk.model.TransactionAmounts;
 import com.wallee.sdk.model.TransactionCompletionBehavior;
 import com.wallee.sdk.model.WalletType;
 import java.time.OffsetDateTime;
@@ -83,7 +84,8 @@ import java.util.StringJoiner;
   ChargeAttemptProjection.JSON_PROPERTY_NEXT_UPDATE_ON,
   ChargeAttemptProjection.JSON_PROPERTY_FAILURE_REASON,
   ChargeAttemptProjection.JSON_PROPERTY_CUSTOMERS_PRESENCE,
-  ChargeAttemptProjection.JSON_PROPERTY_FAILED_ON
+  ChargeAttemptProjection.JSON_PROPERTY_FAILED_ON,
+  ChargeAttemptProjection.JSON_PROPERTY_TRANSACTION_AMOUNTS
 })
 
 public class ChargeAttemptProjection {
@@ -202,6 +204,10 @@ public class ChargeAttemptProjection {
   public static final String JSON_PROPERTY_FAILED_ON = "failedOn";
   @javax.annotation.Nullable
   private OffsetDateTime failedOn;
+
+  public static final String JSON_PROPERTY_TRANSACTION_AMOUNTS = "transactionAmounts";
+  @javax.annotation.Nullable
+  private TransactionAmounts transactionAmounts;
 
   public ChargeAttemptProjection() {
   }
@@ -777,6 +783,31 @@ public class ChargeAttemptProjection {
 
 
 
+  public ChargeAttemptProjection transactionAmounts(@javax.annotation.Nullable TransactionAmounts transactionAmounts) {
+    
+    this.transactionAmounts = transactionAmounts;
+    return this;
+  }
+
+  /**
+   * Get transactionAmounts
+   * @return transactionAmounts
+   */
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_AMOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public TransactionAmounts getTransactionAmounts() {
+    return transactionAmounts;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TRANSACTION_AMOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTransactionAmounts(@javax.annotation.Nullable TransactionAmounts transactionAmounts) {
+    this.transactionAmounts = transactionAmounts;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -814,12 +845,13 @@ public class ChargeAttemptProjection {
         Objects.equals(this.nextUpdateOn, chargeAttemptProjection.nextUpdateOn) &&
         Objects.equals(this.failureReason, chargeAttemptProjection.failureReason) &&
         Objects.equals(this.customersPresence, chargeAttemptProjection.customersPresence) &&
-        Objects.equals(this.failedOn, chargeAttemptProjection.failedOn);
+        Objects.equals(this.failedOn, chargeAttemptProjection.failedOn) &&
+        Objects.equals(this.transactionAmounts, chargeAttemptProjection.transactionAmounts);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(language, salesChannel, createdOn, initializingTokenVersion, tokenVersion, succeededOn, id, state, linkedTransaction, redirectionUrl, charge, wallet, plannedPurgeDate, timeZone, spaceViewId, terminal, userFailureMessage, completionBehavior, version, labels, linkedSpaceId, timeoutOn, environment, invocation, connectorConfiguration, nextUpdateOn, failureReason, customersPresence, failedOn);
+    return Objects.hash(language, salesChannel, createdOn, initializingTokenVersion, tokenVersion, succeededOn, id, state, linkedTransaction, redirectionUrl, charge, wallet, plannedPurgeDate, timeZone, spaceViewId, terminal, userFailureMessage, completionBehavior, version, labels, linkedSpaceId, timeoutOn, environment, invocation, connectorConfiguration, nextUpdateOn, failureReason, customersPresence, failedOn, transactionAmounts);
   }
 
   @Override
@@ -855,6 +887,7 @@ public class ChargeAttemptProjection {
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    customersPresence: ").append(toIndentedString(customersPresence)).append("\n");
     sb.append("    failedOn: ").append(toIndentedString(failedOn)).append("\n");
+    sb.append("    transactionAmounts: ").append(toIndentedString(transactionAmounts)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1157,6 +1190,11 @@ public class ChargeAttemptProjection {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
+    }
+
+    // add `transactionAmounts` to the URL query string
+    if (getTransactionAmounts() != null) {
+      joiner.add(getTransactionAmounts().toUrlQueryString(prefix + "transactionAmounts" + suffix));
     }
 
     return joiner.toString();

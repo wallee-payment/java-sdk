@@ -36,75 +36,64 @@ import java.net.URLEncoder;
 import java.util.StringJoiner;
 
 /**
- * PaymentTerminalUpdate
+ * ExpressCheckoutSessionCreateResponse
  */
 @JsonPropertyOrder({
-  PaymentTerminalUpdate.JSON_PROPERTY_NAME,
-  PaymentTerminalUpdate.JSON_PROPERTY_VERSION
+  ExpressCheckoutSessionCreateResponse.JSON_PROPERTY_SESSION_TOKEN,
+  ExpressCheckoutSessionCreateResponse.JSON_PROPERTY_SESSION_ID
 })
-@JsonTypeName("PaymentTerminal.Update")
 
-public class PaymentTerminalUpdate {
-  public static final String JSON_PROPERTY_NAME = "name";
+public class ExpressCheckoutSessionCreateResponse {
+  public static final String JSON_PROPERTY_SESSION_TOKEN = "sessionToken";
   @javax.annotation.Nullable
-  private String name;
+  private String sessionToken;
 
-  public static final String JSON_PROPERTY_VERSION = "version";
-  @javax.annotation.Nonnull
-  private Integer version;
+  public static final String JSON_PROPERTY_SESSION_ID = "sessionId";
+  @javax.annotation.Nullable
+  private Long sessionId;
 
-  public PaymentTerminalUpdate() {
+  public ExpressCheckoutSessionCreateResponse() {
   }
-
-  public PaymentTerminalUpdate name(@javax.annotation.Nullable String name) {
-    
-    this.name = name;
-    return this;
+  /**
+   * Constructor with only readonly parameters
+   */
+  @JsonCreator
+  public ExpressCheckoutSessionCreateResponse(
+    @JsonProperty(JSON_PROPERTY_SESSION_TOKEN) String sessionToken, 
+    @JsonProperty(JSON_PROPERTY_SESSION_ID) Long sessionId
+  ) {
+    this();
+    this.sessionToken = sessionToken;
+    this.sessionId = sessionId;
   }
 
   /**
-   * The name used to identify the payment terminal.
-   * @return name
+   * Security token used to render the widget and continue the checkout flow.
+   * @return sessionToken
    */
   @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonProperty(JSON_PROPERTY_SESSION_TOKEN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public String getName() {
-    return name;
+  public String getSessionToken() {
+    return sessionToken;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setName(@javax.annotation.Nullable String name) {
-    this.name = name;
-  }
-
-  public PaymentTerminalUpdate version(@javax.annotation.Nonnull Integer version) {
-    
-    this.version = version;
-    return this;
-  }
 
   /**
-   * The version number indicates the version of the entity. The version is incremented whenever the entity is changed.
-   * @return version
+   * Identifier of the newly created Express Checkout session.
+   * @return sessionId
    */
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SESSION_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getVersion() {
-    return version;
+  public Long getSessionId() {
+    return sessionId;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersion(@javax.annotation.Nonnull Integer version) {
-    this.version = version;
-  }
 
   @Override
   public boolean equals(Object o) {
@@ -114,22 +103,22 @@ public class PaymentTerminalUpdate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentTerminalUpdate paymentTerminalUpdate = (PaymentTerminalUpdate) o;
-    return Objects.equals(this.name, paymentTerminalUpdate.name) &&
-        Objects.equals(this.version, paymentTerminalUpdate.version);
+    ExpressCheckoutSessionCreateResponse expressCheckoutSessionCreateResponse = (ExpressCheckoutSessionCreateResponse) o;
+    return Objects.equals(this.sessionToken, expressCheckoutSessionCreateResponse.sessionToken) &&
+        Objects.equals(this.sessionId, expressCheckoutSessionCreateResponse.sessionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, version);
+    return Objects.hash(sessionToken, sessionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentTerminalUpdate {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("class ExpressCheckoutSessionCreateResponse {\n");
+    sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
+    sb.append("    sessionId: ").append(toIndentedString(sessionId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -177,20 +166,20 @@ public class PaymentTerminalUpdate {
 
     StringJoiner joiner = new StringJoiner("&");
 
-    // add `name` to the URL query string
-    if (getName() != null) {
+    // add `sessionToken` to the URL query string
+    if (getSessionToken() != null) {
       try {
-        joiner.add(String.format("%sname%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getName()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%ssessionToken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSessionToken()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);
       }
     }
 
-    // add `version` to the URL query string
-    if (getVersion() != null) {
+    // add `sessionId` to the URL query string
+    if (getSessionId() != null) {
       try {
-        joiner.add(String.format("%sversion%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getVersion()), "UTF-8").replaceAll("\\+", "%20")));
+        joiner.add(String.format("%ssessionId%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getSessionId()), "UTF-8").replaceAll("\\+", "%20")));
       } catch (UnsupportedEncodingException e) {
         // Should never happen, UTF-8 is always supported
         throw new RuntimeException(e);

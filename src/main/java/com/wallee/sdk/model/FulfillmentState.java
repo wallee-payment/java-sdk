@@ -44,7 +44,9 @@ public enum FulfillmentState {
   
   FULFILLED("FULFILLED"),
   
-  FAILED("FAILED");
+  FAILED("FAILED"),
+  
+  CANCELED("CANCELED");
 
   private String value;
 
